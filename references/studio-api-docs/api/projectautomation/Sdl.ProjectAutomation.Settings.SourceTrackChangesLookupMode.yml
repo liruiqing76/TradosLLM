@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode
+  commentId: T:Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode
+  id: SourceTrackChangesLookupMode
+  parent: Sdl.ProjectAutomation.Settings
+  children:
+  - Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode.LookupWithTrackChangesAccepted
+  - Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode.LookupWithTrackChangesRejected
+  - Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode.NoLookup
+  langs:
+  - csharp
+  - vb
+  name: SourceTrackChangesLookupMode
+  nameWithType: SourceTrackChangesLookupMode
+  fullName: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode
+  type: Enum
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: the way to handle segments with source track changes in TM search
+  example: []
+  syntax:
+    content: public enum SourceTrackChangesLookupMode
+    content.vb: Public Enum SourceTrackChangesLookupMode
+- uid: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode.NoLookup
+  commentId: F:Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode.NoLookup
+  id: NoLookup
+  parent: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode
+  langs:
+  - csharp
+  - vb
+  name: NoLookup
+  nameWithType: SourceTrackChangesLookupMode.NoLookup
+  fullName: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode.NoLookup
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: Do not perform lookup
+  example: []
+  syntax:
+    content: NoLookup = 1
+    return:
+      type: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode
+- uid: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode.LookupWithTrackChangesRejected
+  commentId: F:Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode.LookupWithTrackChangesRejected
+  id: LookupWithTrackChangesRejected
+  parent: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode
+  langs:
+  - csharp
+  - vb
+  name: LookupWithTrackChangesRejected
+  nameWithType: SourceTrackChangesLookupMode.LookupWithTrackChangesRejected
+  fullName: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode.LookupWithTrackChangesRejected
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: perfrom lookup with track changes rejected
+  example: []
+  syntax:
+    content: LookupWithTrackChangesRejected = 0
+    return:
+      type: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode
+- uid: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode.LookupWithTrackChangesAccepted
+  commentId: F:Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode.LookupWithTrackChangesAccepted
+  id: LookupWithTrackChangesAccepted
+  parent: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode
+  langs:
+  - csharp
+  - vb
+  name: LookupWithTrackChangesAccepted
+  nameWithType: SourceTrackChangesLookupMode.LookupWithTrackChangesAccepted
+  fullName: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode.LookupWithTrackChangesAccepted
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: perform lookup with track changes accepted
+  example: []
+  syntax:
+    content: LookupWithTrackChangesAccepted = 2
+    return:
+      type: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode
+references:
+- uid: Sdl.ProjectAutomation.Settings
+  commentId: N:Sdl.ProjectAutomation.Settings
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Settings
+  nameWithType: Sdl.ProjectAutomation.Settings
+  fullName: Sdl.ProjectAutomation.Settings
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.html
+- uid: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode
+  commentId: T:Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode
+  parent: Sdl.ProjectAutomation.Settings
+  isExternal: true
+  href: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode.html
+  name: SourceTrackChangesLookupMode
+  nameWithType: SourceTrackChangesLookupMode
+  fullName: Sdl.ProjectAutomation.Settings.SourceTrackChangesLookupMode

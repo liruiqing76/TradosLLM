@@ -1,0 +1,377 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo
+  id: IDefaultQuickTagInfo
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  children:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandID
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandName
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.DefaultId
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Description
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Formatting
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImagePath
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImageResource
+  langs:
+  - csharp
+  - vb
+  name: IDefaultQuickTagInfo
+  nameWithType: IDefaultQuickTagInfo
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: This interface represents the default QuickTag info available for the file type.
+  example: []
+  syntax:
+    content: public interface IDefaultQuickTagInfo
+    content.vb: Public Interface IDefaultQuickTagInfo
+  derivedClasses:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.IntegrationApi.DefaultQuickTagInfo
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.DefaultId
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.DefaultId
+  id: DefaultId
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo
+  langs:
+  - csharp
+  - vb
+  name: DefaultId
+  nameWithType: IDefaultQuickTagInfo.DefaultId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.DefaultId
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: The default id of the QuickTag, or <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.QuickTagDefaultId.Undefined" data-throw-if-not-resolved="false"></xref> if none.
+  example: []
+  syntax:
+    content: QuickTagDefaultId DefaultId { get; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickTagDefaultId
+    content.vb: ReadOnly Property DefaultId As QuickTagDefaultId
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.DefaultId*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandID
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandID
+  id: CommandID
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo
+  langs:
+  - csharp
+  - vb
+  name: CommandID
+  nameWithType: IDefaultQuickTagInfo.CommandID
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandID
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Gets the command id of the default QuickTag.
+  example: []
+  syntax:
+    content: string CommandID { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property CommandID As String
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandID*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandName
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandName
+  id: CommandName
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo
+  langs:
+  - csharp
+  - vb
+  name: CommandName
+  nameWithType: IDefaultQuickTagInfo.CommandName
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandName
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Gets the command name of the default QuickTag.
+  example: []
+  syntax:
+    content: string CommandName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property CommandName As String
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandName*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImageResource
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImageResource
+  id: ImageResource
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo
+  langs:
+  - csharp
+  - vb
+  name: ImageResource
+  nameWithType: IDefaultQuickTagInfo.ImageResource
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImageResource
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Gets the resource file in which the image is located.
+  example: []
+  syntax:
+    content: string ImageResource { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ImageResource As String
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImageResource*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImagePath
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImagePath
+  id: ImagePath
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo
+  langs:
+  - csharp
+  - vb
+  name: ImagePath
+  nameWithType: IDefaultQuickTagInfo.ImagePath
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImagePath
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Gets the path to the image within the resource file.
+  example: []
+  syntax:
+    content: string ImagePath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ImagePath As String
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImagePath*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Description
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Description
+  id: Description
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: IDefaultQuickTagInfo.Description
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Description
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Gets the description of the default QuickTag.
+  example: []
+  syntax:
+    content: string Description { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Description As String
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Description*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Formatting
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Formatting
+  id: Formatting
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo
+  langs:
+  - csharp
+  - vb
+  name: Formatting
+  nameWithType: IDefaultQuickTagInfo.Formatting
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Formatting
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Default formatting for this default QuickTag.
+  example: []
+  syntax:
+    content: IFormattingGroup Formatting { get; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.Formatting.IFormattingGroup
+    content.vb: ReadOnly Property Formatting As IFormattingGroup
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Formatting*
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickTagDefaultId.Undefined
+  commentId: F:Sdl.FileTypeSupport.Framework.IntegrationApi.QuickTagDefaultId.Undefined
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickTagDefaultId.html#Sdl_FileTypeSupport_Framework_IntegrationApi_QuickTagDefaultId_Undefined
+  name: Undefined
+  nameWithType: QuickTagDefaultId.Undefined
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickTagDefaultId.Undefined
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.DefaultId*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.DefaultId
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IDefaultQuickTagInfo_DefaultId
+  name: DefaultId
+  nameWithType: IDefaultQuickTagInfo.DefaultId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.DefaultId
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickTagDefaultId
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.QuickTagDefaultId
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickTagDefaultId.html
+  name: QuickTagDefaultId
+  nameWithType: QuickTagDefaultId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickTagDefaultId
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandID*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandID
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IDefaultQuickTagInfo_CommandID
+  name: CommandID
+  nameWithType: IDefaultQuickTagInfo.CommandID
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandName*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandName
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IDefaultQuickTagInfo_CommandName
+  name: CommandName
+  nameWithType: IDefaultQuickTagInfo.CommandName
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.CommandName
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImageResource*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImageResource
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IDefaultQuickTagInfo_ImageResource
+  name: ImageResource
+  nameWithType: IDefaultQuickTagInfo.ImageResource
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImageResource
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImagePath*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImagePath
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IDefaultQuickTagInfo_ImagePath
+  name: ImagePath
+  nameWithType: IDefaultQuickTagInfo.ImagePath
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.ImagePath
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Description*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Description
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IDefaultQuickTagInfo_Description
+  name: Description
+  nameWithType: IDefaultQuickTagInfo.Description
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Description
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Formatting*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Formatting
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IDefaultQuickTagInfo_Formatting
+  name: Formatting
+  nameWithType: IDefaultQuickTagInfo.Formatting
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IDefaultQuickTagInfo.Formatting
+- uid: Sdl.FileTypeSupport.Framework.Formatting.IFormattingGroup
+  commentId: T:Sdl.FileTypeSupport.Framework.Formatting.IFormattingGroup
+  parent: Sdl.FileTypeSupport.Framework.Formatting
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Formatting.IFormattingGroup.html
+  name: IFormattingGroup
+  nameWithType: IFormattingGroup
+  fullName: Sdl.FileTypeSupport.Framework.Formatting.IFormattingGroup
+- uid: Sdl.FileTypeSupport.Framework.Formatting
+  commentId: N:Sdl.FileTypeSupport.Framework.Formatting
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.Formatting
+  nameWithType: Sdl.FileTypeSupport.Framework.Formatting
+  fullName: Sdl.FileTypeSupport.Framework.Formatting
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Formatting
+    name: Formatting
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Formatting.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Formatting
+    name: Formatting
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Formatting.html

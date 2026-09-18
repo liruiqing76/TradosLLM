@@ -1,0 +1,54 @@
+trigger:
+  branches:
+    include:
+     - master
+  paths:
+    include:
+     - Google API Validator/*
+
+pr:
+  branches:
+    include:
+     - master
+  paths:
+    include:
+     - Google API Validator/*
+
+pool: 
+  vmImage : '$(DefaultBuildVm)'
+
+variables:
+- group: 'SDLPLC Authenticode Credentials'
+- template: jobs/branch-variables.yml
+- name: buildPlatform 
+  value: 'Any CPU'
+- name: buildConfiguration
+  value: 'Release'
+- name: solution
+  value: '**/Sdl.Community.GoogleApiValidator.sln'
+- name: pathToPublish
+  value: '$(Build.Repository.LocalPath)\Google API Validator\GoogleApiValidator.Setup\bin\$(buildConfiguration)\GoogleApiValidator.Setup.msi'
+
+steps:
+- template: jobs/build-sdlplugin.yml
+
+- template: tasks/sign-artifacts/prepare-signing.yml
+
+- template: tasks/sign-artifacts/sign-single-artifact.yml
+  parameters:
+     fileToSign: '$(Build.Repository.LocalPath)\Google API Validator\GoogleApiValidator\bin\$(buildConfiguration)\Sdl.Community.GoogleApiValidator.exe'
+     description: 'Google API Validator'
+
+- task: VSBuild@1
+  inputs:
+     solution: '**GoogleApiValidator.Setup.wixproj'
+     platform: 'x86'
+     configuration: '$(buildConfiguration)'
+     msbuildArgs: '/p:RunWixToolsOutOfProc=true'
+
+- template: tasks/sign-artifacts/sign-single-artifact.yml
+  parameters:
+     fileToSign: '$(Build.Repository.LocalPath)\Google API Validator\GoogleApiValidator.Setup\bin\$(buildConfiguration)\GoogleApiValidator.Setup.msi'
+     description: 'Google API Validator'
+     
+- template: jobs/publish-build-artifact-task.yml

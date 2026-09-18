@@ -1,0 +1,183 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+  commentId: T:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+  id: EditDistanceResolution
+  parent: Sdl.LanguagePlatform.Core.EditDistance
+  children:
+  - Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Deletion
+  - Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Move
+  - Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.None
+  - Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Other
+  - Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Substitution
+  langs:
+  - csharp
+  - vb
+  name: EditDistanceResolution
+  nameWithType: EditDistanceResolution
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: Enumerates the types of resolving edit distance differences.
+  example: []
+  syntax:
+    content: public enum EditDistanceResolution
+    content.vb: Public Enum EditDistanceResolution
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.None
+  commentId: F:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.None
+  id: None
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: EditDistanceResolution.None
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.None
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: The edit distance cannot be resolved.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Substitution
+  commentId: F:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Substitution
+  id: Substitution
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+  langs:
+  - csharp
+  - vb
+  name: Substitution
+  nameWithType: EditDistanceResolution.Substitution
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Substitution
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: The token is automatically substituted by copying over from the related document token to the location determined by the memory TU.
+  example: []
+  syntax:
+    content: Substitution = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Deletion
+  commentId: F:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Deletion
+  id: Deletion
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+  langs:
+  - csharp
+  - vb
+  name: Deletion
+  nameWithType: EditDistanceResolution.Deletion
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Deletion
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: The change can be resolved by deleting the token - this is only used if the document source doesn't contain any tags but the memory TU does.
+  example: []
+  syntax:
+    content: Deletion = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Move
+  commentId: F:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Move
+  id: Move
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+  langs:
+  - csharp
+  - vb
+  name: Move
+  nameWithType: EditDistanceResolution.Move
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Move
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: The change is resolved by moving an item to another location.
+  example: []
+  syntax:
+    content: Move = 3
+    return:
+      type: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Other
+  commentId: F:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Other
+  id: Other
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+  langs:
+  - csharp
+  - vb
+  name: Other
+  nameWithType: EditDistanceResolution.Other
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.Other
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: The change cannot be resolved but the difference should still not be reflected in the score.
+  example: []
+  syntax:
+    content: Other = 4
+    return:
+      type: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+references:
+- uid: Sdl.LanguagePlatform.Core.EditDistance
+  commentId: N:Sdl.LanguagePlatform.Core.EditDistance
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core.EditDistance
+  nameWithType: Sdl.LanguagePlatform.Core.EditDistance
+  fullName: Sdl.LanguagePlatform.Core.EditDistance
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.EditDistance
+    name: EditDistance
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.EditDistance.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.EditDistance
+    name: EditDistance
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.EditDistance.html
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+  commentId: T:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+  parent: Sdl.LanguagePlatform.Core.EditDistance
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.html
+  name: EditDistanceResolution
+  nameWithType: EditDistanceResolution
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution

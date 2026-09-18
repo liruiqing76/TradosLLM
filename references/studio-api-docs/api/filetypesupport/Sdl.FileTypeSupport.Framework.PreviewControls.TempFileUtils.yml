@@ -1,0 +1,441 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils
+  id: TempFileUtils
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls
+  children:
+  - Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils.GetModifiedTempFilePath(System.String[],System.String)
+  langs:
+  - csharp
+  - vb
+  name: TempFileUtils
+  nameWithType: TempFileUtils
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils
+  type: Class
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: Namespace for methods that have to do with temporary file manipulations.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Moved to TradosStudio")]
+
+      public static class TempFileUtils
+    content.vb: >-
+      <Obsolete("Moved to TradosStudio")>
+
+      Public Module TempFileUtils
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Moved to TradosStudio
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils.GetModifiedTempFilePath(System.String[],System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils.GetModifiedTempFilePath(System.String[],System.String)
+  id: GetModifiedTempFilePath(System.String[],System.String)
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils
+  langs:
+  - csharp
+  - vb
+  name: GetModifiedTempFilePath(string[], string)
+  nameWithType: TempFileUtils.GetModifiedTempFilePath(string[], string)
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils.GetModifiedTempFilePath(string[], string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: >-
+    Construct a temp file name based on an original file name (which may include a path).
+
+    This can optionally be done using a list of file extension mappings given in extensionMaps parameter.
+  example: []
+  syntax:
+    content: public static string GetModifiedTempFilePath(string[] extensionMaps, string originalFilePath)
+    parameters:
+    - id: extensionMaps
+      type: System.String[]
+      description: >-
+        <p>
+
+        A list of file extension maps that can be used to map the original filename extension to a new file extension
+
+        that can be used for previews.
+
+        </p>
+
+        <p>
+
+        Each string in the extensionMaps array can either be in two formats.  This first is 
+
+        the original file extension followed by '|' and then the new file extension that will be used for a preview.  This will
+
+        generate preview files using the second extension for all previews of file with the original file that matches first extension.  E.g.
+
+
+        <pre><code class="lang-csharp">".txt | .htm"</code></pre>
+
+
+        Will preview all .txt files by generating the a temp file using the .htm extension.
+
+        </p>
+
+        <p>
+
+        The second format that can be used for a string in the extensionMaps array is simply the file extension to be used for
+
+        the preview and all original file extensions will be previewed using this preview file extension. E.g.
+
+
+        <pre><code class="lang-csharp">".html"</code></pre>
+
+        </p>
+    - id: originalFilePath
+      type: System.String
+      description: The original file path of the file being previewed.
+    return:
+      type: System.String
+      description: A tempoary file name that can be used to generate a preview.
+    content.vb: Public Shared Function GetModifiedTempFilePath(extensionMaps As String(), originalFilePath As String) As String
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils.GetModifiedTempFilePath*
+  nameWithType.vb: TempFileUtils.GetModifiedTempFilePath(String(), String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils.GetModifiedTempFilePath(String(), String)
+  name.vb: GetModifiedTempFilePath(String(), String)
+references:
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls
+  commentId: N:Sdl.FileTypeSupport.Framework.PreviewControls
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.PreviewControls
+  nameWithType: Sdl.FileTypeSupport.Framework.PreviewControls
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.PreviewControls
+    name: PreviewControls
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.PreviewControls.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.PreviewControls
+    name: PreviewControls
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.PreviewControls.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils.GetModifiedTempFilePath*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils.GetModifiedTempFilePath
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils.html#Sdl_FileTypeSupport_Framework_PreviewControls_TempFileUtils_GetModifiedTempFilePath_System_String___System_String_
+  name: GetModifiedTempFilePath
+  nameWithType: TempFileUtils.GetModifiedTempFilePath
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils.GetModifiedTempFilePath
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

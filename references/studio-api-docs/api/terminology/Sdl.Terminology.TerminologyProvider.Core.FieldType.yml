@@ -1,0 +1,225 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Terminology.TerminologyProvider.Core.FieldType
+  commentId: T:Sdl.Terminology.TerminologyProvider.Core.FieldType
+  id: FieldType
+  parent: Sdl.Terminology.TerminologyProvider.Core
+  children:
+  - Sdl.Terminology.TerminologyProvider.Core.FieldType.Boolean
+  - Sdl.Terminology.TerminologyProvider.Core.FieldType.DateTime
+  - Sdl.Terminology.TerminologyProvider.Core.FieldType.MultiMediaFile
+  - Sdl.Terminology.TerminologyProvider.Core.FieldType.Number
+  - Sdl.Terminology.TerminologyProvider.Core.FieldType.PickList
+  - Sdl.Terminology.TerminologyProvider.Core.FieldType.String
+  - Sdl.Terminology.TerminologyProvider.Core.FieldType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: FieldType
+  nameWithType: FieldType
+  fullName: Sdl.Terminology.TerminologyProvider.Core.FieldType
+  type: Enum
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: The data type for a field in the terminology provider structure
+  example: []
+  syntax:
+    content: public enum FieldType
+    content.vb: Public Enum FieldType
+- uid: Sdl.Terminology.TerminologyProvider.Core.FieldType.Unknown
+  commentId: F:Sdl.Terminology.TerminologyProvider.Core.FieldType.Unknown
+  id: Unknown
+  parent: Sdl.Terminology.TerminologyProvider.Core.FieldType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: FieldType.Unknown
+  fullName: Sdl.Terminology.TerminologyProvider.Core.FieldType.Unknown
+  type: Field
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Unknown field type
+  example: []
+  syntax:
+    content: Unknown = 0
+    return:
+      type: Sdl.Terminology.TerminologyProvider.Core.FieldType
+- uid: Sdl.Terminology.TerminologyProvider.Core.FieldType.PickList
+  commentId: F:Sdl.Terminology.TerminologyProvider.Core.FieldType.PickList
+  id: PickList
+  parent: Sdl.Terminology.TerminologyProvider.Core.FieldType
+  langs:
+  - csharp
+  - vb
+  name: PickList
+  nameWithType: FieldType.PickList
+  fullName: Sdl.Terminology.TerminologyProvider.Core.FieldType.PickList
+  type: Field
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Pick list field type
+  example: []
+  syntax:
+    content: PickList = 1
+    return:
+      type: Sdl.Terminology.TerminologyProvider.Core.FieldType
+- uid: Sdl.Terminology.TerminologyProvider.Core.FieldType.DateTime
+  commentId: F:Sdl.Terminology.TerminologyProvider.Core.FieldType.DateTime
+  id: DateTime
+  parent: Sdl.Terminology.TerminologyProvider.Core.FieldType
+  langs:
+  - csharp
+  - vb
+  name: DateTime
+  nameWithType: FieldType.DateTime
+  fullName: Sdl.Terminology.TerminologyProvider.Core.FieldType.DateTime
+  type: Field
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Date time field type
+  example: []
+  syntax:
+    content: DateTime = 2
+    return:
+      type: Sdl.Terminology.TerminologyProvider.Core.FieldType
+- uid: Sdl.Terminology.TerminologyProvider.Core.FieldType.Number
+  commentId: F:Sdl.Terminology.TerminologyProvider.Core.FieldType.Number
+  id: Number
+  parent: Sdl.Terminology.TerminologyProvider.Core.FieldType
+  langs:
+  - csharp
+  - vb
+  name: Number
+  nameWithType: FieldType.Number
+  fullName: Sdl.Terminology.TerminologyProvider.Core.FieldType.Number
+  type: Field
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Numerical field type
+  example: []
+  syntax:
+    content: Number = 3
+    return:
+      type: Sdl.Terminology.TerminologyProvider.Core.FieldType
+- uid: Sdl.Terminology.TerminologyProvider.Core.FieldType.String
+  commentId: F:Sdl.Terminology.TerminologyProvider.Core.FieldType.String
+  id: String
+  parent: Sdl.Terminology.TerminologyProvider.Core.FieldType
+  langs:
+  - csharp
+  - vb
+  name: String
+  nameWithType: FieldType.String
+  fullName: Sdl.Terminology.TerminologyProvider.Core.FieldType.String
+  type: Field
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Generic string field type
+  example: []
+  syntax:
+    content: String = 4
+    return:
+      type: Sdl.Terminology.TerminologyProvider.Core.FieldType
+- uid: Sdl.Terminology.TerminologyProvider.Core.FieldType.Boolean
+  commentId: F:Sdl.Terminology.TerminologyProvider.Core.FieldType.Boolean
+  id: Boolean
+  parent: Sdl.Terminology.TerminologyProvider.Core.FieldType
+  langs:
+  - csharp
+  - vb
+  name: Boolean
+  nameWithType: FieldType.Boolean
+  fullName: Sdl.Terminology.TerminologyProvider.Core.FieldType.Boolean
+  type: Field
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Boolean field type
+  example: []
+  syntax:
+    content: Boolean = 5
+    return:
+      type: Sdl.Terminology.TerminologyProvider.Core.FieldType
+- uid: Sdl.Terminology.TerminologyProvider.Core.FieldType.MultiMediaFile
+  commentId: F:Sdl.Terminology.TerminologyProvider.Core.FieldType.MultiMediaFile
+  id: MultiMediaFile
+  parent: Sdl.Terminology.TerminologyProvider.Core.FieldType
+  langs:
+  - csharp
+  - vb
+  name: MultiMediaFile
+  nameWithType: FieldType.MultiMediaFile
+  fullName: Sdl.Terminology.TerminologyProvider.Core.FieldType.MultiMediaFile
+  type: Field
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Multimedia file field type
+  example: []
+  syntax:
+    content: MultiMediaFile = 6
+    return:
+      type: Sdl.Terminology.TerminologyProvider.Core.FieldType
+references:
+- uid: Sdl.Terminology.TerminologyProvider.Core
+  commentId: N:Sdl.Terminology.TerminologyProvider.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Terminology.TerminologyProvider.Core
+  nameWithType: Sdl.Terminology.TerminologyProvider.Core
+  fullName: Sdl.Terminology.TerminologyProvider.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Terminology
+    name: Terminology
+    isExternal: true
+    href: Sdl.Terminology.html
+  - name: .
+  - uid: Sdl.Terminology.TerminologyProvider
+    name: TerminologyProvider
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.html
+  - name: .
+  - uid: Sdl.Terminology.TerminologyProvider.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Terminology
+    name: Terminology
+    isExternal: true
+    href: Sdl.Terminology.html
+  - name: .
+  - uid: Sdl.Terminology.TerminologyProvider
+    name: TerminologyProvider
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.html
+  - name: .
+  - uid: Sdl.Terminology.TerminologyProvider.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.Core.html
+- uid: Sdl.Terminology.TerminologyProvider.Core.FieldType
+  commentId: T:Sdl.Terminology.TerminologyProvider.Core.FieldType
+  parent: Sdl.Terminology.TerminologyProvider.Core
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.FieldType.html
+  name: FieldType
+  nameWithType: FieldType
+  fullName: Sdl.Terminology.TerminologyProvider.Core.FieldType

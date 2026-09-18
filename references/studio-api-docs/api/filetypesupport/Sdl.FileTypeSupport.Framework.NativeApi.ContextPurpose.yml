@@ -1,0 +1,148 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+  id: ContextPurpose
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.Information
+  - Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.Location
+  - Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.Match
+  langs:
+  - csharp
+  - vb
+  name: ContextPurpose
+  nameWithType: ContextPurpose
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+  type: Enum
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Purpose for a context, originally from the XLIFF specification
+  example: []
+  syntax:
+    content: public enum ContextPurpose
+    content.vb: Public Enum ContextPurpose
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.Information
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.Information
+  id: Information
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+  langs:
+  - csharp
+  - vb
+  name: Information
+  nameWithType: ContextPurpose.Information
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.Information
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: For informational purposes only, i.e. should not affect matching.
+  example: []
+  syntax:
+    content: Information = 0
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.Location
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.Location
+  id: Location
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+  langs:
+  - csharp
+  - vb
+  name: Location
+  nameWithType: ContextPurpose.Location
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.Location
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    The context represents a location. This type of context is used e.g. for
+
+    localizable tag content that has been externalized into separate ParagraphUnits.
+
+    Such ParagraphUnits contain a location context that indicates the original ParagraphUnit
+
+    that the tag with localizable content appears in.
+  example: []
+  syntax:
+    content: Location = 1
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.Match
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.Match
+  id: Match
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+  langs:
+  - csharp
+  - vb
+  name: Match
+  nameWithType: ContextPurpose.Match
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.Match
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: May be used for context-sensitive matching.
+  example: []
+  syntax:
+    content: Match = 2
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.html
+  name: ContextPurpose
+  nameWithType: ContextPurpose
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose

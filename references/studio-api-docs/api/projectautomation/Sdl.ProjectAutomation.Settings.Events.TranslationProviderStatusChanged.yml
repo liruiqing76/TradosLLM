@@ -1,0 +1,476 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged
+  commentId: T:Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged
+  id: TranslationProviderStatusChanged
+  parent: Sdl.ProjectAutomation.Settings.Events
+  children:
+  - Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.#ctor(System.Uri,System.Nullable{System.Boolean})
+  - Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.NewStatus
+  - Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.TpUri
+  langs:
+  - csharp
+  - vb
+  name: TranslationProviderStatusChanged
+  nameWithType: TranslationProviderStatusChanged
+  fullName: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged
+  type: Class
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings.Events
+  syntax:
+    content: public class TranslationProviderStatusChanged
+    content.vb: Public Class TranslationProviderStatusChanged
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.#ctor(System.Uri,System.Nullable{System.Boolean})
+  commentId: M:Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.#ctor(System.Uri,System.Nullable{System.Boolean})
+  id: '#ctor(System.Uri,System.Nullable{System.Boolean})'
+  parent: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged
+  langs:
+  - csharp
+  - vb
+  name: TranslationProviderStatusChanged(Uri, bool?)
+  nameWithType: TranslationProviderStatusChanged.TranslationProviderStatusChanged(Uri, bool?)
+  fullName: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.TranslationProviderStatusChanged(System.Uri, bool?)
+  type: Constructor
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings.Events
+  example: []
+  syntax:
+    content: public TranslationProviderStatusChanged(Uri tpUri, bool? newStatus)
+    parameters:
+    - id: tpUri
+      type: System.Uri
+      description: The Uri of the translation provider with the changed status
+    - id: newStatus
+      type: System.Nullable{System.Boolean}
+      description: A value of null will be sent when the translation provider was removed
+    content.vb: Public Sub New(tpUri As Uri, newStatus As Boolean?)
+  overload: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.#ctor*
+  nameWithType.vb: TranslationProviderStatusChanged.New(Uri, Boolean?)
+  fullName.vb: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.New(System.Uri, Boolean?)
+  name.vb: New(Uri, Boolean?)
+- uid: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.TpUri
+  commentId: P:Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.TpUri
+  id: TpUri
+  parent: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged
+  langs:
+  - csharp
+  - vb
+  name: TpUri
+  nameWithType: TranslationProviderStatusChanged.TpUri
+  fullName: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.TpUri
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings.Events
+  summary: The Uri of the translation provider
+  example: []
+  syntax:
+    content: public Uri TpUri { get; }
+    parameters: []
+    return:
+      type: System.Uri
+    content.vb: Public ReadOnly Property TpUri As Uri
+  overload: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.TpUri*
+- uid: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.NewStatus
+  commentId: P:Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.NewStatus
+  id: NewStatus
+  parent: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged
+  langs:
+  - csharp
+  - vb
+  name: NewStatus
+  nameWithType: TranslationProviderStatusChanged.NewStatus
+  fullName: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.NewStatus
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings.Events
+  summary: The new status of the translation provider
+  example: []
+  syntax:
+    content: public bool? NewStatus { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public ReadOnly Property NewStatus As Boolean?
+  overload: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.NewStatus*
+references:
+- uid: Sdl.ProjectAutomation.Settings.Events
+  commentId: N:Sdl.ProjectAutomation.Settings.Events
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Settings.Events
+  nameWithType: Sdl.ProjectAutomation.Settings.Events
+  fullName: Sdl.ProjectAutomation.Settings.Events
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings.Events
+    name: Events
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.Events.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings.Events
+    name: Events
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.Events.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.#ctor*
+  commentId: Overload:Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.#ctor
+  isExternal: true
+  href: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.html#Sdl_ProjectAutomation_Settings_Events_TranslationProviderStatusChanged__ctor_System_Uri_System_Nullable_System_Boolean__
+  name: TranslationProviderStatusChanged
+  nameWithType: TranslationProviderStatusChanged.TranslationProviderStatusChanged
+  fullName: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.TranslationProviderStatusChanged
+  nameWithType.vb: TranslationProviderStatusChanged.New
+  fullName.vb: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.New
+  name.vb: New
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.TpUri*
+  commentId: Overload:Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.TpUri
+  isExternal: true
+  href: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.html#Sdl_ProjectAutomation_Settings_Events_TranslationProviderStatusChanged_TpUri
+  name: TpUri
+  nameWithType: TranslationProviderStatusChanged.TpUri
+  fullName: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.TpUri
+- uid: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.NewStatus*
+  commentId: Overload:Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.NewStatus
+  isExternal: true
+  href: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.html#Sdl_ProjectAutomation_Settings_Events_TranslationProviderStatusChanged_NewStatus
+  name: NewStatus
+  nameWithType: TranslationProviderStatusChanged.NewStatus
+  fullName: Sdl.ProjectAutomation.Settings.Events.TranslationProviderStatusChanged.NewStatus

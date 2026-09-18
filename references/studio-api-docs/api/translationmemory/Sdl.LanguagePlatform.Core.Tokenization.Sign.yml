@@ -1,0 +1,141 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.Tokenization.Sign
+  commentId: T:Sdl.LanguagePlatform.Core.Tokenization.Sign
+  id: Sign
+  parent: Sdl.LanguagePlatform.Core.Tokenization
+  children:
+  - Sdl.LanguagePlatform.Core.Tokenization.Sign.Minus
+  - Sdl.LanguagePlatform.Core.Tokenization.Sign.None
+  - Sdl.LanguagePlatform.Core.Tokenization.Sign.Plus
+  langs:
+  - csharp
+  - vb
+  name: Sign
+  nameWithType: Sign
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.Sign
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: The sign of a number
+  example: []
+  syntax:
+    content: public enum Sign
+    content.vb: Public Enum Sign
+- uid: Sdl.LanguagePlatform.Core.Tokenization.Sign.None
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.Sign.None
+  id: None
+  parent: Sdl.LanguagePlatform.Core.Tokenization.Sign
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: Sign.None
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.Sign.None
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: No explicit sign at the start of the number.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.Sign
+- uid: Sdl.LanguagePlatform.Core.Tokenization.Sign.Plus
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.Sign.Plus
+  id: Plus
+  parent: Sdl.LanguagePlatform.Core.Tokenization.Sign
+  langs:
+  - csharp
+  - vb
+  name: Plus
+  nameWithType: Sign.Plus
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.Sign.Plus
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: An explicit plus sign at the start of the number.
+  example: []
+  syntax:
+    content: Plus = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.Sign
+- uid: Sdl.LanguagePlatform.Core.Tokenization.Sign.Minus
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.Sign.Minus
+  id: Minus
+  parent: Sdl.LanguagePlatform.Core.Tokenization.Sign
+  langs:
+  - csharp
+  - vb
+  name: Minus
+  nameWithType: Sign.Minus
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.Sign.Minus
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: A minus sign at the start of the number.
+  example: []
+  syntax:
+    content: Minus = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.Sign
+references:
+- uid: Sdl.LanguagePlatform.Core.Tokenization
+  commentId: N:Sdl.LanguagePlatform.Core.Tokenization
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core.Tokenization
+  nameWithType: Sdl.LanguagePlatform.Core.Tokenization
+  fullName: Sdl.LanguagePlatform.Core.Tokenization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Tokenization
+    name: Tokenization
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Tokenization.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Tokenization
+    name: Tokenization
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Tokenization.html
+- uid: Sdl.LanguagePlatform.Core.Tokenization.Sign
+  commentId: T:Sdl.LanguagePlatform.Core.Tokenization.Sign
+  parent: Sdl.LanguagePlatform.Core.Tokenization
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.Tokenization.Sign.html
+  name: Sign
+  nameWithType: Sign
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.Sign

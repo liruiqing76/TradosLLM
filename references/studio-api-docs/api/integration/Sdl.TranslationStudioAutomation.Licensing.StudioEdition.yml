@@ -1,0 +1,194 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+  commentId: T:Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+  id: StudioEdition
+  parent: Sdl.TranslationStudioAutomation.Licensing
+  children:
+  - Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Express
+  - Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Freelance
+  - Sdl.TranslationStudioAutomation.Licensing.StudioEdition.None
+  - Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Professional
+  - Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Subscription
+  - Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Unknown
+  langs:
+  - csharp
+  - vb
+  name: StudioEdition
+  nameWithType: StudioEdition
+  fullName: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+  type: Enum
+  assemblies:
+  - Sdl.TranslationStudioAutomation.Licensing
+  namespace: Sdl.TranslationStudioAutomation.Licensing
+  summary: Standard Studio license editions
+  example: []
+  syntax:
+    content: public enum StudioEdition
+    content.vb: Public Enum StudioEdition
+- uid: Sdl.TranslationStudioAutomation.Licensing.StudioEdition.None
+  commentId: F:Sdl.TranslationStudioAutomation.Licensing.StudioEdition.None
+  id: None
+  parent: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: StudioEdition.None
+  fullName: Sdl.TranslationStudioAutomation.Licensing.StudioEdition.None
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.Licensing
+  namespace: Sdl.TranslationStudioAutomation.Licensing
+  summary: No edition
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+- uid: Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Professional
+  commentId: F:Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Professional
+  id: Professional
+  parent: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+  langs:
+  - csharp
+  - vb
+  name: Professional
+  nameWithType: StudioEdition.Professional
+  fullName: Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Professional
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.Licensing
+  namespace: Sdl.TranslationStudioAutomation.Licensing
+  summary: Professional edition
+  example: []
+  syntax:
+    content: Professional = 1
+    return:
+      type: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+- uid: Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Freelance
+  commentId: F:Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Freelance
+  id: Freelance
+  parent: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+  langs:
+  - csharp
+  - vb
+  name: Freelance
+  nameWithType: StudioEdition.Freelance
+  fullName: Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Freelance
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.Licensing
+  namespace: Sdl.TranslationStudioAutomation.Licensing
+  summary: Freelance edition
+  example: []
+  syntax:
+    content: Freelance = 2
+    return:
+      type: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+- uid: Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Express
+  commentId: F:Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Express
+  id: Express
+  parent: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+  langs:
+  - csharp
+  - vb
+  name: Express
+  nameWithType: StudioEdition.Express
+  fullName: Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Express
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.Licensing
+  namespace: Sdl.TranslationStudioAutomation.Licensing
+  summary: Express edition
+  example: []
+  syntax:
+    content: Express = 3
+    return:
+      type: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+- uid: Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Subscription
+  commentId: F:Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Subscription
+  id: Subscription
+  parent: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+  langs:
+  - csharp
+  - vb
+  name: Subscription
+  nameWithType: StudioEdition.Subscription
+  fullName: Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Subscription
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.Licensing
+  namespace: Sdl.TranslationStudioAutomation.Licensing
+  summary: Subscription
+  example: []
+  syntax:
+    content: Subscription = 4
+    return:
+      type: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+- uid: Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Unknown
+  commentId: F:Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Unknown
+  id: Unknown
+  parent: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: StudioEdition.Unknown
+  fullName: Sdl.TranslationStudioAutomation.Licensing.StudioEdition.Unknown
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.Licensing
+  namespace: Sdl.TranslationStudioAutomation.Licensing
+  summary: Unknown edition. If no known edition (so edition number does not map to a known value)
+  example: []
+  syntax:
+    content: Unknown = 5
+    return:
+      type: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+references:
+- uid: Sdl.TranslationStudioAutomation.Licensing
+  commentId: N:Sdl.TranslationStudioAutomation.Licensing
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.TranslationStudioAutomation.Licensing
+  nameWithType: Sdl.TranslationStudioAutomation.Licensing
+  fullName: Sdl.TranslationStudioAutomation.Licensing
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation
+    name: TranslationStudioAutomation
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.Licensing
+    name: Licensing
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.Licensing.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation
+    name: TranslationStudioAutomation
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.Licensing
+    name: Licensing
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.Licensing.html
+- uid: Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+  commentId: T:Sdl.TranslationStudioAutomation.Licensing.StudioEdition
+  parent: Sdl.TranslationStudioAutomation.Licensing
+  isExternal: true
+  href: Sdl.TranslationStudioAutomation.Licensing.StudioEdition.html
+  name: StudioEdition
+  nameWithType: StudioEdition
+  fullName: Sdl.TranslationStudioAutomation.Licensing.StudioEdition

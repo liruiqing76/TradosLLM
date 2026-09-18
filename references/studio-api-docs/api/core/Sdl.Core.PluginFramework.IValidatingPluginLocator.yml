@@ -1,0 +1,290 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.PluginFramework.IValidatingPluginLocator
+  commentId: T:Sdl.Core.PluginFramework.IValidatingPluginLocator
+  id: IValidatingPluginLocator
+  parent: Sdl.Core.PluginFramework
+  children:
+  - Sdl.Core.PluginFramework.IValidatingPluginLocator.InvalidDescriptors
+  - Sdl.Core.PluginFramework.IValidatingPluginLocator.ValidatedDescriptors
+  langs:
+  - csharp
+  - vb
+  name: IValidatingPluginLocator
+  nameWithType: IValidatingPluginLocator
+  fullName: Sdl.Core.PluginFramework.IValidatingPluginLocator
+  type: Interface
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  syntax:
+    content: 'public interface IValidatingPluginLocator : IPluginLocator, IDisposable'
+    content.vb: Public Interface IValidatingPluginLocator Inherits IPluginLocator, IDisposable
+  derivedClasses:
+  - Sdl.Core.PluginFramework.ValidatingSystemPluginLocator
+  inheritedMembers:
+  - Sdl.Core.PluginFramework.IPluginLocator.GetPluginDescriptors
+  - System.IDisposable.Dispose
+- uid: Sdl.Core.PluginFramework.IValidatingPluginLocator.ValidatedDescriptors
+  commentId: P:Sdl.Core.PluginFramework.IValidatingPluginLocator.ValidatedDescriptors
+  id: ValidatedDescriptors
+  parent: Sdl.Core.PluginFramework.IValidatingPluginLocator
+  langs:
+  - csharp
+  - vb
+  name: ValidatedDescriptors
+  nameWithType: IValidatingPluginLocator.ValidatedDescriptors
+  fullName: Sdl.Core.PluginFramework.IValidatingPluginLocator.ValidatedDescriptors
+  type: Property
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  syntax:
+    content: List<IPluginDescriptor> ValidatedDescriptors { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Sdl.Core.PluginFramework.IPluginDescriptor}
+    content.vb: ReadOnly Property ValidatedDescriptors As List(Of IPluginDescriptor)
+  overload: Sdl.Core.PluginFramework.IValidatingPluginLocator.ValidatedDescriptors*
+- uid: Sdl.Core.PluginFramework.IValidatingPluginLocator.InvalidDescriptors
+  commentId: P:Sdl.Core.PluginFramework.IValidatingPluginLocator.InvalidDescriptors
+  id: InvalidDescriptors
+  parent: Sdl.Core.PluginFramework.IValidatingPluginLocator
+  langs:
+  - csharp
+  - vb
+  name: InvalidDescriptors
+  nameWithType: IValidatingPluginLocator.InvalidDescriptors
+  fullName: Sdl.Core.PluginFramework.IValidatingPluginLocator.InvalidDescriptors
+  type: Property
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: This property exposes a list of plug-in descriptors that have failed to validate against the original .sdlplugin package and it's embedded signature.
+  example: []
+  syntax:
+    content: List<IPluginDescriptor> InvalidDescriptors { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Sdl.Core.PluginFramework.IPluginDescriptor}
+    content.vb: ReadOnly Property InvalidDescriptors As List(Of IPluginDescriptor)
+  overload: Sdl.Core.PluginFramework.IValidatingPluginLocator.InvalidDescriptors*
+references:
+- uid: Sdl.Core.PluginFramework
+  commentId: N:Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.PluginFramework
+  nameWithType: Sdl.Core.PluginFramework
+  fullName: Sdl.Core.PluginFramework
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+- uid: Sdl.Core.PluginFramework.IPluginLocator.GetPluginDescriptors
+  commentId: M:Sdl.Core.PluginFramework.IPluginLocator.GetPluginDescriptors
+  parent: Sdl.Core.PluginFramework.IPluginLocator
+  isExternal: true
+  href: Sdl.Core.PluginFramework.IPluginLocator.html#Sdl_Core_PluginFramework_IPluginLocator_GetPluginDescriptors
+  name: GetPluginDescriptors()
+  nameWithType: IPluginLocator.GetPluginDescriptors()
+  fullName: Sdl.Core.PluginFramework.IPluginLocator.GetPluginDescriptors()
+  spec.csharp:
+  - uid: Sdl.Core.PluginFramework.IPluginLocator.GetPluginDescriptors
+    name: GetPluginDescriptors
+    isExternal: true
+    href: Sdl.Core.PluginFramework.IPluginLocator.html#Sdl_Core_PluginFramework_IPluginLocator_GetPluginDescriptors
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.Core.PluginFramework.IPluginLocator.GetPluginDescriptors
+    name: GetPluginDescriptors
+    isExternal: true
+    href: Sdl.Core.PluginFramework.IPluginLocator.html#Sdl_Core_PluginFramework_IPluginLocator_GetPluginDescriptors
+  - name: (
+  - name: )
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: Sdl.Core.PluginFramework.IPluginLocator
+  commentId: T:Sdl.Core.PluginFramework.IPluginLocator
+  parent: Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.Core.PluginFramework.IPluginLocator.html
+  name: IPluginLocator
+  nameWithType: IPluginLocator
+  fullName: Sdl.Core.PluginFramework.IPluginLocator
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Core.PluginFramework.IValidatingPluginLocator.ValidatedDescriptors*
+  commentId: Overload:Sdl.Core.PluginFramework.IValidatingPluginLocator.ValidatedDescriptors
+  isExternal: true
+  href: Sdl.Core.PluginFramework.IValidatingPluginLocator.html#Sdl_Core_PluginFramework_IValidatingPluginLocator_ValidatedDescriptors
+  name: ValidatedDescriptors
+  nameWithType: IValidatingPluginLocator.ValidatedDescriptors
+  fullName: Sdl.Core.PluginFramework.IValidatingPluginLocator.ValidatedDescriptors
+- uid: System.Collections.Generic.List{Sdl.Core.PluginFramework.IPluginDescriptor}
+  commentId: T:System.Collections.Generic.List{Sdl.Core.PluginFramework.IPluginDescriptor}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<IPluginDescriptor>
+  nameWithType: List<IPluginDescriptor>
+  fullName: System.Collections.Generic.List<Sdl.Core.PluginFramework.IPluginDescriptor>
+  nameWithType.vb: List(Of IPluginDescriptor)
+  fullName.vb: System.Collections.Generic.List(Of Sdl.Core.PluginFramework.IPluginDescriptor)
+  name.vb: List(Of IPluginDescriptor)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Sdl.Core.PluginFramework.IPluginDescriptor
+    name: IPluginDescriptor
+    isExternal: true
+    href: Sdl.Core.PluginFramework.IPluginDescriptor.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Core.PluginFramework.IPluginDescriptor
+    name: IPluginDescriptor
+    isExternal: true
+    href: Sdl.Core.PluginFramework.IPluginDescriptor.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Sdl.Core.PluginFramework.IValidatingPluginLocator.InvalidDescriptors*
+  commentId: Overload:Sdl.Core.PluginFramework.IValidatingPluginLocator.InvalidDescriptors
+  isExternal: true
+  href: Sdl.Core.PluginFramework.IValidatingPluginLocator.html#Sdl_Core_PluginFramework_IValidatingPluginLocator_InvalidDescriptors
+  name: InvalidDescriptors
+  nameWithType: IValidatingPluginLocator.InvalidDescriptors
+  fullName: Sdl.Core.PluginFramework.IValidatingPluginLocator.InvalidDescriptors

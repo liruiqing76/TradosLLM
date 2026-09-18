@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.Shading
+  commentId: T:Sdl.DesktopEditor.EditorApi.Shading
+  id: Shading
+  parent: Sdl.DesktopEditor.EditorApi
+  children:
+  - Sdl.DesktopEditor.EditorApi.Shading.NotShaded
+  - Sdl.DesktopEditor.EditorApi.Shading.Shaded
+  - Sdl.DesktopEditor.EditorApi.Shading.Undefined
+  langs:
+  - csharp
+  - vb
+  name: Shading
+  nameWithType: Shading
+  fullName: Sdl.DesktopEditor.EditorApi.Shading
+  type: Enum
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Background shading state used for rows in the edit control.
+  example: []
+  syntax:
+    content: public enum Shading
+    content.vb: Public Enum Shading
+- uid: Sdl.DesktopEditor.EditorApi.Shading.Undefined
+  commentId: F:Sdl.DesktopEditor.EditorApi.Shading.Undefined
+  id: Undefined
+  parent: Sdl.DesktopEditor.EditorApi.Shading
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: Shading.Undefined
+  fullName: Sdl.DesktopEditor.EditorApi.Shading.Undefined
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The shading status has not yet been determined.
+  example: []
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Shading
+- uid: Sdl.DesktopEditor.EditorApi.Shading.NotShaded
+  commentId: F:Sdl.DesktopEditor.EditorApi.Shading.NotShaded
+  id: NotShaded
+  parent: Sdl.DesktopEditor.EditorApi.Shading
+  langs:
+  - csharp
+  - vb
+  name: NotShaded
+  nameWithType: Shading.NotShaded
+  fullName: Sdl.DesktopEditor.EditorApi.Shading.NotShaded
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The row does not have a shaded background.
+  example: []
+  syntax:
+    content: NotShaded = 1
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Shading
+- uid: Sdl.DesktopEditor.EditorApi.Shading.Shaded
+  commentId: F:Sdl.DesktopEditor.EditorApi.Shading.Shaded
+  id: Shaded
+  parent: Sdl.DesktopEditor.EditorApi.Shading
+  langs:
+  - csharp
+  - vb
+  name: Shaded
+  nameWithType: Shading.Shaded
+  fullName: Sdl.DesktopEditor.EditorApi.Shading.Shaded
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The row has a shaded background.
+  example: []
+  syntax:
+    content: Shaded = 2
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Shading
+references:
+- uid: Sdl.DesktopEditor.EditorApi
+  commentId: N:Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi
+  nameWithType: Sdl.DesktopEditor.EditorApi
+  fullName: Sdl.DesktopEditor.EditorApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+- uid: Sdl.DesktopEditor.EditorApi.Shading
+  commentId: T:Sdl.DesktopEditor.EditorApi.Shading
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Shading.html
+  name: Shading
+  nameWithType: Shading
+  fullName: Sdl.DesktopEditor.EditorApi.Shading

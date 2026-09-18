@@ -1,0 +1,128 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation
+  id: Continuation
+  parent: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation.ExecuteAll
+  - Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation.StopAfterFirst
+  langs:
+  - csharp
+  - vb
+  name: Continuation
+  nameWithType: Continuation
+  fullName: Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  summary: >-
+    Enumerates the ways how to continue the interpretation of an edit script 
+
+    if an action was executed.
+  example: []
+  syntax:
+    content: public enum Continuation
+    content.vb: Public Enum Continuation
+- uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation.ExecuteAll
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation.ExecuteAll
+  id: ExecuteAll
+  parent: Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation
+  langs:
+  - csharp
+  - vb
+  name: ExecuteAll
+  nameWithType: Continuation.ExecuteAll
+  fullName: Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation.ExecuteAll
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  summary: >-
+    Always execute all edit actions in the script. Note that 
+
+    when applying all actions in the script, applying an action may modify the changes applied 
+
+    by a previously applied action, or influence the application of a subsequent action.
+  example: []
+  syntax:
+    content: ExecuteAll = 0
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation
+- uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation.StopAfterFirst
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation.StopAfterFirst
+  id: StopAfterFirst
+  parent: Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation
+  langs:
+  - csharp
+  - vb
+  name: StopAfterFirst
+  nameWithType: Continuation.StopAfterFirst
+  fullName: Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation.StopAfterFirst
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  summary: Stop with the edit script once an action was successfully applied.
+  example: []
+  syntax:
+    content: StopAfterFirst = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  fullName: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+    name: EditScripts
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.EditScripts.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+    name: EditScripts
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.EditScripts.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation
+  parent: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation.html
+  name: Continuation
+  nameWithType: Continuation
+  fullName: Sdl.LanguagePlatform.TranslationMemory.EditScripts.Continuation

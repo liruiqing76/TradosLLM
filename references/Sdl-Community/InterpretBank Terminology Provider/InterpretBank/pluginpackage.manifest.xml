@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginPackage xmlns="http://www.sdl.com/Plugins/PluginPackage/1.0">
+  <PlugInName>InterpretBank Terminology Provider</PlugInName>
+  <Version>2.1.1.1</Version>
+  <Description>Plugin description</Description>
+  <Author></Author>
+  <Include>
+	  <File>System.Data.SQLite.dll</File>
+	  <File>NSubstitute.dll</File>
+	  <File>Castle.Core.dll</File>
+	  <File>DocumentFormat.OpenXml.dll</File>
+  </Include>
+  <RequiredProduct name="TradosStudio" minversion="18.1.3" maxversion="18.1.9"/>
+</PluginPackage>

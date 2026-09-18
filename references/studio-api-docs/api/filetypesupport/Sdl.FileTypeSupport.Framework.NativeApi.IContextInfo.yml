@@ -1,0 +1,674 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo
+  id: IContextInfo
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.ContextType
+  - Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DefaultFormatting
+  - Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Description
+  - Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayCode
+  - Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayColor
+  - Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayName
+  - Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Purpose
+  langs:
+  - csharp
+  - vb
+  name: IContextInfo
+  nameWithType: IContextInfo
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    One piece of context information, with a type, purpose and description, as
+
+    stored in <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties.Contexts" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>
+
+    Custom metadata can be stored and accessed by using the methods in <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer" data-throw-if-not-resolved="false"></xref>.
+
+    </p>
+  example: []
+  syntax:
+    content: 'public interface IContextInfo : IMetaDataContainer, ICloneable'
+    content.vb: Public Interface IContextInfo Inherits IMetaDataContainer, ICloneable
+  inheritedMembers:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaData
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.HasMetaData
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataCount
+  - System.ICloneable.Clone
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.ContextType
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.ContextType
+  id: ContextType
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo
+  langs:
+  - csharp
+  - vb
+  name: ContextType
+  nameWithType: IContextInfo.ContextType
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.ContextType
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    A short string that identifies the type of context.
+
+    Use pre-defined constants defined in <code>Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.TMMatchContextTypes</code> 
+
+    for TM match contexts, and constants defined in 
+
+    <code>Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.StandardContextTypes</code> for other context types, as far as possible.
+  example: []
+  syntax:
+    content: string ContextType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property ContextType As String
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.ContextType*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayName
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayName
+  id: DisplayName
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo
+  langs:
+  - csharp
+  - vb
+  name: DisplayName
+  nameWithType: IContextInfo.DisplayName
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayName
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: A short string to be used as the default display text for the context
+  example: []
+  syntax:
+    content: string DisplayName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property DisplayName As String
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayName*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayCode
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayCode
+  id: DisplayCode
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo
+  langs:
+  - csharp
+  - vb
+  name: DisplayCode
+  nameWithType: IContextInfo.DisplayCode
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayCode
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: A very short string (usually one or two letters) to identify the context
+  example: []
+  syntax:
+    content: string DisplayCode { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property DisplayCode As String
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayCode*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Purpose
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Purpose
+  id: Purpose
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo
+  langs:
+  - csharp
+  - vb
+  name: Purpose
+  nameWithType: IContextInfo.Purpose
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Purpose
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: 'A value that indicates how this context is to be used:'
+  example: []
+  syntax:
+    content: ContextPurpose Purpose { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+    content.vb: Property Purpose As ContextPurpose
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Purpose*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Description
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Description
+  id: Description
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: IContextInfo.Description
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Description
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Additional, more descriptive information on the context
+  example: []
+  syntax:
+    content: string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Description As String
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Description*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayColor
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayColor
+  id: DisplayColor
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo
+  langs:
+  - csharp
+  - vb
+  name: DisplayColor
+  nameWithType: IContextInfo.DisplayColor
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayColor
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The display color associated with the context (background color, etc.)
+  example: []
+  syntax:
+    content: Color DisplayColor { get; set; }
+    parameters: []
+    return:
+      type: System.Drawing.Color
+    content.vb: Property DisplayColor As Color
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayColor*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DefaultFormatting
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DefaultFormatting
+  id: DefaultFormatting
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo
+  langs:
+  - csharp
+  - vb
+  name: DefaultFormatting
+  nameWithType: IContextInfo.DefaultFormatting
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DefaultFormatting
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Display formatting associated with this context, or <code>null</code> if none.
+  remarks: >-
+    <p>
+
+    When specified, this will be the "base formatting" used in paragraph
+
+    units appearing inside the context, which can be overridden locally
+
+    inside the paragraph unit for individual tag pairs.
+
+    </p>
+  example: []
+  syntax:
+    content: IFormattingGroup DefaultFormatting { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.Formatting.IFormattingGroup
+    content.vb: Property DefaultFormatting As IFormattingGroup
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DefaultFormatting*
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties.Contexts
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties.Contexts
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IContextProperties_Contexts
+  name: Contexts
+  nameWithType: IContextProperties.Contexts
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties.Contexts
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html
+  name: IMetaDataContainer
+  nameWithType: IMetaDataContainer
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaDataContainsKey_System_String_
+  name: MetaDataContainsKey(string)
+  nameWithType: IMetaDataContainer.MetaDataContainsKey(string)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(string)
+  nameWithType.vb: IMetaDataContainer.MetaDataContainsKey(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(String)
+  name.vb: MetaDataContainsKey(String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+    name: MetaDataContainsKey
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaDataContainsKey_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+    name: MetaDataContainsKey
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaDataContainsKey_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_GetMetaData_System_String_
+  name: GetMetaData(string)
+  nameWithType: IMetaDataContainer.GetMetaData(string)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(string)
+  nameWithType.vb: IMetaDataContainer.GetMetaData(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(String)
+  name.vb: GetMetaData(String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+    name: GetMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_GetMetaData_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+    name: GetMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_GetMetaData_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_SetMetaData_System_String_System_String_
+  name: SetMetaData(string, string)
+  nameWithType: IMetaDataContainer.SetMetaData(string, string)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(string, string)
+  nameWithType.vb: IMetaDataContainer.SetMetaData(String, String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(String, String)
+  name.vb: SetMetaData(String, String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+    name: SetMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_SetMetaData_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+    name: SetMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_SetMetaData_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_RemoveMetaData_System_String_
+  name: RemoveMetaData(string)
+  nameWithType: IMetaDataContainer.RemoveMetaData(string)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(string)
+  nameWithType.vb: IMetaDataContainer.RemoveMetaData(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(String)
+  name.vb: RemoveMetaData(String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+    name: RemoveMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_RemoveMetaData_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+    name: RemoveMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_RemoveMetaData_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_ClearMetaData
+  name: ClearMetaData()
+  nameWithType: IMetaDataContainer.ClearMetaData()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+    name: ClearMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_ClearMetaData
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+    name: ClearMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_ClearMetaData
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaData
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaData
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaData
+  name: MetaData
+  nameWithType: IMetaDataContainer.MetaData
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaData
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.HasMetaData
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.HasMetaData
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_HasMetaData
+  name: HasMetaData
+  nameWithType: IMetaDataContainer.HasMetaData
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.HasMetaData
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataCount
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataCount
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaDataCount
+  name: MetaDataCount
+  nameWithType: IMetaDataContainer.MetaDataCount
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataCount
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.ContextType*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.ContextType
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.html#Sdl_FileTypeSupport_Framework_NativeApi_IContextInfo_ContextType
+  name: ContextType
+  nameWithType: IContextInfo.ContextType
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.ContextType
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayName*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayName
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.html#Sdl_FileTypeSupport_Framework_NativeApi_IContextInfo_DisplayName
+  name: DisplayName
+  nameWithType: IContextInfo.DisplayName
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayName
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayCode*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayCode
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.html#Sdl_FileTypeSupport_Framework_NativeApi_IContextInfo_DisplayCode
+  name: DisplayCode
+  nameWithType: IContextInfo.DisplayCode
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayCode
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Purpose*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Purpose
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.html#Sdl_FileTypeSupport_Framework_NativeApi_IContextInfo_Purpose
+  name: Purpose
+  nameWithType: IContextInfo.Purpose
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Purpose
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose.html
+  name: ContextPurpose
+  nameWithType: ContextPurpose
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ContextPurpose
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Description*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Description
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.html#Sdl_FileTypeSupport_Framework_NativeApi_IContextInfo_Description
+  name: Description
+  nameWithType: IContextInfo.Description
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.Description
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayColor*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayColor
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.html#Sdl_FileTypeSupport_Framework_NativeApi_IContextInfo_DisplayColor
+  name: DisplayColor
+  nameWithType: IContextInfo.DisplayColor
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DisplayColor
+- uid: System.Drawing.Color
+  commentId: T:System.Drawing.Color
+  parent: System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.drawing.color
+  name: Color
+  nameWithType: Color
+  fullName: System.Drawing.Color
+- uid: System.Drawing
+  commentId: N:System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Drawing
+  nameWithType: System.Drawing
+  fullName: System.Drawing
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DefaultFormatting*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DefaultFormatting
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.html#Sdl_FileTypeSupport_Framework_NativeApi_IContextInfo_DefaultFormatting
+  name: DefaultFormatting
+  nameWithType: IContextInfo.DefaultFormatting
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextInfo.DefaultFormatting
+- uid: Sdl.FileTypeSupport.Framework.Formatting.IFormattingGroup
+  commentId: T:Sdl.FileTypeSupport.Framework.Formatting.IFormattingGroup
+  parent: Sdl.FileTypeSupport.Framework.Formatting
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Formatting.IFormattingGroup.html
+  name: IFormattingGroup
+  nameWithType: IFormattingGroup
+  fullName: Sdl.FileTypeSupport.Framework.Formatting.IFormattingGroup
+- uid: Sdl.FileTypeSupport.Framework.Formatting
+  commentId: N:Sdl.FileTypeSupport.Framework.Formatting
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.Formatting
+  nameWithType: Sdl.FileTypeSupport.Framework.Formatting
+  fullName: Sdl.FileTypeSupport.Framework.Formatting
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Formatting
+    name: Formatting
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Formatting.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Formatting
+    name: Formatting
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Formatting.html

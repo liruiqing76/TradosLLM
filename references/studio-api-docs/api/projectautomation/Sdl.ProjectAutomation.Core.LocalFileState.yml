@@ -1,0 +1,221 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Core.LocalFileState
+  commentId: T:Sdl.ProjectAutomation.Core.LocalFileState
+  id: LocalFileState
+  parent: Sdl.ProjectAutomation.Core
+  children:
+  - Sdl.ProjectAutomation.Core.LocalFileState.Conflict
+  - Sdl.ProjectAutomation.Core.LocalFileState.Missing
+  - Sdl.ProjectAutomation.Core.LocalFileState.Modified
+  - Sdl.ProjectAutomation.Core.LocalFileState.New
+  - Sdl.ProjectAutomation.Core.LocalFileState.None
+  - Sdl.ProjectAutomation.Core.LocalFileState.OutOfDate
+  - Sdl.ProjectAutomation.Core.LocalFileState.UpToDate
+  langs:
+  - csharp
+  - vb
+  name: LocalFileState
+  nameWithType: LocalFileState
+  fullName: Sdl.ProjectAutomation.Core.LocalFileState
+  type: Enum
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The status of the local file in relation to the file stored on the project server
+  example: []
+  syntax:
+    content: public enum LocalFileState
+    content.vb: Public Enum LocalFileState
+- uid: Sdl.ProjectAutomation.Core.LocalFileState.None
+  commentId: F:Sdl.ProjectAutomation.Core.LocalFileState.None
+  id: None
+  parent: Sdl.ProjectAutomation.Core.LocalFileState
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: LocalFileState.None
+  fullName: Sdl.ProjectAutomation.Core.LocalFileState.None
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: This file isnot linked to a project server
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Sdl.ProjectAutomation.Core.LocalFileState
+- uid: Sdl.ProjectAutomation.Core.LocalFileState.Missing
+  commentId: F:Sdl.ProjectAutomation.Core.LocalFileState.Missing
+  id: Missing
+  parent: Sdl.ProjectAutomation.Core.LocalFileState
+  langs:
+  - csharp
+  - vb
+  name: Missing
+  nameWithType: LocalFileState.Missing
+  fullName: Sdl.ProjectAutomation.Core.LocalFileState.Missing
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    There is a file on the server but no file on the local file system to work 
+
+    on this file you should download the file from the project server
+  example: []
+  syntax:
+    content: Missing = 1
+    return:
+      type: Sdl.ProjectAutomation.Core.LocalFileState
+- uid: Sdl.ProjectAutomation.Core.LocalFileState.UpToDate
+  commentId: F:Sdl.ProjectAutomation.Core.LocalFileState.UpToDate
+  id: UpToDate
+  parent: Sdl.ProjectAutomation.Core.LocalFileState
+  langs:
+  - csharp
+  - vb
+  name: UpToDate
+  nameWithType: LocalFileState.UpToDate
+  fullName: Sdl.ProjectAutomation.Core.LocalFileState.UpToDate
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The file is the same as the one on the server
+  example: []
+  syntax:
+    content: UpToDate = 2
+    return:
+      type: Sdl.ProjectAutomation.Core.LocalFileState
+- uid: Sdl.ProjectAutomation.Core.LocalFileState.OutOfDate
+  commentId: F:Sdl.ProjectAutomation.Core.LocalFileState.OutOfDate
+  id: OutOfDate
+  parent: Sdl.ProjectAutomation.Core.LocalFileState
+  langs:
+  - csharp
+  - vb
+  name: OutOfDate
+  nameWithType: LocalFileState.OutOfDate
+  fullName: Sdl.ProjectAutomation.Core.LocalFileState.OutOfDate
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    The local copy of the file is out of date and a new version of the 
+
+    file should be retrieved from the project server
+  example: []
+  syntax:
+    content: OutOfDate = 3
+    return:
+      type: Sdl.ProjectAutomation.Core.LocalFileState
+- uid: Sdl.ProjectAutomation.Core.LocalFileState.Modified
+  commentId: F:Sdl.ProjectAutomation.Core.LocalFileState.Modified
+  id: Modified
+  parent: Sdl.ProjectAutomation.Core.LocalFileState
+  langs:
+  - csharp
+  - vb
+  name: Modified
+  nameWithType: LocalFileState.Modified
+  fullName: Sdl.ProjectAutomation.Core.LocalFileState.Modified
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: This file has been modified and not yet updated to the project server
+  example: []
+  syntax:
+    content: Modified = 4
+    return:
+      type: Sdl.ProjectAutomation.Core.LocalFileState
+- uid: Sdl.ProjectAutomation.Core.LocalFileState.Conflict
+  commentId: F:Sdl.ProjectAutomation.Core.LocalFileState.Conflict
+  id: Conflict
+  parent: Sdl.ProjectAutomation.Core.LocalFileState
+  langs:
+  - csharp
+  - vb
+  name: Conflict
+  nameWithType: LocalFileState.Conflict
+  fullName: Sdl.ProjectAutomation.Core.LocalFileState.Conflict
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: This file is in conflict with the file on the project server
+  example: []
+  syntax:
+    content: Conflict = 5
+    return:
+      type: Sdl.ProjectAutomation.Core.LocalFileState
+- uid: Sdl.ProjectAutomation.Core.LocalFileState.New
+  commentId: F:Sdl.ProjectAutomation.Core.LocalFileState.New
+  id: New
+  parent: Sdl.ProjectAutomation.Core.LocalFileState
+  langs:
+  - csharp
+  - vb
+  name: New
+  nameWithType: LocalFileState.New
+  fullName: Sdl.ProjectAutomation.Core.LocalFileState.New
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: This is a new file not yet published on the project server
+  example: []
+  syntax:
+    content: New = 6
+    return:
+      type: Sdl.ProjectAutomation.Core.LocalFileState
+references:
+- uid: Sdl.ProjectAutomation.Core
+  commentId: N:Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Core
+  nameWithType: Sdl.ProjectAutomation.Core
+  fullName: Sdl.ProjectAutomation.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+- uid: Sdl.ProjectAutomation.Core.LocalFileState
+  commentId: T:Sdl.ProjectAutomation.Core.LocalFileState
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.LocalFileState.html
+  name: LocalFileState
+  nameWithType: LocalFileState
+  fullName: Sdl.ProjectAutomation.Core.LocalFileState

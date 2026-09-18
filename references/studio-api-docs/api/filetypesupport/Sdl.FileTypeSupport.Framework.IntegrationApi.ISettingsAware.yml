@@ -1,0 +1,175 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware
+  id: ISettingsAware
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  children:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware.InitializeSettings(Sdl.Core.Settings.ISettingsBundle,System.String)
+  langs:
+  - csharp
+  - vb
+  name: ISettingsAware
+  nameWithType: ISettingsAware
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    This interface should be implemented by components which need to be aware of a
+
+    particular settings group in order to read their settings from this group
+
+    (during extraction or generation).
+  example: []
+  syntax:
+    content: public interface ISettingsAware
+    content.vb: Public Interface ISettingsAware
+  derivedClasses:
+  - Sdl.FileTypeSupport.Filters.Verifiers.GenericTagVerifier.GenericTagVerifier
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.BilingualContentHandlerAdapter
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware.InitializeSettings(Sdl.Core.Settings.ISettingsBundle,System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware.InitializeSettings(Sdl.Core.Settings.ISettingsBundle,System.String)
+  id: InitializeSettings(Sdl.Core.Settings.ISettingsBundle,System.String)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware
+  langs:
+  - csharp
+  - vb
+  name: InitializeSettings(ISettingsBundle, string)
+  nameWithType: ISettingsAware.InitializeSettings(ISettingsBundle, string)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware.InitializeSettings(Sdl.Core.Settings.ISettingsBundle, string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Provides the component with the settings information it needs to initialize its settings.
+  example: []
+  syntax:
+    content: void InitializeSettings(ISettingsBundle settingsBundle, string configurationId)
+    parameters:
+    - id: settingsBundle
+      type: Sdl.Core.Settings.ISettingsBundle
+      description: Used for setting the settings bundle on the component.
+    - id: configurationId
+      type: System.String
+      description: >-
+        The suggested configuration ID to use when retrieving the
+                    settings group from the <xref href="Sdl.Core.Settings.ISettingsBundle" data-throw-if-not-resolved="false"></xref> and directly relates to the settings group ID.
+                    This does not have to be used if a component needs to self-manage its configuration ID and may be 
+                    <code>null</code> if the component does not belong in the processing chain of a specific filter.
+    content.vb: Sub InitializeSettings(settingsBundle As ISettingsBundle, configurationId As String)
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware.InitializeSettings*
+  nameWithType.vb: ISettingsAware.InitializeSettings(ISettingsBundle, String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware.InitializeSettings(Sdl.Core.Settings.ISettingsBundle, String)
+  name.vb: InitializeSettings(ISettingsBundle, String)
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: Sdl.Core.Settings.ISettingsBundle
+  commentId: T:Sdl.Core.Settings.ISettingsBundle
+  parent: Sdl.Core.Settings
+  isExternal: true
+  name: ISettingsBundle
+  nameWithType: ISettingsBundle
+  fullName: Sdl.Core.Settings.ISettingsBundle
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware.InitializeSettings*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware.InitializeSettings
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware.html#Sdl_FileTypeSupport_Framework_IntegrationApi_ISettingsAware_InitializeSettings_Sdl_Core_Settings_ISettingsBundle_System_String_
+  name: InitializeSettings
+  nameWithType: ISettingsAware.InitializeSettings
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.ISettingsAware.InitializeSettings
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.Core.Settings
+  commentId: N:Sdl.Core.Settings
+  isExternal: true
+  name: Sdl.Core.Settings
+  nameWithType: Sdl.Core.Settings
+  fullName: Sdl.Core.Settings
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Settings
+    name: Settings
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Settings
+    name: Settings
+    isExternal: true
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

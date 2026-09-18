@@ -1,0 +1,153 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+  commentId: T:Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+  id: CommentsChangedEvent.CommentEventType
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Events
+  children:
+  - Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.Added
+  - Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.Changed
+  - Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.Deleted
+  langs:
+  - csharp
+  - vb
+  name: CommentsChangedEvent.CommentEventType
+  nameWithType: CommentsChangedEvent.CommentEventType
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+  type: Enum
+  assemblies:
+  - Sdl.TranslationStudioAutomation.IntegrationApi
+  namespace: Sdl.TranslationStudioAutomation.IntegrationApi.Events
+  syntax:
+    content: public enum CommentsChangedEvent.CommentEventType
+    content.vb: Public Enum CommentsChangedEvent.CommentEventType
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.Added
+  commentId: F:Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.Added
+  id: Added
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+  langs:
+  - csharp
+  - vb
+  name: Added
+  nameWithType: CommentsChangedEvent.CommentEventType.Added
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.Added
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.IntegrationApi
+  namespace: Sdl.TranslationStudioAutomation.IntegrationApi.Events
+  syntax:
+    content: Added = 0
+    return:
+      type: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.Deleted
+  commentId: F:Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.Deleted
+  id: Deleted
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+  langs:
+  - csharp
+  - vb
+  name: Deleted
+  nameWithType: CommentsChangedEvent.CommentEventType.Deleted
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.Deleted
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.IntegrationApi
+  namespace: Sdl.TranslationStudioAutomation.IntegrationApi.Events
+  syntax:
+    content: Deleted = 1
+    return:
+      type: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.Changed
+  commentId: F:Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.Changed
+  id: Changed
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+  langs:
+  - csharp
+  - vb
+  name: Changed
+  nameWithType: CommentsChangedEvent.CommentEventType.Changed
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.Changed
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.IntegrationApi
+  namespace: Sdl.TranslationStudioAutomation.IntegrationApi.Events
+  syntax:
+    content: Changed = 2
+    return:
+      type: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+references:
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Events
+  commentId: N:Sdl.TranslationStudioAutomation.IntegrationApi.Events
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.TranslationStudioAutomation.IntegrationApi.Events
+  nameWithType: Sdl.TranslationStudioAutomation.IntegrationApi.Events
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Events
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation
+    name: TranslationStudioAutomation
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi.Events
+    name: Events
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.Events.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation
+    name: TranslationStudioAutomation
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi.Events
+    name: Events
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.Events.html
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+  commentId: T:Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Events
+  isExternal: true
+  href: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.html
+  name: CommentsChangedEvent.CommentEventType
+  nameWithType: CommentsChangedEvent.CommentEventType
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+  spec.csharp:
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent
+    name: CommentsChangedEvent
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+    name: CommentEventType
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.html
+  spec.vb:
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent
+    name: CommentsChangedEvent
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType
+    name: CommentEventType
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.Events.CommentsChangedEvent.CommentEventType.html

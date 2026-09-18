@@ -1,0 +1,135 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  commentId: N:Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  id: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  children:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISearchParams
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISearchResult
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISettings
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISettingsDialogParams
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.Connection
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.Prompt
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.SearchTriggerSource
+  langs:
+  - csharp
+  - vb
+  name: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  nameWithType: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  type: Namespace
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISearchParams
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISearchParams
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISearchParams.html
+  name: AISearchParams
+  nameWithType: AISearchParams
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISearchParams
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISearchResult
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISearchResult
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISearchResult.html
+  name: AISearchResult
+  nameWithType: AISearchResult
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISearchResult
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISettings
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISettings
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISettings.html
+  name: AISettings
+  nameWithType: AISettings
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISettings
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISettingsDialogParams
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISettingsDialogParams
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISettingsDialogParams.html
+  name: AISettingsDialogParams
+  nameWithType: AISettingsDialogParams
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.AISettingsDialogParams
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.Connection
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.Connection
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.Connection.html
+  name: Connection
+  nameWithType: Connection
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.Connection
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.Prompt
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.Prompt
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.Prompt.html
+  name: Prompt
+  nameWithType: Prompt
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.Prompt
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.SearchTriggerSource
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.SearchTriggerSource
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.SearchTriggerSource.html
+  name: SearchTriggerSource
+  nameWithType: SearchTriggerSource
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.SearchTriggerSource
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  commentId: N:Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  nameWithType: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion
+    name: AICompanion
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+    name: Model
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion
+    name: AICompanion
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model
+    name: Model
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.AICompanion.Model.html

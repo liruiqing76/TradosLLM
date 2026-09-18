@@ -1,0 +1,1599 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Core.ProjectFile
+  commentId: T:Sdl.ProjectAutomation.Core.ProjectFile
+  id: ProjectFile
+  parent: Sdl.ProjectAutomation.Core
+  children:
+  - Sdl.ProjectAutomation.Core.ProjectFile.AnalysisStatistics
+  - Sdl.ProjectAutomation.Core.ProjectFile.BilingualReferenceFileLocalPath
+  - Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutAt
+  - Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutTo
+  - Sdl.ProjectAutomation.Core.ProjectFile.ConfirmationStatistics
+  - Sdl.ProjectAutomation.Core.ProjectFile.CurrentServerVersion
+  - Sdl.ProjectAutomation.Core.ProjectFile.FileTypeId
+  - Sdl.ProjectAutomation.Core.ProjectFile.Folder
+  - Sdl.ProjectAutomation.Core.ProjectFile.GetSettings
+  - Sdl.ProjectAutomation.Core.ProjectFile.Id
+  - Sdl.ProjectAutomation.Core.ProjectFile.IsCanceled
+  - Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOut
+  - Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToAnotherUser
+  - Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToMe
+  - Sdl.ProjectAutomation.Core.ProjectFile.IsSource
+  - Sdl.ProjectAutomation.Core.ProjectFile.Language
+  - Sdl.ProjectAutomation.Core.ProjectFile.LastModified
+  - Sdl.ProjectAutomation.Core.ProjectFile.LatestServerVersion
+  - Sdl.ProjectAutomation.Core.ProjectFile.LocalFilePath
+  - Sdl.ProjectAutomation.Core.ProjectFile.LocalFileState
+  - Sdl.ProjectAutomation.Core.ProjectFile.Name
+  - Sdl.ProjectAutomation.Core.ProjectFile.OriginalName
+  - Sdl.ProjectAutomation.Core.ProjectFile.PathInProject
+  - Sdl.ProjectAutomation.Core.ProjectFile.ProjectId
+  - Sdl.ProjectAutomation.Core.ProjectFile.Role
+  - Sdl.ProjectAutomation.Core.ProjectFile.Size
+  - Sdl.ProjectAutomation.Core.ProjectFile.SourceFile
+  - Sdl.ProjectAutomation.Core.ProjectFile.TargetFiles
+  - Sdl.ProjectAutomation.Core.ProjectFile.UpdateSettings(Sdl.Core.Settings.ISettingsBundle)
+  langs:
+  - csharp
+  - vb
+  name: ProjectFile
+  nameWithType: ProjectFile
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile
+  type: Class
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Represents a file in a project.
+  example: []
+  syntax:
+    content: public class ProjectFile
+    content.vb: Public Class ProjectFile
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Sdl.ProjectAutomation.Core.MergedProjectFile
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.GetSettings
+  commentId: M:Sdl.ProjectAutomation.Core.ProjectFile.GetSettings
+  id: GetSettings
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: GetSettings()
+  nameWithType: ProjectFile.GetSettings()
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.GetSettings()
+  type: Method
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Gets the project-level settings.
+  example: []
+  syntax:
+    content: public ISettingsBundle GetSettings()
+    return:
+      type: Sdl.Core.Settings.ISettingsBundle
+      description: A settings bundle containing the project settings. Never returns <code>null</code>.
+    content.vb: Public Function GetSettings() As ISettingsBundle
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.GetSettings*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.UpdateSettings(Sdl.Core.Settings.ISettingsBundle)
+  commentId: M:Sdl.ProjectAutomation.Core.ProjectFile.UpdateSettings(Sdl.Core.Settings.ISettingsBundle)
+  id: UpdateSettings(Sdl.Core.Settings.ISettingsBundle)
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: UpdateSettings(ISettingsBundle)
+  nameWithType: ProjectFile.UpdateSettings(ISettingsBundle)
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.UpdateSettings(Sdl.Core.Settings.ISettingsBundle)
+  type: Method
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Updates the project-level settings.
+  remarks: >-
+    <p>The project settings will be completely replaced with the specified settings, so any settings not present in
+
+    the updated settings bundle will revert to their defaults.</p>
+  example: []
+  syntax:
+    content: public void UpdateSettings(ISettingsBundle settings)
+    parameters:
+    - id: settings
+      type: Sdl.Core.Settings.ISettingsBundle
+      description: A settings bundle object containing the new project settings.
+    content.vb: Public Sub UpdateSettings(settings As ISettingsBundle)
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.UpdateSettings*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">settings</code> is <code>null</code>.
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.Id
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.Id
+  id: Id
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: ProjectFile.Id
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.Id
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Gets the unique ID of the file.
+  example: []
+  syntax:
+    content: public Guid Id { get; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public ReadOnly Property Id As Guid
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.Id*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.ProjectId
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.ProjectId
+  id: ProjectId
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: ProjectId
+  nameWithType: ProjectFile.ProjectId
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.ProjectId
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Gets the unique ID of the project to which the file belongs.
+  example: []
+  syntax:
+    content: public Guid ProjectId { get; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public ReadOnly Property ProjectId As Guid
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.ProjectId*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.Name
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.Name
+  id: Name
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ProjectFile.Name
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.Name
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Gets the file name of the current version of this file.
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.Name*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.Role
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.Role
+  id: Role
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: Role
+  nameWithType: ProjectFile.Role
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.Role
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Gets the file role, which indicates how the file should be treated in the project.
+  remarks: Use <xref href="Sdl.ProjectAutomation.Core.IProject.SetFileRole(System.Guid%5b%5d%2cSdl.ProjectAutomation.Core.FileRole)" data-throw-if-not-resolved="false"></xref> to change the role of a file.
+  example: []
+  syntax:
+    content: public FileRole Role { get; }
+    parameters: []
+    return:
+      type: Sdl.ProjectAutomation.Core.FileRole
+    content.vb: Public ReadOnly Property Role As FileRole
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.Role*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.FileTypeId
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.FileTypeId
+  id: FileTypeId
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: FileTypeId
+  nameWithType: ProjectFile.FileTypeId
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.FileTypeId
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    Gets the File Type Identifier of the file type that will be used to process this file.
+
+    This is only relevant for translatable files (where <xref href="Sdl.ProjectAutomation.Core.ProjectFile.Role" data-throw-if-not-resolved="false"></xref> equals <xref href="Sdl.ProjectAutomation.Core.FileRole.Translatable" data-throw-if-not-resolved="false"></xref>)
+
+    and is set by the Scan task (see <xref href="Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.Scan" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public string FileTypeId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property FileTypeId As String
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.FileTypeId*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.Language
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.Language
+  id: Language
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: Language
+  nameWithType: ProjectFile.Language
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.Language
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Gets the project language with which this file is associated.
+  example: []
+  syntax:
+    content: public Language Language { get; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.Language
+    content.vb: Public ReadOnly Property Language As Language
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.Language*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.IsSource
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.IsSource
+  id: IsSource
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: IsSource
+  nameWithType: ProjectFile.IsSource
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.IsSource
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Gets whether this file is a source language or target language file.
+  example: []
+  syntax:
+    content: public bool IsSource { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsSource As Boolean
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.IsSource*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.SourceFile
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.SourceFile
+  id: SourceFile
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: SourceFile
+  nameWithType: ProjectFile.SourceFile
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.SourceFile
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: "            If this is a target language file, gets the corresponding source language file.\r\n            Returns \r\n<pre><code class=\"lang-csharp\">null</code></pre>\r\n for source language files."
+  example: []
+  syntax:
+    content: public ProjectFile SourceFile { get; }
+    parameters: []
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectFile
+    content.vb: Public ReadOnly Property SourceFile As ProjectFile
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.SourceFile*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.TargetFiles
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.TargetFiles
+  id: TargetFiles
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: TargetFiles
+  nameWithType: ProjectFile.TargetFiles
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.TargetFiles
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    If this is a source language file, returns all the corresponding target language files.
+
+    Returns <code>null</code> for target language files.
+  example: []
+  syntax:
+    content: public ProjectFile[] TargetFiles { get; }
+    parameters: []
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectFile[]
+    content.vb: Public ReadOnly Property TargetFiles As ProjectFile()
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.TargetFiles*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.Folder
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.Folder
+  id: Folder
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: Folder
+  nameWithType: ProjectFile.Folder
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.Folder
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Gets the logical project folder in which this file resides.
+  example: []
+  syntax:
+    content: public string Folder { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Folder As String
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.Folder*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.LocalFilePath
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.LocalFilePath
+  id: LocalFilePath
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: LocalFilePath
+  nameWithType: ProjectFile.LocalFilePath
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.LocalFilePath
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Returns the local file path where this file resides.
+  example: []
+  syntax:
+    content: public string LocalFilePath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property LocalFilePath As String
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.LocalFilePath*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.AnalysisStatistics
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.AnalysisStatistics
+  id: AnalysisStatistics
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: AnalysisStatistics
+  nameWithType: ProjectFile.AnalysisStatistics
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.AnalysisStatistics
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    Gets the analysis statistics for this file. Returns <code>null</code> if this is not a translatable file.
+
+    For source-language files, returns the word count statistics only. For target-language files, returns the full
+
+    translation provider analysis statistics. Note that you need to run the <xref href="Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.AnalyzeFiles" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.WordCount" data-throw-if-not-resolved="false"></xref> tasks to generate these statistics.
+  example: []
+  syntax:
+    content: public AnalysisStatistics AnalysisStatistics { get; }
+    parameters: []
+    return:
+      type: Sdl.ProjectAutomation.Core.AnalysisStatistics
+    content.vb: Public ReadOnly Property AnalysisStatistics As AnalysisStatistics
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.AnalysisStatistics*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.ConfirmationStatistics
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.ConfirmationStatistics
+  id: ConfirmationStatistics
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: ConfirmationStatistics
+  nameWithType: ProjectFile.ConfirmationStatistics
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.ConfirmationStatistics
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    Gets the confirmation statistics for this file. Returns <code>null</code> if this is not a translatable file.
+
+    Note that you need to run the <xref href="Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.TranslationCount" data-throw-if-not-resolved="false"></xref> task to 
+
+    generate these statistics.
+  example: []
+  syntax:
+    content: public ConfirmationStatistics ConfirmationStatistics { get; }
+    parameters: []
+    return:
+      type: Sdl.ProjectAutomation.Core.ConfirmationStatistics
+    content.vb: Public ReadOnly Property ConfirmationStatistics As ConfirmationStatistics
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.ConfirmationStatistics*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.BilingualReferenceFileLocalPath
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.BilingualReferenceFileLocalPath
+  id: BilingualReferenceFileLocalPath
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: BilingualReferenceFileLocalPath
+  nameWithType: ProjectFile.BilingualReferenceFileLocalPath
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.BilingualReferenceFileLocalPath
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    Gets the path of the bilingual reference file associated with this file (Previously translated version of the file). 
+
+    Thi is required for Perfect Match operations.
+  example: []
+  syntax:
+    content: public string BilingualReferenceFileLocalPath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property BilingualReferenceFileLocalPath As String
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.BilingualReferenceFileLocalPath*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.LocalFileState
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.LocalFileState
+  id: LocalFileState
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: LocalFileState
+  nameWithType: ProjectFile.LocalFileState
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.LocalFileState
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The status of the local file in relation to the file stored on a project server
+  example: []
+  syntax:
+    content: public LocalFileState LocalFileState { get; }
+    parameters: []
+    return:
+      type: Sdl.ProjectAutomation.Core.LocalFileState
+    content.vb: Public ReadOnly Property LocalFileState As LocalFileState
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.LocalFileState*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutTo
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutTo
+  id: CheckedOutTo
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: CheckedOutTo
+  nameWithType: ProjectFile.CheckedOutTo
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutTo
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The user that the file is checked out to if shared on a project server
+  example: []
+  syntax:
+    content: public string CheckedOutTo { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property CheckedOutTo As String
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutTo*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutAt
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutAt
+  id: CheckedOutAt
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: CheckedOutAt
+  nameWithType: ProjectFile.CheckedOutAt
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutAt
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The date the file was checked or null if not checked out when shared on a project server
+  example: []
+  syntax:
+    content: public DateTime? CheckedOutAt { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public ReadOnly Property CheckedOutAt As Date?
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutAt*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToMe
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToMe
+  id: IsCheckedOutToMe
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: IsCheckedOutToMe
+  nameWithType: ProjectFile.IsCheckedOutToMe
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToMe
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Set to true if the file is checked out to the currently logged in user when shared on a project server
+  example: []
+  syntax:
+    content: public bool IsCheckedOutToMe { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsCheckedOutToMe As Boolean
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToMe*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOut
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOut
+  id: IsCheckedOut
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: IsCheckedOut
+  nameWithType: ProjectFile.IsCheckedOut
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOut
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Set to true when the file has been checked out for editing by any user when shared on a project server
+  example: []
+  syntax:
+    content: public bool IsCheckedOut { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsCheckedOut As Boolean
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOut*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToAnotherUser
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToAnotherUser
+  id: IsCheckedOutToAnotherUser
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: IsCheckedOutToAnotherUser
+  nameWithType: ProjectFile.IsCheckedOutToAnotherUser
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToAnotherUser
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Set to true when the file has been checked out by any user other than the current user when shared on a project server
+  example: []
+  syntax:
+    content: public bool IsCheckedOutToAnotherUser { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsCheckedOutToAnotherUser As Boolean
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToAnotherUser*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.IsCanceled
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.IsCanceled
+  id: IsCanceled
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: IsCanceled
+  nameWithType: ProjectFile.IsCanceled
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.IsCanceled
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Set to true when the file has been canceled on the server
+  example: []
+  syntax:
+    content: public bool IsCanceled { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsCanceled As Boolean
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.IsCanceled*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.LatestServerVersion
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.LatestServerVersion
+  id: LatestServerVersion
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: LatestServerVersion
+  nameWithType: ProjectFile.LatestServerVersion
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.LatestServerVersion
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The latest version of this file that is stored on the project server
+  example: []
+  syntax:
+    content: public int LatestServerVersion { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property LatestServerVersion As Integer
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.LatestServerVersion*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.CurrentServerVersion
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.CurrentServerVersion
+  id: CurrentServerVersion
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: CurrentServerVersion
+  nameWithType: ProjectFile.CurrentServerVersion
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.CurrentServerVersion
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The version of this file stored in the local file system
+  example: []
+  syntax:
+    content: public int CurrentServerVersion { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property CurrentServerVersion As Integer
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.CurrentServerVersion*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.LastModified
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.LastModified
+  id: LastModified
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: LastModified
+  nameWithType: ProjectFile.LastModified
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.LastModified
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The Last Date Time when the file was modified
+  example: []
+  syntax:
+    content: public DateTime LastModified { get; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public ReadOnly Property LastModified As Date
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.LastModified*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.Size
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.Size
+  id: Size
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: ProjectFile.Size
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.Size
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Size of the File
+  example: []
+  syntax:
+    content: public long Size { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property Size As Long
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.Size*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.PathInProject
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.PathInProject
+  id: PathInProject
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: PathInProject
+  nameWithType: ProjectFile.PathInProject
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.PathInProject
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Relative Path to the Project
+  example: []
+  syntax:
+    content: public string PathInProject { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property PathInProject As String
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.PathInProject*
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.OriginalName
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.OriginalName
+  id: OriginalName
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  langs:
+  - csharp
+  - vb
+  name: OriginalName
+  nameWithType: ProjectFile.OriginalName
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.OriginalName
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Original file name
+  example: []
+  syntax:
+    content: public string OriginalName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property OriginalName As String
+  overload: Sdl.ProjectAutomation.Core.ProjectFile.OriginalName*
+references:
+- uid: Sdl.ProjectAutomation.Core
+  commentId: N:Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Core
+  nameWithType: Sdl.ProjectAutomation.Core
+  fullName: Sdl.ProjectAutomation.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.GetSettings*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.GetSettings
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_GetSettings
+  name: GetSettings
+  nameWithType: ProjectFile.GetSettings
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.GetSettings
+- uid: Sdl.Core.Settings.ISettingsBundle
+  commentId: T:Sdl.Core.Settings.ISettingsBundle
+  parent: Sdl.Core.Settings
+  isExternal: true
+  name: ISettingsBundle
+  nameWithType: ISettingsBundle
+  fullName: Sdl.Core.Settings.ISettingsBundle
+- uid: Sdl.Core.Settings
+  commentId: N:Sdl.Core.Settings
+  isExternal: true
+  name: Sdl.Core.Settings
+  nameWithType: Sdl.Core.Settings
+  fullName: Sdl.Core.Settings
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Settings
+    name: Settings
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Settings
+    name: Settings
+    isExternal: true
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.UpdateSettings*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.UpdateSettings
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_UpdateSettings_Sdl_Core_Settings_ISettingsBundle_
+  name: UpdateSettings
+  nameWithType: ProjectFile.UpdateSettings
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.UpdateSettings
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.Id*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.Id
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_Id
+  name: Id
+  nameWithType: ProjectFile.Id
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.ProjectId*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.ProjectId
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_ProjectId
+  name: ProjectId
+  nameWithType: ProjectFile.ProjectId
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.ProjectId
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.Name*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.Name
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_Name
+  name: Name
+  nameWithType: ProjectFile.Name
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.ProjectAutomation.Core.IProject.SetFileRole(System.Guid[],Sdl.ProjectAutomation.Core.FileRole)
+  commentId: M:Sdl.ProjectAutomation.Core.IProject.SetFileRole(System.Guid[],Sdl.ProjectAutomation.Core.FileRole)
+  parent: Sdl.ProjectAutomation.Core.IProject
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.IProject.html#Sdl_ProjectAutomation_Core_IProject_SetFileRole_System_Guid___Sdl_ProjectAutomation_Core_FileRole_
+  name: SetFileRole(Guid[], FileRole)
+  nameWithType: IProject.SetFileRole(Guid[], FileRole)
+  fullName: Sdl.ProjectAutomation.Core.IProject.SetFileRole(System.Guid[], Sdl.ProjectAutomation.Core.FileRole)
+  nameWithType.vb: IProject.SetFileRole(Guid(), FileRole)
+  fullName.vb: Sdl.ProjectAutomation.Core.IProject.SetFileRole(System.Guid(), Sdl.ProjectAutomation.Core.FileRole)
+  name.vb: SetFileRole(Guid(), FileRole)
+  spec.csharp:
+  - uid: Sdl.ProjectAutomation.Core.IProject.SetFileRole(System.Guid[],Sdl.ProjectAutomation.Core.FileRole)
+    name: SetFileRole
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.IProject.html#Sdl_ProjectAutomation_Core_IProject_SetFileRole_System_Guid___Sdl_ProjectAutomation_Core_FileRole_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: Sdl.ProjectAutomation.Core.FileRole
+    name: FileRole
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.FileRole.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.ProjectAutomation.Core.IProject.SetFileRole(System.Guid[],Sdl.ProjectAutomation.Core.FileRole)
+    name: SetFileRole
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.IProject.html#Sdl_ProjectAutomation_Core_IProject_SetFileRole_System_Guid___Sdl_ProjectAutomation_Core_FileRole_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Sdl.ProjectAutomation.Core.FileRole
+    name: FileRole
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.FileRole.html
+  - name: )
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.Role*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.Role
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_Role
+  name: Role
+  nameWithType: ProjectFile.Role
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.Role
+- uid: Sdl.ProjectAutomation.Core.FileRole
+  commentId: T:Sdl.ProjectAutomation.Core.FileRole
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.FileRole.html
+  name: FileRole
+  nameWithType: FileRole
+  fullName: Sdl.ProjectAutomation.Core.FileRole
+- uid: Sdl.ProjectAutomation.Core.IProject
+  commentId: T:Sdl.ProjectAutomation.Core.IProject
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.IProject.html
+  name: IProject
+  nameWithType: IProject
+  fullName: Sdl.ProjectAutomation.Core.IProject
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.Role
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectFile.Role
+  parent: Sdl.ProjectAutomation.Core.ProjectFile
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_Role
+  name: Role
+  nameWithType: ProjectFile.Role
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.Role
+- uid: Sdl.ProjectAutomation.Core.FileRole.Translatable
+  commentId: F:Sdl.ProjectAutomation.Core.FileRole.Translatable
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.FileRole.html#Sdl_ProjectAutomation_Core_FileRole_Translatable
+  name: Translatable
+  nameWithType: FileRole.Translatable
+  fullName: Sdl.ProjectAutomation.Core.FileRole.Translatable
+- uid: Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.Scan
+  commentId: F:Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.Scan
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.html#Sdl_ProjectAutomation_Core_AutomaticTaskTemplateIds_Scan
+  name: Scan
+  nameWithType: AutomaticTaskTemplateIds.Scan
+  fullName: Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.Scan
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.FileTypeId*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.FileTypeId
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_FileTypeId
+  name: FileTypeId
+  nameWithType: ProjectFile.FileTypeId
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.FileTypeId
+- uid: Sdl.ProjectAutomation.Core.ProjectFile
+  commentId: T:Sdl.ProjectAutomation.Core.ProjectFile
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html
+  name: ProjectFile
+  nameWithType: ProjectFile
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.Language*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.Language
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_Language
+  name: Language
+  nameWithType: ProjectFile.Language
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.Language
+- uid: Sdl.Core.Globalization.Language
+  commentId: T:Sdl.Core.Globalization.Language
+  parent: Sdl.Core.Globalization
+  isExternal: true
+  name: Language
+  nameWithType: Language
+  fullName: Sdl.Core.Globalization.Language
+- uid: Sdl.Core.Globalization
+  commentId: N:Sdl.Core.Globalization
+  isExternal: true
+  name: Sdl.Core.Globalization
+  nameWithType: Sdl.Core.Globalization
+  fullName: Sdl.Core.Globalization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.IsSource*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.IsSource
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_IsSource
+  name: IsSource
+  nameWithType: ProjectFile.IsSource
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.IsSource
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.SourceFile*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.SourceFile
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_SourceFile
+  name: SourceFile
+  nameWithType: ProjectFile.SourceFile
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.SourceFile
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.TargetFiles*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.TargetFiles
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_TargetFiles
+  name: TargetFiles
+  nameWithType: ProjectFile.TargetFiles
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.TargetFiles
+- uid: Sdl.ProjectAutomation.Core.ProjectFile[]
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html
+  name: ProjectFile[]
+  nameWithType: ProjectFile[]
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile[]
+  nameWithType.vb: ProjectFile()
+  fullName.vb: Sdl.ProjectAutomation.Core.ProjectFile()
+  name.vb: ProjectFile()
+  spec.csharp:
+  - uid: Sdl.ProjectAutomation.Core.ProjectFile
+    name: ProjectFile
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.ProjectFile.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Sdl.ProjectAutomation.Core.ProjectFile
+    name: ProjectFile
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.ProjectFile.html
+  - name: (
+  - name: )
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.Folder*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.Folder
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_Folder
+  name: Folder
+  nameWithType: ProjectFile.Folder
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.Folder
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.LocalFilePath*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.LocalFilePath
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_LocalFilePath
+  name: LocalFilePath
+  nameWithType: ProjectFile.LocalFilePath
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.LocalFilePath
+- uid: Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.AnalyzeFiles
+  commentId: F:Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.AnalyzeFiles
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.html#Sdl_ProjectAutomation_Core_AutomaticTaskTemplateIds_AnalyzeFiles
+  name: AnalyzeFiles
+  nameWithType: AutomaticTaskTemplateIds.AnalyzeFiles
+  fullName: Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.AnalyzeFiles
+- uid: Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.WordCount
+  commentId: F:Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.WordCount
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.html#Sdl_ProjectAutomation_Core_AutomaticTaskTemplateIds_WordCount
+  name: WordCount
+  nameWithType: AutomaticTaskTemplateIds.WordCount
+  fullName: Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.WordCount
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.AnalysisStatistics*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.AnalysisStatistics
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_AnalysisStatistics
+  name: AnalysisStatistics
+  nameWithType: ProjectFile.AnalysisStatistics
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.AnalysisStatistics
+- uid: Sdl.ProjectAutomation.Core.AnalysisStatistics
+  commentId: T:Sdl.ProjectAutomation.Core.AnalysisStatistics
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.AnalysisStatistics.html
+  name: AnalysisStatistics
+  nameWithType: AnalysisStatistics
+  fullName: Sdl.ProjectAutomation.Core.AnalysisStatistics
+- uid: Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.TranslationCount
+  commentId: F:Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.TranslationCount
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.html#Sdl_ProjectAutomation_Core_AutomaticTaskTemplateIds_TranslationCount
+  name: TranslationCount
+  nameWithType: AutomaticTaskTemplateIds.TranslationCount
+  fullName: Sdl.ProjectAutomation.Core.AutomaticTaskTemplateIds.TranslationCount
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.ConfirmationStatistics*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.ConfirmationStatistics
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_ConfirmationStatistics
+  name: ConfirmationStatistics
+  nameWithType: ProjectFile.ConfirmationStatistics
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.ConfirmationStatistics
+- uid: Sdl.ProjectAutomation.Core.ConfirmationStatistics
+  commentId: T:Sdl.ProjectAutomation.Core.ConfirmationStatistics
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ConfirmationStatistics.html
+  name: ConfirmationStatistics
+  nameWithType: ConfirmationStatistics
+  fullName: Sdl.ProjectAutomation.Core.ConfirmationStatistics
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.BilingualReferenceFileLocalPath*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.BilingualReferenceFileLocalPath
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_BilingualReferenceFileLocalPath
+  name: BilingualReferenceFileLocalPath
+  nameWithType: ProjectFile.BilingualReferenceFileLocalPath
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.BilingualReferenceFileLocalPath
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.LocalFileState*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.LocalFileState
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_LocalFileState
+  name: LocalFileState
+  nameWithType: ProjectFile.LocalFileState
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.LocalFileState
+- uid: Sdl.ProjectAutomation.Core.LocalFileState
+  commentId: T:Sdl.ProjectAutomation.Core.LocalFileState
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.LocalFileState.html
+  name: LocalFileState
+  nameWithType: LocalFileState
+  fullName: Sdl.ProjectAutomation.Core.LocalFileState
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutTo*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutTo
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_CheckedOutTo
+  name: CheckedOutTo
+  nameWithType: ProjectFile.CheckedOutTo
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutTo
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutAt*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutAt
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_CheckedOutAt
+  name: CheckedOutAt
+  nameWithType: ProjectFile.CheckedOutAt
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.CheckedOutAt
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToMe*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToMe
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_IsCheckedOutToMe
+  name: IsCheckedOutToMe
+  nameWithType: ProjectFile.IsCheckedOutToMe
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToMe
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOut*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOut
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_IsCheckedOut
+  name: IsCheckedOut
+  nameWithType: ProjectFile.IsCheckedOut
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOut
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToAnotherUser*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToAnotherUser
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_IsCheckedOutToAnotherUser
+  name: IsCheckedOutToAnotherUser
+  nameWithType: ProjectFile.IsCheckedOutToAnotherUser
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.IsCheckedOutToAnotherUser
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.IsCanceled*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.IsCanceled
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_IsCanceled
+  name: IsCanceled
+  nameWithType: ProjectFile.IsCanceled
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.IsCanceled
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.LatestServerVersion*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.LatestServerVersion
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_LatestServerVersion
+  name: LatestServerVersion
+  nameWithType: ProjectFile.LatestServerVersion
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.LatestServerVersion
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.CurrentServerVersion*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.CurrentServerVersion
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_CurrentServerVersion
+  name: CurrentServerVersion
+  nameWithType: ProjectFile.CurrentServerVersion
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.CurrentServerVersion
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.LastModified*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.LastModified
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_LastModified
+  name: LastModified
+  nameWithType: ProjectFile.LastModified
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.LastModified
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.Size*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.Size
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_Size
+  name: Size
+  nameWithType: ProjectFile.Size
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.Size
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.PathInProject*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.PathInProject
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_PathInProject
+  name: PathInProject
+  nameWithType: ProjectFile.PathInProject
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.PathInProject
+- uid: Sdl.ProjectAutomation.Core.ProjectFile.OriginalName*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectFile.OriginalName
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectFile.html#Sdl_ProjectAutomation_Core_ProjectFile_OriginalName
+  name: OriginalName
+  nameWithType: ProjectFile.OriginalName
+  fullName: Sdl.ProjectAutomation.Core.ProjectFile.OriginalName

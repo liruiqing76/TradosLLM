@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction
+  commentId: T:Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction
+  id: NoTranslationMemoryMatchFoundAction
+  parent: Sdl.ProjectAutomation.Settings
+  children:
+  - Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction.ApplyAutomatedTranslation
+  - Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction.CopySourceToTarget
+  - Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction.LeaveEmpty
+  langs:
+  - csharp
+  - vb
+  name: NoTranslationMemoryMatchFoundAction
+  nameWithType: NoTranslationMemoryMatchFoundAction
+  fullName: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction
+  type: Enum
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: ''
+  example: []
+  syntax:
+    content: public enum NoTranslationMemoryMatchFoundAction
+    content.vb: Public Enum NoTranslationMemoryMatchFoundAction
+- uid: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction.CopySourceToTarget
+  commentId: F:Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction.CopySourceToTarget
+  id: CopySourceToTarget
+  parent: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction
+  langs:
+  - csharp
+  - vb
+  name: CopySourceToTarget
+  nameWithType: NoTranslationMemoryMatchFoundAction.CopySourceToTarget
+  fullName: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction.CopySourceToTarget
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: ''
+  example: []
+  syntax:
+    content: CopySourceToTarget = 0
+    return:
+      type: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction
+- uid: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction.ApplyAutomatedTranslation
+  commentId: F:Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction.ApplyAutomatedTranslation
+  id: ApplyAutomatedTranslation
+  parent: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction
+  langs:
+  - csharp
+  - vb
+  name: ApplyAutomatedTranslation
+  nameWithType: NoTranslationMemoryMatchFoundAction.ApplyAutomatedTranslation
+  fullName: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction.ApplyAutomatedTranslation
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: ''
+  example: []
+  syntax:
+    content: ApplyAutomatedTranslation = 1
+    return:
+      type: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction
+- uid: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction.LeaveEmpty
+  commentId: F:Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction.LeaveEmpty
+  id: LeaveEmpty
+  parent: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction
+  langs:
+  - csharp
+  - vb
+  name: LeaveEmpty
+  nameWithType: NoTranslationMemoryMatchFoundAction.LeaveEmpty
+  fullName: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction.LeaveEmpty
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: ''
+  example: []
+  syntax:
+    content: LeaveEmpty = 2
+    return:
+      type: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction
+references:
+- uid: Sdl.ProjectAutomation.Settings
+  commentId: N:Sdl.ProjectAutomation.Settings
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Settings
+  nameWithType: Sdl.ProjectAutomation.Settings
+  fullName: Sdl.ProjectAutomation.Settings
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.html
+- uid: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction
+  commentId: T:Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction
+  parent: Sdl.ProjectAutomation.Settings
+  isExternal: true
+  href: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction.html
+  name: NoTranslationMemoryMatchFoundAction
+  nameWithType: NoTranslationMemoryMatchFoundAction
+  fullName: Sdl.ProjectAutomation.Settings.NoTranslationMemoryMatchFoundAction

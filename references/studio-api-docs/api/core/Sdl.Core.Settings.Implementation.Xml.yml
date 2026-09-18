@@ -1,0 +1,45 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.Settings.Implementation.Xml
+  commentId: N:Sdl.Core.Settings.Implementation.Xml
+  id: Sdl.Core.Settings.Implementation.Xml
+  children:
+  - Sdl.Core.Settings.Implementation.Xml.XmlSettingImpl`1
+  langs:
+  - csharp
+  - vb
+  name: Sdl.Core.Settings.Implementation.Xml
+  nameWithType: Sdl.Core.Settings.Implementation.Xml
+  fullName: Sdl.Core.Settings.Implementation.Xml
+  type: Namespace
+  assemblies:
+  - Sdl.Core.Settings
+references:
+- uid: Sdl.Core.Settings.Implementation.Xml.XmlSettingImpl`1
+  commentId: T:Sdl.Core.Settings.Implementation.Xml.XmlSettingImpl`1
+  isExternal: true
+  href: Sdl.Core.Settings.Implementation.Xml.XmlSettingImpl-1.html
+  name: XmlSettingImpl<T>
+  nameWithType: XmlSettingImpl<T>
+  fullName: Sdl.Core.Settings.Implementation.Xml.XmlSettingImpl<T>
+  nameWithType.vb: XmlSettingImpl(Of T)
+  fullName.vb: Sdl.Core.Settings.Implementation.Xml.XmlSettingImpl(Of T)
+  name.vb: XmlSettingImpl(Of T)
+  spec.csharp:
+  - uid: Sdl.Core.Settings.Implementation.Xml.XmlSettingImpl`1
+    name: XmlSettingImpl
+    isExternal: true
+    href: Sdl.Core.Settings.Implementation.Xml.XmlSettingImpl-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Sdl.Core.Settings.Implementation.Xml.XmlSettingImpl`1
+    name: XmlSettingImpl
+    isExternal: true
+    href: Sdl.Core.Settings.Implementation.Xml.XmlSettingImpl-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

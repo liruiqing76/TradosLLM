@@ -1,0 +1,131 @@
+# Setting the Project Information
+This chapter demonstrates how to programmatically create a project and define its general properties—name, description, due date, and more.
+
+## Create the Project
+Start by implementing a function called ``` CreateProject```. Create a file-based project object called ```newProject``` based on the class [FileBasedProject](../../api\projectautomation\Sdl.ProjectAutomation.FileBased.FileBasedProject.yml) class. Pass the project properties as a parameter—we recommend generating them through a separate helper function such as `GetProjectInfo`:
+
+# [C#](#tab/tabid-1)
+```CS
+FileBasedProject newProject = new FileBasedProject(info);
+```
+***
+
+## Set the Project Information
+In the GetProjectInfo helper function, we first create a [ProjectInfo](../../api\projectautomation\Sdl.ProjectAutomation.Core.ProjectInfo.yml) object:
+
+# [C#](#tab/tabid-2)
+```CS
+ProjectInfo info = new ProjectInfo();
+``` 
+***
+
+We define the project properties by applying various properties to the project object as outlined below:
+
+# [C#](#tab/tabid-3)
+```CS
+info.Name = "My First Project";
+info.Description = "This is a programmatically created project.";
+info.DueDate = DateTime.Now.AddDays(3);
+```
+***
+
+In the above example we set the following parameters:
+* Project name, which can be any descriptive name
+* The (optional) project description
+* The (optional) project due date, e.g. 3 days from now
+
+The screenshot below illustrates how this information is entered in the **New Project** wizard of Var:ProductName.
+![NewProject01](images/NewProject01.jpg)
+
+## Set the Local Project Folder
+All project files, i.e. translatable and localizable documents, reference files, project TMs, etc. are stored in a specific folder. By default, the main folder used for storing projects is: Var:DefaultProjectsFolder. Below this main folder Var:ProductName creates sub-folders that carry the name of the respective project. However, you could just as well pick any other folder name, as long as the specified folder is empty so as to avoid collisions with existing files. In the example below we follow the default folder rule of Var:ProductName by selecting the Var:StudioDocumentsFolderName\Projects\ folder below Documents, and by appending the project name sub-folder. We then set the [LocalProjectFolder](../../api/projectautomation/Sdl.ProjectAutomation.Core.ProjectInfo.yml#Sdl_ProjectAutomation_Core_ProjectInfo_LocalProjectFolder) property accordingly as shown in the example below:
+# [C#](#tab/tabid-4)
+```CS
+string localProjectFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString() +
+    Path.DirectorySeparatorChar + $@"{Versioning.Versions.StudioDocumentsFolderName}\Projects\" + info.Name;
+
+info.LocalProjectFolder = localProjectFolder;
+```
+***
+## Select the Project Languages
+A project must have at least one language pair, i.e. a source language and one target language. Projects can have only one source language, but multiple target languages. The screenshot below highlights how languages are selected in Var:ProductName:
+
+![NewProject02](images/NewProject02.jpg)
+
+For this example, let us assume that the source language should be English (US), and the target languages German and French. First, we create the source language object through the ```Language``` class. The language object takes the [CultureInfo](https://docs.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo?redirectedfrom=MSDN&view=net-5.0) as parameter. Then we assign the source language object to the project info by applying the [SourceLanguage](../../api/projectautomation/Sdl.ProjectAutomation.Core.ProjectInfo.yml#Sdl_ProjectAutomation_Core_ProjectInfo_SourceLanguage)  property:
+
+# [C#](#tab/tabid-5)
+```CS
+Language srcLang = new Language(CultureInfo.GetCultureInfo("en-US"));
+info.SourceLanguage = srcLang;
+```
+***
+In the next step we do the same for the target languages. Since a project can have several target languages, we use an array of language objects, and then assign this array to the project info through the [TargetLanguages](../../api/projectautomation/Sdl.ProjectAutomation.Core.ProjectInfo.yml#Sdl_ProjectAutomation_Core_ProjectInfo_TargetLanguages) property:
+
+# [C#](#tab/tabid-6)
+```CS
+Language[] trgLangs = new Language[] { new Language(CultureInfo.GetCultureInfo("de-DE")), new Language(CultureInfo.GetCultureInfo("fr-FR")) };
+info.TargetLanguages = trgLangs;
+```
+***
+
+After setting the above project properties, do not forget to return the project info object:
+
+# [C#](#tab/tabid-7)
+```CS
+return info;
+```
+***
+Furthermore, to persist the project information in the project object, you need to apply the Save method:
+
+# [C#](#tab/tabid-8)
+```CS
+newProject.Save();
+```
+***
+This will create an **.sdlproj* file, which is an XML-compliant document that contains all the project information.
+After running the above code you should already see a result in the projects folder as illustrated in the screenshot below:
+![FoldersAfterProjectInfo](images/FoldersAfterProjectInfo.jpg)
+
+Even if you have not added any translatable files yet, you will end up generating the project sub-folder (i.e. Projects\My first project), which contains the *.sdlproj file. In the following chapters you will learn how to add documents, TMs, termbases, etc. to turn your sample into a meaningful project. Note that if you run your sample application again while the My first project is still there, an error will be thrown, as the folder is not empty. It is recommended that when you re-run your sample application for testing purposes that you delete the project sub-folder, so that you have a fresh start (see also [Deleting Projects](deleting_projects.md)).
+
+Also note that the Var:DefaultProjectsFolder folder contains a file called projects.xml. This is a meta file that contains references to all the projects that have been created in Var:ProductName. The projects that you create programmatically will not be referenced in this file, and thus not be listed in Var:ProductName, which is by design. However, you can, of course, open the programmatically created *.sdlproj file in Var:ProductName.
+
+## Putting it All Together
+The complete function for setting the project properties should look as shown below:
+
+# [C#](#tab/tabid-9)
+```CS
+public ProjectInfo GetProjectInfo()
+{
+    ProjectInfo info = new ProjectInfo();
+    info.Name = "My first project";
+    info.Description = "This is a programmatically created project.";
+    info.DueDate = DateTime.Now.AddDays(3);
+    string localProjectFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString() +
+        Path.DirectorySeparatorChar + $@"{Versioning.Versions.StudioDocumentsFolderName}\Projects\" + info.Name;
+
+    info.LocalProjectFolder = localProjectFolder;
+    Language srcLang = new Language(CultureInfo.GetCultureInfo("en-US"));
+    info.SourceLanguage = srcLang;
+    Language[] trgLangs = new Language[] { new Language(CultureInfo.GetCultureInfo("de-DE")), new Language(CultureInfo.GetCultureInfo("fr-FR")) };
+    info.TargetLanguages = trgLangs;
+    return info;
+}
+
+```
+***
+
+## See Also
+[Adding Files and Folders](adding_files_and_folders.md)
+
+[Adding Translation Memories](adding_translation_memories.md)
+
+[Running Tasks on the Project Files](running_tasks_on_project_files.md)
+
+[Creating Projects Based on Previous Projects](creating_project_based_on_prev_proj.md)
+
+[Creating Projects Based on Templates](creating_proj_based_on_templates.md)
+
+[Configuring the Project Properties](configuring_the_project_properties.md)
+

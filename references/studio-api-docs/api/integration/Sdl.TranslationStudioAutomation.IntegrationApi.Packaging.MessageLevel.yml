@@ -1,0 +1,133 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel
+  commentId: T:Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel
+  id: MessageLevel
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging
+  children:
+  - Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel.Error
+  - Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel.Information
+  - Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel.Warning
+  langs:
+  - csharp
+  - vb
+  name: MessageLevel
+  nameWithType: MessageLevel
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel
+  type: Enum
+  assemblies:
+  - Sdl.TranslationStudioAutomation.IntegrationApi
+  namespace: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging
+  syntax:
+    content: public enum MessageLevel
+    content.vb: Public Enum MessageLevel
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel.Information
+  commentId: F:Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel.Information
+  id: Information
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel
+  langs:
+  - csharp
+  - vb
+  name: Information
+  nameWithType: MessageLevel.Information
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel.Information
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.IntegrationApi
+  namespace: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging
+  syntax:
+    content: Information = 0
+    return:
+      type: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel.Warning
+  commentId: F:Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel.Warning
+  id: Warning
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel
+  langs:
+  - csharp
+  - vb
+  name: Warning
+  nameWithType: MessageLevel.Warning
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel.Warning
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.IntegrationApi
+  namespace: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging
+  syntax:
+    content: Warning = 1
+    return:
+      type: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel.Error
+  commentId: F:Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel.Error
+  id: Error
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: MessageLevel.Error
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel.Error
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.IntegrationApi
+  namespace: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging
+  syntax:
+    content: Error = 2
+    return:
+      type: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel
+references:
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging
+  commentId: N:Sdl.TranslationStudioAutomation.IntegrationApi.Packaging
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging
+  nameWithType: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation
+    name: TranslationStudioAutomation
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging
+    name: Packaging
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation
+    name: TranslationStudioAutomation
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging
+    name: Packaging
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.html
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel
+  commentId: T:Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging
+  isExternal: true
+  href: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel.html
+  name: MessageLevel
+  nameWithType: MessageLevel
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Packaging.MessageLevel

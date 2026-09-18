@@ -1,0 +1,863 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  commentId: T:Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  id: ServerProjectInfo
+  parent: Sdl.ProjectAutomation.FileBased
+  children:
+  - Sdl.ProjectAutomation.FileBased.ServerProjectInfo.#ctor
+  - Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Customer
+  - Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Description
+  - Sdl.ProjectAutomation.FileBased.ServerProjectInfo.DueDate
+  - Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Name
+  - Sdl.ProjectAutomation.FileBased.ServerProjectInfo.OrganizationPath
+  - Sdl.ProjectAutomation.FileBased.ServerProjectInfo.ProjectId
+  - Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedAt
+  - Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedBy
+  - Sdl.ProjectAutomation.FileBased.ServerProjectInfo.SourceLanguage
+  - Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Status
+  - Sdl.ProjectAutomation.FileBased.ServerProjectInfo.TargetLanguages
+  langs:
+  - csharp
+  - vb
+  name: ServerProjectInfo
+  nameWithType: ServerProjectInfo
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  type: Class
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: Class used to store the information required for to store a project on a project server
+  example: []
+  syntax:
+    content: public class ServerProjectInfo
+    content.vb: Public Class ServerProjectInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.#ctor
+  commentId: M:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.#ctor
+  id: '#ctor'
+  parent: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  langs:
+  - csharp
+  - vb
+  name: ServerProjectInfo()
+  nameWithType: ServerProjectInfo.ServerProjectInfo()
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.ServerProjectInfo()
+  type: Constructor
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  syntax:
+    content: public ServerProjectInfo()
+    content.vb: Public Sub New()
+  overload: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.#ctor*
+  nameWithType.vb: ServerProjectInfo.New()
+  fullName.vb: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.New()
+  name.vb: New()
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.ProjectId
+  commentId: P:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.ProjectId
+  id: ProjectId
+  parent: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  langs:
+  - csharp
+  - vb
+  name: ProjectId
+  nameWithType: ServerProjectInfo.ProjectId
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.ProjectId
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: The unique id of the project
+  example: []
+  syntax:
+    content: public Guid ProjectId { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property ProjectId As Guid
+  overload: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.ProjectId*
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Name
+  commentId: P:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Name
+  id: Name
+  parent: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ServerProjectInfo.Name
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Name
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: The name used to identify this project on the server
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Name*
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Description
+  commentId: P:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Description
+  id: Description
+  parent: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: ServerProjectInfo.Description
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Description
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: The description used on the server
+  example: []
+  syntax:
+    content: public string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Description*
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Customer
+  commentId: P:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Customer
+  id: Customer
+  parent: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  langs:
+  - csharp
+  - vb
+  name: Customer
+  nameWithType: ServerProjectInfo.Customer
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Customer
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: The customer this project belongs to
+  example: []
+  syntax:
+    content: public string Customer { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Customer As String
+  overload: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Customer*
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.OrganizationPath
+  commentId: P:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.OrganizationPath
+  id: OrganizationPath
+  parent: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  langs:
+  - csharp
+  - vb
+  name: OrganizationPath
+  nameWithType: ServerProjectInfo.OrganizationPath
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.OrganizationPath
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: The location on the server this project is stored
+  example: []
+  syntax:
+    content: public string OrganizationPath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OrganizationPath As String
+  overload: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.OrganizationPath*
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.SourceLanguage
+  commentId: P:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.SourceLanguage
+  id: SourceLanguage
+  parent: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  langs:
+  - csharp
+  - vb
+  name: SourceLanguage
+  nameWithType: ServerProjectInfo.SourceLanguage
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.SourceLanguage
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: The source language of the project
+  example: []
+  syntax:
+    content: public Language SourceLanguage { get; set; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.Language
+    content.vb: Public Property SourceLanguage As Language
+  overload: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.SourceLanguage*
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.TargetLanguages
+  commentId: P:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.TargetLanguages
+  id: TargetLanguages
+  parent: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  langs:
+  - csharp
+  - vb
+  name: TargetLanguages
+  nameWithType: ServerProjectInfo.TargetLanguages
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.TargetLanguages
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: The target languages of the project
+  example: []
+  syntax:
+    content: public Language[] TargetLanguages { get; set; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.Language[]
+    content.vb: Public Property TargetLanguages As Language()
+  overload: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.TargetLanguages*
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.DueDate
+  commentId: P:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.DueDate
+  id: DueDate
+  parent: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  langs:
+  - csharp
+  - vb
+  name: DueDate
+  nameWithType: ServerProjectInfo.DueDate
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.DueDate
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: The date the project is due or null of no date is set
+  example: []
+  syntax:
+    content: public DateTime? DueDate { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Property DueDate As Date?
+  overload: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.DueDate*
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedBy
+  commentId: P:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedBy
+  id: PublishedBy
+  parent: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  langs:
+  - csharp
+  - vb
+  name: PublishedBy
+  nameWithType: ServerProjectInfo.PublishedBy
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedBy
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: The user this project was published by
+  example: []
+  syntax:
+    content: public string PublishedBy { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PublishedBy As String
+  overload: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedBy*
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedAt
+  commentId: P:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedAt
+  id: PublishedAt
+  parent: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  langs:
+  - csharp
+  - vb
+  name: PublishedAt
+  nameWithType: ServerProjectInfo.PublishedAt
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedAt
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: The date the project was published to the server
+  example: []
+  syntax:
+    content: public DateTime PublishedAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property PublishedAt As Date
+  overload: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedAt*
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Status
+  commentId: P:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Status
+  id: Status
+  parent: Sdl.ProjectAutomation.FileBased.ServerProjectInfo
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: ServerProjectInfo.Status
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Status
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: The current status of the project
+  example: []
+  syntax:
+    content: public ProjectStatus Status { get; set; }
+    parameters: []
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectStatus
+    content.vb: Public Property Status As ProjectStatus
+  overload: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Status*
+references:
+- uid: Sdl.ProjectAutomation.FileBased
+  commentId: N:Sdl.ProjectAutomation.FileBased
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.FileBased
+  nameWithType: Sdl.ProjectAutomation.FileBased
+  fullName: Sdl.ProjectAutomation.FileBased
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.FileBased
+    name: FileBased
+    isExternal: true
+    href: Sdl.ProjectAutomation.FileBased.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.FileBased
+    name: FileBased
+    isExternal: true
+    href: Sdl.ProjectAutomation.FileBased.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.#ctor*
+  commentId: Overload:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.#ctor
+  isExternal: true
+  href: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.html#Sdl_ProjectAutomation_FileBased_ServerProjectInfo__ctor
+  name: ServerProjectInfo
+  nameWithType: ServerProjectInfo.ServerProjectInfo
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.ServerProjectInfo
+  nameWithType.vb: ServerProjectInfo.New
+  fullName.vb: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.New
+  name.vb: New
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.ProjectId*
+  commentId: Overload:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.ProjectId
+  isExternal: true
+  href: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.html#Sdl_ProjectAutomation_FileBased_ServerProjectInfo_ProjectId
+  name: ProjectId
+  nameWithType: ServerProjectInfo.ProjectId
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.ProjectId
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Name*
+  commentId: Overload:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Name
+  isExternal: true
+  href: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.html#Sdl_ProjectAutomation_FileBased_ServerProjectInfo_Name
+  name: Name
+  nameWithType: ServerProjectInfo.Name
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Description*
+  commentId: Overload:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Description
+  isExternal: true
+  href: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.html#Sdl_ProjectAutomation_FileBased_ServerProjectInfo_Description
+  name: Description
+  nameWithType: ServerProjectInfo.Description
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Description
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Customer*
+  commentId: Overload:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Customer
+  isExternal: true
+  href: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.html#Sdl_ProjectAutomation_FileBased_ServerProjectInfo_Customer
+  name: Customer
+  nameWithType: ServerProjectInfo.Customer
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Customer
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.OrganizationPath*
+  commentId: Overload:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.OrganizationPath
+  isExternal: true
+  href: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.html#Sdl_ProjectAutomation_FileBased_ServerProjectInfo_OrganizationPath
+  name: OrganizationPath
+  nameWithType: ServerProjectInfo.OrganizationPath
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.OrganizationPath
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.SourceLanguage*
+  commentId: Overload:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.SourceLanguage
+  isExternal: true
+  href: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.html#Sdl_ProjectAutomation_FileBased_ServerProjectInfo_SourceLanguage
+  name: SourceLanguage
+  nameWithType: ServerProjectInfo.SourceLanguage
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.SourceLanguage
+- uid: Sdl.Core.Globalization.Language
+  commentId: T:Sdl.Core.Globalization.Language
+  parent: Sdl.Core.Globalization
+  isExternal: true
+  name: Language
+  nameWithType: Language
+  fullName: Sdl.Core.Globalization.Language
+- uid: Sdl.Core.Globalization
+  commentId: N:Sdl.Core.Globalization
+  isExternal: true
+  name: Sdl.Core.Globalization
+  nameWithType: Sdl.Core.Globalization
+  fullName: Sdl.Core.Globalization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.TargetLanguages*
+  commentId: Overload:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.TargetLanguages
+  isExternal: true
+  href: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.html#Sdl_ProjectAutomation_FileBased_ServerProjectInfo_TargetLanguages
+  name: TargetLanguages
+  nameWithType: ServerProjectInfo.TargetLanguages
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.TargetLanguages
+- uid: Sdl.Core.Globalization.Language[]
+  isExternal: true
+  name: Language[]
+  nameWithType: Language[]
+  fullName: Sdl.Core.Globalization.Language[]
+  nameWithType.vb: Language()
+  fullName.vb: Sdl.Core.Globalization.Language()
+  name.vb: Language()
+  spec.csharp:
+  - uid: Sdl.Core.Globalization.Language
+    name: Language
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Sdl.Core.Globalization.Language
+    name: Language
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.DueDate*
+  commentId: Overload:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.DueDate
+  isExternal: true
+  href: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.html#Sdl_ProjectAutomation_FileBased_ServerProjectInfo_DueDate
+  name: DueDate
+  nameWithType: ServerProjectInfo.DueDate
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.DueDate
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedBy*
+  commentId: Overload:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedBy
+  isExternal: true
+  href: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.html#Sdl_ProjectAutomation_FileBased_ServerProjectInfo_PublishedBy
+  name: PublishedBy
+  nameWithType: ServerProjectInfo.PublishedBy
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedBy
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedAt*
+  commentId: Overload:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedAt
+  isExternal: true
+  href: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.html#Sdl_ProjectAutomation_FileBased_ServerProjectInfo_PublishedAt
+  name: PublishedAt
+  nameWithType: ServerProjectInfo.PublishedAt
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.PublishedAt
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Status*
+  commentId: Overload:Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Status
+  isExternal: true
+  href: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.html#Sdl_ProjectAutomation_FileBased_ServerProjectInfo_Status
+  name: Status
+  nameWithType: ServerProjectInfo.Status
+  fullName: Sdl.ProjectAutomation.FileBased.ServerProjectInfo.Status
+- uid: Sdl.ProjectAutomation.Core.ProjectStatus
+  commentId: T:Sdl.ProjectAutomation.Core.ProjectStatus
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectStatus.html
+  name: ProjectStatus
+  nameWithType: ProjectStatus
+  fullName: Sdl.ProjectAutomation.Core.ProjectStatus
+- uid: Sdl.ProjectAutomation.Core
+  commentId: N:Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Core
+  nameWithType: Sdl.ProjectAutomation.Core
+  fullName: Sdl.ProjectAutomation.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html

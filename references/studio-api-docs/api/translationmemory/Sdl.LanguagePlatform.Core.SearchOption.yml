@@ -1,0 +1,141 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.SearchOption
+  commentId: T:Sdl.LanguagePlatform.Core.SearchOption
+  id: SearchOption
+  parent: Sdl.LanguagePlatform.Core
+  children:
+  - Sdl.LanguagePlatform.Core.SearchOption.CaseInsensitive
+  - Sdl.LanguagePlatform.Core.SearchOption.DiacriticsInsensitive
+  - Sdl.LanguagePlatform.Core.SearchOption.None
+  langs:
+  - csharp
+  - vb
+  name: SearchOption
+  nameWithType: SearchOption
+  fullName: Sdl.LanguagePlatform.Core.SearchOption
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Options which modify search behavior.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum SearchOption
+    content.vb: >-
+      <Flags>
+
+      Public Enum SearchOption
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.SearchOption.None
+  commentId: F:Sdl.LanguagePlatform.Core.SearchOption.None
+  id: None
+  parent: Sdl.LanguagePlatform.Core.SearchOption
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: SearchOption.None
+  fullName: Sdl.LanguagePlatform.Core.SearchOption.None
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Case-sensitive search.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.SearchOption
+- uid: Sdl.LanguagePlatform.Core.SearchOption.CaseInsensitive
+  commentId: F:Sdl.LanguagePlatform.Core.SearchOption.CaseInsensitive
+  id: CaseInsensitive
+  parent: Sdl.LanguagePlatform.Core.SearchOption
+  langs:
+  - csharp
+  - vb
+  name: CaseInsensitive
+  nameWithType: SearchOption.CaseInsensitive
+  fullName: Sdl.LanguagePlatform.Core.SearchOption.CaseInsensitive
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Case-insensitive search.
+  example: []
+  syntax:
+    content: CaseInsensitive = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.SearchOption
+- uid: Sdl.LanguagePlatform.Core.SearchOption.DiacriticsInsensitive
+  commentId: F:Sdl.LanguagePlatform.Core.SearchOption.DiacriticsInsensitive
+  id: DiacriticsInsensitive
+  parent: Sdl.LanguagePlatform.Core.SearchOption
+  langs:
+  - csharp
+  - vb
+  name: DiacriticsInsensitive
+  nameWithType: SearchOption.DiacriticsInsensitive
+  fullName: Sdl.LanguagePlatform.Core.SearchOption.DiacriticsInsensitive
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Diacritics-insensitive search (ignores the accents, umblauts, etc).
+  example: []
+  syntax:
+    content: DiacriticsInsensitive = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.SearchOption
+references:
+- uid: Sdl.LanguagePlatform.Core
+  commentId: N:Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core
+  nameWithType: Sdl.LanguagePlatform.Core
+  fullName: Sdl.LanguagePlatform.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+- uid: Sdl.LanguagePlatform.Core.SearchOption
+  commentId: T:Sdl.LanguagePlatform.Core.SearchOption
+  parent: Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.SearchOption.html
+  name: SearchOption
+  nameWithType: SearchOption
+  fullName: Sdl.LanguagePlatform.Core.SearchOption

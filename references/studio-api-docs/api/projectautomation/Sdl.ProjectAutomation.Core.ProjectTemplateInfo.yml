@@ -1,0 +1,521 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Core.ProjectTemplateInfo
+  commentId: T:Sdl.ProjectAutomation.Core.ProjectTemplateInfo
+  id: ProjectTemplateInfo
+  parent: Sdl.ProjectAutomation.Core
+  children:
+  - Sdl.ProjectAutomation.Core.ProjectTemplateInfo.#ctor
+  - Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Description
+  - Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Id
+  - Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Name
+  - Sdl.ProjectAutomation.Core.ProjectTemplateInfo.ToString
+  - Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Uri
+  langs:
+  - csharp
+  - vb
+  name: ProjectTemplateInfo
+  nameWithType: ProjectTemplateInfo
+  fullName: Sdl.ProjectAutomation.Core.ProjectTemplateInfo
+  type: Class
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Holds information about a project template.
+  example: []
+  syntax:
+    content: public class ProjectTemplateInfo
+    content.vb: Public Class ProjectTemplateInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.ToString
+  commentId: M:Sdl.ProjectAutomation.Core.ProjectTemplateInfo.ToString
+  id: ToString
+  parent: Sdl.ProjectAutomation.Core.ProjectTemplateInfo
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ProjectTemplateInfo.ToString()
+  fullName: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.ToString()
+  type: Method
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: returns the name of the template.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.ToString*
+- uid: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.#ctor
+  commentId: M:Sdl.ProjectAutomation.Core.ProjectTemplateInfo.#ctor
+  id: '#ctor'
+  parent: Sdl.ProjectAutomation.Core.ProjectTemplateInfo
+  langs:
+  - csharp
+  - vb
+  name: ProjectTemplateInfo()
+  nameWithType: ProjectTemplateInfo.ProjectTemplateInfo()
+  fullName: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.ProjectTemplateInfo()
+  type: Constructor
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  syntax:
+    content: public ProjectTemplateInfo()
+    content.vb: Public Sub New()
+  overload: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.#ctor*
+  nameWithType.vb: ProjectTemplateInfo.New()
+  fullName.vb: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.New()
+  name.vb: New()
+- uid: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Id
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Id
+  id: Id
+  parent: Sdl.ProjectAutomation.Core.ProjectTemplateInfo
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: ProjectTemplateInfo.Id
+  fullName: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Id
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The ID of the project template
+  example: []
+  syntax:
+    content: public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Id*
+- uid: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Uri
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Uri
+  id: Uri
+  parent: Sdl.ProjectAutomation.Core.ProjectTemplateInfo
+  langs:
+  - csharp
+  - vb
+  name: Uri
+  nameWithType: ProjectTemplateInfo.Uri
+  fullName: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Uri
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The URI of the project template
+  example: []
+  syntax:
+    content: public Uri Uri { get; set; }
+    parameters: []
+    return:
+      type: System.Uri
+    content.vb: Public Property Uri As Uri
+  overload: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Uri*
+- uid: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Name
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Name
+  id: Name
+  parent: Sdl.ProjectAutomation.Core.ProjectTemplateInfo
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ProjectTemplateInfo.Name
+  fullName: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Name
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The name of the project template.
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Name*
+- uid: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Description
+  commentId: P:Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Description
+  id: Description
+  parent: Sdl.ProjectAutomation.Core.ProjectTemplateInfo
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: ProjectTemplateInfo.Description
+  fullName: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Description
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The description of the project.
+  example: []
+  syntax:
+    content: public string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Description*
+references:
+- uid: Sdl.ProjectAutomation.Core
+  commentId: N:Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Core
+  nameWithType: Sdl.ProjectAutomation.Core
+  fullName: Sdl.ProjectAutomation.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.ToString*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectTemplateInfo.ToString
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.html#Sdl_ProjectAutomation_Core_ProjectTemplateInfo_ToString
+  name: ToString
+  nameWithType: ProjectTemplateInfo.ToString
+  fullName: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.#ctor*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectTemplateInfo.#ctor
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.html#Sdl_ProjectAutomation_Core_ProjectTemplateInfo__ctor
+  name: ProjectTemplateInfo
+  nameWithType: ProjectTemplateInfo.ProjectTemplateInfo
+  fullName: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.ProjectTemplateInfo
+  nameWithType.vb: ProjectTemplateInfo.New
+  fullName.vb: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.New
+  name.vb: New
+- uid: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Id*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Id
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.html#Sdl_ProjectAutomation_Core_ProjectTemplateInfo_Id
+  name: Id
+  nameWithType: ProjectTemplateInfo.Id
+  fullName: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Uri*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Uri
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.html#Sdl_ProjectAutomation_Core_ProjectTemplateInfo_Uri
+  name: Uri
+  nameWithType: ProjectTemplateInfo.Uri
+  fullName: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Uri
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Name*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Name
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.html#Sdl_ProjectAutomation_Core_ProjectTemplateInfo_Name
+  name: Name
+  nameWithType: ProjectTemplateInfo.Name
+  fullName: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Name
+- uid: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Description*
+  commentId: Overload:Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Description
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.html#Sdl_ProjectAutomation_Core_ProjectTemplateInfo_Description
+  name: Description
+  nameWithType: ProjectTemplateInfo.Description
+  fullName: Sdl.ProjectAutomation.Core.ProjectTemplateInfo.Description

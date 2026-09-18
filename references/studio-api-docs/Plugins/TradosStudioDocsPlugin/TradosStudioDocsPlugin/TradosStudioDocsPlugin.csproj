@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<AssemblyTitle>TradosStudioDocsPlugin</AssemblyTitle>
+		<Product>TradosStudioDocsPlugin</Product>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Version Info">
+		<Version>1.0.0.0</Version>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Assembly Publishing">
+		<IsPublishable>true</IsPublishable>
+		<IsPublishable Condition="'$(TargetFramework)' != 'net9.0'">false</IsPublishable>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Docfx.Plugins" Version="2.78.5" />
+		<PackageReference Include="Docfx.Common" Version="2.78.5" />
+		<PackageReference Include="System.Composition" Version="9.0.3" />
+	</ItemGroup>
+
+</Project>

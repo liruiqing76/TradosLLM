@@ -1,0 +1,162 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.IO.TMX.tuSegtype
+  commentId: T:Sdl.LanguagePlatform.IO.TMX.tuSegtype
+  id: tuSegtype
+  parent: Sdl.LanguagePlatform.IO.TMX
+  children:
+  - Sdl.LanguagePlatform.IO.TMX.tuSegtype.block
+  - Sdl.LanguagePlatform.IO.TMX.tuSegtype.paragraph
+  - Sdl.LanguagePlatform.IO.TMX.tuSegtype.phrase
+  - Sdl.LanguagePlatform.IO.TMX.tuSegtype.sentence
+  langs:
+  - csharp
+  - vb
+  name: tuSegtype
+  nameWithType: tuSegtype
+  fullName: Sdl.LanguagePlatform.IO.TMX.tuSegtype
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public enum tuSegtype
+    content.vb: Public Enum tuSegtype
+- uid: Sdl.LanguagePlatform.IO.TMX.tuSegtype.block
+  commentId: F:Sdl.LanguagePlatform.IO.TMX.tuSegtype.block
+  id: block
+  parent: Sdl.LanguagePlatform.IO.TMX.tuSegtype
+  langs:
+  - csharp
+  - vb
+  name: block
+  nameWithType: tuSegtype.block
+  fullName: Sdl.LanguagePlatform.IO.TMX.tuSegtype.block
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: block = 0
+    return:
+      type: Sdl.LanguagePlatform.IO.TMX.tuSegtype
+- uid: Sdl.LanguagePlatform.IO.TMX.tuSegtype.paragraph
+  commentId: F:Sdl.LanguagePlatform.IO.TMX.tuSegtype.paragraph
+  id: paragraph
+  parent: Sdl.LanguagePlatform.IO.TMX.tuSegtype
+  langs:
+  - csharp
+  - vb
+  name: paragraph
+  nameWithType: tuSegtype.paragraph
+  fullName: Sdl.LanguagePlatform.IO.TMX.tuSegtype.paragraph
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: paragraph = 1
+    return:
+      type: Sdl.LanguagePlatform.IO.TMX.tuSegtype
+- uid: Sdl.LanguagePlatform.IO.TMX.tuSegtype.sentence
+  commentId: F:Sdl.LanguagePlatform.IO.TMX.tuSegtype.sentence
+  id: sentence
+  parent: Sdl.LanguagePlatform.IO.TMX.tuSegtype
+  langs:
+  - csharp
+  - vb
+  name: sentence
+  nameWithType: tuSegtype.sentence
+  fullName: Sdl.LanguagePlatform.IO.TMX.tuSegtype.sentence
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: sentence = 2
+    return:
+      type: Sdl.LanguagePlatform.IO.TMX.tuSegtype
+- uid: Sdl.LanguagePlatform.IO.TMX.tuSegtype.phrase
+  commentId: F:Sdl.LanguagePlatform.IO.TMX.tuSegtype.phrase
+  id: phrase
+  parent: Sdl.LanguagePlatform.IO.TMX.tuSegtype
+  langs:
+  - csharp
+  - vb
+  name: phrase
+  nameWithType: tuSegtype.phrase
+  fullName: Sdl.LanguagePlatform.IO.TMX.tuSegtype.phrase
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: phrase = 3
+    return:
+      type: Sdl.LanguagePlatform.IO.TMX.tuSegtype
+references:
+- uid: Sdl.LanguagePlatform.IO.TMX
+  commentId: N:Sdl.LanguagePlatform.IO.TMX
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.IO.TMX
+  nameWithType: Sdl.LanguagePlatform.IO.TMX
+  fullName: Sdl.LanguagePlatform.IO.TMX
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO
+    name: IO
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO.TMX
+    name: TMX
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.TMX.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO
+    name: IO
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO.TMX
+    name: TMX
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.TMX.html
+- uid: Sdl.LanguagePlatform.IO.TMX.tuSegtype
+  commentId: T:Sdl.LanguagePlatform.IO.TMX.tuSegtype
+  parent: Sdl.LanguagePlatform.IO.TMX
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.tuSegtype.html
+  name: tuSegtype
+  nameWithType: tuSegtype
+  fullName: Sdl.LanguagePlatform.IO.TMX.tuSegtype

@@ -1,0 +1,790 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  commentId: T:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  id: ITerminologyProviderViewerWinFormsUI
+  parent: Sdl.Terminology.TerminologyProvider.Core
+  children:
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddAndEditTerm(Sdl.Terminology.TerminologyProvider.Core.Entry,System.String,System.String)
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddTerm(System.String,System.String)
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CanAddTerm
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CancelTerm
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Control
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.EditTerm(Sdl.Terminology.TerminologyProvider.Core.Entry)
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialize(Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider,Sdl.Core.Globalization.CultureCode,Sdl.Core.Globalization.CultureCode)
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialized
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.IsEditing
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.JumpToTerm(Sdl.Terminology.TerminologyProvider.Core.Entry)
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Release
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SaveTerm
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SelectedTerm
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SelectedTermChanged
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SupportsTerminologyProviderUri(System.Uri)
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.TermChanged
+  langs:
+  - csharp
+  - vb
+  name: ITerminologyProviderViewerWinFormsUI
+  nameWithType: ITerminologyProviderViewerWinFormsUI
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  type: Interface
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: >-
+    This interface should be implemented by terminology provider implementers that are able to provide more information about a term when required in the Trados Studio Editor View
+
+    Implementation of this interface should be marked up with the <xref href="Sdl.Terminology.TerminologyProvider.Core.TerminologyProviderViewerWinFormsUIAttribute" data-throw-if-not-resolved="false"></xref> attribute for registration it with the plug-in manager.
+  example: []
+  syntax:
+    content: public interface ITerminologyProviderViewerWinFormsUI
+    content.vb: Public Interface ITerminologyProviderViewerWinFormsUI
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SupportsTerminologyProviderUri(System.Uri)
+  commentId: M:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SupportsTerminologyProviderUri(System.Uri)
+  id: SupportsTerminologyProviderUri(System.Uri)
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: SupportsTerminologyProviderUri(Uri)
+  nameWithType: ITerminologyProviderViewerWinFormsUI.SupportsTerminologyProviderUri(Uri)
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SupportsTerminologyProviderUri(System.Uri)
+  type: Method
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Returns true if this component supports the specified terminology provider URI.
+  example: []
+  syntax:
+    content: bool SupportsTerminologyProviderUri(Uri terminologyProviderUri)
+    parameters:
+    - id: terminologyProviderUri
+      type: System.Uri
+      description: The uri.
+    return:
+      type: System.Boolean
+      description: True if this component supports the specified terminology provider URI.
+    content.vb: Function SupportsTerminologyProviderUri(terminologyProviderUri As Uri) As Boolean
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SupportsTerminologyProviderUri*
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.JumpToTerm(Sdl.Terminology.TerminologyProvider.Core.Entry)
+  commentId: M:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.JumpToTerm(Sdl.Terminology.TerminologyProvider.Core.Entry)
+  id: JumpToTerm(Sdl.Terminology.TerminologyProvider.Core.Entry)
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: JumpToTerm(Entry)
+  nameWithType: ITerminologyProviderViewerWinFormsUI.JumpToTerm(Entry)
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.JumpToTerm(Sdl.Terminology.TerminologyProvider.Core.Entry)
+  type: Method
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: The user requested to see more information about an entry. Usually triggered by the "View term details" action in the Term Recognition window from the Editor View.
+  example: []
+  syntax:
+    content: void JumpToTerm(Entry entry)
+    parameters:
+    - id: entry
+      type: Sdl.Terminology.TerminologyProvider.Core.Entry
+      description: The entry which should be displayed in the Termbase Viewer window
+    content.vb: Sub JumpToTerm(entry As Entry)
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.JumpToTerm*
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddTerm(System.String,System.String)
+  commentId: M:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddTerm(System.String,System.String)
+  id: AddTerm(System.String,System.String)
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: AddTerm(string, string)
+  nameWithType: ITerminologyProviderViewerWinFormsUI.AddTerm(string, string)
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddTerm(string, string)
+  type: Method
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: The user requested to add a new entry into the terminology provider.
+  example: []
+  syntax:
+    content: void AddTerm(string source, string target)
+    parameters:
+    - id: source
+      type: System.String
+      description: The text for the source term.
+    - id: target
+      type: System.String
+      description: The text for the target term.
+    content.vb: Sub AddTerm(source As String, target As String)
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddTerm*
+  nameWithType.vb: ITerminologyProviderViewerWinFormsUI.AddTerm(String, String)
+  fullName.vb: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddTerm(String, String)
+  name.vb: AddTerm(String, String)
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.EditTerm(Sdl.Terminology.TerminologyProvider.Core.Entry)
+  commentId: M:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.EditTerm(Sdl.Terminology.TerminologyProvider.Core.Entry)
+  id: EditTerm(Sdl.Terminology.TerminologyProvider.Core.Entry)
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: EditTerm(Entry)
+  nameWithType: ITerminologyProviderViewerWinFormsUI.EditTerm(Entry)
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.EditTerm(Sdl.Terminology.TerminologyProvider.Core.Entry)
+  type: Method
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: The user triggered an editing on the specified term.
+  example: []
+  syntax:
+    content: void EditTerm(Entry term)
+    parameters:
+    - id: term
+      type: Sdl.Terminology.TerminologyProvider.Core.Entry
+      description: The term to edit.
+    content.vb: Sub EditTerm(term As Entry)
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.EditTerm*
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddAndEditTerm(Sdl.Terminology.TerminologyProvider.Core.Entry,System.String,System.String)
+  commentId: M:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddAndEditTerm(Sdl.Terminology.TerminologyProvider.Core.Entry,System.String,System.String)
+  id: AddAndEditTerm(Sdl.Terminology.TerminologyProvider.Core.Entry,System.String,System.String)
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: AddAndEditTerm(Entry, string, string)
+  nameWithType: ITerminologyProviderViewerWinFormsUI.AddAndEditTerm(Entry, string, string)
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddAndEditTerm(Sdl.Terminology.TerminologyProvider.Core.Entry, string, string)
+  type: Method
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: The user triggered an add on an already existing term.
+  example: []
+  syntax:
+    content: void AddAndEditTerm(Entry term, string source, string target)
+    parameters:
+    - id: term
+      type: Sdl.Terminology.TerminologyProvider.Core.Entry
+      description: The term with the same source that already exists.
+    - id: source
+      type: System.String
+      description: The new text for the source.
+    - id: target
+      type: System.String
+      description: The text for the target.
+    content.vb: Sub AddAndEditTerm(term As Entry, source As String, target As String)
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddAndEditTerm*
+  nameWithType.vb: ITerminologyProviderViewerWinFormsUI.AddAndEditTerm(Entry, String, String)
+  fullName.vb: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddAndEditTerm(Sdl.Terminology.TerminologyProvider.Core.Entry, String, String)
+  name.vb: AddAndEditTerm(Entry, String, String)
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CancelTerm
+  commentId: M:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CancelTerm
+  id: CancelTerm
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: CancelTerm()
+  nameWithType: ITerminologyProviderViewerWinFormsUI.CancelTerm()
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CancelTerm()
+  type: Method
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Cancels the current term editing operation.
+  example: []
+  syntax:
+    content: void CancelTerm()
+    content.vb: Sub CancelTerm()
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CancelTerm*
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SaveTerm
+  commentId: M:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SaveTerm
+  id: SaveTerm
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: SaveTerm()
+  nameWithType: ITerminologyProviderViewerWinFormsUI.SaveTerm()
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SaveTerm()
+  type: Method
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Saves the current state of a term.
+  example: []
+  syntax:
+    content: void SaveTerm()
+    content.vb: Sub SaveTerm()
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SaveTerm*
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialize(Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider,Sdl.Core.Globalization.CultureCode,Sdl.Core.Globalization.CultureCode)
+  commentId: M:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialize(Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider,Sdl.Core.Globalization.CultureCode,Sdl.Core.Globalization.CultureCode)
+  id: Initialize(Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider,Sdl.Core.Globalization.CultureCode,Sdl.Core.Globalization.CultureCode)
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: Initialize(ITerminologyProvider, CultureCode, CultureCode)
+  nameWithType: ITerminologyProviderViewerWinFormsUI.Initialize(ITerminologyProvider, CultureCode, CultureCode)
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialize(Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider, Sdl.Core.Globalization.CultureCode, Sdl.Core.Globalization.CultureCode)
+  type: Method
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Called when the terminology provider viewer is initialized.
+  example: []
+  syntax:
+    content: void Initialize(ITerminologyProvider terminologyProvider, CultureCode source, CultureCode target)
+    parameters:
+    - id: terminologyProvider
+      type: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider
+      description: The terminology provider to be used in the current viewer instance.
+    - id: source
+      type: Sdl.Core.Globalization.CultureCode
+      description: The source language for the current document language direction.
+    - id: target
+      type: Sdl.Core.Globalization.CultureCode
+      description: The target language for the current document language direction.
+    content.vb: Sub Initialize(terminologyProvider As ITerminologyProvider, source As CultureCode, target As CultureCode)
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialize*
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Release
+  commentId: M:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Release
+  id: Release
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: Release()
+  nameWithType: ITerminologyProviderViewerWinFormsUI.Release()
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Release()
+  type: Method
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Called when the terminology provider viewer is not needed anymore.
+  example: []
+  syntax:
+    content: void Release()
+    content.vb: Sub Release()
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Release*
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CanAddTerm
+  commentId: P:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CanAddTerm
+  id: CanAddTerm
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: CanAddTerm
+  nameWithType: ITerminologyProviderViewerWinFormsUI.CanAddTerm
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CanAddTerm
+  type: Property
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Returns whether this component supports adding a term.
+  example: []
+  syntax:
+    content: bool CanAddTerm { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: Returns true if this component supports adding a term; otherwise, false.
+    content.vb: ReadOnly Property CanAddTerm As Boolean
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CanAddTerm*
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.IsEditing
+  commentId: P:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.IsEditing
+  id: IsEditing
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: IsEditing
+  nameWithType: ITerminologyProviderViewerWinFormsUI.IsEditing
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.IsEditing
+  type: Property
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Returns wether this component is in edit mode.
+  example: []
+  syntax:
+    content: bool IsEditing { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: Returns true if this component is in edit mode; otherwise, false.
+    content.vb: ReadOnly Property IsEditing As Boolean
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.IsEditing*
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Control
+  commentId: P:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Control
+  id: Control
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: Control
+  nameWithType: ITerminologyProviderViewerWinFormsUI.Control
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Control
+  type: Property
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: The control to be displayed in the Termbase Viewer window in the Editor View
+  example: []
+  syntax:
+    content: Control Control { get; }
+    parameters: []
+    return:
+      type: System.Windows.Forms.Control
+    content.vb: ReadOnly Property Control As Control
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Control*
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialized
+  commentId: P:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialized
+  id: Initialized
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: Initialized
+  nameWithType: ITerminologyProviderViewerWinFormsUI.Initialized
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialized
+  type: Property
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Determines whether the viewer was initialized.
+  example: []
+  syntax:
+    content: bool Initialized { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property Initialized As Boolean
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialized*
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SelectedTerm
+  commentId: P:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SelectedTerm
+  id: SelectedTerm
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: SelectedTerm
+  nameWithType: ITerminologyProviderViewerWinFormsUI.SelectedTerm
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SelectedTerm
+  type: Property
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Gets or sets the term that is currently active in the Termbase Viewer window
+  example: []
+  syntax:
+    content: Entry SelectedTerm { get; set; }
+    parameters: []
+    return:
+      type: Sdl.Terminology.TerminologyProvider.Core.Entry
+    content.vb: Property SelectedTerm As Entry
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SelectedTerm*
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.TermChanged
+  commentId: E:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.TermChanged
+  id: TermChanged
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: TermChanged
+  nameWithType: ITerminologyProviderViewerWinFormsUI.TermChanged
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.TermChanged
+  type: Event
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: >-
+    Triggered when something has in the terminology provider. Usually used when adding, editing or removing a term.
+
+    This event will trigger a new term recognition for the active segment.
+  example: []
+  syntax:
+    content: event EventHandler TermChanged
+    return:
+      type: System.EventHandler
+    content.vb: Event TermChanged As EventHandler
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SelectedTermChanged
+  commentId: E:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SelectedTermChanged
+  id: SelectedTermChanged
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI
+  langs:
+  - csharp
+  - vb
+  name: SelectedTermChanged
+  nameWithType: ITerminologyProviderViewerWinFormsUI.SelectedTermChanged
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SelectedTermChanged
+  type: Event
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Triggered when the active term has changed, when triggered it will save the specified term on the active document.
+  example: []
+  syntax:
+    content: event EventHandler<EntryEventArgs> SelectedTermChanged
+    return:
+      type: System.EventHandler{Sdl.Terminology.TerminologyProvider.Core.EntryEventArgs}
+    content.vb: Event SelectedTermChanged As EventHandler(Of EntryEventArgs)
+references:
+- uid: Sdl.Terminology.TerminologyProvider.Core.TerminologyProviderViewerWinFormsUIAttribute
+  commentId: T:Sdl.Terminology.TerminologyProvider.Core.TerminologyProviderViewerWinFormsUIAttribute
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.TerminologyProviderViewerWinFormsUIAttribute.html
+  name: TerminologyProviderViewerWinFormsUIAttribute
+  nameWithType: TerminologyProviderViewerWinFormsUIAttribute
+  fullName: Sdl.Terminology.TerminologyProvider.Core.TerminologyProviderViewerWinFormsUIAttribute
+- uid: Sdl.Terminology.TerminologyProvider.Core
+  commentId: N:Sdl.Terminology.TerminologyProvider.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Terminology.TerminologyProvider.Core
+  nameWithType: Sdl.Terminology.TerminologyProvider.Core
+  fullName: Sdl.Terminology.TerminologyProvider.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Terminology
+    name: Terminology
+    isExternal: true
+    href: Sdl.Terminology.html
+  - name: .
+  - uid: Sdl.Terminology.TerminologyProvider
+    name: TerminologyProvider
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.html
+  - name: .
+  - uid: Sdl.Terminology.TerminologyProvider.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Terminology
+    name: Terminology
+    isExternal: true
+    href: Sdl.Terminology.html
+  - name: .
+  - uid: Sdl.Terminology.TerminologyProvider
+    name: TerminologyProvider
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.html
+  - name: .
+  - uid: Sdl.Terminology.TerminologyProvider.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.Core.html
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SupportsTerminologyProviderUri*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SupportsTerminologyProviderUri
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_SupportsTerminologyProviderUri_System_Uri_
+  name: SupportsTerminologyProviderUri
+  nameWithType: ITerminologyProviderViewerWinFormsUI.SupportsTerminologyProviderUri
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SupportsTerminologyProviderUri
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.JumpToTerm*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.JumpToTerm
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_JumpToTerm_Sdl_Terminology_TerminologyProvider_Core_Entry_
+  name: JumpToTerm
+  nameWithType: ITerminologyProviderViewerWinFormsUI.JumpToTerm
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.JumpToTerm
+- uid: Sdl.Terminology.TerminologyProvider.Core.Entry
+  commentId: T:Sdl.Terminology.TerminologyProvider.Core.Entry
+  parent: Sdl.Terminology.TerminologyProvider.Core
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.Entry.html
+  name: Entry
+  nameWithType: Entry
+  fullName: Sdl.Terminology.TerminologyProvider.Core.Entry
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddTerm*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddTerm
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_AddTerm_System_String_System_String_
+  name: AddTerm
+  nameWithType: ITerminologyProviderViewerWinFormsUI.AddTerm
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddTerm
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.EditTerm*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.EditTerm
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_EditTerm_Sdl_Terminology_TerminologyProvider_Core_Entry_
+  name: EditTerm
+  nameWithType: ITerminologyProviderViewerWinFormsUI.EditTerm
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.EditTerm
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddAndEditTerm*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddAndEditTerm
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_AddAndEditTerm_Sdl_Terminology_TerminologyProvider_Core_Entry_System_String_System_String_
+  name: AddAndEditTerm
+  nameWithType: ITerminologyProviderViewerWinFormsUI.AddAndEditTerm
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.AddAndEditTerm
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CancelTerm*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CancelTerm
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_CancelTerm
+  name: CancelTerm
+  nameWithType: ITerminologyProviderViewerWinFormsUI.CancelTerm
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CancelTerm
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SaveTerm*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SaveTerm
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_SaveTerm
+  name: SaveTerm
+  nameWithType: ITerminologyProviderViewerWinFormsUI.SaveTerm
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SaveTerm
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialize*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialize
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_Initialize_Sdl_Terminology_TerminologyProvider_Core_ITerminologyProvider_Sdl_Core_Globalization_CultureCode_Sdl_Core_Globalization_CultureCode_
+  name: Initialize
+  nameWithType: ITerminologyProviderViewerWinFormsUI.Initialize
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialize
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider
+  commentId: T:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider
+  parent: Sdl.Terminology.TerminologyProvider.Core
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider.html
+  name: ITerminologyProvider
+  nameWithType: ITerminologyProvider
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider
+- uid: Sdl.Core.Globalization.CultureCode
+  commentId: T:Sdl.Core.Globalization.CultureCode
+  parent: Sdl.Core.Globalization
+  isExternal: true
+  name: CultureCode
+  nameWithType: CultureCode
+  fullName: Sdl.Core.Globalization.CultureCode
+- uid: Sdl.Core.Globalization
+  commentId: N:Sdl.Core.Globalization
+  isExternal: true
+  name: Sdl.Core.Globalization
+  nameWithType: Sdl.Core.Globalization
+  fullName: Sdl.Core.Globalization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Release*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Release
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_Release
+  name: Release
+  nameWithType: ITerminologyProviderViewerWinFormsUI.Release
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Release
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CanAddTerm*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CanAddTerm
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_CanAddTerm
+  name: CanAddTerm
+  nameWithType: ITerminologyProviderViewerWinFormsUI.CanAddTerm
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.CanAddTerm
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.IsEditing*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.IsEditing
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_IsEditing
+  name: IsEditing
+  nameWithType: ITerminologyProviderViewerWinFormsUI.IsEditing
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.IsEditing
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Control*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Control
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_Control
+  name: Control
+  nameWithType: ITerminologyProviderViewerWinFormsUI.Control
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Control
+- uid: System.Windows.Forms.Control
+  commentId: T:System.Windows.Forms.Control
+  parent: System.Windows.Forms
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.windows.forms.control
+  name: Control
+  nameWithType: Control
+  fullName: System.Windows.Forms.Control
+- uid: System.Windows.Forms
+  commentId: N:System.Windows.Forms
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Windows.Forms
+  nameWithType: System.Windows.Forms
+  fullName: System.Windows.Forms
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows
+  - name: .
+  - uid: System.Windows.Forms
+    name: Forms
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.forms
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows
+  - name: .
+  - uid: System.Windows.Forms
+    name: Forms
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.forms
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialized*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialized
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_Initialized
+  name: Initialized
+  nameWithType: ITerminologyProviderViewerWinFormsUI.Initialized
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.Initialized
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SelectedTerm*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SelectedTerm
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderViewerWinFormsUI_SelectedTerm
+  name: SelectedTerm
+  nameWithType: ITerminologyProviderViewerWinFormsUI.SelectedTerm
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderViewerWinFormsUI.SelectedTerm
+- uid: System.EventHandler
+  commentId: T:System.EventHandler
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler
+  name: EventHandler
+  nameWithType: EventHandler
+  fullName: System.EventHandler
+- uid: System.EventHandler{Sdl.Terminology.TerminologyProvider.Core.EntryEventArgs}
+  commentId: T:System.EventHandler{Sdl.Terminology.TerminologyProvider.Core.EntryEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<EntryEventArgs>
+  nameWithType: EventHandler<EntryEventArgs>
+  fullName: System.EventHandler<Sdl.Terminology.TerminologyProvider.Core.EntryEventArgs>
+  nameWithType.vb: EventHandler(Of EntryEventArgs)
+  fullName.vb: System.EventHandler(Of Sdl.Terminology.TerminologyProvider.Core.EntryEventArgs)
+  name.vb: EventHandler(Of EntryEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: Sdl.Terminology.TerminologyProvider.Core.EntryEventArgs
+    name: EntryEventArgs
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.Core.EntryEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Terminology.TerminologyProvider.Core.EntryEventArgs
+    name: EntryEventArgs
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.Core.EntryEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )

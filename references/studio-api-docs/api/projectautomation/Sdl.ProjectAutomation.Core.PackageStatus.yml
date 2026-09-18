@@ -1,0 +1,255 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Core.PackageStatus
+  commentId: T:Sdl.ProjectAutomation.Core.PackageStatus
+  id: PackageStatus
+  parent: Sdl.ProjectAutomation.Core
+  children:
+  - Sdl.ProjectAutomation.Core.PackageStatus.Cancelled
+  - Sdl.ProjectAutomation.Core.PackageStatus.Cancelling
+  - Sdl.ProjectAutomation.Core.PackageStatus.Completed
+  - Sdl.ProjectAutomation.Core.PackageStatus.Failed
+  - Sdl.ProjectAutomation.Core.PackageStatus.InProgress
+  - Sdl.ProjectAutomation.Core.PackageStatus.Invalid
+  - Sdl.ProjectAutomation.Core.PackageStatus.NotStarted
+  - Sdl.ProjectAutomation.Core.PackageStatus.Scheduled
+  langs:
+  - csharp
+  - vb
+  name: PackageStatus
+  nameWithType: PackageStatus
+  fullName: Sdl.ProjectAutomation.Core.PackageStatus
+  type: Enum
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Status values for project and return package operations
+  example: []
+  syntax:
+    content: public enum PackageStatus
+    content.vb: Public Enum PackageStatus
+- uid: Sdl.ProjectAutomation.Core.PackageStatus.Invalid
+  commentId: F:Sdl.ProjectAutomation.Core.PackageStatus.Invalid
+  id: Invalid
+  parent: Sdl.ProjectAutomation.Core.PackageStatus
+  langs:
+  - csharp
+  - vb
+  name: Invalid
+  nameWithType: PackageStatus.Invalid
+  fullName: Sdl.ProjectAutomation.Core.PackageStatus.Invalid
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Value not set.
+  example: []
+  syntax:
+    content: Invalid = 0
+    return:
+      type: Sdl.ProjectAutomation.Core.PackageStatus
+- uid: Sdl.ProjectAutomation.Core.PackageStatus.NotStarted
+  commentId: F:Sdl.ProjectAutomation.Core.PackageStatus.NotStarted
+  id: NotStarted
+  parent: Sdl.ProjectAutomation.Core.PackageStatus
+  langs:
+  - csharp
+  - vb
+  name: NotStarted
+  nameWithType: PackageStatus.NotStarted
+  fullName: Sdl.ProjectAutomation.Core.PackageStatus.NotStarted
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The package operation has not yet been scheduled or started.
+  example: []
+  syntax:
+    content: NotStarted = 1
+    return:
+      type: Sdl.ProjectAutomation.Core.PackageStatus
+- uid: Sdl.ProjectAutomation.Core.PackageStatus.Scheduled
+  commentId: F:Sdl.ProjectAutomation.Core.PackageStatus.Scheduled
+  id: Scheduled
+  parent: Sdl.ProjectAutomation.Core.PackageStatus
+  langs:
+  - csharp
+  - vb
+  name: Scheduled
+  nameWithType: PackageStatus.Scheduled
+  fullName: Sdl.ProjectAutomation.Core.PackageStatus.Scheduled
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The package operation is scheduled to be executed, but the execution has not been started yet.
+  example: []
+  syntax:
+    content: Scheduled = 2
+    return:
+      type: Sdl.ProjectAutomation.Core.PackageStatus
+- uid: Sdl.ProjectAutomation.Core.PackageStatus.InProgress
+  commentId: F:Sdl.ProjectAutomation.Core.PackageStatus.InProgress
+  id: InProgress
+  parent: Sdl.ProjectAutomation.Core.PackageStatus
+  langs:
+  - csharp
+  - vb
+  name: InProgress
+  nameWithType: PackageStatus.InProgress
+  fullName: Sdl.ProjectAutomation.Core.PackageStatus.InProgress
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The package operation is in the process Server.
+  example: []
+  syntax:
+    content: InProgress = 3
+    return:
+      type: Sdl.ProjectAutomation.Core.PackageStatus
+- uid: Sdl.ProjectAutomation.Core.PackageStatus.Failed
+  commentId: F:Sdl.ProjectAutomation.Core.PackageStatus.Failed
+  id: Failed
+  parent: Sdl.ProjectAutomation.Core.PackageStatus
+  langs:
+  - csharp
+  - vb
+  name: Failed
+  nameWithType: PackageStatus.Failed
+  fullName: Sdl.ProjectAutomation.Core.PackageStatus.Failed
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    The package operation has failed. At least one error messages will have been generated
+
+    (see <xref href="Sdl.ProjectAutomation.Core.PackageOperation.Messages" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Failed = 4
+    return:
+      type: Sdl.ProjectAutomation.Core.PackageStatus
+- uid: Sdl.ProjectAutomation.Core.PackageStatus.Completed
+  commentId: F:Sdl.ProjectAutomation.Core.PackageStatus.Completed
+  id: Completed
+  parent: Sdl.ProjectAutomation.Core.PackageStatus
+  langs:
+  - csharp
+  - vb
+  name: Completed
+  nameWithType: PackageStatus.Completed
+  fullName: Sdl.ProjectAutomation.Core.PackageStatus.Completed
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The package operation has been successfully completed.
+  example: []
+  syntax:
+    content: Completed = 5
+    return:
+      type: Sdl.ProjectAutomation.Core.PackageStatus
+- uid: Sdl.ProjectAutomation.Core.PackageStatus.Cancelling
+  commentId: F:Sdl.ProjectAutomation.Core.PackageStatus.Cancelling
+  id: Cancelling
+  parent: Sdl.ProjectAutomation.Core.PackageStatus
+  langs:
+  - csharp
+  - vb
+  name: Cancelling
+  nameWithType: PackageStatus.Cancelling
+  fullName: Sdl.ProjectAutomation.Core.PackageStatus.Cancelling
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The user has requested cancellation of the package operation, but the system has not responded to this request yet.
+  example: []
+  syntax:
+    content: Cancelling = 6
+    return:
+      type: Sdl.ProjectAutomation.Core.PackageStatus
+- uid: Sdl.ProjectAutomation.Core.PackageStatus.Cancelled
+  commentId: F:Sdl.ProjectAutomation.Core.PackageStatus.Cancelled
+  id: Cancelled
+  parent: Sdl.ProjectAutomation.Core.PackageStatus
+  langs:
+  - csharp
+  - vb
+  name: Cancelled
+  nameWithType: PackageStatus.Cancelled
+  fullName: Sdl.ProjectAutomation.Core.PackageStatus.Cancelled
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The package operation was cancelled.
+  example: []
+  syntax:
+    content: Cancelled = 7
+    return:
+      type: Sdl.ProjectAutomation.Core.PackageStatus
+references:
+- uid: Sdl.ProjectAutomation.Core
+  commentId: N:Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Core
+  nameWithType: Sdl.ProjectAutomation.Core
+  fullName: Sdl.ProjectAutomation.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+- uid: Sdl.ProjectAutomation.Core.PackageStatus
+  commentId: T:Sdl.ProjectAutomation.Core.PackageStatus
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.PackageStatus.html
+  name: PackageStatus
+  nameWithType: PackageStatus
+  fullName: Sdl.ProjectAutomation.Core.PackageStatus
+- uid: Sdl.ProjectAutomation.Core.PackageOperation.Messages
+  commentId: P:Sdl.ProjectAutomation.Core.PackageOperation.Messages
+  parent: Sdl.ProjectAutomation.Core.PackageOperation
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.PackageOperation.html#Sdl_ProjectAutomation_Core_PackageOperation_Messages
+  name: Messages
+  nameWithType: PackageOperation.Messages
+  fullName: Sdl.ProjectAutomation.Core.PackageOperation.Messages
+- uid: Sdl.ProjectAutomation.Core.PackageOperation
+  commentId: T:Sdl.ProjectAutomation.Core.PackageOperation
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.PackageOperation.html
+  name: PackageOperation
+  nameWithType: PackageOperation
+  fullName: Sdl.ProjectAutomation.Core.PackageOperation

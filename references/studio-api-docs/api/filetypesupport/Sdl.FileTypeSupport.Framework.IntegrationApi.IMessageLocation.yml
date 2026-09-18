@@ -1,0 +1,604 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  id: IMessageLocation
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  children:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoParagraph
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoSegment
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.FileId
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.LocationDescription
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagrahUnitId
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagraphLocation
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SegmentId
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SourceOrTarget
+  langs:
+  - csharp
+  - vb
+  name: IMessageLocation
+  nameWithType: IMessageLocation
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Used with messages that link to a document location to
+
+    provide a mechanism to retrieve the corresponding positions
+
+    in the bilingual content model.
+  example: []
+  syntax:
+    content: public interface IMessageLocation
+    content.vb: Public Interface IMessageLocation
+  derivedClasses:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.IntegrationApi.BilingualMessageLocation
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.FileId
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.FileId
+  id: FileId
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  langs:
+  - csharp
+  - vb
+  name: FileId
+  nameWithType: IMessageLocation.FileId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.FileId
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Id of the file that the location refers to, 
+
+    or <code>null</code> if none.
+  example: []
+  syntax:
+    content: FileId? FileId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{Sdl.FileTypeSupport.Framework.NativeApi.FileId}
+    content.vb: Property FileId As FileId?
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.FileId*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagrahUnitId
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagrahUnitId
+  id: ParagrahUnitId
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  langs:
+  - csharp
+  - vb
+  name: ParagrahUnitId
+  nameWithType: IMessageLocation.ParagrahUnitId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagrahUnitId
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Id of the paragraph unit that the location refers to,
+
+    or <code>null</code> if none.
+  example: []
+  syntax:
+    content: ParagraphUnitId? ParagrahUnitId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId}
+    content.vb: Property ParagrahUnitId As ParagraphUnitId?
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagrahUnitId*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SegmentId
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SegmentId
+  id: SegmentId
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  langs:
+  - csharp
+  - vb
+  name: SegmentId
+  nameWithType: IMessageLocation.SegmentId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SegmentId
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Id of the segment that the location refers to, or
+
+    <code>null</code> if none.
+  example: []
+  syntax:
+    content: SegmentId? SegmentId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{Sdl.FileTypeSupport.Framework.NativeApi.SegmentId}
+    content.vb: Property SegmentId As SegmentId?
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SegmentId*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SourceOrTarget
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SourceOrTarget
+  id: SourceOrTarget
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  langs:
+  - csharp
+  - vb
+  name: SourceOrTarget
+  nameWithType: IMessageLocation.SourceOrTarget
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SourceOrTarget
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Indicates whether the location refers to the source or target.
+  example: []
+  syntax:
+    content: ContentRestriction SourceOrTarget { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ContentRestriction
+    content.vb: Property SourceOrTarget As ContentRestriction
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SourceOrTarget*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoParagraph
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoParagraph
+  id: CharactersIntoParagraph
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  langs:
+  - csharp
+  - vb
+  name: CharactersIntoParagraph
+  nameWithType: IMessageLocation.CharactersIntoParagraph
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoParagraph
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Number of characters from the start of the paragraph; used when
+
+    translating and persisting message locations. The
+
+    bilingual paragraph location may be calculated from this.
+  remarks: A value of -1 implies this property has not been set.
+  example: []
+  syntax:
+    content: int CharactersIntoParagraph { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Property CharactersIntoParagraph As Integer
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoParagraph*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoSegment
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoSegment
+  id: CharactersIntoSegment
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  langs:
+  - csharp
+  - vb
+  name: CharactersIntoSegment
+  nameWithType: IMessageLocation.CharactersIntoSegment
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoSegment
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Number of characters from the start of the segment if the
+
+    location is inside a segment. Used when translating and
+
+    persisting message locations. The bilingual paragraph location
+
+    may be calculated from this.
+  remarks: >-
+    This value is only valid if the <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SegmentId" data-throw-if-not-resolved="false"></xref> value
+
+    is not <code>null</code>. A value of -1 implies that this property has not been set.
+  example: []
+  syntax:
+    content: int CharactersIntoSegment { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Property CharactersIntoSegment As Integer
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoSegment*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagraphLocation
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagraphLocation
+  id: ParagraphLocation
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  langs:
+  - csharp
+  - vb
+  name: ParagraphLocation
+  nameWithType: IMessageLocation.ParagraphLocation
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagraphLocation
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Text location that the message refers to within the source
+
+    or target paragraph, or <code>null</code> if none.
+  example: []
+  syntax:
+    content: TextLocation ParagraphLocation { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.TextLocation
+    content.vb: Property ParagraphLocation As TextLocation
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagraphLocation*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.LocationDescription
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.LocationDescription
+  id: LocationDescription
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  langs:
+  - csharp
+  - vb
+  name: LocationDescription
+  nameWithType: IMessageLocation.LocationDescription
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.LocationDescription
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Textual description of the location. This is used for
+
+    messages for which a link to the actual location in the document cannot 
+
+    be provided (e.g. if they refer to a different file
+
+    or if no actual document location could be determined).
+  example: []
+  syntax:
+    content: string LocationDescription { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property LocationDescription As String
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.LocationDescription*
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.FileId*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.FileId
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IMessageLocation_FileId
+  name: FileId
+  nameWithType: IMessageLocation.FileId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.FileId
+- uid: System.Nullable{Sdl.FileTypeSupport.Framework.NativeApi.FileId}
+  commentId: T:System.Nullable{Sdl.FileTypeSupport.Framework.NativeApi.FileId}
+  parent: System
+  definition: System.Nullable`1
+  href: Sdl.FileTypeSupport.Framework.NativeApi.FileId.html
+  name: FileId?
+  nameWithType: FileId?
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.FileId?
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.FileId
+    name: FileId
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.FileId.html
+  - name: '?'
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.FileId
+    name: FileId
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.FileId.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagrahUnitId*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagrahUnitId
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IMessageLocation_ParagrahUnitId
+  name: ParagrahUnitId
+  nameWithType: IMessageLocation.ParagrahUnitId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagrahUnitId
+- uid: System.Nullable{Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId}
+  commentId: T:System.Nullable{Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId}
+  parent: System
+  definition: System.Nullable`1
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId.html
+  name: ParagraphUnitId?
+  nameWithType: ParagraphUnitId?
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId?
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId
+    name: ParagraphUnitId
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId.html
+  - name: '?'
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId
+    name: ParagraphUnitId
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId.html
+  - name: '?'
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SegmentId*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SegmentId
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IMessageLocation_SegmentId
+  name: SegmentId
+  nameWithType: IMessageLocation.SegmentId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SegmentId
+- uid: System.Nullable{Sdl.FileTypeSupport.Framework.NativeApi.SegmentId}
+  commentId: T:System.Nullable{Sdl.FileTypeSupport.Framework.NativeApi.SegmentId}
+  parent: System
+  definition: System.Nullable`1
+  href: Sdl.FileTypeSupport.Framework.NativeApi.SegmentId.html
+  name: SegmentId?
+  nameWithType: SegmentId?
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SegmentId?
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.SegmentId
+    name: SegmentId
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.SegmentId.html
+  - name: '?'
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.SegmentId
+    name: SegmentId
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.SegmentId.html
+  - name: '?'
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SourceOrTarget*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SourceOrTarget
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IMessageLocation_SourceOrTarget
+  name: SourceOrTarget
+  nameWithType: IMessageLocation.SourceOrTarget
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SourceOrTarget
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ContentRestriction
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ContentRestriction
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ContentRestriction.html
+  name: ContentRestriction
+  nameWithType: ContentRestriction
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ContentRestriction
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoParagraph*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoParagraph
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IMessageLocation_CharactersIntoParagraph
+  name: CharactersIntoParagraph
+  nameWithType: IMessageLocation.CharactersIntoParagraph
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoParagraph
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SegmentId
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SegmentId
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IMessageLocation_SegmentId
+  name: SegmentId
+  nameWithType: IMessageLocation.SegmentId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.SegmentId
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoSegment*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoSegment
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IMessageLocation_CharactersIntoSegment
+  name: CharactersIntoSegment
+  nameWithType: IMessageLocation.CharactersIntoSegment
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.CharactersIntoSegment
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.html
+  name: IMessageLocation
+  nameWithType: IMessageLocation
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagraphLocation*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagraphLocation
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IMessageLocation_ParagraphLocation
+  name: ParagraphLocation
+  nameWithType: IMessageLocation.ParagraphLocation
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.ParagraphLocation
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.TextLocation
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.TextLocation
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.TextLocation.html
+  name: TextLocation
+  nameWithType: TextLocation
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.TextLocation
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi
+  commentId: N:Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.BilingualApi
+  nameWithType: Sdl.FileTypeSupport.Framework.BilingualApi
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.LocationDescription*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.LocationDescription
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IMessageLocation_LocationDescription
+  name: LocationDescription
+  nameWithType: IMessageLocation.LocationDescription
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation.LocationDescription
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

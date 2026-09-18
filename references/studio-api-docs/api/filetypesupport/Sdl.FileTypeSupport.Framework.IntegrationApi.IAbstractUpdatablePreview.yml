@@ -1,0 +1,105 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractUpdatablePreview
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractUpdatablePreview
+  id: IAbstractUpdatablePreview
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IAbstractUpdatablePreview
+  nameWithType: IAbstractUpdatablePreview
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractUpdatablePreview
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Base interface for previews that can be dynamically updated as
+
+    content in the editor changes.
+  remarks: >-
+    <p>
+
+    There are two separate protocols for updating 
+
+    previews: <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile" data-throw-if-not-resolved="false"></xref> and 
+
+    <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh" data-throw-if-not-resolved="false"></xref>, both of which are derived
+
+    from this base interface.
+
+    </p>
+  example: []
+  syntax:
+    content: public interface IAbstractUpdatablePreview
+    content.vb: Public Interface IAbstractUpdatablePreview
+  derivedClasses:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractSingleFileRefreshablePreviewController
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractSourceAndTargetFileRefreshablePreviewController
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideRealtimeWebBrowserPreviewController
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.html
+  name: IPreviewUpdatedViaSegmentFile
+  nameWithType: IPreviewUpdatedViaSegmentFile
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.html
+  name: IPreviewUpdatedViaRefresh
+  nameWithType: IPreviewUpdatedViaRefresh
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html

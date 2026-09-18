@@ -1,0 +1,286 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.Globalization.ConfirmationLevel
+  commentId: T:Sdl.Core.Globalization.ConfirmationLevel
+  id: ConfirmationLevel
+  parent: Sdl.Core.Globalization
+  children:
+  - Sdl.Core.Globalization.ConfirmationLevel.ApprovedSignOff
+  - Sdl.Core.Globalization.ConfirmationLevel.ApprovedTranslation
+  - Sdl.Core.Globalization.ConfirmationLevel.Draft
+  - Sdl.Core.Globalization.ConfirmationLevel.RejectedSignOff
+  - Sdl.Core.Globalization.ConfirmationLevel.RejectedTranslation
+  - Sdl.Core.Globalization.ConfirmationLevel.Translated
+  - Sdl.Core.Globalization.ConfirmationLevel.Unspecified
+  langs:
+  - csharp
+  - vb
+  name: ConfirmationLevel
+  nameWithType: ConfirmationLevel
+  fullName: Sdl.Core.Globalization.ConfirmationLevel
+  type: Enum
+  assemblies:
+  - Sdl.Core.Globalization
+  namespace: Sdl.Core.Globalization
+  syntax:
+    content: >-
+      [DataContract]
+
+      public enum ConfirmationLevel
+    content.vb: >-
+      <DataContract>
+
+      Public Enum ConfirmationLevel
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.Core.Globalization.ConfirmationLevel.Unspecified
+  commentId: F:Sdl.Core.Globalization.ConfirmationLevel.Unspecified
+  id: Unspecified
+  parent: Sdl.Core.Globalization.ConfirmationLevel
+  langs:
+  - csharp
+  - vb
+  name: Unspecified
+  nameWithType: ConfirmationLevel.Unspecified
+  fullName: Sdl.Core.Globalization.ConfirmationLevel.Unspecified
+  type: Field
+  assemblies:
+  - Sdl.Core.Globalization
+  namespace: Sdl.Core.Globalization
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Unspecified = 0
+    return:
+      type: Sdl.Core.Globalization.ConfirmationLevel
+    content.vb: >-
+      <EnumMember>
+
+      Unspecified = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.Core.Globalization.ConfirmationLevel.Draft
+  commentId: F:Sdl.Core.Globalization.ConfirmationLevel.Draft
+  id: Draft
+  parent: Sdl.Core.Globalization.ConfirmationLevel
+  langs:
+  - csharp
+  - vb
+  name: Draft
+  nameWithType: ConfirmationLevel.Draft
+  fullName: Sdl.Core.Globalization.ConfirmationLevel.Draft
+  type: Field
+  assemblies:
+  - Sdl.Core.Globalization
+  namespace: Sdl.Core.Globalization
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Draft = 1
+    return:
+      type: Sdl.Core.Globalization.ConfirmationLevel
+    content.vb: >-
+      <EnumMember>
+
+      Draft = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.Core.Globalization.ConfirmationLevel.Translated
+  commentId: F:Sdl.Core.Globalization.ConfirmationLevel.Translated
+  id: Translated
+  parent: Sdl.Core.Globalization.ConfirmationLevel
+  langs:
+  - csharp
+  - vb
+  name: Translated
+  nameWithType: ConfirmationLevel.Translated
+  fullName: Sdl.Core.Globalization.ConfirmationLevel.Translated
+  type: Field
+  assemblies:
+  - Sdl.Core.Globalization
+  namespace: Sdl.Core.Globalization
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Translated = 2
+    return:
+      type: Sdl.Core.Globalization.ConfirmationLevel
+    content.vb: >-
+      <EnumMember>
+
+      Translated = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.Core.Globalization.ConfirmationLevel.RejectedTranslation
+  commentId: F:Sdl.Core.Globalization.ConfirmationLevel.RejectedTranslation
+  id: RejectedTranslation
+  parent: Sdl.Core.Globalization.ConfirmationLevel
+  langs:
+  - csharp
+  - vb
+  name: RejectedTranslation
+  nameWithType: ConfirmationLevel.RejectedTranslation
+  fullName: Sdl.Core.Globalization.ConfirmationLevel.RejectedTranslation
+  type: Field
+  assemblies:
+  - Sdl.Core.Globalization
+  namespace: Sdl.Core.Globalization
+  syntax:
+    content: >-
+      [EnumMember]
+
+      RejectedTranslation = 3
+    return:
+      type: Sdl.Core.Globalization.ConfirmationLevel
+    content.vb: >-
+      <EnumMember>
+
+      RejectedTranslation = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.Core.Globalization.ConfirmationLevel.ApprovedTranslation
+  commentId: F:Sdl.Core.Globalization.ConfirmationLevel.ApprovedTranslation
+  id: ApprovedTranslation
+  parent: Sdl.Core.Globalization.ConfirmationLevel
+  langs:
+  - csharp
+  - vb
+  name: ApprovedTranslation
+  nameWithType: ConfirmationLevel.ApprovedTranslation
+  fullName: Sdl.Core.Globalization.ConfirmationLevel.ApprovedTranslation
+  type: Field
+  assemblies:
+  - Sdl.Core.Globalization
+  namespace: Sdl.Core.Globalization
+  syntax:
+    content: >-
+      [EnumMember]
+
+      ApprovedTranslation = 4
+    return:
+      type: Sdl.Core.Globalization.ConfirmationLevel
+    content.vb: >-
+      <EnumMember>
+
+      ApprovedTranslation = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.Core.Globalization.ConfirmationLevel.RejectedSignOff
+  commentId: F:Sdl.Core.Globalization.ConfirmationLevel.RejectedSignOff
+  id: RejectedSignOff
+  parent: Sdl.Core.Globalization.ConfirmationLevel
+  langs:
+  - csharp
+  - vb
+  name: RejectedSignOff
+  nameWithType: ConfirmationLevel.RejectedSignOff
+  fullName: Sdl.Core.Globalization.ConfirmationLevel.RejectedSignOff
+  type: Field
+  assemblies:
+  - Sdl.Core.Globalization
+  namespace: Sdl.Core.Globalization
+  syntax:
+    content: >-
+      [EnumMember]
+
+      RejectedSignOff = 5
+    return:
+      type: Sdl.Core.Globalization.ConfirmationLevel
+    content.vb: >-
+      <EnumMember>
+
+      RejectedSignOff = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.Core.Globalization.ConfirmationLevel.ApprovedSignOff
+  commentId: F:Sdl.Core.Globalization.ConfirmationLevel.ApprovedSignOff
+  id: ApprovedSignOff
+  parent: Sdl.Core.Globalization.ConfirmationLevel
+  langs:
+  - csharp
+  - vb
+  name: ApprovedSignOff
+  nameWithType: ConfirmationLevel.ApprovedSignOff
+  fullName: Sdl.Core.Globalization.ConfirmationLevel.ApprovedSignOff
+  type: Field
+  assemblies:
+  - Sdl.Core.Globalization
+  namespace: Sdl.Core.Globalization
+  syntax:
+    content: >-
+      [EnumMember]
+
+      ApprovedSignOff = 6
+    return:
+      type: Sdl.Core.Globalization.ConfirmationLevel
+    content.vb: >-
+      <EnumMember>
+
+      ApprovedSignOff = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: Sdl.Core.Globalization
+  commentId: N:Sdl.Core.Globalization
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.Globalization
+  nameWithType: Sdl.Core.Globalization
+  fullName: Sdl.Core.Globalization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+    href: Sdl.Core.Globalization.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+    href: Sdl.Core.Globalization.html
+- uid: Sdl.Core.Globalization.ConfirmationLevel
+  commentId: T:Sdl.Core.Globalization.ConfirmationLevel
+  parent: Sdl.Core.Globalization
+  isExternal: true
+  href: Sdl.Core.Globalization.ConfirmationLevel.html
+  name: ConfirmationLevel
+  nameWithType: ConfirmationLevel
+  fullName: Sdl.Core.Globalization.ConfirmationLevel

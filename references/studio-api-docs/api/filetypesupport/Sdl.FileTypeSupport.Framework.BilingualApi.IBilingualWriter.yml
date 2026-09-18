@@ -1,0 +1,297 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualWriter
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualWriter
+  id: IBilingualWriter
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IBilingualWriter
+  nameWithType: IBilingualWriter
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualWriter
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: >-
+    Implemented by components that directly write bilingual output without
+
+    native content processing. The input to the writer is provided by calls to
+
+    the <xref href="Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler" data-throw-if-not-resolved="false"></xref> implementation.
+  remarks: >-
+    <p>
+
+    There are two types of bilingual writers: writers for 
+
+    document files that fully serialize the content of the bilingual
+
+    object model and that can write documents consisting of multiple files (e.g. SDL XLIFF), and
+
+    bilingual writers for single files that contain bilingual content, e.g. 
+
+    3rd party XLIFF files, TTX files, ITD files, etc.
+
+    </p>
+
+    <p>
+
+    Writers for full document files implement <xref href="Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualDocumentWriter" data-throw-if-not-resolved="false"></xref>, which
+
+    is derived from this interface.
+
+    </p>
+
+    <p>
+
+    Writers for single bilingual files implement this interface.
+
+    </p>
+  example: []
+  syntax:
+    content: 'public interface IBilingualWriter : IBilingualContentHandler, IDisposable'
+    content.vb: Public Interface IBilingualWriter Inherits IBilingualContentHandler, IDisposable
+  inheritedMembers:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.Initialize(Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties)
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.Complete
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.FileComplete
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.ProcessParagraphUnit(Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit)
+  - System.IDisposable.Dispose
+references:
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html
+  name: IBilingualContentHandler
+  nameWithType: IBilingualContentHandler
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualDocumentWriter
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualDocumentWriter
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualDocumentWriter.html
+  name: IBilingualDocumentWriter
+  nameWithType: IBilingualDocumentWriter
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualDocumentWriter
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi
+  commentId: N:Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.BilingualApi
+  nameWithType: Sdl.FileTypeSupport.Framework.BilingualApi
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.Initialize(Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.Initialize(Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_Initialize_Sdl_FileTypeSupport_Framework_BilingualApi_IDocumentProperties_
+  name: Initialize(IDocumentProperties)
+  nameWithType: IBilingualContentHandler.Initialize(IDocumentProperties)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.Initialize(Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.Initialize(Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties)
+    name: Initialize
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_Initialize_Sdl_FileTypeSupport_Framework_BilingualApi_IDocumentProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties
+    name: IDocumentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.Initialize(Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties)
+    name: Initialize
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_Initialize_Sdl_FileTypeSupport_Framework_BilingualApi_IDocumentProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties
+    name: IDocumentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.Complete
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.Complete
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_Complete
+  name: Complete()
+  nameWithType: IBilingualContentHandler.Complete()
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.Complete()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.Complete
+    name: Complete
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_Complete
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.Complete
+    name: Complete
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_Complete
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_SetFileProperties_Sdl_FileTypeSupport_Framework_BilingualApi_IFileProperties_
+  name: SetFileProperties(IFileProperties)
+  nameWithType: IBilingualContentHandler.SetFileProperties(IFileProperties)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+    name: SetFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_SetFileProperties_Sdl_FileTypeSupport_Framework_BilingualApi_IFileProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties
+    name: IFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+    name: SetFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_SetFileProperties_Sdl_FileTypeSupport_Framework_BilingualApi_IFileProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties
+    name: IFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.FileComplete
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.FileComplete
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_FileComplete
+  name: FileComplete()
+  nameWithType: IBilingualContentHandler.FileComplete()
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.FileComplete()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.FileComplete
+    name: FileComplete
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_FileComplete
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.FileComplete
+    name: FileComplete
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_FileComplete
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.ProcessParagraphUnit(Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.ProcessParagraphUnit(Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_ProcessParagraphUnit_Sdl_FileTypeSupport_Framework_BilingualApi_IParagraphUnit_
+  name: ProcessParagraphUnit(IParagraphUnit)
+  nameWithType: IBilingualContentHandler.ProcessParagraphUnit(IParagraphUnit)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.ProcessParagraphUnit(Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.ProcessParagraphUnit(Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit)
+    name: ProcessParagraphUnit
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_ProcessParagraphUnit_Sdl_FileTypeSupport_Framework_BilingualApi_IParagraphUnit_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit
+    name: IParagraphUnit
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.ProcessParagraphUnit(Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit)
+    name: ProcessParagraphUnit
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualContentHandler_ProcessParagraphUnit_Sdl_FileTypeSupport_Framework_BilingualApi_IParagraphUnit_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit
+    name: IParagraphUnit
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit.html
+  - name: )
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

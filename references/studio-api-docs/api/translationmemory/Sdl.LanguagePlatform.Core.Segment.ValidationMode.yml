@@ -1,0 +1,136 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.Segment.ValidationMode
+  commentId: T:Sdl.LanguagePlatform.Core.Segment.ValidationMode
+  id: Segment.ValidationMode
+  parent: Sdl.LanguagePlatform.Core
+  children:
+  - Sdl.LanguagePlatform.Core.Segment.ValidationMode.IgnorePairedTagErrors
+  - Sdl.LanguagePlatform.Core.Segment.ValidationMode.ReportAllErrors
+  langs:
+  - csharp
+  - vb
+  name: Segment.ValidationMode
+  nameWithType: Segment.ValidationMode
+  fullName: Sdl.LanguagePlatform.Core.Segment.ValidationMode
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Determines the type of validation to perform in <xref href="Segment.Validate(ValidationMode)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public enum Segment.ValidationMode
+    content.vb: Public Enum Segment.ValidationMode
+- uid: Sdl.LanguagePlatform.Core.Segment.ValidationMode.ReportAllErrors
+  commentId: F:Sdl.LanguagePlatform.Core.Segment.ValidationMode.ReportAllErrors
+  id: ReportAllErrors
+  parent: Sdl.LanguagePlatform.Core.Segment.ValidationMode
+  langs:
+  - csharp
+  - vb
+  name: ReportAllErrors
+  nameWithType: Segment.ValidationMode.ReportAllErrors
+  fullName: Sdl.LanguagePlatform.Core.Segment.ValidationMode.ReportAllErrors
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Report all errors.
+  example: []
+  syntax:
+    content: ReportAllErrors = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.Segment.ValidationMode
+- uid: Sdl.LanguagePlatform.Core.Segment.ValidationMode.IgnorePairedTagErrors
+  commentId: F:Sdl.LanguagePlatform.Core.Segment.ValidationMode.IgnorePairedTagErrors
+  id: IgnorePairedTagErrors
+  parent: Sdl.LanguagePlatform.Core.Segment.ValidationMode
+  langs:
+  - csharp
+  - vb
+  name: IgnorePairedTagErrors
+  nameWithType: Segment.ValidationMode.IgnorePairedTagErrors
+  fullName: Sdl.LanguagePlatform.Core.Segment.ValidationMode.IgnorePairedTagErrors
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: >-
+    Ignore errors caused by paired tags. Errors caused by standalone or placeholder tags
+
+    will still be reported.
+  example: []
+  syntax:
+    content: IgnorePairedTagErrors = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.Segment.ValidationMode
+references:
+- uid: Segment.Validate(ValidationMode)
+  commentId: M:Segment.Validate(ValidationMode)
+  isExternal: true
+- uid: Sdl.LanguagePlatform.Core
+  commentId: N:Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core
+  nameWithType: Sdl.LanguagePlatform.Core
+  fullName: Sdl.LanguagePlatform.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+- uid: Sdl.LanguagePlatform.Core.Segment.ValidationMode
+  commentId: T:Sdl.LanguagePlatform.Core.Segment.ValidationMode
+  parent: Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.Segment.html
+  name: Segment.ValidationMode
+  nameWithType: Segment.ValidationMode
+  fullName: Sdl.LanguagePlatform.Core.Segment.ValidationMode
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.Core.Segment
+    name: Segment
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segment.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Segment.ValidationMode
+    name: ValidationMode
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segment.ValidationMode.html
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.Core.Segment
+    name: Segment
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segment.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Segment.ValidationMode
+    name: ValidationMode
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segment.ValidationMode.html

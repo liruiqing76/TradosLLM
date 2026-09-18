@@ -1,0 +1,166 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.CustomColumnLocation
+  commentId: T:Sdl.DesktopEditor.EditorApi.CustomColumnLocation
+  id: CustomColumnLocation
+  parent: Sdl.DesktopEditor.EditorApi
+  children:
+  - Sdl.DesktopEditor.EditorApi.CustomColumnLocation.LeftOfContent
+  - Sdl.DesktopEditor.EditorApi.CustomColumnLocation.RightOfContent
+  langs:
+  - csharp
+  - vb
+  name: CustomColumnLocation
+  nameWithType: CustomColumnLocation
+  fullName: Sdl.DesktopEditor.EditorApi.CustomColumnLocation
+  type: Enum
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Location of a custom column relative to the main content of an edit control.
+  remarks: >-
+    <p>
+
+    Used in <xref href="Sdl.DesktopEditor.EditorApi.IEditControl.AddColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn%2cSdl.DesktopEditor.EditorApi.CustomColumnLocation)" data-throw-if-not-resolved="false"></xref>.
+
+    </p>
+  example: []
+  syntax:
+    content: public enum CustomColumnLocation
+    content.vb: Public Enum CustomColumnLocation
+- uid: Sdl.DesktopEditor.EditorApi.CustomColumnLocation.LeftOfContent
+  commentId: F:Sdl.DesktopEditor.EditorApi.CustomColumnLocation.LeftOfContent
+  id: LeftOfContent
+  parent: Sdl.DesktopEditor.EditorApi.CustomColumnLocation
+  langs:
+  - csharp
+  - vb
+  name: LeftOfContent
+  nameWithType: CustomColumnLocation.LeftOfContent
+  fullName: Sdl.DesktopEditor.EditorApi.CustomColumnLocation.LeftOfContent
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The column should appear to the left of the main content in the edit control.
+  example: []
+  syntax:
+    content: LeftOfContent = 0
+    return:
+      type: Sdl.DesktopEditor.EditorApi.CustomColumnLocation
+- uid: Sdl.DesktopEditor.EditorApi.CustomColumnLocation.RightOfContent
+  commentId: F:Sdl.DesktopEditor.EditorApi.CustomColumnLocation.RightOfContent
+  id: RightOfContent
+  parent: Sdl.DesktopEditor.EditorApi.CustomColumnLocation
+  langs:
+  - csharp
+  - vb
+  name: RightOfContent
+  nameWithType: CustomColumnLocation.RightOfContent
+  fullName: Sdl.DesktopEditor.EditorApi.CustomColumnLocation.RightOfContent
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The column should appear to the right of the main content in the edit control.
+  example: []
+  syntax:
+    content: RightOfContent = 1
+    return:
+      type: Sdl.DesktopEditor.EditorApi.CustomColumnLocation
+references:
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.AddColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn,Sdl.DesktopEditor.EditorApi.CustomColumnLocation)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.AddColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn,Sdl.DesktopEditor.EditorApi.CustomColumnLocation)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AddColumn_Sdl_DesktopEditor_EditorApi_ICustomColumn_Sdl_DesktopEditor_EditorApi_CustomColumnLocation_
+  name: AddColumn(ICustomColumn, CustomColumnLocation)
+  nameWithType: IEditControl.AddColumn(ICustomColumn, CustomColumnLocation)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.AddColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn, Sdl.DesktopEditor.EditorApi.CustomColumnLocation)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.AddColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn,Sdl.DesktopEditor.EditorApi.CustomColumnLocation)
+    name: AddColumn
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AddColumn_Sdl_DesktopEditor_EditorApi_ICustomColumn_Sdl_DesktopEditor_EditorApi_CustomColumnLocation_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ICustomColumn
+    name: ICustomColumn
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ICustomColumn.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.CustomColumnLocation
+    name: CustomColumnLocation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.CustomColumnLocation.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.AddColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn,Sdl.DesktopEditor.EditorApi.CustomColumnLocation)
+    name: AddColumn
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AddColumn_Sdl_DesktopEditor_EditorApi_ICustomColumn_Sdl_DesktopEditor_EditorApi_CustomColumnLocation_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ICustomColumn
+    name: ICustomColumn
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ICustomColumn.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.CustomColumnLocation
+    name: CustomColumnLocation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.CustomColumnLocation.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi
+  commentId: N:Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi
+  nameWithType: Sdl.DesktopEditor.EditorApi
+  fullName: Sdl.DesktopEditor.EditorApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl
+  commentId: T:Sdl.DesktopEditor.EditorApi.IEditControl
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html
+  name: IEditControl
+  nameWithType: IEditControl
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl
+- uid: Sdl.DesktopEditor.EditorApi.CustomColumnLocation
+  commentId: T:Sdl.DesktopEditor.EditorApi.CustomColumnLocation
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.CustomColumnLocation.html
+  name: CustomColumnLocation
+  nameWithType: CustomColumnLocation
+  fullName: Sdl.DesktopEditor.EditorApi.CustomColumnLocation

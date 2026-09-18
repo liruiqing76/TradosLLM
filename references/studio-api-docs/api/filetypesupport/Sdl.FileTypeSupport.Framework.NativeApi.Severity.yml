@@ -1,0 +1,186 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.Severity
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.Severity
+  id: Severity
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.Severity.High
+  - Sdl.FileTypeSupport.Framework.NativeApi.Severity.Invalid
+  - Sdl.FileTypeSupport.Framework.NativeApi.Severity.Low
+  - Sdl.FileTypeSupport.Framework.NativeApi.Severity.Medium
+  - Sdl.FileTypeSupport.Framework.NativeApi.Severity.Undefined
+  langs:
+  - csharp
+  - vb
+  name: Severity
+  nameWithType: Severity
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.Severity
+  type: Enum
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    Severity level associated with a comment.
+
+    A higher severity level can make the comment more prominent in the user interface.
+  example: []
+  syntax:
+    content: public enum Severity
+    content.vb: Public Enum Severity
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.Severity.Undefined
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.Severity.Undefined
+  id: Undefined
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.Severity
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: Severity.Undefined
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.Severity.Undefined
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The severity level has not been specified
+  example: []
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.Severity
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.Severity.Low
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.Severity.Low
+  id: Low
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.Severity
+  langs:
+  - csharp
+  - vb
+  name: Low
+  nameWithType: Severity.Low
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.Severity.Low
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Informational purpose
+  example: []
+  syntax:
+    content: Low = 1
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.Severity
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.Severity.Medium
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.Severity.Medium
+  id: Medium
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.Severity
+  langs:
+  - csharp
+  - vb
+  name: Medium
+  nameWithType: Severity.Medium
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.Severity.Medium
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Warning, likely an important issue
+  example: []
+  syntax:
+    content: Medium = 2
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.Severity
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.Severity.High
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.Severity.High
+  id: High
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.Severity
+  langs:
+  - csharp
+  - vb
+  name: High
+  nameWithType: Severity.High
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.Severity.High
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Error, a severe issue
+  example: []
+  syntax:
+    content: High = 3
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.Severity
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.Severity.Invalid
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.Severity.Invalid
+  id: Invalid
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.Severity
+  langs:
+  - csharp
+  - vb
+  name: Invalid
+  nameWithType: Severity.Invalid
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.Severity.Invalid
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Sentinel, not used
+  example: []
+  syntax:
+    content: Invalid = 100
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.Severity
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.Severity
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.Severity
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.Severity.html
+  name: Severity
+  nameWithType: Severity
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.Severity

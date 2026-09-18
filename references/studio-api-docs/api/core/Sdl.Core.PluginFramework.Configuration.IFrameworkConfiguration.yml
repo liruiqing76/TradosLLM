@@ -1,0 +1,370 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration
+  commentId: T:Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration
+  id: IFrameworkConfiguration
+  parent: Sdl.Core.PluginFramework.Configuration
+  children:
+  - Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ApiVersions
+  - Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ProductVersions
+  - Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginPackagesRelativePath
+  - Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsEnabled
+  - Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsRelativePath
+  langs:
+  - csharp
+  - vb
+  name: IFrameworkConfiguration
+  nameWithType: IFrameworkConfiguration
+  fullName: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration
+  type: Interface
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Configuration
+  syntax:
+    content: public interface IFrameworkConfiguration
+    content.vb: Public Interface IFrameworkConfiguration
+- uid: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ProductVersions
+  commentId: P:Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ProductVersions
+  id: ProductVersions
+  parent: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ProductVersions
+  nameWithType: IFrameworkConfiguration.ProductVersions
+  fullName: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ProductVersions
+  type: Property
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Configuration
+  summary: Gets the installed product versions.
+  example: []
+  syntax:
+    content: Dictionary<string, Version> ProductVersions { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Version}
+    content.vb: ReadOnly Property ProductVersions As Dictionary(Of String, Version)
+  overload: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ProductVersions*
+- uid: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ApiVersions
+  commentId: P:Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ApiVersions
+  id: ApiVersions
+  parent: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ApiVersions
+  nameWithType: IFrameworkConfiguration.ApiVersions
+  fullName: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ApiVersions
+  type: Property
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Configuration
+  summary: Gets the installed API versions.
+  example: []
+  syntax:
+    content: Dictionary<string, Version> ApiVersions { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Version}
+    content.vb: ReadOnly Property ApiVersions As Dictionary(Of String, Version)
+  overload: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ApiVersions*
+- uid: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsEnabled
+  commentId: P:Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsEnabled
+  id: ThirdPartyPluginsEnabled
+  parent: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ThirdPartyPluginsEnabled
+  nameWithType: IFrameworkConfiguration.ThirdPartyPluginsEnabled
+  fullName: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsEnabled
+  type: Property
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Configuration
+  summary: Gets or sets if third-party plugins are enabled.
+  example: []
+  syntax:
+    content: bool ThirdPartyPluginsEnabled { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property ThirdPartyPluginsEnabled As Boolean
+  overload: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsEnabled*
+- uid: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsRelativePath
+  commentId: P:Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsRelativePath
+  id: ThirdPartyPluginsRelativePath
+  parent: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ThirdPartyPluginsRelativePath
+  nameWithType: IFrameworkConfiguration.ThirdPartyPluginsRelativePath
+  fullName: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsRelativePath
+  type: Property
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Configuration
+  summary: Gets or sets the configured third-party plugin-root folder
+  example: []
+  syntax:
+    content: string ThirdPartyPluginsRelativePath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ThirdPartyPluginsRelativePath As String
+  overload: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsRelativePath*
+- uid: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginPackagesRelativePath
+  commentId: P:Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginPackagesRelativePath
+  id: ThirdPartyPluginPackagesRelativePath
+  parent: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ThirdPartyPluginPackagesRelativePath
+  nameWithType: IFrameworkConfiguration.ThirdPartyPluginPackagesRelativePath
+  fullName: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginPackagesRelativePath
+  type: Property
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Configuration
+  summary: Gets or sets the configured third-party package storage folder
+  example: []
+  syntax:
+    content: string ThirdPartyPluginPackagesRelativePath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ThirdPartyPluginPackagesRelativePath As String
+  overload: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginPackagesRelativePath*
+references:
+- uid: Sdl.Core.PluginFramework.Configuration
+  commentId: N:Sdl.Core.PluginFramework.Configuration
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.PluginFramework.Configuration
+  nameWithType: Sdl.Core.PluginFramework.Configuration
+  fullName: Sdl.Core.PluginFramework.Configuration
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework.Configuration
+    name: Configuration
+    isExternal: true
+    href: Sdl.Core.PluginFramework.Configuration.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework.Configuration
+    name: Configuration
+    isExternal: true
+    href: Sdl.Core.PluginFramework.Configuration.html
+- uid: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ProductVersions*
+  commentId: Overload:Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ProductVersions
+  isExternal: true
+  href: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.html#Sdl_Core_PluginFramework_Configuration_IFrameworkConfiguration_ProductVersions
+  name: ProductVersions
+  nameWithType: IFrameworkConfiguration.ProductVersions
+  fullName: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ProductVersions
+- uid: System.Collections.Generic.Dictionary{System.String,System.Version}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Version}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, Version>
+  nameWithType: Dictionary<string, Version>
+  fullName: System.Collections.Generic.Dictionary<string, System.Version>
+  nameWithType.vb: Dictionary(Of String, Version)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, System.Version)
+  name.vb: Dictionary(Of String, Version)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Version
+    name: Version
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.version
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Version
+    name: Version
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.version
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ApiVersions*
+  commentId: Overload:Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ApiVersions
+  isExternal: true
+  href: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.html#Sdl_Core_PluginFramework_Configuration_IFrameworkConfiguration_ApiVersions
+  name: ApiVersions
+  nameWithType: IFrameworkConfiguration.ApiVersions
+  fullName: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ApiVersions
+- uid: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsEnabled*
+  commentId: Overload:Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsEnabled
+  isExternal: true
+  href: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.html#Sdl_Core_PluginFramework_Configuration_IFrameworkConfiguration_ThirdPartyPluginsEnabled
+  name: ThirdPartyPluginsEnabled
+  nameWithType: IFrameworkConfiguration.ThirdPartyPluginsEnabled
+  fullName: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsEnabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsRelativePath*
+  commentId: Overload:Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsRelativePath
+  isExternal: true
+  href: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.html#Sdl_Core_PluginFramework_Configuration_IFrameworkConfiguration_ThirdPartyPluginsRelativePath
+  name: ThirdPartyPluginsRelativePath
+  nameWithType: IFrameworkConfiguration.ThirdPartyPluginsRelativePath
+  fullName: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginsRelativePath
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginPackagesRelativePath*
+  commentId: Overload:Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginPackagesRelativePath
+  isExternal: true
+  href: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.html#Sdl_Core_PluginFramework_Configuration_IFrameworkConfiguration_ThirdPartyPluginPackagesRelativePath
+  name: ThirdPartyPluginPackagesRelativePath
+  nameWithType: IFrameworkConfiguration.ThirdPartyPluginPackagesRelativePath
+  fullName: Sdl.Core.PluginFramework.Configuration.IFrameworkConfiguration.ThirdPartyPluginPackagesRelativePath

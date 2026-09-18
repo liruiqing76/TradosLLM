@@ -1,0 +1,32 @@
+trigger:
+  branches:
+    include:
+     - master
+  paths:
+    include:
+     - DeepL Translation Provider/*
+
+pr:
+  branches:
+    include:
+     - master
+  paths:
+    include:
+     - DeepL Translation Provider/*
+pool: 
+  vmImage : '$(DefaultBuildVm)'
+
+variables:
+- template: jobs/branch-variables.yml
+- name: buildPlatform
+  value: 'Any CPU'
+- name: buildConfiguration
+  value: 'Release'
+- name: solution
+  value : '**/Sdl.Community.DeepLMTProvider.sln'
+- name: pathToPublish
+  value: '$(PluginPath)\Sdl.Community.DeepLMTProvider.sdlplugin'
+
+steps:
+  - template: jobs/build-sdlplugin.yml
+  - template: jobs/publish-build-artifact-task.yml

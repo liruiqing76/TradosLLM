@@ -1,0 +1,1057 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Versioning.Versions
+  commentId: T:Sdl.Versioning.Versions
+  id: Versions
+  parent: Sdl.Versioning
+  children:
+  - Sdl.Versioning.Versions.AssemblyName
+  - Sdl.Versioning.Versions.BaseProductDescription
+  - Sdl.Versioning.Versions.BaseProductIdentifier
+  - Sdl.Versioning.Versions.BaseProductName
+  - Sdl.Versioning.Versions.Companies
+  - Sdl.Versioning.Versions.Company
+  - Sdl.Versioning.Versions.Copyright
+  - Sdl.Versioning.Versions.CopyrightYear
+  - Sdl.Versioning.Versions.Edition
+  - Sdl.Versioning.Versions.GetBuildVersion
+  - Sdl.Versioning.Versions.KnownStudioVersions
+  - Sdl.Versioning.Versions.LicensingVersion
+  - Sdl.Versioning.Versions.MajorVersion
+  - Sdl.Versioning.Versions.MarketingProductName
+  - Sdl.Versioning.Versions.Product
+  - Sdl.Versioning.Versions.ProductDescription
+  - Sdl.Versioning.Versions.ProductHelpUrI
+  - Sdl.Versioning.Versions.ProductIdentifier
+  - Sdl.Versioning.Versions.ProductName
+  - Sdl.Versioning.Versions.ProductNameWithEdition
+  - Sdl.Versioning.Versions.ProductYear
+  - Sdl.Versioning.Versions.ProjectTemplatesVersionId
+  - Sdl.Versioning.Versions.SamplesVersionId
+  - Sdl.Versioning.Versions.ServicePackTag
+  - Sdl.Versioning.Versions.StudioDocumentsFolderName
+  langs:
+  - csharp
+  - vb
+  name: Versions
+  nameWithType: Versions
+  fullName: Sdl.Versioning.Versions
+  type: Class
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  summary: This class defines Version specific constants for default items in studio.
+  example: []
+  syntax:
+    content: public static class Versions
+    content.vb: Public Module Versions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.Versioning.Versions.MajorVersion
+  commentId: F:Sdl.Versioning.Versions.MajorVersion
+  id: MajorVersion
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: MajorVersion
+  nameWithType: Versions.MajorVersion
+  fullName: Sdl.Versioning.Versions.MajorVersion
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const int MajorVersion = 19
+    return:
+      type: System.Int32
+    content.vb: Public Const MajorVersion As Integer = 19
+- uid: Sdl.Versioning.Versions.Company
+  commentId: F:Sdl.Versioning.Versions.Company
+  id: Company
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: Company
+  nameWithType: Versions.Company
+  fullName: Sdl.Versioning.Versions.Company
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string Company = "Trados"
+    return:
+      type: System.String
+    content.vb: Public Const Company As String = "Trados"
+- uid: Sdl.Versioning.Versions.ProductHelpUrI
+  commentId: F:Sdl.Versioning.Versions.ProductHelpUrI
+  id: ProductHelpUrI
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: ProductHelpUrI
+  nameWithType: Versions.ProductHelpUrI
+  fullName: Sdl.Versioning.Versions.ProductHelpUrI
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string ProductHelpUrI = "https://docs.rws.com/Trados_Studio_2026"
+    return:
+      type: System.String
+    content.vb: Public Const ProductHelpUrI As String = "https://docs.rws.com/Trados_Studio_2026"
+- uid: Sdl.Versioning.Versions.BaseProductIdentifier
+  commentId: F:Sdl.Versioning.Versions.BaseProductIdentifier
+  id: BaseProductIdentifier
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: BaseProductIdentifier
+  nameWithType: Versions.BaseProductIdentifier
+  fullName: Sdl.Versioning.Versions.BaseProductIdentifier
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string BaseProductIdentifier = "Studio19"
+    return:
+      type: System.String
+    content.vb: Public Const BaseProductIdentifier As String = "Studio19"
+- uid: Sdl.Versioning.Versions.ProductIdentifier
+  commentId: F:Sdl.Versioning.Versions.ProductIdentifier
+  id: ProductIdentifier
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: ProductIdentifier
+  nameWithType: Versions.ProductIdentifier
+  fullName: Sdl.Versioning.Versions.ProductIdentifier
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string ProductIdentifier = "Studio19"
+    return:
+      type: System.String
+    content.vb: Public Const ProductIdentifier As String = "Studio19"
+- uid: Sdl.Versioning.Versions.SamplesVersionId
+  commentId: F:Sdl.Versioning.Versions.SamplesVersionId
+  id: SamplesVersionId
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: SamplesVersionId
+  nameWithType: Versions.SamplesVersionId
+  fullName: Sdl.Versioning.Versions.SamplesVersionId
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string SamplesVersionId = "Samples19"
+    return:
+      type: System.String
+    content.vb: Public Const SamplesVersionId As String = "Samples19"
+- uid: Sdl.Versioning.Versions.Edition
+  commentId: F:Sdl.Versioning.Versions.Edition
+  id: Edition
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: Edition
+  nameWithType: Versions.Edition
+  fullName: Sdl.Versioning.Versions.Edition
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string Edition = ""
+    return:
+      type: System.String
+    content.vb: Public Const Edition As String = ""
+- uid: Sdl.Versioning.Versions.StudioDocumentsFolderName
+  commentId: F:Sdl.Versioning.Versions.StudioDocumentsFolderName
+  id: StudioDocumentsFolderName
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: StudioDocumentsFolderName
+  nameWithType: Versions.StudioDocumentsFolderName
+  fullName: Sdl.Versioning.Versions.StudioDocumentsFolderName
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string StudioDocumentsFolderName = "Studio 2026 Release"
+    return:
+      type: System.String
+    content.vb: Public Const StudioDocumentsFolderName As String = "Studio 2026 Release"
+- uid: Sdl.Versioning.Versions.ProjectTemplatesVersionId
+  commentId: F:Sdl.Versioning.Versions.ProjectTemplatesVersionId
+  id: ProjectTemplatesVersionId
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: ProjectTemplatesVersionId
+  nameWithType: Versions.ProjectTemplatesVersionId
+  fullName: Sdl.Versioning.Versions.ProjectTemplatesVersionId
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string ProjectTemplatesVersionId = "ProjectTemplates19"
+    return:
+      type: System.String
+    content.vb: Public Const ProjectTemplatesVersionId As String = "ProjectTemplates19"
+- uid: Sdl.Versioning.Versions.LicensingVersion
+  commentId: F:Sdl.Versioning.Versions.LicensingVersion
+  id: LicensingVersion
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: LicensingVersion
+  nameWithType: Versions.LicensingVersion
+  fullName: Sdl.Versioning.Versions.LicensingVersion
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string LicensingVersion = "2026"
+    return:
+      type: System.String
+    content.vb: Public Const LicensingVersion As String = "2026"
+- uid: Sdl.Versioning.Versions.CopyrightYear
+  commentId: F:Sdl.Versioning.Versions.CopyrightYear
+  id: CopyrightYear
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: CopyrightYear
+  nameWithType: Versions.CopyrightYear
+  fullName: Sdl.Versioning.Versions.CopyrightYear
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string CopyrightYear = "2026"
+    return:
+      type: System.String
+    content.vb: Public Const CopyrightYear As String = "2026"
+- uid: Sdl.Versioning.Versions.ProductYear
+  commentId: F:Sdl.Versioning.Versions.ProductYear
+  id: ProductYear
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: ProductYear
+  nameWithType: Versions.ProductYear
+  fullName: Sdl.Versioning.Versions.ProductYear
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string ProductYear = "2026 Release"
+    return:
+      type: System.String
+    content.vb: Public Const ProductYear As String = "2026 Release"
+- uid: Sdl.Versioning.Versions.Product
+  commentId: F:Sdl.Versioning.Versions.Product
+  id: Product
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: Product
+  nameWithType: Versions.Product
+  fullName: Sdl.Versioning.Versions.Product
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string Product = "Studio"
+    return:
+      type: System.String
+    content.vb: Public Const Product As String = "Studio"
+- uid: Sdl.Versioning.Versions.ProductName
+  commentId: F:Sdl.Versioning.Versions.ProductName
+  id: ProductName
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: ProductName
+  nameWithType: Versions.ProductName
+  fullName: Sdl.Versioning.Versions.ProductName
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string ProductName = "Trados Studio"
+    return:
+      type: System.String
+    content.vb: Public Const ProductName As String = "Trados Studio"
+- uid: Sdl.Versioning.Versions.BaseProductName
+  commentId: F:Sdl.Versioning.Versions.BaseProductName
+  id: BaseProductName
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: BaseProductName
+  nameWithType: Versions.BaseProductName
+  fullName: Sdl.Versioning.Versions.BaseProductName
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string BaseProductName = "Trados Studio"
+    return:
+      type: System.String
+    content.vb: Public Const BaseProductName As String = "Trados Studio"
+- uid: Sdl.Versioning.Versions.MarketingProductName
+  commentId: F:Sdl.Versioning.Versions.MarketingProductName
+  id: MarketingProductName
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: MarketingProductName
+  nameWithType: Versions.MarketingProductName
+  fullName: Sdl.Versioning.Versions.MarketingProductName
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string MarketingProductName = "Trados Studio 2026 Release"
+    return:
+      type: System.String
+    content.vb: Public Const MarketingProductName As String = "Trados Studio 2026 Release"
+- uid: Sdl.Versioning.Versions.ProductNameWithEdition
+  commentId: F:Sdl.Versioning.Versions.ProductNameWithEdition
+  id: ProductNameWithEdition
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: ProductNameWithEdition
+  nameWithType: Versions.ProductNameWithEdition
+  fullName: Sdl.Versioning.Versions.ProductNameWithEdition
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string ProductNameWithEdition = "Trados Studio {0}"
+    return:
+      type: System.String
+    content.vb: Public Const ProductNameWithEdition As String = "Trados Studio {0}"
+- uid: Sdl.Versioning.Versions.ServicePackTag
+  commentId: F:Sdl.Versioning.Versions.ServicePackTag
+  id: ServicePackTag
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: ServicePackTag
+  nameWithType: Versions.ServicePackTag
+  fullName: Sdl.Versioning.Versions.ServicePackTag
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public const string ServicePackTag = ""
+    return:
+      type: System.String
+    content.vb: Public Const ServicePackTag As String = ""
+- uid: Sdl.Versioning.Versions.Companies
+  commentId: F:Sdl.Versioning.Versions.Companies
+  id: Companies
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: Companies
+  nameWithType: Versions.Companies
+  fullName: Sdl.Versioning.Versions.Companies
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  syntax:
+    content: public static readonly List<Company> Companies
+    return:
+      type: System.Collections.Generic.List{Sdl.Versioning.Company}
+    content.vb: Public Shared ReadOnly Companies As List(Of Company)
+- uid: Sdl.Versioning.Versions.KnownStudioVersions
+  commentId: F:Sdl.Versioning.Versions.KnownStudioVersions
+  id: KnownStudioVersions
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: KnownStudioVersions
+  nameWithType: Versions.KnownStudioVersions
+  fullName: Sdl.Versioning.Versions.KnownStudioVersions
+  type: Field
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  summary: Returns a list mapping Studio Version Names with official Names
+  example: []
+  syntax:
+    content: public static readonly IReadOnlyDictionary<string, string> KnownStudioVersions
+    return:
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+    content.vb: Public Shared ReadOnly KnownStudioVersions As IReadOnlyDictionary(Of String, String)
+- uid: Sdl.Versioning.Versions.GetBuildVersion
+  commentId: M:Sdl.Versioning.Versions.GetBuildVersion
+  id: GetBuildVersion
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: GetBuildVersion()
+  nameWithType: Versions.GetBuildVersion()
+  fullName: Sdl.Versioning.Versions.GetBuildVersion()
+  type: Method
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  summary: Returns the current build version
+  example: []
+  syntax:
+    content: public static string GetBuildVersion()
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Shared Function GetBuildVersion() As String
+  overload: Sdl.Versioning.Versions.GetBuildVersion*
+- uid: Sdl.Versioning.Versions.Copyright
+  commentId: P:Sdl.Versioning.Versions.Copyright
+  id: Copyright
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: Copyright
+  nameWithType: Versions.Copyright
+  fullName: Sdl.Versioning.Versions.Copyright
+  type: Property
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  summary: Returns CopyRight text
+  example: []
+  syntax:
+    content: public static string Copyright { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property Copyright As String
+  overload: Sdl.Versioning.Versions.Copyright*
+- uid: Sdl.Versioning.Versions.AssemblyName
+  commentId: P:Sdl.Versioning.Versions.AssemblyName
+  id: AssemblyName
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: AssemblyName
+  nameWithType: Versions.AssemblyName
+  fullName: Sdl.Versioning.Versions.AssemblyName
+  type: Property
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  summary: Returns the executable name without extension
+  example: []
+  syntax:
+    content: public static string AssemblyName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property AssemblyName As String
+  overload: Sdl.Versioning.Versions.AssemblyName*
+- uid: Sdl.Versioning.Versions.ProductDescription
+  commentId: P:Sdl.Versioning.Versions.ProductDescription
+  id: ProductDescription
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: ProductDescription
+  nameWithType: Versions.ProductDescription
+  fullName: Sdl.Versioning.Versions.ProductDescription
+  type: Property
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  summary: Returns the Product Description
+  example: []
+  syntax:
+    content: public static string ProductDescription { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property ProductDescription As String
+  overload: Sdl.Versioning.Versions.ProductDescription*
+- uid: Sdl.Versioning.Versions.BaseProductDescription
+  commentId: P:Sdl.Versioning.Versions.BaseProductDescription
+  id: BaseProductDescription
+  parent: Sdl.Versioning.Versions
+  langs:
+  - csharp
+  - vb
+  name: BaseProductDescription
+  nameWithType: Versions.BaseProductDescription
+  fullName: Sdl.Versioning.Versions.BaseProductDescription
+  type: Property
+  assemblies:
+  - Sdl.Versioning
+  namespace: Sdl.Versioning
+  summary: Returns the Product Description without edition
+  example: []
+  syntax:
+    content: public static string BaseProductDescription { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property BaseProductDescription As String
+  overload: Sdl.Versioning.Versions.BaseProductDescription*
+references:
+- uid: Sdl.Versioning
+  commentId: N:Sdl.Versioning
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Versioning
+  nameWithType: Sdl.Versioning
+  fullName: Sdl.Versioning
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Versioning
+    name: Versioning
+    isExternal: true
+    href: Sdl.Versioning.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Versioning
+    name: Versioning
+    isExternal: true
+    href: Sdl.Versioning.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.List{Sdl.Versioning.Company}
+  commentId: T:System.Collections.Generic.List{Sdl.Versioning.Company}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Company>
+  nameWithType: List<Company>
+  fullName: System.Collections.Generic.List<Sdl.Versioning.Company>
+  nameWithType.vb: List(Of Company)
+  fullName.vb: System.Collections.Generic.List(Of Sdl.Versioning.Company)
+  name.vb: List(Of Company)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Sdl.Versioning.Company
+    name: Company
+    isExternal: true
+    href: Sdl.Versioning.Company.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Versioning.Company
+    name: Company
+    isExternal: true
+    href: Sdl.Versioning.Company.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<string, string>
+  nameWithType: IReadOnlyDictionary<string, string>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, string>
+  nameWithType.vb: IReadOnlyDictionary(Of String, String)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, String)
+  name.vb: IReadOnlyDictionary(Of String, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Sdl.Versioning.Versions.GetBuildVersion*
+  commentId: Overload:Sdl.Versioning.Versions.GetBuildVersion
+  isExternal: true
+  href: Sdl.Versioning.Versions.html#Sdl_Versioning_Versions_GetBuildVersion
+  name: GetBuildVersion
+  nameWithType: Versions.GetBuildVersion
+  fullName: Sdl.Versioning.Versions.GetBuildVersion
+- uid: Sdl.Versioning.Versions.Copyright*
+  commentId: Overload:Sdl.Versioning.Versions.Copyright
+  isExternal: true
+  href: Sdl.Versioning.Versions.html#Sdl_Versioning_Versions_Copyright
+  name: Copyright
+  nameWithType: Versions.Copyright
+  fullName: Sdl.Versioning.Versions.Copyright
+- uid: Sdl.Versioning.Versions.AssemblyName*
+  commentId: Overload:Sdl.Versioning.Versions.AssemblyName
+  isExternal: true
+  href: Sdl.Versioning.Versions.html#Sdl_Versioning_Versions_AssemblyName
+  name: AssemblyName
+  nameWithType: Versions.AssemblyName
+  fullName: Sdl.Versioning.Versions.AssemblyName
+- uid: Sdl.Versioning.Versions.ProductDescription*
+  commentId: Overload:Sdl.Versioning.Versions.ProductDescription
+  isExternal: true
+  href: Sdl.Versioning.Versions.html#Sdl_Versioning_Versions_ProductDescription
+  name: ProductDescription
+  nameWithType: Versions.ProductDescription
+  fullName: Sdl.Versioning.Versions.ProductDescription
+- uid: Sdl.Versioning.Versions.BaseProductDescription*
+  commentId: Overload:Sdl.Versioning.Versions.BaseProductDescription
+  isExternal: true
+  href: Sdl.Versioning.Versions.html#Sdl_Versioning_Versions_BaseProductDescription
+  name: BaseProductDescription
+  nameWithType: Versions.BaseProductDescription
+  fullName: Sdl.Versioning.Versions.BaseProductDescription

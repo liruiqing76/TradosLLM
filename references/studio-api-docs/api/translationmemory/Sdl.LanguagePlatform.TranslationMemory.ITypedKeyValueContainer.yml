@@ -1,0 +1,214 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer
+  id: ITypedKeyValueContainer
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType(System.String)
+  - Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String)
+  - Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String,Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  langs:
+  - csharp
+  - vb
+  name: ITypedKeyValueContainer
+  nameWithType: ITypedKeyValueContainer
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer
+  type: Interface
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: >-
+    Simplified interface for retrieving field values.
+
+
+    <p>An object that has field values associated with it should implement this interface (such as TranslationUnit).</p>
+  example: []
+  syntax:
+    content: public interface ITypedKeyValueContainer
+    content.vb: Public Interface ITypedKeyValueContainer
+  derivedClasses:
+  - Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor
+  - Sdl.LanguagePlatform.TranslationMemory.TranslationUnit
+- uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String)
+  id: GetValue(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer
+  langs:
+  - csharp
+  - vb
+  name: GetValue(string)
+  nameWithType: ITypedKeyValueContainer.GetValue(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(string)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Returns the value of field with name "fieldName". The return value can be any field type.
+  example: []
+  syntax:
+    content: FieldValue GetValue(string fieldName)
+    parameters:
+    - id: fieldName
+      type: System.String
+      description: The field name.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValue
+      description: The value of the field, or null if not defined.
+    content.vb: Function GetValue(fieldName As String) As FieldValue
+  overload: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue*
+  nameWithType.vb: ITypedKeyValueContainer.GetValue(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(String)
+  name.vb: GetValue(String)
+- uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String,Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String,Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  id: GetValue(System.String,Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  parent: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer
+  langs:
+  - csharp
+  - vb
+  name: GetValue(string, FieldValueType)
+  nameWithType: ITypedKeyValueContainer.GetValue(string, FieldValueType)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(string, Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Returns the value of field with name "fieldName", given the field value type t.
+  example: []
+  syntax:
+    content: FieldValue GetValue(string fieldName, FieldValueType t)
+    parameters:
+    - id: fieldName
+      type: System.String
+      description: The field name
+    - id: t
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+      description: The field type to return the value for.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValue
+      description: null if no value is defined. Throws exception if value is of a different type.
+    content.vb: Function GetValue(fieldName As String, t As FieldValueType) As FieldValue
+  overload: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue*
+  nameWithType.vb: ITypedKeyValueContainer.GetValue(String, FieldValueType)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(String, Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  name.vb: GetValue(String, FieldValueType)
+- uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType(System.String)
+  id: GetType(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer
+  langs:
+  - csharp
+  - vb
+  name: GetType(string)
+  nameWithType: ITypedKeyValueContainer.GetType(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType(string)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: >-
+    Returns the type of the field with name "fieldName". If the object does not have a value for that field, 
+
+    returns FieldValueType.Unknown.
+  example: []
+  syntax:
+    content: FieldValueType GetType(string fieldName)
+    parameters:
+    - id: fieldName
+      type: System.String
+      description: The field name.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+      description: The type of that field, or FieldValueType.Unknown if it doesn't exist.
+    content.vb: Function [GetType](fieldName As String) As FieldValueType
+  overload: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType*
+  nameWithType.vb: ITypedKeyValueContainer.GetType(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType(String)
+  name.vb: GetType(String)
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.html#Sdl_LanguagePlatform_TranslationMemory_ITypedKeyValueContainer_GetValue_System_String_
+  name: GetValue
+  nameWithType: ITypedKeyValueContainer.GetValue
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.LanguagePlatform.TranslationMemory.FieldValue
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.FieldValue
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.FieldValue.html
+  name: FieldValue
+  nameWithType: FieldValue
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FieldValue
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.html
+  name: FieldValueType
+  nameWithType: FieldValueType
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+- uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.html#Sdl_LanguagePlatform_TranslationMemory_ITypedKeyValueContainer_GetType_System_String_
+  name: GetType
+  nameWithType: ITypedKeyValueContainer.GetType
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType

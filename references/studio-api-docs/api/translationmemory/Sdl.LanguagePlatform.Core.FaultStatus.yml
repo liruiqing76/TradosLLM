@@ -1,0 +1,206 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.FaultStatus
+  commentId: T:Sdl.LanguagePlatform.Core.FaultStatus
+  id: FaultStatus
+  parent: Sdl.LanguagePlatform.Core
+  children:
+  - Sdl.LanguagePlatform.Core.FaultStatus.Error
+  - Sdl.LanguagePlatform.Core.FaultStatus.Fatal
+  - Sdl.LanguagePlatform.Core.FaultStatus.Success
+  - Sdl.LanguagePlatform.Core.FaultStatus.Warning
+  langs:
+  - csharp
+  - vb
+  name: FaultStatus
+  nameWithType: FaultStatus
+  fullName: Sdl.LanguagePlatform.Core.FaultStatus
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Specifies the fault status.
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public enum FaultStatus
+    content.vb: >-
+      <DataContract>
+
+      Public Enum FaultStatus
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.FaultStatus.Success
+  commentId: F:Sdl.LanguagePlatform.Core.FaultStatus.Success
+  id: Success
+  parent: Sdl.LanguagePlatform.Core.FaultStatus
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: FaultStatus.Success
+  fullName: Sdl.LanguagePlatform.Core.FaultStatus.Success
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: The operation was successfully executed.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Success = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.FaultStatus
+    content.vb: >-
+      <EnumMember>
+
+      Success = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.FaultStatus.Warning
+  commentId: F:Sdl.LanguagePlatform.Core.FaultStatus.Warning
+  id: Warning
+  parent: Sdl.LanguagePlatform.Core.FaultStatus
+  langs:
+  - csharp
+  - vb
+  name: Warning
+  nameWithType: FaultStatus.Warning
+  fullName: Sdl.LanguagePlatform.Core.FaultStatus.Warning
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: The operation generated a warning.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Warning = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.FaultStatus
+    content.vb: >-
+      <EnumMember>
+
+      Warning = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.FaultStatus.Error
+  commentId: F:Sdl.LanguagePlatform.Core.FaultStatus.Error
+  id: Error
+  parent: Sdl.LanguagePlatform.Core.FaultStatus
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: FaultStatus.Error
+  fullName: Sdl.LanguagePlatform.Core.FaultStatus.Error
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: The operation generated an error.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Error = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.FaultStatus
+    content.vb: >-
+      <EnumMember>
+
+      Error = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.FaultStatus.Fatal
+  commentId: F:Sdl.LanguagePlatform.Core.FaultStatus.Fatal
+  id: Fatal
+  parent: Sdl.LanguagePlatform.Core.FaultStatus
+  langs:
+  - csharp
+  - vb
+  name: Fatal
+  nameWithType: FaultStatus.Fatal
+  fullName: Sdl.LanguagePlatform.Core.FaultStatus.Fatal
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: The operation crashed or generated a fatal error.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Fatal = 3
+    return:
+      type: Sdl.LanguagePlatform.Core.FaultStatus
+    content.vb: >-
+      <EnumMember>
+
+      Fatal = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: Sdl.LanguagePlatform.Core
+  commentId: N:Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core
+  nameWithType: Sdl.LanguagePlatform.Core
+  fullName: Sdl.LanguagePlatform.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+- uid: Sdl.LanguagePlatform.Core.FaultStatus
+  commentId: T:Sdl.LanguagePlatform.Core.FaultStatus
+  parent: Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.FaultStatus.html
+  name: FaultStatus
+  nameWithType: FaultStatus
+  fullName: Sdl.LanguagePlatform.Core.FaultStatus

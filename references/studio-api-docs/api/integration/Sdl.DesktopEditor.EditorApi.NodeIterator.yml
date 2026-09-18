@@ -1,0 +1,845 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.NodeIterator
+  commentId: T:Sdl.DesktopEditor.EditorApi.NodeIterator
+  id: NodeIterator
+  parent: Sdl.DesktopEditor.EditorApi
+  children:
+  - Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode)
+  - Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode,Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  - Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor(Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  - Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor(Sdl.DesktopEditor.EditorApi.IAbstractNode,Sdl.DesktopEditor.EditorApi.IAbstractContentNode)
+  - Sdl.DesktopEditor.EditorApi.NodeIterator.CurrentAbstractNode
+  langs:
+  - csharp
+  - vb
+  name: NodeIterator
+  nameWithType: NodeIterator
+  fullName: Sdl.DesktopEditor.EditorApi.NodeIterator
+  type: Class
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Iterates over all nodes in the range.
+  example: []
+  syntax:
+    content: >-
+      [CLSCompliant(false)]
+
+      public class NodeIterator : ContentNodeIterator
+    content.vb: >-
+      <CLSCompliant(False)>
+
+      Public Class NodeIterator Inherits ContentNodeIterator
+  inheritance:
+  - System.Object
+  - Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+  inheritedMembers:
+  - Sdl.DesktopEditor.EditorApi.ContentNodeIterator._Container
+  - Sdl.DesktopEditor.EditorApi.ContentNodeIterator._CurrentNode
+  - Sdl.DesktopEditor.EditorApi.ContentNodeIterator._EndNode
+  - Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Next
+  - Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Previous
+  - Sdl.DesktopEditor.EditorApi.ContentNodeIterator.GetNextContentNode(Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  - Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Container
+  - Sdl.DesktopEditor.EditorApi.ContentNodeIterator.CurrentNode
+  - Sdl.DesktopEditor.EditorApi.ContentNodeIterator.EndNode
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  extensionMethods:
+  - System.Object.Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Action{System.Windows.Window})
+  attributes:
+  - type: System.CLSCompliantAttribute
+    ctor: System.CLSCompliantAttribute.#ctor(System.Boolean)
+    arguments:
+    - type: System.Boolean
+      value: false
+- uid: Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode)
+  id: '#ctor(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode)'
+  parent: Sdl.DesktopEditor.EditorApi.NodeIterator
+  langs:
+  - csharp
+  - vb
+  name: NodeIterator(IAbstractContainerNode)
+  nameWithType: NodeIterator.NodeIterator(IAbstractContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.NodeIterator.NodeIterator(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode)
+  type: Constructor
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Limit iteration to the specified container, start at the first node in the container.
+  example: []
+  syntax:
+    content: public NodeIterator(IAbstractContainerNode container)
+    parameters:
+    - id: container
+      type: Sdl.DesktopEditor.EditorApi.IAbstractContainerNode
+      description: The bounding container
+    content.vb: Public Sub New(container As IAbstractContainerNode)
+  overload: Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor*
+  nameWithType.vb: NodeIterator.New(IAbstractContainerNode)
+  fullName.vb: Sdl.DesktopEditor.EditorApi.NodeIterator.New(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode)
+  name.vb: New(IAbstractContainerNode)
+- uid: Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode,Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode,Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  id: '#ctor(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode,Sdl.DesktopEditor.EditorApi.IAbstractNode)'
+  parent: Sdl.DesktopEditor.EditorApi.NodeIterator
+  langs:
+  - csharp
+  - vb
+  name: NodeIterator(IAbstractContainerNode, IAbstractNode)
+  nameWithType: NodeIterator.NodeIterator(IAbstractContainerNode, IAbstractNode)
+  fullName: Sdl.DesktopEditor.EditorApi.NodeIterator.NodeIterator(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode, Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  type: Constructor
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    Limit iteration to the specified container, start at a specified node (which 
+
+    should be in the container, but can be a sub-node).
+  example: []
+  syntax:
+    content: public NodeIterator(IAbstractContainerNode container, IAbstractNode from)
+    parameters:
+    - id: container
+      type: Sdl.DesktopEditor.EditorApi.IAbstractContainerNode
+      description: The bounding container
+    - id: from
+      type: Sdl.DesktopEditor.EditorApi.IAbstractNode
+      description: >-
+        The first node to start from. This is typically a node somewhere 
+                    inside the container.
+    content.vb: Public Sub New(container As IAbstractContainerNode, from As IAbstractNode)
+  overload: Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor*
+  nameWithType.vb: NodeIterator.New(IAbstractContainerNode, IAbstractNode)
+  fullName.vb: Sdl.DesktopEditor.EditorApi.NodeIterator.New(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode, Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  name.vb: New(IAbstractContainerNode, IAbstractNode)
+- uid: Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor(Sdl.DesktopEditor.EditorApi.IAbstractNode,Sdl.DesktopEditor.EditorApi.IAbstractContentNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor(Sdl.DesktopEditor.EditorApi.IAbstractNode,Sdl.DesktopEditor.EditorApi.IAbstractContentNode)
+  id: '#ctor(Sdl.DesktopEditor.EditorApi.IAbstractNode,Sdl.DesktopEditor.EditorApi.IAbstractContentNode)'
+  parent: Sdl.DesktopEditor.EditorApi.NodeIterator
+  langs:
+  - csharp
+  - vb
+  name: NodeIterator(IAbstractNode, IAbstractContentNode)
+  nameWithType: NodeIterator.NodeIterator(IAbstractNode, IAbstractContentNode)
+  fullName: Sdl.DesktopEditor.EditorApi.NodeIterator.NodeIterator(Sdl.DesktopEditor.EditorApi.IAbstractNode, Sdl.DesktopEditor.EditorApi.IAbstractContentNode)
+  type: Constructor
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    Limit iteration to a specific end node. The iteration will stop at the upto node,
+
+    which will not be returned as a content node.
+  example: []
+  syntax:
+    content: public NodeIterator(IAbstractNode from, IAbstractContentNode upto)
+    parameters:
+    - id: from
+      type: Sdl.DesktopEditor.EditorApi.IAbstractNode
+      description: The first node to start from. May or may not be a container.
+    - id: upto
+      type: Sdl.DesktopEditor.EditorApi.IAbstractContentNode
+      description: >-
+        The node at which to stop. Will not be part of the content iterated over,
+                    and must be after the from node to be effective.
+    content.vb: Public Sub New(from As IAbstractNode, upto As IAbstractContentNode)
+  overload: Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor*
+  nameWithType.vb: NodeIterator.New(IAbstractNode, IAbstractContentNode)
+  fullName.vb: Sdl.DesktopEditor.EditorApi.NodeIterator.New(Sdl.DesktopEditor.EditorApi.IAbstractNode, Sdl.DesktopEditor.EditorApi.IAbstractContentNode)
+  name.vb: New(IAbstractNode, IAbstractContentNode)
+- uid: Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor(Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor(Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  id: '#ctor(Sdl.DesktopEditor.EditorApi.IAbstractNode)'
+  parent: Sdl.DesktopEditor.EditorApi.NodeIterator
+  langs:
+  - csharp
+  - vb
+  name: NodeIterator(IAbstractNode)
+  nameWithType: NodeIterator.NodeIterator(IAbstractNode)
+  fullName: Sdl.DesktopEditor.EditorApi.NodeIterator.NodeIterator(Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  type: Constructor
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Start at the specified node. Iterate until the end of all available content, including parent nodes.
+  example: []
+  syntax:
+    content: public NodeIterator(IAbstractNode from)
+    parameters:
+    - id: from
+      type: Sdl.DesktopEditor.EditorApi.IAbstractNode
+      description: the position to start from, may or may not be a content node
+    content.vb: Public Sub New(from As IAbstractNode)
+  overload: Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor*
+  nameWithType.vb: NodeIterator.New(IAbstractNode)
+  fullName.vb: Sdl.DesktopEditor.EditorApi.NodeIterator.New(Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  name.vb: New(IAbstractNode)
+- uid: Sdl.DesktopEditor.EditorApi.NodeIterator.CurrentAbstractNode
+  commentId: P:Sdl.DesktopEditor.EditorApi.NodeIterator.CurrentAbstractNode
+  id: CurrentAbstractNode
+  parent: Sdl.DesktopEditor.EditorApi.NodeIterator
+  langs:
+  - csharp
+  - vb
+  name: CurrentAbstractNode
+  nameWithType: NodeIterator.CurrentAbstractNode
+  fullName: Sdl.DesktopEditor.EditorApi.NodeIterator.CurrentAbstractNode
+  type: Property
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The current node we are iterating over
+  example: []
+  syntax:
+    content: protected override IAbstractNode CurrentAbstractNode { get; }
+    parameters: []
+    return:
+      type: Sdl.DesktopEditor.EditorApi.IAbstractNode
+    content.vb: Protected Overrides ReadOnly Property CurrentAbstractNode As IAbstractNode
+  overridden: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.CurrentAbstractNode
+  overload: Sdl.DesktopEditor.EditorApi.NodeIterator.CurrentAbstractNode*
+references:
+- uid: Sdl.DesktopEditor.EditorApi
+  commentId: N:Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi
+  nameWithType: Sdl.DesktopEditor.EditorApi
+  fullName: Sdl.DesktopEditor.EditorApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+  commentId: T:Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html
+  name: ContentNodeIterator
+  nameWithType: ContentNodeIterator
+  fullName: Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+- uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator._Container
+  commentId: F:Sdl.DesktopEditor.EditorApi.ContentNodeIterator._Container
+  parent: Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator__Container
+  name: _Container
+  nameWithType: ContentNodeIterator._Container
+  fullName: Sdl.DesktopEditor.EditorApi.ContentNodeIterator._Container
+- uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator._CurrentNode
+  commentId: F:Sdl.DesktopEditor.EditorApi.ContentNodeIterator._CurrentNode
+  parent: Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator__CurrentNode
+  name: _CurrentNode
+  nameWithType: ContentNodeIterator._CurrentNode
+  fullName: Sdl.DesktopEditor.EditorApi.ContentNodeIterator._CurrentNode
+- uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator._EndNode
+  commentId: F:Sdl.DesktopEditor.EditorApi.ContentNodeIterator._EndNode
+  parent: Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator__EndNode
+  name: _EndNode
+  nameWithType: ContentNodeIterator._EndNode
+  fullName: Sdl.DesktopEditor.EditorApi.ContentNodeIterator._EndNode
+- uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Next
+  commentId: M:Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Next
+  parent: Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator_Next
+  name: Next()
+  nameWithType: ContentNodeIterator.Next()
+  fullName: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Next()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Next
+    name: Next
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator_Next
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Next
+    name: Next
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator_Next
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Previous
+  commentId: M:Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Previous
+  parent: Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator_Previous
+  name: Previous()
+  nameWithType: ContentNodeIterator.Previous()
+  fullName: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Previous()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Previous
+    name: Previous
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator_Previous
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Previous
+    name: Previous
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator_Previous
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.GetNextContentNode(Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.ContentNodeIterator.GetNextContentNode(Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  parent: Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator_GetNextContentNode_Sdl_DesktopEditor_EditorApi_IAbstractNode_
+  name: GetNextContentNode(IAbstractNode)
+  nameWithType: ContentNodeIterator.GetNextContentNode(IAbstractNode)
+  fullName: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.GetNextContentNode(Sdl.DesktopEditor.EditorApi.IAbstractNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.GetNextContentNode(Sdl.DesktopEditor.EditorApi.IAbstractNode)
+    name: GetNextContentNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator_GetNextContentNode_Sdl_DesktopEditor_EditorApi_IAbstractNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IAbstractNode
+    name: IAbstractNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IAbstractNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.GetNextContentNode(Sdl.DesktopEditor.EditorApi.IAbstractNode)
+    name: GetNextContentNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator_GetNextContentNode_Sdl_DesktopEditor_EditorApi_IAbstractNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IAbstractNode
+    name: IAbstractNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IAbstractNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Container
+  commentId: P:Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Container
+  parent: Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator_Container
+  name: Container
+  nameWithType: ContentNodeIterator.Container
+  fullName: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.Container
+- uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.CurrentNode
+  commentId: P:Sdl.DesktopEditor.EditorApi.ContentNodeIterator.CurrentNode
+  parent: Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator_CurrentNode
+  name: CurrentNode
+  nameWithType: ContentNodeIterator.CurrentNode
+  fullName: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.CurrentNode
+- uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.EndNode
+  commentId: P:Sdl.DesktopEditor.EditorApi.ContentNodeIterator.EndNode
+  parent: Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator_EndNode
+  name: EndNode
+  nameWithType: ContentNodeIterator.EndNode
+  fullName: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.EndNode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Action{System.Windows.Window})
+  commentId: M:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  parent: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  definition: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  name: ForWindowFromFrameworkElement(object, Action<Window>)
+  nameWithType: WindowsControlUtils.ForWindowFromFrameworkElement(object, Action<Window>)
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(object, System.Action<System.Windows.Window>)
+  nameWithType.vb: WindowsControlUtils.ForWindowFromFrameworkElement(Object, Action(Of Window))
+  fullName.vb: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(Object, System.Action(Of System.Windows.Window))
+  name.vb: ForWindowFromFrameworkElement(Object, Action(Of Window))
+  spec.csharp:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: )
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  commentId: M:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  isExternal: true
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  name: ForWindowFromFrameworkElement(object, Action<Window>)
+  nameWithType: WindowsControlUtils.ForWindowFromFrameworkElement(object, Action<Window>)
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(object, System.Action<System.Windows.Window>)
+  nameWithType.vb: WindowsControlUtils.ForWindowFromFrameworkElement(Object, Action(Of Window))
+  fullName.vb: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(Object, System.Action(Of System.Windows.Window))
+  name.vb: ForWindowFromFrameworkElement(Object, Action(Of Window))
+  spec.csharp:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: )
+  - name: )
+- uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  commentId: T:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  parent: Sdl.Desktop.Platform.Controls.Controls
+  isExternal: true
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html
+  name: WindowsControlUtils
+  nameWithType: WindowsControlUtils
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+- uid: Sdl.Desktop.Platform.Controls.Controls
+  commentId: N:Sdl.Desktop.Platform.Controls.Controls
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Desktop.Platform.Controls.Controls
+  nameWithType: Sdl.Desktop.Platform.Controls.Controls
+  fullName: Sdl.Desktop.Platform.Controls.Controls
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.Platform
+    name: Platform
+    isExternal: true
+    href: Sdl.Desktop.Platform.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.Platform
+    name: Platform
+    isExternal: true
+    href: Sdl.Desktop.Platform.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.html
+- uid: Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.NodeIterator.#ctor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.NodeIterator.html#Sdl_DesktopEditor_EditorApi_NodeIterator__ctor_Sdl_DesktopEditor_EditorApi_IAbstractContainerNode_
+  name: NodeIterator
+  nameWithType: NodeIterator.NodeIterator
+  fullName: Sdl.DesktopEditor.EditorApi.NodeIterator.NodeIterator
+  nameWithType.vb: NodeIterator.New
+  fullName.vb: Sdl.DesktopEditor.EditorApi.NodeIterator.New
+  name.vb: New
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractContainerNode
+  commentId: T:Sdl.DesktopEditor.EditorApi.IAbstractContainerNode
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractContainerNode.html
+  name: IAbstractContainerNode
+  nameWithType: IAbstractContainerNode
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractContainerNode
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractNode
+  commentId: T:Sdl.DesktopEditor.EditorApi.IAbstractNode
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractNode.html
+  name: IAbstractNode
+  nameWithType: IAbstractNode
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractNode
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractContentNode
+  commentId: T:Sdl.DesktopEditor.EditorApi.IAbstractContentNode
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractContentNode.html
+  name: IAbstractContentNode
+  nameWithType: IAbstractContentNode
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractContentNode
+- uid: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.CurrentAbstractNode
+  commentId: P:Sdl.DesktopEditor.EditorApi.ContentNodeIterator.CurrentAbstractNode
+  parent: Sdl.DesktopEditor.EditorApi.ContentNodeIterator
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.html#Sdl_DesktopEditor_EditorApi_ContentNodeIterator_CurrentAbstractNode
+  name: CurrentAbstractNode
+  nameWithType: ContentNodeIterator.CurrentAbstractNode
+  fullName: Sdl.DesktopEditor.EditorApi.ContentNodeIterator.CurrentAbstractNode
+- uid: Sdl.DesktopEditor.EditorApi.NodeIterator.CurrentAbstractNode*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.NodeIterator.CurrentAbstractNode
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.NodeIterator.html#Sdl_DesktopEditor_EditorApi_NodeIterator_CurrentAbstractNode
+  name: CurrentAbstractNode
+  nameWithType: NodeIterator.CurrentAbstractNode
+  fullName: Sdl.DesktopEditor.EditorApi.NodeIterator.CurrentAbstractNode

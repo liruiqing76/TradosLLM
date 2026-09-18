@@ -1,0 +1,148 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.IPicklistOption
+  id: IPicklistOption
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Guid
+  - Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Value
+  langs:
+  - csharp
+  - vb
+  name: IPicklistOption
+  nameWithType: IPicklistOption
+  fullName: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption
+  type: Interface
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: PicklistItem, V2 schema.
+  example: []
+  syntax:
+    content: public interface IPicklistOption
+    content.vb: Public Interface IPicklistOption
+- uid: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Guid
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Guid
+  id: Guid
+  parent: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption
+  langs:
+  - csharp
+  - vb
+  name: Guid
+  nameWithType: IPicklistOption.Guid
+  fullName: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Guid
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Guid
+  example: []
+  syntax:
+    content: Guid Guid { get; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: ReadOnly Property Guid As Guid
+  overload: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Guid*
+- uid: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Value
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Value
+  id: Value
+  parent: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: IPicklistOption.Value
+  fullName: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Value
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Gets the field Value.
+  example: []
+  syntax:
+    content: string Value { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Value As String
+  overload: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Value*
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Guid*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Guid
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.html#Sdl_LanguagePlatform_TranslationMemory_IPicklistOption_Guid
+  name: Guid
+  nameWithType: IPicklistOption.Guid
+  fullName: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Guid
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Value*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Value
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.html#Sdl_LanguagePlatform_TranslationMemory_IPicklistOption_Value
+  name: Value
+  nameWithType: IPicklistOption.Value
+  fullName: Sdl.LanguagePlatform.TranslationMemory.IPicklistOption.Value
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

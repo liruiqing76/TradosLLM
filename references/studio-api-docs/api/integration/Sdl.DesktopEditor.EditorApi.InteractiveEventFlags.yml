@@ -1,0 +1,288 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  commentId: T:Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  id: InteractiveEventFlags
+  parent: Sdl.DesktopEditor.EditorApi
+  children:
+  - Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseDoubleClick
+  - Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseDown
+  - Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseEnteringCell
+  - Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseLeavingCell
+  - Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseMove
+  - Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseRightDown
+  - Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseRightUp
+  - Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseUp
+  - Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.None
+  langs:
+  - csharp
+  - vb
+  name: InteractiveEventFlags
+  nameWithType: InteractiveEventFlags
+  fullName: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  type: Enum
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    Used with the <xref href="Sdl.DesktopEditor.EditorApi.IInteractiveCustomColumn.EventFlags" data-throw-if-not-resolved="false"></xref> to indicate
+
+    which interactive user events should generate call on the methods
+
+    implemented by the column.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum InteractiveEventFlags
+    content.vb: >-
+      <Flags>
+
+      Public Enum InteractiveEventFlags
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.None
+  commentId: F:Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.None
+  id: None
+  parent: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: InteractiveEventFlags.None
+  fullName: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.None
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: No interaction.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+- uid: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseDown
+  commentId: F:Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseDown
+  id: MouseDown
+  parent: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  langs:
+  - csharp
+  - vb
+  name: MouseDown
+  nameWithType: InteractiveEventFlags.MouseDown
+  fullName: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseDown
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Left mouse button down.
+  example: []
+  syntax:
+    content: MouseDown = 1
+    return:
+      type: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+- uid: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseDoubleClick
+  commentId: F:Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseDoubleClick
+  id: MouseDoubleClick
+  parent: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  langs:
+  - csharp
+  - vb
+  name: MouseDoubleClick
+  nameWithType: InteractiveEventFlags.MouseDoubleClick
+  fullName: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseDoubleClick
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Left mouse button double click.
+  example: []
+  syntax:
+    content: MouseDoubleClick = 2
+    return:
+      type: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+- uid: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseUp
+  commentId: F:Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseUp
+  id: MouseUp
+  parent: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  langs:
+  - csharp
+  - vb
+  name: MouseUp
+  nameWithType: InteractiveEventFlags.MouseUp
+  fullName: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseUp
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Left mouse button up.
+  example: []
+  syntax:
+    content: MouseUp = 4
+    return:
+      type: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+- uid: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseMove
+  commentId: F:Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseMove
+  id: MouseMove
+  parent: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  langs:
+  - csharp
+  - vb
+  name: MouseMove
+  nameWithType: InteractiveEventFlags.MouseMove
+  fullName: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseMove
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Mouse cursor move.
+  example: []
+  syntax:
+    content: MouseMove = 8
+    return:
+      type: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+- uid: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseRightDown
+  commentId: F:Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseRightDown
+  id: MouseRightDown
+  parent: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  langs:
+  - csharp
+  - vb
+  name: MouseRightDown
+  nameWithType: InteractiveEventFlags.MouseRightDown
+  fullName: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseRightDown
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Right mouse button down.
+  example: []
+  syntax:
+    content: MouseRightDown = 16
+    return:
+      type: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+- uid: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseRightUp
+  commentId: F:Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseRightUp
+  id: MouseRightUp
+  parent: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  langs:
+  - csharp
+  - vb
+  name: MouseRightUp
+  nameWithType: InteractiveEventFlags.MouseRightUp
+  fullName: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseRightUp
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Right mouse button up.
+  example: []
+  syntax:
+    content: MouseRightUp = 32
+    return:
+      type: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+- uid: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseEnteringCell
+  commentId: F:Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseEnteringCell
+  id: MouseEnteringCell
+  parent: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  langs:
+  - csharp
+  - vb
+  name: MouseEnteringCell
+  nameWithType: InteractiveEventFlags.MouseEnteringCell
+  fullName: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseEnteringCell
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The mouse cursor is entering a cell.
+  example: []
+  syntax:
+    content: MouseEnteringCell = 64
+    return:
+      type: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+- uid: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseLeavingCell
+  commentId: F:Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseLeavingCell
+  id: MouseLeavingCell
+  parent: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  langs:
+  - csharp
+  - vb
+  name: MouseLeavingCell
+  nameWithType: InteractiveEventFlags.MouseLeavingCell
+  fullName: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.MouseLeavingCell
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The mouse cursor is leaving a cell.
+  example: []
+  syntax:
+    content: MouseLeavingCell = 128
+    return:
+      type: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+references:
+- uid: Sdl.DesktopEditor.EditorApi.IInteractiveCustomColumn.EventFlags
+  commentId: P:Sdl.DesktopEditor.EditorApi.IInteractiveCustomColumn.EventFlags
+  parent: Sdl.DesktopEditor.EditorApi.IInteractiveCustomColumn
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IInteractiveCustomColumn.html#Sdl_DesktopEditor_EditorApi_IInteractiveCustomColumn_EventFlags
+  name: EventFlags
+  nameWithType: IInteractiveCustomColumn.EventFlags
+  fullName: Sdl.DesktopEditor.EditorApi.IInteractiveCustomColumn.EventFlags
+- uid: Sdl.DesktopEditor.EditorApi
+  commentId: N:Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi
+  nameWithType: Sdl.DesktopEditor.EditorApi
+  fullName: Sdl.DesktopEditor.EditorApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+- uid: Sdl.DesktopEditor.EditorApi.IInteractiveCustomColumn
+  commentId: T:Sdl.DesktopEditor.EditorApi.IInteractiveCustomColumn
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IInteractiveCustomColumn.html
+  name: IInteractiveCustomColumn
+  nameWithType: IInteractiveCustomColumn
+  fullName: Sdl.DesktopEditor.EditorApi.IInteractiveCustomColumn
+- uid: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  commentId: T:Sdl.DesktopEditor.EditorApi.InteractiveEventFlags
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags.html
+  name: InteractiveEventFlags
+  nameWithType: InteractiveEventFlags
+  fullName: Sdl.DesktopEditor.EditorApi.InteractiveEventFlags

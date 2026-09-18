@@ -1,0 +1,777 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent
+  commentId: T:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent
+  id: StartOfInputEvent
+  parent: Sdl.LanguagePlatform.IO.Streams
+  children:
+  - Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.#ctor
+  - Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationDate
+  - Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationUser
+  - Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.Properties
+  - Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCulture
+  - Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCultureName
+  - Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCulture
+  - Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCultureName
+  - Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent._CreationDate
+  langs:
+  - csharp
+  - vb
+  name: StartOfInputEvent
+  nameWithType: StartOfInputEvent
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.Streams
+  summary: Corresponds to the filter framework's StartOfInput event. It represents the beginning of the input stream.
+  example: []
+  syntax:
+    content: 'public class StartOfInputEvent : Event'
+    content.vb: Public Class StartOfInputEvent Inherits Event
+  inheritance:
+  - System.Object
+  - Sdl.LanguagePlatform.IO.Streams.Event
+  derivedClasses:
+  - Sdl.LanguagePlatform.IO.TMX.TMXStartOfInputEvent
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent._CreationDate
+  commentId: F:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent._CreationDate
+  id: _CreationDate
+  parent: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent
+  langs:
+  - csharp
+  - vb
+  name: _CreationDate
+  nameWithType: StartOfInputEvent._CreationDate
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent._CreationDate
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.Streams
+  syntax:
+    content: protected DateTime _CreationDate
+    return:
+      type: System.DateTime
+    content.vb: Protected _CreationDate As Date
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.#ctor
+  commentId: M:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.#ctor
+  id: '#ctor'
+  parent: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent
+  langs:
+  - csharp
+  - vb
+  name: StartOfInputEvent()
+  nameWithType: StartOfInputEvent.StartOfInputEvent()
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.StartOfInputEvent()
+  type: Constructor
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.Streams
+  syntax:
+    content: public StartOfInputEvent()
+    content.vb: Public Sub New()
+  overload: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.#ctor*
+  nameWithType.vb: StartOfInputEvent.New()
+  fullName.vb: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.New()
+  name.vb: New()
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCulture
+  commentId: P:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCulture
+  id: SourceCulture
+  parent: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent
+  langs:
+  - csharp
+  - vb
+  name: SourceCulture
+  nameWithType: StartOfInputEvent.SourceCulture
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCulture
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.Streams
+  summary: Gets or sets the source language.
+  example: []
+  syntax:
+    content: public CultureCode SourceCulture { get; set; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.CultureCode
+    content.vb: Public Property SourceCulture As CultureCode
+  overload: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCulture*
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCultureName
+  commentId: P:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCultureName
+  id: SourceCultureName
+  parent: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent
+  langs:
+  - csharp
+  - vb
+  name: SourceCultureName
+  nameWithType: StartOfInputEvent.SourceCultureName
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCultureName
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.Streams
+  summary: Gets or sets the source language as a string value.
+  example: []
+  syntax:
+    content: public string SourceCultureName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SourceCultureName As String
+  overload: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCultureName*
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.Properties
+  commentId: P:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.Properties
+  id: Properties
+  parent: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent
+  langs:
+  - csharp
+  - vb
+  name: Properties
+  nameWithType: StartOfInputEvent.Properties
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.Properties
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.Streams
+  summary: >-
+    Accesses user-defined properties, which are key-value pairs of strings. Note that the field value
+
+    is null unless it's allocated by the user.
+  example: []
+  syntax:
+    content: public Dictionary<string, string> Properties { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.String}
+    content.vb: Public Property Properties As Dictionary(Of String, String)
+  overload: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.Properties*
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCulture
+  commentId: P:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCulture
+  id: TargetCulture
+  parent: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent
+  langs:
+  - csharp
+  - vb
+  name: TargetCulture
+  nameWithType: StartOfInputEvent.TargetCulture
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCulture
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.Streams
+  summary: Gets or sets the target language.
+  example: []
+  syntax:
+    content: public CultureCode TargetCulture { get; set; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.CultureCode
+    content.vb: Public Property TargetCulture As CultureCode
+  overload: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCulture*
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCultureName
+  commentId: P:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCultureName
+  id: TargetCultureName
+  parent: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent
+  langs:
+  - csharp
+  - vb
+  name: TargetCultureName
+  nameWithType: StartOfInputEvent.TargetCultureName
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCultureName
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.Streams
+  summary: Gets or sets the target language as a string value.
+  example: []
+  syntax:
+    content: public string TargetCultureName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property TargetCultureName As String
+  overload: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCultureName*
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationDate
+  commentId: P:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationDate
+  id: CreationDate
+  parent: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent
+  langs:
+  - csharp
+  - vb
+  name: CreationDate
+  nameWithType: StartOfInputEvent.CreationDate
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationDate
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.Streams
+  summary: Gets or sets the creation date.
+  example: []
+  syntax:
+    content: public DateTime CreationDate { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property CreationDate As Date
+  overload: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationDate*
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationUser
+  commentId: P:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationUser
+  id: CreationUser
+  parent: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent
+  langs:
+  - csharp
+  - vb
+  name: CreationUser
+  nameWithType: StartOfInputEvent.CreationUser
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationUser
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.Streams
+  summary: Gets or sets the creation user.
+  example: []
+  syntax:
+    content: public string CreationUser { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreationUser As String
+  overload: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationUser*
+references:
+- uid: Sdl.LanguagePlatform.IO.Streams
+  commentId: N:Sdl.LanguagePlatform.IO.Streams
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.IO.Streams
+  nameWithType: Sdl.LanguagePlatform.IO.Streams
+  fullName: Sdl.LanguagePlatform.IO.Streams
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO
+    name: IO
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO.Streams
+    name: Streams
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.Streams.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO
+    name: IO
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO.Streams
+    name: Streams
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.Streams.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Sdl.LanguagePlatform.IO.Streams.Event
+  commentId: T:Sdl.LanguagePlatform.IO.Streams.Event
+  parent: Sdl.LanguagePlatform.IO.Streams
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.Streams.Event.html
+  name: Event
+  nameWithType: Event
+  fullName: Sdl.LanguagePlatform.IO.Streams.Event
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.#ctor*
+  commentId: Overload:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.#ctor
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.html#Sdl_LanguagePlatform_IO_Streams_StartOfInputEvent__ctor
+  name: StartOfInputEvent
+  nameWithType: StartOfInputEvent.StartOfInputEvent
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.StartOfInputEvent
+  nameWithType.vb: StartOfInputEvent.New
+  fullName.vb: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.New
+  name.vb: New
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCulture*
+  commentId: Overload:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCulture
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.html#Sdl_LanguagePlatform_IO_Streams_StartOfInputEvent_SourceCulture
+  name: SourceCulture
+  nameWithType: StartOfInputEvent.SourceCulture
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCulture
+- uid: Sdl.Core.Globalization.CultureCode
+  commentId: T:Sdl.Core.Globalization.CultureCode
+  parent: Sdl.Core.Globalization
+  isExternal: true
+  name: CultureCode
+  nameWithType: CultureCode
+  fullName: Sdl.Core.Globalization.CultureCode
+- uid: Sdl.Core.Globalization
+  commentId: N:Sdl.Core.Globalization
+  isExternal: true
+  name: Sdl.Core.Globalization
+  nameWithType: Sdl.Core.Globalization
+  fullName: Sdl.Core.Globalization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCultureName*
+  commentId: Overload:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCultureName
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.html#Sdl_LanguagePlatform_IO_Streams_StartOfInputEvent_SourceCultureName
+  name: SourceCultureName
+  nameWithType: StartOfInputEvent.SourceCultureName
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.SourceCultureName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.Properties*
+  commentId: Overload:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.Properties
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.html#Sdl_LanguagePlatform_IO_Streams_StartOfInputEvent_Properties
+  name: Properties
+  nameWithType: StartOfInputEvent.Properties
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.Properties
+- uid: System.Collections.Generic.Dictionary{System.String,System.String}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, string>
+  nameWithType: Dictionary<string, string>
+  fullName: System.Collections.Generic.Dictionary<string, string>
+  nameWithType.vb: Dictionary(Of String, String)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, String)
+  name.vb: Dictionary(Of String, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCulture*
+  commentId: Overload:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCulture
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.html#Sdl_LanguagePlatform_IO_Streams_StartOfInputEvent_TargetCulture
+  name: TargetCulture
+  nameWithType: StartOfInputEvent.TargetCulture
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCulture
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCultureName*
+  commentId: Overload:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCultureName
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.html#Sdl_LanguagePlatform_IO_Streams_StartOfInputEvent_TargetCultureName
+  name: TargetCultureName
+  nameWithType: StartOfInputEvent.TargetCultureName
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.TargetCultureName
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationDate*
+  commentId: Overload:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationDate
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.html#Sdl_LanguagePlatform_IO_Streams_StartOfInputEvent_CreationDate
+  name: CreationDate
+  nameWithType: StartOfInputEvent.CreationDate
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationDate
+- uid: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationUser*
+  commentId: Overload:Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationUser
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.html#Sdl_LanguagePlatform_IO_Streams_StartOfInputEvent_CreationUser
+  name: CreationUser
+  nameWithType: StartOfInputEvent.CreationUser
+  fullName: Sdl.LanguagePlatform.IO.Streams.StartOfInputEvent.CreationUser

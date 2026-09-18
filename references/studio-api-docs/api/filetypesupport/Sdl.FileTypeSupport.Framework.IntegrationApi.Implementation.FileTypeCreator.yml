@@ -1,0 +1,772 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator
+  id: FileTypeCreator
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation
+  children:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.#ctor
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.CreateWizardPages(Sdl.Core.Settings.ISettingsBundle)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.Description
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.TemplateComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: FileTypeCreator
+  nameWithType: FileTypeCreator
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator
+  type: Class
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation
+  summary: FileTypeCreator - used during the creation process of a new file type flavour
+  example: []
+  syntax:
+    content: 'public class FileTypeCreator : AbstractFileTypeDefinitionComponent, IFileTypeCreator, IFileTypeDefinitionAware'
+    content.vb: Public Class FileTypeCreator Inherits AbstractFileTypeDefinitionComponent Implements IFileTypeCreator, IFileTypeDefinitionAware
+  inheritance:
+  - System.Object
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  inheritedMembers:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.CreateWizardPages(Sdl.Core.Settings.ISettingsBundle)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.CreateWizardPages(Sdl.Core.Settings.ISettingsBundle)
+  id: CreateWizardPages(Sdl.Core.Settings.ISettingsBundle)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator
+  langs:
+  - csharp
+  - vb
+  name: CreateWizardPages(ISettingsBundle)
+  nameWithType: FileTypeCreator.CreateWizardPages(ISettingsBundle)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.CreateWizardPages(Sdl.Core.Settings.ISettingsBundle)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation
+  summary: Creates the wizard pages to configure the new file type.
+  example: []
+  syntax:
+    content: public virtual IEnumerable<FileTypeCreatorWizardPage> CreateWizardPages(ISettingsBundle settingsBundle)
+    parameters:
+    - id: settingsBundle
+      type: Sdl.Core.Settings.ISettingsBundle
+      description: settings bundle
+    return:
+      type: System.Collections.Generic.IEnumerable{Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeCreatorWizardPage}
+      description: wizard pages
+    content.vb: Public Overridable Function CreateWizardPages(settingsBundle As ISettingsBundle) As IEnumerable(Of FileTypeCreatorWizardPage)
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.CreateWizardPages*
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.CreateWizardPages(Sdl.Core.Settings.ISettingsBundle)
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.#ctor
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.#ctor
+  id: '#ctor'
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator
+  langs:
+  - csharp
+  - vb
+  name: FileTypeCreator()
+  nameWithType: FileTypeCreator.FileTypeCreator()
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.FileTypeCreator()
+  type: Constructor
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation
+  syntax:
+    content: public FileTypeCreator()
+    content.vb: Public Sub New()
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.#ctor*
+  nameWithType.vb: FileTypeCreator.New()
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.New()
+  name.vb: New()
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.Description
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.Description
+  id: Description
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: FileTypeCreator.Description
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.Description
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation
+  summary: A description of the file type that will be created by the IFileTypeCreator.
+  example: []
+  syntax:
+    content: public virtual LocalizableString Description { get; set; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.LocalizableString
+    content.vb: Public Overridable Property Description As LocalizableString
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.Description*
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.Description
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.TemplateComponentBuilder
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.TemplateComponentBuilder
+  id: TemplateComponentBuilder
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator
+  langs:
+  - csharp
+  - vb
+  name: TemplateComponentBuilder
+  nameWithType: FileTypeCreator.TemplateComponentBuilder
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.TemplateComponentBuilder
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation
+  summary: Component builder used for creation of this new FileType
+  example: []
+  syntax:
+    content: public virtual IFileTypeComponentBuilder TemplateComponentBuilder { get; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+    content.vb: Public Overridable ReadOnly Property TemplateComponentBuilder As IFileTypeComponentBuilder
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.TemplateComponentBuilder*
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.TemplateComponentBuilder
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation
+    name: Implementation
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation
+    name: Implementation
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.html
+  name: AbstractFileTypeDefinitionComponent
+  nameWithType: AbstractFileTypeDefinitionComponent
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.html
+  name: IFileTypeCreator
+  nameWithType: IFileTypeCreator
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.html
+  name: IFileTypeDefinitionAware
+  nameWithType: IFileTypeDefinitionAware
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.html#Sdl_FileTypeSupport_Framework_IntegrationApi_AbstractFileTypeDefinitionComponent_FileTypeDefinition
+  name: FileTypeDefinition
+  nameWithType: AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.CreateWizardPages*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.CreateWizardPages
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.html#Sdl_FileTypeSupport_Framework_IntegrationApi_Implementation_FileTypeCreator_CreateWizardPages_Sdl_Core_Settings_ISettingsBundle_
+  name: CreateWizardPages
+  nameWithType: FileTypeCreator.CreateWizardPages
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.CreateWizardPages
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.CreateWizardPages(Sdl.Core.Settings.ISettingsBundle)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.CreateWizardPages(Sdl.Core.Settings.ISettingsBundle)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeCreator_CreateWizardPages_Sdl_Core_Settings_ISettingsBundle_
+  name: CreateWizardPages(ISettingsBundle)
+  nameWithType: IFileTypeCreator.CreateWizardPages(ISettingsBundle)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.CreateWizardPages(Sdl.Core.Settings.ISettingsBundle)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.CreateWizardPages(Sdl.Core.Settings.ISettingsBundle)
+    name: CreateWizardPages
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeCreator_CreateWizardPages_Sdl_Core_Settings_ISettingsBundle_
+  - name: (
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.CreateWizardPages(Sdl.Core.Settings.ISettingsBundle)
+    name: CreateWizardPages
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeCreator_CreateWizardPages_Sdl_Core_Settings_ISettingsBundle_
+  - name: (
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: )
+- uid: Sdl.Core.Settings.ISettingsBundle
+  commentId: T:Sdl.Core.Settings.ISettingsBundle
+  parent: Sdl.Core.Settings
+  isExternal: true
+  name: ISettingsBundle
+  nameWithType: ISettingsBundle
+  fullName: Sdl.Core.Settings.ISettingsBundle
+- uid: System.Collections.Generic.IEnumerable{Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeCreatorWizardPage}
+  commentId: T:System.Collections.Generic.IEnumerable{Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeCreatorWizardPage}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<FileTypeCreatorWizardPage>
+  nameWithType: IEnumerable<FileTypeCreatorWizardPage>
+  fullName: System.Collections.Generic.IEnumerable<Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeCreatorWizardPage>
+  nameWithType.vb: IEnumerable(Of FileTypeCreatorWizardPage)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeCreatorWizardPage)
+  name.vb: IEnumerable(Of FileTypeCreatorWizardPage)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeCreatorWizardPage
+    name: FileTypeCreatorWizardPage
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeCreatorWizardPage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeCreatorWizardPage
+    name: FileTypeCreatorWizardPage
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeCreatorWizardPage.html
+  - name: )
+- uid: Sdl.Core.Settings
+  commentId: N:Sdl.Core.Settings
+  isExternal: true
+  name: Sdl.Core.Settings
+  nameWithType: Sdl.Core.Settings
+  fullName: Sdl.Core.Settings
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Settings
+    name: Settings
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Settings
+    name: Settings
+    isExternal: true
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.#ctor*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.#ctor
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.html#Sdl_FileTypeSupport_Framework_IntegrationApi_Implementation_FileTypeCreator__ctor
+  name: FileTypeCreator
+  nameWithType: FileTypeCreator.FileTypeCreator
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.FileTypeCreator
+  nameWithType.vb: FileTypeCreator.New
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.New
+  name.vb: New
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.Description*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.Description
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.html#Sdl_FileTypeSupport_Framework_IntegrationApi_Implementation_FileTypeCreator_Description
+  name: Description
+  nameWithType: FileTypeCreator.Description
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.Description
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.Description
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.Description
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeCreator_Description
+  name: Description
+  nameWithType: IFileTypeCreator.Description
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.Description
+- uid: Sdl.Core.Globalization.LocalizableString
+  commentId: T:Sdl.Core.Globalization.LocalizableString
+  parent: Sdl.Core.Globalization
+  isExternal: true
+  name: LocalizableString
+  nameWithType: LocalizableString
+  fullName: Sdl.Core.Globalization.LocalizableString
+- uid: Sdl.Core.Globalization
+  commentId: N:Sdl.Core.Globalization
+  isExternal: true
+  name: Sdl.Core.Globalization
+  nameWithType: Sdl.Core.Globalization
+  fullName: Sdl.Core.Globalization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.TemplateComponentBuilder*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.TemplateComponentBuilder
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.html#Sdl_FileTypeSupport_Framework_IntegrationApi_Implementation_FileTypeCreator_TemplateComponentBuilder
+  name: TemplateComponentBuilder
+  nameWithType: FileTypeCreator.TemplateComponentBuilder
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator.TemplateComponentBuilder
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.TemplateComponentBuilder
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.TemplateComponentBuilder
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeCreator_TemplateComponentBuilder
+  name: TemplateComponentBuilder
+  nameWithType: IFileTypeCreator.TemplateComponentBuilder
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeCreator.TemplateComponentBuilder
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html
+  name: IFileTypeComponentBuilder
+  nameWithType: IFileTypeComponentBuilder
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder

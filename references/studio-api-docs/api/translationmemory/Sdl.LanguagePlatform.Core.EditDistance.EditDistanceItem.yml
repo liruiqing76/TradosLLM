@@ -1,0 +1,707 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem
+  commentId: T:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem
+  id: EditDistanceItem
+  parent: Sdl.LanguagePlatform.Core.EditDistance
+  children:
+  - Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Costs
+  - Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveSourceTarget
+  - Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveTargetSource
+  - Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Operation
+  - Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Resolution
+  - Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Source
+  - Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Target
+  - Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.ToString
+  langs:
+  - csharp
+  - vb
+  name: EditDistanceItem
+  nameWithType: EditDistanceItem
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem
+  type: Struct
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: Encapsulates information about one edit operation.
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public struct EditDistanceItem
+    content.vb: >-
+      <DataContract>
+
+      Public Structure EditDistanceItem
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.ToString
+  commentId: M:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.ToString
+  id: ToString
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: EditDistanceItem.ToString()
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.ToString()
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: <xref href="System.Object.ToString" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string representation of the object, for display purposes.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.ToString*
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Source
+  commentId: P:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Source
+  id: Source
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: EditDistanceItem.Source
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Source
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: >-
+    Gets or sets the position of the source item. For move operations, this is the position in the source sequence
+
+    where the item was deleted.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int Source { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property Source As Integer
+  overload: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Source*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Target
+  commentId: P:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Target
+  id: Target
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: EditDistanceItem.Target
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Target
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: >-
+    Gets or sets the position of the target item. For move operations, this is the position in the target sequence
+
+    where the item was inserted.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int Target { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property Target As Integer
+  overload: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Target*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Operation
+  commentId: P:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Operation
+  id: Operation
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem
+  langs:
+  - csharp
+  - vb
+  name: Operation
+  nameWithType: EditDistanceItem.Operation
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Operation
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: Gets or sets the edit operation identified to transform the source item into the target item.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public EditOperation Operation { get; set; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+    content.vb: >-
+      <DataMember>
+
+      Public Property Operation As EditOperation
+  overload: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Operation*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Resolution
+  commentId: P:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Resolution
+  id: Resolution
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem
+  langs:
+  - csharp
+  - vb
+  name: Resolution
+  nameWithType: EditDistanceItem.Resolution
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Resolution
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: Gets or sets the edit distance resolution, if available.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public EditDistanceResolution Resolution { get; set; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+    content.vb: >-
+      <DataMember>
+
+      Public Property Resolution As EditDistanceResolution
+  overload: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Resolution*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Costs
+  commentId: P:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Costs
+  id: Costs
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem
+  langs:
+  - csharp
+  - vb
+  name: Costs
+  nameWithType: EditDistanceItem.Costs
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Costs
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: Gets or sets the costs for this operation.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public double Costs { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <DataMember>
+
+      Public Property Costs As Double
+  overload: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Costs*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveSourceTarget
+  commentId: P:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveSourceTarget
+  id: MoveSourceTarget
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem
+  langs:
+  - csharp
+  - vb
+  name: MoveSourceTarget
+  nameWithType: EditDistanceItem.MoveSourceTarget
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveSourceTarget
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: >-
+    For move operations, this is the target position of the original deletion operation. For other operations, this value
+
+    is not used.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int MoveSourceTarget { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property MoveSourceTarget As Integer
+  overload: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveSourceTarget*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveTargetSource
+  commentId: P:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveTargetSource
+  id: MoveTargetSource
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem
+  langs:
+  - csharp
+  - vb
+  name: MoveTargetSource
+  nameWithType: EditDistanceItem.MoveTargetSource
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveTargetSource
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: >-
+    For move operations, this is the source position of the original insertion operation. For other operations, this value
+
+    is not used.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int MoveTargetSource { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property MoveTargetSource As Integer
+  overload: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveTargetSource*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: Sdl.LanguagePlatform.Core.EditDistance
+  commentId: N:Sdl.LanguagePlatform.Core.EditDistance
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core.EditDistance
+  nameWithType: Sdl.LanguagePlatform.Core.EditDistance
+  fullName: Sdl.LanguagePlatform.Core.EditDistance
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.EditDistance
+    name: EditDistance
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.EditDistance.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.EditDistance
+    name: EditDistance
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.EditDistance.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.ToString*
+  commentId: Overload:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.ToString
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.html#Sdl_LanguagePlatform_Core_EditDistance_EditDistanceItem_ToString
+  name: ToString
+  nameWithType: EditDistanceItem.ToString
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Source*
+  commentId: Overload:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Source
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.html#Sdl_LanguagePlatform_Core_EditDistance_EditDistanceItem_Source
+  name: Source
+  nameWithType: EditDistanceItem.Source
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Source
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Target*
+  commentId: Overload:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Target
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.html#Sdl_LanguagePlatform_Core_EditDistance_EditDistanceItem_Target
+  name: Target
+  nameWithType: EditDistanceItem.Target
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Target
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Operation*
+  commentId: Overload:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Operation
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.html#Sdl_LanguagePlatform_Core_EditDistance_EditDistanceItem_Operation
+  name: Operation
+  nameWithType: EditDistanceItem.Operation
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Operation
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+  commentId: T:Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+  parent: Sdl.LanguagePlatform.Core.EditDistance
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.html
+  name: EditOperation
+  nameWithType: EditOperation
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Resolution*
+  commentId: Overload:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Resolution
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.html#Sdl_LanguagePlatform_Core_EditDistance_EditDistanceItem_Resolution
+  name: Resolution
+  nameWithType: EditDistanceItem.Resolution
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Resolution
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+  commentId: T:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+  parent: Sdl.LanguagePlatform.Core.EditDistance
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution.html
+  name: EditDistanceResolution
+  nameWithType: EditDistanceResolution
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceResolution
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Costs*
+  commentId: Overload:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Costs
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.html#Sdl_LanguagePlatform_Core_EditDistance_EditDistanceItem_Costs
+  name: Costs
+  nameWithType: EditDistanceItem.Costs
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.Costs
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveSourceTarget*
+  commentId: Overload:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveSourceTarget
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.html#Sdl_LanguagePlatform_Core_EditDistance_EditDistanceItem_MoveSourceTarget
+  name: MoveSourceTarget
+  nameWithType: EditDistanceItem.MoveSourceTarget
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveSourceTarget
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveTargetSource*
+  commentId: Overload:Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveTargetSource
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.html#Sdl_LanguagePlatform_Core_EditDistance_EditDistanceItem_MoveTargetSource
+  name: MoveTargetSource
+  nameWithType: EditDistanceItem.MoveTargetSource
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditDistanceItem.MoveTargetSource

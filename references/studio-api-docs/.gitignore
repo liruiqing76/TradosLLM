@@ -1,0 +1,15 @@
+###############
+#    folder   #
+###############
+/**/DROP/
+/**/TEMP/
+/**/packages/
+/**/bin/
+/**/obj/
+_site
+.DS_Store
+*.suo
+*.testlog
+.vscode
+.vs
+/Plugins/TradosStudioDocsPlugin/TradosStudioDocsPlugin/TradosStudioDocsPlugin.csproj.user

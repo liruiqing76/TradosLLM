@@ -1,0 +1,193 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+  commentId: T:Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+  id: DateTimePatternType
+  parent: Sdl.LanguagePlatform.Core.Tokenization
+  children:
+  - Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.LongDate
+  - Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.LongTime
+  - Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.ShortDate
+  - Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.ShortTime
+  - Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: DateTimePatternType
+  nameWithType: DateTimePatternType
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Enumerates the different types of a date or time pattern.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum DateTimePatternType
+    content.vb: >-
+      <Flags>
+
+      Public Enum DateTimePatternType
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.Unknown
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.Unknown
+  id: Unknown
+  parent: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: DateTimePatternType.Unknown
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.Unknown
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: The pattern type is unknown
+  example: []
+  syntax:
+    content: Unknown = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+- uid: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.LongDate
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.LongDate
+  id: LongDate
+  parent: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+  langs:
+  - csharp
+  - vb
+  name: LongDate
+  nameWithType: DateTimePatternType.LongDate
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.LongDate
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: The pattern represents a long date pattern
+  example: []
+  syntax:
+    content: LongDate = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+- uid: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.ShortDate
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.ShortDate
+  id: ShortDate
+  parent: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+  langs:
+  - csharp
+  - vb
+  name: ShortDate
+  nameWithType: DateTimePatternType.ShortDate
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.ShortDate
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: The pattern represents a short date pattern
+  example: []
+  syntax:
+    content: ShortDate = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+- uid: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.ShortTime
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.ShortTime
+  id: ShortTime
+  parent: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+  langs:
+  - csharp
+  - vb
+  name: ShortTime
+  nameWithType: DateTimePatternType.ShortTime
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.ShortTime
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: The pattern represents a short time pattern
+  example: []
+  syntax:
+    content: ShortTime = 4
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+- uid: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.LongTime
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.LongTime
+  id: LongTime
+  parent: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+  langs:
+  - csharp
+  - vb
+  name: LongTime
+  nameWithType: DateTimePatternType.LongTime
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.LongTime
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: The pattern represents a long time pattern
+  example: []
+  syntax:
+    content: LongTime = 8
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+references:
+- uid: Sdl.LanguagePlatform.Core.Tokenization
+  commentId: N:Sdl.LanguagePlatform.Core.Tokenization
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core.Tokenization
+  nameWithType: Sdl.LanguagePlatform.Core.Tokenization
+  fullName: Sdl.LanguagePlatform.Core.Tokenization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Tokenization
+    name: Tokenization
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Tokenization.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Tokenization
+    name: Tokenization
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Tokenization.html
+- uid: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+  commentId: T:Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType
+  parent: Sdl.LanguagePlatform.Core.Tokenization
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType.html
+  name: DateTimePatternType
+  nameWithType: DateTimePatternType
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.DateTimePatternType

@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode
+  commentId: T:Sdl.DesktopEditor.EditorApi.MarkupDisplayMode
+  id: MarkupDisplayMode
+  parent: Sdl.DesktopEditor.EditorApi
+  children:
+  - Sdl.DesktopEditor.EditorApi.MarkupDisplayMode.NoMarkup
+  - Sdl.DesktopEditor.EditorApi.MarkupDisplayMode.ShowMarkup
+  - Sdl.DesktopEditor.EditorApi.MarkupDisplayMode.ShowOriginal
+  langs:
+  - csharp
+  - vb
+  name: MarkupDisplayMode
+  nameWithType: MarkupDisplayMode
+  fullName: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode
+  type: Enum
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The different settings for track changes markup display in the side-by-side editor.
+  example: []
+  syntax:
+    content: public enum MarkupDisplayMode
+    content.vb: Public Enum MarkupDisplayMode
+- uid: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode.ShowMarkup
+  commentId: F:Sdl.DesktopEditor.EditorApi.MarkupDisplayMode.ShowMarkup
+  id: ShowMarkup
+  parent: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode
+  langs:
+  - csharp
+  - vb
+  name: ShowMarkup
+  nameWithType: MarkupDisplayMode.ShowMarkup
+  fullName: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode.ShowMarkup
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Show markup - default
+  example: []
+  syntax:
+    content: ShowMarkup = 0
+    return:
+      type: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode
+- uid: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode.NoMarkup
+  commentId: F:Sdl.DesktopEditor.EditorApi.MarkupDisplayMode.NoMarkup
+  id: NoMarkup
+  parent: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode
+  langs:
+  - csharp
+  - vb
+  name: NoMarkup
+  nameWithType: MarkupDisplayMode.NoMarkup
+  fullName: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode.NoMarkup
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Hide markup
+  example: []
+  syntax:
+    content: NoMarkup = 1
+    return:
+      type: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode
+- uid: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode.ShowOriginal
+  commentId: F:Sdl.DesktopEditor.EditorApi.MarkupDisplayMode.ShowOriginal
+  id: ShowOriginal
+  parent: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode
+  langs:
+  - csharp
+  - vb
+  name: ShowOriginal
+  nameWithType: MarkupDisplayMode.ShowOriginal
+  fullName: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode.ShowOriginal
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Show original text
+  example: []
+  syntax:
+    content: ShowOriginal = 2
+    return:
+      type: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode
+references:
+- uid: Sdl.DesktopEditor.EditorApi
+  commentId: N:Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi
+  nameWithType: Sdl.DesktopEditor.EditorApi
+  fullName: Sdl.DesktopEditor.EditorApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+- uid: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode
+  commentId: T:Sdl.DesktopEditor.EditorApi.MarkupDisplayMode
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode.html
+  name: MarkupDisplayMode
+  nameWithType: MarkupDisplayMode
+  fullName: Sdl.DesktopEditor.EditorApi.MarkupDisplayMode

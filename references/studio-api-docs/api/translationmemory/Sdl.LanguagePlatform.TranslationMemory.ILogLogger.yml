@@ -1,0 +1,373 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.ILogLogger
+  id: ILogLogger
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log(System.Exception)
+  - Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log(System.String)
+  - Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogDebug(System.String)
+  - Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError(System.String)
+  - Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError(System.String,System.Exception)
+  - Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo(System.String)
+  - Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo(System.String,System.Object[])
+  - Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogWarn(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ILogLogger
+  nameWithType: ILogLogger
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger
+  type: Interface
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public interface ILogLogger
+    content.vb: Public Interface ILogLogger
+  derivedClasses:
+  - Sdl.LanguagePlatform.TranslationMemory.NLogLogger
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log(System.Exception)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log(System.Exception)
+  id: Log(System.Exception)
+  parent: Sdl.LanguagePlatform.TranslationMemory.ILogLogger
+  langs:
+  - csharp
+  - vb
+  name: Log(Exception)
+  nameWithType: ILogLogger.Log(Exception)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log(System.Exception)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: void Log(Exception ex)
+    parameters:
+    - id: ex
+      type: System.Exception
+      description: ''
+    content.vb: Sub Log(ex As Exception)
+  overload: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log*
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log(System.String)
+  id: Log(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemory.ILogLogger
+  langs:
+  - csharp
+  - vb
+  name: Log(string)
+  nameWithType: ILogLogger.Log(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log(string)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: void Log(string msg)
+    parameters:
+    - id: msg
+      type: System.String
+      description: ''
+    content.vb: Sub Log(msg As String)
+  overload: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log*
+  nameWithType.vb: ILogLogger.Log(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log(String)
+  name.vb: Log(String)
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogDebug(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogDebug(System.String)
+  id: LogDebug(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemory.ILogLogger
+  langs:
+  - csharp
+  - vb
+  name: LogDebug(string)
+  nameWithType: ILogLogger.LogDebug(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogDebug(string)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: void LogDebug(string msg)
+    parameters:
+    - id: msg
+      type: System.String
+      description: ''
+    content.vb: Sub LogDebug(msg As String)
+  overload: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogDebug*
+  nameWithType.vb: ILogLogger.LogDebug(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogDebug(String)
+  name.vb: LogDebug(String)
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo(System.String)
+  id: LogInfo(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemory.ILogLogger
+  langs:
+  - csharp
+  - vb
+  name: LogInfo(string)
+  nameWithType: ILogLogger.LogInfo(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo(string)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: void LogInfo(string msg)
+    parameters:
+    - id: msg
+      type: System.String
+      description: ''
+    content.vb: Sub LogInfo(msg As String)
+  overload: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo*
+  nameWithType.vb: ILogLogger.LogInfo(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo(String)
+  name.vb: LogInfo(String)
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo(System.String,System.Object[])
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo(System.String,System.Object[])
+  id: LogInfo(System.String,System.Object[])
+  parent: Sdl.LanguagePlatform.TranslationMemory.ILogLogger
+  langs:
+  - csharp
+  - vb
+  name: LogInfo(string, params object[])
+  nameWithType: ILogLogger.LogInfo(string, params object[])
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo(string, params object[])
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: void LogInfo(string msg, params object[] args)
+    parameters:
+    - id: msg
+      type: System.String
+      description: ''
+    - id: args
+      type: System.Object[]
+      description: ''
+    content.vb: Sub LogInfo(msg As String, ParamArray args As Object())
+  overload: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo*
+  nameWithType.vb: ILogLogger.LogInfo(String, ParamArray Object())
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo(String, ParamArray Object())
+  name.vb: LogInfo(String, ParamArray Object())
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError(System.String)
+  id: LogError(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemory.ILogLogger
+  langs:
+  - csharp
+  - vb
+  name: LogError(string)
+  nameWithType: ILogLogger.LogError(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError(string)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: void LogError(string msg)
+    parameters:
+    - id: msg
+      type: System.String
+      description: ''
+    content.vb: Sub LogError(msg As String)
+  overload: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError*
+  nameWithType.vb: ILogLogger.LogError(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError(String)
+  name.vb: LogError(String)
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogWarn(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogWarn(System.String)
+  id: LogWarn(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemory.ILogLogger
+  langs:
+  - csharp
+  - vb
+  name: LogWarn(string)
+  nameWithType: ILogLogger.LogWarn(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogWarn(string)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: void LogWarn(string msg)
+    parameters:
+    - id: msg
+      type: System.String
+      description: ''
+    content.vb: Sub LogWarn(msg As String)
+  overload: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogWarn*
+  nameWithType.vb: ILogLogger.LogWarn(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogWarn(String)
+  name.vb: LogWarn(String)
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError(System.String,System.Exception)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError(System.String,System.Exception)
+  id: LogError(System.String,System.Exception)
+  parent: Sdl.LanguagePlatform.TranslationMemory.ILogLogger
+  langs:
+  - csharp
+  - vb
+  name: LogError(string, Exception)
+  nameWithType: ILogLogger.LogError(string, Exception)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError(string, System.Exception)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: void LogError(string msg, Exception ex)
+    parameters:
+    - id: msg
+      type: System.String
+      description: ''
+    - id: ex
+      type: System.Exception
+      description: ''
+    content.vb: Sub LogError(msg As String, ex As Exception)
+  overload: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError*
+  nameWithType.vb: ILogLogger.LogError(String, Exception)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError(String, System.Exception)
+  name.vb: LogError(String, Exception)
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.html#Sdl_LanguagePlatform_TranslationMemory_ILogLogger_Log_System_Exception_
+  name: Log
+  nameWithType: ILogLogger.Log
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.Log
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogDebug*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogDebug
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.html#Sdl_LanguagePlatform_TranslationMemory_ILogLogger_LogDebug_System_String_
+  name: LogDebug
+  nameWithType: ILogLogger.LogDebug
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogDebug
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.html#Sdl_LanguagePlatform_TranslationMemory_ILogLogger_LogInfo_System_String_
+  name: LogInfo
+  nameWithType: ILogLogger.LogInfo
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogInfo
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.html#Sdl_LanguagePlatform_TranslationMemory_ILogLogger_LogError_System_String_
+  name: LogError
+  nameWithType: ILogLogger.LogError
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogError
+- uid: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogWarn*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogWarn
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.html#Sdl_LanguagePlatform_TranslationMemory_ILogLogger_LogWarn_System_String_
+  name: LogWarn
+  nameWithType: ILogLogger.LogWarn
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ILogLogger.LogWarn

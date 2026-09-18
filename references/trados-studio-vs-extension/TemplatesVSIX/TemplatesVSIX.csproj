@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.VSSDK.BuildTools.15.7.109\build\Microsoft.VSSDK.BuildTools.props" Condition="Exists('packages\Microsoft.VSSDK.BuildTools.15.7.109\build\Microsoft.VSSDK.BuildTools.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>17.0</MinimumVisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>packages\SDLKeys.2.0.0\tools\sdl.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkProfile />
+    <UseCodebase>true</UseCodebase>  
+    <SignAssembly>true</SignAssembly> 
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>  
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>  
+    <ApplicationIcon>TradosStudio-components.ico</ApplicationIcon>
+	  <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	  <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	  <SchemaVersion>2.0</SchemaVersion>
+	  <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+	  <ProjectGuid>{225B1893-816D-4FFF-8A06-ECE189FB1582}</ProjectGuid>
+	  <OutputType>Library</OutputType>
+	  <AppDesignerFolder>Properties</AppDesignerFolder>
+	  <RootNamespace>TemplatesVSIX</RootNamespace>
+	  <AssemblyName>TradosStudio19Templates</AssemblyName>
+	  <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+	  <GeneratePkgDefFile>true</GeneratePkgDefFile>
+	  <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
+	  <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
+	  <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
+	  <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
+	  <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
+	  <StartAction>Program</StartAction>
+	  <StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
+	  <StartArguments>/rootsuffix Exp</StartArguments>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" /> 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="MsBuild\Error.cs" />
+    <Compile Include="MsBuild\ItemGroup.cs" />
+    <Compile Include="MsBuild\Include.cs" />
+    <Compile Include="MsBuild\IPackagesConfig.cs" />
+    <Compile Include="MsBuild\IProject.cs" />
+    <Compile Include="MsBuild\IReference.cs" />
+    <Compile Include="MsBuild\ISalvageable.cs" />
+    <Compile Include="MsBuild\Package.cs" />
+    <Compile Include="MsBuild\PackageReference.cs" />
+    <Compile Include="MsBuild\PackagesConfig.cs" />
+    <Compile Include="MsBuild\Backup.cs" />
+    <Compile Include="ProjectUpdateProgress.cs" />
+    <Compile Include="Trados\IStudioPluginPatch.cs" />
+    <Compile Include="Trados\Patches\DeploymentPathPatch.cs" />
+    <Compile Include="Trados\Patches\ReferencePatch.cs" />
+    <Compile Include="Trados\Patches\PluginFrameworkPatch.cs" />
+    <Compile Include="Trados\Patches\TargetFrameworkPatch.cs" />
+    <Compile Include="Trados\StudioWRPluginProject.cs" />
+    <Compile Include="MsBuild\Project.cs" />
+    <Compile Include="MsBuild\Reference.cs" />
+    <Compile Include="Trados\StudioPluginProject.cs" />
+    <Compile Include="Studio\IStudioContext.cs" />
+    <Compile Include="ProjectUpdateCommand.cs" />
+    <Compile Include="ProjectUpdateCommandPackage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Studio\Context.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <VSCTCompile Include="ProjectUpdateCommandPackage.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
+      <SubType>Designer</SubType>
+    </VSCTCompile>
+    <Content Include="Resources\ProjectUpdateCommand.png" />
+    <Content Include="Resources\ProjectUpdateCommandPackage.ico" />
+    <Content Include="SDL_Trados_Studio_SDK_10b.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="TradosStudio-components.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <None Include="Packages\SDLKeys.2.0.0\tools\sdl.snk" />
+    <None Include="source.extension.vsixmanifest">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="SDL Custom Batch Task\Trados Custom Batch Task.csproj">
+      <Project>{b50b23fd-89ca-40f2-9238-22718be19dc7}</Project>
+      <Name>Trados Custom Batch Task</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="SDL Terminology Provider\Trados Terminology Provider.csproj">
+      <Project>{a55be5a5-6abe-44d4-a3d3-fe0ff2879d06}</Project>
+      <Name>Trados Terminology Provider</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="SDL Trados Studio\Trados Studio.csproj">
+      <Project>{4fb789ff-db33-440b-89ec-5ff49d430e55}</Project>
+      <Name>Trados Studio</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="SDL Translation Provider\Trados Translation Provider.csproj">
+      <Project>{6cd94677-b468-4608-b7eb-40f097a51098}</Project>
+      <Name>Trados Translation Provider</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VSPackage.resx">
+      <MergeWithCTO>true</MergeWithCTO>
+      <ManifestResourceName>VSPackage</ManifestResourceName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.SDK">
+      <Version>17.14.40265</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VSSDK.BuildTools">
+      <Version>17.14.2120</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VSSDK.Vsixsigntool">
+      <Version>17.10.34916.79</Version>
+    </PackageReference>
+    <PackageReference Include="SDLKeys">
+      <Version>2.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

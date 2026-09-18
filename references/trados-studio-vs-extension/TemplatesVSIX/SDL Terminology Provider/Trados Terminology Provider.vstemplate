@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>Trados Terminology Provider (Studio19)</Name>
+    <Description>This project is used to enable different terminology providers for Trados Studio.</Description>
+    <Icon>SDL Terminology Provider.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>4.8</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>3DD10BAB-2FB3-41BA-AE4D-33CAFC018F0E</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Trados Terminology Provider</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyTerminologyProvider.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyTerminologyProviderFactory.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyTerminologyProviderViewerWinFormsUI.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyTerminologyProviderWinFormsUI.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\PluginProperties.cs">PluginProperties.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="PluginResources.resx">PluginResources.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="pluginpackage.manifest.xml">pluginpackage.manifest.xml</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

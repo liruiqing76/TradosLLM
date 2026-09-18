@@ -1,0 +1,2778 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  id: AbstractLocalTranslationMemory
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  children:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ClearFuzzyCache
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Copyright
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationDate
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationUserName
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Delete
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Description
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ExpirationDate
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FieldDefinitions
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsRecomputedAt
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsSize
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexTuningSettings
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexes
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetTranslationUnitCount
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.HasPermission(System.String)
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.IsReadOnly
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageDirection
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageResourceBundles
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState(System.String)
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Name
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Recognizers
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Refresh
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RefreshStatusInfo
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save(System.IProgress{Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryProgress},System.Threading.CancellationToken)
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ShouldRecomputeFuzzyIndexStatistics
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.StatusInfo
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportedLanguageDirections
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsConcordanceSearch
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSearchForTranslationUnits
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSourceConcordanceSearch
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsTargetConcordanceSearch
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsUpdate
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.TranslationMethod
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Uri
+  langs:
+  - csharp
+  - vb
+  name: AbstractLocalTranslationMemory
+  nameWithType: AbstractLocalTranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Abstract base class for bilingual file-based (<xref href="Sdl.LanguagePlatform.TranslationMemoryApi.FileBasedTranslationMemory" data-throw-if-not-resolved="false"></xref>) and in-memory translation memories (<xref href="Sdl.LanguagePlatform.TranslationMemoryApi.InMemoryTranslationMemory" data-throw-if-not-resolved="false"></xref>).
+
+    Do not inherit from this class.
+  example: []
+  syntax:
+    content: 'public abstract class AbstractLocalTranslationMemory : ITranslationMemory, ITranslationProvider, ISupportPlaceables'
+    content.vb: Public MustInherit Class AbstractLocalTranslationMemory Implements ITranslationMemory, ITranslationProvider, ISupportPlaceables
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.FileBasedTranslationMemory
+  - Sdl.LanguagePlatform.TranslationMemoryApi.InMemoryTranslationMemory
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetTranslationUnitCount
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetTranslationUnitCount
+  id: GetTranslationUnitCount
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: GetTranslationUnitCount()
+  nameWithType: AbstractLocalTranslationMemory.GetTranslationUnitCount()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetTranslationUnitCount()
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the total translation unit count for all language directions in this translation memory.
+  example: []
+  syntax:
+    content: public int GetTranslationUnitCount()
+    return:
+      type: System.Int32
+      description: The total translation unit count for this TM.
+    content.vb: Public Function GetTranslationUnitCount() As Integer
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetTranslationUnitCount*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.GetTranslationUnitCount
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.HasPermission(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.HasPermission(System.String)
+  id: HasPermission(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: HasPermission(string)
+  nameWithType: AbstractLocalTranslationMemory.HasPermission(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.HasPermission(string)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Checks whether the current user has the specified permission on this translation memory.
+  example: []
+  syntax:
+    content: public abstract bool HasPermission(string permission)
+    parameters:
+    - id: permission
+      type: System.String
+      description: A permission ID. See <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryPermissions" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: True if the user has the speicfied permission for this TM.
+    content.vb: Public MustOverride Function HasPermission(permission As String) As Boolean
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.HasPermission*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.HasPermission(System.String)
+  nameWithType.vb: AbstractLocalTranslationMemory.HasPermission(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.HasPermission(String)
+  name.vb: HasPermission(String)
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RefreshStatusInfo
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RefreshStatusInfo
+  id: RefreshStatusInfo
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: RefreshStatusInfo()
+  nameWithType: AbstractLocalTranslationMemory.RefreshStatusInfo()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RefreshStatusInfo()
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Refreshes the current status information.
+  example: []
+  syntax:
+    content: public abstract void RefreshStatusInfo()
+    content.vb: Public MustOverride Sub RefreshStatusInfo()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RefreshStatusInfo*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.RefreshStatusInfo
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Refresh
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Refresh
+  id: Refresh
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: Refresh()
+  nameWithType: AbstractLocalTranslationMemory.Refresh()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Refresh()
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Enforces the currently stored setup information to be refreshed. Note that this
+
+    may initiate a full server/database roundtrip.
+  example: []
+  syntax:
+    content: public void Refresh()
+    content.vb: Public Sub Refresh()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Refresh*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save
+  id: Save
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: Save()
+  nameWithType: AbstractLocalTranslationMemory.Save()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save()
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Saves changes made to properties of this translation memory.
+  example: []
+  syntax:
+    content: public void Save()
+    content.vb: Public Sub Save()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Save
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save(System.IProgress{Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryProgress},System.Threading.CancellationToken)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save(System.IProgress{Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryProgress},System.Threading.CancellationToken)
+  id: Save(System.IProgress{Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryProgress},System.Threading.CancellationToken)
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: Save(IProgress<TranslationMemoryProgress>, CancellationToken)
+  nameWithType: AbstractLocalTranslationMemory.Save(IProgress<TranslationMemoryProgress>, CancellationToken)
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save(System.IProgress<Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryProgress>, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Saves changes made to properties of this translation memory.
+  example: []
+  syntax:
+    content: public void Save(IProgress<TranslationMemoryProgress> progress, CancellationToken cancellationToken)
+    parameters:
+    - id: progress
+      type: System.IProgress{Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryProgress}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    content.vb: Public Sub Save(progress As IProgress(Of TranslationMemoryProgress), cancellationToken As CancellationToken)
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save*
+  nameWithType.vb: AbstractLocalTranslationMemory.Save(IProgress(Of TranslationMemoryProgress), CancellationToken)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save(System.IProgress(Of Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryProgress), System.Threading.CancellationToken)
+  name.vb: Save(IProgress(Of TranslationMemoryProgress), CancellationToken)
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Delete
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Delete
+  id: Delete
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: Delete()
+  nameWithType: AbstractLocalTranslationMemory.Delete()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Delete()
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Deletes this translation memory.
+  remarks: In the case of a file-based translation memory, this deletes the translation memory file itself.
+  example: []
+  syntax:
+    content: public void Delete()
+    content.vb: Public Sub Delete()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Delete*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Delete
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics
+  id: RecomputeFuzzyIndexStatistics
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: RecomputeFuzzyIndexStatistics()
+  nameWithType: AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics()
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Synchronously recomputes the fuzzy index statistics of the TM.
+  example: []
+  syntax:
+    content: public void RecomputeFuzzyIndexStatistics()
+    content.vb: Public Sub RecomputeFuzzyIndexStatistics()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.RecomputeFuzzyIndexStatistics
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ClearFuzzyCache
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ClearFuzzyCache
+  id: ClearFuzzyCache
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: ClearFuzzyCache()
+  nameWithType: AbstractLocalTranslationMemory.ClearFuzzyCache()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ClearFuzzyCache()
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Clear the fuzzy cache of the TM
+  example: []
+  syntax:
+    content: public void ClearFuzzyCache()
+    content.vb: Public Sub ClearFuzzyCache()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ClearFuzzyCache*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ShouldRecomputeFuzzyIndexStatistics
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ShouldRecomputeFuzzyIndexStatistics
+  id: ShouldRecomputeFuzzyIndexStatistics
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: ShouldRecomputeFuzzyIndexStatistics()
+  nameWithType: AbstractLocalTranslationMemory.ShouldRecomputeFuzzyIndexStatistics()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ShouldRecomputeFuzzyIndexStatistics()
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Gets a flag which indicates whether it is recommended to recompute the fuzzy
+
+    index statistics (see <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public bool ShouldRecomputeFuzzyIndexStatistics()
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function ShouldRecomputeFuzzyIndexStatistics() As Boolean
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ShouldRecomputeFuzzyIndexStatistics*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.ShouldRecomputeFuzzyIndexStatistics
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  id: SupportsLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: SupportsLanguageDirection(LanguagePair)
+  nameWithType: AbstractLocalTranslationMemory.SupportsLanguageDirection(LanguagePair)
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Checks whether this translation provider supports the specified language direction.
+  example: []
+  syntax:
+    content: public bool SupportsLanguageDirection(LanguagePair languageDirection)
+    parameters:
+    - id: languageDirection
+      type: Sdl.LanguagePlatform.Core.LanguagePair
+      description: The language direction.
+    return:
+      type: System.Boolean
+      description: True if the specified language direction is supported.
+    content.vb: Public Function SupportsLanguageDirection(languageDirection As LanguagePair) As Boolean
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsLanguageDirection*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  id: GetLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: GetLanguageDirection(LanguagePair)
+  nameWithType: AbstractLocalTranslationMemory.GetLanguageDirection(LanguagePair)
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets a specified translation memory language direction.
+  example: []
+  syntax:
+    content: public ITranslationMemoryLanguageDirection GetLanguageDirection(LanguagePair languageDirection)
+    parameters:
+    - id: languageDirection
+      type: Sdl.LanguagePlatform.Core.LanguagePair
+      description: The language direction.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemoryLanguageDirection
+      description: A translation provider for the specified language direction, or null if no language direction matches.
+    content.vb: Public Function GetLanguageDirection(languageDirection As LanguagePair) As ITranslationMemoryLanguageDirection
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetLanguageDirection*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.GetLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState
+  id: SerializeState
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: SerializeState()
+  nameWithType: AbstractLocalTranslationMemory.SerializeState()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState()
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Serializes any meaningful state information for this translation provider that can be stored in projects
+
+    and sent around the supply chain.
+  remarks: The format of this string can be decided upon by the translation provider implementation.
+  example: []
+  syntax:
+    content: public virtual string SerializeState()
+    return:
+      type: System.String
+      description: >-
+        A string representing the state of this translation provider that can later be passed into
+
+        the <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState(System.String)" data-throw-if-not-resolved="false"></xref> method to restore the state after creating a new translation provider.
+    content.vb: Public Overridable Function SerializeState() As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SerializeState
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState(System.String)
+  id: LoadState(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: LoadState(string)
+  nameWithType: AbstractLocalTranslationMemory.LoadState(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState(string)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Loads previously serialized state information into this translation provider instance.
+  remarks: The format of this string can be decided upon by the translation provider implementation.
+  example: []
+  syntax:
+    content: public virtual void LoadState(string translationProviderState)
+    parameters:
+    - id: translationProviderState
+      type: System.String
+      description: >-
+        A string representing the state of translation provider that was previously saved
+                    using <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Overridable Sub LoadState(translationProviderState As String)
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.LoadState(System.String)
+  nameWithType.vb: AbstractLocalTranslationMemory.LoadState(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState(String)
+  name.vb: LoadState(String)
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexes
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexes
+  id: FuzzyIndexes
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: FuzzyIndexes
+  nameWithType: AbstractLocalTranslationMemory.FuzzyIndexes
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexes
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets or sets the set of fuzzy indices defined on this TM.
+  example: []
+  syntax:
+    content: public FuzzyIndexes FuzzyIndexes { get; set; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FuzzyIndexes
+    content.vb: Public Property FuzzyIndexes As FuzzyIndexes
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexes*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexes
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Recognizers
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Recognizers
+  id: Recognizers
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: Recognizers
+  nameWithType: AbstractLocalTranslationMemory.Recognizers
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Recognizers
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Gets or sets the recognizers which are enabled for this TM.
+
+    <remarks>Note that changing recognizers may require reindexing. In addition, in
+
+    some cases duplicate TUs may be in the TM if recognizers are enabled which have
+
+    been disabled before.</remarks>
+  example: []
+  syntax:
+    content: public BuiltinRecognizers Recognizers { get; set; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+    content.vb: Public Property Recognizers As BuiltinRecognizers
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Recognizers*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables.Recognizers
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Copyright
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Copyright
+  id: Copyright
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: Copyright
+  nameWithType: AbstractLocalTranslationMemory.Copyright
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Copyright
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets or sets the copyright string for this translation memory.
+  remarks: You have to call <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save" data-throw-if-not-resolved="false"></xref> in order to perist changes to this property.
+  example: []
+  syntax:
+    content: public string Copyright { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Property Copyright As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Copyright*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Copyright
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationDate
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationDate
+  id: CreationDate
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: CreationDate
+  nameWithType: AbstractLocalTranslationMemory.CreationDate
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationDate
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the creation date of this translation memory.
+  example: []
+  syntax:
+    content: public DateTime CreationDate { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+      description: ''
+    content.vb: Public Property CreationDate As Date
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationDate*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.CreationDate
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationUserName
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationUserName
+  id: CreationUserName
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: CreationUserName
+  nameWithType: AbstractLocalTranslationMemory.CreationUserName
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationUserName
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the creation user of this translation memory.
+  example: []
+  syntax:
+    content: public string CreationUserName { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public ReadOnly Property CreationUserName As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationUserName*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.CreationUserName
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Description
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Description
+  id: Description
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: AbstractLocalTranslationMemory.Description
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Description
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets or sets a general description of the translation memory.
+  remarks: You have to call <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save" data-throw-if-not-resolved="false"></xref> in order to perist changes to this property.
+  example: []
+  syntax:
+    content: public string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Property Description As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Description*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Description
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ExpirationDate
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ExpirationDate
+  id: ExpirationDate
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: ExpirationDate
+  nameWithType: AbstractLocalTranslationMemory.ExpirationDate
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ExpirationDate
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets or sets the expiration date for this translation memory.
+  remarks: You have to call <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save" data-throw-if-not-resolved="false"></xref> in order to perist changes to this property.
+  example: []
+  syntax:
+    content: public DateTime? ExpirationDate { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+      description: ''
+    content.vb: Public Property ExpirationDate As Date?
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ExpirationDate*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.ExpirationDate
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FieldDefinitions
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FieldDefinitions
+  id: FieldDefinitions
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: FieldDefinitions
+  nameWithType: AbstractLocalTranslationMemory.FieldDefinitions
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FieldDefinitions
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the custom fields defined for this TM.
+  remarks: >-
+    In case this is a server-based translation memory, which is associated with a fields template (see <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.IFieldsTemplate" data-throw-if-not-resolved="false"></xref>),
+                this returns a read-only fields collection identical to the template's fields collection. In all other cases,
+                the field collection returned can be modified. Note that you have to call <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save" data-throw-if-not-resolved="false"></xref> to persist any changes made to
+                the fields.
+  example: []
+  syntax:
+    content: public FieldDefinitionCollection FieldDefinitions { get; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.FieldDefinitionCollection
+      description: ''
+    content.vb: Public ReadOnly Property FieldDefinitions As FieldDefinitionCollection
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FieldDefinitions*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FieldDefinitions
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageResourceBundles
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageResourceBundles
+  id: LanguageResourceBundles
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: LanguageResourceBundles
+  nameWithType: AbstractLocalTranslationMemory.LanguageResourceBundles
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageResourceBundles
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the language resources which are associated with this TM.
+  remarks: >-
+    In case this is a server-based translation memory, which is associated with a language resources template (see <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.ILanguageResourcesTemplate" data-throw-if-not-resolved="false"></xref>),
+                this returns a read-only language resources collection identical to the template's language resources collection. In all other cases,
+                the language resources collection returned can be modified. Note that you have to call <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save" data-throw-if-not-resolved="false"></xref> to persist any changes made to
+                language resources.
+  example: []
+  syntax:
+    content: public LanguageResourceBundleCollection LanguageResourceBundles { get; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.LanguageResourceBundleCollection
+      description: ''
+    content.vb: Public ReadOnly Property LanguageResourceBundles As LanguageResourceBundleCollection
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageResourceBundles*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables.LanguageResourceBundles
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Uri
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Uri
+  id: Uri
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: Uri
+  nameWithType: AbstractLocalTranslationMemory.Uri
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Uri
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets a URI which uniquely identifies this translation memory.
+  example: []
+  syntax:
+    content: public virtual Uri Uri { get; }
+    parameters: []
+    return:
+      type: System.Uri
+    content.vb: Public Overridable ReadOnly Property Uri As Uri
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Uri*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.Uri
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.StatusInfo
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.StatusInfo
+  id: StatusInfo
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: StatusInfo
+  nameWithType: AbstractLocalTranslationMemory.StatusInfo
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.StatusInfo
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the status info for the provider.
+  example: []
+  syntax:
+    content: public abstract ProviderStatusInfo StatusInfo { get; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo
+      description: ''
+    content.vb: Public MustOverride ReadOnly Property StatusInfo As ProviderStatusInfo
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.StatusInfo*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.StatusInfo
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Name
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Name
+  id: Name
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: AbstractLocalTranslationMemory.Name
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Name
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the name of the translation memory.
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Name*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.Name
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSearchForTranslationUnits
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSearchForTranslationUnits
+  id: SupportsSearchForTranslationUnits
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: SupportsSearchForTranslationUnits
+  nameWithType: AbstractLocalTranslationMemory.SupportsSearchForTranslationUnits
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSearchForTranslationUnits
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsSearchForTranslationUnits" data-throw-if-not-resolved="false"></xref>. Always true for TMs.
+  example: []
+  syntax:
+    content: public virtual bool SupportsSearchForTranslationUnits { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property SupportsSearchForTranslationUnits As Boolean
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSearchForTranslationUnits*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsSearchForTranslationUnits
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsUpdate
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsUpdate
+  id: SupportsUpdate
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: SupportsUpdate
+  nameWithType: AbstractLocalTranslationMemory.SupportsUpdate
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsUpdate
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsUpdate" data-throw-if-not-resolved="false"></xref>. Always true for TMs.
+  example: []
+  syntax:
+    content: public virtual bool SupportsUpdate { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property SupportsUpdate As Boolean
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsUpdate*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsUpdate
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsConcordanceSearch
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsConcordanceSearch
+  id: SupportsConcordanceSearch
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: SupportsConcordanceSearch
+  nameWithType: AbstractLocalTranslationMemory.SupportsConcordanceSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsConcordanceSearch
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsConcordanceSearch" data-throw-if-not-resolved="false"></xref>. Always true for TMs.
+  example: []
+  syntax:
+    content: public virtual bool SupportsConcordanceSearch { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property SupportsConcordanceSearch As Boolean
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsConcordanceSearch*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsConcordanceSearch
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSourceConcordanceSearch
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSourceConcordanceSearch
+  id: SupportsSourceConcordanceSearch
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: SupportsSourceConcordanceSearch
+  nameWithType: AbstractLocalTranslationMemory.SupportsSourceConcordanceSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSourceConcordanceSearch
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsSourceConcordanceSearch" data-throw-if-not-resolved="false"></xref>. Always true for TMs.
+  example: []
+  syntax:
+    content: public virtual bool SupportsSourceConcordanceSearch { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property SupportsSourceConcordanceSearch As Boolean
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSourceConcordanceSearch*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsSourceConcordanceSearch
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsTargetConcordanceSearch
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsTargetConcordanceSearch
+  id: SupportsTargetConcordanceSearch
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: SupportsTargetConcordanceSearch
+  nameWithType: AbstractLocalTranslationMemory.SupportsTargetConcordanceSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsTargetConcordanceSearch
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsTargetConcordanceSearch" data-throw-if-not-resolved="false"></xref>. Returns 
+
+    <pre><code class="lang-csharp">true</code></pre>
+
+                if this translation memory has a word-based fuzzy index for the target language (see <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexes" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public virtual bool SupportsTargetConcordanceSearch { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property SupportsTargetConcordanceSearch As Boolean
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsTargetConcordanceSearch*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsTargetConcordanceSearch
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.IsReadOnly
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.IsReadOnly
+  id: IsReadOnly
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly
+  nameWithType: AbstractLocalTranslationMemory.IsReadOnly
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.IsReadOnly
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.IsReadOnly" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public virtual bool IsReadOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property IsReadOnly As Boolean
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.IsReadOnly*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.IsReadOnly
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.TranslationMethod
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.TranslationMethod
+  id: TranslationMethod
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: TranslationMethod
+  nameWithType: AbstractLocalTranslationMemory.TranslationMethod
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.TranslationMethod
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.TranslationMethod" data-throw-if-not-resolved="false"></xref>. 
+
+    Always returns <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.TranslationMemory" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public TranslationMethod TranslationMethod { get; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+    content.vb: Public ReadOnly Property TranslationMethod As TranslationMethod
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.TranslationMethod*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.TranslationMethod
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexTuningSettings
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexTuningSettings
+  id: FuzzyIndexTuningSettings
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: FuzzyIndexTuningSettings
+  nameWithType: AbstractLocalTranslationMemory.FuzzyIndexTuningSettings
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexTuningSettings
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets or sets the fuzzy index tuning settings for the TM.
+  example: []
+  syntax:
+    content: public FuzzyIndexTuningSettings FuzzyIndexTuningSettings { get; set; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FuzzyIndexTuningSettings
+      description: ''
+    content.vb: Public Property FuzzyIndexTuningSettings As FuzzyIndexTuningSettings
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexTuningSettings*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexTuningSettings
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsRecomputedAt
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsRecomputedAt
+  id: FuzzyIndexStatisticsRecomputedAt
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: FuzzyIndexStatisticsRecomputedAt
+  nameWithType: AbstractLocalTranslationMemory.FuzzyIndexStatisticsRecomputedAt
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsRecomputedAt
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the time of the last fuzzy index statistics recomputation of this TM, if available.
+  example: []
+  syntax:
+    content: public DateTime? FuzzyIndexStatisticsRecomputedAt { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+      description: ''
+    content.vb: Public Property FuzzyIndexStatisticsRecomputedAt As Date?
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsRecomputedAt*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexStatisticsRecomputedAt
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsSize
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsSize
+  id: FuzzyIndexStatisticsSize
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: FuzzyIndexStatisticsSize
+  nameWithType: AbstractLocalTranslationMemory.FuzzyIndexStatisticsSize
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsSize
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Gets the size of the TM at the point of the last fuzzy index statistics recomputation,
+
+    if available.
+  example: []
+  syntax:
+    content: public int? FuzzyIndexStatisticsSize { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+      description: ''
+    content.vb: Public Property FuzzyIndexStatisticsSize As Integer?
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsSize*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexStatisticsSize
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageDirection
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageDirection
+  id: LanguageDirection
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: LanguageDirection
+  nameWithType: AbstractLocalTranslationMemory.LanguageDirection
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageDirection
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the one language direction contained in this translation memory.
+  example: []
+  syntax:
+    content: public ITranslationMemoryLanguageDirection LanguageDirection { get; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemoryLanguageDirection
+    content.vb: Public ReadOnly Property LanguageDirection As ITranslationMemoryLanguageDirection
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageDirection*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportedLanguageDirections
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportedLanguageDirections
+  id: SupportedLanguageDirections
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  langs:
+  - csharp
+  - vb
+  name: SupportedLanguageDirections
+  nameWithType: AbstractLocalTranslationMemory.SupportedLanguageDirections
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportedLanguageDirections
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the list of language directions which are supported by this translation memory.
+  example: []
+  syntax:
+    content: public ReadOnlyCollection<LanguagePair> SupportedLanguageDirections { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ReadOnlyCollection{Sdl.LanguagePlatform.Core.LanguagePair}
+      description: ''
+    content.vb: Public ReadOnly Property SupportedLanguageDirections As ReadOnlyCollection(Of LanguagePair)
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportedLanguageDirections*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.SupportedLanguageDirections
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.FileBasedTranslationMemory
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.FileBasedTranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.FileBasedTranslationMemory.html
+  name: FileBasedTranslationMemory
+  nameWithType: FileBasedTranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.FileBasedTranslationMemory
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.InMemoryTranslationMemory
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.InMemoryTranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.InMemoryTranslationMemory.html
+  name: InMemoryTranslationMemory
+  nameWithType: InMemoryTranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.InMemoryTranslationMemory
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi
+  commentId: N:Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemoryApi
+  nameWithType: Sdl.LanguagePlatform.TranslationMemoryApi
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html
+  name: ITranslationMemory
+  nameWithType: ITranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html
+  name: ITranslationProvider
+  nameWithType: ITranslationProvider
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables.html
+  name: ISupportPlaceables
+  nameWithType: ISupportPlaceables
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetTranslationUnitCount*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetTranslationUnitCount
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_GetTranslationUnitCount
+  name: GetTranslationUnitCount
+  nameWithType: AbstractLocalTranslationMemory.GetTranslationUnitCount
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetTranslationUnitCount
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.GetTranslationUnitCount
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.GetTranslationUnitCount
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_GetTranslationUnitCount
+  name: GetTranslationUnitCount()
+  nameWithType: ITranslationMemory.GetTranslationUnitCount()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.GetTranslationUnitCount()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.GetTranslationUnitCount
+    name: GetTranslationUnitCount
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_GetTranslationUnitCount
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.GetTranslationUnitCount
+    name: GetTranslationUnitCount
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_GetTranslationUnitCount
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryPermissions
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryPermissions
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryPermissions.html
+  name: TranslationMemoryPermissions
+  nameWithType: TranslationMemoryPermissions
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryPermissions
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.HasPermission*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.HasPermission
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_HasPermission_System_String_
+  name: HasPermission
+  nameWithType: AbstractLocalTranslationMemory.HasPermission
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.HasPermission
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.HasPermission(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.HasPermission(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_HasPermission_System_String_
+  name: HasPermission(string)
+  nameWithType: ITranslationMemory.HasPermission(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.HasPermission(string)
+  nameWithType.vb: ITranslationMemory.HasPermission(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.HasPermission(String)
+  name.vb: HasPermission(String)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.HasPermission(System.String)
+    name: HasPermission
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_HasPermission_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.HasPermission(System.String)
+    name: HasPermission
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_HasPermission_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RefreshStatusInfo*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RefreshStatusInfo
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_RefreshStatusInfo
+  name: RefreshStatusInfo
+  nameWithType: AbstractLocalTranslationMemory.RefreshStatusInfo
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RefreshStatusInfo
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.RefreshStatusInfo
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.RefreshStatusInfo
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_RefreshStatusInfo
+  name: RefreshStatusInfo()
+  nameWithType: ITranslationProvider.RefreshStatusInfo()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.RefreshStatusInfo()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.RefreshStatusInfo
+    name: RefreshStatusInfo
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_RefreshStatusInfo
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.RefreshStatusInfo
+    name: RefreshStatusInfo
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_RefreshStatusInfo
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Refresh*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Refresh
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_Refresh
+  name: Refresh
+  nameWithType: AbstractLocalTranslationMemory.Refresh
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Refresh
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_Save
+  name: Save
+  nameWithType: AbstractLocalTranslationMemory.Save
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Save
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Save
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_Save
+  name: Save()
+  nameWithType: ITranslationMemory.Save()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Save()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Save
+    name: Save
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_Save
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Save
+    name: Save
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_Save
+  - name: (
+  - name: )
+- uid: System.IProgress{Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryProgress}
+  commentId: T:System.IProgress{Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryProgress}
+  parent: System
+  definition: System.IProgress`1
+  href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  name: IProgress<TranslationMemoryProgress>
+  nameWithType: IProgress<TranslationMemoryProgress>
+  fullName: System.IProgress<Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryProgress>
+  nameWithType.vb: IProgress(Of TranslationMemoryProgress)
+  fullName.vb: System.IProgress(Of Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryProgress)
+  name.vb: IProgress(Of TranslationMemoryProgress)
+  spec.csharp:
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: <
+  - uid: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryProgress
+    name: TranslationMemoryProgress
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryProgress
+    name: TranslationMemoryProgress
+    isExternal: true
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.IProgress`1
+  commentId: T:System.IProgress`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  name: IProgress<T>
+  nameWithType: IProgress<T>
+  fullName: System.IProgress<T>
+  nameWithType.vb: IProgress(Of T)
+  fullName.vb: System.IProgress(Of T)
+  name.vb: IProgress(Of T)
+  spec.csharp:
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Delete*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Delete
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_Delete
+  name: Delete
+  nameWithType: AbstractLocalTranslationMemory.Delete
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Delete
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Delete
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Delete
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_Delete
+  name: Delete()
+  nameWithType: ITranslationMemory.Delete()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Delete()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Delete
+    name: Delete
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_Delete
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Delete
+    name: Delete
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_Delete
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_RecomputeFuzzyIndexStatistics
+  name: RecomputeFuzzyIndexStatistics
+  nameWithType: AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.RecomputeFuzzyIndexStatistics
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.RecomputeFuzzyIndexStatistics
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_RecomputeFuzzyIndexStatistics
+  name: RecomputeFuzzyIndexStatistics()
+  nameWithType: ITranslationMemory.RecomputeFuzzyIndexStatistics()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.RecomputeFuzzyIndexStatistics()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.RecomputeFuzzyIndexStatistics
+    name: RecomputeFuzzyIndexStatistics
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_RecomputeFuzzyIndexStatistics
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.RecomputeFuzzyIndexStatistics
+    name: RecomputeFuzzyIndexStatistics
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_RecomputeFuzzyIndexStatistics
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ClearFuzzyCache*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ClearFuzzyCache
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_ClearFuzzyCache
+  name: ClearFuzzyCache
+  nameWithType: AbstractLocalTranslationMemory.ClearFuzzyCache
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ClearFuzzyCache
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_RecomputeFuzzyIndexStatistics
+  name: RecomputeFuzzyIndexStatistics()
+  nameWithType: AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics
+    name: RecomputeFuzzyIndexStatistics
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_RecomputeFuzzyIndexStatistics
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.RecomputeFuzzyIndexStatistics
+    name: RecomputeFuzzyIndexStatistics
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_RecomputeFuzzyIndexStatistics
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ShouldRecomputeFuzzyIndexStatistics*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ShouldRecomputeFuzzyIndexStatistics
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_ShouldRecomputeFuzzyIndexStatistics
+  name: ShouldRecomputeFuzzyIndexStatistics
+  nameWithType: AbstractLocalTranslationMemory.ShouldRecomputeFuzzyIndexStatistics
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ShouldRecomputeFuzzyIndexStatistics
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.ShouldRecomputeFuzzyIndexStatistics
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.ShouldRecomputeFuzzyIndexStatistics
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_ShouldRecomputeFuzzyIndexStatistics
+  name: ShouldRecomputeFuzzyIndexStatistics()
+  nameWithType: ITranslationMemory.ShouldRecomputeFuzzyIndexStatistics()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.ShouldRecomputeFuzzyIndexStatistics()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.ShouldRecomputeFuzzyIndexStatistics
+    name: ShouldRecomputeFuzzyIndexStatistics
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_ShouldRecomputeFuzzyIndexStatistics
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.ShouldRecomputeFuzzyIndexStatistics
+    name: ShouldRecomputeFuzzyIndexStatistics
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_ShouldRecomputeFuzzyIndexStatistics
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html
+  name: AbstractLocalTranslationMemory
+  nameWithType: AbstractLocalTranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsLanguageDirection*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsLanguageDirection
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_SupportsLanguageDirection_Sdl_LanguagePlatform_Core_LanguagePair_
+  name: SupportsLanguageDirection
+  nameWithType: AbstractLocalTranslationMemory.SupportsLanguageDirection
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsLanguageDirection
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_SupportsLanguageDirection_Sdl_LanguagePlatform_Core_LanguagePair_
+  name: SupportsLanguageDirection(LanguagePair)
+  nameWithType: ITranslationProvider.SupportsLanguageDirection(LanguagePair)
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+    name: SupportsLanguageDirection
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_SupportsLanguageDirection_Sdl_LanguagePlatform_Core_LanguagePair_
+  - name: (
+  - uid: Sdl.LanguagePlatform.Core.LanguagePair
+    name: LanguagePair
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+    name: SupportsLanguageDirection
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_SupportsLanguageDirection_Sdl_LanguagePlatform_Core_LanguagePair_
+  - name: (
+  - uid: Sdl.LanguagePlatform.Core.LanguagePair
+    name: LanguagePair
+    isExternal: true
+  - name: )
+- uid: Sdl.LanguagePlatform.Core.LanguagePair
+  commentId: T:Sdl.LanguagePlatform.Core.LanguagePair
+  parent: Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.LanguagePair.html
+  name: LanguagePair
+  nameWithType: LanguagePair
+  fullName: Sdl.LanguagePlatform.Core.LanguagePair
+- uid: Sdl.LanguagePlatform.Core
+  commentId: N:Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core
+  nameWithType: Sdl.LanguagePlatform.Core
+  fullName: Sdl.LanguagePlatform.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetLanguageDirection*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetLanguageDirection
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_GetLanguageDirection_Sdl_LanguagePlatform_Core_LanguagePair_
+  name: GetLanguageDirection
+  nameWithType: AbstractLocalTranslationMemory.GetLanguageDirection
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.GetLanguageDirection
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.GetLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.GetLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_GetLanguageDirection_Sdl_LanguagePlatform_Core_LanguagePair_
+  name: GetLanguageDirection(LanguagePair)
+  nameWithType: ITranslationMemory.GetLanguageDirection(LanguagePair)
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.GetLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.GetLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+    name: GetLanguageDirection
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_GetLanguageDirection_Sdl_LanguagePlatform_Core_LanguagePair_
+  - name: (
+  - uid: Sdl.LanguagePlatform.Core.LanguagePair
+    name: LanguagePair
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.GetLanguageDirection(Sdl.LanguagePlatform.Core.LanguagePair)
+    name: GetLanguageDirection
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_GetLanguageDirection_Sdl_LanguagePlatform_Core_LanguagePair_
+  - name: (
+  - uid: Sdl.LanguagePlatform.Core.LanguagePair
+    name: LanguagePair
+    isExternal: true
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemoryLanguageDirection
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemoryLanguageDirection
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemoryLanguageDirection.html
+  name: ITranslationMemoryLanguageDirection
+  nameWithType: ITranslationMemoryLanguageDirection
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemoryLanguageDirection
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_LoadState_System_String_
+  name: LoadState(string)
+  nameWithType: AbstractLocalTranslationMemory.LoadState(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState(string)
+  nameWithType.vb: AbstractLocalTranslationMemory.LoadState(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState(String)
+  name.vb: LoadState(String)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState(System.String)
+    name: LoadState
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_LoadState_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState(System.String)
+    name: LoadState
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_LoadState_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_SerializeState
+  name: SerializeState
+  nameWithType: AbstractLocalTranslationMemory.SerializeState
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SerializeState
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SerializeState
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_SerializeState
+  name: SerializeState()
+  nameWithType: ITranslationProvider.SerializeState()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SerializeState()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SerializeState
+    name: SerializeState
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_SerializeState
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SerializeState
+    name: SerializeState
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_SerializeState
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_SerializeState
+  name: SerializeState()
+  nameWithType: AbstractLocalTranslationMemory.SerializeState()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState
+    name: SerializeState
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_SerializeState
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SerializeState
+    name: SerializeState
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_SerializeState
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_LoadState_System_String_
+  name: LoadState
+  nameWithType: AbstractLocalTranslationMemory.LoadState
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LoadState
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.LoadState(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.LoadState(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_LoadState_System_String_
+  name: LoadState(string)
+  nameWithType: ITranslationProvider.LoadState(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.LoadState(string)
+  nameWithType.vb: ITranslationProvider.LoadState(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.LoadState(String)
+  name.vb: LoadState(String)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.LoadState(System.String)
+    name: LoadState
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_LoadState_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.LoadState(System.String)
+    name: LoadState
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_LoadState_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexes*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexes
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_FuzzyIndexes
+  name: FuzzyIndexes
+  nameWithType: AbstractLocalTranslationMemory.FuzzyIndexes
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexes
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexes
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexes
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_FuzzyIndexes
+  name: FuzzyIndexes
+  nameWithType: ITranslationMemory.FuzzyIndexes
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexes
+- uid: Sdl.LanguagePlatform.TranslationMemory.FuzzyIndexes
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.FuzzyIndexes
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.FuzzyIndexes.html
+  name: FuzzyIndexes
+  nameWithType: FuzzyIndexes
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FuzzyIndexes
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Recognizers*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Recognizers
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_Recognizers
+  name: Recognizers
+  nameWithType: AbstractLocalTranslationMemory.Recognizers
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Recognizers
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables.Recognizers
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables.Recognizers
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables.html#Sdl_LanguagePlatform_TranslationMemoryApi_ISupportPlaceables_Recognizers
+  name: Recognizers
+  nameWithType: ISupportPlaceables.Recognizers
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables.Recognizers
+- uid: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  commentId: T:Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  parent: Sdl.LanguagePlatform.Core.Tokenization
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.html
+  name: BuiltinRecognizers
+  nameWithType: BuiltinRecognizers
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+- uid: Sdl.LanguagePlatform.Core.Tokenization
+  commentId: N:Sdl.LanguagePlatform.Core.Tokenization
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core.Tokenization
+  nameWithType: Sdl.LanguagePlatform.Core.Tokenization
+  fullName: Sdl.LanguagePlatform.Core.Tokenization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Tokenization
+    name: Tokenization
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Tokenization.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Tokenization
+    name: Tokenization
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Tokenization.html
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_Save
+  name: Save()
+  nameWithType: AbstractLocalTranslationMemory.Save()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save
+    name: Save
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_Save
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Save
+    name: Save
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_Save
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Copyright*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Copyright
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_Copyright
+  name: Copyright
+  nameWithType: AbstractLocalTranslationMemory.Copyright
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Copyright
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Copyright
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Copyright
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_Copyright
+  name: Copyright
+  nameWithType: ITranslationMemory.Copyright
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Copyright
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationDate*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationDate
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_CreationDate
+  name: CreationDate
+  nameWithType: AbstractLocalTranslationMemory.CreationDate
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationDate
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.CreationDate
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.CreationDate
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_CreationDate
+  name: CreationDate
+  nameWithType: ITranslationMemory.CreationDate
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.CreationDate
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationUserName*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationUserName
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_CreationUserName
+  name: CreationUserName
+  nameWithType: AbstractLocalTranslationMemory.CreationUserName
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.CreationUserName
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.CreationUserName
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.CreationUserName
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_CreationUserName
+  name: CreationUserName
+  nameWithType: ITranslationMemory.CreationUserName
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.CreationUserName
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Description*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Description
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_Description
+  name: Description
+  nameWithType: AbstractLocalTranslationMemory.Description
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Description
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Description
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Description
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_Description
+  name: Description
+  nameWithType: ITranslationMemory.Description
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.Description
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ExpirationDate*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ExpirationDate
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_ExpirationDate
+  name: ExpirationDate
+  nameWithType: AbstractLocalTranslationMemory.ExpirationDate
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.ExpirationDate
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.ExpirationDate
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.ExpirationDate
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_ExpirationDate
+  name: ExpirationDate
+  nameWithType: ITranslationMemory.ExpirationDate
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.ExpirationDate
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.IFieldsTemplate
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.IFieldsTemplate
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.IFieldsTemplate.html
+  name: IFieldsTemplate
+  nameWithType: IFieldsTemplate
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.IFieldsTemplate
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FieldDefinitions*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FieldDefinitions
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_FieldDefinitions
+  name: FieldDefinitions
+  nameWithType: AbstractLocalTranslationMemory.FieldDefinitions
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FieldDefinitions
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FieldDefinitions
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FieldDefinitions
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_FieldDefinitions
+  name: FieldDefinitions
+  nameWithType: ITranslationMemory.FieldDefinitions
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FieldDefinitions
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.FieldDefinitionCollection
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.FieldDefinitionCollection
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.FieldDefinitionCollection.html
+  name: FieldDefinitionCollection
+  nameWithType: FieldDefinitionCollection
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.FieldDefinitionCollection
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ILanguageResourcesTemplate
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.ILanguageResourcesTemplate
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ILanguageResourcesTemplate.html
+  name: ILanguageResourcesTemplate
+  nameWithType: ILanguageResourcesTemplate
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ILanguageResourcesTemplate
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageResourceBundles*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageResourceBundles
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_LanguageResourceBundles
+  name: LanguageResourceBundles
+  nameWithType: AbstractLocalTranslationMemory.LanguageResourceBundles
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageResourceBundles
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables.LanguageResourceBundles
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables.LanguageResourceBundles
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables.html#Sdl_LanguagePlatform_TranslationMemoryApi_ISupportPlaceables_LanguageResourceBundles
+  name: LanguageResourceBundles
+  nameWithType: ISupportPlaceables.LanguageResourceBundles
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ISupportPlaceables.LanguageResourceBundles
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.LanguageResourceBundleCollection
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.LanguageResourceBundleCollection
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.LanguageResourceBundleCollection.html
+  name: LanguageResourceBundleCollection
+  nameWithType: LanguageResourceBundleCollection
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.LanguageResourceBundleCollection
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Uri*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Uri
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_Uri
+  name: Uri
+  nameWithType: AbstractLocalTranslationMemory.Uri
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Uri
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.Uri
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.Uri
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_Uri
+  name: Uri
+  nameWithType: ITranslationProvider.Uri
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.Uri
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.StatusInfo*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.StatusInfo
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_StatusInfo
+  name: StatusInfo
+  nameWithType: AbstractLocalTranslationMemory.StatusInfo
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.StatusInfo
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.StatusInfo
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.StatusInfo
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_StatusInfo
+  name: StatusInfo
+  nameWithType: ITranslationProvider.StatusInfo
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.StatusInfo
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.html
+  name: ProviderStatusInfo
+  nameWithType: ProviderStatusInfo
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Name*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Name
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_Name
+  name: Name
+  nameWithType: AbstractLocalTranslationMemory.Name
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.Name
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.Name
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.Name
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_Name
+  name: Name
+  nameWithType: ITranslationProvider.Name
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.Name
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsSearchForTranslationUnits
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsSearchForTranslationUnits
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_SupportsSearchForTranslationUnits
+  name: SupportsSearchForTranslationUnits
+  nameWithType: ITranslationProvider.SupportsSearchForTranslationUnits
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsSearchForTranslationUnits
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSearchForTranslationUnits*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSearchForTranslationUnits
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_SupportsSearchForTranslationUnits
+  name: SupportsSearchForTranslationUnits
+  nameWithType: AbstractLocalTranslationMemory.SupportsSearchForTranslationUnits
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSearchForTranslationUnits
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsUpdate
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsUpdate
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_SupportsUpdate
+  name: SupportsUpdate
+  nameWithType: ITranslationProvider.SupportsUpdate
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsUpdate
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsUpdate*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsUpdate
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_SupportsUpdate
+  name: SupportsUpdate
+  nameWithType: AbstractLocalTranslationMemory.SupportsUpdate
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsUpdate
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsConcordanceSearch
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsConcordanceSearch
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_SupportsConcordanceSearch
+  name: SupportsConcordanceSearch
+  nameWithType: ITranslationProvider.SupportsConcordanceSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsConcordanceSearch
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsConcordanceSearch*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsConcordanceSearch
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_SupportsConcordanceSearch
+  name: SupportsConcordanceSearch
+  nameWithType: AbstractLocalTranslationMemory.SupportsConcordanceSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsConcordanceSearch
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsSourceConcordanceSearch
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsSourceConcordanceSearch
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_SupportsSourceConcordanceSearch
+  name: SupportsSourceConcordanceSearch
+  nameWithType: ITranslationProvider.SupportsSourceConcordanceSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsSourceConcordanceSearch
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSourceConcordanceSearch*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSourceConcordanceSearch
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_SupportsSourceConcordanceSearch
+  name: SupportsSourceConcordanceSearch
+  nameWithType: AbstractLocalTranslationMemory.SupportsSourceConcordanceSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsSourceConcordanceSearch
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsTargetConcordanceSearch
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsTargetConcordanceSearch
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_SupportsTargetConcordanceSearch
+  name: SupportsTargetConcordanceSearch
+  nameWithType: ITranslationProvider.SupportsTargetConcordanceSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.SupportsTargetConcordanceSearch
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexes
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexes
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_FuzzyIndexes
+  name: FuzzyIndexes
+  nameWithType: AbstractLocalTranslationMemory.FuzzyIndexes
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexes
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsTargetConcordanceSearch*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsTargetConcordanceSearch
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_SupportsTargetConcordanceSearch
+  name: SupportsTargetConcordanceSearch
+  nameWithType: AbstractLocalTranslationMemory.SupportsTargetConcordanceSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportsTargetConcordanceSearch
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.IsReadOnly
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.IsReadOnly
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_IsReadOnly
+  name: IsReadOnly
+  nameWithType: ITranslationProvider.IsReadOnly
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.IsReadOnly
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.IsReadOnly*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.IsReadOnly
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_IsReadOnly
+  name: IsReadOnly
+  nameWithType: AbstractLocalTranslationMemory.IsReadOnly
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.IsReadOnly
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.TranslationMethod
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.TranslationMethod
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_TranslationMethod
+  name: TranslationMethod
+  nameWithType: ITranslationProvider.TranslationMethod
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.TranslationMethod
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.TranslationMemory
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.html#Sdl_LanguagePlatform_TranslationMemoryApi_TranslationMethod_TranslationMemory
+  name: TranslationMemory
+  nameWithType: TranslationMethod.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.TranslationMemory
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.TranslationMethod*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.TranslationMethod
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_TranslationMethod
+  name: TranslationMethod
+  nameWithType: AbstractLocalTranslationMemory.TranslationMethod
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.TranslationMethod
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.html
+  name: TranslationMethod
+  nameWithType: TranslationMethod
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexTuningSettings*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexTuningSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_FuzzyIndexTuningSettings
+  name: FuzzyIndexTuningSettings
+  nameWithType: AbstractLocalTranslationMemory.FuzzyIndexTuningSettings
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexTuningSettings
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexTuningSettings
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexTuningSettings
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_FuzzyIndexTuningSettings
+  name: FuzzyIndexTuningSettings
+  nameWithType: ITranslationMemory.FuzzyIndexTuningSettings
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexTuningSettings
+- uid: Sdl.LanguagePlatform.TranslationMemory.FuzzyIndexTuningSettings
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.FuzzyIndexTuningSettings
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.FuzzyIndexTuningSettings.html
+  name: FuzzyIndexTuningSettings
+  nameWithType: FuzzyIndexTuningSettings
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FuzzyIndexTuningSettings
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsRecomputedAt*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsRecomputedAt
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_FuzzyIndexStatisticsRecomputedAt
+  name: FuzzyIndexStatisticsRecomputedAt
+  nameWithType: AbstractLocalTranslationMemory.FuzzyIndexStatisticsRecomputedAt
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsRecomputedAt
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexStatisticsRecomputedAt
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexStatisticsRecomputedAt
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_FuzzyIndexStatisticsRecomputedAt
+  name: FuzzyIndexStatisticsRecomputedAt
+  nameWithType: ITranslationMemory.FuzzyIndexStatisticsRecomputedAt
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexStatisticsRecomputedAt
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsSize*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsSize
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_FuzzyIndexStatisticsSize
+  name: FuzzyIndexStatisticsSize
+  nameWithType: AbstractLocalTranslationMemory.FuzzyIndexStatisticsSize
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.FuzzyIndexStatisticsSize
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexStatisticsSize
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexStatisticsSize
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_FuzzyIndexStatisticsSize
+  name: FuzzyIndexStatisticsSize
+  nameWithType: ITranslationMemory.FuzzyIndexStatisticsSize
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.FuzzyIndexStatisticsSize
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageDirection*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageDirection
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_LanguageDirection
+  name: LanguageDirection
+  nameWithType: AbstractLocalTranslationMemory.LanguageDirection
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.LanguageDirection
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportedLanguageDirections*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportedLanguageDirections
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_AbstractLocalTranslationMemory_SupportedLanguageDirections
+  name: SupportedLanguageDirections
+  nameWithType: AbstractLocalTranslationMemory.SupportedLanguageDirections
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.AbstractLocalTranslationMemory.SupportedLanguageDirections
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.SupportedLanguageDirections
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.SupportedLanguageDirections
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationMemory_SupportedLanguageDirections
+  name: SupportedLanguageDirections
+  nameWithType: ITranslationMemory.SupportedLanguageDirections
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationMemory.SupportedLanguageDirections
+- uid: System.Collections.ObjectModel.ReadOnlyCollection{Sdl.LanguagePlatform.Core.LanguagePair}
+  commentId: T:System.Collections.ObjectModel.ReadOnlyCollection{Sdl.LanguagePlatform.Core.LanguagePair}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ReadOnlyCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1
+  name: ReadOnlyCollection<LanguagePair>
+  nameWithType: ReadOnlyCollection<LanguagePair>
+  fullName: System.Collections.ObjectModel.ReadOnlyCollection<Sdl.LanguagePlatform.Core.LanguagePair>
+  nameWithType.vb: ReadOnlyCollection(Of LanguagePair)
+  fullName.vb: System.Collections.ObjectModel.ReadOnlyCollection(Of Sdl.LanguagePlatform.Core.LanguagePair)
+  name.vb: ReadOnlyCollection(Of LanguagePair)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1
+  - name: <
+  - uid: Sdl.LanguagePlatform.Core.LanguagePair
+    name: LanguagePair
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.LanguagePlatform.Core.LanguagePair
+    name: LanguagePair
+    isExternal: true
+  - name: )
+- uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+  commentId: T:System.Collections.ObjectModel.ReadOnlyCollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1
+  name: ReadOnlyCollection<T>
+  nameWithType: ReadOnlyCollection<T>
+  fullName: System.Collections.ObjectModel.ReadOnlyCollection<T>
+  nameWithType.vb: ReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ReadOnlyCollection(Of T)
+  name.vb: ReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel

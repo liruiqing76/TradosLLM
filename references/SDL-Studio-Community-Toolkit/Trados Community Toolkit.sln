@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trados.Community.Toolkit.Integration", "Trados.Community.Toolkit.Integration\Trados.Community.Toolkit.Integration.csproj", "{6D9AA188-83A5-4A04-B8E4-8CCE30A68860}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trados.Community.Toolkit.FileType", "Trados.CommunityToolkit.FileType\Trados.Community.Toolkit.FileType.csproj", "{C82F21CF-2754-4558-9F1E-9B8938D725B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trados.Community.Toolkit.Core", "Trados.Community.Toolkit.Core\Trados.Community.Toolkit.Core.csproj", "{B2E4D81B-5A04-425F-8E64-695D4DB32BDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trados.Community.Toolkit.ProjectAutomation", "Trados.Community.Toolkit.ProjectAutomation\Trados.Community.Toolkit.ProjectAutomation.csproj", "{8306E5A4-9746-4475-BBE8-A3AD2770C847}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{6C48679F-0B35-42F2-9C8C-363638519844}"
+	ProjectSection(SolutionItems) = preProject
+		contributing.md = contributing.md
+		README.md = README.md
+		ReleaseNotes.md = ReleaseNotes.md
+		Sdl.Community.Toolkit.snk = Sdl.Community.Toolkit.snk
+		SolutionInfo.cs = SolutionInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{CBA18C59-522A-4F5E-928A-5BB9EA5A76F4}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		azure-pipelines.yml = azure-pipelines.yml
+		Trados.Community.Toolkit.Core.nuspec = Trados.Community.Toolkit.Core.nuspec
+		Trados.Community.Toolkit.FileType.nuspec = Trados.Community.Toolkit.FileType.nuspec
+		Trados.Community.Toolkit.Integration.nuspec = Trados.Community.Toolkit.Integration.nuspec
+		Trados.Community.Toolkit.LanguagePlatform.nuspec = Trados.Community.Toolkit.LanguagePlatform.nuspec
+		Trados.Community.Toolkit.ProjectAutomation.nuspec = Trados.Community.Toolkit.ProjectAutomation.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{E4FF7B58-C357-4E39-AC71-FAAE821F77BC}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\ManageNugetPackages.png = Resources\ManageNugetPackages.png
+		Resources\nuget-packages.png = Resources\nuget-packages.png
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trados.Community.Toolkit.LanguagePlatform", "Trados.Community.Toolkit.LanguagePlatform\Trados.Community.Toolkit.LanguagePlatform.csproj", "{68256C9D-B6FC-4B19-AF67-91929FD8FBAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6D9AA188-83A5-4A04-B8E4-8CCE30A68860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D9AA188-83A5-4A04-B8E4-8CCE30A68860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D9AA188-83A5-4A04-B8E4-8CCE30A68860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D9AA188-83A5-4A04-B8E4-8CCE30A68860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C82F21CF-2754-4558-9F1E-9B8938D725B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C82F21CF-2754-4558-9F1E-9B8938D725B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C82F21CF-2754-4558-9F1E-9B8938D725B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C82F21CF-2754-4558-9F1E-9B8938D725B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2E4D81B-5A04-425F-8E64-695D4DB32BDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E4D81B-5A04-425F-8E64-695D4DB32BDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2E4D81B-5A04-425F-8E64-695D4DB32BDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2E4D81B-5A04-425F-8E64-695D4DB32BDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8306E5A4-9746-4475-BBE8-A3AD2770C847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8306E5A4-9746-4475-BBE8-A3AD2770C847}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8306E5A4-9746-4475-BBE8-A3AD2770C847}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8306E5A4-9746-4475-BBE8-A3AD2770C847}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68256C9D-B6FC-4B19-AF67-91929FD8FBAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68256C9D-B6FC-4B19-AF67-91929FD8FBAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68256C9D-B6FC-4B19-AF67-91929FD8FBAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68256C9D-B6FC-4B19-AF67-91929FD8FBAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A14B00D-754F-4A97-9895-222C18CA2256}
+	EndGlobalSection
+EndGlobal

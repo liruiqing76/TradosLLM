@@ -1,0 +1,290 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext
+  commentId: T:Sdl.Core.PluginFramework.Validation.IExtensionValidationContext
+  id: IExtensionValidationContext
+  parent: Sdl.Core.PluginFramework.Validation
+  children:
+  - Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportError(System.String,System.String)
+  - Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportWarning(System.String,System.String)
+  - Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredExtensionAttributeType(Sdl.Core.PluginFramework.AuxiliaryExtensionAttribute,System.Type)
+  - Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredInterface(System.Type)
+  langs:
+  - csharp
+  - vb
+  name: IExtensionValidationContext
+  nameWithType: IExtensionValidationContext
+  fullName: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext
+  type: Interface
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Validation
+  summary: >-
+    Provides functionality for extension point implementers to validate extensions targeting the extension point
+
+    and report warning or error messages.
+  example: []
+  syntax:
+    content: public interface IExtensionValidationContext
+    content.vb: Public Interface IExtensionValidationContext
+- uid: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportError(System.String,System.String)
+  commentId: M:Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportError(System.String,System.String)
+  id: ReportError(System.String,System.String)
+  parent: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext
+  langs:
+  - csharp
+  - vb
+  name: ReportError(string, string)
+  nameWithType: IExtensionValidationContext.ReportError(string, string)
+  fullName: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportError(string, string)
+  type: Method
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Validation
+  summary: Reports an error.
+  example: []
+  syntax:
+    content: void ReportError(string code, string message)
+    parameters:
+    - id: code
+      type: System.String
+      description: The error code, which serves as a reference for errors of this type.
+    - id: message
+      type: System.String
+      description: The error message.
+    content.vb: Sub ReportError(code As String, message As String)
+  overload: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportError*
+  nameWithType.vb: IExtensionValidationContext.ReportError(String, String)
+  fullName.vb: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportError(String, String)
+  name.vb: ReportError(String, String)
+- uid: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportWarning(System.String,System.String)
+  commentId: M:Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportWarning(System.String,System.String)
+  id: ReportWarning(System.String,System.String)
+  parent: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext
+  langs:
+  - csharp
+  - vb
+  name: ReportWarning(string, string)
+  nameWithType: IExtensionValidationContext.ReportWarning(string, string)
+  fullName: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportWarning(string, string)
+  type: Method
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Validation
+  summary: Reports an warning.
+  example: []
+  syntax:
+    content: void ReportWarning(string code, string message)
+    parameters:
+    - id: code
+      type: System.String
+      description: The error code, which serves as a reference for warnings of this type.
+    - id: message
+      type: System.String
+      description: The warning message.
+    content.vb: Sub ReportWarning(code As String, message As String)
+  overload: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportWarning*
+  nameWithType.vb: IExtensionValidationContext.ReportWarning(String, String)
+  fullName.vb: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportWarning(String, String)
+  name.vb: ReportWarning(String, String)
+- uid: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredInterface(System.Type)
+  commentId: M:Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredInterface(System.Type)
+  id: ValidateRequiredInterface(System.Type)
+  parent: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext
+  langs:
+  - csharp
+  - vb
+  name: ValidateRequiredInterface(Type)
+  nameWithType: IExtensionValidationContext.ValidateRequiredInterface(Type)
+  fullName: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredInterface(System.Type)
+  type: Method
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Validation
+  summary: Utility method to generate an error if the extension type does not implement the interface of the specified type.
+  example: []
+  syntax:
+    content: void ValidateRequiredInterface(Type interfaceType)
+    parameters:
+    - id: interfaceType
+      type: System.Type
+      description: The interface type to check for.
+    content.vb: Sub ValidateRequiredInterface(interfaceType As Type)
+  overload: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredInterface*
+- uid: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredExtensionAttributeType(Sdl.Core.PluginFramework.AuxiliaryExtensionAttribute,System.Type)
+  commentId: M:Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredExtensionAttributeType(Sdl.Core.PluginFramework.AuxiliaryExtensionAttribute,System.Type)
+  id: ValidateRequiredExtensionAttributeType(Sdl.Core.PluginFramework.AuxiliaryExtensionAttribute,System.Type)
+  parent: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext
+  langs:
+  - csharp
+  - vb
+  name: ValidateRequiredExtensionAttributeType(AuxiliaryExtensionAttribute, Type)
+  nameWithType: IExtensionValidationContext.ValidateRequiredExtensionAttributeType(AuxiliaryExtensionAttribute, Type)
+  fullName: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredExtensionAttributeType(Sdl.Core.PluginFramework.AuxiliaryExtensionAttribute, System.Type)
+  type: Method
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Validation
+  summary: >-
+    Utility method for use in auxiliary extension attribute implementations to validate
+
+    whether the main extension attribute is of the require type.
+  example: []
+  syntax:
+    content: void ValidateRequiredExtensionAttributeType(AuxiliaryExtensionAttribute auxiliaryExtensionAttribute, Type extensionAttributeType)
+    parameters:
+    - id: auxiliaryExtensionAttribute
+      type: Sdl.Core.PluginFramework.AuxiliaryExtensionAttribute
+      description: The auxiliary extension attribute that is being validated.
+    - id: extensionAttributeType
+      type: System.Type
+      description: The type of extension attribute required by the auxiliary extension attribute.
+    content.vb: Sub ValidateRequiredExtensionAttributeType(auxiliaryExtensionAttribute As AuxiliaryExtensionAttribute, extensionAttributeType As Type)
+  overload: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredExtensionAttributeType*
+references:
+- uid: Sdl.Core.PluginFramework.Validation
+  commentId: N:Sdl.Core.PluginFramework.Validation
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.PluginFramework.Validation
+  nameWithType: Sdl.Core.PluginFramework.Validation
+  fullName: Sdl.Core.PluginFramework.Validation
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework.Validation
+    name: Validation
+    isExternal: true
+    href: Sdl.Core.PluginFramework.Validation.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework.Validation
+    name: Validation
+    isExternal: true
+    href: Sdl.Core.PluginFramework.Validation.html
+- uid: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportError*
+  commentId: Overload:Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportError
+  isExternal: true
+  href: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.html#Sdl_Core_PluginFramework_Validation_IExtensionValidationContext_ReportError_System_String_System_String_
+  name: ReportError
+  nameWithType: IExtensionValidationContext.ReportError
+  fullName: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportError
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportWarning*
+  commentId: Overload:Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportWarning
+  isExternal: true
+  href: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.html#Sdl_Core_PluginFramework_Validation_IExtensionValidationContext_ReportWarning_System_String_System_String_
+  name: ReportWarning
+  nameWithType: IExtensionValidationContext.ReportWarning
+  fullName: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ReportWarning
+- uid: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredInterface*
+  commentId: Overload:Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredInterface
+  isExternal: true
+  href: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.html#Sdl_Core_PluginFramework_Validation_IExtensionValidationContext_ValidateRequiredInterface_System_Type_
+  name: ValidateRequiredInterface
+  nameWithType: IExtensionValidationContext.ValidateRequiredInterface
+  fullName: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredInterface
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredExtensionAttributeType*
+  commentId: Overload:Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredExtensionAttributeType
+  isExternal: true
+  href: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.html#Sdl_Core_PluginFramework_Validation_IExtensionValidationContext_ValidateRequiredExtensionAttributeType_Sdl_Core_PluginFramework_AuxiliaryExtensionAttribute_System_Type_
+  name: ValidateRequiredExtensionAttributeType
+  nameWithType: IExtensionValidationContext.ValidateRequiredExtensionAttributeType
+  fullName: Sdl.Core.PluginFramework.Validation.IExtensionValidationContext.ValidateRequiredExtensionAttributeType
+- uid: Sdl.Core.PluginFramework.AuxiliaryExtensionAttribute
+  commentId: T:Sdl.Core.PluginFramework.AuxiliaryExtensionAttribute
+  parent: Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.Core.PluginFramework.AuxiliaryExtensionAttribute.html
+  name: AuxiliaryExtensionAttribute
+  nameWithType: AuxiliaryExtensionAttribute
+  fullName: Sdl.Core.PluginFramework.AuxiliaryExtensionAttribute
+- uid: Sdl.Core.PluginFramework
+  commentId: N:Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.PluginFramework
+  nameWithType: Sdl.Core.PluginFramework
+  fullName: Sdl.Core.PluginFramework
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html

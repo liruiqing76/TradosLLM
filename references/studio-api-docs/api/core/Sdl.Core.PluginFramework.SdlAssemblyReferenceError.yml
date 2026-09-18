@@ -1,0 +1,134 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.PluginFramework.SdlAssemblyReferenceError
+  commentId: T:Sdl.Core.PluginFramework.SdlAssemblyReferenceError
+  id: SdlAssemblyReferenceError
+  parent: Sdl.Core.PluginFramework
+  children:
+  - Sdl.Core.PluginFramework.SdlAssemblyReferenceError.NewerApiVersionInstalled
+  - Sdl.Core.PluginFramework.SdlAssemblyReferenceError.OlderApiVersionInstalled
+  - Sdl.Core.PluginFramework.SdlAssemblyReferenceError.SdlAssemblyNotPublic
+  langs:
+  - csharp
+  - vb
+  name: SdlAssemblyReferenceError
+  nameWithType: SdlAssemblyReferenceError
+  fullName: Sdl.Core.PluginFramework.SdlAssemblyReferenceError
+  type: Enum
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: >-
+    Types of validation error that occur when validating SDL assembly references
+
+    in third party plug-ins.
+  example: []
+  syntax:
+    content: public enum SdlAssemblyReferenceError
+    content.vb: Public Enum SdlAssemblyReferenceError
+- uid: Sdl.Core.PluginFramework.SdlAssemblyReferenceError.SdlAssemblyNotPublic
+  commentId: F:Sdl.Core.PluginFramework.SdlAssemblyReferenceError.SdlAssemblyNotPublic
+  id: SdlAssemblyNotPublic
+  parent: Sdl.Core.PluginFramework.SdlAssemblyReferenceError
+  langs:
+  - csharp
+  - vb
+  name: SdlAssemblyNotPublic
+  nameWithType: SdlAssemblyReferenceError.SdlAssemblyNotPublic
+  fullName: Sdl.Core.PluginFramework.SdlAssemblyReferenceError.SdlAssemblyNotPublic
+  type: Field
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: Referenced SDL assembly is not to be used directly by third party plug-ins.
+  example: []
+  syntax:
+    content: SdlAssemblyNotPublic = 0
+    return:
+      type: Sdl.Core.PluginFramework.SdlAssemblyReferenceError
+- uid: Sdl.Core.PluginFramework.SdlAssemblyReferenceError.NewerApiVersionInstalled
+  commentId: F:Sdl.Core.PluginFramework.SdlAssemblyReferenceError.NewerApiVersionInstalled
+  id: NewerApiVersionInstalled
+  parent: Sdl.Core.PluginFramework.SdlAssemblyReferenceError
+  langs:
+  - csharp
+  - vb
+  name: NewerApiVersionInstalled
+  nameWithType: SdlAssemblyReferenceError.NewerApiVersionInstalled
+  fullName: Sdl.Core.PluginFramework.SdlAssemblyReferenceError.NewerApiVersionInstalled
+  type: Field
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: Newer version of referenced SDL assembly currently installed.
+  example: []
+  syntax:
+    content: NewerApiVersionInstalled = 1
+    return:
+      type: Sdl.Core.PluginFramework.SdlAssemblyReferenceError
+- uid: Sdl.Core.PluginFramework.SdlAssemblyReferenceError.OlderApiVersionInstalled
+  commentId: F:Sdl.Core.PluginFramework.SdlAssemblyReferenceError.OlderApiVersionInstalled
+  id: OlderApiVersionInstalled
+  parent: Sdl.Core.PluginFramework.SdlAssemblyReferenceError
+  langs:
+  - csharp
+  - vb
+  name: OlderApiVersionInstalled
+  nameWithType: SdlAssemblyReferenceError.OlderApiVersionInstalled
+  fullName: Sdl.Core.PluginFramework.SdlAssemblyReferenceError.OlderApiVersionInstalled
+  type: Field
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: Older version of referenced SDL assembly currently installed.
+  example: []
+  syntax:
+    content: OlderApiVersionInstalled = 2
+    return:
+      type: Sdl.Core.PluginFramework.SdlAssemblyReferenceError
+references:
+- uid: Sdl.Core.PluginFramework
+  commentId: N:Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.PluginFramework
+  nameWithType: Sdl.Core.PluginFramework
+  fullName: Sdl.Core.PluginFramework
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+- uid: Sdl.Core.PluginFramework.SdlAssemblyReferenceError
+  commentId: T:Sdl.Core.PluginFramework.SdlAssemblyReferenceError
+  parent: Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.Core.PluginFramework.SdlAssemblyReferenceError.html
+  name: SdlAssemblyReferenceError
+  nameWithType: SdlAssemblyReferenceError
+  fullName: Sdl.Core.PluginFramework.SdlAssemblyReferenceError

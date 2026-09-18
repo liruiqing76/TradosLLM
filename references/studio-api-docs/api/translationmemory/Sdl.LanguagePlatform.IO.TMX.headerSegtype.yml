@@ -1,0 +1,162 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+  commentId: T:Sdl.LanguagePlatform.IO.TMX.headerSegtype
+  id: headerSegtype
+  parent: Sdl.LanguagePlatform.IO.TMX
+  children:
+  - Sdl.LanguagePlatform.IO.TMX.headerSegtype.block
+  - Sdl.LanguagePlatform.IO.TMX.headerSegtype.paragraph
+  - Sdl.LanguagePlatform.IO.TMX.headerSegtype.phrase
+  - Sdl.LanguagePlatform.IO.TMX.headerSegtype.sentence
+  langs:
+  - csharp
+  - vb
+  name: headerSegtype
+  nameWithType: headerSegtype
+  fullName: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public enum headerSegtype
+    content.vb: Public Enum headerSegtype
+- uid: Sdl.LanguagePlatform.IO.TMX.headerSegtype.block
+  commentId: F:Sdl.LanguagePlatform.IO.TMX.headerSegtype.block
+  id: block
+  parent: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+  langs:
+  - csharp
+  - vb
+  name: block
+  nameWithType: headerSegtype.block
+  fullName: Sdl.LanguagePlatform.IO.TMX.headerSegtype.block
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: block = 0
+    return:
+      type: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+- uid: Sdl.LanguagePlatform.IO.TMX.headerSegtype.paragraph
+  commentId: F:Sdl.LanguagePlatform.IO.TMX.headerSegtype.paragraph
+  id: paragraph
+  parent: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+  langs:
+  - csharp
+  - vb
+  name: paragraph
+  nameWithType: headerSegtype.paragraph
+  fullName: Sdl.LanguagePlatform.IO.TMX.headerSegtype.paragraph
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: paragraph = 1
+    return:
+      type: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+- uid: Sdl.LanguagePlatform.IO.TMX.headerSegtype.sentence
+  commentId: F:Sdl.LanguagePlatform.IO.TMX.headerSegtype.sentence
+  id: sentence
+  parent: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+  langs:
+  - csharp
+  - vb
+  name: sentence
+  nameWithType: headerSegtype.sentence
+  fullName: Sdl.LanguagePlatform.IO.TMX.headerSegtype.sentence
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: sentence = 2
+    return:
+      type: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+- uid: Sdl.LanguagePlatform.IO.TMX.headerSegtype.phrase
+  commentId: F:Sdl.LanguagePlatform.IO.TMX.headerSegtype.phrase
+  id: phrase
+  parent: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+  langs:
+  - csharp
+  - vb
+  name: phrase
+  nameWithType: headerSegtype.phrase
+  fullName: Sdl.LanguagePlatform.IO.TMX.headerSegtype.phrase
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: phrase = 3
+    return:
+      type: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+references:
+- uid: Sdl.LanguagePlatform.IO.TMX
+  commentId: N:Sdl.LanguagePlatform.IO.TMX
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.IO.TMX
+  nameWithType: Sdl.LanguagePlatform.IO.TMX
+  fullName: Sdl.LanguagePlatform.IO.TMX
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO
+    name: IO
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO.TMX
+    name: TMX
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.TMX.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO
+    name: IO
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO.TMX
+    name: TMX
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.TMX.html
+- uid: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+  commentId: T:Sdl.LanguagePlatform.IO.TMX.headerSegtype
+  parent: Sdl.LanguagePlatform.IO.TMX
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.headerSegtype.html
+  name: headerSegtype
+  nameWithType: headerSegtype
+  fullName: Sdl.LanguagePlatform.IO.TMX.headerSegtype

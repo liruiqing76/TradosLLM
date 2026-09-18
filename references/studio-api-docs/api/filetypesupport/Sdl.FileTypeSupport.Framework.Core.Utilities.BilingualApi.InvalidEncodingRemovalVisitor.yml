@@ -1,0 +1,1069 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  commentId: T:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  id: InvalidEncodingRemovalVisitor
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  children:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.#ctor
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.ProcessParagraphUnit(Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitCommentMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLocationMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLockedContent(Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitOtherMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitPlaceholderTag(Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitRevisionMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitSegment(Sdl.FileTypeSupport.Framework.BilingualApi.ISegment)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitTagPair(Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitText(Sdl.FileTypeSupport.Framework.BilingualApi.IText)
+  langs:
+  - csharp
+  - vb
+  name: InvalidEncodingRemovalVisitor
+  nameWithType: InvalidEncodingRemovalVisitor
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  type: Class
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  summary: Removes invalid characters from Bilingual Content
+  example: []
+  syntax:
+    content: 'public class InvalidEncodingRemovalVisitor : IMarkupDataVisitor'
+    content.vb: Public Class InvalidEncodingRemovalVisitor Implements IMarkupDataVisitor
+  inheritance:
+  - System.Object
+  implements:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.ProcessParagraphUnit(Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.ProcessParagraphUnit(Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit)
+  id: ProcessParagraphUnit(Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  langs:
+  - csharp
+  - vb
+  name: ProcessParagraphUnit(IParagraphUnit)
+  nameWithType: InvalidEncodingRemovalVisitor.ProcessParagraphUnit(IParagraphUnit)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.ProcessParagraphUnit(Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  summary: Processes the paragraph unit
+  example: []
+  syntax:
+    content: public void ProcessParagraphUnit(IParagraphUnit pu)
+    parameters:
+    - id: pu
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit
+      description: ''
+    content.vb: Public Sub ProcessParagraphUnit(pu As IParagraphUnit)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.ProcessParagraphUnit*
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitTagPair(Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitTagPair(Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair)
+  id: VisitTagPair(Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  langs:
+  - csharp
+  - vb
+  name: VisitTagPair(ITagPair)
+  nameWithType: InvalidEncodingRemovalVisitor.VisitTagPair(ITagPair)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitTagPair(Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  summary: Processes TagPair
+  example: []
+  syntax:
+    content: public void VisitTagPair(ITagPair tagPair)
+    parameters:
+    - id: tagPair
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair
+      description: ''
+    content.vb: Public Sub VisitTagPair(tagPair As ITagPair)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitTagPair*
+  implements:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitTagPair(Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitPlaceholderTag(Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitPlaceholderTag(Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag)
+  id: VisitPlaceholderTag(Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  langs:
+  - csharp
+  - vb
+  name: VisitPlaceholderTag(IPlaceholderTag)
+  nameWithType: InvalidEncodingRemovalVisitor.VisitPlaceholderTag(IPlaceholderTag)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitPlaceholderTag(Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  summary: Processes PlaceholderTag
+  example: []
+  syntax:
+    content: public void VisitPlaceholderTag(IPlaceholderTag tag)
+    parameters:
+    - id: tag
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag
+      description: ''
+    content.vb: Public Sub VisitPlaceholderTag(tag As IPlaceholderTag)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitPlaceholderTag*
+  implements:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitPlaceholderTag(Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitText(Sdl.FileTypeSupport.Framework.BilingualApi.IText)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitText(Sdl.FileTypeSupport.Framework.BilingualApi.IText)
+  id: VisitText(Sdl.FileTypeSupport.Framework.BilingualApi.IText)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  langs:
+  - csharp
+  - vb
+  name: VisitText(IText)
+  nameWithType: InvalidEncodingRemovalVisitor.VisitText(IText)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitText(Sdl.FileTypeSupport.Framework.BilingualApi.IText)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  summary: Processes Text
+  example: []
+  syntax:
+    content: public void VisitText(IText text)
+    parameters:
+    - id: text
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IText
+      description: ''
+    content.vb: Public Sub VisitText(text As IText)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitText*
+  implements:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitText(Sdl.FileTypeSupport.Framework.BilingualApi.IText)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitSegment(Sdl.FileTypeSupport.Framework.BilingualApi.ISegment)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitSegment(Sdl.FileTypeSupport.Framework.BilingualApi.ISegment)
+  id: VisitSegment(Sdl.FileTypeSupport.Framework.BilingualApi.ISegment)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  langs:
+  - csharp
+  - vb
+  name: VisitSegment(ISegment)
+  nameWithType: InvalidEncodingRemovalVisitor.VisitSegment(ISegment)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitSegment(Sdl.FileTypeSupport.Framework.BilingualApi.ISegment)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  summary: Processes segments
+  example: []
+  syntax:
+    content: public void VisitSegment(ISegment segment)
+    parameters:
+    - id: segment
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.ISegment
+      description: ''
+    content.vb: Public Sub VisitSegment(segment As ISegment)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitSegment*
+  implements:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitSegment(Sdl.FileTypeSupport.Framework.BilingualApi.ISegment)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLocationMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLocationMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker)
+  id: VisitLocationMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  langs:
+  - csharp
+  - vb
+  name: VisitLocationMarker(ILocationMarker)
+  nameWithType: InvalidEncodingRemovalVisitor.VisitLocationMarker(ILocationMarker)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLocationMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  summary: Processes LocationMarker
+  example: []
+  syntax:
+    content: public void VisitLocationMarker(ILocationMarker location)
+    parameters:
+    - id: location
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker
+      description: ''
+    content.vb: Public Sub VisitLocationMarker(location As ILocationMarker)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLocationMarker*
+  implements:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitLocationMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitCommentMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitCommentMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker)
+  id: VisitCommentMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  langs:
+  - csharp
+  - vb
+  name: VisitCommentMarker(ICommentMarker)
+  nameWithType: InvalidEncodingRemovalVisitor.VisitCommentMarker(ICommentMarker)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitCommentMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  summary: Processes CommentMarker
+  example: []
+  syntax:
+    content: public void VisitCommentMarker(ICommentMarker commentMarker)
+    parameters:
+    - id: commentMarker
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker
+      description: ''
+    content.vb: Public Sub VisitCommentMarker(commentMarker As ICommentMarker)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitCommentMarker*
+  implements:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitCommentMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitOtherMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitOtherMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker)
+  id: VisitOtherMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  langs:
+  - csharp
+  - vb
+  name: VisitOtherMarker(IOtherMarker)
+  nameWithType: InvalidEncodingRemovalVisitor.VisitOtherMarker(IOtherMarker)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitOtherMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  summary: Processes OtherMarker
+  example: []
+  syntax:
+    content: public void VisitOtherMarker(IOtherMarker marker)
+    parameters:
+    - id: marker
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker
+      description: ''
+    content.vb: Public Sub VisitOtherMarker(marker As IOtherMarker)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitOtherMarker*
+  implements:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitOtherMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLockedContent(Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLockedContent(Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent)
+  id: VisitLockedContent(Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  langs:
+  - csharp
+  - vb
+  name: VisitLockedContent(ILockedContent)
+  nameWithType: InvalidEncodingRemovalVisitor.VisitLockedContent(ILockedContent)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLockedContent(Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  summary: Processes LockedContent
+  example: []
+  syntax:
+    content: public void VisitLockedContent(ILockedContent lockedContent)
+    parameters:
+    - id: lockedContent
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent
+      description: ''
+    content.vb: Public Sub VisitLockedContent(lockedContent As ILockedContent)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLockedContent*
+  implements:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitLockedContent(Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitRevisionMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitRevisionMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker)
+  id: VisitRevisionMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  langs:
+  - csharp
+  - vb
+  name: VisitRevisionMarker(IRevisionMarker)
+  nameWithType: InvalidEncodingRemovalVisitor.VisitRevisionMarker(IRevisionMarker)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitRevisionMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  summary: Processes RevisionMarker
+  example: []
+  syntax:
+    content: public void VisitRevisionMarker(IRevisionMarker revisionMarker)
+    parameters:
+    - id: revisionMarker
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker
+      description: ''
+    content.vb: Public Sub VisitRevisionMarker(revisionMarker As IRevisionMarker)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitRevisionMarker*
+  implements:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitRevisionMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.#ctor
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.#ctor
+  id: '#ctor'
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor
+  langs:
+  - csharp
+  - vb
+  name: InvalidEncodingRemovalVisitor()
+  nameWithType: InvalidEncodingRemovalVisitor.InvalidEncodingRemovalVisitor()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.InvalidEncodingRemovalVisitor()
+  type: Constructor
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  syntax:
+    content: public InvalidEncodingRemovalVisitor()
+    content.vb: Public Sub New()
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.#ctor*
+  nameWithType.vb: InvalidEncodingRemovalVisitor.New()
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.New()
+  name.vb: New()
+references:
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  commentId: N:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  nameWithType: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core
+    name: Core
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities
+    name: Utilities
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core
+    name: Core
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities
+    name: Utilities
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.html
+  name: IMarkupDataVisitor
+  nameWithType: IMarkupDataVisitor
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi
+  commentId: N:Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.BilingualApi
+  nameWithType: Sdl.FileTypeSupport.Framework.BilingualApi
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.ProcessParagraphUnit*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.ProcessParagraphUnit
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.html#Sdl_FileTypeSupport_Framework_Core_Utilities_BilingualApi_InvalidEncodingRemovalVisitor_ProcessParagraphUnit_Sdl_FileTypeSupport_Framework_BilingualApi_IParagraphUnit_
+  name: ProcessParagraphUnit
+  nameWithType: InvalidEncodingRemovalVisitor.ProcessParagraphUnit
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.ProcessParagraphUnit
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit.html
+  name: IParagraphUnit
+  nameWithType: IParagraphUnit
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IParagraphUnit
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitTagPair*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitTagPair
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.html#Sdl_FileTypeSupport_Framework_Core_Utilities_BilingualApi_InvalidEncodingRemovalVisitor_VisitTagPair_Sdl_FileTypeSupport_Framework_BilingualApi_ITagPair_
+  name: VisitTagPair
+  nameWithType: InvalidEncodingRemovalVisitor.VisitTagPair
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitTagPair
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitTagPair(Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitTagPair(Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+  isExternal: true
+  name: VisitTagPair(ITagPair)
+  nameWithType: IMarkupDataVisitor.VisitTagPair(ITagPair)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitTagPair(Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitTagPair(Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair)
+    name: VisitTagPair
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair
+    name: ITagPair
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitTagPair(Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair)
+    name: VisitTagPair
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair
+    name: ITagPair
+    isExternal: true
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair.html
+  name: ITagPair
+  nameWithType: ITagPair
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.ITagPair
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitPlaceholderTag*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitPlaceholderTag
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.html#Sdl_FileTypeSupport_Framework_Core_Utilities_BilingualApi_InvalidEncodingRemovalVisitor_VisitPlaceholderTag_Sdl_FileTypeSupport_Framework_BilingualApi_IPlaceholderTag_
+  name: VisitPlaceholderTag
+  nameWithType: InvalidEncodingRemovalVisitor.VisitPlaceholderTag
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitPlaceholderTag
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitPlaceholderTag(Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitPlaceholderTag(Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+  isExternal: true
+  name: VisitPlaceholderTag(IPlaceholderTag)
+  nameWithType: IMarkupDataVisitor.VisitPlaceholderTag(IPlaceholderTag)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitPlaceholderTag(Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitPlaceholderTag(Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag)
+    name: VisitPlaceholderTag
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag
+    name: IPlaceholderTag
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitPlaceholderTag(Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag)
+    name: VisitPlaceholderTag
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag
+    name: IPlaceholderTag
+    isExternal: true
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag.html
+  name: IPlaceholderTag
+  nameWithType: IPlaceholderTag
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IPlaceholderTag
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitText*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitText
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.html#Sdl_FileTypeSupport_Framework_Core_Utilities_BilingualApi_InvalidEncodingRemovalVisitor_VisitText_Sdl_FileTypeSupport_Framework_BilingualApi_IText_
+  name: VisitText
+  nameWithType: InvalidEncodingRemovalVisitor.VisitText
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitText
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitText(Sdl.FileTypeSupport.Framework.BilingualApi.IText)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitText(Sdl.FileTypeSupport.Framework.BilingualApi.IText)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+  isExternal: true
+  name: VisitText(IText)
+  nameWithType: IMarkupDataVisitor.VisitText(IText)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitText(Sdl.FileTypeSupport.Framework.BilingualApi.IText)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitText(Sdl.FileTypeSupport.Framework.BilingualApi.IText)
+    name: VisitText
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IText
+    name: IText
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitText(Sdl.FileTypeSupport.Framework.BilingualApi.IText)
+    name: VisitText
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IText
+    name: IText
+    isExternal: true
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IText
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IText
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IText.html
+  name: IText
+  nameWithType: IText
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IText
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitSegment*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitSegment
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.html#Sdl_FileTypeSupport_Framework_Core_Utilities_BilingualApi_InvalidEncodingRemovalVisitor_VisitSegment_Sdl_FileTypeSupport_Framework_BilingualApi_ISegment_
+  name: VisitSegment
+  nameWithType: InvalidEncodingRemovalVisitor.VisitSegment
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitSegment
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitSegment(Sdl.FileTypeSupport.Framework.BilingualApi.ISegment)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitSegment(Sdl.FileTypeSupport.Framework.BilingualApi.ISegment)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+  isExternal: true
+  name: VisitSegment(ISegment)
+  nameWithType: IMarkupDataVisitor.VisitSegment(ISegment)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitSegment(Sdl.FileTypeSupport.Framework.BilingualApi.ISegment)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitSegment(Sdl.FileTypeSupport.Framework.BilingualApi.ISegment)
+    name: VisitSegment
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.ISegment
+    name: ISegment
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitSegment(Sdl.FileTypeSupport.Framework.BilingualApi.ISegment)
+    name: VisitSegment
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.ISegment
+    name: ISegment
+    isExternal: true
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.ISegment
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.ISegment
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.ISegment.html
+  name: ISegment
+  nameWithType: ISegment
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.ISegment
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLocationMarker*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLocationMarker
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.html#Sdl_FileTypeSupport_Framework_Core_Utilities_BilingualApi_InvalidEncodingRemovalVisitor_VisitLocationMarker_Sdl_FileTypeSupport_Framework_BilingualApi_ILocationMarker_
+  name: VisitLocationMarker
+  nameWithType: InvalidEncodingRemovalVisitor.VisitLocationMarker
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLocationMarker
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitLocationMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitLocationMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+  isExternal: true
+  name: VisitLocationMarker(ILocationMarker)
+  nameWithType: IMarkupDataVisitor.VisitLocationMarker(ILocationMarker)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitLocationMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitLocationMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker)
+    name: VisitLocationMarker
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker
+    name: ILocationMarker
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitLocationMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker)
+    name: VisitLocationMarker
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker
+    name: ILocationMarker
+    isExternal: true
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker.html
+  name: ILocationMarker
+  nameWithType: ILocationMarker
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.ILocationMarker
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitCommentMarker*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitCommentMarker
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.html#Sdl_FileTypeSupport_Framework_Core_Utilities_BilingualApi_InvalidEncodingRemovalVisitor_VisitCommentMarker_Sdl_FileTypeSupport_Framework_BilingualApi_ICommentMarker_
+  name: VisitCommentMarker
+  nameWithType: InvalidEncodingRemovalVisitor.VisitCommentMarker
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitCommentMarker
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitCommentMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitCommentMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+  isExternal: true
+  name: VisitCommentMarker(ICommentMarker)
+  nameWithType: IMarkupDataVisitor.VisitCommentMarker(ICommentMarker)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitCommentMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitCommentMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker)
+    name: VisitCommentMarker
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker
+    name: ICommentMarker
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitCommentMarker(Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker)
+    name: VisitCommentMarker
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker
+    name: ICommentMarker
+    isExternal: true
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker.html
+  name: ICommentMarker
+  nameWithType: ICommentMarker
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.ICommentMarker
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitOtherMarker*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitOtherMarker
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.html#Sdl_FileTypeSupport_Framework_Core_Utilities_BilingualApi_InvalidEncodingRemovalVisitor_VisitOtherMarker_Sdl_FileTypeSupport_Framework_BilingualApi_IOtherMarker_
+  name: VisitOtherMarker
+  nameWithType: InvalidEncodingRemovalVisitor.VisitOtherMarker
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitOtherMarker
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitOtherMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitOtherMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+  isExternal: true
+  name: VisitOtherMarker(IOtherMarker)
+  nameWithType: IMarkupDataVisitor.VisitOtherMarker(IOtherMarker)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitOtherMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitOtherMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker)
+    name: VisitOtherMarker
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker
+    name: IOtherMarker
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitOtherMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker)
+    name: VisitOtherMarker
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker
+    name: IOtherMarker
+    isExternal: true
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker.html
+  name: IOtherMarker
+  nameWithType: IOtherMarker
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IOtherMarker
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLockedContent*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLockedContent
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.html#Sdl_FileTypeSupport_Framework_Core_Utilities_BilingualApi_InvalidEncodingRemovalVisitor_VisitLockedContent_Sdl_FileTypeSupport_Framework_BilingualApi_ILockedContent_
+  name: VisitLockedContent
+  nameWithType: InvalidEncodingRemovalVisitor.VisitLockedContent
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitLockedContent
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitLockedContent(Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitLockedContent(Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+  isExternal: true
+  name: VisitLockedContent(ILockedContent)
+  nameWithType: IMarkupDataVisitor.VisitLockedContent(ILockedContent)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitLockedContent(Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitLockedContent(Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent)
+    name: VisitLockedContent
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent
+    name: ILockedContent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitLockedContent(Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent)
+    name: VisitLockedContent
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent
+    name: ILockedContent
+    isExternal: true
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent.html
+  name: ILockedContent
+  nameWithType: ILockedContent
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.ILockedContent
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitRevisionMarker*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitRevisionMarker
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.html#Sdl_FileTypeSupport_Framework_Core_Utilities_BilingualApi_InvalidEncodingRemovalVisitor_VisitRevisionMarker_Sdl_FileTypeSupport_Framework_BilingualApi_IRevisionMarker_
+  name: VisitRevisionMarker
+  nameWithType: InvalidEncodingRemovalVisitor.VisitRevisionMarker
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.VisitRevisionMarker
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitRevisionMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitRevisionMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+  isExternal: true
+  name: VisitRevisionMarker(IRevisionMarker)
+  nameWithType: IMarkupDataVisitor.VisitRevisionMarker(IRevisionMarker)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitRevisionMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitRevisionMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker)
+    name: VisitRevisionMarker
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker
+    name: IRevisionMarker
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.VisitRevisionMarker(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker)
+    name: VisitRevisionMarker
+    isExternal: true
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker
+    name: IRevisionMarker
+    isExternal: true
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker.html
+  name: IRevisionMarker
+  nameWithType: IRevisionMarker
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionMarker
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.#ctor*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.#ctor
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.html#Sdl_FileTypeSupport_Framework_Core_Utilities_BilingualApi_InvalidEncodingRemovalVisitor__ctor
+  name: InvalidEncodingRemovalVisitor
+  nameWithType: InvalidEncodingRemovalVisitor.InvalidEncodingRemovalVisitor
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.InvalidEncodingRemovalVisitor
+  nameWithType.vb: InvalidEncodingRemovalVisitor.New
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.InvalidEncodingRemovalVisitor.New
+  name.vb: New

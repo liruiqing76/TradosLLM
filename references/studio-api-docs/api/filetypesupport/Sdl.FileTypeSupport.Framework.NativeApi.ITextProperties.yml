@@ -1,0 +1,151 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties
+  id: ITextProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties.Text
+  langs:
+  - csharp
+  - vb
+  name: ITextProperties
+  nameWithType: ITextProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Information on a piece of localizable text
+  example: []
+  syntax:
+    content: 'public interface ITextProperties : ICloneable'
+    content.vb: Public Interface ITextProperties Inherits ICloneable
+  inheritedMembers:
+  - System.ICloneable.Clone
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties.Text
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties.Text
+  id: Text
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: ITextProperties.Text
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties.Text
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Translatable text as Unicode string
+  example: []
+  syntax:
+    content: string Text { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Text As String
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties.Text*
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties.Text*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties.Text
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_ITextProperties_Text
+  name: Text
+  nameWithType: ITextProperties.Text
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties.Text
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

@@ -1,0 +1,155 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode
+  id: TranslationMemoryFileAccessMode
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  children:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.Administrator
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.Maintenance
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.ReadOnly
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.ReadWrite
+  langs:
+  - csharp
+  - vb
+  name: TranslationMemoryFileAccessMode
+  nameWithType: TranslationMemoryFileAccessMode
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    The possible "access modes" for a password protected file-based TM.
+
+    A password can be set for each access mode.
+  example: []
+  syntax:
+    content: public enum TranslationMemoryFileAccessMode
+    content.vb: Public Enum TranslationMemoryFileAccessMode
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.Administrator
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.Administrator
+  id: Administrator
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode
+  langs:
+  - csharp
+  - vb
+  name: Administrator
+  nameWithType: TranslationMemoryFileAccessMode.Administrator
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.Administrator
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Administrator-level access
+  example: []
+  syntax:
+    content: Administrator = 0
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.Maintenance
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.Maintenance
+  id: Maintenance
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode
+  langs:
+  - csharp
+  - vb
+  name: Maintenance
+  nameWithType: TranslationMemoryFileAccessMode.Maintenance
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.Maintenance
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Maintenance-level access
+  example: []
+  syntax:
+    content: Maintenance = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.ReadWrite
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.ReadWrite
+  id: ReadWrite
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode
+  langs:
+  - csharp
+  - vb
+  name: ReadWrite
+  nameWithType: TranslationMemoryFileAccessMode.ReadWrite
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.ReadWrite
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Read-write access
+  example: []
+  syntax:
+    content: ReadWrite = 2
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.ReadOnly
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.ReadOnly
+  id: ReadOnly
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode
+  langs:
+  - csharp
+  - vb
+  name: ReadOnly
+  nameWithType: TranslationMemoryFileAccessMode.ReadOnly
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.ReadOnly
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Read-only access
+  example: []
+  syntax:
+    content: ReadOnly = 3
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi
+  commentId: N:Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemoryApi
+  nameWithType: Sdl.LanguagePlatform.TranslationMemoryApi
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode.html
+  name: TranslationMemoryFileAccessMode
+  nameWithType: TranslationMemoryFileAccessMode
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMemoryFileAccessMode

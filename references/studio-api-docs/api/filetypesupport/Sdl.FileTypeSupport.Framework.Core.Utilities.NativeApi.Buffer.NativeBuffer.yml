@@ -1,0 +1,2547 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  commentId: T:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  id: NativeBuffer
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  children:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.#ctor
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.BufferedCalls
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ChangeContext(Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentEnd
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentStart(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CustomInfo(Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.EndOfInput
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ExtractionOutput
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineEndTag(Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlinePlaceholderTag(Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineStartTag(Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsEndOfInput
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsHolding
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LastBufferedCall
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LocationMark(Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentEnd
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentStart(Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphComments(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitEnd
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitStart(Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionEnd
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionStart(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentEnd
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentStart(Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StartOfInput
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StructureTag(Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties)
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Text(Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties)
+  langs:
+  - csharp
+  - vb
+  name: NativeBuffer
+  nameWithType: NativeBuffer
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  type: Class
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: >-
+    A buffer for calls to INativeExtractionContentHandler and INativeGenerationContentHandler
+
+
+    Set the <xref href="Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output" data-throw-if-not-resolved="false"></xref> property on the buffer to the correct derived type.
+
+    Strongly typed properties <xref href="Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ExtractionOutput" data-throw-if-not-resolved="false"></xref> and <xref href="Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput" data-throw-if-not-resolved="false"></xref>
+
+    Both map to the same <xref href="Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output" data-throw-if-not-resolved="false"></xref> instance, and can be used equivocally.
+
+
+    Start buffering calls by calling <xref href="Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold" data-throw-if-not-resolved="false"></xref>, and stops buffering
+
+    by calling <xref href="Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release" data-throw-if-not-resolved="false"></xref>. When Release is called, any calls that are
+
+    in the buffer will be invoked on the <xref href="Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentProcessor.Output" data-throw-if-not-resolved="false"></xref>,
+
+    or <xref href="Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentProcessor.Output" data-throw-if-not-resolved="false"></xref>. 
+
+
+    If Release is called after EndOfInput is received and there is content left in the 
+
+    buffer, an exception is thrown, since the output should not be generated after EndOfInput.
+
+    It is the buffer user's responsibility to ensure that the buffer is emptied before
+
+    end of input is called for the parser components following it.
+  example: []
+  syntax:
+    content: 'public class NativeBuffer : INativeExtractionContentProcessor, INativeExtractionContentHandler, INativeGenerationContentProcessor, INativeGenerationContentHandler, IAbstractNativeContentHandler, INativeContentCycleAware'
+    content.vb: Public Class NativeBuffer Implements INativeExtractionContentProcessor, INativeExtractionContentHandler, INativeGenerationContentProcessor, INativeGenerationContentHandler, IAbstractNativeContentHandler, INativeContentCycleAware
+  inheritance:
+  - System.Object
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentProcessor
+  - Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentHandler
+  - Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentProcessor
+  - Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  - Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.#ctor
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.#ctor
+  id: '#ctor'
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: NativeBuffer()
+  nameWithType: NativeBuffer.NativeBuffer()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.NativeBuffer()
+  type: Constructor
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Default constructor, creates an empty buffer where <xref href="Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsHolding" data-throw-if-not-resolved="false"></xref> is false.
+  example: []
+  syntax:
+    content: public NativeBuffer()
+    content.vb: Public Sub New()
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.#ctor*
+  nameWithType.vb: NativeBuffer.New()
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.New()
+  name.vb: New()
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold
+  id: Hold
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: Hold()
+  nameWithType: NativeBuffer.Hold()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Call this to start buffering calls.
+  example: []
+  syntax:
+    content: public virtual void Hold()
+    content.vb: Public Overridable Sub Hold()
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold*
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release
+  id: Release
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: Release()
+  nameWithType: NativeBuffer.Release()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Releases the buffer content to the Output and turns off buffering.
+  example: []
+  syntax:
+    content: public virtual void Release()
+    content.vb: Public Overridable Sub Release()
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release*
+  exceptions:
+  - type: Sdl.FileTypeSupport.Framework.FileTypeSupportException
+    commentId: T:Sdl.FileTypeSupport.Framework.FileTypeSupportException
+    description: thrown, if there is content in the buffer, but EndOfInput has been called.
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StartOfInput
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StartOfInput
+  id: StartOfInput
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: StartOfInput()
+  nameWithType: NativeBuffer.StartOfInput()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StartOfInput()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Default implementation, does nothing
+  example: []
+  syntax:
+    content: public virtual void StartOfInput()
+    content.vb: Public Overridable Sub StartOfInput()
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StartOfInput*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.StartOfInput
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.EndOfInput
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.EndOfInput
+  id: EndOfInput
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: EndOfInput()
+  nameWithType: NativeBuffer.EndOfInput()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.EndOfInput()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Sets the end of input flag.
+  example: []
+  syntax:
+    content: public virtual void EndOfInput()
+    content.vb: Public Overridable Sub EndOfInput()
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.EndOfInput*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.EndOfInput
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  id: SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: SetFileProperties(IFileProperties)
+  nameWithType: NativeBuffer.SetFileProperties(IFileProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Default implementation, does nothing
+  example: []
+  syntax:
+    content: public virtual void SetFileProperties(IFileProperties properties)
+    parameters:
+    - id: properties
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties
+      description: ''
+    content.vb: Public Overridable Sub SetFileProperties(properties As IFileProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SetFileProperties*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StructureTag(Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StructureTag(Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties)
+  id: StructureTag(Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: StructureTag(IStructureTagProperties)
+  nameWithType: NativeBuffer.StructureTag(IStructureTagProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StructureTag(Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds content to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void StructureTag(IStructureTagProperties tagInfo)
+    parameters:
+    - id: tagInfo
+      type: Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties
+      description: ''
+    content.vb: Public Overridable Sub StructureTag(tagInfo As IStructureTagProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StructureTag*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.StructureTag(Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineStartTag(Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineStartTag(Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties)
+  id: InlineStartTag(Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: InlineStartTag(IStartTagProperties)
+  nameWithType: NativeBuffer.InlineStartTag(IStartTagProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineStartTag(Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds content to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void InlineStartTag(IStartTagProperties tagInfo)
+    parameters:
+    - id: tagInfo
+      type: Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties
+      description: ''
+    content.vb: Public Overridable Sub InlineStartTag(tagInfo As IStartTagProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineStartTag*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlineStartTag(Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineEndTag(Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineEndTag(Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties)
+  id: InlineEndTag(Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: InlineEndTag(IEndTagProperties)
+  nameWithType: NativeBuffer.InlineEndTag(IEndTagProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineEndTag(Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds content to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void InlineEndTag(IEndTagProperties tagInfo)
+    parameters:
+    - id: tagInfo
+      type: Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties
+      description: ''
+    content.vb: Public Overridable Sub InlineEndTag(tagInfo As IEndTagProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineEndTag*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlineEndTag(Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlinePlaceholderTag(Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlinePlaceholderTag(Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties)
+  id: InlinePlaceholderTag(Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: InlinePlaceholderTag(IPlaceholderTagProperties)
+  nameWithType: NativeBuffer.InlinePlaceholderTag(IPlaceholderTagProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlinePlaceholderTag(Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds content to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void InlinePlaceholderTag(IPlaceholderTagProperties tagInfo)
+    parameters:
+    - id: tagInfo
+      type: Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties
+      description: ''
+    content.vb: Public Overridable Sub InlinePlaceholderTag(tagInfo As IPlaceholderTagProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlinePlaceholderTag*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlinePlaceholderTag(Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Text(Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Text(Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties)
+  id: Text(Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: Text(ITextProperties)
+  nameWithType: NativeBuffer.Text(ITextProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Text(Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds content to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void Text(ITextProperties textInfo)
+    parameters:
+    - id: textInfo
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties
+      description: ''
+    content.vb: Public Overridable Sub Text(textInfo As ITextProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Text*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.Text(Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CustomInfo(Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CustomInfo(Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties)
+  id: CustomInfo(Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: CustomInfo(ICustomInfoProperties)
+  nameWithType: NativeBuffer.CustomInfo(ICustomInfoProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CustomInfo(Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds content to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void CustomInfo(ICustomInfoProperties info)
+    parameters:
+    - id: info
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties
+      description: ''
+    content.vb: Public Overridable Sub CustomInfo(info As ICustomInfoProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CustomInfo*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CustomInfo(Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LocationMark(Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LocationMark(Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId)
+  id: LocationMark(Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: LocationMark(LocationMarkerId)
+  nameWithType: NativeBuffer.LocationMark(LocationMarkerId)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LocationMark(Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Add to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void LocationMark(LocationMarkerId markerId)
+    parameters:
+    - id: markerId
+      type: Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId
+      description: ''
+    content.vb: Public Overridable Sub LocationMark(markerId As LocationMarkerId)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LocationMark*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LocationMark(Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ChangeContext(Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ChangeContext(Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties)
+  id: ChangeContext(Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: ChangeContext(IContextProperties)
+  nameWithType: NativeBuffer.ChangeContext(IContextProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ChangeContext(Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds content to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void ChangeContext(IContextProperties contexts)
+    parameters:
+    - id: contexts
+      type: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties
+      description: ''
+    content.vb: Public Overridable Sub ChangeContext(contexts As IContextProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ChangeContext*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.ChangeContext(Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentStart(Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentStart(Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties)
+  id: LockedContentStart(Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: LockedContentStart(ILockedContentProperties)
+  nameWithType: NativeBuffer.LockedContentStart(ILockedContentProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentStart(Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds content to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void LockedContentStart(ILockedContentProperties lockedContentInfo)
+    parameters:
+    - id: lockedContentInfo
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties
+      description: ''
+    content.vb: Public Overridable Sub LockedContentStart(lockedContentInfo As ILockedContentProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentStart*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LockedContentStart(Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentEnd
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentEnd
+  id: LockedContentEnd
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: LockedContentEnd()
+  nameWithType: NativeBuffer.LockedContentEnd()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentEnd()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void LockedContentEnd()
+    content.vb: Public Overridable Sub LockedContentEnd()
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentEnd*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LockedContentEnd
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionStart(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionStart(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties)
+  id: RevisionStart(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: RevisionStart(IRevisionProperties)
+  nameWithType: NativeBuffer.RevisionStart(IRevisionProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionStart(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void RevisionStart(IRevisionProperties revisionInfo)
+    parameters:
+    - id: revisionInfo
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties
+      description: The revision properties.
+    content.vb: Public Overridable Sub RevisionStart(revisionInfo As IRevisionProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionStart*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.RevisionStart(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionEnd
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionEnd
+  id: RevisionEnd
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: RevisionEnd()
+  nameWithType: NativeBuffer.RevisionEnd()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionEnd()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void RevisionEnd()
+    content.vb: Public Overridable Sub RevisionEnd()
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionEnd*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.RevisionEnd
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentStart(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentStart(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  id: CommentStart(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: CommentStart(ICommentProperties)
+  nameWithType: NativeBuffer.CommentStart(ICommentProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentStart(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void CommentStart(ICommentProperties commentInfo)
+    parameters:
+    - id: commentInfo
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties
+      description: The comment properties.
+    content.vb: Public Overridable Sub CommentStart(commentInfo As ICommentProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentStart*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CommentStart(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentEnd
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentEnd
+  id: CommentEnd
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: CommentEnd()
+  nameWithType: NativeBuffer.CommentEnd()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentEnd()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void CommentEnd()
+    content.vb: Public Overridable Sub CommentEnd()
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentEnd*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CommentEnd
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphComments(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphComments(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  id: ParagraphComments(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: ParagraphComments(ICommentProperties)
+  nameWithType: NativeBuffer.ParagraphComments(ICommentProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphComments(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void ParagraphComments(ICommentProperties commentInfo)
+    parameters:
+    - id: commentInfo
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties
+      description: The commnet properties.
+    content.vb: Public Overridable Sub ParagraphComments(commentInfo As ICommentProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphComments*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.ParagraphComments(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitStart(Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitStart(Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties)
+  id: ParagraphUnitStart(Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: ParagraphUnitStart(IParagraphUnitProperties)
+  nameWithType: NativeBuffer.ParagraphUnitStart(IParagraphUnitProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitStart(Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void ParagraphUnitStart(IParagraphUnitProperties properties)
+    parameters:
+    - id: properties
+      type: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+      description: ''
+    content.vb: Public Overridable Sub ParagraphUnitStart(properties As IParagraphUnitProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitStart*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.ParagraphUnitStart(Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitEnd
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitEnd
+  id: ParagraphUnitEnd
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: ParagraphUnitEnd()
+  nameWithType: NativeBuffer.ParagraphUnitEnd()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitEnd()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void ParagraphUnitEnd()
+    content.vb: Public Overridable Sub ParagraphUnitEnd()
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitEnd*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.ParagraphUnitEnd
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentStart(Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentStart(Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties)
+  id: SegmentStart(Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties)
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: SegmentStart(ISegmentPairProperties)
+  nameWithType: NativeBuffer.SegmentStart(ISegmentPairProperties)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentStart(Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void SegmentStart(ISegmentPairProperties properties)
+    parameters:
+    - id: properties
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties
+      description: ''
+    content.vb: Public Overridable Sub SegmentStart(properties As ISegmentPairProperties)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentStart*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.SegmentStart(Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties)
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentEnd
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentEnd
+  id: SegmentEnd
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: SegmentEnd()
+  nameWithType: NativeBuffer.SegmentEnd()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentEnd()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Adds to buffer if holding, otherwise output directly.
+  example: []
+  syntax:
+    content: public virtual void SegmentEnd()
+    content.vb: Public Overridable Sub SegmentEnd()
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentEnd*
+  implements:
+  - Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.SegmentEnd
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output
+  commentId: P:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output
+  id: Output
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: Output
+  nameWithType: NativeBuffer.Output
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: >-
+    Agnostic access to the output handler. Accesses the
+
+    very same object instance as the <xref href="Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ExtractionOutput" data-throw-if-not-resolved="false"></xref>
+
+    and the <xref href="Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput" data-throw-if-not-resolved="false"></xref> properties.
+  example: []
+  syntax:
+    content: public virtual IAbstractNativeContentHandler Output { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+    content.vb: Public Overridable Property Output As IAbstractNativeContentHandler
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output*
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ExtractionOutput
+  commentId: P:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ExtractionOutput
+  id: ExtractionOutput
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: ExtractionOutput
+  nameWithType: NativeBuffer.ExtractionOutput
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ExtractionOutput
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: >-
+    Strongly typed output content handler that can be used
+
+    when the buffer is used for extraction.
+  remarks: >-
+    Accesses the very same object instance as the <xref href="Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output" data-throw-if-not-resolved="false"></xref>
+
+    and the <xref href="Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput" data-throw-if-not-resolved="false"></xref> properties.
+  example: []
+  syntax:
+    content: public virtual INativeExtractionContentHandler ExtractionOutput { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentHandler
+    content.vb: Public Overridable Property ExtractionOutput As INativeExtractionContentHandler
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ExtractionOutput*
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput
+  commentId: P:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput
+  id: GenerationOutput
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: GenerationOutput
+  nameWithType: NativeBuffer.GenerationOutput
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: >-
+    Strongly typed output content handler that can be used
+
+    when the buffer is used for generation.
+  remarks: >-
+    Accesses the very same object instance as the <xref href="Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output" data-throw-if-not-resolved="false"></xref>
+
+    and the <xref href="Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput" data-throw-if-not-resolved="false"></xref> properties.
+  example: []
+  syntax:
+    content: public virtual INativeGenerationContentHandler GenerationOutput { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler
+    content.vb: Public Overridable Property GenerationOutput As INativeGenerationContentHandler
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput*
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsEndOfInput
+  commentId: P:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsEndOfInput
+  id: IsEndOfInput
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: IsEndOfInput
+  nameWithType: NativeBuffer.IsEndOfInput
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsEndOfInput
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: >-
+    True, if EndOfInput has been reached. After that, Release() is no longer
+
+    permitted if the buffer contains any content.
+
+
+    This property can be set to override this behaviour, but that is an 
+
+    advanced option that should only be exercised if no other option is available.
+  example: []
+  syntax:
+    content: public virtual bool IsEndOfInput { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable Property IsEndOfInput As Boolean
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsEndOfInput*
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.BufferedCalls
+  commentId: P:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.BufferedCalls
+  id: BufferedCalls
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: BufferedCalls
+  nameWithType: NativeBuffer.BufferedCalls
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.BufferedCalls
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Provides access to the calls currently in the buffer.
+  example: []
+  syntax:
+    content: public List<AbstractContentItem> BufferedCalls { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem}
+    content.vb: Public ReadOnly Property BufferedCalls As List(Of AbstractContentItem)
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.BufferedCalls*
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LastBufferedCall
+  commentId: P:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LastBufferedCall
+  id: LastBufferedCall
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: LastBufferedCall
+  nameWithType: NativeBuffer.LastBufferedCall
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LastBufferedCall
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: >-
+    Provides easy access to the most recent of the calls in the buffer.
+
+
+    If no calls are in the buffer, this property returns null.
+  example: []
+  syntax:
+    content: public AbstractContentItem LastBufferedCall { get; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem
+    content.vb: Public ReadOnly Property LastBufferedCall As AbstractContentItem
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LastBufferedCall*
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsHolding
+  commentId: P:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsHolding
+  id: IsHolding
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer
+  langs:
+  - csharp
+  - vb
+  name: IsHolding
+  nameWithType: NativeBuffer.IsHolding
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsHolding
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities
+  namespace: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  summary: Indicates whether the buffer is actively buffering calls.
+  example: []
+  syntax:
+    content: public bool IsHolding { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsHolding As Boolean
+  overload: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsHolding*
+references:
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output
+  commentId: P:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_Output
+  name: Output
+  nameWithType: NativeBuffer.Output
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ExtractionOutput
+  commentId: P:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ExtractionOutput
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_ExtractionOutput
+  name: ExtractionOutput
+  nameWithType: NativeBuffer.ExtractionOutput
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ExtractionOutput
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput
+  commentId: P:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_GenerationOutput
+  name: GenerationOutput
+  nameWithType: NativeBuffer.GenerationOutput
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_Hold
+  name: Hold()
+  nameWithType: NativeBuffer.Hold()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold
+    name: Hold
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_Hold
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold
+    name: Hold
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_Hold
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_Release
+  name: Release()
+  nameWithType: NativeBuffer.Release()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release
+    name: Release
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_Release
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release
+    name: Release
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_Release
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentProcessor.Output
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentProcessor.Output
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentProcessor
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentProcessor.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeExtractionContentProcessor_Output
+  name: Output
+  nameWithType: INativeExtractionContentProcessor.Output
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentProcessor.Output
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentProcessor.Output
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentProcessor.Output
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentProcessor
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentProcessor.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeGenerationContentProcessor_Output
+  name: Output
+  nameWithType: INativeGenerationContentProcessor.Output
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentProcessor.Output
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  commentId: N:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  nameWithType: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core
+    name: Core
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities
+    name: Utilities
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+    name: Buffer
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core
+    name: Core
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities
+    name: Utilities
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+    name: Buffer
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentProcessor
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentProcessor
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentProcessor.html
+  name: INativeExtractionContentProcessor
+  nameWithType: INativeExtractionContentProcessor
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentProcessor
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentHandler
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentHandler
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentHandler.html
+  name: INativeExtractionContentHandler
+  nameWithType: INativeExtractionContentHandler
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeExtractionContentHandler
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentProcessor
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentProcessor
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentProcessor.html
+  name: INativeGenerationContentProcessor
+  nameWithType: INativeGenerationContentProcessor
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentProcessor
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.html
+  name: INativeGenerationContentHandler
+  nameWithType: INativeGenerationContentHandler
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html
+  name: IAbstractNativeContentHandler
+  nameWithType: IAbstractNativeContentHandler
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html
+  name: INativeContentCycleAware
+  nameWithType: INativeContentCycleAware
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsHolding
+  commentId: P:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsHolding
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_IsHolding
+  name: IsHolding
+  nameWithType: NativeBuffer.IsHolding
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsHolding
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.#ctor*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.#ctor
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer__ctor
+  name: NativeBuffer
+  nameWithType: NativeBuffer.NativeBuffer
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.NativeBuffer
+  nameWithType.vb: NativeBuffer.New
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.New
+  name.vb: New
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_Hold
+  name: Hold
+  nameWithType: NativeBuffer.Hold
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Hold
+- uid: Sdl.FileTypeSupport.Framework.FileTypeSupportException
+  commentId: T:Sdl.FileTypeSupport.Framework.FileTypeSupportException
+  parent: Sdl.FileTypeSupport.Framework
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.FileTypeSupportException.html
+  name: FileTypeSupportException
+  nameWithType: FileTypeSupportException
+  fullName: Sdl.FileTypeSupport.Framework.FileTypeSupportException
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_Release
+  name: Release
+  nameWithType: NativeBuffer.Release
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Release
+- uid: Sdl.FileTypeSupport.Framework
+  commentId: N:Sdl.FileTypeSupport.Framework
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework
+  nameWithType: Sdl.FileTypeSupport.Framework
+  fullName: Sdl.FileTypeSupport.Framework
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StartOfInput*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StartOfInput
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_StartOfInput
+  name: StartOfInput
+  nameWithType: NativeBuffer.StartOfInput
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StartOfInput
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.StartOfInput
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.StartOfInput
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware
+  isExternal: true
+  name: StartOfInput()
+  nameWithType: INativeContentCycleAware.StartOfInput()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.StartOfInput()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.StartOfInput
+    name: StartOfInput
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.StartOfInput
+    name: StartOfInput
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.EndOfInput*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.EndOfInput
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_EndOfInput
+  name: EndOfInput
+  nameWithType: NativeBuffer.EndOfInput
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.EndOfInput
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.EndOfInput
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.EndOfInput
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeContentCycleAware_EndOfInput
+  name: EndOfInput()
+  nameWithType: INativeContentCycleAware.EndOfInput()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.EndOfInput()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.EndOfInput
+    name: EndOfInput
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeContentCycleAware_EndOfInput
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.EndOfInput
+    name: EndOfInput
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeContentCycleAware_EndOfInput
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SetFileProperties*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SetFileProperties
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_SetFileProperties_Sdl_FileTypeSupport_Framework_BilingualApi_IFileProperties_
+  name: SetFileProperties
+  nameWithType: NativeBuffer.SetFileProperties
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SetFileProperties
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeContentCycleAware_SetFileProperties_Sdl_FileTypeSupport_Framework_BilingualApi_IFileProperties_
+  name: SetFileProperties(IFileProperties)
+  nameWithType: INativeContentCycleAware.SetFileProperties(IFileProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+    name: SetFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeContentCycleAware_SetFileProperties_Sdl_FileTypeSupport_Framework_BilingualApi_IFileProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties
+    name: IFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+    name: SetFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeContentCycleAware_SetFileProperties_Sdl_FileTypeSupport_Framework_BilingualApi_IFileProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties
+    name: IFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties.html
+  name: IFileProperties
+  nameWithType: IFileProperties
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi
+  commentId: N:Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.BilingualApi
+  nameWithType: Sdl.FileTypeSupport.Framework.BilingualApi
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StructureTag*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StructureTag
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_StructureTag_Sdl_FileTypeSupport_Framework_NativeApi_IStructureTagProperties_
+  name: StructureTag
+  nameWithType: NativeBuffer.StructureTag
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.StructureTag
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.StructureTag(Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.StructureTag(Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_StructureTag_Sdl_FileTypeSupport_Framework_NativeApi_IStructureTagProperties_
+  name: StructureTag(IStructureTagProperties)
+  nameWithType: IAbstractNativeContentHandler.StructureTag(IStructureTagProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.StructureTag(Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.StructureTag(Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties)
+    name: StructureTag
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_StructureTag_Sdl_FileTypeSupport_Framework_NativeApi_IStructureTagProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties
+    name: IStructureTagProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.StructureTag(Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties)
+    name: StructureTag
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_StructureTag_Sdl_FileTypeSupport_Framework_NativeApi_IStructureTagProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties
+    name: IStructureTagProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties.html
+  name: IStructureTagProperties
+  nameWithType: IStructureTagProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IStructureTagProperties
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineStartTag*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineStartTag
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_InlineStartTag_Sdl_FileTypeSupport_Framework_NativeApi_IStartTagProperties_
+  name: InlineStartTag
+  nameWithType: NativeBuffer.InlineStartTag
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineStartTag
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlineStartTag(Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlineStartTag(Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_InlineStartTag_Sdl_FileTypeSupport_Framework_NativeApi_IStartTagProperties_
+  name: InlineStartTag(IStartTagProperties)
+  nameWithType: IAbstractNativeContentHandler.InlineStartTag(IStartTagProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlineStartTag(Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlineStartTag(Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties)
+    name: InlineStartTag
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_InlineStartTag_Sdl_FileTypeSupport_Framework_NativeApi_IStartTagProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties
+    name: IStartTagProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlineStartTag(Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties)
+    name: InlineStartTag
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_InlineStartTag_Sdl_FileTypeSupport_Framework_NativeApi_IStartTagProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties
+    name: IStartTagProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties.html
+  name: IStartTagProperties
+  nameWithType: IStartTagProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IStartTagProperties
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineEndTag*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineEndTag
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_InlineEndTag_Sdl_FileTypeSupport_Framework_NativeApi_IEndTagProperties_
+  name: InlineEndTag
+  nameWithType: NativeBuffer.InlineEndTag
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlineEndTag
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlineEndTag(Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlineEndTag(Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_InlineEndTag_Sdl_FileTypeSupport_Framework_NativeApi_IEndTagProperties_
+  name: InlineEndTag(IEndTagProperties)
+  nameWithType: IAbstractNativeContentHandler.InlineEndTag(IEndTagProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlineEndTag(Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlineEndTag(Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties)
+    name: InlineEndTag
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_InlineEndTag_Sdl_FileTypeSupport_Framework_NativeApi_IEndTagProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties
+    name: IEndTagProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlineEndTag(Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties)
+    name: InlineEndTag
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_InlineEndTag_Sdl_FileTypeSupport_Framework_NativeApi_IEndTagProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties
+    name: IEndTagProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties.html
+  name: IEndTagProperties
+  nameWithType: IEndTagProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IEndTagProperties
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlinePlaceholderTag*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlinePlaceholderTag
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_InlinePlaceholderTag_Sdl_FileTypeSupport_Framework_NativeApi_IPlaceholderTagProperties_
+  name: InlinePlaceholderTag
+  nameWithType: NativeBuffer.InlinePlaceholderTag
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.InlinePlaceholderTag
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlinePlaceholderTag(Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlinePlaceholderTag(Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_InlinePlaceholderTag_Sdl_FileTypeSupport_Framework_NativeApi_IPlaceholderTagProperties_
+  name: InlinePlaceholderTag(IPlaceholderTagProperties)
+  nameWithType: IAbstractNativeContentHandler.InlinePlaceholderTag(IPlaceholderTagProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlinePlaceholderTag(Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlinePlaceholderTag(Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties)
+    name: InlinePlaceholderTag
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_InlinePlaceholderTag_Sdl_FileTypeSupport_Framework_NativeApi_IPlaceholderTagProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties
+    name: IPlaceholderTagProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.InlinePlaceholderTag(Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties)
+    name: InlinePlaceholderTag
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_InlinePlaceholderTag_Sdl_FileTypeSupport_Framework_NativeApi_IPlaceholderTagProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties
+    name: IPlaceholderTagProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties.html
+  name: IPlaceholderTagProperties
+  nameWithType: IPlaceholderTagProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPlaceholderTagProperties
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Text*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Text
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_Text_Sdl_FileTypeSupport_Framework_NativeApi_ITextProperties_
+  name: Text
+  nameWithType: NativeBuffer.Text
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Text
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.Text(Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.Text(Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_Text_Sdl_FileTypeSupport_Framework_NativeApi_ITextProperties_
+  name: Text(ITextProperties)
+  nameWithType: IAbstractNativeContentHandler.Text(ITextProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.Text(Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.Text(Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties)
+    name: Text
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_Text_Sdl_FileTypeSupport_Framework_NativeApi_ITextProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties
+    name: ITextProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.Text(Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties)
+    name: Text
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_Text_Sdl_FileTypeSupport_Framework_NativeApi_ITextProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties
+    name: ITextProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties.html
+  name: ITextProperties
+  nameWithType: ITextProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CustomInfo*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CustomInfo
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_CustomInfo_Sdl_FileTypeSupport_Framework_NativeApi_ICustomInfoProperties_
+  name: CustomInfo
+  nameWithType: NativeBuffer.CustomInfo
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CustomInfo
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CustomInfo(Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CustomInfo(Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_CustomInfo_Sdl_FileTypeSupport_Framework_NativeApi_ICustomInfoProperties_
+  name: CustomInfo(ICustomInfoProperties)
+  nameWithType: IAbstractNativeContentHandler.CustomInfo(ICustomInfoProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CustomInfo(Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CustomInfo(Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties)
+    name: CustomInfo
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_CustomInfo_Sdl_FileTypeSupport_Framework_NativeApi_ICustomInfoProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties
+    name: ICustomInfoProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CustomInfo(Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties)
+    name: CustomInfo
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_CustomInfo_Sdl_FileTypeSupport_Framework_NativeApi_ICustomInfoProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties
+    name: ICustomInfoProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties.html
+  name: ICustomInfoProperties
+  nameWithType: ICustomInfoProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ICustomInfoProperties
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LocationMark*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LocationMark
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_LocationMark_Sdl_FileTypeSupport_Framework_NativeApi_LocationMarkerId_
+  name: LocationMark
+  nameWithType: NativeBuffer.LocationMark
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LocationMark
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LocationMark(Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LocationMark(Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_LocationMark_Sdl_FileTypeSupport_Framework_NativeApi_LocationMarkerId_
+  name: LocationMark(LocationMarkerId)
+  nameWithType: IAbstractNativeContentHandler.LocationMark(LocationMarkerId)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LocationMark(Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LocationMark(Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId)
+    name: LocationMark
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_LocationMark_Sdl_FileTypeSupport_Framework_NativeApi_LocationMarkerId_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId
+    name: LocationMarkerId
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LocationMark(Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId)
+    name: LocationMark
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_LocationMark_Sdl_FileTypeSupport_Framework_NativeApi_LocationMarkerId_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId
+    name: LocationMarkerId
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId.html
+  name: LocationMarkerId
+  nameWithType: LocationMarkerId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.LocationMarkerId
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ChangeContext*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ChangeContext
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_ChangeContext_Sdl_FileTypeSupport_Framework_NativeApi_IContextProperties_
+  name: ChangeContext
+  nameWithType: NativeBuffer.ChangeContext
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ChangeContext
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.ChangeContext(Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.ChangeContext(Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_ChangeContext_Sdl_FileTypeSupport_Framework_NativeApi_IContextProperties_
+  name: ChangeContext(IContextProperties)
+  nameWithType: IAbstractNativeContentHandler.ChangeContext(IContextProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.ChangeContext(Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.ChangeContext(Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties)
+    name: ChangeContext
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_ChangeContext_Sdl_FileTypeSupport_Framework_NativeApi_IContextProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties
+    name: IContextProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.ChangeContext(Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties)
+    name: ChangeContext
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_ChangeContext_Sdl_FileTypeSupport_Framework_NativeApi_IContextProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties
+    name: IContextProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties.html
+  name: IContextProperties
+  nameWithType: IContextProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentStart*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentStart
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_LockedContentStart_Sdl_FileTypeSupport_Framework_NativeApi_ILockedContentProperties_
+  name: LockedContentStart
+  nameWithType: NativeBuffer.LockedContentStart
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentStart
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LockedContentStart(Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LockedContentStart(Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_LockedContentStart_Sdl_FileTypeSupport_Framework_NativeApi_ILockedContentProperties_
+  name: LockedContentStart(ILockedContentProperties)
+  nameWithType: IAbstractNativeContentHandler.LockedContentStart(ILockedContentProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LockedContentStart(Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LockedContentStart(Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties)
+    name: LockedContentStart
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_LockedContentStart_Sdl_FileTypeSupport_Framework_NativeApi_ILockedContentProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties
+    name: ILockedContentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LockedContentStart(Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties)
+    name: LockedContentStart
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_LockedContentStart_Sdl_FileTypeSupport_Framework_NativeApi_ILockedContentProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties
+    name: ILockedContentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties.html
+  name: ILockedContentProperties
+  nameWithType: ILockedContentProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ILockedContentProperties
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentEnd*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentEnd
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_LockedContentEnd
+  name: LockedContentEnd
+  nameWithType: NativeBuffer.LockedContentEnd
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LockedContentEnd
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LockedContentEnd
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LockedContentEnd
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_LockedContentEnd
+  name: LockedContentEnd()
+  nameWithType: IAbstractNativeContentHandler.LockedContentEnd()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LockedContentEnd()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LockedContentEnd
+    name: LockedContentEnd
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_LockedContentEnd
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.LockedContentEnd
+    name: LockedContentEnd
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_LockedContentEnd
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionStart*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionStart
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_RevisionStart_Sdl_FileTypeSupport_Framework_BilingualApi_IRevisionProperties_
+  name: RevisionStart
+  nameWithType: NativeBuffer.RevisionStart
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionStart
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.RevisionStart(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.RevisionStart(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_RevisionStart_Sdl_FileTypeSupport_Framework_BilingualApi_IRevisionProperties_
+  name: RevisionStart(IRevisionProperties)
+  nameWithType: IAbstractNativeContentHandler.RevisionStart(IRevisionProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.RevisionStart(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.RevisionStart(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties)
+    name: RevisionStart
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_RevisionStart_Sdl_FileTypeSupport_Framework_BilingualApi_IRevisionProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties
+    name: IRevisionProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.RevisionStart(Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties)
+    name: RevisionStart
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_RevisionStart_Sdl_FileTypeSupport_Framework_BilingualApi_IRevisionProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties
+    name: IRevisionProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties.html
+  name: IRevisionProperties
+  nameWithType: IRevisionProperties
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionEnd*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionEnd
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_RevisionEnd
+  name: RevisionEnd
+  nameWithType: NativeBuffer.RevisionEnd
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.RevisionEnd
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.RevisionEnd
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.RevisionEnd
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_RevisionEnd
+  name: RevisionEnd()
+  nameWithType: IAbstractNativeContentHandler.RevisionEnd()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.RevisionEnd()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.RevisionEnd
+    name: RevisionEnd
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_RevisionEnd
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.RevisionEnd
+    name: RevisionEnd
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_RevisionEnd
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentStart*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentStart
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_CommentStart_Sdl_FileTypeSupport_Framework_NativeApi_ICommentProperties_
+  name: CommentStart
+  nameWithType: NativeBuffer.CommentStart
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentStart
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CommentStart(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CommentStart(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_CommentStart_Sdl_FileTypeSupport_Framework_NativeApi_ICommentProperties_
+  name: CommentStart(ICommentProperties)
+  nameWithType: IAbstractNativeContentHandler.CommentStart(ICommentProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CommentStart(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CommentStart(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+    name: CommentStart
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_CommentStart_Sdl_FileTypeSupport_Framework_NativeApi_ICommentProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties
+    name: ICommentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CommentStart(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+    name: CommentStart
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_CommentStart_Sdl_FileTypeSupport_Framework_NativeApi_ICommentProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties
+    name: ICommentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties.html
+  name: ICommentProperties
+  nameWithType: ICommentProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentEnd*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentEnd
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_CommentEnd
+  name: CommentEnd
+  nameWithType: NativeBuffer.CommentEnd
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.CommentEnd
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CommentEnd
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CommentEnd
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_CommentEnd
+  name: CommentEnd()
+  nameWithType: IAbstractNativeContentHandler.CommentEnd()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CommentEnd()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CommentEnd
+    name: CommentEnd
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_CommentEnd
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.CommentEnd
+    name: CommentEnd
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_CommentEnd
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphComments*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphComments
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_ParagraphComments_Sdl_FileTypeSupport_Framework_NativeApi_ICommentProperties_
+  name: ParagraphComments
+  nameWithType: NativeBuffer.ParagraphComments
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphComments
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.ParagraphComments(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.ParagraphComments(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_ParagraphComments_Sdl_FileTypeSupport_Framework_NativeApi_ICommentProperties_
+  name: ParagraphComments(ICommentProperties)
+  nameWithType: IAbstractNativeContentHandler.ParagraphComments(ICommentProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.ParagraphComments(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.ParagraphComments(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+    name: ParagraphComments
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_ParagraphComments_Sdl_FileTypeSupport_Framework_NativeApi_ICommentProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties
+    name: ICommentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.ParagraphComments(Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties)
+    name: ParagraphComments
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractNativeContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractNativeContentHandler_ParagraphComments_Sdl_FileTypeSupport_Framework_NativeApi_ICommentProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties
+    name: ICommentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitStart*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitStart
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_ParagraphUnitStart_Sdl_FileTypeSupport_Framework_NativeApi_IParagraphUnitProperties_
+  name: ParagraphUnitStart
+  nameWithType: NativeBuffer.ParagraphUnitStart
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitStart
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.ParagraphUnitStart(Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.ParagraphUnitStart(Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeGenerationContentHandler_ParagraphUnitStart_Sdl_FileTypeSupport_Framework_NativeApi_IParagraphUnitProperties_
+  name: ParagraphUnitStart(IParagraphUnitProperties)
+  nameWithType: INativeGenerationContentHandler.ParagraphUnitStart(IParagraphUnitProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.ParagraphUnitStart(Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.ParagraphUnitStart(Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties)
+    name: ParagraphUnitStart
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeGenerationContentHandler_ParagraphUnitStart_Sdl_FileTypeSupport_Framework_NativeApi_IParagraphUnitProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+    name: IParagraphUnitProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.ParagraphUnitStart(Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties)
+    name: ParagraphUnitStart
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeGenerationContentHandler_ParagraphUnitStart_Sdl_FileTypeSupport_Framework_NativeApi_IParagraphUnitProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+    name: IParagraphUnitProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.html
+  name: IParagraphUnitProperties
+  nameWithType: IParagraphUnitProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitEnd*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitEnd
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_ParagraphUnitEnd
+  name: ParagraphUnitEnd
+  nameWithType: NativeBuffer.ParagraphUnitEnd
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ParagraphUnitEnd
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.ParagraphUnitEnd
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.ParagraphUnitEnd
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeGenerationContentHandler_ParagraphUnitEnd
+  name: ParagraphUnitEnd()
+  nameWithType: INativeGenerationContentHandler.ParagraphUnitEnd()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.ParagraphUnitEnd()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.ParagraphUnitEnd
+    name: ParagraphUnitEnd
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeGenerationContentHandler_ParagraphUnitEnd
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.ParagraphUnitEnd
+    name: ParagraphUnitEnd
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeGenerationContentHandler_ParagraphUnitEnd
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentStart*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentStart
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_SegmentStart_Sdl_FileTypeSupport_Framework_NativeApi_ISegmentPairProperties_
+  name: SegmentStart
+  nameWithType: NativeBuffer.SegmentStart
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentStart
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.SegmentStart(Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.SegmentStart(Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeGenerationContentHandler_SegmentStart_Sdl_FileTypeSupport_Framework_NativeApi_ISegmentPairProperties_
+  name: SegmentStart(ISegmentPairProperties)
+  nameWithType: INativeGenerationContentHandler.SegmentStart(ISegmentPairProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.SegmentStart(Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.SegmentStart(Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties)
+    name: SegmentStart
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeGenerationContentHandler_SegmentStart_Sdl_FileTypeSupport_Framework_NativeApi_ISegmentPairProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties
+    name: ISegmentPairProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.SegmentStart(Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties)
+    name: SegmentStart
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeGenerationContentHandler_SegmentStart_Sdl_FileTypeSupport_Framework_NativeApi_ISegmentPairProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties
+    name: ISegmentPairProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties.html
+  name: ISegmentPairProperties
+  nameWithType: ISegmentPairProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ISegmentPairProperties
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentEnd*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentEnd
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_SegmentEnd
+  name: SegmentEnd
+  nameWithType: NativeBuffer.SegmentEnd
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.SegmentEnd
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.SegmentEnd
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.SegmentEnd
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeGenerationContentHandler_SegmentEnd
+  name: SegmentEnd()
+  nameWithType: INativeGenerationContentHandler.SegmentEnd()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.SegmentEnd()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.SegmentEnd
+    name: SegmentEnd
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeGenerationContentHandler_SegmentEnd
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.SegmentEnd
+    name: SegmentEnd
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeGenerationContentHandler.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeGenerationContentHandler_SegmentEnd
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_Output
+  name: Output
+  nameWithType: NativeBuffer.Output
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.Output
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ExtractionOutput*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ExtractionOutput
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_ExtractionOutput
+  name: ExtractionOutput
+  nameWithType: NativeBuffer.ExtractionOutput
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.ExtractionOutput
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_GenerationOutput
+  name: GenerationOutput
+  nameWithType: NativeBuffer.GenerationOutput
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.GenerationOutput
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsEndOfInput*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsEndOfInput
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_IsEndOfInput
+  name: IsEndOfInput
+  nameWithType: NativeBuffer.IsEndOfInput
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsEndOfInput
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.BufferedCalls*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.BufferedCalls
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_BufferedCalls
+  name: BufferedCalls
+  nameWithType: NativeBuffer.BufferedCalls
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.BufferedCalls
+- uid: System.Collections.Generic.List{Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem}
+  commentId: T:System.Collections.Generic.List{Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<AbstractContentItem>
+  nameWithType: List<AbstractContentItem>
+  fullName: System.Collections.Generic.List<Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem>
+  nameWithType.vb: List(Of AbstractContentItem)
+  fullName.vb: System.Collections.Generic.List(Of Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem)
+  name.vb: List(Of AbstractContentItem)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem
+    name: AbstractContentItem
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem
+    name: AbstractContentItem
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LastBufferedCall*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LastBufferedCall
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_LastBufferedCall
+  name: LastBufferedCall
+  nameWithType: NativeBuffer.LastBufferedCall
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.LastBufferedCall
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem
+  commentId: T:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem
+  parent: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem.html
+  name: AbstractContentItem
+  nameWithType: AbstractContentItem
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.AbstractContentItem
+- uid: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsHolding*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsHolding
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.html#Sdl_FileTypeSupport_Framework_Core_Utilities_NativeApi_Buffer_NativeBuffer_IsHolding
+  name: IsHolding
+  nameWithType: NativeBuffer.IsHolding
+  fullName: Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer.NativeBuffer.IsHolding

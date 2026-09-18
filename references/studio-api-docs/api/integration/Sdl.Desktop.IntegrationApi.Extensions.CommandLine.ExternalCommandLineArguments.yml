@@ -1,0 +1,2068 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments
+  id: ExternalCommandLineArguments
+  parent: Sdl.Desktop.IntegrationApi.Extensions.CommandLine
+  children:
+  - Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.#ctor
+  - Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.Item(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ExternalCommandLineArguments
+  nameWithType: ExternalCommandLineArguments
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments
+  type: Class
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.CommandLine
+  summary: A collection of command line arguments supplied by the user.
+  example: []
+  syntax:
+    content: 'public class ExternalCommandLineArguments : Collection<ExternalCommandLineArgument>, IList<ExternalCommandLineArgument>, ICollection<ExternalCommandLineArgument>, IList, ICollection, IReadOnlyList<ExternalCommandLineArgument>, IReadOnlyCollection<ExternalCommandLineArgument>, IEnumerable<ExternalCommandLineArgument>, IEnumerable'
+    content.vb: Public Class ExternalCommandLineArguments Inherits Collection(Of ExternalCommandLineArgument) Implements IList(Of ExternalCommandLineArgument), ICollection(Of ExternalCommandLineArgument), IList, ICollection, IReadOnlyList(Of ExternalCommandLineArgument), IReadOnlyCollection(Of ExternalCommandLineArgument), IEnumerable(Of ExternalCommandLineArgument), IEnumerable
+  inheritance:
+  - System.Object
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  implements:
+  - System.Collections.Generic.IList{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  - System.Collections.Generic.ICollection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  - System.Collections.IList
+  - System.Collections.ICollection
+  - System.Collections.Generic.IReadOnlyList{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  - System.Collections.Generic.IReadOnlyCollection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  - System.Collections.Generic.IEnumerable{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Add(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Clear
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.CopyTo(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument[],System.Int32)
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Contains(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.GetEnumerator
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.IndexOf(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Insert(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Remove(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.RemoveAt(System.Int32)
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.ClearItems
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.InsertItem(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.RemoveItem(System.Int32)
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.SetItem(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Count
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Items
+  - System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Item(System.Int32)
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  extensionMethods:
+  - System.Object.Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Action{System.Windows.Window})
+- uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.#ctor
+  commentId: M:Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.#ctor
+  id: '#ctor'
+  parent: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments
+  langs:
+  - csharp
+  - vb
+  name: ExternalCommandLineArguments()
+  nameWithType: ExternalCommandLineArguments.ExternalCommandLineArguments()
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.ExternalCommandLineArguments()
+  type: Constructor
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.CommandLine
+  syntax:
+    content: public ExternalCommandLineArguments()
+    content.vb: Public Sub New()
+  overload: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.#ctor*
+  nameWithType.vb: ExternalCommandLineArguments.New()
+  fullName.vb: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.New()
+  name.vb: New()
+- uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.Item(System.String)
+  commentId: P:Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.Item(System.String)
+  id: Item(System.String)
+  parent: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments
+  langs:
+  - csharp
+  - vb
+  name: this[string]
+  nameWithType: ExternalCommandLineArguments.this[string]
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.this[string]
+  type: Property
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.CommandLine
+  summary: Gets the command line argument with the specified name or alias (case insensitive).
+  example: []
+  syntax:
+    content: public ExternalCommandLineArgument this[string name] { get; }
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of requested argument.
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+      description: The argument; or null if this argument was not supplied.
+    content.vb: Public ReadOnly Default Property this[](name As String) As ExternalCommandLineArgument
+  overload: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.Item*
+  nameWithType.vb: ExternalCommandLineArguments.this[](String)
+  fullName.vb: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.this[](String)
+  name.vb: this[](String)
+references:
+- uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine
+  commentId: N:Sdl.Desktop.IntegrationApi.Extensions.CommandLine
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Desktop.IntegrationApi.Extensions.CommandLine
+  nameWithType: Sdl.Desktop.IntegrationApi.Extensions.CommandLine
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.CommandLine
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine
+    name: CommandLine
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine
+    name: CommandLine
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  commentId: T:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.Collection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1
+  name: Collection<ExternalCommandLineArgument>
+  nameWithType: Collection<ExternalCommandLineArgument>
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  name.vb: Collection(Of ExternalCommandLineArgument)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1
+    name: Collection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1
+  - name: <
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1
+    name: Collection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+- uid: System.Collections.Generic.IList{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  commentId: T:System.Collections.Generic.IList{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<ExternalCommandLineArgument>
+  nameWithType: IList<ExternalCommandLineArgument>
+  fullName: System.Collections.Generic.IList<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>
+  nameWithType.vb: IList(Of ExternalCommandLineArgument)
+  fullName.vb: System.Collections.Generic.IList(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  name.vb: IList(Of ExternalCommandLineArgument)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+- uid: System.Collections.Generic.ICollection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  commentId: T:System.Collections.Generic.ICollection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<ExternalCommandLineArgument>
+  nameWithType: ICollection<ExternalCommandLineArgument>
+  fullName: System.Collections.Generic.ICollection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>
+  nameWithType.vb: ICollection(Of ExternalCommandLineArgument)
+  fullName.vb: System.Collections.Generic.ICollection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  name.vb: ICollection(Of ExternalCommandLineArgument)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+- uid: System.Collections.IList
+  commentId: T:System.Collections.IList
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ilist
+  name: IList
+  nameWithType: IList
+  fullName: System.Collections.IList
+- uid: System.Collections.ICollection
+  commentId: T:System.Collections.ICollection
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.icollection
+  name: ICollection
+  nameWithType: ICollection
+  fullName: System.Collections.ICollection
+- uid: System.Collections.Generic.IReadOnlyList{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  commentId: T:System.Collections.Generic.IReadOnlyList{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<ExternalCommandLineArgument>
+  nameWithType: IReadOnlyList<ExternalCommandLineArgument>
+  fullName: System.Collections.Generic.IReadOnlyList<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>
+  nameWithType.vb: IReadOnlyList(Of ExternalCommandLineArgument)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  name.vb: IReadOnlyList(Of ExternalCommandLineArgument)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyCollection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<ExternalCommandLineArgument>
+  nameWithType: IReadOnlyCollection<ExternalCommandLineArgument>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>
+  nameWithType.vb: IReadOnlyCollection(Of ExternalCommandLineArgument)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  name.vb: IReadOnlyCollection(Of ExternalCommandLineArgument)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  commentId: T:System.Collections.Generic.IEnumerable{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<ExternalCommandLineArgument>
+  nameWithType: IEnumerable<ExternalCommandLineArgument>
+  fullName: System.Collections.Generic.IEnumerable<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>
+  nameWithType.vb: IEnumerable(Of ExternalCommandLineArgument)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  name.vb: IEnumerable(Of ExternalCommandLineArgument)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Add(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  commentId: M:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Add(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.Add(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.add
+  name: Add(ExternalCommandLineArgument)
+  nameWithType: Collection<ExternalCommandLineArgument>.Add(ExternalCommandLineArgument)
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.Add(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).Add(ExternalCommandLineArgument)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).Add(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Add(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.add
+  - name: (
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Add(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.add
+  - name: (
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Clear
+  commentId: M:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Clear
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.Clear
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clear
+  name: Clear()
+  nameWithType: Collection<ExternalCommandLineArgument>.Clear()
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.Clear()
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).Clear()
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).Clear()
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clear
+  - name: (
+  - name: )
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.CopyTo(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument[],System.Int32)
+  commentId: M:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.CopyTo(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument[],System.Int32)
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.CopyTo(`0[],System.Int32)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.copyto
+  name: CopyTo(ExternalCommandLineArgument[], int)
+  nameWithType: Collection<ExternalCommandLineArgument>.CopyTo(ExternalCommandLineArgument[], int)
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.CopyTo(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument[], int)
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).CopyTo(ExternalCommandLineArgument(), Integer)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).CopyTo(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument(), Integer)
+  name.vb: CopyTo(ExternalCommandLineArgument(), Integer)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.CopyTo(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.copyto
+  - name: (
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.CopyTo(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.copyto
+  - name: (
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Contains(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  commentId: M:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Contains(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.Contains(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.contains
+  name: Contains(ExternalCommandLineArgument)
+  nameWithType: Collection<ExternalCommandLineArgument>.Contains(ExternalCommandLineArgument)
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.Contains(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).Contains(ExternalCommandLineArgument)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).Contains(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Contains(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.contains
+  - name: (
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Contains(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.contains
+  - name: (
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.GetEnumerator
+  commentId: M:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.GetEnumerator
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.GetEnumerator
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: Collection<ExternalCommandLineArgument>.GetEnumerator()
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.GetEnumerator()
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).GetEnumerator()
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.IndexOf(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  commentId: M:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.IndexOf(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.IndexOf(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.indexof
+  name: IndexOf(ExternalCommandLineArgument)
+  nameWithType: Collection<ExternalCommandLineArgument>.IndexOf(ExternalCommandLineArgument)
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.IndexOf(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).IndexOf(ExternalCommandLineArgument)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).IndexOf(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.IndexOf(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: IndexOf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.indexof
+  - name: (
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.IndexOf(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: IndexOf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.indexof
+  - name: (
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Insert(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  commentId: M:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Insert(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.Insert(System.Int32,`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.insert
+  name: Insert(int, ExternalCommandLineArgument)
+  nameWithType: Collection<ExternalCommandLineArgument>.Insert(int, ExternalCommandLineArgument)
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.Insert(int, Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).Insert(Integer, ExternalCommandLineArgument)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).Insert(Integer, Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  name.vb: Insert(Integer, ExternalCommandLineArgument)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Insert(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: Insert
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.insert
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Insert(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: Insert
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.insert
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Remove(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  commentId: M:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Remove(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.Remove(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.remove
+  name: Remove(ExternalCommandLineArgument)
+  nameWithType: Collection<ExternalCommandLineArgument>.Remove(ExternalCommandLineArgument)
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.Remove(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).Remove(ExternalCommandLineArgument)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).Remove(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Remove(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.remove
+  - name: (
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Remove(Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.remove
+  - name: (
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.RemoveAt(System.Int32)
+  commentId: M:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.RemoveAt(System.Int32)
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.RemoveAt(System.Int32)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.removeat
+  name: RemoveAt(int)
+  nameWithType: Collection<ExternalCommandLineArgument>.RemoveAt(int)
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.RemoveAt(int)
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).RemoveAt(Integer)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).RemoveAt(Integer)
+  name.vb: RemoveAt(Integer)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.RemoveAt(System.Int32)
+    name: RemoveAt
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.removeat
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.RemoveAt(System.Int32)
+    name: RemoveAt
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.removeat
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.ClearItems
+  commentId: M:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.ClearItems
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.ClearItems
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clearitems
+  name: ClearItems()
+  nameWithType: Collection<ExternalCommandLineArgument>.ClearItems()
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.ClearItems()
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).ClearItems()
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).ClearItems()
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.ClearItems
+    name: ClearItems
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clearitems
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.ClearItems
+    name: ClearItems
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clearitems
+  - name: (
+  - name: )
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.InsertItem(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  commentId: M:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.InsertItem(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.InsertItem(System.Int32,`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.insertitem
+  name: InsertItem(int, ExternalCommandLineArgument)
+  nameWithType: Collection<ExternalCommandLineArgument>.InsertItem(int, ExternalCommandLineArgument)
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.InsertItem(int, Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).InsertItem(Integer, ExternalCommandLineArgument)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).InsertItem(Integer, Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  name.vb: InsertItem(Integer, ExternalCommandLineArgument)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.InsertItem(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: InsertItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.insertitem
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.InsertItem(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: InsertItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.insertitem
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.RemoveItem(System.Int32)
+  commentId: M:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.RemoveItem(System.Int32)
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.RemoveItem(System.Int32)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.removeitem
+  name: RemoveItem(int)
+  nameWithType: Collection<ExternalCommandLineArgument>.RemoveItem(int)
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.RemoveItem(int)
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).RemoveItem(Integer)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).RemoveItem(Integer)
+  name.vb: RemoveItem(Integer)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.RemoveItem(System.Int32)
+    name: RemoveItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.removeitem
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.RemoveItem(System.Int32)
+    name: RemoveItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.removeitem
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.SetItem(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  commentId: M:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.SetItem(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.SetItem(System.Int32,`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.setitem
+  name: SetItem(int, ExternalCommandLineArgument)
+  nameWithType: Collection<ExternalCommandLineArgument>.SetItem(int, ExternalCommandLineArgument)
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.SetItem(int, Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).SetItem(Integer, ExternalCommandLineArgument)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).SetItem(Integer, Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+  name.vb: SetItem(Integer, ExternalCommandLineArgument)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.SetItem(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: SetItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.setitem
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.SetItem(System.Int32,Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument)
+    name: SetItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.setitem
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+    name: ExternalCommandLineArgument
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  - name: )
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Count
+  commentId: P:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Count
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.Count
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.count
+  name: Count
+  nameWithType: Collection<ExternalCommandLineArgument>.Count
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.Count
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).Count
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).Count
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Items
+  commentId: P:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Items
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.Items
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.items
+  name: Items
+  nameWithType: Collection<ExternalCommandLineArgument>.Items
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.Items
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).Items
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).Items
+- uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Item(System.Int32)
+  commentId: P:System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Item(System.Int32)
+  parent: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}
+  definition: System.Collections.ObjectModel.Collection`1.Item(System.Int32)
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: this[int]
+  nameWithType: Collection<ExternalCommandLineArgument>.this[int]
+  fullName: System.Collections.ObjectModel.Collection<Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument>.this[int]
+  nameWithType.vb: Collection(Of ExternalCommandLineArgument).this[](Integer)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument).this[](Integer)
+  name.vb: this[](Integer)
+  spec.csharp:
+  - name: this
+  - name: '['
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ']'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection{Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument}.Item(System.Int32)
+    name: this[]
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.item
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Action{System.Windows.Window})
+  commentId: M:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  parent: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  definition: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  name: ForWindowFromFrameworkElement(object, Action<Window>)
+  nameWithType: WindowsControlUtils.ForWindowFromFrameworkElement(object, Action<Window>)
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(object, System.Action<System.Windows.Window>)
+  nameWithType.vb: WindowsControlUtils.ForWindowFromFrameworkElement(Object, Action(Of Window))
+  fullName.vb: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(Object, System.Action(Of System.Windows.Window))
+  name.vb: ForWindowFromFrameworkElement(Object, Action(Of Window))
+  spec.csharp:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: )
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.ObjectModel.Collection`1
+  commentId: T:System.Collections.ObjectModel.Collection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1
+  name: Collection<T>
+  nameWithType: Collection<T>
+  fullName: System.Collections.ObjectModel.Collection<T>
+  nameWithType.vb: Collection(Of T)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T)
+  name.vb: Collection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1
+    name: Collection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1
+    name: Collection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.Add(`0)
+  commentId: M:System.Collections.ObjectModel.Collection`1.Add(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.add
+  name: Add(T)
+  nameWithType: Collection<T>.Add(T)
+  fullName: System.Collections.ObjectModel.Collection<T>.Add(T)
+  nameWithType.vb: Collection(Of T).Add(T)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).Add(T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.add
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.add
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.Clear
+  commentId: M:System.Collections.ObjectModel.Collection`1.Clear
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clear
+  name: Clear()
+  nameWithType: Collection<T>.Clear()
+  fullName: System.Collections.ObjectModel.Collection<T>.Clear()
+  nameWithType.vb: Collection(Of T).Clear()
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).Clear()
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clear
+  - name: (
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.CopyTo(`0[],System.Int32)
+  commentId: M:System.Collections.ObjectModel.Collection`1.CopyTo(`0[],System.Int32)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.copyto
+  name: CopyTo(T[], int)
+  nameWithType: Collection<T>.CopyTo(T[], int)
+  fullName: System.Collections.ObjectModel.Collection<T>.CopyTo(T[], int)
+  nameWithType.vb: Collection(Of T).CopyTo(T(), Integer)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).CopyTo(T(), Integer)
+  name.vb: CopyTo(T(), Integer)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1.CopyTo(`0[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.copyto
+  - name: (
+  - name: T
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.CopyTo(`0[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.copyto
+  - name: (
+  - name: T
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.Contains(`0)
+  commentId: M:System.Collections.ObjectModel.Collection`1.Contains(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.contains
+  name: Contains(T)
+  nameWithType: Collection<T>.Contains(T)
+  fullName: System.Collections.ObjectModel.Collection<T>.Contains(T)
+  nameWithType.vb: Collection(Of T).Contains(T)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).Contains(T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1.Contains(`0)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.contains
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.Contains(`0)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.contains
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.GetEnumerator
+  commentId: M:System.Collections.ObjectModel.Collection`1.GetEnumerator
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: Collection<T>.GetEnumerator()
+  fullName: System.Collections.ObjectModel.Collection<T>.GetEnumerator()
+  nameWithType.vb: Collection(Of T).GetEnumerator()
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.IndexOf(`0)
+  commentId: M:System.Collections.ObjectModel.Collection`1.IndexOf(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.indexof
+  name: IndexOf(T)
+  nameWithType: Collection<T>.IndexOf(T)
+  fullName: System.Collections.ObjectModel.Collection<T>.IndexOf(T)
+  nameWithType.vb: Collection(Of T).IndexOf(T)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).IndexOf(T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1.IndexOf(`0)
+    name: IndexOf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.indexof
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.IndexOf(`0)
+    name: IndexOf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.indexof
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.Insert(System.Int32,`0)
+  commentId: M:System.Collections.ObjectModel.Collection`1.Insert(System.Int32,`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.insert
+  name: Insert(int, T)
+  nameWithType: Collection<T>.Insert(int, T)
+  fullName: System.Collections.ObjectModel.Collection<T>.Insert(int, T)
+  nameWithType.vb: Collection(Of T).Insert(Integer, T)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).Insert(Integer, T)
+  name.vb: Insert(Integer, T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1.Insert(System.Int32,`0)
+    name: Insert
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.insert
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.Insert(System.Int32,`0)
+    name: Insert
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.insert
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.Remove(`0)
+  commentId: M:System.Collections.ObjectModel.Collection`1.Remove(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.remove
+  name: Remove(T)
+  nameWithType: Collection<T>.Remove(T)
+  fullName: System.Collections.ObjectModel.Collection<T>.Remove(T)
+  nameWithType.vb: Collection(Of T).Remove(T)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).Remove(T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1.Remove(`0)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.remove
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.Remove(`0)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.remove
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.RemoveAt(System.Int32)
+  commentId: M:System.Collections.ObjectModel.Collection`1.RemoveAt(System.Int32)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.removeat
+  name: RemoveAt(int)
+  nameWithType: Collection<T>.RemoveAt(int)
+  fullName: System.Collections.ObjectModel.Collection<T>.RemoveAt(int)
+  nameWithType.vb: Collection(Of T).RemoveAt(Integer)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).RemoveAt(Integer)
+  name.vb: RemoveAt(Integer)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1.RemoveAt(System.Int32)
+    name: RemoveAt
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.removeat
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.RemoveAt(System.Int32)
+    name: RemoveAt
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.removeat
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.ClearItems
+  commentId: M:System.Collections.ObjectModel.Collection`1.ClearItems
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clearitems
+  name: ClearItems()
+  nameWithType: Collection<T>.ClearItems()
+  fullName: System.Collections.ObjectModel.Collection<T>.ClearItems()
+  nameWithType.vb: Collection(Of T).ClearItems()
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).ClearItems()
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1.ClearItems
+    name: ClearItems
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clearitems
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.ClearItems
+    name: ClearItems
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clearitems
+  - name: (
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.InsertItem(System.Int32,`0)
+  commentId: M:System.Collections.ObjectModel.Collection`1.InsertItem(System.Int32,`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.insertitem
+  name: InsertItem(int, T)
+  nameWithType: Collection<T>.InsertItem(int, T)
+  fullName: System.Collections.ObjectModel.Collection<T>.InsertItem(int, T)
+  nameWithType.vb: Collection(Of T).InsertItem(Integer, T)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).InsertItem(Integer, T)
+  name.vb: InsertItem(Integer, T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1.InsertItem(System.Int32,`0)
+    name: InsertItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.insertitem
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.InsertItem(System.Int32,`0)
+    name: InsertItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.insertitem
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.RemoveItem(System.Int32)
+  commentId: M:System.Collections.ObjectModel.Collection`1.RemoveItem(System.Int32)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.removeitem
+  name: RemoveItem(int)
+  nameWithType: Collection<T>.RemoveItem(int)
+  fullName: System.Collections.ObjectModel.Collection<T>.RemoveItem(int)
+  nameWithType.vb: Collection(Of T).RemoveItem(Integer)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).RemoveItem(Integer)
+  name.vb: RemoveItem(Integer)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1.RemoveItem(System.Int32)
+    name: RemoveItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.removeitem
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.RemoveItem(System.Int32)
+    name: RemoveItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.removeitem
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.SetItem(System.Int32,`0)
+  commentId: M:System.Collections.ObjectModel.Collection`1.SetItem(System.Int32,`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.setitem
+  name: SetItem(int, T)
+  nameWithType: Collection<T>.SetItem(int, T)
+  fullName: System.Collections.ObjectModel.Collection<T>.SetItem(int, T)
+  nameWithType.vb: Collection(Of T).SetItem(Integer, T)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).SetItem(Integer, T)
+  name.vb: SetItem(Integer, T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.Collection`1.SetItem(System.Int32,`0)
+    name: SetItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.setitem
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.SetItem(System.Int32,`0)
+    name: SetItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.setitem
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel.Collection`1.Count
+  commentId: P:System.Collections.ObjectModel.Collection`1.Count
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.count
+  name: Count
+  nameWithType: Collection<T>.Count
+  fullName: System.Collections.ObjectModel.Collection<T>.Count
+  nameWithType.vb: Collection(Of T).Count
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).Count
+- uid: System.Collections.ObjectModel.Collection`1.Items
+  commentId: P:System.Collections.ObjectModel.Collection`1.Items
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.items
+  name: Items
+  nameWithType: Collection<T>.Items
+  fullName: System.Collections.ObjectModel.Collection<T>.Items
+  nameWithType.vb: Collection(Of T).Items
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).Items
+- uid: System.Collections.ObjectModel.Collection`1.Item(System.Int32)
+  commentId: P:System.Collections.ObjectModel.Collection`1.Item(System.Int32)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: this[int]
+  nameWithType: Collection<T>.this[int]
+  fullName: System.Collections.ObjectModel.Collection<T>.this[int]
+  nameWithType.vb: Collection(Of T).this[](Integer)
+  fullName.vb: System.Collections.ObjectModel.Collection(Of T).this[](Integer)
+  name.vb: this[](Integer)
+  spec.csharp:
+  - name: this
+  - name: '['
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ']'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.Collection`1.Item(System.Int32)
+    name: this[]
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.item
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  commentId: M:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  isExternal: true
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  name: ForWindowFromFrameworkElement(object, Action<Window>)
+  nameWithType: WindowsControlUtils.ForWindowFromFrameworkElement(object, Action<Window>)
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(object, System.Action<System.Windows.Window>)
+  nameWithType.vb: WindowsControlUtils.ForWindowFromFrameworkElement(Object, Action(Of Window))
+  fullName.vb: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(Object, System.Action(Of System.Windows.Window))
+  name.vb: ForWindowFromFrameworkElement(Object, Action(Of Window))
+  spec.csharp:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: )
+  - name: )
+- uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  commentId: T:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  parent: Sdl.Desktop.Platform.Controls.Controls
+  isExternal: true
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html
+  name: WindowsControlUtils
+  nameWithType: WindowsControlUtils
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+- uid: Sdl.Desktop.Platform.Controls.Controls
+  commentId: N:Sdl.Desktop.Platform.Controls.Controls
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Desktop.Platform.Controls.Controls
+  nameWithType: Sdl.Desktop.Platform.Controls.Controls
+  fullName: Sdl.Desktop.Platform.Controls.Controls
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.Platform
+    name: Platform
+    isExternal: true
+    href: Sdl.Desktop.Platform.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.Platform
+    name: Platform
+    isExternal: true
+    href: Sdl.Desktop.Platform.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.html
+- uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.#ctor*
+  commentId: Overload:Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.#ctor
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.html#Sdl_Desktop_IntegrationApi_Extensions_CommandLine_ExternalCommandLineArguments__ctor
+  name: ExternalCommandLineArguments
+  nameWithType: ExternalCommandLineArguments.ExternalCommandLineArguments
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.ExternalCommandLineArguments
+  nameWithType.vb: ExternalCommandLineArguments.New
+  fullName.vb: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.New
+  name.vb: New
+- uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.Item*
+  commentId: Overload:Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.Item
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.html#Sdl_Desktop_IntegrationApi_Extensions_CommandLine_ExternalCommandLineArguments_Item_System_String_
+  name: this
+  nameWithType: ExternalCommandLineArguments.this
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.this
+  nameWithType.vb: ExternalCommandLineArguments.this[]
+  fullName.vb: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArguments.this[]
+  name.vb: this[]
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument
+  parent: Sdl.Desktop.IntegrationApi.Extensions.CommandLine
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument.html
+  name: ExternalCommandLineArgument
+  nameWithType: ExternalCommandLineArgument
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.CommandLine.ExternalCommandLineArgument

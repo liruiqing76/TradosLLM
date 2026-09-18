@@ -1,0 +1,203 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+  commentId: T:Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+  id: AbstractMarkPainter.MarkLocation
+  parent: Sdl.DesktopEditor.EditorApi.Implementation
+  children:
+  - Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.AboveTop
+  - Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.BelowBottom
+  - Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.Bottom
+  - Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.Center
+  - Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.Top
+  langs:
+  - csharp
+  - vb
+  name: AbstractMarkPainter.MarkLocation
+  nameWithType: AbstractMarkPainter.MarkLocation
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+  type: Enum
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: Indicates where the marker should be painted in relation to the content it marks.
+  example: []
+  syntax:
+    content: public enum AbstractMarkPainter.MarkLocation
+    content.vb: Public Enum AbstractMarkPainter.MarkLocation
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.AboveTop
+  commentId: F:Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.AboveTop
+  id: AboveTop
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+  langs:
+  - csharp
+  - vb
+  name: AboveTop
+  nameWithType: AbstractMarkPainter.MarkLocation.AboveTop
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.AboveTop
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: Draw the marker above the bounding content rectangle.
+  example: []
+  syntax:
+    content: AboveTop = 0
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.Top
+  commentId: F:Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.Top
+  id: Top
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+  langs:
+  - csharp
+  - vb
+  name: Top
+  nameWithType: AbstractMarkPainter.MarkLocation.Top
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.Top
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: Draw the marker aligned with the top of the bounding content rectangle.
+  example: []
+  syntax:
+    content: Top = 1
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.Center
+  commentId: F:Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.Center
+  id: Center
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: AbstractMarkPainter.MarkLocation.Center
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.Center
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: Draw the marker in the middle of the bounding content rectangle.
+  example: []
+  syntax:
+    content: Center = 2
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.Bottom
+  commentId: F:Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.Bottom
+  id: Bottom
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+  langs:
+  - csharp
+  - vb
+  name: Bottom
+  nameWithType: AbstractMarkPainter.MarkLocation.Bottom
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.Bottom
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: Draw the marker aligned with the bottom of the bounding content rectangle.
+  example: []
+  syntax:
+    content: Bottom = 3
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.BelowBottom
+  commentId: F:Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.BelowBottom
+  id: BelowBottom
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+  langs:
+  - csharp
+  - vb
+  name: BelowBottom
+  nameWithType: AbstractMarkPainter.MarkLocation.BelowBottom
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.BelowBottom
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: Draw the marker below the bounding content rectangle.
+  example: []
+  syntax:
+    content: BelowBottom = 4
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+references:
+- uid: Sdl.DesktopEditor.EditorApi.Implementation
+  commentId: N:Sdl.DesktopEditor.EditorApi.Implementation
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi.Implementation
+  nameWithType: Sdl.DesktopEditor.EditorApi.Implementation
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation
+    name: Implementation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation
+    name: Implementation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.html
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+  commentId: T:Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+  parent: Sdl.DesktopEditor.EditorApi.Implementation
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.html
+  name: AbstractMarkPainter.MarkLocation
+  nameWithType: AbstractMarkPainter.MarkLocation
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter
+    name: AbstractMarkPainter
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+    name: MarkLocation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.html
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter
+    name: AbstractMarkPainter
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation
+    name: MarkLocation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.AbstractMarkPainter.MarkLocation.html

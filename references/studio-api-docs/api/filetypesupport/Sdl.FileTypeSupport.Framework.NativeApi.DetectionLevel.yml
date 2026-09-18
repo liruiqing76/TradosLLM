@@ -1,0 +1,170 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel
+  id: DetectionLevel
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Certain
+  - Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Guess
+  - Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Likely
+  - Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Unknown
+  langs:
+  - csharp
+  - vb
+  name: DetectionLevel
+  nameWithType: DetectionLevel
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel
+  type: Enum
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Indicates the level of confidence with which a property has been determined.
+  remarks: >-
+    <p>
+
+    This is used, for example, for codepage and language detection in a file sniffer
+
+    to indicate how likely it is that the codepage and languages have been identified correctly.
+
+    </p>
+  example: []
+  syntax:
+    content: public enum DetectionLevel
+    content.vb: Public Enum DetectionLevel
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Unknown
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Unknown
+  id: Unknown
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: DetectionLevel.Unknown
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Unknown
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The property value could not be determined.
+  example: []
+  syntax:
+    content: Unknown = 0
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Guess
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Guess
+  id: Guess
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel
+  langs:
+  - csharp
+  - vb
+  name: Guess
+  nameWithType: DetectionLevel.Guess
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Guess
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: A possible suggestion for the property value has been determined.
+  example: []
+  syntax:
+    content: Guess = 1
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Likely
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Likely
+  id: Likely
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel
+  langs:
+  - csharp
+  - vb
+  name: Likely
+  nameWithType: DetectionLevel.Likely
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Likely
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: A likely value for the property has been determined.
+  example: []
+  syntax:
+    content: Likely = 2
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Certain
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Certain
+  id: Certain
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel
+  langs:
+  - csharp
+  - vb
+  name: Certain
+  nameWithType: DetectionLevel.Certain
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.Certain
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The property value was determined beyond doubt.
+  example: []
+  syntax:
+    content: Certain = 3
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel.html
+  name: DetectionLevel
+  nameWithType: DetectionLevel
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.DetectionLevel

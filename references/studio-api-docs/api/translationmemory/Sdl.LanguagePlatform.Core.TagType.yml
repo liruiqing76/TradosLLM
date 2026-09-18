@@ -1,0 +1,245 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.TagType
+  commentId: T:Sdl.LanguagePlatform.Core.TagType
+  id: TagType
+  parent: Sdl.LanguagePlatform.Core
+  children:
+  - Sdl.LanguagePlatform.Core.TagType.End
+  - Sdl.LanguagePlatform.Core.TagType.LockedContent
+  - Sdl.LanguagePlatform.Core.TagType.Standalone
+  - Sdl.LanguagePlatform.Core.TagType.Start
+  - Sdl.LanguagePlatform.Core.TagType.TextPlaceholder
+  - Sdl.LanguagePlatform.Core.TagType.Undefined
+  - Sdl.LanguagePlatform.Core.TagType.UnmatchedEnd
+  - Sdl.LanguagePlatform.Core.TagType.UnmatchedStart
+  langs:
+  - csharp
+  - vb
+  name: TagType
+  nameWithType: TagType
+  fullName: Sdl.LanguagePlatform.Core.TagType
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Indicates the tag type.
+  example: []
+  syntax:
+    content: public enum TagType
+    content.vb: Public Enum TagType
+- uid: Sdl.LanguagePlatform.Core.TagType.Undefined
+  commentId: F:Sdl.LanguagePlatform.Core.TagType.Undefined
+  id: Undefined
+  parent: Sdl.LanguagePlatform.Core.TagType
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: TagType.Undefined
+  fullName: Sdl.LanguagePlatform.Core.TagType.Undefined
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: >-
+    Represents an undefined tag type. This is also used for "dummy tags" which may 
+
+    be added to a segment in case a tag was deleted from the original segment. Such
+
+    a situation occurs when the translation engine deletes tags, but the number of 
+
+    tokens must remain constant in the translation proposal as otherwise the token
+
+    positions will become invalid.
+  example: []
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.TagType
+- uid: Sdl.LanguagePlatform.Core.TagType.Start
+  commentId: F:Sdl.LanguagePlatform.Core.TagType.Start
+  id: Start
+  parent: Sdl.LanguagePlatform.Core.TagType
+  langs:
+  - csharp
+  - vb
+  name: Start
+  nameWithType: TagType.Start
+  fullName: Sdl.LanguagePlatform.Core.TagType.Start
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Represents a starting tag.
+  example: []
+  syntax:
+    content: Start = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.TagType
+- uid: Sdl.LanguagePlatform.Core.TagType.End
+  commentId: F:Sdl.LanguagePlatform.Core.TagType.End
+  id: End
+  parent: Sdl.LanguagePlatform.Core.TagType
+  langs:
+  - csharp
+  - vb
+  name: End
+  nameWithType: TagType.End
+  fullName: Sdl.LanguagePlatform.Core.TagType.End
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Represents an ending tag.
+  example: []
+  syntax:
+    content: End = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.TagType
+- uid: Sdl.LanguagePlatform.Core.TagType.Standalone
+  commentId: F:Sdl.LanguagePlatform.Core.TagType.Standalone
+  id: Standalone
+  parent: Sdl.LanguagePlatform.Core.TagType
+  langs:
+  - csharp
+  - vb
+  name: Standalone
+  nameWithType: TagType.Standalone
+  fullName: Sdl.LanguagePlatform.Core.TagType.Standalone
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Represents a standalone tag.
+  example: []
+  syntax:
+    content: Standalone = 3
+    return:
+      type: Sdl.LanguagePlatform.Core.TagType
+- uid: Sdl.LanguagePlatform.Core.TagType.TextPlaceholder
+  commentId: F:Sdl.LanguagePlatform.Core.TagType.TextPlaceholder
+  id: TextPlaceholder
+  parent: Sdl.LanguagePlatform.Core.TagType
+  langs:
+  - csharp
+  - vb
+  name: TextPlaceholder
+  nameWithType: TagType.TextPlaceholder
+  fullName: Sdl.LanguagePlatform.Core.TagType.TextPlaceholder
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: A standalone tag which represents text, not formatting.
+  example: []
+  syntax:
+    content: TextPlaceholder = 4
+    return:
+      type: Sdl.LanguagePlatform.Core.TagType
+- uid: Sdl.LanguagePlatform.Core.TagType.LockedContent
+  commentId: F:Sdl.LanguagePlatform.Core.TagType.LockedContent
+  id: LockedContent
+  parent: Sdl.LanguagePlatform.Core.TagType
+  langs:
+  - csharp
+  - vb
+  name: LockedContent
+  nameWithType: TagType.LockedContent
+  fullName: Sdl.LanguagePlatform.Core.TagType.LockedContent
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Group of (locked) tag/text content that should be treated as a single placeable.
+  example: []
+  syntax:
+    content: LockedContent = 5
+    return:
+      type: Sdl.LanguagePlatform.Core.TagType
+- uid: Sdl.LanguagePlatform.Core.TagType.UnmatchedStart
+  commentId: F:Sdl.LanguagePlatform.Core.TagType.UnmatchedStart
+  id: UnmatchedStart
+  parent: Sdl.LanguagePlatform.Core.TagType
+  langs:
+  - csharp
+  - vb
+  name: UnmatchedStart
+  nameWithType: TagType.UnmatchedStart
+  fullName: Sdl.LanguagePlatform.Core.TagType.UnmatchedStart
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: 'For TMX processing only: unmatched start tag (it pos=start)'
+  example: []
+  syntax:
+    content: UnmatchedStart = 6
+    return:
+      type: Sdl.LanguagePlatform.Core.TagType
+- uid: Sdl.LanguagePlatform.Core.TagType.UnmatchedEnd
+  commentId: F:Sdl.LanguagePlatform.Core.TagType.UnmatchedEnd
+  id: UnmatchedEnd
+  parent: Sdl.LanguagePlatform.Core.TagType
+  langs:
+  - csharp
+  - vb
+  name: UnmatchedEnd
+  nameWithType: TagType.UnmatchedEnd
+  fullName: Sdl.LanguagePlatform.Core.TagType.UnmatchedEnd
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: 'For TMX processing only: unmatched end tag (it pos=end)'
+  example: []
+  syntax:
+    content: UnmatchedEnd = 7
+    return:
+      type: Sdl.LanguagePlatform.Core.TagType
+references:
+- uid: Sdl.LanguagePlatform.Core
+  commentId: N:Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core
+  nameWithType: Sdl.LanguagePlatform.Core
+  fullName: Sdl.LanguagePlatform.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+- uid: Sdl.LanguagePlatform.Core.TagType
+  commentId: T:Sdl.LanguagePlatform.Core.TagType
+  parent: Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.TagType.html
+  name: TagType
+  nameWithType: TagType
+  fullName: Sdl.LanguagePlatform.Core.TagType

@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode
+  id: MachineTranslationLookupMode
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode.Always
+  - Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode.Never
+  - Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode.WhenNoTranslationMemoryMatch
+  langs:
+  - csharp
+  - vb
+  name: MachineTranslationLookupMode
+  nameWithType: MachineTranslationLookupMode
+  fullName: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Specifies when to use machine translation.
+  example: []
+  syntax:
+    content: public enum MachineTranslationLookupMode
+    content.vb: Public Enum MachineTranslationLookupMode
+- uid: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode.WhenNoTranslationMemoryMatch
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode.WhenNoTranslationMemoryMatch
+  id: WhenNoTranslationMemoryMatch
+  parent: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode
+  langs:
+  - csharp
+  - vb
+  name: WhenNoTranslationMemoryMatch
+  nameWithType: MachineTranslationLookupMode.WhenNoTranslationMemoryMatch
+  fullName: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode.WhenNoTranslationMemoryMatch
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Lookup segments only when no TM match was found.
+  example: []
+  syntax:
+    content: WhenNoTranslationMemoryMatch = 0
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode
+- uid: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode.Always
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode.Always
+  id: Always
+  parent: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode
+  langs:
+  - csharp
+  - vb
+  name: Always
+  nameWithType: MachineTranslationLookupMode.Always
+  fullName: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode.Always
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Always lookup segments, even when TM returns matches.
+  example: []
+  syntax:
+    content: Always = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode
+- uid: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode.Never
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode.Never
+  id: Never
+  parent: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode
+  langs:
+  - csharp
+  - vb
+  name: Never
+  nameWithType: MachineTranslationLookupMode.Never
+  fullName: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode.Never
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Machine translation is disabled
+  example: []
+  syntax:
+    content: Never = 2
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode.html
+  name: MachineTranslationLookupMode
+  nameWithType: MachineTranslationLookupMode
+  fullName: Sdl.LanguagePlatform.TranslationMemory.MachineTranslationLookupMode

@@ -1,0 +1,33 @@
+trigger:
+  branches:
+    include:
+     - master
+  paths:
+    include:
+     - Rapid Add Term/*
+
+pr:
+  branches:
+    include:
+     - master
+  paths:
+    include:
+     - Rapid Add Term/*
+
+pool: 
+  vmImage : '$(DefaultBuildVm)'
+
+variables:
+- template: jobs/branch-variables.yml
+- name: buildPlatform
+  value: 'Any CPU'
+- name: buildConfiguration
+  value: 'Release'
+- name: solution 
+  value: '**/Sdl.Community.RapidAddTerm.sln'
+- name: pathToPublish
+  value: '$(PluginPath)\Sdl.Community.RapidAddTerm.sdlplugin'
+
+steps:
+  - template: jobs/build-sdlplugin.yml
+  - template: jobs/publish-build-artifact-task.yml

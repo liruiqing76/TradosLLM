@@ -1,0 +1,620 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor
+  id: SearchResultFieldValueAccessor
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.#ctor(Sdl.LanguagePlatform.TranslationMemory.SearchResult)
+  - Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetType(System.String)
+  - Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue(System.String)
+  - Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue(System.String,Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  langs:
+  - csharp
+  - vb
+  name: SearchResultFieldValueAccessor
+  nameWithType: SearchResultFieldValueAccessor
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: A class which allows to use a search result as a <xref href="Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public class SearchResultFieldValueAccessor : ITypedKeyValueContainer'
+    content.vb: Public Class SearchResultFieldValueAccessor Implements ITypedKeyValueContainer
+  inheritance:
+  - System.Object
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.#ctor(Sdl.LanguagePlatform.TranslationMemory.SearchResult)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.#ctor(Sdl.LanguagePlatform.TranslationMemory.SearchResult)
+  id: '#ctor(Sdl.LanguagePlatform.TranslationMemory.SearchResult)'
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor
+  langs:
+  - csharp
+  - vb
+  name: SearchResultFieldValueAccessor(SearchResult)
+  nameWithType: SearchResultFieldValueAccessor.SearchResultFieldValueAccessor(SearchResult)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.SearchResultFieldValueAccessor(Sdl.LanguagePlatform.TranslationMemory.SearchResult)
+  type: Constructor
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Initializes a new instance wiht the specified values.
+  example: []
+  syntax:
+    content: public SearchResultFieldValueAccessor(SearchResult r)
+    parameters:
+    - id: r
+      type: Sdl.LanguagePlatform.TranslationMemory.SearchResult
+      description: The search result.
+    content.vb: Public Sub New(r As SearchResult)
+  overload: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.#ctor*
+  nameWithType.vb: SearchResultFieldValueAccessor.New(SearchResult)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.New(Sdl.LanguagePlatform.TranslationMemory.SearchResult)
+  name.vb: New(SearchResult)
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue(System.String)
+  id: GetValue(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor
+  langs:
+  - csharp
+  - vb
+  name: GetValue(string)
+  nameWithType: SearchResultFieldValueAccessor.GetValue(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue(string)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Returns the value of field with name "fieldName". The return value can be any field type.
+  example: []
+  syntax:
+    content: public FieldValue GetValue(string fieldName)
+    parameters:
+    - id: fieldName
+      type: System.String
+      description: The field name.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValue
+      description: The value of the field, or null if not defined.
+    content.vb: Public Function GetValue(fieldName As String) As FieldValue
+  overload: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String)
+  nameWithType.vb: SearchResultFieldValueAccessor.GetValue(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue(String)
+  name.vb: GetValue(String)
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue(System.String,Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue(System.String,Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  id: GetValue(System.String,Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor
+  langs:
+  - csharp
+  - vb
+  name: GetValue(string, FieldValueType)
+  nameWithType: SearchResultFieldValueAccessor.GetValue(string, FieldValueType)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue(string, Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Returns the value of field with name "fieldName", given the field value type t.
+  example: []
+  syntax:
+    content: public FieldValue GetValue(string fieldName, FieldValueType t)
+    parameters:
+    - id: fieldName
+      type: System.String
+      description: The field name
+    - id: t
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+      description: The field type to return the value for.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValue
+      description: null if no value is defined. Throws exception if value is of a different type.
+    content.vb: Public Function GetValue(fieldName As String, t As FieldValueType) As FieldValue
+  overload: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String,Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  nameWithType.vb: SearchResultFieldValueAccessor.GetValue(String, FieldValueType)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue(String, Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  name.vb: GetValue(String, FieldValueType)
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetType(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetType(System.String)
+  id: GetType(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor
+  langs:
+  - csharp
+  - vb
+  name: GetType(string)
+  nameWithType: SearchResultFieldValueAccessor.GetType(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetType(string)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: >-
+    Returns the type of the field with name "fieldName". If the object does not have a value for that field, 
+
+    returns FieldValueType.Unknown.
+  example: []
+  syntax:
+    content: public FieldValueType GetType(string fieldName)
+    parameters:
+    - id: fieldName
+      type: System.String
+      description: The field name.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+      description: The type of that field, or FieldValueType.Unknown if it doesn't exist.
+    content.vb: Public Function [GetType](fieldName As String) As FieldValueType
+  overload: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetType*
+  implements:
+  - Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType(System.String)
+  nameWithType.vb: SearchResultFieldValueAccessor.GetType(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetType(String)
+  name.vb: GetType(String)
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.html
+  name: ITypedKeyValueContainer
+  nameWithType: ITypedKeyValueContainer
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.#ctor*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.#ctor
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.html#Sdl_LanguagePlatform_TranslationMemory_SearchResultFieldValueAccessor__ctor_Sdl_LanguagePlatform_TranslationMemory_SearchResult_
+  name: SearchResultFieldValueAccessor
+  nameWithType: SearchResultFieldValueAccessor.SearchResultFieldValueAccessor
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.SearchResultFieldValueAccessor
+  nameWithType.vb: SearchResultFieldValueAccessor.New
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.New
+  name.vb: New
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchResult
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SearchResult
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchResult.html
+  name: SearchResult
+  nameWithType: SearchResult
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchResult
+- uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.html#Sdl_LanguagePlatform_TranslationMemory_ITypedKeyValueContainer_GetValue_System_String_
+  name: GetValue(string)
+  nameWithType: ITypedKeyValueContainer.GetValue(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(string)
+  nameWithType.vb: ITypedKeyValueContainer.GetValue(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(String)
+  name.vb: GetValue(String)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String)
+    name: GetValue
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.html#Sdl_LanguagePlatform_TranslationMemory_ITypedKeyValueContainer_GetValue_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String)
+    name: GetValue
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.html#Sdl_LanguagePlatform_TranslationMemory_ITypedKeyValueContainer_GetValue_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.html#Sdl_LanguagePlatform_TranslationMemory_SearchResultFieldValueAccessor_GetValue_System_String_
+  name: GetValue
+  nameWithType: SearchResultFieldValueAccessor.GetValue
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetValue
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.LanguagePlatform.TranslationMemory.FieldValue
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.FieldValue
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.FieldValue.html
+  name: FieldValue
+  nameWithType: FieldValue
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FieldValue
+- uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String,Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String,Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  parent: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.html#Sdl_LanguagePlatform_TranslationMemory_ITypedKeyValueContainer_GetValue_System_String_Sdl_LanguagePlatform_TranslationMemory_FieldValueType_
+  name: GetValue(string, FieldValueType)
+  nameWithType: ITypedKeyValueContainer.GetValue(string, FieldValueType)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(string, Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  nameWithType.vb: ITypedKeyValueContainer.GetValue(String, FieldValueType)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(String, Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+  name.vb: GetValue(String, FieldValueType)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String,Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+    name: GetValue
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.html#Sdl_LanguagePlatform_TranslationMemory_ITypedKeyValueContainer_GetValue_System_String_Sdl_LanguagePlatform_TranslationMemory_FieldValueType_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+    name: FieldValueType
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetValue(System.String,Sdl.LanguagePlatform.TranslationMemory.FieldValueType)
+    name: GetValue
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.html#Sdl_LanguagePlatform_TranslationMemory_ITypedKeyValueContainer_GetValue_System_String_Sdl_LanguagePlatform_TranslationMemory_FieldValueType_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+    name: FieldValueType
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.html
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.html
+  name: FieldValueType
+  nameWithType: FieldValueType
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+- uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.html#Sdl_LanguagePlatform_TranslationMemory_ITypedKeyValueContainer_GetType_System_String_
+  name: GetType(string)
+  nameWithType: ITypedKeyValueContainer.GetType(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType(string)
+  nameWithType.vb: ITypedKeyValueContainer.GetType(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType(String)
+  name.vb: GetType(String)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType(System.String)
+    name: GetType
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.html#Sdl_LanguagePlatform_TranslationMemory_ITypedKeyValueContainer_GetType_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.GetType(System.String)
+    name: GetType
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ITypedKeyValueContainer.html#Sdl_LanguagePlatform_TranslationMemory_ITypedKeyValueContainer_GetType_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetType*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetType
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.html#Sdl_LanguagePlatform_TranslationMemory_SearchResultFieldValueAccessor_GetType_System_String_
+  name: GetType
+  nameWithType: SearchResultFieldValueAccessor.GetType
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchResultFieldValueAccessor.GetType

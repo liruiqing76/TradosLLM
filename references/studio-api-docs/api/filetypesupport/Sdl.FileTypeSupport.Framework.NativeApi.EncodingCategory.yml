@@ -1,0 +1,236 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+  id: EncodingCategory
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultAnsiCodePage
+  - Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultEbcdicCodePage
+  - Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultMacCodePage
+  - Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultOemCodePage
+  - Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.NotApplicable
+  - Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.NotSpecified
+  - Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.Unicode
+  langs:
+  - csharp
+  - vb
+  name: EncodingCategory
+  nameWithType: EncodingCategory
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+  type: Enum
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    Used by the file sniffer (<xref href="Sdl.FileTypeSupport.Framework.NativeApi.SniffInfo" data-throw-if-not-resolved="false"></xref>) to indicate a suggested type of encoding for the 
+
+    target language file, without knowing what the target language will be.
+  example: []
+  syntax:
+    content: public enum EncodingCategory
+    content.vb: Public Enum EncodingCategory
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.NotSpecified
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.NotSpecified
+  id: NotSpecified
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+  langs:
+  - csharp
+  - vb
+  name: NotSpecified
+  nameWithType: EncodingCategory.NotSpecified
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.NotSpecified
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The value has not yet been specified.
+  example: []
+  syntax:
+    content: NotSpecified = 0
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.Unicode
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.Unicode
+  id: Unicode
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+  langs:
+  - csharp
+  - vb
+  name: Unicode
+  nameWithType: EncodingCategory.Unicode
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.Unicode
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Any Unicode encoding, e.g. UTF-8, UCS-2, UTF-16, UTF-32, etc.
+  example: []
+  syntax:
+    content: Unicode = 1
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultAnsiCodePage
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultAnsiCodePage
+  id: LanguageDefaultAnsiCodePage
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+  langs:
+  - csharp
+  - vb
+  name: LanguageDefaultAnsiCodePage
+  nameWithType: EncodingCategory.LanguageDefaultAnsiCodePage
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultAnsiCodePage
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The default ANSI (Windows) codepage for the language
+  example: []
+  syntax:
+    content: LanguageDefaultAnsiCodePage = 2
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultOemCodePage
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultOemCodePage
+  id: LanguageDefaultOemCodePage
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+  langs:
+  - csharp
+  - vb
+  name: LanguageDefaultOemCodePage
+  nameWithType: EncodingCategory.LanguageDefaultOemCodePage
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultOemCodePage
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The default OEM (DOS) codepage for the language
+  example: []
+  syntax:
+    content: LanguageDefaultOemCodePage = 3
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultMacCodePage
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultMacCodePage
+  id: LanguageDefaultMacCodePage
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+  langs:
+  - csharp
+  - vb
+  name: LanguageDefaultMacCodePage
+  nameWithType: EncodingCategory.LanguageDefaultMacCodePage
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultMacCodePage
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The default Macintosh codepage for the language
+  example: []
+  syntax:
+    content: LanguageDefaultMacCodePage = 4
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultEbcdicCodePage
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultEbcdicCodePage
+  id: LanguageDefaultEbcdicCodePage
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+  langs:
+  - csharp
+  - vb
+  name: LanguageDefaultEbcdicCodePage
+  nameWithType: EncodingCategory.LanguageDefaultEbcdicCodePage
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.LanguageDefaultEbcdicCodePage
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The default EBCDIC (IBM) codepage for the language
+  example: []
+  syntax:
+    content: LanguageDefaultEbcdicCodePage = 5
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.NotApplicable
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.NotApplicable
+  id: NotApplicable
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+  langs:
+  - csharp
+  - vb
+  name: NotApplicable
+  nameWithType: EncodingCategory.NotApplicable
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.NotApplicable
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The codepage does not need to be specified.
+  example: []
+  syntax:
+    content: NotApplicable = 6
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SniffInfo
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.SniffInfo
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.SniffInfo.html
+  name: SniffInfo
+  nameWithType: SniffInfo
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SniffInfo
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory.html
+  name: EncodingCategory
+  nameWithType: EncodingCategory
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.EncodingCategory

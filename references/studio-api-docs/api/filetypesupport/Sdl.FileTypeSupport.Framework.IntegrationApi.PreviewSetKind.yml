@@ -1,0 +1,189 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+  id: PreviewSetKind
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  children:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.ApplicationPreviews
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.ControlPreviews
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.Mix
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.Undefined
+  langs:
+  - csharp
+  - vb
+  name: PreviewSetKind
+  nameWithType: PreviewSetKind
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+  type: Enum
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Used by the <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewSet.PreviewSetKind" data-throw-if-not-resolved="false"></xref> property to
+
+    indicate whether a preview set contains application or control previews.
+  example: []
+  syntax:
+    content: public enum PreviewSetKind
+    content.vb: Public Enum PreviewSetKind
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.ApplicationPreviews
+  commentId: F:Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.ApplicationPreviews
+  id: ApplicationPreviews
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+  langs:
+  - csharp
+  - vb
+  name: ApplicationPreviews
+  nameWithType: PreviewSetKind.ApplicationPreviews
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.ApplicationPreviews
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: The set contains only <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.IApplicationPreviewType" data-throw-if-not-resolved="false"></xref> instances.
+  example: []
+  syntax:
+    content: ApplicationPreviews = 0
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.ControlPreviews
+  commentId: F:Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.ControlPreviews
+  id: ControlPreviews
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+  langs:
+  - csharp
+  - vb
+  name: ControlPreviews
+  nameWithType: PreviewSetKind.ControlPreviews
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.ControlPreviews
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: The set contains only <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType" data-throw-if-not-resolved="false"></xref> instances.
+  example: []
+  syntax:
+    content: ControlPreviews = 1
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.Mix
+  commentId: F:Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.Mix
+  id: Mix
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+  langs:
+  - csharp
+  - vb
+  name: Mix
+  nameWithType: PreviewSetKind.Mix
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.Mix
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: The set contains a mix of application and control preview types.
+  example: []
+  syntax:
+    content: Mix = 2
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.Undefined
+  commentId: F:Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.Undefined
+  id: Undefined
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: PreviewSetKind.Undefined
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.Undefined
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    None of the preview types in the set are <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.IApplicationPreviewType" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType" data-throw-if-not-resolved="false"></xref> instances.
+  example: []
+  syntax:
+    content: Undefined = 3
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewSet.PreviewSetKind
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewSet.PreviewSetKind
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewSet.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewSet_PreviewSetKind
+  name: PreviewSetKind
+  nameWithType: IPreviewSet.PreviewSetKind
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewSet.PreviewSetKind
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IApplicationPreviewType
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IApplicationPreviewType
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IApplicationPreviewType.html
+  name: IApplicationPreviewType
+  nameWithType: IApplicationPreviewType
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IApplicationPreviewType
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind.html
+  name: PreviewSetKind
+  nameWithType: PreviewSetKind
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewSetKind
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.html
+  name: IControlPreviewType
+  nameWithType: IControlPreviewType
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType

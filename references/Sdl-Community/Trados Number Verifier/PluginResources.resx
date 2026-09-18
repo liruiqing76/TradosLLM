@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Error_NumbersNotIdentical" xml:space="preserve">
+    <value>Number(s) modified/unlocalised. </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icon.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Plugin_Description" xml:space="preserve">
+    <value>Checks whether numbers in the target segment are identical to those in the source segment.</value>
+  </data>
+  <data name="Plugin_Name" xml:space="preserve">
+    <value>Trados Number Verifier</value>
+  </data>
+  <data name="Setting_Description" xml:space="preserve">
+    <value>Verification settings for numbers</value>
+  </data>
+  <data name="Setting_Name" xml:space="preserve">
+    <value>Number verification settings</value>
+  </data>
+  <data name="Verifier_Description" xml:space="preserve">
+    <value>Plug-in to compare source and target numbers.</value>
+  </data>
+  <data name="Error_NumberAdded" xml:space="preserve">
+    <value>Number added. </value>
+  </data>
+  <data name="Error_NumbersRemoved" xml:space="preserve">
+    <value>Number removed. </value>
+  </data>
+  <data name="Error_AlphanumericsModified" xml:space="preserve">
+    <value>Alphanumeric name modified.</value>
+  </data>
+  <data name="Help_Text" xml:space="preserve">
+    <value>{\rtf1\ansi\ansicpg1252\deff0\deflang1053{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\qc\lang29\b\f0\fs28 Number Verifier Help\par
+\pard\sa200\sl276\slmult1\b0\fs22 While the standard number verification in SDL Trados Studio may often be sufficient there are some occasions when a bit more control would be preferable, for example when translating documents that contain lots of numbers. This Number Verifier plug-in allows you to fine-tune settings to provide you with the desired balance between amount of false positives and potentially missed errors.\par
+The first thing you can do is to select to what extent removed or deleted numbers should be considered errors. For example, if you need to add metric measurements while keeping the imperial measurments in your translation you may want to disregard added numbers altogether or at least to have a warning message displayed rather than an error.\par
+The second thing is that you can make settings related to the localization of numbers. These settings allow you to be anything from strict (with the risk of many false positives) to permissive (with the risk of missing some errors). \par
+You can select the thousands and decimal separators you want to allow. For example, you may allow one or more thousands separators depending on language standards. Similarly you may allow for both a period and a comma to be used as a decimal separator, in order to allow for cases where for some reason more than one language standard should be allowed. The selected separators will then be combined with the Localizations setting to determine what should be considered a modified/unlocalized number.  \par
+\b\i Require localizations\b0\line\i0 If a number in the source is identified as using one of the possible thousands or decimal separators specified for the source separators, the translation \i must\i0  contain corresponding numbers with any of the separators specified for target separators or else the number will be considered modified/unlocalized.\par
+\b\i Allow localizations\line\b0\i0 If a number in the source is identified as using one of the possible thousands or decimal separators specified for the source separators, the translation may contain corresponding numbers with either the same separator as the source number or with any of the separators specified for target separators, or else the number will be considered modified/unlocalized.\par
+\b\i Prevent localizations\line\b0\i0 The same thousands or decimal separators as in source must be retained in the translation or else the number will be considered modified.\par
+In addition to plain numbers the Number Verifier plug-in can also be used to find changes to alphanumeric names. For example, if VT500 has accidentally been translated as VR500 an error can be displayed. Here an alphanumeric name is defined as a string of characters starting with one or more uppercase letters (A-Z) followed by any combination of digits (0-9) and uppercase letters. (Please note that if VT500 has been translated as VT300 this will also be identified as a modified number.)\par
+You can select \b\i Exclude tag text\b0\i0  if you find that you get duplicate error messages since the change of a number in a tag constitutes a tag change that is reported by the tag verifier.\par
+Finally, you can select the \b\i Extended\b0  \i0 option for \b\i Messages \b0\i0 if you want the source and target text to be included in the log file. \par
+\par
+}</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Number Verifier Help.rtf</value>
+  </data>
+  <data name="Download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Download.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ForumIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ForumIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Question" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Question.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NumberParser_Message_SeparatorIsNotRecognized" xml:space="preserve">
+    <value>Separator is not recognized: {0}</value>
+  </data>
+  <data name="NumberParser_Message_MixedGroupSeparators" xml:space="preserve">
+    <value>Mixed group separators: {0}{1}</value>
+  </data>
+  <data name="NumberParser_Message_InvalidGroupSeparator" xml:space="preserve">
+    <value>Invalid group separator: {0}</value>
+  </data>
+  <data name="NumberParser_Message_InvalidSeparatorLocation" xml:space="preserve">
+    <value>Invalid separator location</value>
+  </data>
+  <data name="NumberParser_Message_TheGroupValidIsOutOfRange" xml:space="preserve">
+    <value>The group value is out of range: {0}</value>
+  </data>
+  <data name="NumberParser_Message_LastCharIsNotANumber" xml:space="preserve">
+    <value>The last char is not a number</value>
+  </data>
+  <data name="Segment_level_errors" xml:space="preserve">
+    <value>Segment-level errors</value>
+  </data>
+  <data name="Text_area_level_errors" xml:space="preserve">
+    <value>Text-area level errors</value>
+  </data>
+  <data name="Number_level_errors" xml:space="preserve">
+    <value>Number level errors</value>
+  </data>
+  <data name="Error_SameSequenceDifferentValues" xml:space="preserve">
+    <value>Same sequences but different values</value>
+  </data>
+  <data name="Error_MissingTargetSeparators" xml:space="preserve">
+    <value>Missing target separators</value>
+  </data>
+  <data name="ThousandSeparatorAfterDecimal" xml:space="preserve">
+    <value>Thousands separator after decimal</value>
+  </data>
+  <data name="NumberCannotHaveTwoDifferentThousandSeparators" xml:space="preserve">
+    <value>Number cannot have two different thousands separators</value>
+  </data>
+  <data name="TooManyDecimalSeparators" xml:space="preserve">
+    <value>Too many decimal separators</value>
+  </data>
+  <data name="TooManyTypesOfSeparators" xml:space="preserve">
+    <value>Too many types of separators</value>
+  </data>
+  <data name="Error_DifferentSequences" xml:space="preserve">
+    <value>Different sequences</value>
+  </data>
+  <data name="Error_DifferentValues" xml:space="preserve">
+    <value>Different values</value>
+  </data>
+  <data name="NumberCannotHaveTheSameCharacterAsThousandAndAsDecimalSeparator" xml:space="preserve">
+    <value>Number cannot have the same character as thousand and as decimal separator</value>
+  </data>
+  <data name="Error_SameSequencesButDifferentMeanings" xml:space="preserve">
+    <value>Same sequences but different meanings</value>
+  </data>
+  <data name="NumbersHaveDifferentValues" xml:space="preserve">
+    <value>Numbers have different values</value>
+  </data>
+  <data name="Error_DecimalSeparatorNotValid" xml:space="preserve">
+    <value>Decimal separator not valid</value>
+  </data>
+  <data name="Error_ThousandSeparatorNotValid" xml:space="preserve">
+    <value>Thousand separator not valid</value>
+  </data>
+  <data name="SeparatorNotValid" xml:space="preserve">
+    <value>Separator not valid</value>
+  </data>
+  <data name="SeparatorAfterDecimal" xml:space="preserve">
+    <value>Separator after decimal</value>
+  </data>
+  <data name="Error_MissingSourceSeparators" xml:space="preserve">
+    <value>Missing source separators</value>
+  </data>
+  <data name="Pattern_not_valid" xml:space="preserve">
+    <value>Pattern not valid</value>
+  </data>
+  <data name="Please_select_the_files_you_want_to_import" xml:space="preserve">
+    <value>Please select the files you want to import.</value>
+  </data>
+  <data name="Export_selected_expressions" xml:space="preserve">
+    <value>Export selected expressions</value>
+  </data>
+  <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Settings.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SourceCode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\SourceCode.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TellmeDocumentation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\TellmeDocumentation.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NumberVerifierProfile_Import_ConfirmationMessage" xml:space="preserve">
+    <value>Importing settings will overwrite existing configurations. Do you want to continue?</value>
+  </data>
+  <data name="NumberVerifierProfile_QuestionTitle" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="NumberVerifierProfile_ImportOnInvalid" xml:space="preserve">
+    <value>Invalid settings file.</value>
+  </data>
+  <data name="NumberVerifierProfile_ImportOnSuccess" xml:space="preserve">
+    <value>Number Verifier QA profile imported successfully.</value>
+  </data>
+  <data name="NumberVerifierProfile_Export_OnSuccess" xml:space="preserve">
+    <value>Number Verifier QA profile exported successfully</value>
+  </data>
+  <data name="NumberVerifierProfile_ExportDialogTitle" xml:space="preserve">
+    <value>Export Settings</value>
+  </data>
+  <data name="NumberVerifierProfile_OperationSuccessTitle" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="NumberVerifierProfile_OperationErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+</root>

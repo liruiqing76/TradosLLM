@@ -1,0 +1,341 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Core.ProjectType
+  commentId: T:Sdl.ProjectAutomation.Core.ProjectType
+  id: ProjectType
+  parent: Sdl.ProjectAutomation.Core
+  children:
+  - Sdl.ProjectAutomation.Core.ProjectType.DownloadedFromLanguageCloud
+  - Sdl.ProjectAutomation.Core.ProjectType.ImportedFromLanguageCloud
+  - Sdl.ProjectAutomation.Core.ProjectType.ImportedFromStudio
+  - Sdl.ProjectAutomation.Core.ProjectType.ImportedFromTeamWorks
+  - Sdl.ProjectAutomation.Core.ProjectType.ImportedFromThirdPartyPlugin
+  - Sdl.ProjectAutomation.Core.ProjectType.ImportedFromTms
+  - Sdl.ProjectAutomation.Core.ProjectType.ImportedFromUnknownSystem
+  - Sdl.ProjectAutomation.Core.ProjectType.ImportedFromWorldServer
+  - Sdl.ProjectAutomation.Core.ProjectType.InLanguageCloud
+  - Sdl.ProjectAutomation.Core.ProjectType.PackageSavedToCloud
+  - Sdl.ProjectAutomation.Core.ProjectType.ServerProject
+  - Sdl.ProjectAutomation.Core.ProjectType.SingleFile
+  - Sdl.ProjectAutomation.Core.ProjectType.Standard
+  langs:
+  - csharp
+  - vb
+  name: ProjectType
+  nameWithType: ProjectType
+  fullName: Sdl.ProjectAutomation.Core.ProjectType
+  type: Enum
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The type of project (as shown in the Studio UI)
+  example: []
+  syntax:
+    content: public enum ProjectType
+    content.vb: Public Enum ProjectType
+- uid: Sdl.ProjectAutomation.Core.ProjectType.Standard
+  commentId: F:Sdl.ProjectAutomation.Core.ProjectType.Standard
+  id: Standard
+  parent: Sdl.ProjectAutomation.Core.ProjectType
+  langs:
+  - csharp
+  - vb
+  name: Standard
+  nameWithType: ProjectType.Standard
+  fullName: Sdl.ProjectAutomation.Core.ProjectType.Standard
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: A standard project, created in Studio
+  example: []
+  syntax:
+    content: Standard = 0
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectType
+- uid: Sdl.ProjectAutomation.Core.ProjectType.SingleFile
+  commentId: F:Sdl.ProjectAutomation.Core.ProjectType.SingleFile
+  id: SingleFile
+  parent: Sdl.ProjectAutomation.Core.ProjectType
+  langs:
+  - csharp
+  - vb
+  name: SingleFile
+  nameWithType: ProjectType.SingleFile
+  fullName: Sdl.ProjectAutomation.Core.ProjectType.SingleFile
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: A single file project
+  example: []
+  syntax:
+    content: SingleFile = 1
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectType
+- uid: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromStudio
+  commentId: F:Sdl.ProjectAutomation.Core.ProjectType.ImportedFromStudio
+  id: ImportedFromStudio
+  parent: Sdl.ProjectAutomation.Core.ProjectType
+  langs:
+  - csharp
+  - vb
+  name: ImportedFromStudio
+  nameWithType: ProjectType.ImportedFromStudio
+  fullName: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromStudio
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: A project that has been imported from a Studio package (so not using the package convertor mechanism)
+  example: []
+  syntax:
+    content: ImportedFromStudio = 2
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectType
+- uid: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromTms
+  commentId: F:Sdl.ProjectAutomation.Core.ProjectType.ImportedFromTms
+  id: ImportedFromTms
+  parent: Sdl.ProjectAutomation.Core.ProjectType
+  langs:
+  - csharp
+  - vb
+  name: ImportedFromTms
+  nameWithType: ProjectType.ImportedFromTms
+  fullName: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromTms
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: A project that has been imported from TMS (via the package convertor mechanism)
+  example: []
+  syntax:
+    content: ImportedFromTms = 3
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectType
+- uid: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromTeamWorks
+  commentId: F:Sdl.ProjectAutomation.Core.ProjectType.ImportedFromTeamWorks
+  id: ImportedFromTeamWorks
+  parent: Sdl.ProjectAutomation.Core.ProjectType
+  langs:
+  - csharp
+  - vb
+  name: ImportedFromTeamWorks
+  nameWithType: ProjectType.ImportedFromTeamWorks
+  fullName: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromTeamWorks
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: A project that has been imported from TeamWorks (via the package convertor mechanism)
+  example: []
+  syntax:
+    content: ImportedFromTeamWorks = 4
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectType
+- uid: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromWorldServer
+  commentId: F:Sdl.ProjectAutomation.Core.ProjectType.ImportedFromWorldServer
+  id: ImportedFromWorldServer
+  parent: Sdl.ProjectAutomation.Core.ProjectType
+  langs:
+  - csharp
+  - vb
+  name: ImportedFromWorldServer
+  nameWithType: ProjectType.ImportedFromWorldServer
+  fullName: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromWorldServer
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: A project that has been imported from WorldServer (via the package convertor mechanism)
+  example: []
+  syntax:
+    content: ImportedFromWorldServer = 5
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectType
+- uid: Sdl.ProjectAutomation.Core.ProjectType.ServerProject
+  commentId: F:Sdl.ProjectAutomation.Core.ProjectType.ServerProject
+  id: ServerProject
+  parent: Sdl.ProjectAutomation.Core.ProjectType
+  langs:
+  - csharp
+  - vb
+  name: ServerProject
+  nameWithType: ProjectType.ServerProject
+  fullName: Sdl.ProjectAutomation.Core.ProjectType.ServerProject
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: A project that has been published to Project Server.
+  example: []
+  syntax:
+    content: ServerProject = 6
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectType
+- uid: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromUnknownSystem
+  commentId: F:Sdl.ProjectAutomation.Core.ProjectType.ImportedFromUnknownSystem
+  id: ImportedFromUnknownSystem
+  parent: Sdl.ProjectAutomation.Core.ProjectType
+  langs:
+  - csharp
+  - vb
+  name: ImportedFromUnknownSystem
+  nameWithType: ProjectType.ImportedFromUnknownSystem
+  fullName: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromUnknownSystem
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: A project that has been imported from another system (via the package convertor mechanism)
+  example: []
+  syntax:
+    content: ImportedFromUnknownSystem = 7
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectType
+- uid: Sdl.ProjectAutomation.Core.ProjectType.DownloadedFromLanguageCloud
+  commentId: F:Sdl.ProjectAutomation.Core.ProjectType.DownloadedFromLanguageCloud
+  id: DownloadedFromLanguageCloud
+  parent: Sdl.ProjectAutomation.Core.ProjectType
+  langs:
+  - csharp
+  - vb
+  name: DownloadedFromLanguageCloud
+  nameWithType: ProjectType.DownloadedFromLanguageCloud
+  fullName: Sdl.ProjectAutomation.Core.ProjectType.DownloadedFromLanguageCloud
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: A project that has been downloaded from LanguageCloud
+  example: []
+  syntax:
+    content: DownloadedFromLanguageCloud = 8
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectType
+- uid: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromLanguageCloud
+  commentId: F:Sdl.ProjectAutomation.Core.ProjectType.ImportedFromLanguageCloud
+  id: ImportedFromLanguageCloud
+  parent: Sdl.ProjectAutomation.Core.ProjectType
+  langs:
+  - csharp
+  - vb
+  name: ImportedFromLanguageCloud
+  nameWithType: ProjectType.ImportedFromLanguageCloud
+  fullName: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromLanguageCloud
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: A project that has been imported from LanguageCloud
+  example: []
+  syntax:
+    content: ImportedFromLanguageCloud = 9
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectType
+- uid: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromThirdPartyPlugin
+  commentId: F:Sdl.ProjectAutomation.Core.ProjectType.ImportedFromThirdPartyPlugin
+  id: ImportedFromThirdPartyPlugin
+  parent: Sdl.ProjectAutomation.Core.ProjectType
+  langs:
+  - csharp
+  - vb
+  name: ImportedFromThirdPartyPlugin
+  nameWithType: ProjectType.ImportedFromThirdPartyPlugin
+  fullName: Sdl.ProjectAutomation.Core.ProjectType.ImportedFromThirdPartyPlugin
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: A project that has been imported from a thirdparty plugin
+  example: []
+  syntax:
+    content: ImportedFromThirdPartyPlugin = 10
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectType
+- uid: Sdl.ProjectAutomation.Core.ProjectType.InLanguageCloud
+  commentId: F:Sdl.ProjectAutomation.Core.ProjectType.InLanguageCloud
+  id: InLanguageCloud
+  parent: Sdl.ProjectAutomation.Core.ProjectType
+  langs:
+  - csharp
+  - vb
+  name: InLanguageCloud
+  nameWithType: ProjectType.InLanguageCloud
+  fullName: Sdl.ProjectAutomation.Core.ProjectType.InLanguageCloud
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: A project that exists in LanguageCloud, but was not yet downloaded in Studio
+  example: []
+  syntax:
+    content: InLanguageCloud = 11
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectType
+- uid: Sdl.ProjectAutomation.Core.ProjectType.PackageSavedToCloud
+  commentId: F:Sdl.ProjectAutomation.Core.ProjectType.PackageSavedToCloud
+  id: PackageSavedToCloud
+  parent: Sdl.ProjectAutomation.Core.ProjectType
+  langs:
+  - csharp
+  - vb
+  name: PackageSavedToCloud
+  nameWithType: ProjectType.PackageSavedToCloud
+  fullName: Sdl.ProjectAutomation.Core.ProjectType.PackageSavedToCloud
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: A Studio package that has been converted to LanguageCloud
+  example: []
+  syntax:
+    content: PackageSavedToCloud = 12
+    return:
+      type: Sdl.ProjectAutomation.Core.ProjectType
+references:
+- uid: Sdl.ProjectAutomation.Core
+  commentId: N:Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Core
+  nameWithType: Sdl.ProjectAutomation.Core
+  fullName: Sdl.ProjectAutomation.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+- uid: Sdl.ProjectAutomation.Core.ProjectType
+  commentId: T:Sdl.ProjectAutomation.Core.ProjectType
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ProjectType.html
+  name: ProjectType
+  nameWithType: ProjectType
+  fullName: Sdl.ProjectAutomation.Core.ProjectType

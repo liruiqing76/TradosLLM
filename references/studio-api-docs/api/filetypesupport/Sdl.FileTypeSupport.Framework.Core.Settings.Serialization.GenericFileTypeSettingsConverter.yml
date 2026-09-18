@@ -1,0 +1,858 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter
+  commentId: T:Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter
+  id: GenericFileTypeSettingsConverter
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+  children:
+  - Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.#ctor(Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod[])
+  - Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  - Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,System.String)
+  - Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  - Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,System.String)
+  langs:
+  - csharp
+  - vb
+  name: GenericFileTypeSettingsConverter
+  nameWithType: GenericFileTypeSettingsConverter
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter
+  type: Class
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+  syntax:
+    content: 'public class GenericFileTypeSettingsConverter : IFileTypeSettingsConverter'
+    content.vb: Public Class GenericFileTypeSettingsConverter Implements IFileTypeSettingsConverter
+  inheritance:
+  - System.Object
+  implements:
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.#ctor(Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod[])
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.#ctor(Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod[])
+  id: '#ctor(Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod[])'
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter
+  langs:
+  - csharp
+  - vb
+  name: GenericFileTypeSettingsConverter(params SettingsBundleConverterMethod[])
+  nameWithType: GenericFileTypeSettingsConverter.GenericFileTypeSettingsConverter(params SettingsBundleConverterMethod[])
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.GenericFileTypeSettingsConverter(params Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod[])
+  type: Constructor
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+  syntax:
+    content: public GenericFileTypeSettingsConverter(params SettingsBundleConverterMethod[] conversionMethods)
+    parameters:
+    - id: conversionMethods
+      type: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod[]
+    content.vb: Public Sub New(ParamArray conversionMethods As SettingsBundleConverterMethod())
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.#ctor*
+  nameWithType.vb: GenericFileTypeSettingsConverter.New(ParamArray SettingsBundleConverterMethod())
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.New(ParamArray Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod())
+  name.vb: New(ParamArray SettingsBundleConverterMethod())
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,System.String)
+  id: ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,System.String)
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter
+  langs:
+  - csharp
+  - vb
+  name: ConvertXmlToJson(ISettingsBundle, string)
+  nameWithType: GenericFileTypeSettingsConverter.ConvertXmlToJson(ISettingsBundle, string)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle, string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+  summary: Converts from an Xml settings object to a Json settings object
+  example: []
+  syntax:
+    content: public ISettingsBundle ConvertXmlToJson(ISettingsBundle xmlSettingsBundle, string fileTypeConfigurationId)
+    parameters:
+    - id: xmlSettingsBundle
+      type: Sdl.Core.Settings.ISettingsBundle
+      description: xml settings bundle
+    - id: fileTypeConfigurationId
+      type: System.String
+      description: fileTypeConfigurationId
+    return:
+      type: Sdl.Core.Settings.ISettingsBundle
+      description: IJsonSettingsBundle with settings from passed in xmlSettingsBundle
+    content.vb: Public Function ConvertXmlToJson(xmlSettingsBundle As ISettingsBundle, fileTypeConfigurationId As String) As ISettingsBundle
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson*
+  implements:
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,System.String)
+  nameWithType.vb: GenericFileTypeSettingsConverter.ConvertXmlToJson(ISettingsBundle, String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle, String)
+  name.vb: ConvertXmlToJson(ISettingsBundle, String)
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  id: ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter
+  langs:
+  - csharp
+  - vb
+  name: ConvertXmlToJson(ISettingsBundle, ISettingsBundle, string)
+  nameWithType: GenericFileTypeSettingsConverter.ConvertXmlToJson(ISettingsBundle, ISettingsBundle, string)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle, Sdl.Core.Settings.ISettingsBundle, string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+  summary: Converts from XML to JSON passing in both settings bundles and fileTypeConfigurationId
+  example: []
+  syntax:
+    content: public void ConvertXmlToJson(ISettingsBundle xmlSettingsBundle, ISettingsBundle jsonSettingsBundle, string fileTypeConfigurationId)
+    parameters:
+    - id: xmlSettingsBundle
+      type: Sdl.Core.Settings.ISettingsBundle
+      description: XML settings bundle
+    - id: jsonSettingsBundle
+      type: Sdl.Core.Settings.ISettingsBundle
+      description: JSON settings bundle
+    - id: fileTypeConfigurationId
+      type: System.String
+      description: fileTypeConfigurationId
+    content.vb: Public Sub ConvertXmlToJson(xmlSettingsBundle As ISettingsBundle, jsonSettingsBundle As ISettingsBundle, fileTypeConfigurationId As String)
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson*
+  implements:
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  nameWithType.vb: GenericFileTypeSettingsConverter.ConvertXmlToJson(ISettingsBundle, ISettingsBundle, String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle, Sdl.Core.Settings.ISettingsBundle, String)
+  name.vb: ConvertXmlToJson(ISettingsBundle, ISettingsBundle, String)
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,System.String)
+  id: ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,System.String)
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter
+  langs:
+  - csharp
+  - vb
+  name: ConvertJsonToXml(ISettingsBundle, string)
+  nameWithType: GenericFileTypeSettingsConverter.ConvertJsonToXml(ISettingsBundle, string)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle, string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+  summary: Converts from a Json settings object to an Xml settings object
+  example: []
+  syntax:
+    content: public ISettingsBundle ConvertJsonToXml(ISettingsBundle jsonSettingsBundle, string fileTypeConfigurationId)
+    parameters:
+    - id: jsonSettingsBundle
+      type: Sdl.Core.Settings.ISettingsBundle
+      description: json settings bundle
+    - id: fileTypeConfigurationId
+      type: System.String
+      description: fileTypeConfigurationId
+    return:
+      type: Sdl.Core.Settings.ISettingsBundle
+      description: A populated ISettingsBundle with settings from passed in jsonSettingsBundle
+    content.vb: Public Function ConvertJsonToXml(jsonSettingsBundle As ISettingsBundle, fileTypeConfigurationId As String) As ISettingsBundle
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml*
+  implements:
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,System.String)
+  nameWithType.vb: GenericFileTypeSettingsConverter.ConvertJsonToXml(ISettingsBundle, String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle, String)
+  name.vb: ConvertJsonToXml(ISettingsBundle, String)
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  id: ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter
+  langs:
+  - csharp
+  - vb
+  name: ConvertJsonToXml(ISettingsBundle, ISettingsBundle, string)
+  nameWithType: GenericFileTypeSettingsConverter.ConvertJsonToXml(ISettingsBundle, ISettingsBundle, string)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle, Sdl.Core.Settings.ISettingsBundle, string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+  summary: Converts from Json to XML passing in both settings bundles and fileTypeConfigurationId
+  example: []
+  syntax:
+    content: public void ConvertJsonToXml(ISettingsBundle jsonSettingsBundle, ISettingsBundle xmlSettingsBundle, string fileTypeConfigurationId)
+    parameters:
+    - id: jsonSettingsBundle
+      type: Sdl.Core.Settings.ISettingsBundle
+      description: JSON settings bundle
+    - id: xmlSettingsBundle
+      type: Sdl.Core.Settings.ISettingsBundle
+      description: XML settings bundle
+    - id: fileTypeConfigurationId
+      type: System.String
+      description: fileTypeConfigurationId
+    content.vb: Public Sub ConvertJsonToXml(jsonSettingsBundle As ISettingsBundle, xmlSettingsBundle As ISettingsBundle, fileTypeConfigurationId As String)
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml*
+  implements:
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  nameWithType.vb: GenericFileTypeSettingsConverter.ConvertJsonToXml(ISettingsBundle, ISettingsBundle, String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle, Sdl.Core.Settings.ISettingsBundle, String)
+  name.vb: ConvertJsonToXml(ISettingsBundle, ISettingsBundle, String)
+references:
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+  commentId: N:Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+  nameWithType: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core
+    name: Core
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+    name: Serialization
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core
+    name: Core
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization
+    name: Serialization
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter
+  commentId: T:Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.html
+  name: IFileTypeSettingsConverter
+  nameWithType: IFileTypeSettingsConverter
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings
+  commentId: N:Sdl.FileTypeSupport.Framework.Core.Settings
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.Core.Settings
+  nameWithType: Sdl.FileTypeSupport.Framework.Core.Settings
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core
+    name: Core
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core
+    name: Core
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.html
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.#ctor*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.#ctor
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_Serialization_GenericFileTypeSettingsConverter__ctor_Sdl_FileTypeSupport_Framework_Core_Settings_Serialization_SettingsBundleConverterMethod___
+  name: GenericFileTypeSettingsConverter
+  nameWithType: GenericFileTypeSettingsConverter.GenericFileTypeSettingsConverter
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.GenericFileTypeSettingsConverter
+  nameWithType.vb: GenericFileTypeSettingsConverter.New
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.New
+  name.vb: New
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod[]
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod.html
+  name: SettingsBundleConverterMethod[]
+  nameWithType: SettingsBundleConverterMethod[]
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod[]
+  nameWithType.vb: SettingsBundleConverterMethod()
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod()
+  name.vb: SettingsBundleConverterMethod()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod
+    name: SettingsBundleConverterMethod
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod
+    name: SettingsBundleConverterMethod
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.SettingsBundleConverterMethod.html
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_Serialization_GenericFileTypeSettingsConverter_ConvertXmlToJson_Sdl_Core_Settings_ISettingsBundle_System_String_
+  name: ConvertXmlToJson
+  nameWithType: GenericFileTypeSettingsConverter.ConvertXmlToJson
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertXmlToJson
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,System.String)
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_IFileTypeSettingsConverter_ConvertXmlToJson_Sdl_Core_Settings_ISettingsBundle_System_String_
+  name: ConvertXmlToJson(ISettingsBundle, string)
+  nameWithType: IFileTypeSettingsConverter.ConvertXmlToJson(ISettingsBundle, string)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle, string)
+  nameWithType.vb: IFileTypeSettingsConverter.ConvertXmlToJson(ISettingsBundle, String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle, String)
+  name.vb: ConvertXmlToJson(ISettingsBundle, String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,System.String)
+    name: ConvertXmlToJson
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_IFileTypeSettingsConverter_ConvertXmlToJson_Sdl_Core_Settings_ISettingsBundle_System_String_
+  - name: (
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,System.String)
+    name: ConvertXmlToJson
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_IFileTypeSettingsConverter_ConvertXmlToJson_Sdl_Core_Settings_ISettingsBundle_System_String_
+  - name: (
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.Core.Settings.ISettingsBundle
+  commentId: T:Sdl.Core.Settings.ISettingsBundle
+  parent: Sdl.Core.Settings
+  isExternal: true
+  name: ISettingsBundle
+  nameWithType: ISettingsBundle
+  fullName: Sdl.Core.Settings.ISettingsBundle
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.Core.Settings
+  commentId: N:Sdl.Core.Settings
+  isExternal: true
+  name: Sdl.Core.Settings
+  nameWithType: Sdl.Core.Settings
+  fullName: Sdl.Core.Settings
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Settings
+    name: Settings
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Settings
+    name: Settings
+    isExternal: true
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_IFileTypeSettingsConverter_ConvertXmlToJson_Sdl_Core_Settings_ISettingsBundle_Sdl_Core_Settings_ISettingsBundle_System_String_
+  name: ConvertXmlToJson(ISettingsBundle, ISettingsBundle, string)
+  nameWithType: IFileTypeSettingsConverter.ConvertXmlToJson(ISettingsBundle, ISettingsBundle, string)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle, Sdl.Core.Settings.ISettingsBundle, string)
+  nameWithType.vb: IFileTypeSettingsConverter.ConvertXmlToJson(ISettingsBundle, ISettingsBundle, String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle, Sdl.Core.Settings.ISettingsBundle, String)
+  name.vb: ConvertXmlToJson(ISettingsBundle, ISettingsBundle, String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+    name: ConvertXmlToJson
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_IFileTypeSettingsConverter_ConvertXmlToJson_Sdl_Core_Settings_ISettingsBundle_Sdl_Core_Settings_ISettingsBundle_System_String_
+  - name: (
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertXmlToJson(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+    name: ConvertXmlToJson
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_IFileTypeSettingsConverter_ConvertXmlToJson_Sdl_Core_Settings_ISettingsBundle_Sdl_Core_Settings_ISettingsBundle_System_String_
+  - name: (
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_Serialization_GenericFileTypeSettingsConverter_ConvertJsonToXml_Sdl_Core_Settings_ISettingsBundle_System_String_
+  name: ConvertJsonToXml
+  nameWithType: GenericFileTypeSettingsConverter.ConvertJsonToXml
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.Serialization.GenericFileTypeSettingsConverter.ConvertJsonToXml
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,System.String)
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_IFileTypeSettingsConverter_ConvertJsonToXml_Sdl_Core_Settings_ISettingsBundle_System_String_
+  name: ConvertJsonToXml(ISettingsBundle, string)
+  nameWithType: IFileTypeSettingsConverter.ConvertJsonToXml(ISettingsBundle, string)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle, string)
+  nameWithType.vb: IFileTypeSettingsConverter.ConvertJsonToXml(ISettingsBundle, String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle, String)
+  name.vb: ConvertJsonToXml(ISettingsBundle, String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,System.String)
+    name: ConvertJsonToXml
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_IFileTypeSettingsConverter_ConvertJsonToXml_Sdl_Core_Settings_ISettingsBundle_System_String_
+  - name: (
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,System.String)
+    name: ConvertJsonToXml
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_IFileTypeSettingsConverter_ConvertJsonToXml_Sdl_Core_Settings_ISettingsBundle_System_String_
+  - name: (
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_IFileTypeSettingsConverter_ConvertJsonToXml_Sdl_Core_Settings_ISettingsBundle_Sdl_Core_Settings_ISettingsBundle_System_String_
+  name: ConvertJsonToXml(ISettingsBundle, ISettingsBundle, string)
+  nameWithType: IFileTypeSettingsConverter.ConvertJsonToXml(ISettingsBundle, ISettingsBundle, string)
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle, Sdl.Core.Settings.ISettingsBundle, string)
+  nameWithType.vb: IFileTypeSettingsConverter.ConvertJsonToXml(ISettingsBundle, ISettingsBundle, String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle, Sdl.Core.Settings.ISettingsBundle, String)
+  name.vb: ConvertJsonToXml(ISettingsBundle, ISettingsBundle, String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+    name: ConvertJsonToXml
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_IFileTypeSettingsConverter_ConvertJsonToXml_Sdl_Core_Settings_ISettingsBundle_Sdl_Core_Settings_ISettingsBundle_System_String_
+  - name: (
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.ConvertJsonToXml(Sdl.Core.Settings.ISettingsBundle,Sdl.Core.Settings.ISettingsBundle,System.String)
+    name: ConvertJsonToXml
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IFileTypeSettingsConverter.html#Sdl_FileTypeSupport_Framework_Core_Settings_IFileTypeSettingsConverter_ConvertJsonToXml_Sdl_Core_Settings_ISettingsBundle_Sdl_Core_Settings_ISettingsBundle_System_String_
+  - name: (
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Sdl.Core.Settings.ISettingsBundle
+    name: ISettingsBundle
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )

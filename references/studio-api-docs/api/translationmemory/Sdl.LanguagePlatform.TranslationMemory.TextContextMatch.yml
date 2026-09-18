@@ -1,0 +1,152 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.TextContextMatch
+  id: TextContextMatch
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.NoMatch
+  - Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.PrecedingAndFollowingSourceMatch
+  - Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.SourceMatch
+  - Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.SourceTargetMatch
+  langs:
+  - csharp
+  - vb
+  name: TextContextMatch
+  nameWithType: TextContextMatch
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Specifies the type of a context match.
+  example: []
+  syntax:
+    content: public enum TextContextMatch
+    content.vb: Public Enum TextContextMatch
+- uid: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.NoMatch
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.NoMatch
+  id: NoMatch
+  parent: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch
+  langs:
+  - csharp
+  - vb
+  name: NoMatch
+  nameWithType: TextContextMatch.NoMatch
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.NoMatch
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The result is not a context match.
+  example: []
+  syntax:
+    content: NoMatch = 0
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch
+- uid: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.SourceMatch
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.SourceMatch
+  id: SourceMatch
+  parent: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch
+  langs:
+  - csharp
+  - vb
+  name: SourceMatch
+  nameWithType: TextContextMatch.SourceMatch
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.SourceMatch
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The source segments match in the given context.
+  example: []
+  syntax:
+    content: SourceMatch = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch
+- uid: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.SourceTargetMatch
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.SourceTargetMatch
+  id: SourceTargetMatch
+  parent: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch
+  langs:
+  - csharp
+  - vb
+  name: SourceTargetMatch
+  nameWithType: TextContextMatch.SourceTargetMatch
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.SourceTargetMatch
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The source and target segments match in the given context.
+  example: []
+  syntax:
+    content: SourceTargetMatch = 2
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch
+- uid: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.PrecedingAndFollowingSourceMatch
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.PrecedingAndFollowingSourceMatch
+  id: PrecedingAndFollowingSourceMatch
+  parent: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch
+  langs:
+  - csharp
+  - vb
+  name: PrecedingAndFollowingSourceMatch
+  nameWithType: TextContextMatch.PrecedingAndFollowingSourceMatch
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.PrecedingAndFollowingSourceMatch
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The previous and following source segments match
+  example: []
+  syntax:
+    content: PrecedingAndFollowingSourceMatch = 3
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.TextContextMatch
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch.html
+  name: TextContextMatch
+  nameWithType: TextContextMatch
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TextContextMatch

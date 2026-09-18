@@ -1,0 +1,244 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication
+  id: IAbstractPreviewApplication
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  children:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.Launch
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.NotifyCanClose
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.PreviewClosed
+  langs:
+  - csharp
+  - vb
+  name: IAbstractPreviewApplication
+  nameWithType: IAbstractPreviewApplication
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Common base interface for managing standalone applications
+
+    that are used for previews.
+  example: []
+  syntax:
+    content: 'public interface IAbstractPreviewApplication : IAbstractPreviewController'
+    content.vb: Public Interface IAbstractPreviewApplication Inherits IAbstractPreviewController
+  derivedClasses:
+  - Sdl.FileTypeSupport.Framework.PreviewControls.GenericExteralPreviewApplication
+  - Sdl.FileTypeSupport.Framework.PreviewControls.MsOfficeExternalPreviewApplication
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.Launch
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.Launch
+  id: Launch
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication
+  langs:
+  - csharp
+  - vb
+  name: Launch()
+  nameWithType: IAbstractPreviewApplication.Launch()
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.Launch()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: The host application calls this to launch the preview applications.
+  example: []
+  syntax:
+    content: void Launch()
+    content.vb: Sub Launch()
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.Launch*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.NotifyCanClose
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.NotifyCanClose
+  id: NotifyCanClose
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication
+  langs:
+  - csharp
+  - vb
+  name: NotifyCanClose()
+  nameWithType: IAbstractPreviewApplication.NotifyCanClose()
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.NotifyCanClose()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    The host application may call this when the external preview is no longer
+
+    expected to be needed, e.g. when the file that is being worked on is closed
+
+    or when a new preview is about to be launched.
+  remarks: >-
+    The implementation may attempt to close the application and/or preview file at this point,
+
+    or it may ignore this call and leave it up to the user to
+
+    close the application manually.
+  example: []
+  syntax:
+    content: void NotifyCanClose()
+    content.vb: Sub NotifyCanClose()
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.NotifyCanClose*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.PreviewClosed
+  commentId: E:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.PreviewClosed
+  id: PreviewClosed
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication
+  langs:
+  - csharp
+  - vb
+  name: PreviewClosed
+  nameWithType: IAbstractPreviewApplication.PreviewClosed
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.PreviewClosed
+  type: Event
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    The implementation may raise this event to notify the host application
+
+    when the standalone application no longer needs to be tracked, e.g. when the
+
+    file that is being previewed is closed, or when the preview application is closed.
+  remarks: >-
+    This signals to the host application that temp files, etc. can be
+
+    cleaned up.
+  example: []
+  syntax:
+    content: event EventHandler<PreviewClosedEventArgs> PreviewClosed
+    return:
+      type: System.EventHandler{Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewClosedEventArgs}
+    content.vb: Event PreviewClosed As EventHandler(Of PreviewClosedEventArgs)
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.Launch*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.Launch
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewApplication_Launch
+  name: Launch
+  nameWithType: IAbstractPreviewApplication.Launch
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.Launch
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.NotifyCanClose*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.NotifyCanClose
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewApplication_NotifyCanClose
+  name: NotifyCanClose
+  nameWithType: IAbstractPreviewApplication.NotifyCanClose
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.NotifyCanClose
+- uid: System.EventHandler{Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewClosedEventArgs}
+  commentId: T:System.EventHandler{Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewClosedEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<PreviewClosedEventArgs>
+  nameWithType: EventHandler<PreviewClosedEventArgs>
+  fullName: System.EventHandler<Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewClosedEventArgs>
+  nameWithType.vb: EventHandler(Of PreviewClosedEventArgs)
+  fullName.vb: System.EventHandler(Of Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewClosedEventArgs)
+  name.vb: EventHandler(Of PreviewClosedEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewClosedEventArgs
+    name: PreviewClosedEventArgs
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewClosedEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewClosedEventArgs
+    name: PreviewClosedEventArgs
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewClosedEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

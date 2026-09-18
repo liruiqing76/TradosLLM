@@ -1,0 +1,206 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.FGASupport
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.FGASupport
+  id: FGASupport
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.FGASupport.Automatic
+  - Sdl.LanguagePlatform.TranslationMemory.FGASupport.Legacy
+  - Sdl.LanguagePlatform.TranslationMemory.FGASupport.NonAutomatic
+  - Sdl.LanguagePlatform.TranslationMemory.FGASupport.Off
+  langs:
+  - csharp
+  - vb
+  name: FGASupport
+  nameWithType: FGASupport
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FGASupport
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Specifies the fine-grained-alignment support status
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public enum FGASupport
+    content.vb: >-
+      <DataContract>
+
+      Public Enum FGASupport
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.FGASupport.Legacy
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.FGASupport.Legacy
+  id: Legacy
+  parent: Sdl.LanguagePlatform.TranslationMemory.FGASupport
+  langs:
+  - csharp
+  - vb
+  name: Legacy
+  nameWithType: FGASupport.Legacy
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FGASupport.Legacy
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The TM is a legacy TM that requires conversion before it can support fine-grained alignment
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Legacy = 0
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FGASupport
+    content.vb: >-
+      <EnumMember>
+
+      Legacy = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.FGASupport.Off
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.FGASupport.Off
+  id: Off
+  parent: Sdl.LanguagePlatform.TranslationMemory.FGASupport
+  langs:
+  - csharp
+  - vb
+  name: Off
+  nameWithType: FGASupport.Off
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FGASupport.Off
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The TM can support fine-grained alignment, but is not currently set to use it at all.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Off = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FGASupport
+    content.vb: >-
+      <EnumMember>
+
+      Off = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.FGASupport.NonAutomatic
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.FGASupport.NonAutomatic
+  id: NonAutomatic
+  parent: Sdl.LanguagePlatform.TranslationMemory.FGASupport
+  langs:
+  - csharp
+  - vb
+  name: NonAutomatic
+  nameWithType: FGASupport.NonAutomatic
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FGASupport.NonAutomatic
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The TM has fine-grained-alignment support, but automatic (=incremental) alignment is disabled.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      NonAutomatic = 2
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FGASupport
+    content.vb: >-
+      <EnumMember>
+
+      NonAutomatic = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.FGASupport.Automatic
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.FGASupport.Automatic
+  id: Automatic
+  parent: Sdl.LanguagePlatform.TranslationMemory.FGASupport
+  langs:
+  - csharp
+  - vb
+  name: Automatic
+  nameWithType: FGASupport.Automatic
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FGASupport.Automatic
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The TM has fine-grained-alignment support and automatic (=incremental) alignment is enabled.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Automatic = 3
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FGASupport
+    content.vb: >-
+      <EnumMember>
+
+      Automatic = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.FGASupport
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.FGASupport
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.FGASupport.html
+  name: FGASupport
+  nameWithType: FGASupport
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FGASupport

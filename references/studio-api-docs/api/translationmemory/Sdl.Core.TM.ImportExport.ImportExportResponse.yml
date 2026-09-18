@@ -1,0 +1,120 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.TM.ImportExport.ImportExportResponse
+  commentId: T:Sdl.Core.TM.ImportExport.ImportExportResponse
+  id: ImportExportResponse
+  parent: Sdl.Core.TM.ImportExport
+  children:
+  - Sdl.Core.TM.ImportExport.ImportExportResponse.Cancel
+  - Sdl.Core.TM.ImportExport.ImportExportResponse.Continue
+  langs:
+  - csharp
+  - vb
+  name: ImportExportResponse
+  nameWithType: ImportExportResponse
+  fullName: Sdl.Core.TM.ImportExport.ImportExportResponse
+  type: Enum
+  assemblies:
+  - Sdl.Core.TM.ImportExport
+  namespace: Sdl.Core.TM.ImportExport
+  summary: ImportExportResponse
+  example: []
+  syntax:
+    content: public enum ImportExportResponse
+    content.vb: Public Enum ImportExportResponse
+- uid: Sdl.Core.TM.ImportExport.ImportExportResponse.Continue
+  commentId: F:Sdl.Core.TM.ImportExport.ImportExportResponse.Continue
+  id: Continue
+  parent: Sdl.Core.TM.ImportExport.ImportExportResponse
+  langs:
+  - csharp
+  - vb
+  name: Continue
+  nameWithType: ImportExportResponse.Continue
+  fullName: Sdl.Core.TM.ImportExport.ImportExportResponse.Continue
+  type: Field
+  assemblies:
+  - Sdl.Core.TM.ImportExport
+  namespace: Sdl.Core.TM.ImportExport
+  summary: Continues the process if there are any translation units left.
+  example: []
+  syntax:
+    content: Continue = 0
+    return:
+      type: Sdl.Core.TM.ImportExport.ImportExportResponse
+- uid: Sdl.Core.TM.ImportExport.ImportExportResponse.Cancel
+  commentId: F:Sdl.Core.TM.ImportExport.ImportExportResponse.Cancel
+  id: Cancel
+  parent: Sdl.Core.TM.ImportExport.ImportExportResponse
+  langs:
+  - csharp
+  - vb
+  name: Cancel
+  nameWithType: ImportExportResponse.Cancel
+  fullName: Sdl.Core.TM.ImportExport.ImportExportResponse.Cancel
+  type: Field
+  assemblies:
+  - Sdl.Core.TM.ImportExport
+  namespace: Sdl.Core.TM.ImportExport
+  summary: Stops the process.
+  example: []
+  syntax:
+    content: Cancel = 1
+    return:
+      type: Sdl.Core.TM.ImportExport.ImportExportResponse
+references:
+- uid: Sdl.Core.TM.ImportExport
+  commentId: N:Sdl.Core.TM.ImportExport
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.TM.ImportExport
+  nameWithType: Sdl.Core.TM.ImportExport
+  fullName: Sdl.Core.TM.ImportExport
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.TM
+    name: TM
+    isExternal: true
+    href: Sdl.Core.TM.html
+  - name: .
+  - uid: Sdl.Core.TM.ImportExport
+    name: ImportExport
+    isExternal: true
+    href: Sdl.Core.TM.ImportExport.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.TM
+    name: TM
+    isExternal: true
+    href: Sdl.Core.TM.html
+  - name: .
+  - uid: Sdl.Core.TM.ImportExport
+    name: ImportExport
+    isExternal: true
+    href: Sdl.Core.TM.ImportExport.html
+- uid: Sdl.Core.TM.ImportExport.ImportExportResponse
+  commentId: T:Sdl.Core.TM.ImportExport.ImportExportResponse
+  parent: Sdl.Core.TM.ImportExport
+  isExternal: true
+  href: Sdl.Core.TM.ImportExport.ImportExportResponse.html
+  name: ImportExportResponse
+  nameWithType: ImportExportResponse
+  fullName: Sdl.Core.TM.ImportExport.ImportExportResponse

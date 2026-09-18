@@ -1,0 +1,1314 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  id: SideBySideNavigableWebBrowserPreviewController
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls
+  children:
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.#ctor
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Control
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose(System.Boolean)
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Finalize
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.InitialHtmlPage
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.OnSegmentSelected(System.Object,Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs)
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.PreferredHighlightColor
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Refresh
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.RefreshTarget
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SegmentSelected
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SourcePreviewFile
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.TargetPreviewFile
+  langs:
+  - csharp
+  - vb
+  name: SideBySideNavigableWebBrowserPreviewController
+  nameWithType: SideBySideNavigableWebBrowserPreviewController
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  type: Class
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: A side by side navigable web browser preview controller
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Moved to TradosStudio")]
+
+      public class SideBySideNavigableWebBrowserPreviewController : AbstractPreviewControl, IFileTypeDefinitionAware, ISourceAndTargetFilePreviewControl, IAbstractPreviewControl, IAbstractPreviewController, ISourceAndTargetFilePreviewController, INavigablePreview, IDisposable
+    content.vb: >-
+      <Obsolete("Moved to TradosStudio")>
+
+      Public Class SideBySideNavigableWebBrowserPreviewController Inherits AbstractPreviewControl Implements IFileTypeDefinitionAware, ISourceAndTargetFilePreviewControl, IAbstractPreviewControl, IAbstractPreviewController, ISourceAndTargetFilePreviewController, INavigablePreview, IDisposable
+  inheritance:
+  - System.Object
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  - Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  derivedClasses:
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideRealtimeWebBrowserPreviewController
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewControl
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewController
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview
+  - System.IDisposable
+  inheritedMembers:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Moved to TradosStudio
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.#ctor
+  commentId: M:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.#ctor
+  id: '#ctor'
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: SideBySideNavigableWebBrowserPreviewController()
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.SideBySideNavigableWebBrowserPreviewController()
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SideBySideNavigableWebBrowserPreviewController()
+  type: Constructor
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: SideBySideNavigableWebBroserPreviewController constructor
+  example: []
+  syntax:
+    content: public SideBySideNavigableWebBrowserPreviewController()
+    content.vb: Public Sub New()
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.#ctor*
+  nameWithType.vb: SideBySideNavigableWebBrowserPreviewController.New()
+  fullName.vb: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.New()
+  name.vb: New()
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Finalize
+  commentId: M:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Finalize
+  id: Finalize
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: ~SideBySideNavigableWebBrowserPreviewController()
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.~SideBySideNavigableWebBrowserPreviewController()
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.~SideBySideNavigableWebBrowserPreviewController()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: SideBySideNavigableWebBrowserPreviewController destructor
+  example: []
+  syntax:
+    content: protected ~SideBySideNavigableWebBrowserPreviewController()
+    content.vb: 'Protected '
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.OnSegmentSelected(System.Object,Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs)
+  commentId: M:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.OnSegmentSelected(System.Object,Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs)
+  id: OnSegmentSelected(System.Object,Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs)
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: OnSegmentSelected(object, SegmentSelectedEventArgs)
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.OnSegmentSelected(object, SegmentSelectedEventArgs)
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.OnSegmentSelected(object, Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: Raise the <xref href="Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SegmentSelected" data-throw-if-not-resolved="false"></xref> event.
+  example: []
+  syntax:
+    content: public virtual void OnSegmentSelected(object sender, SegmentSelectedEventArgs args)
+    parameters:
+    - id: sender
+      type: System.Object
+      description: ''
+    - id: args
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs
+      description: ''
+    content.vb: Public Overridable Sub OnSegmentSelected(sender As Object, args As SegmentSelectedEventArgs)
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.OnSegmentSelected*
+  nameWithType.vb: SideBySideNavigableWebBrowserPreviewController.OnSegmentSelected(Object, SegmentSelectedEventArgs)
+  fullName.vb: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.OnSegmentSelected(Object, Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs)
+  name.vb: OnSegmentSelected(Object, SegmentSelectedEventArgs)
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Refresh
+  commentId: M:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Refresh
+  id: Refresh
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: Refresh()
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.Refresh()
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Refresh()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: >-
+    Called to initially display or refresh the display of a the source and target pages in two System.Windows.Forms.WebBrowser controls.
+
+    If either the source and target files do not exist then the InitialHtmlPage page will be displayed.
+
+    <remarks>The GenericInternalWebBrowserPreviewControl can be used to display a single source or target file in a WebBrowser control.</remarks>
+  example: []
+  syntax:
+    content: public override void Refresh()
+    content.vb: Public Overrides Sub Refresh()
+  overridden: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Refresh*
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.RefreshTarget
+  commentId: M:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.RefreshTarget
+  id: RefreshTarget
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: RefreshTarget()
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.RefreshTarget()
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.RefreshTarget()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: Called to refresh the Target portion of the control
+  example: []
+  syntax:
+    content: protected void RefreshTarget()
+    content.vb: Protected Sub RefreshTarget()
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.RefreshTarget*
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose(System.Boolean)
+  commentId: M:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.Dispose(bool)
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose(bool)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: >-
+    Implementation of the recommended dispose protocol.
+
+    Deletes the managed WebBrowser control
+  example: []
+  syntax:
+    content: protected virtual void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+      description: true if this method is called from IDisposable.Dispose() and false if called from Finalizer
+    content.vb: Protected Overridable Sub Dispose(disposing As Boolean)
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose*
+  nameWithType.vb: SideBySideNavigableWebBrowserPreviewController.Dispose(Boolean)
+  fullName.vb: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose
+  commentId: M:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose
+  id: Dispose
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.Dispose()
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: Dispose mechanism
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  commentId: M:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  id: NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: NavigateToSegment(SegmentReference)
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.NavigateToSegment(SegmentReference)
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: Called when navigating to a specific segment is required
+  example: []
+  syntax:
+    content: public void NavigateToSegment(SegmentReference segment)
+    parameters:
+    - id: segment
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference
+      description: ''
+    content.vb: Public Sub NavigateToSegment(segment As SegmentReference)
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.NavigateToSegment*
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Control
+  commentId: P:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Control
+  id: Control
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: Control
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.Control
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Control
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: Property to access the Preview Control
+  example: []
+  syntax:
+    content: public override Control Control { get; }
+    parameters: []
+    return:
+      type: System.Windows.Forms.Control
+    content.vb: Public Overrides ReadOnly Property Control As Control
+  overridden: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Control
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Control*
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Control
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.InitialHtmlPage
+  commentId: P:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.InitialHtmlPage
+  id: InitialHtmlPage
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: InitialHtmlPage
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.InitialHtmlPage
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.InitialHtmlPage
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: >-
+    If set then an initial HTML page will be displayed containg
+
+    the content of this string in a tempoary .htm file.
+  example: []
+  syntax:
+    content: public string InitialHtmlPage { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property InitialHtmlPage As String
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.InitialHtmlPage*
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SourcePreviewFile
+  commentId: P:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SourcePreviewFile
+  id: SourcePreviewFile
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: SourcePreviewFile
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.SourcePreviewFile
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SourcePreviewFile
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: Default implementation is accessor for member field.
+  example: []
+  syntax:
+    content: public TempFileManager SourcePreviewFile { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.TempFileManager
+    content.vb: Public Property SourcePreviewFile As TempFileManager
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SourcePreviewFile*
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController.SourcePreviewFile
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.TargetPreviewFile
+  commentId: P:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.TargetPreviewFile
+  id: TargetPreviewFile
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: TargetPreviewFile
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.TargetPreviewFile
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.TargetPreviewFile
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: Default implementation is accessor for member field.
+  example: []
+  syntax:
+    content: public TempFileManager TargetPreviewFile { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.TempFileManager
+    content.vb: Public Property TargetPreviewFile As TempFileManager
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.TargetPreviewFile*
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController.TargetPreviewFile
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.PreferredHighlightColor
+  commentId: P:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.PreferredHighlightColor
+  id: PreferredHighlightColor
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: PreferredHighlightColor
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.PreferredHighlightColor
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.PreferredHighlightColor
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: Property for getting/setting preferred highlight color
+  example: []
+  syntax:
+    content: public Color PreferredHighlightColor { get; set; }
+    parameters: []
+    return:
+      type: System.Drawing.Color
+    content.vb: Public Property PreferredHighlightColor As Color
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.PreferredHighlightColor*
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.PreferredHighlightColor
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SegmentSelected
+  commentId: E:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SegmentSelected
+  id: SegmentSelected
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  langs:
+  - csharp
+  - vb
+  name: SegmentSelected
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.SegmentSelected
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SegmentSelected
+  type: Event
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: Segment selected event
+  example: []
+  syntax:
+    content: public event EventHandler<SegmentSelectedEventArgs> SegmentSelected
+    return:
+      type: System.EventHandler{Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs}
+    content.vb: Public Event SegmentSelected As EventHandler(Of SegmentSelectedEventArgs)
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.SegmentSelected
+references:
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls
+  commentId: N:Sdl.FileTypeSupport.Framework.PreviewControls
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.PreviewControls
+  nameWithType: Sdl.FileTypeSupport.Framework.PreviewControls
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.PreviewControls
+    name: PreviewControls
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.PreviewControls.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.PreviewControls
+    name: PreviewControls
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.PreviewControls.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.html
+  name: AbstractFileTypeDefinitionComponent
+  nameWithType: AbstractFileTypeDefinitionComponent
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.html
+  name: AbstractPreviewControl
+  nameWithType: AbstractPreviewControl
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.html
+  name: IFileTypeDefinitionAware
+  nameWithType: IFileTypeDefinitionAware
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewControl
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewControl
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewControl.html
+  name: ISourceAndTargetFilePreviewControl
+  nameWithType: ISourceAndTargetFilePreviewControl
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewControl
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html
+  name: IAbstractPreviewControl
+  nameWithType: IAbstractPreviewControl
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewController
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewController
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewController.html
+  name: IAbstractPreviewController
+  nameWithType: IAbstractPreviewController
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewController
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController.html
+  name: ISourceAndTargetFilePreviewController
+  nameWithType: ISourceAndTargetFilePreviewController
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.html
+  name: INavigablePreview
+  nameWithType: INavigablePreview
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.html#Sdl_FileTypeSupport_Framework_IntegrationApi_AbstractFileTypeDefinitionComponent_FileTypeDefinition
+  name: FileTypeDefinition
+  nameWithType: AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.#ctor*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.#ctor
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController__ctor
+  name: SideBySideNavigableWebBrowserPreviewController
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.SideBySideNavigableWebBrowserPreviewController
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SideBySideNavigableWebBrowserPreviewController
+  nameWithType.vb: SideBySideNavigableWebBrowserPreviewController.New
+  fullName.vb: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.New
+  name.vb: New
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Finalize*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Finalize
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController_Finalize
+  name: ~SideBySideNavigableWebBrowserPreviewController
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.~SideBySideNavigableWebBrowserPreviewController
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.~SideBySideNavigableWebBrowserPreviewController
+  spec.csharp:
+  - name: "~"
+  - uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Finalize*
+    name: SideBySideNavigableWebBrowserPreviewController
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController_Finalize
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SegmentSelected
+  commentId: E:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SegmentSelected
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController_SegmentSelected
+  name: SegmentSelected
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.SegmentSelected
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SegmentSelected
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.OnSegmentSelected*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.OnSegmentSelected
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController_OnSegmentSelected_System_Object_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentSelectedEventArgs_
+  name: OnSegmentSelected
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.OnSegmentSelected
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.OnSegmentSelected
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs.html
+  name: SegmentSelectedEventArgs
+  nameWithType: SegmentSelectedEventArgs
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html
+  name: SideBySideNavigableWebBrowserPreviewController
+  nameWithType: SideBySideNavigableWebBrowserPreviewController
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh
+  commentId: M:Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_PreviewControls_AbstractPreviewControl_Refresh
+  name: Refresh()
+  nameWithType: AbstractPreviewControl.Refresh()
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh
+    name: Refresh
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_PreviewControls_AbstractPreviewControl_Refresh
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh
+    name: Refresh
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_PreviewControls_AbstractPreviewControl_Refresh
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Refresh*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Refresh
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController_Refresh
+  name: Refresh
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.Refresh
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Refresh
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewControl_Refresh
+  name: Refresh()
+  nameWithType: IAbstractPreviewControl.Refresh()
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+    name: Refresh
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewControl_Refresh
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+    name: Refresh
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewControl_Refresh
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.RefreshTarget*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.RefreshTarget
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController_RefreshTarget
+  name: RefreshTarget
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.RefreshTarget
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.RefreshTarget
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController_Dispose_System_Boolean_
+  name: Dispose
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.Dispose
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Dispose
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.NavigateToSegment*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.NavigateToSegment
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController_NavigateToSegment_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentReference_
+  name: NavigateToSegment
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.NavigateToSegment
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.NavigateToSegment
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.html#Sdl_FileTypeSupport_Framework_IntegrationApi_INavigablePreview_NavigateToSegment_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentReference_
+  name: NavigateToSegment(SegmentReference)
+  nameWithType: INavigablePreview.NavigateToSegment(SegmentReference)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+    name: NavigateToSegment
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.html#Sdl_FileTypeSupport_Framework_IntegrationApi_INavigablePreview_NavigateToSegment_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentReference_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference
+    name: SegmentReference
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+    name: NavigateToSegment
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.html#Sdl_FileTypeSupport_Framework_IntegrationApi_INavigablePreview_NavigateToSegment_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentReference_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference
+    name: SegmentReference
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference.html
+  name: SegmentReference
+  nameWithType: SegmentReference
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Control
+  commentId: P:Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Control
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_PreviewControls_AbstractPreviewControl_Control
+  name: Control
+  nameWithType: AbstractPreviewControl.Control
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Control
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Control*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Control
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController_Control
+  name: Control
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.Control
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.Control
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Control
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Control
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewControl_Control
+  name: Control
+  nameWithType: IAbstractPreviewControl.Control
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Control
+- uid: System.Windows.Forms.Control
+  commentId: T:System.Windows.Forms.Control
+  parent: System.Windows.Forms
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.windows.forms.control
+  name: Control
+  nameWithType: Control
+  fullName: System.Windows.Forms.Control
+- uid: System.Windows.Forms
+  commentId: N:System.Windows.Forms
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Windows.Forms
+  nameWithType: System.Windows.Forms
+  fullName: System.Windows.Forms
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows
+  - name: .
+  - uid: System.Windows.Forms
+    name: Forms
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.forms
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows
+  - name: .
+  - uid: System.Windows.Forms
+    name: Forms
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.forms
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.InitialHtmlPage*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.InitialHtmlPage
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController_InitialHtmlPage
+  name: InitialHtmlPage
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.InitialHtmlPage
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.InitialHtmlPage
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SourcePreviewFile*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SourcePreviewFile
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController_SourcePreviewFile
+  name: SourcePreviewFile
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.SourcePreviewFile
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.SourcePreviewFile
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController.SourcePreviewFile
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController.SourcePreviewFile
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController.html#Sdl_FileTypeSupport_Framework_IntegrationApi_ISourceAndTargetFilePreviewController_SourcePreviewFile
+  name: SourcePreviewFile
+  nameWithType: ISourceAndTargetFilePreviewController.SourcePreviewFile
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController.SourcePreviewFile
+- uid: Sdl.FileTypeSupport.Framework.TempFileManager
+  commentId: T:Sdl.FileTypeSupport.Framework.TempFileManager
+  parent: Sdl.FileTypeSupport.Framework
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.TempFileManager.html
+  name: TempFileManager
+  nameWithType: TempFileManager
+  fullName: Sdl.FileTypeSupport.Framework.TempFileManager
+- uid: Sdl.FileTypeSupport.Framework
+  commentId: N:Sdl.FileTypeSupport.Framework
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework
+  nameWithType: Sdl.FileTypeSupport.Framework
+  fullName: Sdl.FileTypeSupport.Framework
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.TargetPreviewFile*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.TargetPreviewFile
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController_TargetPreviewFile
+  name: TargetPreviewFile
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.TargetPreviewFile
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.TargetPreviewFile
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController.TargetPreviewFile
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController.TargetPreviewFile
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController.html#Sdl_FileTypeSupport_Framework_IntegrationApi_ISourceAndTargetFilePreviewController_TargetPreviewFile
+  name: TargetPreviewFile
+  nameWithType: ISourceAndTargetFilePreviewController.TargetPreviewFile
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.ISourceAndTargetFilePreviewController.TargetPreviewFile
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.PreferredHighlightColor*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.PreferredHighlightColor
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html#Sdl_FileTypeSupport_Framework_PreviewControls_SideBySideNavigableWebBrowserPreviewController_PreferredHighlightColor
+  name: PreferredHighlightColor
+  nameWithType: SideBySideNavigableWebBrowserPreviewController.PreferredHighlightColor
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.PreferredHighlightColor
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.PreferredHighlightColor
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.PreferredHighlightColor
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.html#Sdl_FileTypeSupport_Framework_IntegrationApi_INavigablePreview_PreferredHighlightColor
+  name: PreferredHighlightColor
+  nameWithType: INavigablePreview.PreferredHighlightColor
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.PreferredHighlightColor
+- uid: System.Drawing.Color
+  commentId: T:System.Drawing.Color
+  parent: System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.drawing.color
+  name: Color
+  nameWithType: Color
+  fullName: System.Drawing.Color
+- uid: System.Drawing
+  commentId: N:System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Drawing
+  nameWithType: System.Drawing
+  fullName: System.Drawing
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.SegmentSelected
+  commentId: E:Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.SegmentSelected
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.html#Sdl_FileTypeSupport_Framework_IntegrationApi_INavigablePreview_SegmentSelected
+  name: SegmentSelected
+  nameWithType: INavigablePreview.SegmentSelected
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.SegmentSelected
+- uid: System.EventHandler{Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs}
+  commentId: T:System.EventHandler{Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<SegmentSelectedEventArgs>
+  nameWithType: EventHandler<SegmentSelectedEventArgs>
+  fullName: System.EventHandler<Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs>
+  nameWithType.vb: EventHandler(Of SegmentSelectedEventArgs)
+  fullName.vb: System.EventHandler(Of Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs)
+  name.vb: EventHandler(Of SegmentSelectedEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs
+    name: SegmentSelectedEventArgs
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs
+    name: SegmentSelectedEventArgs
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentSelectedEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )

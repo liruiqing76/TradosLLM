@@ -1,0 +1,786 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  id: IFileTypeComponentBuilder
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  children:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAbstractGenerator(System.String)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAdditionalGeneratorsInfo(System.String)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildBilingualGenerator(System.String)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileExtractor(System.String)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileGenerator(System.String)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileSniffer(System.String)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileTypeInformation(System.String)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewApplication(System.String)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewControl(System.String)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewSetsFactory(System.String)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildQuickTagsFactory(System.String)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildVerifierCollection(System.String)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.FileTypeManager
+  langs:
+  - csharp
+  - vb
+  name: IFileTypeComponentBuilder
+  nameWithType: IFileTypeComponentBuilder
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Interface implemented by anything that can create the components that make up a file type.
+
+    This may be achieved by reading from a configuration file, or by directly instantiating the objects (in an implementation specific to a file type).
+
+
+    The SpringFileTypeComponentBuilder implements this interface and uses the
+
+    spring framework to do this.
+  example: []
+  syntax:
+    content: 'public interface IFileTypeComponentBuilder : IFileTypeDefinitionAware'
+    content.vb: Public Interface IFileTypeComponentBuilder Inherits IFileTypeDefinitionAware
+  derivedClasses:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.DynamicFilterComponentBuilder
+  inheritedMembers:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileTypeInformation(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileTypeInformation(System.String)
+  id: BuildFileTypeInformation(System.String)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildFileTypeInformation(string)
+  nameWithType: IFileTypeComponentBuilder.BuildFileTypeInformation(string)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileTypeInformation(string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Returns a file type information object.
+  example: []
+  syntax:
+    content: IFileTypeInformation BuildFileTypeInformation(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition" data-throw-if-not-resolved="false"></xref> will pass "" as the name for this parameter
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeInformation
+      description: ''
+    content.vb: Function BuildFileTypeInformation(name As String) As IFileTypeInformation
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileTypeInformation*
+  nameWithType.vb: IFileTypeComponentBuilder.BuildFileTypeInformation(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileTypeInformation(String)
+  name.vb: BuildFileTypeInformation(String)
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildQuickTagsFactory(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildQuickTagsFactory(System.String)
+  id: BuildQuickTagsFactory(System.String)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildQuickTagsFactory(string)
+  nameWithType: IFileTypeComponentBuilder.BuildQuickTagsFactory(string)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildQuickTagsFactory(string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Gets the QuickTags object for this component.
+  example: []
+  syntax:
+    content: IQuickTagsFactory BuildQuickTagsFactory(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IQuickTagsFactory
+      description: ''
+    content.vb: Function BuildQuickTagsFactory(name As String) As IQuickTagsFactory
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildQuickTagsFactory*
+  nameWithType.vb: IFileTypeComponentBuilder.BuildQuickTagsFactory(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildQuickTagsFactory(String)
+  name.vb: BuildQuickTagsFactory(String)
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileSniffer(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileSniffer(System.String)
+  id: BuildFileSniffer(System.String)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildFileSniffer(string)
+  nameWithType: IFileTypeComponentBuilder.BuildFileSniffer(string)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileSniffer(string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Gets the file sniffer for this component.
+  example: []
+  syntax:
+    content: INativeFileSniffer BuildFileSniffer(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.INativeFileSniffer
+      description: ''
+    content.vb: Function BuildFileSniffer(name As String) As INativeFileSniffer
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileSniffer*
+  nameWithType.vb: IFileTypeComponentBuilder.BuildFileSniffer(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileSniffer(String)
+  name.vb: BuildFileSniffer(String)
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileExtractor(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileExtractor(System.String)
+  id: BuildFileExtractor(System.String)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildFileExtractor(string)
+  nameWithType: IFileTypeComponentBuilder.BuildFileExtractor(string)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileExtractor(string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Gets the file extractor for this component.
+  example: []
+  syntax:
+    content: IFileExtractor BuildFileExtractor(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileExtractor
+      description: ''
+    content.vb: Function BuildFileExtractor(name As String) As IFileExtractor
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileExtractor*
+  nameWithType.vb: IFileTypeComponentBuilder.BuildFileExtractor(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileExtractor(String)
+  name.vb: BuildFileExtractor(String)
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileGenerator(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileGenerator(System.String)
+  id: BuildFileGenerator(System.String)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildFileGenerator(string)
+  nameWithType: IFileTypeComponentBuilder.BuildFileGenerator(string)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileGenerator(string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Gets the file generator for this component.
+  example: []
+  syntax:
+    content: IFileGenerator BuildFileGenerator(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileGenerator
+      description: <code>Null</code> if no file generator is defined
+    content.vb: Function BuildFileGenerator(name As String) As IFileGenerator
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileGenerator*
+  nameWithType.vb: IFileTypeComponentBuilder.BuildFileGenerator(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileGenerator(String)
+  name.vb: BuildFileGenerator(String)
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAdditionalGeneratorsInfo(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAdditionalGeneratorsInfo(System.String)
+  id: BuildAdditionalGeneratorsInfo(System.String)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildAdditionalGeneratorsInfo(string)
+  nameWithType: IFileTypeComponentBuilder.BuildAdditionalGeneratorsInfo(string)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAdditionalGeneratorsInfo(string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: The the additional generator information for this file type
+  example: []
+  syntax:
+    content: IAdditionalGeneratorsInfo BuildAdditionalGeneratorsInfo(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IAdditionalGeneratorsInfo
+      description: ''
+    content.vb: Function BuildAdditionalGeneratorsInfo(name As String) As IAdditionalGeneratorsInfo
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAdditionalGeneratorsInfo*
+  nameWithType.vb: IFileTypeComponentBuilder.BuildAdditionalGeneratorsInfo(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAdditionalGeneratorsInfo(String)
+  name.vb: BuildAdditionalGeneratorsInfo(String)
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAbstractGenerator(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAbstractGenerator(System.String)
+  id: BuildAbstractGenerator(System.String)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildAbstractGenerator(string)
+  nameWithType: IFileTypeComponentBuilder.BuildAbstractGenerator(string)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAbstractGenerator(string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Gets a native or bilingual document generator of the type
+
+    defined for the specified name.
+  example: []
+  syntax:
+    content: IAbstractGenerator BuildAbstractGenerator(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractGenerator
+      description: ''
+    content.vb: Function BuildAbstractGenerator(name As String) As IAbstractGenerator
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAbstractGenerator*
+  nameWithType.vb: IFileTypeComponentBuilder.BuildAbstractGenerator(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAbstractGenerator(String)
+  name.vb: BuildAbstractGenerator(String)
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewSetsFactory(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewSetsFactory(System.String)
+  id: BuildPreviewSetsFactory(System.String)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildPreviewSetsFactory(string)
+  nameWithType: IFileTypeComponentBuilder.BuildPreviewSetsFactory(string)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewSetsFactory(string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Gets the different sets of previews supported for this component.
+  example: []
+  syntax:
+    content: IPreviewSetsFactory BuildPreviewSetsFactory(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewSetsFactory
+      description: ''
+    content.vb: Function BuildPreviewSetsFactory(name As String) As IPreviewSetsFactory
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewSetsFactory*
+  nameWithType.vb: IFileTypeComponentBuilder.BuildPreviewSetsFactory(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewSetsFactory(String)
+  name.vb: BuildPreviewSetsFactory(String)
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewControl(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewControl(System.String)
+  id: BuildPreviewControl(System.String)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildPreviewControl(string)
+  nameWithType: IFileTypeComponentBuilder.BuildPreviewControl(string)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewControl(string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  syntax:
+    content: >-
+      [Obsolete("No longer used in Studio 2026 and later, preview UI was moved inside Studio.")]
+
+      IAbstractPreviewControl BuildPreviewControl(string name)
+    parameters:
+    - id: name
+      type: System.String
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+    content.vb: >-
+      <Obsolete("No longer used in Studio 2026 and later, preview UI was moved inside Studio.")>
+
+      Function BuildPreviewControl(name As String) As IAbstractPreviewControl
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewControl*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: No longer used in Studio 2026 and later, preview UI was moved inside Studio.
+  nameWithType.vb: IFileTypeComponentBuilder.BuildPreviewControl(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewControl(String)
+  name.vb: BuildPreviewControl(String)
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewApplication(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewApplication(System.String)
+  id: BuildPreviewApplication(System.String)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildPreviewApplication(string)
+  nameWithType: IFileTypeComponentBuilder.BuildPreviewApplication(string)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewApplication(string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Creates a new instance of the preview application with the specified name.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("No longer used in Studio 2026 and later, preview UI was moved inside Studio.")]
+
+      IAbstractPreviewApplication BuildPreviewApplication(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication
+      description: ''
+    content.vb: >-
+      <Obsolete("No longer used in Studio 2026 and later, preview UI was moved inside Studio.")>
+
+      Function BuildPreviewApplication(name As String) As IAbstractPreviewApplication
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewApplication*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: No longer used in Studio 2026 and later, preview UI was moved inside Studio.
+  nameWithType.vb: IFileTypeComponentBuilder.BuildPreviewApplication(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewApplication(String)
+  name.vb: BuildPreviewApplication(String)
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildBilingualGenerator(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildBilingualGenerator(System.String)
+  id: BuildBilingualGenerator(System.String)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildBilingualGenerator(string)
+  nameWithType: IFileTypeComponentBuilder.BuildBilingualGenerator(string)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildBilingualGenerator(string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Gets the bilingual writer components for this component (if any).
+  example: []
+  syntax:
+    content: IBilingualDocumentGenerator BuildBilingualGenerator(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IBilingualDocumentGenerator
+      description: <code>null</code> if no bilingual generator is defined
+    content.vb: Function BuildBilingualGenerator(name As String) As IBilingualDocumentGenerator
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildBilingualGenerator*
+  nameWithType.vb: IFileTypeComponentBuilder.BuildBilingualGenerator(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildBilingualGenerator(String)
+  name.vb: BuildBilingualGenerator(String)
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildVerifierCollection(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildVerifierCollection(System.String)
+  id: BuildVerifierCollection(System.String)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildVerifierCollection(string)
+  nameWithType: IFileTypeComponentBuilder.BuildVerifierCollection(string)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildVerifierCollection(string)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Gets the verifier list of this component.
+  remarks: The verifier list is an optional component for a file type.
+  example: []
+  syntax:
+    content: IVerifierCollection BuildVerifierCollection(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IVerifierCollection
+      description: ''
+    content.vb: Function BuildVerifierCollection(name As String) As IVerifierCollection
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildVerifierCollection*
+  nameWithType.vb: IFileTypeComponentBuilder.BuildVerifierCollection(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildVerifierCollection(String)
+  name.vb: BuildVerifierCollection(String)
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.FileTypeManager
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.FileTypeManager
+  id: FileTypeManager
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder
+  langs:
+  - csharp
+  - vb
+  name: FileTypeManager
+  nameWithType: IFileTypeComponentBuilder.FileTypeManager
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.FileTypeManager
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Current File Type Manager instance which will be set by the framework.
+  example: []
+  syntax:
+    content: IFileTypeManager FileTypeManager { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeManager
+    content.vb: Property FileTypeManager As IFileTypeManager
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.FileTypeManager*
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeDefinitionAware_FileTypeDefinition
+  name: FileTypeDefinition
+  nameWithType: IFileTypeDefinitionAware.FileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.html
+  name: IFileTypeDefinitionAware
+  nameWithType: IFileTypeDefinitionAware
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition.html
+  name: IFileTypeDefinition
+  nameWithType: IFileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileTypeInformation*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileTypeInformation
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeComponentBuilder_BuildFileTypeInformation_System_String_
+  name: BuildFileTypeInformation
+  nameWithType: IFileTypeComponentBuilder.BuildFileTypeInformation
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileTypeInformation
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeInformation
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeInformation
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeInformation.html
+  name: IFileTypeInformation
+  nameWithType: IFileTypeInformation
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeInformation
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildQuickTagsFactory*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildQuickTagsFactory
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeComponentBuilder_BuildQuickTagsFactory_System_String_
+  name: BuildQuickTagsFactory
+  nameWithType: IFileTypeComponentBuilder.BuildQuickTagsFactory
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildQuickTagsFactory
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IQuickTagsFactory
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IQuickTagsFactory
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IQuickTagsFactory.html
+  name: IQuickTagsFactory
+  nameWithType: IQuickTagsFactory
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IQuickTagsFactory
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileSniffer*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileSniffer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeComponentBuilder_BuildFileSniffer_System_String_
+  name: BuildFileSniffer
+  nameWithType: IFileTypeComponentBuilder.BuildFileSniffer
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileSniffer
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeFileSniffer
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.INativeFileSniffer
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeFileSniffer.html
+  name: INativeFileSniffer
+  nameWithType: INativeFileSniffer
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeFileSniffer
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileExtractor*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileExtractor
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeComponentBuilder_BuildFileExtractor_System_String_
+  name: BuildFileExtractor
+  nameWithType: IFileTypeComponentBuilder.BuildFileExtractor
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileExtractor
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileExtractor
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileExtractor
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileExtractor.html
+  name: IFileExtractor
+  nameWithType: IFileExtractor
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileExtractor
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileGenerator*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileGenerator
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeComponentBuilder_BuildFileGenerator_System_String_
+  name: BuildFileGenerator
+  nameWithType: IFileTypeComponentBuilder.BuildFileGenerator
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildFileGenerator
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileGenerator
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileGenerator
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileGenerator.html
+  name: IFileGenerator
+  nameWithType: IFileGenerator
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileGenerator
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAdditionalGeneratorsInfo*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAdditionalGeneratorsInfo
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeComponentBuilder_BuildAdditionalGeneratorsInfo_System_String_
+  name: BuildAdditionalGeneratorsInfo
+  nameWithType: IFileTypeComponentBuilder.BuildAdditionalGeneratorsInfo
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAdditionalGeneratorsInfo
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAdditionalGeneratorsInfo
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IAdditionalGeneratorsInfo
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAdditionalGeneratorsInfo.html
+  name: IAdditionalGeneratorsInfo
+  nameWithType: IAdditionalGeneratorsInfo
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAdditionalGeneratorsInfo
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAbstractGenerator*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAbstractGenerator
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeComponentBuilder_BuildAbstractGenerator_System_String_
+  name: BuildAbstractGenerator
+  nameWithType: IFileTypeComponentBuilder.BuildAbstractGenerator
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildAbstractGenerator
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractGenerator
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractGenerator
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractGenerator.html
+  name: IAbstractGenerator
+  nameWithType: IAbstractGenerator
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractGenerator
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewSetsFactory*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewSetsFactory
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeComponentBuilder_BuildPreviewSetsFactory_System_String_
+  name: BuildPreviewSetsFactory
+  nameWithType: IFileTypeComponentBuilder.BuildPreviewSetsFactory
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewSetsFactory
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewSetsFactory
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewSetsFactory
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewSetsFactory.html
+  name: IPreviewSetsFactory
+  nameWithType: IPreviewSetsFactory
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewSetsFactory
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewControl*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewControl
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeComponentBuilder_BuildPreviewControl_System_String_
+  name: BuildPreviewControl
+  nameWithType: IFileTypeComponentBuilder.BuildPreviewControl
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewControl
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html
+  name: IAbstractPreviewControl
+  nameWithType: IAbstractPreviewControl
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewApplication*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewApplication
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeComponentBuilder_BuildPreviewApplication_System_String_
+  name: BuildPreviewApplication
+  nameWithType: IFileTypeComponentBuilder.BuildPreviewApplication
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildPreviewApplication
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication.html
+  name: IAbstractPreviewApplication
+  nameWithType: IAbstractPreviewApplication
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewApplication
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildBilingualGenerator*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildBilingualGenerator
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeComponentBuilder_BuildBilingualGenerator_System_String_
+  name: BuildBilingualGenerator
+  nameWithType: IFileTypeComponentBuilder.BuildBilingualGenerator
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildBilingualGenerator
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IBilingualDocumentGenerator
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IBilingualDocumentGenerator
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IBilingualDocumentGenerator.html
+  name: IBilingualDocumentGenerator
+  nameWithType: IBilingualDocumentGenerator
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IBilingualDocumentGenerator
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildVerifierCollection*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildVerifierCollection
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeComponentBuilder_BuildVerifierCollection_System_String_
+  name: BuildVerifierCollection
+  nameWithType: IFileTypeComponentBuilder.BuildVerifierCollection
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.BuildVerifierCollection
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IVerifierCollection
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IVerifierCollection
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IVerifierCollection.html
+  name: IVerifierCollection
+  nameWithType: IVerifierCollection
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IVerifierCollection
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.FileTypeManager*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.FileTypeManager
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeComponentBuilder_FileTypeManager
+  name: FileTypeManager
+  nameWithType: IFileTypeComponentBuilder.FileTypeManager
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeComponentBuilder.FileTypeManager
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeManager
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeManager
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeManager.html
+  name: IFileTypeManager
+  nameWithType: IFileTypeManager
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeManager

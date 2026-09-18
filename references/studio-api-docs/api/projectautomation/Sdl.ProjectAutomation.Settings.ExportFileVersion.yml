@@ -1,0 +1,142 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Settings.ExportFileVersion
+  commentId: T:Sdl.ProjectAutomation.Settings.ExportFileVersion
+  id: ExportFileVersion
+  parent: Sdl.ProjectAutomation.Settings
+  children:
+  - Sdl.ProjectAutomation.Settings.ExportFileVersion.Bilingual
+  - Sdl.ProjectAutomation.Settings.ExportFileVersion.Current
+  - Sdl.ProjectAutomation.Settings.ExportFileVersion.Native
+  langs:
+  - csharp
+  - vb
+  name: ExportFileVersion
+  nameWithType: ExportFileVersion
+  fullName: Sdl.ProjectAutomation.Settings.ExportFileVersion
+  type: Enum
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: Represents the possible file versions that can be exported using the Export Files task.
+  remarks: The settings for the Export Files task can be specified using the <xref href="Sdl.ProjectAutomation.Settings.ExportFilesSettings" data-throw-if-not-resolved="false"></xref> settings group.
+  example: []
+  syntax:
+    content: public enum ExportFileVersion
+    content.vb: Public Enum ExportFileVersion
+- uid: Sdl.ProjectAutomation.Settings.ExportFileVersion.Native
+  commentId: F:Sdl.ProjectAutomation.Settings.ExportFileVersion.Native
+  id: Native
+  parent: Sdl.ProjectAutomation.Settings.ExportFileVersion
+  langs:
+  - csharp
+  - vb
+  name: Native
+  nameWithType: ExportFileVersion.Native
+  fullName: Sdl.ProjectAutomation.Settings.ExportFileVersion.Native
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: >-
+    The native file verion is exported. For source files, this is the original source file in its original native format, for target files
+
+    it is the generated native target file in its original native format, if it's available.
+  example: []
+  syntax:
+    content: Native = 0
+    return:
+      type: Sdl.ProjectAutomation.Settings.ExportFileVersion
+- uid: Sdl.ProjectAutomation.Settings.ExportFileVersion.Bilingual
+  commentId: F:Sdl.ProjectAutomation.Settings.ExportFileVersion.Bilingual
+  id: Bilingual
+  parent: Sdl.ProjectAutomation.Settings.ExportFileVersion
+  langs:
+  - csharp
+  - vb
+  name: Bilingual
+  nameWithType: ExportFileVersion.Bilingual
+  fullName: Sdl.ProjectAutomation.Settings.ExportFileVersion.Bilingual
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: The SDLXLIFF file version, if it exists.
+  example: []
+  syntax:
+    content: Bilingual = 1
+    return:
+      type: Sdl.ProjectAutomation.Settings.ExportFileVersion
+- uid: Sdl.ProjectAutomation.Settings.ExportFileVersion.Current
+  commentId: F:Sdl.ProjectAutomation.Settings.ExportFileVersion.Current
+  id: Current
+  parent: Sdl.ProjectAutomation.Settings.ExportFileVersion
+  langs:
+  - csharp
+  - vb
+  name: Current
+  nameWithType: ExportFileVersion.Current
+  fullName: Sdl.ProjectAutomation.Settings.ExportFileVersion.Current
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: The current file version. Depending on which state the file is in, this could be the native or the bilingual (SDLXLIFF) file version.
+  example: []
+  syntax:
+    content: Current = 2
+    return:
+      type: Sdl.ProjectAutomation.Settings.ExportFileVersion
+references:
+- uid: Sdl.ProjectAutomation.Settings.ExportFilesSettings
+  commentId: T:Sdl.ProjectAutomation.Settings.ExportFilesSettings
+  isExternal: true
+  href: Sdl.ProjectAutomation.Settings.ExportFilesSettings.html
+  name: ExportFilesSettings
+  nameWithType: ExportFilesSettings
+  fullName: Sdl.ProjectAutomation.Settings.ExportFilesSettings
+- uid: Sdl.ProjectAutomation.Settings
+  commentId: N:Sdl.ProjectAutomation.Settings
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Settings
+  nameWithType: Sdl.ProjectAutomation.Settings
+  fullName: Sdl.ProjectAutomation.Settings
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.html
+- uid: Sdl.ProjectAutomation.Settings.ExportFileVersion
+  commentId: T:Sdl.ProjectAutomation.Settings.ExportFileVersion
+  parent: Sdl.ProjectAutomation.Settings
+  isExternal: true
+  href: Sdl.ProjectAutomation.Settings.ExportFileVersion.html
+  name: ExportFileVersion
+  nameWithType: ExportFileVersion
+  fullName: Sdl.ProjectAutomation.Settings.ExportFileVersion

@@ -1,0 +1,237 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  id: TranslationMethod
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  children:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.CopySource
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.MachineTranslation
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.Mixed
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.Other
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.PseudoTranslation
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.TranslationMemory
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.Unknown
+  langs:
+  - csharp
+  - vb
+  name: TranslationMethod
+  nameWithType: TranslationMethod
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Enumerates the ways how a translation provider can compute a translation. See <xref href="Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.TranslationMethod" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public enum TranslationMethod
+    content.vb: Public Enum TranslationMethod
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.Unknown
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.Unknown
+  id: Unknown
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: TranslationMethod.Unknown
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.Unknown
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: The method of translation is unknown.
+  example: []
+  syntax:
+    content: Unknown = 0
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.TranslationMemory
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.TranslationMemory
+  id: TranslationMemory
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  langs:
+  - csharp
+  - vb
+  name: TranslationMemory
+  nameWithType: TranslationMethod.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.TranslationMemory
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: A TM is used to obtain the translation.
+  example: []
+  syntax:
+    content: TranslationMemory = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.MachineTranslation
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.MachineTranslation
+  id: MachineTranslation
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  langs:
+  - csharp
+  - vb
+  name: MachineTranslation
+  nameWithType: TranslationMethod.MachineTranslation
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.MachineTranslation
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: A machine translation engine is used to obtain the translation.
+  example: []
+  syntax:
+    content: MachineTranslation = 2
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.PseudoTranslation
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.PseudoTranslation
+  id: PseudoTranslation
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  langs:
+  - csharp
+  - vb
+  name: PseudoTranslation
+  nameWithType: TranslationMethod.PseudoTranslation
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.PseudoTranslation
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    A pseudo translation engine is used to obtain the translation. The translations
+
+    typically are meaningless and are not supposed to be used or persistently stored.
+  example: []
+  syntax:
+    content: PseudoTranslation = 3
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.Mixed
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.Mixed
+  id: Mixed
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  langs:
+  - csharp
+  - vb
+  name: Mixed
+  nameWithType: TranslationMethod.Mixed
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.Mixed
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: A mixed model (different methods) are used to obtain the translation.
+  example: []
+  syntax:
+    content: Mixed = 4
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.CopySource
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.CopySource
+  id: CopySource
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  langs:
+  - csharp
+  - vb
+  name: CopySource
+  nameWithType: TranslationMethod.CopySource
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.CopySource
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    A pseudo translation generated by copying the input (source) segment, potentially 
+
+    applying auto-localizations.
+  example: []
+  syntax:
+    content: CopySource = 5
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.Other
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.Other
+  id: Other
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  langs:
+  - csharp
+  - vb
+  name: Other
+  nameWithType: TranslationMethod.Other
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.Other
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: An unspecified method is used to obtain the translation.
+  example: []
+  syntax:
+    content: Other = 6
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.TranslationMethod
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.TranslationMethod
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProvider_TranslationMethod
+  name: TranslationMethod
+  nameWithType: ITranslationProvider.TranslationMethod
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.TranslationMethod
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi
+  commentId: N:Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemoryApi
+  nameWithType: Sdl.LanguagePlatform.TranslationMemoryApi
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html
+  name: ITranslationProvider
+  nameWithType: ITranslationProvider
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.html
+  name: TranslationMethod
+  nameWithType: TranslationMethod
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod

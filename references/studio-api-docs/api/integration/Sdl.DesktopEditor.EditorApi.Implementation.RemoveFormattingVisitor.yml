@@ -1,0 +1,1248 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor
+  commentId: T:Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor
+  id: RemoveFormattingVisitor
+  parent: Sdl.DesktopEditor.EditorApi.Implementation
+  children:
+  - Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.#ctor(Sdl.DesktopEditor.EditorApi.IDocumentFragment)
+  - Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitLockedContentContainerNode(Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitRevisionMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitTagPairContainerNode(Sdl.DesktopEditor.EditorApi.ITagPairContainerNode)
+  langs:
+  - csharp
+  - vb
+  name: RemoveFormattingVisitor
+  nameWithType: RemoveFormattingVisitor
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor
+  type: Class
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: >-
+    An <xref href="Sdl.DesktopEditor.EditorApi.INodeVisitor" data-throw-if-not-resolved="false"></xref> implementation that works
+
+    through the nodes and copies all non-formatting nodes to the
+
+    document fragment in the same structure.
+  example: []
+  syntax:
+    content: 'public class RemoveFormattingVisitor : CopyFragmentVisitor, INodeVisitor'
+    content.vb: Public Class RemoveFormattingVisitor Inherits CopyFragmentVisitor Implements INodeVisitor
+  inheritance:
+  - System.Object
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  implements:
+  - Sdl.DesktopEditor.EditorApi.INodeVisitor
+  inheritedMembers:
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitSegmentContainerNode(Sdl.DesktopEditor.EditorApi.ISegmentContainerNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IOtherMarkerContainerNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitCommentContainerNode(Sdl.DesktopEditor.EditorApi.ICommentContainerNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitStartEndNode(Sdl.DesktopEditor.EditorApi.IStartEndNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitBookmarkNode(Sdl.DesktopEditor.EditorApi.IBookmarkNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitTextNode(Sdl.DesktopEditor.EditorApi.ITextNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitPlaceholderTagNode(Sdl.DesktopEditor.EditorApi.IPlaceholderTagNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitLocationMarkerNode(Sdl.DesktopEditor.EditorApi.ILocationMarkerNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitDocumentContainerNode(Sdl.DesktopEditor.EditorApi.IDocumentContainerNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitFileContainerNode(Sdl.DesktopEditor.EditorApi.IFileContainerNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitParagraphUnitContainerNode(Sdl.DesktopEditor.EditorApi.IParagraphUnitContainerNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitContainerNode(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode,Sdl.DesktopEditor.EditorApi.IChangeableContainerNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitChildren(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode)
+  - Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.Fragment
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  extensionMethods:
+  - System.Object.Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Action{System.Windows.Window})
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.#ctor(Sdl.DesktopEditor.EditorApi.IDocumentFragment)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.#ctor(Sdl.DesktopEditor.EditorApi.IDocumentFragment)
+  id: '#ctor(Sdl.DesktopEditor.EditorApi.IDocumentFragment)'
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor
+  langs:
+  - csharp
+  - vb
+  name: RemoveFormattingVisitor(IDocumentFragment)
+  nameWithType: RemoveFormattingVisitor.RemoveFormattingVisitor(IDocumentFragment)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.RemoveFormattingVisitor(Sdl.DesktopEditor.EditorApi.IDocumentFragment)
+  type: Constructor
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: >-
+    Visits all child nodes and copies them to the IFrameworkDocumentFragment
+
+    keeping the same structure but removing formatting tags (tag pairs).
+  example: []
+  syntax:
+    content: public RemoveFormattingVisitor(IDocumentFragment fragment)
+    parameters:
+    - id: fragment
+      type: Sdl.DesktopEditor.EditorApi.IDocumentFragment
+      description: The document fragment to copy the nodes to.
+    content.vb: Public Sub New(fragment As IDocumentFragment)
+  overload: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.#ctor*
+  nameWithType.vb: RemoveFormattingVisitor.New(IDocumentFragment)
+  fullName.vb: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.New(Sdl.DesktopEditor.EditorApi.IDocumentFragment)
+  name.vb: New(IDocumentFragment)
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitTagPairContainerNode(Sdl.DesktopEditor.EditorApi.ITagPairContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitTagPairContainerNode(Sdl.DesktopEditor.EditorApi.ITagPairContainerNode)
+  id: VisitTagPairContainerNode(Sdl.DesktopEditor.EditorApi.ITagPairContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor
+  langs:
+  - csharp
+  - vb
+  name: VisitTagPairContainerNode(ITagPairContainerNode)
+  nameWithType: RemoveFormattingVisitor.VisitTagPairContainerNode(ITagPairContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitTagPairContainerNode(Sdl.DesktopEditor.EditorApi.ITagPairContainerNode)
+  type: Method
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: Visits a tag pair container node, ignores it and then visits all its children.
+  example: []
+  syntax:
+    content: public override void VisitTagPairContainerNode(ITagPairContainerNode node)
+    parameters:
+    - id: node
+      type: Sdl.DesktopEditor.EditorApi.ITagPairContainerNode
+      description: ''
+    content.vb: Public Overrides Sub VisitTagPairContainerNode(node As ITagPairContainerNode)
+  overridden: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitTagPairContainerNode(Sdl.DesktopEditor.EditorApi.ITagPairContainerNode)
+  overload: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitTagPairContainerNode*
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitLockedContentContainerNode(Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitLockedContentContainerNode(Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode)
+  id: VisitLockedContentContainerNode(Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor
+  langs:
+  - csharp
+  - vb
+  name: VisitLockedContentContainerNode(ILockedContentContainerNode)
+  nameWithType: RemoveFormattingVisitor.VisitLockedContentContainerNode(ILockedContentContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitLockedContentContainerNode(Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode)
+  type: Method
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: Visits a locked content node and adds it to the last parent processed.
+  example: []
+  syntax:
+    content: public override void VisitLockedContentContainerNode(ILockedContentContainerNode node)
+    parameters:
+    - id: node
+      type: Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode
+      description: ''
+    content.vb: Public Overrides Sub VisitLockedContentContainerNode(node As ILockedContentContainerNode)
+  overridden: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitLockedContentContainerNode(Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode)
+  overload: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitLockedContentContainerNode*
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitRevisionMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitRevisionMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode)
+  id: VisitRevisionMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor
+  langs:
+  - csharp
+  - vb
+  name: VisitRevisionMarkerContainerNode(IRevisionMarkerContainerNode)
+  nameWithType: RemoveFormattingVisitor.VisitRevisionMarkerContainerNode(IRevisionMarkerContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitRevisionMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode)
+  type: Method
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: Visits a revision marker container node and all its children.
+  example: []
+  syntax:
+    content: public override void VisitRevisionMarkerContainerNode(IRevisionMarkerContainerNode node)
+    parameters:
+    - id: node
+      type: Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode
+      description: ''
+    content.vb: Public Overrides Sub VisitRevisionMarkerContainerNode(node As IRevisionMarkerContainerNode)
+  overridden: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitRevisionMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode)
+  overload: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitRevisionMarkerContainerNode*
+references:
+- uid: Sdl.DesktopEditor.EditorApi.INodeVisitor
+  commentId: T:Sdl.DesktopEditor.EditorApi.INodeVisitor
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.INodeVisitor.html
+  name: INodeVisitor
+  nameWithType: INodeVisitor
+  fullName: Sdl.DesktopEditor.EditorApi.INodeVisitor
+- uid: Sdl.DesktopEditor.EditorApi.Implementation
+  commentId: N:Sdl.DesktopEditor.EditorApi.Implementation
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi.Implementation
+  nameWithType: Sdl.DesktopEditor.EditorApi.Implementation
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation
+    name: Implementation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation
+    name: Implementation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  commentId: T:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  parent: Sdl.DesktopEditor.EditorApi.Implementation
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html
+  name: CopyFragmentVisitor
+  nameWithType: CopyFragmentVisitor
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitSegmentContainerNode(Sdl.DesktopEditor.EditorApi.ISegmentContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitSegmentContainerNode(Sdl.DesktopEditor.EditorApi.ISegmentContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitSegmentContainerNode_Sdl_DesktopEditor_EditorApi_ISegmentContainerNode_
+  name: VisitSegmentContainerNode(ISegmentContainerNode)
+  nameWithType: CopyFragmentVisitor.VisitSegmentContainerNode(ISegmentContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitSegmentContainerNode(Sdl.DesktopEditor.EditorApi.ISegmentContainerNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitSegmentContainerNode(Sdl.DesktopEditor.EditorApi.ISegmentContainerNode)
+    name: VisitSegmentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitSegmentContainerNode_Sdl_DesktopEditor_EditorApi_ISegmentContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ISegmentContainerNode
+    name: ISegmentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ISegmentContainerNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitSegmentContainerNode(Sdl.DesktopEditor.EditorApi.ISegmentContainerNode)
+    name: VisitSegmentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitSegmentContainerNode_Sdl_DesktopEditor_EditorApi_ISegmentContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ISegmentContainerNode
+    name: ISegmentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ISegmentContainerNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IOtherMarkerContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IOtherMarkerContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitMarkerContainerNode_Sdl_DesktopEditor_EditorApi_IOtherMarkerContainerNode_
+  name: VisitMarkerContainerNode(IOtherMarkerContainerNode)
+  nameWithType: CopyFragmentVisitor.VisitMarkerContainerNode(IOtherMarkerContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IOtherMarkerContainerNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IOtherMarkerContainerNode)
+    name: VisitMarkerContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitMarkerContainerNode_Sdl_DesktopEditor_EditorApi_IOtherMarkerContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IOtherMarkerContainerNode
+    name: IOtherMarkerContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IOtherMarkerContainerNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IOtherMarkerContainerNode)
+    name: VisitMarkerContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitMarkerContainerNode_Sdl_DesktopEditor_EditorApi_IOtherMarkerContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IOtherMarkerContainerNode
+    name: IOtherMarkerContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IOtherMarkerContainerNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitCommentContainerNode(Sdl.DesktopEditor.EditorApi.ICommentContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitCommentContainerNode(Sdl.DesktopEditor.EditorApi.ICommentContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitCommentContainerNode_Sdl_DesktopEditor_EditorApi_ICommentContainerNode_
+  name: VisitCommentContainerNode(ICommentContainerNode)
+  nameWithType: CopyFragmentVisitor.VisitCommentContainerNode(ICommentContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitCommentContainerNode(Sdl.DesktopEditor.EditorApi.ICommentContainerNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitCommentContainerNode(Sdl.DesktopEditor.EditorApi.ICommentContainerNode)
+    name: VisitCommentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitCommentContainerNode_Sdl_DesktopEditor_EditorApi_ICommentContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ICommentContainerNode
+    name: ICommentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ICommentContainerNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitCommentContainerNode(Sdl.DesktopEditor.EditorApi.ICommentContainerNode)
+    name: VisitCommentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitCommentContainerNode_Sdl_DesktopEditor_EditorApi_ICommentContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ICommentContainerNode
+    name: ICommentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ICommentContainerNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitStartEndNode(Sdl.DesktopEditor.EditorApi.IStartEndNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitStartEndNode(Sdl.DesktopEditor.EditorApi.IStartEndNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitStartEndNode_Sdl_DesktopEditor_EditorApi_IStartEndNode_
+  name: VisitStartEndNode(IStartEndNode)
+  nameWithType: CopyFragmentVisitor.VisitStartEndNode(IStartEndNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitStartEndNode(Sdl.DesktopEditor.EditorApi.IStartEndNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitStartEndNode(Sdl.DesktopEditor.EditorApi.IStartEndNode)
+    name: VisitStartEndNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitStartEndNode_Sdl_DesktopEditor_EditorApi_IStartEndNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IStartEndNode
+    name: IStartEndNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IStartEndNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitStartEndNode(Sdl.DesktopEditor.EditorApi.IStartEndNode)
+    name: VisitStartEndNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitStartEndNode_Sdl_DesktopEditor_EditorApi_IStartEndNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IStartEndNode
+    name: IStartEndNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IStartEndNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitBookmarkNode(Sdl.DesktopEditor.EditorApi.IBookmarkNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitBookmarkNode(Sdl.DesktopEditor.EditorApi.IBookmarkNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitBookmarkNode_Sdl_DesktopEditor_EditorApi_IBookmarkNode_
+  name: VisitBookmarkNode(IBookmarkNode)
+  nameWithType: CopyFragmentVisitor.VisitBookmarkNode(IBookmarkNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitBookmarkNode(Sdl.DesktopEditor.EditorApi.IBookmarkNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitBookmarkNode(Sdl.DesktopEditor.EditorApi.IBookmarkNode)
+    name: VisitBookmarkNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitBookmarkNode_Sdl_DesktopEditor_EditorApi_IBookmarkNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IBookmarkNode
+    name: IBookmarkNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IBookmarkNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitBookmarkNode(Sdl.DesktopEditor.EditorApi.IBookmarkNode)
+    name: VisitBookmarkNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitBookmarkNode_Sdl_DesktopEditor_EditorApi_IBookmarkNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IBookmarkNode
+    name: IBookmarkNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IBookmarkNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitTextNode(Sdl.DesktopEditor.EditorApi.ITextNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitTextNode(Sdl.DesktopEditor.EditorApi.ITextNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitTextNode_Sdl_DesktopEditor_EditorApi_ITextNode_
+  name: VisitTextNode(ITextNode)
+  nameWithType: CopyFragmentVisitor.VisitTextNode(ITextNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitTextNode(Sdl.DesktopEditor.EditorApi.ITextNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitTextNode(Sdl.DesktopEditor.EditorApi.ITextNode)
+    name: VisitTextNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitTextNode_Sdl_DesktopEditor_EditorApi_ITextNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ITextNode
+    name: ITextNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ITextNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitTextNode(Sdl.DesktopEditor.EditorApi.ITextNode)
+    name: VisitTextNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitTextNode_Sdl_DesktopEditor_EditorApi_ITextNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ITextNode
+    name: ITextNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ITextNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitPlaceholderTagNode(Sdl.DesktopEditor.EditorApi.IPlaceholderTagNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitPlaceholderTagNode(Sdl.DesktopEditor.EditorApi.IPlaceholderTagNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitPlaceholderTagNode_Sdl_DesktopEditor_EditorApi_IPlaceholderTagNode_
+  name: VisitPlaceholderTagNode(IPlaceholderTagNode)
+  nameWithType: CopyFragmentVisitor.VisitPlaceholderTagNode(IPlaceholderTagNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitPlaceholderTagNode(Sdl.DesktopEditor.EditorApi.IPlaceholderTagNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitPlaceholderTagNode(Sdl.DesktopEditor.EditorApi.IPlaceholderTagNode)
+    name: VisitPlaceholderTagNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitPlaceholderTagNode_Sdl_DesktopEditor_EditorApi_IPlaceholderTagNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IPlaceholderTagNode
+    name: IPlaceholderTagNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IPlaceholderTagNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitPlaceholderTagNode(Sdl.DesktopEditor.EditorApi.IPlaceholderTagNode)
+    name: VisitPlaceholderTagNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitPlaceholderTagNode_Sdl_DesktopEditor_EditorApi_IPlaceholderTagNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IPlaceholderTagNode
+    name: IPlaceholderTagNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IPlaceholderTagNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitLocationMarkerNode(Sdl.DesktopEditor.EditorApi.ILocationMarkerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitLocationMarkerNode(Sdl.DesktopEditor.EditorApi.ILocationMarkerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitLocationMarkerNode_Sdl_DesktopEditor_EditorApi_ILocationMarkerNode_
+  name: VisitLocationMarkerNode(ILocationMarkerNode)
+  nameWithType: CopyFragmentVisitor.VisitLocationMarkerNode(ILocationMarkerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitLocationMarkerNode(Sdl.DesktopEditor.EditorApi.ILocationMarkerNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitLocationMarkerNode(Sdl.DesktopEditor.EditorApi.ILocationMarkerNode)
+    name: VisitLocationMarkerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitLocationMarkerNode_Sdl_DesktopEditor_EditorApi_ILocationMarkerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ILocationMarkerNode
+    name: ILocationMarkerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ILocationMarkerNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitLocationMarkerNode(Sdl.DesktopEditor.EditorApi.ILocationMarkerNode)
+    name: VisitLocationMarkerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitLocationMarkerNode_Sdl_DesktopEditor_EditorApi_ILocationMarkerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ILocationMarkerNode
+    name: ILocationMarkerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ILocationMarkerNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitDocumentContainerNode(Sdl.DesktopEditor.EditorApi.IDocumentContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitDocumentContainerNode(Sdl.DesktopEditor.EditorApi.IDocumentContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitDocumentContainerNode_Sdl_DesktopEditor_EditorApi_IDocumentContainerNode_
+  name: VisitDocumentContainerNode(IDocumentContainerNode)
+  nameWithType: CopyFragmentVisitor.VisitDocumentContainerNode(IDocumentContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitDocumentContainerNode(Sdl.DesktopEditor.EditorApi.IDocumentContainerNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitDocumentContainerNode(Sdl.DesktopEditor.EditorApi.IDocumentContainerNode)
+    name: VisitDocumentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitDocumentContainerNode_Sdl_DesktopEditor_EditorApi_IDocumentContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IDocumentContainerNode
+    name: IDocumentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IDocumentContainerNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitDocumentContainerNode(Sdl.DesktopEditor.EditorApi.IDocumentContainerNode)
+    name: VisitDocumentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitDocumentContainerNode_Sdl_DesktopEditor_EditorApi_IDocumentContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IDocumentContainerNode
+    name: IDocumentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IDocumentContainerNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitFileContainerNode(Sdl.DesktopEditor.EditorApi.IFileContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitFileContainerNode(Sdl.DesktopEditor.EditorApi.IFileContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitFileContainerNode_Sdl_DesktopEditor_EditorApi_IFileContainerNode_
+  name: VisitFileContainerNode(IFileContainerNode)
+  nameWithType: CopyFragmentVisitor.VisitFileContainerNode(IFileContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitFileContainerNode(Sdl.DesktopEditor.EditorApi.IFileContainerNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitFileContainerNode(Sdl.DesktopEditor.EditorApi.IFileContainerNode)
+    name: VisitFileContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitFileContainerNode_Sdl_DesktopEditor_EditorApi_IFileContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IFileContainerNode
+    name: IFileContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IFileContainerNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitFileContainerNode(Sdl.DesktopEditor.EditorApi.IFileContainerNode)
+    name: VisitFileContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitFileContainerNode_Sdl_DesktopEditor_EditorApi_IFileContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IFileContainerNode
+    name: IFileContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IFileContainerNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitParagraphUnitContainerNode(Sdl.DesktopEditor.EditorApi.IParagraphUnitContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitParagraphUnitContainerNode(Sdl.DesktopEditor.EditorApi.IParagraphUnitContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitParagraphUnitContainerNode_Sdl_DesktopEditor_EditorApi_IParagraphUnitContainerNode_
+  name: VisitParagraphUnitContainerNode(IParagraphUnitContainerNode)
+  nameWithType: CopyFragmentVisitor.VisitParagraphUnitContainerNode(IParagraphUnitContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitParagraphUnitContainerNode(Sdl.DesktopEditor.EditorApi.IParagraphUnitContainerNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitParagraphUnitContainerNode(Sdl.DesktopEditor.EditorApi.IParagraphUnitContainerNode)
+    name: VisitParagraphUnitContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitParagraphUnitContainerNode_Sdl_DesktopEditor_EditorApi_IParagraphUnitContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IParagraphUnitContainerNode
+    name: IParagraphUnitContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IParagraphUnitContainerNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitParagraphUnitContainerNode(Sdl.DesktopEditor.EditorApi.IParagraphUnitContainerNode)
+    name: VisitParagraphUnitContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitParagraphUnitContainerNode_Sdl_DesktopEditor_EditorApi_IParagraphUnitContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IParagraphUnitContainerNode
+    name: IParagraphUnitContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IParagraphUnitContainerNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitContainerNode(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode,Sdl.DesktopEditor.EditorApi.IChangeableContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitContainerNode(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode,Sdl.DesktopEditor.EditorApi.IChangeableContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitContainerNode_Sdl_DesktopEditor_EditorApi_IAbstractContainerNode_Sdl_DesktopEditor_EditorApi_IChangeableContainerNode_
+  name: VisitContainerNode(IAbstractContainerNode, IChangeableContainerNode)
+  nameWithType: CopyFragmentVisitor.VisitContainerNode(IAbstractContainerNode, IChangeableContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitContainerNode(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode, Sdl.DesktopEditor.EditorApi.IChangeableContainerNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitContainerNode(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode,Sdl.DesktopEditor.EditorApi.IChangeableContainerNode)
+    name: VisitContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitContainerNode_Sdl_DesktopEditor_EditorApi_IAbstractContainerNode_Sdl_DesktopEditor_EditorApi_IChangeableContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IAbstractContainerNode
+    name: IAbstractContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IAbstractContainerNode.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.IChangeableContainerNode
+    name: IChangeableContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IChangeableContainerNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitContainerNode(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode,Sdl.DesktopEditor.EditorApi.IChangeableContainerNode)
+    name: VisitContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitContainerNode_Sdl_DesktopEditor_EditorApi_IAbstractContainerNode_Sdl_DesktopEditor_EditorApi_IChangeableContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IAbstractContainerNode
+    name: IAbstractContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IAbstractContainerNode.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.IChangeableContainerNode
+    name: IChangeableContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IChangeableContainerNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitChildren(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitChildren(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitChildren_Sdl_DesktopEditor_EditorApi_IAbstractContainerNode_
+  name: VisitChildren(IAbstractContainerNode)
+  nameWithType: CopyFragmentVisitor.VisitChildren(IAbstractContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitChildren(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitChildren(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode)
+    name: VisitChildren
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitChildren_Sdl_DesktopEditor_EditorApi_IAbstractContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IAbstractContainerNode
+    name: IAbstractContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IAbstractContainerNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitChildren(Sdl.DesktopEditor.EditorApi.IAbstractContainerNode)
+    name: VisitChildren
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitChildren_Sdl_DesktopEditor_EditorApi_IAbstractContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IAbstractContainerNode
+    name: IAbstractContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IAbstractContainerNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.Fragment
+  commentId: P:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.Fragment
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_Fragment
+  name: Fragment
+  nameWithType: CopyFragmentVisitor.Fragment
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.Fragment
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Action{System.Windows.Window})
+  commentId: M:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  parent: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  definition: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  name: ForWindowFromFrameworkElement(object, Action<Window>)
+  nameWithType: WindowsControlUtils.ForWindowFromFrameworkElement(object, Action<Window>)
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(object, System.Action<System.Windows.Window>)
+  nameWithType.vb: WindowsControlUtils.ForWindowFromFrameworkElement(Object, Action(Of Window))
+  fullName.vb: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(Object, System.Action(Of System.Windows.Window))
+  name.vb: ForWindowFromFrameworkElement(Object, Action(Of Window))
+  spec.csharp:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: )
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi
+  commentId: N:Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi
+  nameWithType: Sdl.DesktopEditor.EditorApi
+  fullName: Sdl.DesktopEditor.EditorApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  commentId: M:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  isExternal: true
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  name: ForWindowFromFrameworkElement(object, Action<Window>)
+  nameWithType: WindowsControlUtils.ForWindowFromFrameworkElement(object, Action<Window>)
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(object, System.Action<System.Windows.Window>)
+  nameWithType.vb: WindowsControlUtils.ForWindowFromFrameworkElement(Object, Action(Of Window))
+  fullName.vb: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(Object, System.Action(Of System.Windows.Window))
+  name.vb: ForWindowFromFrameworkElement(Object, Action(Of Window))
+  spec.csharp:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: )
+  - name: )
+- uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  commentId: T:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  parent: Sdl.Desktop.Platform.Controls.Controls
+  isExternal: true
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html
+  name: WindowsControlUtils
+  nameWithType: WindowsControlUtils
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+- uid: Sdl.Desktop.Platform.Controls.Controls
+  commentId: N:Sdl.Desktop.Platform.Controls.Controls
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Desktop.Platform.Controls.Controls
+  nameWithType: Sdl.Desktop.Platform.Controls.Controls
+  fullName: Sdl.Desktop.Platform.Controls.Controls
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.Platform
+    name: Platform
+    isExternal: true
+    href: Sdl.Desktop.Platform.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.Platform
+    name: Platform
+    isExternal: true
+    href: Sdl.Desktop.Platform.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.html
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.#ctor*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.#ctor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_RemoveFormattingVisitor__ctor_Sdl_DesktopEditor_EditorApi_IDocumentFragment_
+  name: RemoveFormattingVisitor
+  nameWithType: RemoveFormattingVisitor.RemoveFormattingVisitor
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.RemoveFormattingVisitor
+  nameWithType.vb: RemoveFormattingVisitor.New
+  fullName.vb: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.New
+  name.vb: New
+- uid: Sdl.DesktopEditor.EditorApi.IDocumentFragment
+  commentId: T:Sdl.DesktopEditor.EditorApi.IDocumentFragment
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IDocumentFragment.html
+  name: IDocumentFragment
+  nameWithType: IDocumentFragment
+  fullName: Sdl.DesktopEditor.EditorApi.IDocumentFragment
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitTagPairContainerNode(Sdl.DesktopEditor.EditorApi.ITagPairContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitTagPairContainerNode(Sdl.DesktopEditor.EditorApi.ITagPairContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitTagPairContainerNode_Sdl_DesktopEditor_EditorApi_ITagPairContainerNode_
+  name: VisitTagPairContainerNode(ITagPairContainerNode)
+  nameWithType: CopyFragmentVisitor.VisitTagPairContainerNode(ITagPairContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitTagPairContainerNode(Sdl.DesktopEditor.EditorApi.ITagPairContainerNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitTagPairContainerNode(Sdl.DesktopEditor.EditorApi.ITagPairContainerNode)
+    name: VisitTagPairContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitTagPairContainerNode_Sdl_DesktopEditor_EditorApi_ITagPairContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ITagPairContainerNode
+    name: ITagPairContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ITagPairContainerNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitTagPairContainerNode(Sdl.DesktopEditor.EditorApi.ITagPairContainerNode)
+    name: VisitTagPairContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitTagPairContainerNode_Sdl_DesktopEditor_EditorApi_ITagPairContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ITagPairContainerNode
+    name: ITagPairContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ITagPairContainerNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitTagPairContainerNode*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitTagPairContainerNode
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_RemoveFormattingVisitor_VisitTagPairContainerNode_Sdl_DesktopEditor_EditorApi_ITagPairContainerNode_
+  name: VisitTagPairContainerNode
+  nameWithType: RemoveFormattingVisitor.VisitTagPairContainerNode
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitTagPairContainerNode
+- uid: Sdl.DesktopEditor.EditorApi.ITagPairContainerNode
+  commentId: T:Sdl.DesktopEditor.EditorApi.ITagPairContainerNode
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ITagPairContainerNode.html
+  name: ITagPairContainerNode
+  nameWithType: ITagPairContainerNode
+  fullName: Sdl.DesktopEditor.EditorApi.ITagPairContainerNode
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitLockedContentContainerNode(Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitLockedContentContainerNode(Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitLockedContentContainerNode_Sdl_DesktopEditor_EditorApi_ILockedContentContainerNode_
+  name: VisitLockedContentContainerNode(ILockedContentContainerNode)
+  nameWithType: CopyFragmentVisitor.VisitLockedContentContainerNode(ILockedContentContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitLockedContentContainerNode(Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitLockedContentContainerNode(Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode)
+    name: VisitLockedContentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitLockedContentContainerNode_Sdl_DesktopEditor_EditorApi_ILockedContentContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode
+    name: ILockedContentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitLockedContentContainerNode(Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode)
+    name: VisitLockedContentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitLockedContentContainerNode_Sdl_DesktopEditor_EditorApi_ILockedContentContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode
+    name: ILockedContentContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitLockedContentContainerNode*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitLockedContentContainerNode
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_RemoveFormattingVisitor_VisitLockedContentContainerNode_Sdl_DesktopEditor_EditorApi_ILockedContentContainerNode_
+  name: VisitLockedContentContainerNode
+  nameWithType: RemoveFormattingVisitor.VisitLockedContentContainerNode
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitLockedContentContainerNode
+- uid: Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode
+  commentId: T:Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode.html
+  name: ILockedContentContainerNode
+  nameWithType: ILockedContentContainerNode
+  fullName: Sdl.DesktopEditor.EditorApi.ILockedContentContainerNode
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitRevisionMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode)
+  commentId: M:Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitRevisionMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode)
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitRevisionMarkerContainerNode_Sdl_DesktopEditor_EditorApi_IRevisionMarkerContainerNode_
+  name: VisitRevisionMarkerContainerNode(IRevisionMarkerContainerNode)
+  nameWithType: CopyFragmentVisitor.VisitRevisionMarkerContainerNode(IRevisionMarkerContainerNode)
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitRevisionMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitRevisionMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode)
+    name: VisitRevisionMarkerContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitRevisionMarkerContainerNode_Sdl_DesktopEditor_EditorApi_IRevisionMarkerContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode
+    name: IRevisionMarkerContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.VisitRevisionMarkerContainerNode(Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode)
+    name: VisitRevisionMarkerContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.CopyFragmentVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_CopyFragmentVisitor_VisitRevisionMarkerContainerNode_Sdl_DesktopEditor_EditorApi_IRevisionMarkerContainerNode_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode
+    name: IRevisionMarkerContainerNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitRevisionMarkerContainerNode*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitRevisionMarkerContainerNode
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.html#Sdl_DesktopEditor_EditorApi_Implementation_RemoveFormattingVisitor_VisitRevisionMarkerContainerNode_Sdl_DesktopEditor_EditorApi_IRevisionMarkerContainerNode_
+  name: VisitRevisionMarkerContainerNode
+  nameWithType: RemoveFormattingVisitor.VisitRevisionMarkerContainerNode
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.RemoveFormattingVisitor.VisitRevisionMarkerContainerNode
+- uid: Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode
+  commentId: T:Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode.html
+  name: IRevisionMarkerContainerNode
+  nameWithType: IRevisionMarkerContainerNode
+  fullName: Sdl.DesktopEditor.EditorApi.IRevisionMarkerContainerNode

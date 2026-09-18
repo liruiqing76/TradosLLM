@@ -1,0 +1,204 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+  commentId: T:Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+  id: EditOperation
+  parent: Sdl.LanguagePlatform.Core.EditDistance
+  children:
+  - Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Change
+  - Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Delete
+  - Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Identity
+  - Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Insert
+  - Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Move
+  - Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Undefined
+  langs:
+  - csharp
+  - vb
+  name: EditOperation
+  nameWithType: EditOperation
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: Enumerates the types of edit operations which are identified by the edit distance computation.
+  example: []
+  syntax:
+    content: public enum EditOperation
+    content.vb: Public Enum EditOperation
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Identity
+  commentId: F:Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Identity
+  id: Identity
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+  langs:
+  - csharp
+  - vb
+  name: Identity
+  nameWithType: EditOperation.Identity
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Identity
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: Indicates that the source and target items are identical.
+  example: []
+  syntax:
+    content: Identity = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Change
+  commentId: F:Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Change
+  id: Change
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+  langs:
+  - csharp
+  - vb
+  name: Change
+  nameWithType: EditOperation.Change
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Change
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: Indicates that the source item was changed into another target item.
+  example: []
+  syntax:
+    content: Change = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Move
+  commentId: F:Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Move
+  id: Move
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+  langs:
+  - csharp
+  - vb
+  name: Move
+  nameWithType: EditOperation.Move
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Move
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: Indicates that the source item is identical, but was moved to a different position within the target.
+  example: []
+  syntax:
+    content: Move = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Insert
+  commentId: F:Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Insert
+  id: Insert
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+  langs:
+  - csharp
+  - vb
+  name: Insert
+  nameWithType: EditOperation.Insert
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Insert
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: Indicates that the item did not exist in the source and was inserted into the target.
+  example: []
+  syntax:
+    content: Insert = 3
+    return:
+      type: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Delete
+  commentId: F:Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Delete
+  id: Delete
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+  langs:
+  - csharp
+  - vb
+  name: Delete
+  nameWithType: EditOperation.Delete
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Delete
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: Indicates that the item was deleted and does not occur in the target.
+  example: []
+  syntax:
+    content: Delete = 4
+    return:
+      type: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Undefined
+  commentId: F:Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Undefined
+  id: Undefined
+  parent: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: EditOperation.Undefined
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.Undefined
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.EditDistance
+  summary: Indicates that no operation has been identified yet
+  example: []
+  syntax:
+    content: Undefined = 5
+    return:
+      type: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+references:
+- uid: Sdl.LanguagePlatform.Core.EditDistance
+  commentId: N:Sdl.LanguagePlatform.Core.EditDistance
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core.EditDistance
+  nameWithType: Sdl.LanguagePlatform.Core.EditDistance
+  fullName: Sdl.LanguagePlatform.Core.EditDistance
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.EditDistance
+    name: EditDistance
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.EditDistance.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.EditDistance
+    name: EditDistance
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.EditDistance.html
+- uid: Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+  commentId: T:Sdl.LanguagePlatform.Core.EditDistance.EditOperation
+  parent: Sdl.LanguagePlatform.Core.EditDistance
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.EditDistance.EditOperation.html
+  name: EditOperation
+  nameWithType: EditOperation
+  fullName: Sdl.LanguagePlatform.Core.EditDistance.EditOperation

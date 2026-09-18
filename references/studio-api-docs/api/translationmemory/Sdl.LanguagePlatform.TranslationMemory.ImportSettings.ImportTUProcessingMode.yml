@@ -1,0 +1,160 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+  id: ImportSettings.ImportTUProcessingMode
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.ProcessBothTUs
+  - Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.ProcessCleanedTUOnly
+  - Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.ProcessRawTUOnly
+  langs:
+  - csharp
+  - vb
+  name: ImportSettings.ImportTUProcessingMode
+  nameWithType: ImportSettings.ImportTUProcessingMode
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: >-
+    Controls whether cleanup heuristics are applied to TUs being read and which ones are 
+
+    processed by the importer.
+  example: []
+  syntax:
+    content: public enum ImportSettings.ImportTUProcessingMode
+    content.vb: Public Enum ImportSettings.ImportTUProcessingMode
+- uid: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.ProcessCleanedTUOnly
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.ProcessCleanedTUOnly
+  id: ProcessCleanedTUOnly
+  parent: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+  langs:
+  - csharp
+  - vb
+  name: ProcessCleanedTUOnly
+  nameWithType: ImportSettings.ImportTUProcessingMode.ProcessCleanedTUOnly
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.ProcessCleanedTUOnly
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: >-
+    Apply flavor-specific cleanup heuristics to a TU read from the input stream 
+
+    and process only the cleaned TU. This is the default.
+  example: []
+  syntax:
+    content: ProcessCleanedTUOnly = 0
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+- uid: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.ProcessRawTUOnly
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.ProcessRawTUOnly
+  id: ProcessRawTUOnly
+  parent: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+  langs:
+  - csharp
+  - vb
+  name: ProcessRawTUOnly
+  nameWithType: ImportSettings.ImportTUProcessingMode.ProcessRawTUOnly
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.ProcessRawTUOnly
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: >-
+    Apply only minimal cleanup (such as trimming) to a TU read from the input stream 
+
+    and process the raw TU, without additional, flavor-specific cleanup.
+  example: []
+  syntax:
+    content: ProcessRawTUOnly = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+- uid: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.ProcessBothTUs
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.ProcessBothTUs
+  id: ProcessBothTUs
+  parent: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+  langs:
+  - csharp
+  - vb
+  name: ProcessBothTUs
+  nameWithType: ImportSettings.ImportTUProcessingMode.ProcessBothTUs
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.ProcessBothTUs
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Process both the raw TU as well as the cleaned one.
+  example: []
+  syntax:
+    content: ProcessBothTUs = 2
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.html
+  name: ImportSettings.ImportTUProcessingMode
+  nameWithType: ImportSettings.ImportTUProcessingMode
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ImportSettings
+    name: ImportSettings
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+    name: ImportTUProcessingMode
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.html
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ImportSettings
+    name: ImportSettings
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode
+    name: ImportTUProcessingMode
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.ImportTUProcessingMode.html

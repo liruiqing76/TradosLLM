@@ -1,0 +1,161 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+  commentId: T:Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+  id: SquigglyLinePainter.SquiggleShape
+  parent: Sdl.DesktopEditor.EditorApi.Implementation
+  children:
+  - Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.Angle
+  - Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.Round
+  - Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.Square
+  langs:
+  - csharp
+  - vb
+  name: SquigglyLinePainter.SquiggleShape
+  nameWithType: SquigglyLinePainter.SquiggleShape
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+  type: Enum
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: The shape of the squiggles
+  example: []
+  syntax:
+    content: public enum SquigglyLinePainter.SquiggleShape
+    content.vb: Public Enum SquigglyLinePainter.SquiggleShape
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.Round
+  commentId: F:Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.Round
+  id: Round
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+  langs:
+  - csharp
+  - vb
+  name: Round
+  nameWithType: SquigglyLinePainter.SquiggleShape.Round
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.Round
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: Sinus shaped squiggles.
+  example: []
+  syntax:
+    content: Round = 0
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.Angle
+  commentId: F:Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.Angle
+  id: Angle
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+  langs:
+  - csharp
+  - vb
+  name: Angle
+  nameWithType: SquigglyLinePainter.SquiggleShape.Angle
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.Angle
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: Triangular shaped squiggles.
+  example: []
+  syntax:
+    content: Angle = 1
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.Square
+  commentId: F:Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.Square
+  id: Square
+  parent: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+  langs:
+  - csharp
+  - vb
+  name: Square
+  nameWithType: SquigglyLinePainter.SquiggleShape.Square
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.Square
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi.Implementation
+  summary: Square shaped squiggles.
+  example: []
+  syntax:
+    content: Square = 2
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+references:
+- uid: Sdl.DesktopEditor.EditorApi.Implementation
+  commentId: N:Sdl.DesktopEditor.EditorApi.Implementation
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi.Implementation
+  nameWithType: Sdl.DesktopEditor.EditorApi.Implementation
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation
+    name: Implementation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation
+    name: Implementation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.html
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+  commentId: T:Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+  parent: Sdl.DesktopEditor.EditorApi.Implementation
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.html
+  name: SquigglyLinePainter.SquiggleShape
+  nameWithType: SquigglyLinePainter.SquiggleShape
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter
+    name: SquigglyLinePainter
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+    name: SquiggleShape
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.html
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter
+    name: SquigglyLinePainter
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape
+    name: SquiggleShape
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.SquigglyLinePainter.SquiggleShape.html

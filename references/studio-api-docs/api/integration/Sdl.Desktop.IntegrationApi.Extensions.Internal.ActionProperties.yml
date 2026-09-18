@@ -1,0 +1,393 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  id: ActionProperties
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  children:
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.ActionGroup
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.All
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Available
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Checked
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Enabled
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Icon
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.None
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.PopupControl
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Shortcuts
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.ShowText
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Size
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Style
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Text
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.ToolTipText
+  langs:
+  - csharp
+  - vb
+  name: ActionProperties
+  nameWithType: ActionProperties
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  type: Enum
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Flags enumeration defining action properties for use in action property change events.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum ActionProperties
+    content.vb: >-
+      <Flags>
+
+      Public Enum ActionProperties
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.None
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.None
+  id: None
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ActionProperties.None
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.None
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: No action properties are affected.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Text
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Text
+  id: Text
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: ActionProperties.Text
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Text
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Text property.
+  example: []
+  syntax:
+    content: Text = 1
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.ToolTipText
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.ToolTipText
+  id: ToolTipText
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: ToolTipText
+  nameWithType: ActionProperties.ToolTipText
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.ToolTipText
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: ToolTipText property.
+  example: []
+  syntax:
+    content: ToolTipText = 2
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Icon
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Icon
+  id: Icon
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: Icon
+  nameWithType: ActionProperties.Icon
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Icon
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Icon property.
+  example: []
+  syntax:
+    content: Icon = 4
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Shortcuts
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Shortcuts
+  id: Shortcuts
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: Shortcuts
+  nameWithType: ActionProperties.Shortcuts
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Shortcuts
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Shortcut property.
+  example: []
+  syntax:
+    content: Shortcuts = 8
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Enabled
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Enabled
+  id: Enabled
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: Enabled
+  nameWithType: ActionProperties.Enabled
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Enabled
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Enabled property.
+  example: []
+  syntax:
+    content: Enabled = 16
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Available
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Available
+  id: Available
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: Available
+  nameWithType: ActionProperties.Available
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Available
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Available property.
+  example: []
+  syntax:
+    content: Available = 32
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Style
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Style
+  id: Style
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: Style
+  nameWithType: ActionProperties.Style
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Style
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Style property.
+  example: []
+  syntax:
+    content: Style = 64
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Checked
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Checked
+  id: Checked
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: Checked
+  nameWithType: ActionProperties.Checked
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Checked
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Checked property.
+  example: []
+  syntax:
+    content: Checked = 128
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.ActionGroup
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.ActionGroup
+  id: ActionGroup
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: ActionGroup
+  nameWithType: ActionProperties.ActionGroup
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.ActionGroup
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: ActionGroup property.
+  example: []
+  syntax:
+    content: ActionGroup = 256
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.ShowText
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.ShowText
+  id: ShowText
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: ShowText
+  nameWithType: ActionProperties.ShowText
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.ShowText
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: ShowText property.
+  example: []
+  syntax:
+    content: ShowText = 512
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.PopupControl
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.PopupControl
+  id: PopupControl
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: PopupControl
+  nameWithType: ActionProperties.PopupControl
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.PopupControl
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: PopupControl property.
+  example: []
+  syntax:
+    content: PopupControl = 1024
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Size
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Size
+  id: Size
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: ActionProperties.Size
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.Size
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Ribbon size
+  example: []
+  syntax:
+    content: Size = 2048
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.All
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.All
+  id: All
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: ActionProperties.All
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.All
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: All properties combined.
+  example: []
+  syntax:
+    content: All = Text | ToolTipText | Icon | Shortcuts | Enabled | Available | Style | Checked | ActionGroup | ShowText | PopupControl | Size
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+    content.vb: All = Text Or ToolTipText Or Icon Or Shortcuts Or Enabled Or Available Or Style Or Checked Or ActionGroup Or ShowText Or PopupControl Or Size
+references:
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  commentId: N:Sdl.Desktop.IntegrationApi.Extensions.Internal
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  nameWithType: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.Internal
+    name: Internal
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.Internal.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.Internal
+    name: Internal
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.Internal.html
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties.html
+  name: ActionProperties
+  nameWithType: ActionProperties
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionProperties

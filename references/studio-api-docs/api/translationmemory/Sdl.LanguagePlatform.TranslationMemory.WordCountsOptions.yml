@@ -1,0 +1,465 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions
+  id: WordCountsOptions
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.#ctor
+  - Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakAdvancedTokensByCharacter
+  - Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnApostrophe
+  - Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnDash
+  - Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnHyphen
+  - Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnTag
+  langs:
+  - csharp
+  - vb
+  name: WordCountsOptions
+  nameWithType: WordCountsOptions
+  fullName: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public class WordCountsOptions
+    content.vb: Public Class WordCountsOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnHyphen
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnHyphen
+  id: BreakOnHyphen
+  parent: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions
+  langs:
+  - csharp
+  - vb
+  name: BreakOnHyphen
+  nameWithType: WordCountsOptions.BreakOnHyphen
+  fullName: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnHyphen
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: If false, 2 words separated by a hyphen count as 1
+  example: []
+  syntax:
+    content: public bool BreakOnHyphen
+    return:
+      type: System.Boolean
+    content.vb: Public BreakOnHyphen As Boolean
+- uid: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnDash
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnDash
+  id: BreakOnDash
+  parent: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions
+  langs:
+  - csharp
+  - vb
+  name: BreakOnDash
+  nameWithType: WordCountsOptions.BreakOnDash
+  fullName: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnDash
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: If false, 2 words separated by a dash count as 1
+  example: []
+  syntax:
+    content: public bool BreakOnDash
+    return:
+      type: System.Boolean
+    content.vb: Public BreakOnDash As Boolean
+- uid: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnTag
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnTag
+  id: BreakOnTag
+  parent: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions
+  langs:
+  - csharp
+  - vb
+  name: BreakOnTag
+  nameWithType: WordCountsOptions.BreakOnTag
+  fullName: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnTag
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: If false, 2 words separated by a formatting tag count as 1
+  example: []
+  syntax:
+    content: public bool BreakOnTag
+    return:
+      type: System.Boolean
+    content.vb: Public BreakOnTag As Boolean
+- uid: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnApostrophe
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnApostrophe
+  id: BreakOnApostrophe
+  parent: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions
+  langs:
+  - csharp
+  - vb
+  name: BreakOnApostrophe
+  nameWithType: WordCountsOptions.BreakOnApostrophe
+  fullName: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakOnApostrophe
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: If false, 2 words separated by an apostrophe count as 1
+  example: []
+  syntax:
+    content: public bool BreakOnApostrophe
+    return:
+      type: System.Boolean
+    content.vb: Public BreakOnApostrophe As Boolean
+- uid: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakAdvancedTokensByCharacter
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakAdvancedTokensByCharacter
+  id: BreakAdvancedTokensByCharacter
+  parent: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions
+  langs:
+  - csharp
+  - vb
+  name: BreakAdvancedTokensByCharacter
+  nameWithType: WordCountsOptions.BreakAdvancedTokensByCharacter
+  fullName: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.BreakAdvancedTokensByCharacter
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: >-
+    If true, Word tokens resulting from advanced tokenization 
+
+    increase the Word count by the number of characters in 
+
+    the Word, not by 1.
+  example: []
+  syntax:
+    content: public bool BreakAdvancedTokensByCharacter
+    return:
+      type: System.Boolean
+    content.vb: Public BreakAdvancedTokensByCharacter As Boolean
+- uid: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.#ctor
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.#ctor
+  id: '#ctor'
+  parent: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions
+  langs:
+  - csharp
+  - vb
+  name: WordCountsOptions()
+  nameWithType: WordCountsOptions.WordCountsOptions()
+  fullName: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.WordCountsOptions()
+  type: Constructor
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  syntax:
+    content: public WordCountsOptions()
+    content.vb: Public Sub New()
+  overload: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.#ctor*
+  nameWithType.vb: WordCountsOptions.New()
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.New()
+  name.vb: New()
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.#ctor*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.#ctor
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.html#Sdl_LanguagePlatform_TranslationMemory_WordCountsOptions__ctor
+  name: WordCountsOptions
+  nameWithType: WordCountsOptions.WordCountsOptions
+  fullName: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.WordCountsOptions
+  nameWithType.vb: WordCountsOptions.New
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.WordCountsOptions.New
+  name.vb: New

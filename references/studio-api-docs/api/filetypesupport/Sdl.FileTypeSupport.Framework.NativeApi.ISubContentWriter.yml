@@ -1,0 +1,168 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter
+  id: ISubContentWriter
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.GetSubContentStream
+  - Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.InitializeSubContentWriter(System.IO.Stream)
+  langs:
+  - csharp
+  - vb
+  name: ISubContentWriter
+  nameWithType: ISubContentWriter
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Interface implemented by sub-content writers
+  example: []
+  syntax:
+    content: public interface ISubContentWriter
+    content.vb: Public Interface ISubContentWriter
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.InitializeSubContentWriter(System.IO.Stream)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.InitializeSubContentWriter(System.IO.Stream)
+  id: InitializeSubContentWriter(System.IO.Stream)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter
+  langs:
+  - csharp
+  - vb
+  name: InitializeSubContentWriter(Stream)
+  nameWithType: ISubContentWriter.InitializeSubContentWriter(Stream)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.InitializeSubContentWriter(System.IO.Stream)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: called by the framework to initialize the SubContent Writer
+  example: []
+  syntax:
+    content: void InitializeSubContentWriter(Stream originalSubContent)
+    parameters:
+    - id: originalSubContent
+      type: System.IO.Stream
+      description: Stream containing the original source sub-content for writers which need this when regenerating
+    content.vb: Sub InitializeSubContentWriter(originalSubContent As Stream)
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.InitializeSubContentWriter*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.GetSubContentStream
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.GetSubContentStream
+  id: GetSubContentStream
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter
+  langs:
+  - csharp
+  - vb
+  name: GetSubContentStream()
+  nameWithType: ISubContentWriter.GetSubContentStream()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.GetSubContentStream()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: called by the framework to get the final sub-content stream
+  example: []
+  syntax:
+    content: Stream GetSubContentStream()
+    return:
+      type: System.IO.Stream
+      description: Stream containing regenerated sub-content
+    content.vb: Function GetSubContentStream() As Stream
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.GetSubContentStream*
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.InitializeSubContentWriter*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.InitializeSubContentWriter
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.html#Sdl_FileTypeSupport_Framework_NativeApi_ISubContentWriter_InitializeSubContentWriter_System_IO_Stream_
+  name: InitializeSubContentWriter
+  nameWithType: ISubContentWriter.InitializeSubContentWriter
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.InitializeSubContentWriter
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  name: Stream
+  nameWithType: Stream
+  fullName: System.IO.Stream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.GetSubContentStream*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.GetSubContentStream
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.html#Sdl_FileTypeSupport_Framework_NativeApi_ISubContentWriter_GetSubContentStream
+  name: GetSubContentStream
+  nameWithType: ISubContentWriter.GetSubContentStream
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentWriter.GetSubContentStream

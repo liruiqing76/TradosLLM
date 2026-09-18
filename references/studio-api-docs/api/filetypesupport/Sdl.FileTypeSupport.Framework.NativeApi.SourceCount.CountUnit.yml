@@ -1,0 +1,140 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit
+  id: SourceCount.CountUnit
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit.character
+  - Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit.word
+  langs:
+  - csharp
+  - vb
+  name: SourceCount.CountUnit
+  nameWithType: SourceCount.CountUnit
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit
+  type: Enum
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The type of count, i.e. word or character
+  example: []
+  syntax:
+    content: public enum SourceCount.CountUnit
+    content.vb: Public Enum SourceCount.CountUnit
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit.word
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit.word
+  id: word
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit
+  langs:
+  - csharp
+  - vb
+  name: word
+  nameWithType: SourceCount.CountUnit.word
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit.word
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Count value representing the number of words
+  example: []
+  syntax:
+    content: word = 0
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit.character
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit.character
+  id: character
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit
+  langs:
+  - csharp
+  - vb
+  name: character
+  nameWithType: SourceCount.CountUnit.character
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit.character
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Count value representing the number of characters
+  example: []
+  syntax:
+    content: character = 1
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.html
+  name: SourceCount.CountUnit
+  nameWithType: SourceCount.CountUnit
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount
+    name: SourceCount
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit
+    name: CountUnit
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit.html
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount
+    name: SourceCount
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit
+    name: CountUnit
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.CountUnit.html

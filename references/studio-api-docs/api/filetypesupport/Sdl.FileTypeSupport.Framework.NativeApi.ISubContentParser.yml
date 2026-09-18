@@ -1,0 +1,137 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentParser
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ISubContentParser
+  id: ISubContentParser
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.ISubContentParser.InitializeSubContentParser(System.IO.Stream)
+  langs:
+  - csharp
+  - vb
+  name: ISubContentParser
+  nameWithType: ISubContentParser
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentParser
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Interface implemented by sub-content parsers
+  example: []
+  syntax:
+    content: public interface ISubContentParser
+    content.vb: Public Interface ISubContentParser
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentParser.InitializeSubContentParser(System.IO.Stream)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.ISubContentParser.InitializeSubContentParser(System.IO.Stream)
+  id: InitializeSubContentParser(System.IO.Stream)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentParser
+  langs:
+  - csharp
+  - vb
+  name: InitializeSubContentParser(Stream)
+  nameWithType: ISubContentParser.InitializeSubContentParser(Stream)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentParser.InitializeSubContentParser(System.IO.Stream)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Called to initialize the sub-content parser with the stream referencing the sub-content
+  example: []
+  syntax:
+    content: void InitializeSubContentParser(Stream subContentStream)
+    parameters:
+    - id: subContentStream
+      type: System.IO.Stream
+      description: Stream containing the sub-content to be parsed
+    content.vb: Sub InitializeSubContentParser(subContentStream As Stream)
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentParser.InitializeSubContentParser*
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentParser.InitializeSubContentParser*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.ISubContentParser.InitializeSubContentParser
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentParser.html#Sdl_FileTypeSupport_Framework_NativeApi_ISubContentParser_InitializeSubContentParser_System_IO_Stream_
+  name: InitializeSubContentParser
+  nameWithType: ISubContentParser.InitializeSubContentParser
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ISubContentParser.InitializeSubContentParser
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  name: Stream
+  nameWithType: Stream
+  fullName: System.IO.Stream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io

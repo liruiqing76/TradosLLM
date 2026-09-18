@@ -1,0 +1,144 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel
+  id: TextContextMatchLevel
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel.None
+  - Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel.Source
+  - Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel.SourceAndTarget
+  langs:
+  - csharp
+  - vb
+  name: TextContextMatchLevel
+  nameWithType: TextContextMatchLevel
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel
+  type: Enum
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    Used with textual context matches to indicate the level of 
+
+    matching.
+  example: []
+  syntax:
+    content: public enum TextContextMatchLevel
+    content.vb: Public Enum TextContextMatchLevel
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel.None
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel.None
+  id: None
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: TextContextMatchLevel.None
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel.None
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The textual context does not match.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel.Source
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel.Source
+  id: Source
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: TextContextMatchLevel.Source
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel.Source
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Source content matches with surrounding source content.
+  example: []
+  syntax:
+    content: Source = 1
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel.SourceAndTarget
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel.SourceAndTarget
+  id: SourceAndTarget
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel
+  langs:
+  - csharp
+  - vb
+  name: SourceAndTarget
+  nameWithType: TextContextMatchLevel.SourceAndTarget
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel.SourceAndTarget
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Source and target matches surrounding source and target content.
+  example: []
+  syntax:
+    content: SourceAndTarget = 2
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel.html
+  name: TextContextMatchLevel
+  nameWithType: TextContextMatchLevel
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.TextContextMatchLevel

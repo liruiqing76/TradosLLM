@@ -1,0 +1,180 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+  commentId: T:Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+  id: TranslationModelProgressStage
+  parent: Sdl.Core.FineGrainedAlignment
+  children:
+  - Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Analysing
+  - Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Computing
+  - Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Encoding
+  - Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Merging
+  - Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Preparing
+  - Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Saving
+  langs:
+  - csharp
+  - vb
+  name: TranslationModelProgressStage
+  nameWithType: TranslationModelProgressStage
+  fullName: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+  type: Enum
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: public enum TranslationModelProgressStage
+    content.vb: Public Enum TranslationModelProgressStage
+- uid: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Preparing
+  commentId: F:Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Preparing
+  id: Preparing
+  parent: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+  langs:
+  - csharp
+  - vb
+  name: Preparing
+  nameWithType: TranslationModelProgressStage.Preparing
+  fullName: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Preparing
+  type: Field
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: Preparing = 0
+    return:
+      type: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+- uid: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Encoding
+  commentId: F:Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Encoding
+  id: Encoding
+  parent: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+  langs:
+  - csharp
+  - vb
+  name: Encoding
+  nameWithType: TranslationModelProgressStage.Encoding
+  fullName: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Encoding
+  type: Field
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: Encoding = 1
+    return:
+      type: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+- uid: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Analysing
+  commentId: F:Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Analysing
+  id: Analysing
+  parent: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+  langs:
+  - csharp
+  - vb
+  name: Analysing
+  nameWithType: TranslationModelProgressStage.Analysing
+  fullName: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Analysing
+  type: Field
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: Analysing = 2
+    return:
+      type: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+- uid: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Merging
+  commentId: F:Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Merging
+  id: Merging
+  parent: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+  langs:
+  - csharp
+  - vb
+  name: Merging
+  nameWithType: TranslationModelProgressStage.Merging
+  fullName: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Merging
+  type: Field
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: Merging = 3
+    return:
+      type: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+- uid: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Computing
+  commentId: F:Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Computing
+  id: Computing
+  parent: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+  langs:
+  - csharp
+  - vb
+  name: Computing
+  nameWithType: TranslationModelProgressStage.Computing
+  fullName: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Computing
+  type: Field
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: Computing = 4
+    return:
+      type: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+- uid: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Saving
+  commentId: F:Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Saving
+  id: Saving
+  parent: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+  langs:
+  - csharp
+  - vb
+  name: Saving
+  nameWithType: TranslationModelProgressStage.Saving
+  fullName: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.Saving
+  type: Field
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: Saving = 5
+    return:
+      type: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+references:
+- uid: Sdl.Core.FineGrainedAlignment
+  commentId: N:Sdl.Core.FineGrainedAlignment
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.FineGrainedAlignment
+  nameWithType: Sdl.Core.FineGrainedAlignment
+  fullName: Sdl.Core.FineGrainedAlignment
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.FineGrainedAlignment
+    name: FineGrainedAlignment
+    isExternal: true
+    href: Sdl.Core.FineGrainedAlignment.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.FineGrainedAlignment
+    name: FineGrainedAlignment
+    isExternal: true
+    href: Sdl.Core.FineGrainedAlignment.html
+- uid: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+  commentId: T:Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage
+  parent: Sdl.Core.FineGrainedAlignment
+  isExternal: true
+  href: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage.html
+  name: TranslationModelProgressStage
+  nameWithType: TranslationModelProgressStage
+  fullName: Sdl.Core.FineGrainedAlignment.TranslationModelProgressStage

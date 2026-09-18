@@ -1,0 +1,229 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+  commentId: T:Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+  id: Segment.DeleteTagsAction
+  parent: Sdl.LanguagePlatform.Core
+  children:
+  - Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteAll
+  - Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteNone
+  - Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeletePairedTags
+  - Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteStandaloneTags
+  - Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteTextPlaceholders
+  - Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.KeepTextPlaceholders
+  langs:
+  - csharp
+  - vb
+  name: Segment.DeleteTagsAction
+  nameWithType: Segment.DeleteTagsAction
+  fullName: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: >-
+    Enumerates the different ways how text placeholders should be handled when removing tags from 
+
+    a segment. Since this is a [Flags] enum, variables of this type may use a combination of values.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum Segment.DeleteTagsAction
+    content.vb: >-
+      <Flags>
+
+      Public Enum Segment.DeleteTagsAction
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteNone
+  commentId: F:Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteNone
+  id: DeleteNone
+  parent: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+  langs:
+  - csharp
+  - vb
+  name: DeleteNone
+  nameWithType: Segment.DeleteTagsAction.DeleteNone
+  fullName: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteNone
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Do not delete any tags
+  example: []
+  syntax:
+    content: DeleteNone = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+- uid: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteTextPlaceholders
+  commentId: F:Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteTextPlaceholders
+  id: DeleteTextPlaceholders
+  parent: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+  langs:
+  - csharp
+  - vb
+  name: DeleteTextPlaceholders
+  nameWithType: Segment.DeleteTagsAction.DeleteTextPlaceholders
+  fullName: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteTextPlaceholders
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Delete text placeholders
+  example: []
+  syntax:
+    content: DeleteTextPlaceholders = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+- uid: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteStandaloneTags
+  commentId: F:Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteStandaloneTags
+  id: DeleteStandaloneTags
+  parent: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+  langs:
+  - csharp
+  - vb
+  name: DeleteStandaloneTags
+  nameWithType: Segment.DeleteTagsAction.DeleteStandaloneTags
+  fullName: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteStandaloneTags
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Delete standalone tags
+  example: []
+  syntax:
+    content: DeleteStandaloneTags = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+- uid: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeletePairedTags
+  commentId: F:Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeletePairedTags
+  id: DeletePairedTags
+  parent: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+  langs:
+  - csharp
+  - vb
+  name: DeletePairedTags
+  nameWithType: Segment.DeleteTagsAction.DeletePairedTags
+  fullName: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeletePairedTags
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Delete paired tags
+  example: []
+  syntax:
+    content: DeletePairedTags = 4
+    return:
+      type: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+- uid: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteAll
+  commentId: F:Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteAll
+  id: DeleteAll
+  parent: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+  langs:
+  - csharp
+  - vb
+  name: DeleteAll
+  nameWithType: Segment.DeleteTagsAction.DeleteAll
+  fullName: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.DeleteAll
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: 'Combined Value: Delete all tags, including text placeholders and standalone tags'
+  example: []
+  syntax:
+    content: DeleteAll = DeleteTextPlaceholders | KeepTextPlaceholders
+    return:
+      type: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+    content.vb: DeleteAll = DeleteTextPlaceholders Or KeepTextPlaceholders
+- uid: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.KeepTextPlaceholders
+  commentId: F:Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.KeepTextPlaceholders
+  id: KeepTextPlaceholders
+  parent: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+  langs:
+  - csharp
+  - vb
+  name: KeepTextPlaceholders
+  nameWithType: Segment.DeleteTagsAction.KeepTextPlaceholders
+  fullName: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.KeepTextPlaceholders
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: 'Combined Value: delete standalone and paired tags'
+  example: []
+  syntax:
+    content: KeepTextPlaceholders = DeleteStandaloneTags | DeletePairedTags
+    return:
+      type: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+    content.vb: KeepTextPlaceholders = DeleteStandaloneTags Or DeletePairedTags
+references:
+- uid: Sdl.LanguagePlatform.Core
+  commentId: N:Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core
+  nameWithType: Sdl.LanguagePlatform.Core
+  fullName: Sdl.LanguagePlatform.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+- uid: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+  commentId: T:Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+  parent: Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.Segment.html
+  name: Segment.DeleteTagsAction
+  nameWithType: Segment.DeleteTagsAction
+  fullName: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.Core.Segment
+    name: Segment
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segment.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+    name: DeleteTagsAction
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.html
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.Core.Segment
+    name: Segment
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segment.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction
+    name: DeleteTagsAction
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segment.DeleteTagsAction.html

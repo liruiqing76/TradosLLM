@@ -1,0 +1,809 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection
+  id: ITranslationProviderLanguageDirection
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  children:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddOrUpdateTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],System.Int32[],Sdl.LanguagePlatform.TranslationMemory.ImportSettings,System.Boolean[])
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],Sdl.LanguagePlatform.TranslationMemory.ImportSettings,System.Boolean[])
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegment(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.Core.Segment)
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegmentsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.Core.Segment[],System.Boolean[])
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchText(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,System.String)
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],System.Boolean[])
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SourceLanguage
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TargetLanguage
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TranslationProvider
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.UpdateTranslationUnits(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[])
+  langs:
+  - csharp
+  - vb
+  name: ITranslationProviderLanguageDirection
+  nameWithType: ITranslationProviderLanguageDirection
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection
+  type: Interface
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Exposes translation provider functionality for a specific language direction.
+  example: []
+  syntax:
+    content: public interface ITranslationProviderLanguageDirection
+    content.vb: Public Interface ITranslationProviderLanguageDirection
+  derivedClasses:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractMachineTranslationProviderLanguageDirection
+  - Sdl.LanguagePlatform.TranslationMemoryApi.FileBasedTranslationMemoryLanguageDirection
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ServerBasedTranslationMemoryLanguageDirection
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegment(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.Core.Segment)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegment(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.Core.Segment)
+  id: SearchSegment(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.Core.Segment)
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection
+  langs:
+  - csharp
+  - vb
+  name: SearchSegment(SearchSettings, Segment)
+  nameWithType: ITranslationProviderLanguageDirection.SearchSegment(SearchSettings, Segment)
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegment(Sdl.LanguagePlatform.TranslationMemory.SearchSettings, Sdl.LanguagePlatform.Core.Segment)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Performs a segment search.
+  example: []
+  syntax:
+    content: SearchResults SearchSegment(SearchSettings settings, Segment segment)
+    parameters:
+    - id: settings
+      type: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+      description: The settings that define the search parameters.
+    - id: segment
+      type: Sdl.LanguagePlatform.Core.Segment
+      description: The segment to search for.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.SearchResults
+      description: A <xref href="Sdl.LanguagePlatform.TranslationMemory.SearchResults" data-throw-if-not-resolved="false"></xref> object containing the results or an empty object if no results were found.
+    content.vb: Function SearchSegment(settings As SearchSettings, segment As Segment) As SearchResults
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegment*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegmentsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.Core.Segment[],System.Boolean[])
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegmentsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.Core.Segment[],System.Boolean[])
+  id: SearchSegmentsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.Core.Segment[],System.Boolean[])
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection
+  langs:
+  - csharp
+  - vb
+  name: SearchSegmentsMasked(SearchSettings, Segment[], bool[])
+  nameWithType: ITranslationProviderLanguageDirection.SearchSegmentsMasked(SearchSettings, Segment[], bool[])
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegmentsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings, Sdl.LanguagePlatform.Core.Segment[], bool[])
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Performs a search for an array of segments, specifying a mask which specifies which segments should actually be
+
+    searched (only those for which the corresponding mask bit is <code>true</code> are searched). If the mask is <code>null</code>, the method
+
+    will search all the segments. Passing a mask only makes sense in document search contexts (<xref href="Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsDocumentSearch" data-throw-if-not-resolved="false"></xref>
+
+    set to <code>true</code>).
+  example: []
+  syntax:
+    content: SearchResults[] SearchSegmentsMasked(SearchSettings settings, Segment[] segments, bool[] mask)
+    parameters:
+    - id: settings
+      type: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+      description: The settings that define the search parameters.
+    - id: segments
+      type: Sdl.LanguagePlatform.Core.Segment[]
+      description: The array containing the segments to search for.
+    - id: mask
+      type: System.Boolean[]
+      description: The array containing the segments to search for.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.SearchResults[]
+      description: >-
+        An array of <xref href="Sdl.LanguagePlatform.TranslationMemory.SearchResults" data-throw-if-not-resolved="false"></xref> objects, which mirrors the segments array. It has the exact same size and contains the
+                    search results for each segment with the same index within the segments array.
+    content.vb: Function SearchSegmentsMasked(settings As SearchSettings, segments As Segment(), mask As Boolean()) As SearchResults()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegmentsMasked*
+  nameWithType.vb: ITranslationProviderLanguageDirection.SearchSegmentsMasked(SearchSettings, Segment(), Boolean())
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegmentsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings, Sdl.LanguagePlatform.Core.Segment(), Boolean())
+  name.vb: SearchSegmentsMasked(SearchSettings, Segment(), Boolean())
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchText(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchText(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,System.String)
+  id: SearchText(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection
+  langs:
+  - csharp
+  - vb
+  name: SearchText(SearchSettings, string)
+  nameWithType: ITranslationProviderLanguageDirection.SearchText(SearchSettings, string)
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchText(Sdl.LanguagePlatform.TranslationMemory.SearchSettings, string)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Performs a text search.
+  example: []
+  syntax:
+    content: SearchResults SearchText(SearchSettings settings, string segment)
+    parameters:
+    - id: settings
+      type: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+      description: The settings that define the search parameters.
+    - id: segment
+      type: System.String
+      description: The text to search for.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.SearchResults
+      description: A <xref href="Sdl.LanguagePlatform.TranslationMemory.SearchResults" data-throw-if-not-resolved="false"></xref> object containing the results or an empty object if no results were found.
+    content.vb: Function SearchText(settings As SearchSettings, segment As String) As SearchResults
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchText*
+  nameWithType.vb: ITranslationProviderLanguageDirection.SearchText(SearchSettings, String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchText(Sdl.LanguagePlatform.TranslationMemory.SearchSettings, String)
+  name.vb: SearchText(SearchSettings, String)
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],System.Boolean[])
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],System.Boolean[])
+  id: SearchTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],System.Boolean[])
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection
+  langs:
+  - csharp
+  - vb
+  name: SearchTranslationUnitsMasked(SearchSettings, TranslationUnit[], bool[])
+  nameWithType: ITranslationProviderLanguageDirection.SearchTranslationUnitsMasked(SearchSettings, TranslationUnit[], bool[])
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings, Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[], bool[])
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Performs a translation unit search for an array of translation units, allows passing a mask which specifies which TUs are actually searched. This is useful
+
+    in document search contexts where some TUs are passed which should be used to establish a (text) context, but which should not be
+
+    processed.
+  example: []
+  syntax:
+    content: SearchResults[] SearchTranslationUnitsMasked(SearchSettings settings, TranslationUnit[] translationUnits, bool[] mask)
+    parameters:
+    - id: settings
+      type: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+      description: The settings that define the search parameters.
+    - id: translationUnits
+      type: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[]
+      description: The array containing the translation units to search for.
+    - id: mask
+      type: System.Boolean[]
+      description: >-
+        A <code>bool</code> array which specifies which TUs are actually searched (mask[i] = <code>true</code>). If <code>null</code>, the method
+                    searches all the translation units.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.SearchResults[]
+      description: >-
+        An array of <xref href="Sdl.LanguagePlatform.TranslationMemory.SearchResults" data-throw-if-not-resolved="false"></xref> objects, which mirrors the translation unit array. It has the exact same size and contains
+                    the search results for each translation unit with the same index within the translation unit array.
+    content.vb: Function SearchTranslationUnitsMasked(settings As SearchSettings, translationUnits As TranslationUnit(), mask As Boolean()) As SearchResults()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchTranslationUnitsMasked*
+  nameWithType.vb: ITranslationProviderLanguageDirection.SearchTranslationUnitsMasked(SearchSettings, TranslationUnit(), Boolean())
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings, Sdl.LanguagePlatform.TranslationMemory.TranslationUnit(), Boolean())
+  name.vb: SearchTranslationUnitsMasked(SearchSettings, TranslationUnit(), Boolean())
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],Sdl.LanguagePlatform.TranslationMemory.ImportSettings,System.Boolean[])
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],Sdl.LanguagePlatform.TranslationMemory.ImportSettings,System.Boolean[])
+  id: AddTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],Sdl.LanguagePlatform.TranslationMemory.ImportSettings,System.Boolean[])
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection
+  langs:
+  - csharp
+  - vb
+  name: AddTranslationUnitsMasked(TranslationUnit[], ImportSettings, bool[])
+  nameWithType: ITranslationProviderLanguageDirection.AddTranslationUnitsMasked(TranslationUnit[], ImportSettings, bool[])
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[], Sdl.LanguagePlatform.TranslationMemory.ImportSettings, bool[])
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Adds an array of translation units to the database, but will only add those
+
+    for which the corresponding mask field is <code>true</code>. If the provider doesn't support adding/updating, the 
+
+    implementation should return a reasonable ImportResult but should not throw an exception.
+  example: []
+  syntax:
+    content: ImportResult[] AddTranslationUnitsMasked(TranslationUnit[] translationUnits, ImportSettings settings, bool[] mask)
+    parameters:
+    - id: translationUnits
+      type: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[]
+      description: An arrays of translation units to be added.
+    - id: settings
+      type: Sdl.LanguagePlatform.TranslationMemory.ImportSettings
+      description: The settings used for this operation.
+    - id: mask
+      type: System.Boolean[]
+      description: A boolean array with the same cardinality as the TU array, specifying which TUs to add.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.ImportResult[]
+      description: >-
+        An array of ImportResult objects, which mirrors the translation unit array. It has the exact same size and contains the
+                    status of each add operation for each particular translation unit with the same index within the array.
+    content.vb: Function AddTranslationUnitsMasked(translationUnits As TranslationUnit(), settings As ImportSettings, mask As Boolean()) As ImportResult()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddTranslationUnitsMasked*
+  nameWithType.vb: ITranslationProviderLanguageDirection.AddTranslationUnitsMasked(TranslationUnit(), ImportSettings, Boolean())
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit(), Sdl.LanguagePlatform.TranslationMemory.ImportSettings, Boolean())
+  name.vb: AddTranslationUnitsMasked(TranslationUnit(), ImportSettings, Boolean())
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddOrUpdateTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],System.Int32[],Sdl.LanguagePlatform.TranslationMemory.ImportSettings,System.Boolean[])
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddOrUpdateTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],System.Int32[],Sdl.LanguagePlatform.TranslationMemory.ImportSettings,System.Boolean[])
+  id: AddOrUpdateTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],System.Int32[],Sdl.LanguagePlatform.TranslationMemory.ImportSettings,System.Boolean[])
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection
+  langs:
+  - csharp
+  - vb
+  name: AddOrUpdateTranslationUnitsMasked(TranslationUnit[], int[], ImportSettings, bool[])
+  nameWithType: ITranslationProviderLanguageDirection.AddOrUpdateTranslationUnitsMasked(TranslationUnit[], int[], ImportSettings, bool[])
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddOrUpdateTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[], int[], Sdl.LanguagePlatform.TranslationMemory.ImportSettings, bool[])
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Adds an array of translation units to the database, but will only add those
+
+    for which the corresponding mask field is true. If the previous translation hashes are provided,
+
+    existing translations will be updated if the target segment hash changed.
+
+
+    <p>
+
+    If the provider doesn't support adding/updating, the 
+
+    implementation should return a reasonable ImportResult but should not throw an exception.
+
+    </p>
+  example: []
+  syntax:
+    content: ImportResult[] AddOrUpdateTranslationUnitsMasked(TranslationUnit[] translationUnits, int[] previousTranslationHashes, ImportSettings settings, bool[] mask)
+    parameters:
+    - id: translationUnits
+      type: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[]
+      description: An arrays of translation units to be added.
+    - id: previousTranslationHashes
+      type: System.Int32[]
+      description: Corresponding hash codes of a previous translation (0 if unknown). The parameter may be null.
+    - id: settings
+      type: Sdl.LanguagePlatform.TranslationMemory.ImportSettings
+      description: The settings used for this operation.
+    - id: mask
+      type: System.Boolean[]
+      description: A boolean array with the same cardinality as the TU array, specifying which TUs to add.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.ImportResult[]
+      description: >-
+        An array of ImportResult objects, which mirrors the translation unit array. It has the exact same size and contains the
+                    status of each add operation for each particular translation unit with the same index within the array.
+    content.vb: Function AddOrUpdateTranslationUnitsMasked(translationUnits As TranslationUnit(), previousTranslationHashes As Integer(), settings As ImportSettings, mask As Boolean()) As ImportResult()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddOrUpdateTranslationUnitsMasked*
+  nameWithType.vb: ITranslationProviderLanguageDirection.AddOrUpdateTranslationUnitsMasked(TranslationUnit(), Integer(), ImportSettings, Boolean())
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddOrUpdateTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit(), Integer(), Sdl.LanguagePlatform.TranslationMemory.ImportSettings, Boolean())
+  name.vb: AddOrUpdateTranslationUnitsMasked(TranslationUnit(), Integer(), ImportSettings, Boolean())
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.UpdateTranslationUnits(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[])
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.UpdateTranslationUnits(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[])
+  id: UpdateTranslationUnits(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[])
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection
+  langs:
+  - csharp
+  - vb
+  name: UpdateTranslationUnits(TranslationUnit[])
+  nameWithType: ITranslationProviderLanguageDirection.UpdateTranslationUnits(TranslationUnit[])
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.UpdateTranslationUnits(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[])
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Updates the properties and fields of an array of existing translation units if the source and target segments are unchanged or
+
+    adds new translation units otherwise. If the provider doesn't support adding/updating, the 
+
+    implementation should return a reasonable ImportResult but should not throw an exception.
+
+
+    <p>The translation units should be initialized in previous calls to the translation memory, so that their ID properties
+
+    are set to valid values.</p>
+  example: []
+  syntax:
+    content: ImportResult[] UpdateTranslationUnits(TranslationUnit[] translationUnits)
+    parameters:
+    - id: translationUnits
+      type: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[]
+      description: The translation unit array to be updated.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.ImportResult[]
+      description: >-
+        An array of results which mirrors the translation unit array. It has the exact same size and contains the 
+                    results for each translation unit with the same index within the translation unit array.
+    content.vb: Function UpdateTranslationUnits(translationUnits As TranslationUnit()) As ImportResult()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.UpdateTranslationUnits*
+  nameWithType.vb: ITranslationProviderLanguageDirection.UpdateTranslationUnits(TranslationUnit())
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.UpdateTranslationUnits(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit())
+  name.vb: UpdateTranslationUnits(TranslationUnit())
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TranslationProvider
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TranslationProvider
+  id: TranslationProvider
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection
+  langs:
+  - csharp
+  - vb
+  name: TranslationProvider
+  nameWithType: ITranslationProviderLanguageDirection.TranslationProvider
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TranslationProvider
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: The translation provider to which this language direction belongs.
+  example: []
+  syntax:
+    content: ITranslationProvider TranslationProvider { get; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+    content.vb: ReadOnly Property TranslationProvider As ITranslationProvider
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TranslationProvider*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SourceLanguage
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SourceLanguage
+  id: SourceLanguage
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection
+  langs:
+  - csharp
+  - vb
+  name: SourceLanguage
+  nameWithType: ITranslationProviderLanguageDirection.SourceLanguage
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SourceLanguage
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the source language.
+  example: []
+  syntax:
+    content: CultureCode SourceLanguage { get; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.CultureCode
+    content.vb: ReadOnly Property SourceLanguage As CultureCode
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SourceLanguage*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TargetLanguage
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TargetLanguage
+  id: TargetLanguage
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection
+  langs:
+  - csharp
+  - vb
+  name: TargetLanguage
+  nameWithType: ITranslationProviderLanguageDirection.TargetLanguage
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TargetLanguage
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the target language.
+  example: []
+  syntax:
+    content: CultureCode TargetLanguage { get; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.CultureCode
+    content.vb: ReadOnly Property TargetLanguage As CultureCode
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TargetLanguage*
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi
+  commentId: N:Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemoryApi
+  nameWithType: Sdl.LanguagePlatform.TranslationMemoryApi
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchResults
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SearchResults
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchResults.html
+  name: SearchResults
+  nameWithType: SearchResults
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchResults
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegment*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegment
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProviderLanguageDirection_SearchSegment_Sdl_LanguagePlatform_TranslationMemory_SearchSettings_Sdl_LanguagePlatform_Core_Segment_
+  name: SearchSegment
+  nameWithType: ITranslationProviderLanguageDirection.SearchSegment
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegment
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html
+  name: SearchSettings
+  nameWithType: SearchSettings
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+- uid: Sdl.LanguagePlatform.Core.Segment
+  commentId: T:Sdl.LanguagePlatform.Core.Segment
+  parent: Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.Segment.html
+  name: Segment
+  nameWithType: Segment
+  fullName: Sdl.LanguagePlatform.Core.Segment
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.Core
+  commentId: N:Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core
+  nameWithType: Sdl.LanguagePlatform.Core
+  fullName: Sdl.LanguagePlatform.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsDocumentSearch
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsDocumentSearch
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_IsDocumentSearch
+  name: IsDocumentSearch
+  nameWithType: SearchSettings.IsDocumentSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsDocumentSearch
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegmentsMasked*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegmentsMasked
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProviderLanguageDirection_SearchSegmentsMasked_Sdl_LanguagePlatform_TranslationMemory_SearchSettings_Sdl_LanguagePlatform_Core_Segment___System_Boolean___
+  name: SearchSegmentsMasked
+  nameWithType: ITranslationProviderLanguageDirection.SearchSegmentsMasked
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchSegmentsMasked
+- uid: Sdl.LanguagePlatform.Core.Segment[]
+  isExternal: true
+  name: Segment[]
+  nameWithType: Segment[]
+  fullName: Sdl.LanguagePlatform.Core.Segment[]
+  nameWithType.vb: Segment()
+  fullName.vb: Sdl.LanguagePlatform.Core.Segment()
+  name.vb: Segment()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.Core.Segment
+    name: Segment
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.Core.Segment
+    name: Segment
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Boolean[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool[]
+  nameWithType: bool[]
+  fullName: bool[]
+  nameWithType.vb: Boolean()
+  fullName.vb: Boolean()
+  name.vb: Boolean()
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchResults[]
+  isExternal: true
+  name: SearchResults[]
+  nameWithType: SearchResults[]
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchResults[]
+  nameWithType.vb: SearchResults()
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SearchResults()
+  name.vb: SearchResults()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchResults
+    name: SearchResults
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchResults
+    name: SearchResults
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchText*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchText
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProviderLanguageDirection_SearchText_Sdl_LanguagePlatform_TranslationMemory_SearchSettings_System_String_
+  name: SearchText
+  nameWithType: ITranslationProviderLanguageDirection.SearchText
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchText
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchTranslationUnitsMasked*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchTranslationUnitsMasked
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProviderLanguageDirection_SearchTranslationUnitsMasked_Sdl_LanguagePlatform_TranslationMemory_SearchSettings_Sdl_LanguagePlatform_TranslationMemory_TranslationUnit___System_Boolean___
+  name: SearchTranslationUnitsMasked
+  nameWithType: ITranslationProviderLanguageDirection.SearchTranslationUnitsMasked
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SearchTranslationUnitsMasked
+- uid: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[]
+  isExternal: true
+  name: TranslationUnit[]
+  nameWithType: TranslationUnit[]
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[]
+  nameWithType.vb: TranslationUnit()
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit()
+  name.vb: TranslationUnit()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit
+    name: TranslationUnit
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit
+    name: TranslationUnit
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddTranslationUnitsMasked*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddTranslationUnitsMasked
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProviderLanguageDirection_AddTranslationUnitsMasked_Sdl_LanguagePlatform_TranslationMemory_TranslationUnit___Sdl_LanguagePlatform_TranslationMemory_ImportSettings_System_Boolean___
+  name: AddTranslationUnitsMasked
+  nameWithType: ITranslationProviderLanguageDirection.AddTranslationUnitsMasked
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddTranslationUnitsMasked
+- uid: Sdl.LanguagePlatform.TranslationMemory.ImportSettings
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.ImportSettings
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ImportSettings.html
+  name: ImportSettings
+  nameWithType: ImportSettings
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ImportSettings
+- uid: Sdl.LanguagePlatform.TranslationMemory.ImportResult[]
+  isExternal: true
+  name: ImportResult[]
+  nameWithType: ImportResult[]
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ImportResult[]
+  nameWithType.vb: ImportResult()
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.ImportResult()
+  name.vb: ImportResult()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ImportResult
+    name: ImportResult
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ImportResult
+    name: ImportResult
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddOrUpdateTranslationUnitsMasked*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddOrUpdateTranslationUnitsMasked
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProviderLanguageDirection_AddOrUpdateTranslationUnitsMasked_Sdl_LanguagePlatform_TranslationMemory_TranslationUnit___System_Int32___Sdl_LanguagePlatform_TranslationMemory_ImportSettings_System_Boolean___
+  name: AddOrUpdateTranslationUnitsMasked
+  nameWithType: ITranslationProviderLanguageDirection.AddOrUpdateTranslationUnitsMasked
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.AddOrUpdateTranslationUnitsMasked
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.UpdateTranslationUnits*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.UpdateTranslationUnits
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProviderLanguageDirection_UpdateTranslationUnits_Sdl_LanguagePlatform_TranslationMemory_TranslationUnit___
+  name: UpdateTranslationUnits
+  nameWithType: ITranslationProviderLanguageDirection.UpdateTranslationUnits
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.UpdateTranslationUnits
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TranslationProvider*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TranslationProvider
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProviderLanguageDirection_TranslationProvider
+  name: TranslationProvider
+  nameWithType: ITranslationProviderLanguageDirection.TranslationProvider
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TranslationProvider
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html
+  name: ITranslationProvider
+  nameWithType: ITranslationProvider
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SourceLanguage*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SourceLanguage
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProviderLanguageDirection_SourceLanguage
+  name: SourceLanguage
+  nameWithType: ITranslationProviderLanguageDirection.SourceLanguage
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.SourceLanguage
+- uid: Sdl.Core.Globalization.CultureCode
+  commentId: T:Sdl.Core.Globalization.CultureCode
+  parent: Sdl.Core.Globalization
+  isExternal: true
+  name: CultureCode
+  nameWithType: CultureCode
+  fullName: Sdl.Core.Globalization.CultureCode
+- uid: Sdl.Core.Globalization
+  commentId: N:Sdl.Core.Globalization
+  isExternal: true
+  name: Sdl.Core.Globalization
+  nameWithType: Sdl.Core.Globalization
+  fullName: Sdl.Core.Globalization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TargetLanguage*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TargetLanguage
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.html#Sdl_LanguagePlatform_TranslationMemoryApi_ITranslationProviderLanguageDirection_TargetLanguage
+  name: TargetLanguage
+  nameWithType: ITranslationProviderLanguageDirection.TargetLanguage
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProviderLanguageDirection.TargetLanguage

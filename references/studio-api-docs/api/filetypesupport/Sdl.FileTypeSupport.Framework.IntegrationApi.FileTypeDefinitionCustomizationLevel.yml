@@ -1,0 +1,154 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel
+  id: FileTypeDefinitionCustomizationLevel
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  children:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel.CustomizedStandard
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel.FullyCustomized
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel.Standard
+  langs:
+  - csharp
+  - vb
+  name: FileTypeDefinitionCustomizationLevel
+  nameWithType: FileTypeDefinitionCustomizationLevel
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel
+  type: Enum
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Used by the <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition.CustomizationLevel" data-throw-if-not-resolved="false"></xref> property to
+
+    indicate level of File Type Definition customization.
+  example: []
+  syntax:
+    content: public enum FileTypeDefinitionCustomizationLevel
+    content.vb: Public Enum FileTypeDefinitionCustomizationLevel
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel.Standard
+  commentId: F:Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel.Standard
+  id: Standard
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel
+  langs:
+  - csharp
+  - vb
+  name: Standard
+  nameWithType: FileTypeDefinitionCustomizationLevel.Standard
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel.Standard
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Standard file type definition - no customization
+  example: []
+  syntax:
+    content: Standard = 0
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel.CustomizedStandard
+  commentId: F:Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel.CustomizedStandard
+  id: CustomizedStandard
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel
+  langs:
+  - csharp
+  - vb
+  name: CustomizedStandard
+  nameWithType: FileTypeDefinitionCustomizationLevel.CustomizedStandard
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel.CustomizedStandard
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Standard file type definition with some properties customized,
+
+    for example custom FileDialogWildcardExpression
+  example: []
+  syntax:
+    content: CustomizedStandard = 1
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel.FullyCustomized
+  commentId: F:Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel.FullyCustomized
+  id: FullyCustomized
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel
+  langs:
+  - csharp
+  - vb
+  name: FullyCustomized
+  nameWithType: FileTypeDefinitionCustomizationLevel.FullyCustomized
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel.FullyCustomized
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Fully customized file type definition.
+  example: []
+  syntax:
+    content: FullyCustomized = 2
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition.CustomizationLevel
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition.CustomizationLevel
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeDefinition_CustomizationLevel
+  name: CustomizationLevel
+  nameWithType: IFileTypeDefinition.CustomizationLevel
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition.CustomizationLevel
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel.html
+  name: FileTypeDefinitionCustomizationLevel
+  nameWithType: FileTypeDefinitionCustomizationLevel
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.FileTypeDefinitionCustomizationLevel

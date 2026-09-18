@@ -1,0 +1,468 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  commentId: T:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  id: IAbstractSettingsPage
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings
+  children:
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterCancel
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterSave
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Cancel
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.HasDefaultSettings
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnActivate
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnDeactivate
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save
+  - Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput
+  langs:
+  - csharp
+  - vb
+  name: IAbstractSettingsPage
+  nameWithType: IAbstractSettingsPage
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings
+  summary: >-
+    This interface defines the basic communication between a settings
+
+    page and its host.
+  remarks: >-
+    <p>
+
+    This interface intentionally excludes initialization and user interface
+
+    components, since this tends to be implementation specific. 
+
+    </p>
+  example: []
+  syntax:
+    content: public interface IAbstractSettingsPage
+    content.vb: Public Interface IAbstractSettingsPage
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnActivate
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnActivate
+  id: OnActivate
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  langs:
+  - csharp
+  - vb
+  name: OnActivate()
+  nameWithType: IAbstractSettingsPage.OnActivate()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnActivate()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings
+  summary: Called when this settings page is activated.
+  example: []
+  syntax:
+    content: void OnActivate()
+    content.vb: Sub OnActivate()
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnActivate*
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnDeactivate
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnDeactivate
+  id: OnDeactivate
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  langs:
+  - csharp
+  - vb
+  name: OnDeactivate()
+  nameWithType: IAbstractSettingsPage.OnDeactivate()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnDeactivate()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings
+  summary: Called when this settings page is deactivated.
+  example: []
+  syntax:
+    content: void OnDeactivate()
+    content.vb: Sub OnDeactivate()
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnDeactivate*
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput
+  id: ValidateInput
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  langs:
+  - csharp
+  - vb
+  name: ValidateInput()
+  nameWithType: IAbstractSettingsPage.ValidateInput()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings
+  summary: Returns true if the input on this settings page is valid.
+  remarks: This method is called when navigating away from a page and before <xref href="Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save" data-throw-if-not-resolved="false"></xref> is called.
+  example: []
+  syntax:
+    content: bool ValidateInput()
+    return:
+      type: System.Boolean
+      description: True if the input on this settings page is valid.
+    content.vb: Function ValidateInput() As Boolean
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput*
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save
+  id: Save
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  langs:
+  - csharp
+  - vb
+  name: Save()
+  nameWithType: IAbstractSettingsPage.Save()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings
+  summary: Called when settings should be saved. The implementation is responsible for persisting the settings.
+  remarks: This method is called once, after <xref href="Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput" data-throw-if-not-resolved="false"></xref> has been called.
+  example: []
+  syntax:
+    content: void Save()
+    content.vb: Sub Save()
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save*
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterSave
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterSave
+  id: AfterSave
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  langs:
+  - csharp
+  - vb
+  name: AfterSave()
+  nameWithType: IAbstractSettingsPage.AfterSave()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterSave()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings
+  summary: Called after all settings pages shown on the settings dialog have been saved.
+  example: []
+  syntax:
+    content: void AfterSave()
+    content.vb: Sub AfterSave()
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterSave*
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Cancel
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Cancel
+  id: Cancel
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  langs:
+  - csharp
+  - vb
+  name: Cancel()
+  nameWithType: IAbstractSettingsPage.Cancel()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Cancel()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings
+  summary: Called when the settings dialog is canceled.
+  example: []
+  syntax:
+    content: void Cancel()
+    content.vb: Sub Cancel()
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Cancel*
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterCancel
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterCancel
+  id: AfterCancel
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  langs:
+  - csharp
+  - vb
+  name: AfterCancel()
+  nameWithType: IAbstractSettingsPage.AfterCancel()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterCancel()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings
+  summary: Called after all settings pages shown on the settings dialog have been canceled.
+  example: []
+  syntax:
+    content: void AfterCancel()
+    content.vb: Sub AfterCancel()
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterCancel*
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults
+  id: ResetToDefaults
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  langs:
+  - csharp
+  - vb
+  name: ResetToDefaults()
+  nameWithType: IAbstractSettingsPage.ResetToDefaults()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings
+  summary: >-
+    Called to reset settings to default values. The implementation is responsible for
+
+    resetting the settings and updating the user interface accordingly.
+  remarks: >-
+    <p>
+
+    This method should not save the settings yet. This should be done in <xref href="Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save" data-throw-if-not-resolved="false"></xref>.
+
+    </p>
+
+    <p>This method will not be called if <xref href="Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.HasDefaultSettings" data-throw-if-not-resolved="false"></xref> returns <code>false</code>.</p>
+  example: []
+  syntax:
+    content: void ResetToDefaults()
+    content.vb: Sub ResetToDefaults()
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults*
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.HasDefaultSettings
+  commentId: P:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.HasDefaultSettings
+  id: HasDefaultSettings
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  langs:
+  - csharp
+  - vb
+  name: HasDefaultSettings
+  nameWithType: IAbstractSettingsPage.HasDefaultSettings
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.HasDefaultSettings
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core.Settings
+  namespace: Sdl.FileTypeSupport.Framework.Core.Settings
+  summary: Called to determine whether the settings page supports the <xref href="Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults" data-throw-if-not-resolved="false"></xref> method.
+  remarks: >-
+    <p>
+
+    Determines whether a 'Reset To Default' button should be displayed/enabled in the host application.
+
+    </p>
+  example: []
+  syntax:
+    content: bool HasDefaultSettings { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property HasDefaultSettings As Boolean
+  overload: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.HasDefaultSettings*
+references:
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings
+  commentId: N:Sdl.FileTypeSupport.Framework.Core.Settings
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.Core.Settings
+  nameWithType: Sdl.FileTypeSupport.Framework.Core.Settings
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core
+    name: Core
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core
+    name: Core
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.html
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnActivate*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnActivate
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_OnActivate
+  name: OnActivate
+  nameWithType: IAbstractSettingsPage.OnActivate
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnActivate
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnDeactivate*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnDeactivate
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_OnDeactivate
+  name: OnDeactivate
+  nameWithType: IAbstractSettingsPage.OnDeactivate
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.OnDeactivate
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_Save
+  name: Save()
+  nameWithType: IAbstractSettingsPage.Save()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save
+    name: Save
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_Save
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save
+    name: Save
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_Save
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_ValidateInput
+  name: ValidateInput
+  nameWithType: IAbstractSettingsPage.ValidateInput
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  commentId: T:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html
+  name: IAbstractSettingsPage
+  nameWithType: IAbstractSettingsPage
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_ValidateInput
+  name: ValidateInput()
+  nameWithType: IAbstractSettingsPage.ValidateInput()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput
+    name: ValidateInput
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_ValidateInput
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ValidateInput
+    name: ValidateInput
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_ValidateInput
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_Save
+  name: Save
+  nameWithType: IAbstractSettingsPage.Save
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Save
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterSave*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterSave
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_AfterSave
+  name: AfterSave
+  nameWithType: IAbstractSettingsPage.AfterSave
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterSave
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Cancel*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Cancel
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_Cancel
+  name: Cancel
+  nameWithType: IAbstractSettingsPage.Cancel
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.Cancel
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterCancel*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterCancel
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_AfterCancel
+  name: AfterCancel
+  nameWithType: IAbstractSettingsPage.AfterCancel
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.AfterCancel
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.HasDefaultSettings
+  commentId: P:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.HasDefaultSettings
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_HasDefaultSettings
+  name: HasDefaultSettings
+  nameWithType: IAbstractSettingsPage.HasDefaultSettings
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.HasDefaultSettings
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_ResetToDefaults
+  name: ResetToDefaults
+  nameWithType: IAbstractSettingsPage.ResetToDefaults
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults
+  commentId: M:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults
+  parent: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_ResetToDefaults
+  name: ResetToDefaults()
+  nameWithType: IAbstractSettingsPage.ResetToDefaults()
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults
+    name: ResetToDefaults
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_ResetToDefaults
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.ResetToDefaults
+    name: ResetToDefaults
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_ResetToDefaults
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.HasDefaultSettings*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.HasDefaultSettings
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.html#Sdl_FileTypeSupport_Framework_Core_Settings_IAbstractSettingsPage_HasDefaultSettings
+  name: HasDefaultSettings
+  nameWithType: IAbstractSettingsPage.HasDefaultSettings
+  fullName: Sdl.FileTypeSupport.Framework.Core.Settings.IAbstractSettingsPage.HasDefaultSettings

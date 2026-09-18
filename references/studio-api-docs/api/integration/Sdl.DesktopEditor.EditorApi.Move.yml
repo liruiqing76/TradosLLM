@@ -1,0 +1,463 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.Move
+  commentId: T:Sdl.DesktopEditor.EditorApi.Move
+  id: Move
+  parent: Sdl.DesktopEditor.EditorApi
+  children:
+  - Sdl.DesktopEditor.EditorApi.Move.EndOfDocument
+  - Sdl.DesktopEditor.EditorApi.Move.EndOfLine
+  - Sdl.DesktopEditor.EditorApi.Move.EndOfSegment
+  - Sdl.DesktopEditor.EditorApi.Move.LineDown
+  - Sdl.DesktopEditor.EditorApi.Move.LineUp
+  - Sdl.DesktopEditor.EditorApi.Move.NextCharacter
+  - Sdl.DesktopEditor.EditorApi.Move.NextWordStart
+  - Sdl.DesktopEditor.EditorApi.Move.PageDown
+  - Sdl.DesktopEditor.EditorApi.Move.PageUp
+  - Sdl.DesktopEditor.EditorApi.Move.PrecedingCharacter
+  - Sdl.DesktopEditor.EditorApi.Move.PrecedingWordStart
+  - Sdl.DesktopEditor.EditorApi.Move.StartOfDocument
+  - Sdl.DesktopEditor.EditorApi.Move.StartOfLine
+  - Sdl.DesktopEditor.EditorApi.Move.StartOfSegment
+  langs:
+  - csharp
+  - vb
+  name: Move
+  nameWithType: Move
+  fullName: Sdl.DesktopEditor.EditorApi.Move
+  type: Enum
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    Lists different types of selection moves that can be executed through
+
+    the <xref href="Sdl.DesktopEditor.EditorApi.IContentSelection.Move(Sdl.DesktopEditor.EditorApi.Move%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref> operation.
+  example: []
+  syntax:
+    content: public enum Move
+    content.vb: Public Enum Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.NextCharacter
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.NextCharacter
+  id: NextCharacter
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: NextCharacter
+  nameWithType: Move.NextCharacter
+  fullName: Sdl.DesktopEditor.EditorApi.Move.NextCharacter
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The next character or node in the logical order of content.
+  remarks: >-
+    <p>For western scripts this is normally to the right. In bi-directional
+
+    text it may be to the left.</p>
+
+    <p>Corresponds to the Right arrow key on the keyboard.</p>
+  example: []
+  syntax:
+    content: NextCharacter = 0
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.PrecedingCharacter
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.PrecedingCharacter
+  id: PrecedingCharacter
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: PrecedingCharacter
+  nameWithType: Move.PrecedingCharacter
+  fullName: Sdl.DesktopEditor.EditorApi.Move.PrecedingCharacter
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The previous character or node in the logical order of content.
+  remarks: >-
+    <p>For western scripts this is normally to the left. In bi-directional
+
+    text it may be to the right.</p>
+
+    <p>Corresponds to the Left arrow key on the keyboard.</p>
+  example: []
+  syntax:
+    content: PrecedingCharacter = 1
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.NextWordStart
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.NextWordStart
+  id: NextWordStart
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: NextWordStart
+  nameWithType: Move.NextWordStart
+  fullName: Sdl.DesktopEditor.EditorApi.Move.NextWordStart
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The start of the next word or node in the logical order of content.
+  remarks: >-
+    <p>For western scripts this is normally to the right. In bi-directional
+
+    text it may be to the left.</p>
+  example: []
+  syntax:
+    content: NextWordStart = 2
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.PrecedingWordStart
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.PrecedingWordStart
+  id: PrecedingWordStart
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: PrecedingWordStart
+  nameWithType: Move.PrecedingWordStart
+  fullName: Sdl.DesktopEditor.EditorApi.Move.PrecedingWordStart
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The start of the current or preceding word or node in the logical order of content.
+  remarks: >-
+    <p>For western scripts this is normally to the left. In bi-directional
+
+    text it may be to the right.</p>
+  example: []
+  syntax:
+    content: PrecedingWordStart = 3
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.StartOfDocument
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.StartOfDocument
+  id: StartOfDocument
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: StartOfDocument
+  nameWithType: Move.StartOfDocument
+  fullName: Sdl.DesktopEditor.EditorApi.Move.StartOfDocument
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The logical start of the document.
+  example: []
+  syntax:
+    content: StartOfDocument = 4
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.EndOfDocument
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.EndOfDocument
+  id: EndOfDocument
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: EndOfDocument
+  nameWithType: Move.EndOfDocument
+  fullName: Sdl.DesktopEditor.EditorApi.Move.EndOfDocument
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The logical end of the document.
+  example: []
+  syntax:
+    content: EndOfDocument = 5
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.StartOfLine
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.StartOfLine
+  id: StartOfLine
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: StartOfLine
+  nameWithType: Move.StartOfLine
+  fullName: Sdl.DesktopEditor.EditorApi.Move.StartOfLine
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The logical start of the current line.
+  remarks: >-
+    <p>For western scripts this is normally to the left. In bi-directional
+
+    text it may be to the right.</p>
+
+    <p>Corresponds to the Home key on the keyboard.</p>
+  example: []
+  syntax:
+    content: StartOfLine = 6
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.EndOfLine
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.EndOfLine
+  id: EndOfLine
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: EndOfLine
+  nameWithType: Move.EndOfLine
+  fullName: Sdl.DesktopEditor.EditorApi.Move.EndOfLine
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The logical end of the current line.
+  remarks: >-
+    <p>For western scripts this is normally to the right. In bi-directional
+
+    text it may be to the left.</p>
+
+    <p>Corresponds to the End key on the keyboard.</p>
+  example: []
+  syntax:
+    content: EndOfLine = 7
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.LineUp
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.LineUp
+  id: LineUp
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: LineUp
+  nameWithType: Move.LineUp
+  fullName: Sdl.DesktopEditor.EditorApi.Move.LineUp
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: One line up.
+  remarks: <p>Corresponds to Up arrow on the keyboard.</p>
+  example: []
+  syntax:
+    content: LineUp = 8
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.LineDown
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.LineDown
+  id: LineDown
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: LineDown
+  nameWithType: Move.LineDown
+  fullName: Sdl.DesktopEditor.EditorApi.Move.LineDown
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: One line down.
+  remarks: <p>Corresponds to Down arrow on the keyboard.</p>
+  example: []
+  syntax:
+    content: LineDown = 9
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.PageUp
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.PageUp
+  id: PageUp
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: PageUp
+  nameWithType: Move.PageUp
+  fullName: Sdl.DesktopEditor.EditorApi.Move.PageUp
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: One screen up.
+  remarks: <p>Corresponds to PageUp on the keyboard.</p>
+  example: []
+  syntax:
+    content: PageUp = 10
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.PageDown
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.PageDown
+  id: PageDown
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: PageDown
+  nameWithType: Move.PageDown
+  fullName: Sdl.DesktopEditor.EditorApi.Move.PageDown
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: One screen down.
+  remarks: <p>Corresponds to PageDown on the keyboard.</p>
+  example: []
+  syntax:
+    content: PageDown = 11
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.StartOfSegment
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.StartOfSegment
+  id: StartOfSegment
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: StartOfSegment
+  nameWithType: Move.StartOfSegment
+  fullName: Sdl.DesktopEditor.EditorApi.Move.StartOfSegment
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    The logical start of the current segment. Does not move if the active end of selection
+
+    is not inside a segment.
+  remarks: >-
+    <p>For western scripts this is normally to the left. In bi-directional
+
+    text it may be to the right.</p>
+
+    <p>Corresponds to the Alt + Home key command.</p>
+  example: []
+  syntax:
+    content: StartOfSegment = 12
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+- uid: Sdl.DesktopEditor.EditorApi.Move.EndOfSegment
+  commentId: F:Sdl.DesktopEditor.EditorApi.Move.EndOfSegment
+  id: EndOfSegment
+  parent: Sdl.DesktopEditor.EditorApi.Move
+  langs:
+  - csharp
+  - vb
+  name: EndOfSegment
+  nameWithType: Move.EndOfSegment
+  fullName: Sdl.DesktopEditor.EditorApi.Move.EndOfSegment
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    The logical end of the current segment. Does not move if the active end of selection
+
+    is not inside a segment.
+  remarks: >-
+    <p>For western scripts this is normally to the left. In bi-directional
+
+    text it may be to the right.</p>
+
+    <p>Corresponds to the Alt + End key command.</p>
+  example: []
+  syntax:
+    content: EndOfSegment = 13
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Move
+references:
+- uid: Sdl.DesktopEditor.EditorApi.IContentSelection.Move(Sdl.DesktopEditor.EditorApi.Move,System.Boolean)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IContentSelection.Move(Sdl.DesktopEditor.EditorApi.Move,System.Boolean)
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IContentSelection.html#Sdl_DesktopEditor_EditorApi_IContentSelection_Move_Sdl_DesktopEditor_EditorApi_Move_System_Boolean_
+  name: Move(Move, bool)
+  nameWithType: IContentSelection.Move(Move, bool)
+  fullName: Sdl.DesktopEditor.EditorApi.IContentSelection.Move(Sdl.DesktopEditor.EditorApi.Move, bool)
+  nameWithType.vb: IContentSelection.Move(Move, Boolean)
+  fullName.vb: Sdl.DesktopEditor.EditorApi.IContentSelection.Move(Sdl.DesktopEditor.EditorApi.Move, Boolean)
+  name.vb: Move(Move, Boolean)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IContentSelection.Move(Sdl.DesktopEditor.EditorApi.Move,System.Boolean)
+    name: Move
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IContentSelection.html#Sdl_DesktopEditor_EditorApi_IContentSelection_Move_Sdl_DesktopEditor_EditorApi_Move_System_Boolean_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Move
+    name: Move
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Move.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IContentSelection.Move(Sdl.DesktopEditor.EditorApi.Move,System.Boolean)
+    name: Move
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IContentSelection.html#Sdl_DesktopEditor_EditorApi_IContentSelection_Move_Sdl_DesktopEditor_EditorApi_Move_System_Boolean_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Move
+    name: Move
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Move.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi
+  commentId: N:Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi
+  nameWithType: Sdl.DesktopEditor.EditorApi
+  fullName: Sdl.DesktopEditor.EditorApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+- uid: Sdl.DesktopEditor.EditorApi.Move
+  commentId: T:Sdl.DesktopEditor.EditorApi.Move
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Move.html
+  name: Move
+  nameWithType: Move
+  fullName: Sdl.DesktopEditor.EditorApi.Move

@@ -1,0 +1,898 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  id: LevelLocation
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  children:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor
+  - Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor(Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupDataContainer,System.Int32)
+  - Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor(Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation)
+  - Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Clone
+  - Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Equals(System.Object)
+  - Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.GetHashCode
+  - Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Index
+  - Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtEndOfParent
+  - Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtStartOfParent
+  - Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsValid
+  - Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ItemAtLocation
+  - Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Parent
+  - Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ToString
+  langs:
+  - csharp
+  - vb
+  name: LevelLocation
+  nameWithType: LevelLocation
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  type: Class
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Represents a location inside an <xref href="Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupDataContainer" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>
+
+    The <xref href="Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Parent" data-throw-if-not-resolved="false"></xref> property specifies the parent container,
+
+    and the <xref href="Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Index" data-throw-if-not-resolved="false"></xref> property represents the item index
+
+    in the container. An index of 0 indicates a position between the
+
+    first item in the parent, and an index of <code>Parent.Count</code> indicates a 
+
+    position after the last item.
+
+    </p>
+
+    <p>
+
+    If you need to refer to an item in a nested container, use a <xref href="Sdl.FileTypeSupport.Framework.BilingualApi.Location" data-throw-if-not-resolved="false"></xref> instead.
+
+    </p>
+
+    <p>
+
+    Since the position includes an index into the parent, if
+
+    the content of the parent changes (e.g. new items are inserted, or existing
+
+    ones removed or replaced), the position may no longer point to the same
+
+    item.
+
+    </p>
+
+    <p>
+
+    Use a location marker instead if you need to refer to a specific location that may
+
+    change as part of operations on the data.
+
+    </p>
+  example: []
+  syntax:
+    content: 'public class LevelLocation : ICloneable'
+    content.vb: Public Class LevelLocation Implements ICloneable
+  inheritance:
+  - System.Object
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor
+  id: '#ctor'
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  langs:
+  - csharp
+  - vb
+  name: LevelLocation()
+  nameWithType: LevelLocation.LevelLocation()
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.LevelLocation()
+  type: Constructor
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Creates an uninitialized object.
+  example: []
+  syntax:
+    content: public LevelLocation()
+    content.vb: Public Sub New()
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor*
+  nameWithType.vb: LevelLocation.New()
+  fullName.vb: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.New()
+  name.vb: New()
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor(Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupDataContainer,System.Int32)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor(Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupDataContainer,System.Int32)
+  id: '#ctor(Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupDataContainer,System.Int32)'
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  langs:
+  - csharp
+  - vb
+  name: LevelLocation(IAbstractMarkupDataContainer, int)
+  nameWithType: LevelLocation.LevelLocation(IAbstractMarkupDataContainer, int)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.LevelLocation(Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupDataContainer, int)
+  type: Constructor
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Creates from specific parent and index values.
+  example: []
+  syntax:
+    content: public LevelLocation(IAbstractMarkupDataContainer parent, int index)
+    parameters:
+    - id: parent
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupDataContainer
+      description: ''
+    - id: index
+      type: System.Int32
+      description: ''
+    content.vb: Public Sub New(parent As IAbstractMarkupDataContainer, index As Integer)
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor*
+  nameWithType.vb: LevelLocation.New(IAbstractMarkupDataContainer, Integer)
+  fullName.vb: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.New(Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupDataContainer, Integer)
+  name.vb: New(IAbstractMarkupDataContainer, Integer)
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor(Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor(Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation)
+  id: '#ctor(Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation)'
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  langs:
+  - csharp
+  - vb
+  name: LevelLocation(LevelLocation)
+  nameWithType: LevelLocation.LevelLocation(LevelLocation)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.LevelLocation(Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation)
+  type: Constructor
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Creates from the values used in another object.
+  example: []
+  syntax:
+    content: public LevelLocation(LevelLocation other)
+    parameters:
+    - id: other
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+      description: ''
+    content.vb: Public Sub New(other As LevelLocation)
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor*
+  nameWithType.vb: LevelLocation.New(LevelLocation)
+  fullName.vb: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.New(Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation)
+  name.vb: New(LevelLocation)
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Equals(System.Object)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: LevelLocation.Equals(object)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Equals(object)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Compares all properties.
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Equals*
+  nameWithType.vb: LevelLocation.Equals(Object)
+  fullName.vb: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.GetHashCode
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.GetHashCode
+  id: GetHashCode
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: LevelLocation.GetHashCode()
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.GetHashCode()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Calculated from index and parent properties
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.GetHashCode*
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ToString
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ToString
+  id: ToString
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: LevelLocation.ToString()
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ToString()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Overridden to provide more intuitive information for use in the debugger
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ToString*
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Clone
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Clone
+  id: Clone
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: LevelLocation.Clone()
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Clone()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Create a shallow clone.
+  example: []
+  syntax:
+    content: public object Clone()
+    return:
+      type: System.Object
+      description: ''
+    content.vb: Public Function Clone() As Object
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Clone*
+  implements:
+  - System.ICloneable.Clone
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Parent
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Parent
+  id: Parent
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  langs:
+  - csharp
+  - vb
+  name: Parent
+  nameWithType: LevelLocation.Parent
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Parent
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: The container that this location refers to a position inside.
+  example: []
+  syntax:
+    content: public IAbstractMarkupDataContainer Parent { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupDataContainer
+    content.vb: Public Property Parent As IAbstractMarkupDataContainer
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Parent*
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Index
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Index
+  id: Index
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  langs:
+  - csharp
+  - vb
+  name: Index
+  nameWithType: LevelLocation.Index
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Index
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: >-
+    The index in the parent collection that defines the location.
+
+
+    Index 0 refers to the location before the first item in the collection.
+
+    The index Parent.Count indicates a location after the last item
+
+    in the collection.
+  example: []
+  syntax:
+    content: public int Index { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Index As Integer
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Index*
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ItemAtLocation
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ItemAtLocation
+  id: ItemAtLocation
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  langs:
+  - csharp
+  - vb
+  name: ItemAtLocation
+  nameWithType: LevelLocation.ItemAtLocation
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ItemAtLocation
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: >-
+    Returns the item with the same index in the parent collection
+
+    as the <xref href="Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Index" data-throw-if-not-resolved="false"></xref> of this location, or null if there
+
+    is no item with that index (e.g. if the index indicates a position
+
+    after the last item in the collection).
+  example: []
+  syntax:
+    content: public IAbstractMarkupData ItemAtLocation { get; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+    content.vb: Public ReadOnly Property ItemAtLocation As IAbstractMarkupData
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ItemAtLocation*
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsValid
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsValid
+  id: IsValid
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: LevelLocation.IsValid
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsValid
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: >-
+    The location is valid if the parent is set, and
+
+    the index is a value within the range: 0 &lt;= index &lt;= Parent.Content.Count
+  example: []
+  syntax:
+    content: public bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsValid As Boolean
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsValid*
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtEndOfParent
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtEndOfParent
+  id: IsAtEndOfParent
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  langs:
+  - csharp
+  - vb
+  name: IsAtEndOfParent
+  nameWithType: LevelLocation.IsAtEndOfParent
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtEndOfParent
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: True if the location is valid and refers to the position after the last item in the parent
+  example: []
+  syntax:
+    content: public bool IsAtEndOfParent { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsAtEndOfParent As Boolean
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtEndOfParent*
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtStartOfParent
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtStartOfParent
+  id: IsAtStartOfParent
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  langs:
+  - csharp
+  - vb
+  name: IsAtStartOfParent
+  nameWithType: LevelLocation.IsAtStartOfParent
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtStartOfParent
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: True if the location is valid and refers to the first item in the parent
+  example: []
+  syntax:
+    content: public bool IsAtStartOfParent { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsAtStartOfParent As Boolean
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtStartOfParent*
+references:
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupDataContainer
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupDataContainer
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupDataContainer.html
+  name: IAbstractMarkupDataContainer
+  nameWithType: IAbstractMarkupDataContainer
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupDataContainer
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Parent
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Parent
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html#Sdl_FileTypeSupport_Framework_BilingualApi_LevelLocation_Parent
+  name: Parent
+  nameWithType: LevelLocation.Parent
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Parent
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Index
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Index
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html#Sdl_FileTypeSupport_Framework_BilingualApi_LevelLocation_Index
+  name: Index
+  nameWithType: LevelLocation.Index
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Index
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.Location
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.Location
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.Location.html
+  name: Location
+  nameWithType: Location
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.Location
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi
+  commentId: N:Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.BilingualApi
+  nameWithType: Sdl.FileTypeSupport.Framework.BilingualApi
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.#ctor
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html#Sdl_FileTypeSupport_Framework_BilingualApi_LevelLocation__ctor
+  name: LevelLocation
+  nameWithType: LevelLocation.LevelLocation
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.LevelLocation
+  nameWithType.vb: LevelLocation.New
+  fullName.vb: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html
+  name: LevelLocation
+  nameWithType: LevelLocation
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Equals*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Equals
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html#Sdl_FileTypeSupport_Framework_BilingualApi_LevelLocation_Equals_System_Object_
+  name: Equals
+  nameWithType: LevelLocation.Equals
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.GetHashCode*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.GetHashCode
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html#Sdl_FileTypeSupport_Framework_BilingualApi_LevelLocation_GetHashCode
+  name: GetHashCode
+  nameWithType: LevelLocation.GetHashCode
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ToString*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ToString
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html#Sdl_FileTypeSupport_Framework_BilingualApi_LevelLocation_ToString
+  name: ToString
+  nameWithType: LevelLocation.ToString
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Clone*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Clone
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html#Sdl_FileTypeSupport_Framework_BilingualApi_LevelLocation_Clone
+  name: Clone
+  nameWithType: LevelLocation.Clone
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Parent*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Parent
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html#Sdl_FileTypeSupport_Framework_BilingualApi_LevelLocation_Parent
+  name: Parent
+  nameWithType: LevelLocation.Parent
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Parent
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Index*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Index
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html#Sdl_FileTypeSupport_Framework_BilingualApi_LevelLocation_Index
+  name: Index
+  nameWithType: LevelLocation.Index
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.Index
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ItemAtLocation*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ItemAtLocation
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html#Sdl_FileTypeSupport_Framework_BilingualApi_LevelLocation_ItemAtLocation
+  name: ItemAtLocation
+  nameWithType: LevelLocation.ItemAtLocation
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.ItemAtLocation
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.html
+  name: IAbstractMarkupData
+  nameWithType: IAbstractMarkupData
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsValid*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsValid
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html#Sdl_FileTypeSupport_Framework_BilingualApi_LevelLocation_IsValid
+  name: IsValid
+  nameWithType: LevelLocation.IsValid
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsValid
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtEndOfParent*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtEndOfParent
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html#Sdl_FileTypeSupport_Framework_BilingualApi_LevelLocation_IsAtEndOfParent
+  name: IsAtEndOfParent
+  nameWithType: LevelLocation.IsAtEndOfParent
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtEndOfParent
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtStartOfParent*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtStartOfParent
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.html#Sdl_FileTypeSupport_Framework_BilingualApi_LevelLocation_IsAtStartOfParent
+  name: IsAtStartOfParent
+  nameWithType: LevelLocation.IsAtStartOfParent
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.LevelLocation.IsAtStartOfParent

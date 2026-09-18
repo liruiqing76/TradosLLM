@@ -1,0 +1,284 @@
+# Putting it All Together
+
+The complete parser class appears below:
+
+# [C#](#tab/tabid-1)
+```cs
+using System;
+using Sdl.FileTypeSupport.Framework.BilingualApi;
+using Sdl.FileTypeSupport.Framework.NativeApi;
+using Sdl.FileTypeSupport.Framework.Formatting;
+using System.Xml;
+using System.Drawing;
+using Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi;
+using Sdl.Core.Globalization;
+using Sdl.FileTypeSupport.Framework.IntegrationApi;
+using Sdl.FileTypeSupport.Framework.Core.Utilities.Formatting;
+
+
+namespace Sdk.FileTypeSupport.Samples.Bil
+{
+    class BilParser : AbstractBilingualFileTypeComponent, IBilingualParser, INativeContentCycleAware, ISettingsAware
+    {
+        private IPersistentFileConversionProperties _fileProperties;
+        private XmlDocument _document;
+        public event EventHandler<ProgressEventArgs> Progress;
+
+        public void SetFileProperties(IFileProperties properties)
+        {
+            _fileProperties = properties.FileConversionProperties;
+
+            Output.Initialize(DocumentProperties);
+
+            IFileProperties fileInfo = ItemFactory.CreateFileProperties();
+            fileInfo.FileConversionProperties = _fileProperties;
+            Output.SetFileProperties(fileInfo);
+        }
+
+        public void StartOfInput()
+        {
+            OnProgress(0);
+            _document = new XmlDocument();
+            _document.Load(_fileProperties.OriginalFilePath);
+        }
+
+        public void EndOfInput()
+        {
+            // done with the file
+            Output.FileComplete();
+            // done with the document
+            Output.Complete();
+
+            OnProgress(100);
+            _document = null;
+        }
+
+        protected virtual void OnProgress(byte percent)
+        {
+            if (Progress != null)
+            {
+                Progress(this, new ProgressEventArgs(percent));
+            }
+        }
+
+        public IDocumentProperties DocumentProperties
+        {
+            get;
+            set;
+        }
+
+        public IBilingualContentHandler Output
+        {
+            get;
+            set;
+        }
+
+        public bool ParseNext()
+        {
+            // variables for the progress report
+            int totalUnitCount = _document.SelectNodes("//unit").Count;
+            int currentUnitCount = 0;
+            foreach (XmlNode item in _document.SelectNodes("//unit"))
+            {
+                Output.ProcessParagraphUnit(CreateParagraphUnit(item));
+
+                // update the progress report   
+                currentUnitCount++;
+                OnProgress(Convert.ToByte(Math.Round(100 * ((decimal)currentUnitCount / totalUnitCount), 0)));
+            }
+
+            return false;
+        }
+
+        // helper function for creating paragraph units
+        private IParagraphUnit CreateParagraphUnit(XmlNode xmlUnit)
+        {
+            // create paragraph unit object
+            IParagraphUnit paragraphUnit = ItemFactory.CreateParagraphUnit(LockTypeFlags.Unlocked);
+
+            // create segment pair object
+            ISegmentPairProperties segmentPairProperties = ItemFactory.CreateSegmentPairProperties();  
+            // assign the appropriate confirmation level to the segment pair            
+            segmentPairProperties.ConfirmationLevel=CreateConfirmationLevel(xmlUnit.Attributes["status"].Value);
+
+            // add source segment to paragraph unit
+            ISegment srcSegment = CreateSegment(xmlUnit.SelectSingleNode("source/seg"), segmentPairProperties);            
+            paragraphUnit.Source.Add(srcSegment);
+
+            // add target segment to paragraph unit if available
+            if(xmlUnit.SelectSingleNode("target/seg") != null)            
+            {
+                ISegment trgSegment = CreateSegment(xmlUnit.SelectSingleNode("target/seg"), segmentPairProperties);
+                paragraphUnit.Target.Add(trgSegment);
+            }
+
+            // create paragraph unit context
+            string id = xmlUnit.SelectSingleNode("./@id").InnerText;
+            if(xmlUnit.SelectSingleNode("type/@spec")!=null)
+            {
+                string spec = xmlUnit.SelectSingleNode("type/@spec").InnerText;
+
+                paragraphUnit.Properties.Contexts=CreateContext(spec, id);
+            } else {
+                paragraphUnit.Properties.Contexts = CreateContext("Paragraph", id);
+            }
+
+            // extract comment (if applicable)
+            if(xmlUnit.SelectSingleNode("comment")!=null)
+            {
+                paragraphUnit.Properties.Comments = CreateComment(xmlUnit.SelectSingleNode("comment").InnerText);
+            }
+
+            return paragraphUnit;
+        }
+
+        private ConfirmationLevel CreateConfirmationLevel(string BilStatus)
+        {
+            ConfirmationLevel sdlxliffLevel = ConfirmationLevel.Unspecified;
+
+            switch (BilStatus)
+            {
+                case "new":
+                    sdlxliffLevel = ConfirmationLevel.Unspecified;
+                    break;
+                case "fuzzy":
+                    sdlxliffLevel = ConfirmationLevel.Draft;
+                    break;
+                case "exact":
+                    sdlxliffLevel = ConfirmationLevel.Translated;
+                    break;
+                default:
+                    sdlxliffLevel = ConfirmationLevel.Unspecified;
+                    break;
+            }
+
+            return sdlxliffLevel;
+        }
+
+        // helper function for creating segment objects
+        private ISegment CreateSegment(XmlNode segNode, ISegmentPairProperties pair)
+        {
+            ISegment segment = ItemFactory.CreateSegment(pair);
+
+            foreach (XmlNode item in segNode.ChildNodes)
+            {
+                if (item.NodeType == XmlNodeType.Text)
+                {
+                    segment.Add(CreateText(item.InnerText));
+                }
+
+                if (item.NodeType == XmlNodeType.Element)
+                {
+                    segment.Add(CreateTagPair(item));
+                }
+            }
+            return segment;
+        }
+
+        private IText CreateText(string segText)
+        {
+            ITextProperties textProperties = PropertiesFactory.CreateTextProperties(segText);
+            IText textContent = ItemFactory.CreateText(textProperties);
+
+            return textContent;
+        }
+
+        private IContextProperties CreateContext(string spec, string unitID)
+        {
+            // context info for type information, e.g. heading, paragraph, etc.
+            IContextProperties contextProperties = PropertiesFactory.CreateContextProperties();
+            IContextInfo contextInfo = PropertiesFactory.CreateContextInfo(StandardContextTypes.Paragraph);
+            contextInfo.Purpose = ContextPurpose.Information;
+
+            // add unit id as metadata
+            IContextInfo contextId = PropertiesFactory.CreateContextInfo("UnitId");
+            contextId.SetMetaData("UnitID", unitID);
+
+            switch (spec)
+            {
+                case "Heading":
+                    contextInfo = PropertiesFactory.CreateContextInfo(StandardContextTypes.Topic);
+                    contextInfo.DisplayColor = Color.Green;
+                    break;
+                case "Box":
+                    contextInfo = PropertiesFactory.CreateContextInfo(StandardContextTypes.TextBox);
+                    contextInfo.DisplayColor = Color.Gold;
+                    break;
+                case "Paragraph":
+                    contextInfo = PropertiesFactory.CreateContextInfo(StandardContextTypes.Paragraph);
+                    contextInfo.DisplayColor = Color.Silver;
+                    break;
+                default:
+                    break;
+            }
+
+            contextProperties.Contexts.Add(contextInfo);
+            contextProperties.Contexts.Add(contextId);
+
+            return contextProperties;
+        }
+
+        private ITagPair CreateTagPair(XmlNode item)
+        {
+            // create the start and the end tag
+            IStartTagProperties startTag = PropertiesFactory.CreateStartTagProperties(item.Name);
+            // apply character formatting to the start tag
+            IFormattingGroup formattingGroup = PropertiesFactory.FormattingItemFactory.CreateFormatting();
+            startTag.Formatting = new FormattingGroup();
+            switch (item.Name)
+            {
+                case "b":
+                    formattingGroup.Add(new Bold(true));
+                    break;
+                case "i":
+                    formattingGroup.Add(new Italic(true));
+                    break;
+                case "u":
+                    formattingGroup.Add(new Underline(true));
+                    break;
+                default:
+                    break;
+            }
+            startTag.Formatting = formattingGroup;
+
+            startTag.DisplayText=item.Name;
+            startTag.CanHide = true;
+            IEndTagProperties endTag = PropertiesFactory.CreateEndTagProperties(item.Name);
+            endTag.DisplayText=item.Name;
+            endTag.CanHide = true;
+
+            // create a tag pair out of the start and the end tag
+            ITagPair tagPair = ItemFactory.CreateTagPair(startTag, endTag);
+
+            // add text enclosed in the tag pair
+            tagPair.Add(CreateText(item.InnerText));
+
+            return tagPair;
+        }
+
+        private ICommentProperties CreateComment(string commentText)
+        {
+            ICommentProperties commentProperties = PropertiesFactory.CreateCommentProperties();
+            IComment comment = PropertiesFactory.CreateComment(commentText, "SDK Sample", Severity.Medium);
+            commentProperties.Add(comment);
+
+            return commentProperties;
+        }
+
+        public void InitializeSettings(Sdl.Core.Settings.ISettingsBundle settingsBundle, string configurationId)
+        {
+            //loading of filter settings
+        }
+
+        public void Dispose()
+        {
+            _document = null;
+        }
+    }
+}
+```
+***
+
+>[!NOTE]
+>
+> This content may be out-of-date. To check the latest information on this topic, inspect the libraries using the Visual Studio Object Browser.

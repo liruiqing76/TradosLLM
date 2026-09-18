@@ -1,0 +1,348 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo
+  id: IOutputFileInfo
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.ContentRestriction
+  - Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Encoding
+  - Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileDialogWildcardExpression
+  - Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileTypeName
+  - Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Filename
+  langs:
+  - csharp
+  - vb
+  name: IOutputFileInfo
+  nameWithType: IOutputFileInfo
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    Simple data class designed to hold information on the file to output, which may be required by the 
+
+    host application. This is used by <xref href="Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware.GetProposedOutputFileInfo(Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties%2cSdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo)" data-throw-if-not-resolved="false"></xref>
+
+    to allow file type components to supply alternative information if the component is causing 
+
+    the output file type to differ from the default (e.g. alternative generators for previewing).
+  example: []
+  syntax:
+    content: public interface IOutputFileInfo
+    content.vb: Public Interface IOutputFileInfo
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Filename
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Filename
+  id: Filename
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo
+  langs:
+  - csharp
+  - vb
+  name: Filename
+  nameWithType: IOutputFileInfo.Filename
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Filename
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The name of the file, no need to supply any path information
+  example: []
+  syntax:
+    content: string Filename { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Filename As String
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Filename*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileDialogWildcardExpression
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileDialogWildcardExpression
+  id: FileDialogWildcardExpression
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo
+  langs:
+  - csharp
+  - vb
+  name: FileDialogWildcardExpression
+  nameWithType: IOutputFileInfo.FileDialogWildcardExpression
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileDialogWildcardExpression
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The file wildcard information; can be used by the host application when displaying a 'Save As...' dialog.
+  example: []
+  syntax:
+    content: string FileDialogWildcardExpression { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property FileDialogWildcardExpression As String
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileDialogWildcardExpression*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileTypeName
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileTypeName
+  id: FileTypeName
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo
+  langs:
+  - csharp
+  - vb
+  name: FileTypeName
+  nameWithType: IOutputFileInfo.FileTypeName
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileTypeName
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The name of the file type (e.g. "Microsoft Word 2003"); can be used by the host application when displaying a 'Save As...' dialog.
+  example: []
+  syntax:
+    content: string FileTypeName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property FileTypeName As String
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileTypeName*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Encoding
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Encoding
+  id: Encoding
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo
+  langs:
+  - csharp
+  - vb
+  name: Encoding
+  nameWithType: IOutputFileInfo.Encoding
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Encoding
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The suggested encoding to be used when outputting the file
+  example: []
+  syntax:
+    content: Codepage Encoding { get; set; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.Codepage
+    content.vb: Property Encoding As Codepage
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Encoding*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.ContentRestriction
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.ContentRestriction
+  id: ContentRestriction
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo
+  langs:
+  - csharp
+  - vb
+  name: ContentRestriction
+  nameWithType: IOutputFileInfo.ContentRestriction
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.ContentRestriction
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    Indicates whether the output is in the source or target language.
+
+    This is for information purposes only.
+  example: []
+  syntax:
+    content: ContentRestriction ContentRestriction { get; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ContentRestriction
+    content.vb: ReadOnly Property ContentRestriction As ContentRestriction
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.ContentRestriction*
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware.GetProposedOutputFileInfo(Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties,Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware.GetProposedOutputFileInfo(Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties,Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeOutputSettingsAware_GetProposedOutputFileInfo_Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_Sdl_FileTypeSupport_Framework_NativeApi_IOutputFileInfo_
+  name: GetProposedOutputFileInfo(IPersistentFileConversionProperties, IOutputFileInfo)
+  nameWithType: INativeOutputSettingsAware.GetProposedOutputFileInfo(IPersistentFileConversionProperties, IOutputFileInfo)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware.GetProposedOutputFileInfo(Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties, Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware.GetProposedOutputFileInfo(Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties,Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo)
+    name: GetProposedOutputFileInfo
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeOutputSettingsAware_GetProposedOutputFileInfo_Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_Sdl_FileTypeSupport_Framework_NativeApi_IOutputFileInfo_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+    name: IPersistentFileConversionProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo
+    name: IOutputFileInfo
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware.GetProposedOutputFileInfo(Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties,Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo)
+    name: GetProposedOutputFileInfo
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeOutputSettingsAware_GetProposedOutputFileInfo_Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_Sdl_FileTypeSupport_Framework_NativeApi_IOutputFileInfo_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+    name: IPersistentFileConversionProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo
+    name: IOutputFileInfo
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware.html
+  name: INativeOutputSettingsAware
+  nameWithType: INativeOutputSettingsAware
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeOutputSettingsAware
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Filename*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Filename
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.html#Sdl_FileTypeSupport_Framework_NativeApi_IOutputFileInfo_Filename
+  name: Filename
+  nameWithType: IOutputFileInfo.Filename
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Filename
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileDialogWildcardExpression*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileDialogWildcardExpression
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.html#Sdl_FileTypeSupport_Framework_NativeApi_IOutputFileInfo_FileDialogWildcardExpression
+  name: FileDialogWildcardExpression
+  nameWithType: IOutputFileInfo.FileDialogWildcardExpression
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileDialogWildcardExpression
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileTypeName*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileTypeName
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.html#Sdl_FileTypeSupport_Framework_NativeApi_IOutputFileInfo_FileTypeName
+  name: FileTypeName
+  nameWithType: IOutputFileInfo.FileTypeName
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.FileTypeName
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Encoding*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Encoding
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.html#Sdl_FileTypeSupport_Framework_NativeApi_IOutputFileInfo_Encoding
+  name: Encoding
+  nameWithType: IOutputFileInfo.Encoding
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.Encoding
+- uid: Sdl.Core.Globalization.Codepage
+  commentId: T:Sdl.Core.Globalization.Codepage
+  parent: Sdl.Core.Globalization
+  isExternal: true
+  name: Codepage
+  nameWithType: Codepage
+  fullName: Sdl.Core.Globalization.Codepage
+- uid: Sdl.Core.Globalization
+  commentId: N:Sdl.Core.Globalization
+  isExternal: true
+  name: Sdl.Core.Globalization
+  nameWithType: Sdl.Core.Globalization
+  fullName: Sdl.Core.Globalization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.ContentRestriction*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.ContentRestriction
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.html#Sdl_FileTypeSupport_Framework_NativeApi_IOutputFileInfo_ContentRestriction
+  name: ContentRestriction
+  nameWithType: IOutputFileInfo.ContentRestriction
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IOutputFileInfo.ContentRestriction
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ContentRestriction
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ContentRestriction
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ContentRestriction.html
+  name: ContentRestriction
+  nameWithType: ContentRestriction
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ContentRestriction

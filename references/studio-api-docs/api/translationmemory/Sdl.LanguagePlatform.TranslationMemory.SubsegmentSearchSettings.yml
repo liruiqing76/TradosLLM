@@ -1,0 +1,995 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+  id: SubsegmentSearchSettings
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.#ctor
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinFeatures
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinSignificantFeatures
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinTM_TDBFeatures
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinTM_TDBSignificantFeatures
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.SubsegmentMatchTypes
+  langs:
+  - csharp
+  - vb
+  name: SubsegmentSearchSettings
+  nameWithType: SubsegmentSearchSettings
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Represents a set of settings relevant for search opeartions.
+  remarks: >-
+    TM-TDB matching (aka 'baseline' subsegment recall) process fragments of the query segment, and for each fragment, 
+                searches for a complete source TU segment matching it. If found, the complete target TU segment is proposed as a 
+                translation of the query fragment.
+                DTA matching (aka 'full' subsegment recall) process fragments of the query segment, and for each fragment, searches 
+                for a source TU segment that also contains that fragment. If found, it uses additional processing (such as fine-grained
+                alignment information) to identify a fragment of the target TU segment to propose as a translation of the query fragment.
+                Each type of matching can be subject to a minimum length of matching fragment. 
+                Because some tokens are essentially valueless for recall (e.g. whitespace, tag tokens), the 
+                length is calculated by counting the number of 'feature tokens' in the fragment (see <xref href="Sdl.Core.FineGrainedAlignment.Core.SubsegmentUtilities.GetFeatures(System.Collections.Generic.List%7bSdl.LanguagePlatform.Core.Tokenization.Token%7d%2cSystem.Globalization.CultureInfo%2cSystem.Collections.Generic.List%7bSystem.Int16%7d)" data-throw-if-not-resolved="false"></xref>.
+                In addition, some match fragments may be of no interest for recall if they consist only of 
+                tokens with little translational significance, such as stop words. So, each type of matching can
+                be further subject to a minimum number of significant feature tokens in a matching fragment (see <xref href="Sdl.Core.FineGrainedAlignment.Core.SubsegmentUtilities.IsSignificantForRecall(Sdl.LanguagePlatform.Core.Tokenization.Token)" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: 'public class SubsegmentSearchSettings : SearchSettings'
+    content.vb: Public Class SubsegmentSearchSettings Inherits SearchSettings
+  inheritance:
+  - System.Object
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  inheritedMembers:
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MinscoreLowerbound
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.FindPenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType)
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AddPenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType,System.Int32)
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.RemovePenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType)
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AddFilter(Sdl.LanguagePlatform.TranslationMemory.Filter)
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.RemoveFilter(System.String)
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.FindFilter(System.String)
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.ContextConfirmationLevels
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.QuickInsertIds
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.Mode
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MachineTranslationLookup
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsDocumentSearch
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.Penalties
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.CheckMatchingSublanguages
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AdvancedTokenizationLegacyScoring
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.Filters
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AutoLocalizationSettings
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.HardFilter
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.SortSpecification
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.ComputeTranslationProposal
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.CurrentStructureContext
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MinScore
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MaxResults
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AdaptiveMachineTranslationLookupMode
+  - Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsConcordanceSearch
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinTM_TDBFeatures
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinTM_TDBFeatures
+  id: MinTM_TDBFeatures
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+  langs:
+  - csharp
+  - vb
+  name: MinTM_TDBFeatures
+  nameWithType: SubsegmentSearchSettings.MinTM_TDBFeatures
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinTM_TDBFeatures
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The minimum length of a TM-TDB match fragment (see <xref href="Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings" data-throw-if-not-resolved="false"></xref> remarks)
+  example: []
+  syntax:
+    content: public int MinTM_TDBFeatures
+    return:
+      type: System.Int32
+    content.vb: Public MinTM_TDBFeatures As Integer
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinTM_TDBSignificantFeatures
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinTM_TDBSignificantFeatures
+  id: MinTM_TDBSignificantFeatures
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+  langs:
+  - csharp
+  - vb
+  name: MinTM_TDBSignificantFeatures
+  nameWithType: SubsegmentSearchSettings.MinTM_TDBSignificantFeatures
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinTM_TDBSignificantFeatures
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The minimum number of significant tokens in a TM-TDB match fragment (see <xref href="Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings" data-throw-if-not-resolved="false"></xref> remarks)
+  example: []
+  syntax:
+    content: public int MinTM_TDBSignificantFeatures
+    return:
+      type: System.Int32
+    content.vb: Public MinTM_TDBSignificantFeatures As Integer
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinFeatures
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinFeatures
+  id: MinFeatures
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+  langs:
+  - csharp
+  - vb
+  name: MinFeatures
+  nameWithType: SubsegmentSearchSettings.MinFeatures
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinFeatures
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The minimum length of a DTA match fragment (see <xref href="Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings" data-throw-if-not-resolved="false"></xref> remarks)
+  example: []
+  syntax:
+    content: public int MinFeatures
+    return:
+      type: System.Int32
+    content.vb: Public MinFeatures As Integer
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinSignificantFeatures
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinSignificantFeatures
+  id: MinSignificantFeatures
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+  langs:
+  - csharp
+  - vb
+  name: MinSignificantFeatures
+  nameWithType: SubsegmentSearchSettings.MinSignificantFeatures
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.MinSignificantFeatures
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The minimum number of significant tokens in a DTA match fragment (see <xref href="Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings" data-throw-if-not-resolved="false"></xref> remarks)
+  example: []
+  syntax:
+    content: public int MinSignificantFeatures
+    return:
+      type: System.Int32
+    content.vb: Public MinSignificantFeatures As Integer
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.SubsegmentMatchTypes
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.SubsegmentMatchTypes
+  id: SubsegmentMatchTypes
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+  langs:
+  - csharp
+  - vb
+  name: SubsegmentMatchTypes
+  nameWithType: SubsegmentSearchSettings.SubsegmentMatchTypes
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.SubsegmentMatchTypes
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The types of subsegment matching that should be used. See remarks for <xref href="Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public HashSet<SubsegmentMatchType> SubsegmentMatchTypes
+    return:
+      type: System.Collections.Generic.HashSet{Sdl.LanguagePlatform.TranslationMemory.SubsegmentMatchType}
+    content.vb: Public SubsegmentMatchTypes As HashSet(Of SubsegmentMatchType)
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.#ctor
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.#ctor
+  id: '#ctor'
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+  langs:
+  - csharp
+  - vb
+  name: SubsegmentSearchSettings()
+  nameWithType: SubsegmentSearchSettings.SubsegmentSearchSettings()
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.SubsegmentSearchSettings()
+  type: Constructor
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  syntax:
+    content: public SubsegmentSearchSettings()
+    content.vb: Public Sub New()
+  overload: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.#ctor*
+  nameWithType.vb: SubsegmentSearchSettings.New()
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.New()
+  name.vb: New()
+references:
+- uid: Sdl.Core.FineGrainedAlignment.Core.SubsegmentUtilities.GetFeatures(System.Collections.Generic.List{Sdl.LanguagePlatform.Core.Tokenization.Token},System.Globalization.CultureInfo,System.Collections.Generic.List{System.Int16})
+  commentId: M:Sdl.Core.FineGrainedAlignment.Core.SubsegmentUtilities.GetFeatures(System.Collections.Generic.List{Sdl.LanguagePlatform.Core.Tokenization.Token},System.Globalization.CultureInfo,System.Collections.Generic.List{System.Int16})
+  isExternal: true
+- uid: Sdl.Core.FineGrainedAlignment.Core.SubsegmentUtilities.IsSignificantForRecall(Sdl.LanguagePlatform.Core.Tokenization.Token)
+  commentId: M:Sdl.Core.FineGrainedAlignment.Core.SubsegmentUtilities.IsSignificantForRecall(Sdl.LanguagePlatform.Core.Tokenization.Token)
+  isExternal: true
+  name: IsSignificantForRecall(Token)
+  nameWithType: SubsegmentUtilities.IsSignificantForRecall(Token)
+  fullName: Sdl.Core.FineGrainedAlignment.Core.SubsegmentUtilities.IsSignificantForRecall(Sdl.LanguagePlatform.Core.Tokenization.Token)
+  spec.csharp:
+  - uid: Sdl.Core.FineGrainedAlignment.Core.SubsegmentUtilities.IsSignificantForRecall(Sdl.LanguagePlatform.Core.Tokenization.Token)
+    name: IsSignificantForRecall
+    isExternal: true
+  - name: (
+  - uid: Sdl.LanguagePlatform.Core.Tokenization.Token
+    name: Token
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Sdl.Core.FineGrainedAlignment.Core.SubsegmentUtilities.IsSignificantForRecall(Sdl.LanguagePlatform.Core.Tokenization.Token)
+    name: IsSignificantForRecall
+    isExternal: true
+  - name: (
+  - uid: Sdl.LanguagePlatform.Core.Tokenization.Token
+    name: Token
+    isExternal: true
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html
+  name: SearchSettings
+  nameWithType: SearchSettings
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MinscoreLowerbound
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MinscoreLowerbound
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_MinscoreLowerbound
+  name: MinscoreLowerbound
+  nameWithType: SearchSettings.MinscoreLowerbound
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MinscoreLowerbound
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.FindPenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.FindPenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType)
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_FindPenalty_Sdl_LanguagePlatform_TranslationMemory_PenaltyType_
+  name: FindPenalty(PenaltyType)
+  nameWithType: SearchSettings.FindPenalty(PenaltyType)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.FindPenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.FindPenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType)
+    name: FindPenalty
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_FindPenalty_Sdl_LanguagePlatform_TranslationMemory_PenaltyType_
+  - name: (
+  - uid: Sdl.LanguagePlatform.TranslationMemory.PenaltyType
+    name: PenaltyType
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.PenaltyType.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.FindPenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType)
+    name: FindPenalty
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_FindPenalty_Sdl_LanguagePlatform_TranslationMemory_PenaltyType_
+  - name: (
+  - uid: Sdl.LanguagePlatform.TranslationMemory.PenaltyType
+    name: PenaltyType
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.PenaltyType.html
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AddPenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType,System.Int32)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AddPenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType,System.Int32)
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_AddPenalty_Sdl_LanguagePlatform_TranslationMemory_PenaltyType_System_Int32_
+  name: AddPenalty(PenaltyType, int)
+  nameWithType: SearchSettings.AddPenalty(PenaltyType, int)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AddPenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType, int)
+  nameWithType.vb: SearchSettings.AddPenalty(PenaltyType, Integer)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AddPenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType, Integer)
+  name.vb: AddPenalty(PenaltyType, Integer)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AddPenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType,System.Int32)
+    name: AddPenalty
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_AddPenalty_Sdl_LanguagePlatform_TranslationMemory_PenaltyType_System_Int32_
+  - name: (
+  - uid: Sdl.LanguagePlatform.TranslationMemory.PenaltyType
+    name: PenaltyType
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.PenaltyType.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AddPenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType,System.Int32)
+    name: AddPenalty
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_AddPenalty_Sdl_LanguagePlatform_TranslationMemory_PenaltyType_System_Int32_
+  - name: (
+  - uid: Sdl.LanguagePlatform.TranslationMemory.PenaltyType
+    name: PenaltyType
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.PenaltyType.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.RemovePenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.RemovePenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType)
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_RemovePenalty_Sdl_LanguagePlatform_TranslationMemory_PenaltyType_
+  name: RemovePenalty(PenaltyType)
+  nameWithType: SearchSettings.RemovePenalty(PenaltyType)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.RemovePenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.RemovePenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType)
+    name: RemovePenalty
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_RemovePenalty_Sdl_LanguagePlatform_TranslationMemory_PenaltyType_
+  - name: (
+  - uid: Sdl.LanguagePlatform.TranslationMemory.PenaltyType
+    name: PenaltyType
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.PenaltyType.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.RemovePenalty(Sdl.LanguagePlatform.TranslationMemory.PenaltyType)
+    name: RemovePenalty
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_RemovePenalty_Sdl_LanguagePlatform_TranslationMemory_PenaltyType_
+  - name: (
+  - uid: Sdl.LanguagePlatform.TranslationMemory.PenaltyType
+    name: PenaltyType
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.PenaltyType.html
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AddFilter(Sdl.LanguagePlatform.TranslationMemory.Filter)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AddFilter(Sdl.LanguagePlatform.TranslationMemory.Filter)
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_AddFilter_Sdl_LanguagePlatform_TranslationMemory_Filter_
+  name: AddFilter(Filter)
+  nameWithType: SearchSettings.AddFilter(Filter)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AddFilter(Sdl.LanguagePlatform.TranslationMemory.Filter)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AddFilter(Sdl.LanguagePlatform.TranslationMemory.Filter)
+    name: AddFilter
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_AddFilter_Sdl_LanguagePlatform_TranslationMemory_Filter_
+  - name: (
+  - uid: Sdl.LanguagePlatform.TranslationMemory.Filter
+    name: Filter
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.Filter.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AddFilter(Sdl.LanguagePlatform.TranslationMemory.Filter)
+    name: AddFilter
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_AddFilter_Sdl_LanguagePlatform_TranslationMemory_Filter_
+  - name: (
+  - uid: Sdl.LanguagePlatform.TranslationMemory.Filter
+    name: Filter
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.Filter.html
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.RemoveFilter(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.RemoveFilter(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_RemoveFilter_System_String_
+  name: RemoveFilter(string)
+  nameWithType: SearchSettings.RemoveFilter(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.RemoveFilter(string)
+  nameWithType.vb: SearchSettings.RemoveFilter(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.RemoveFilter(String)
+  name.vb: RemoveFilter(String)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.RemoveFilter(System.String)
+    name: RemoveFilter
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_RemoveFilter_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.RemoveFilter(System.String)
+    name: RemoveFilter
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_RemoveFilter_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.FindFilter(System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.FindFilter(System.String)
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_FindFilter_System_String_
+  name: FindFilter(string)
+  nameWithType: SearchSettings.FindFilter(string)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.FindFilter(string)
+  nameWithType.vb: SearchSettings.FindFilter(String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.FindFilter(String)
+  name.vb: FindFilter(String)
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.FindFilter(System.String)
+    name: FindFilter
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_FindFilter_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.FindFilter(System.String)
+    name: FindFilter
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_FindFilter_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.ContextConfirmationLevels
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.ContextConfirmationLevels
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_ContextConfirmationLevels
+  name: ContextConfirmationLevels
+  nameWithType: SearchSettings.ContextConfirmationLevels
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.ContextConfirmationLevels
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.QuickInsertIds
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.QuickInsertIds
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_QuickInsertIds
+  name: QuickInsertIds
+  nameWithType: SearchSettings.QuickInsertIds
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.QuickInsertIds
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.Mode
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.Mode
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_Mode
+  name: Mode
+  nameWithType: SearchSettings.Mode
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.Mode
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MachineTranslationLookup
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MachineTranslationLookup
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_MachineTranslationLookup
+  name: MachineTranslationLookup
+  nameWithType: SearchSettings.MachineTranslationLookup
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MachineTranslationLookup
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsDocumentSearch
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsDocumentSearch
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_IsDocumentSearch
+  name: IsDocumentSearch
+  nameWithType: SearchSettings.IsDocumentSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsDocumentSearch
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.Penalties
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.Penalties
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_Penalties
+  name: Penalties
+  nameWithType: SearchSettings.Penalties
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.Penalties
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.CheckMatchingSublanguages
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.CheckMatchingSublanguages
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_CheckMatchingSublanguages
+  name: CheckMatchingSublanguages
+  nameWithType: SearchSettings.CheckMatchingSublanguages
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.CheckMatchingSublanguages
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AdvancedTokenizationLegacyScoring
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AdvancedTokenizationLegacyScoring
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_AdvancedTokenizationLegacyScoring
+  name: AdvancedTokenizationLegacyScoring
+  nameWithType: SearchSettings.AdvancedTokenizationLegacyScoring
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AdvancedTokenizationLegacyScoring
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.Filters
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.Filters
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_Filters
+  name: Filters
+  nameWithType: SearchSettings.Filters
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.Filters
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AutoLocalizationSettings
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AutoLocalizationSettings
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_AutoLocalizationSettings
+  name: AutoLocalizationSettings
+  nameWithType: SearchSettings.AutoLocalizationSettings
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AutoLocalizationSettings
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.HardFilter
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.HardFilter
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_HardFilter
+  name: HardFilter
+  nameWithType: SearchSettings.HardFilter
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.HardFilter
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.SortSpecification
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.SortSpecification
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_SortSpecification
+  name: SortSpecification
+  nameWithType: SearchSettings.SortSpecification
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.SortSpecification
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.ComputeTranslationProposal
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.ComputeTranslationProposal
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_ComputeTranslationProposal
+  name: ComputeTranslationProposal
+  nameWithType: SearchSettings.ComputeTranslationProposal
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.ComputeTranslationProposal
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.CurrentStructureContext
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.CurrentStructureContext
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_CurrentStructureContext
+  name: CurrentStructureContext
+  nameWithType: SearchSettings.CurrentStructureContext
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.CurrentStructureContext
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MinScore
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MinScore
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_MinScore
+  name: MinScore
+  nameWithType: SearchSettings.MinScore
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MinScore
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MaxResults
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MaxResults
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_MaxResults
+  name: MaxResults
+  nameWithType: SearchSettings.MaxResults
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.MaxResults
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AdaptiveMachineTranslationLookupMode
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AdaptiveMachineTranslationLookupMode
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_AdaptiveMachineTranslationLookupMode
+  name: AdaptiveMachineTranslationLookupMode
+  nameWithType: SearchSettings.AdaptiveMachineTranslationLookupMode
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.AdaptiveMachineTranslationLookupMode
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsConcordanceSearch
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsConcordanceSearch
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_IsConcordanceSearch
+  name: IsConcordanceSearch
+  nameWithType: SearchSettings.IsConcordanceSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsConcordanceSearch
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.html
+  name: SubsegmentSearchSettings
+  nameWithType: SubsegmentSearchSettings
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.HashSet{Sdl.LanguagePlatform.TranslationMemory.SubsegmentMatchType}
+  commentId: T:System.Collections.Generic.HashSet{Sdl.LanguagePlatform.TranslationMemory.SubsegmentMatchType}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<SubsegmentMatchType>
+  nameWithType: HashSet<SubsegmentMatchType>
+  fullName: System.Collections.Generic.HashSet<Sdl.LanguagePlatform.TranslationMemory.SubsegmentMatchType>
+  nameWithType.vb: HashSet(Of SubsegmentMatchType)
+  fullName.vb: System.Collections.Generic.HashSet(Of Sdl.LanguagePlatform.TranslationMemory.SubsegmentMatchType)
+  name.vb: HashSet(Of SubsegmentMatchType)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentMatchType
+    name: SubsegmentMatchType
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentMatchType.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentMatchType
+    name: SubsegmentMatchType
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentMatchType.html
+  - name: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.#ctor*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.#ctor
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchSettings__ctor
+  name: SubsegmentSearchSettings
+  nameWithType: SubsegmentSearchSettings.SubsegmentSearchSettings
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.SubsegmentSearchSettings
+  nameWithType.vb: SubsegmentSearchSettings.New
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.New
+  name.vb: New

@@ -1,0 +1,428 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo
+  id: TranslationProviderInfo
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  children:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.#ctor
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.Name
+  - Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.TranslationMethod
+  langs:
+  - csharp
+  - vb
+  name: TranslationProviderInfo
+  nameWithType: TranslationProviderInfo
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Represents general information about a translation provider (<xref href="Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public class TranslationProviderInfo
+    content.vb: Public Class TranslationProviderInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.#ctor
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.#ctor
+  id: '#ctor'
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo
+  langs:
+  - csharp
+  - vb
+  name: TranslationProviderInfo()
+  nameWithType: TranslationProviderInfo.TranslationProviderInfo()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.TranslationProviderInfo()
+  type: Constructor
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  syntax:
+    content: public TranslationProviderInfo()
+    content.vb: Public Sub New()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.#ctor*
+  nameWithType.vb: TranslationProviderInfo.New()
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.New()
+  name.vb: New()
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.Name
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.Name
+  id: Name
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: TranslationProviderInfo.Name
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.Name
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the name of the translation provider.
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.Name*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.TranslationMethod
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.TranslationMethod
+  id: TranslationMethod
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo
+  langs:
+  - csharp
+  - vb
+  name: TranslationMethod
+  nameWithType: TranslationProviderInfo.TranslationMethod
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.TranslationMethod
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets the translation method used by the translation provider.
+  example: []
+  syntax:
+    content: public TranslationMethod TranslationMethod { get; set; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+    content.vb: Public Property TranslationMethod As TranslationMethod
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.TranslationMethod*
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider.html
+  name: ITranslationProvider
+  nameWithType: ITranslationProvider
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ITranslationProvider
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi
+  commentId: N:Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemoryApi
+  nameWithType: Sdl.LanguagePlatform.TranslationMemoryApi
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.#ctor*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.#ctor
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.html#Sdl_LanguagePlatform_TranslationMemoryApi_TranslationProviderInfo__ctor
+  name: TranslationProviderInfo
+  nameWithType: TranslationProviderInfo.TranslationProviderInfo
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.TranslationProviderInfo
+  nameWithType.vb: TranslationProviderInfo.New
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.New
+  name.vb: New
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.Name*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.Name
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.html#Sdl_LanguagePlatform_TranslationMemoryApi_TranslationProviderInfo_Name
+  name: Name
+  nameWithType: TranslationProviderInfo.Name
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.TranslationMethod*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.TranslationMethod
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.html#Sdl_LanguagePlatform_TranslationMemoryApi_TranslationProviderInfo_TranslationMethod
+  name: TranslationMethod
+  nameWithType: TranslationProviderInfo.TranslationMethod
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationProviderInfo.TranslationMethod
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod.html
+  name: TranslationMethod
+  nameWithType: TranslationMethod
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.TranslationMethod

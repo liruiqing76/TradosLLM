@@ -1,0 +1,151 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+  id: ComposedExpression.Operator
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.And
+  - Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.Not
+  - Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.Or
+  langs:
+  - csharp
+  - vb
+  name: ComposedExpression.Operator
+  nameWithType: ComposedExpression.Operator
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Specifies the operators available in a composed expression.
+  example: []
+  syntax:
+    content: public enum ComposedExpression.Operator
+    content.vb: Public Enum ComposedExpression.Operator
+- uid: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.Not
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.Not
+  id: Not
+  parent: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+  langs:
+  - csharp
+  - vb
+  name: Not
+  nameWithType: ComposedExpression.Operator.Not
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.Not
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The logical NOT operator.
+  example: []
+  syntax:
+    content: Not = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+- uid: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.And
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.And
+  id: And
+  parent: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+  langs:
+  - csharp
+  - vb
+  name: And
+  nameWithType: ComposedExpression.Operator.And
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.And
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The logical AND operator.
+  example: []
+  syntax:
+    content: And = 2
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+- uid: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.Or
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.Or
+  id: Or
+  parent: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+  langs:
+  - csharp
+  - vb
+  name: Or
+  nameWithType: ComposedExpression.Operator.Or
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.Or
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The logical OR operator.
+  example: []
+  syntax:
+    content: Or = 3
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.html
+  name: ComposedExpression.Operator
+  nameWithType: ComposedExpression.Operator
+  fullName: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression
+    name: ComposedExpression
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+    name: Operator
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.html
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression
+    name: ComposedExpression
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator
+    name: Operator
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.ComposedExpression.Operator.html

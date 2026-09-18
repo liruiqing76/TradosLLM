@@ -1,0 +1,124 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType
+  commentId: T:Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType
+  id: ConcordanceSearchType
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch
+  children:
+  - Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType.Source
+  - Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType.Target
+  langs:
+  - csharp
+  - vb
+  name: ConcordanceSearchType
+  nameWithType: ConcordanceSearchType
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType
+  type: Enum
+  assemblies:
+  - Sdl.TranslationStudioAutomation.IntegrationApi
+  namespace: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch
+  syntax:
+    content: public enum ConcordanceSearchType
+    content.vb: Public Enum ConcordanceSearchType
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType.Source
+  commentId: F:Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType.Source
+  id: Source
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: ConcordanceSearchType.Source
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType.Source
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.IntegrationApi
+  namespace: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch
+  syntax:
+    content: Source = 0
+    return:
+      type: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType.Target
+  commentId: F:Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType.Target
+  id: Target
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: ConcordanceSearchType.Target
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType.Target
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.IntegrationApi
+  namespace: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch
+  syntax:
+    content: Target = 1
+    return:
+      type: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType
+references:
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch
+  commentId: N:Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch
+  nameWithType: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation
+    name: TranslationStudioAutomation
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi.Editor
+    name: Editor
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch
+    name: ConcordanceSearch
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation
+    name: TranslationStudioAutomation
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi.Editor
+    name: Editor
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch
+    name: ConcordanceSearch
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.html
+- uid: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType
+  commentId: T:Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType
+  parent: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch
+  isExternal: true
+  href: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType.html
+  name: ConcordanceSearchType
+  nameWithType: ConcordanceSearchType
+  fullName: Sdl.TranslationStudioAutomation.IntegrationApi.Editor.ConcordanceSearch.ConcordanceSearchType

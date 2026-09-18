@@ -1,0 +1,342 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection
+  id: ISubsegmentTranslationMemoryLanguageDirection
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  children:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchSegmentsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition,Sdl.LanguagePlatform.Core.Segment[],System.Boolean[])
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition,Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],System.Boolean[])
+  langs:
+  - csharp
+  - vb
+  name: ISubsegmentTranslationMemoryLanguageDirection
+  nameWithType: ISubsegmentTranslationMemoryLanguageDirection
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection
+  type: Interface
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Exposes translation provider subsegment functionality for a specific language direction.
+  example: []
+  syntax:
+    content: public interface ISubsegmentTranslationMemoryLanguageDirection
+    content.vb: Public Interface ISubsegmentTranslationMemoryLanguageDirection
+  derivedClasses:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.AbstractMachineTranslationProviderLanguageDirection
+  - Sdl.LanguagePlatform.TranslationMemoryApi.FileBasedTranslationMemoryLanguageDirection
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ServerBasedTranslationMemoryLanguageDirection
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchSegmentsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition,Sdl.LanguagePlatform.Core.Segment[],System.Boolean[])
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchSegmentsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition,Sdl.LanguagePlatform.Core.Segment[],System.Boolean[])
+  id: SearchSegmentsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition,Sdl.LanguagePlatform.Core.Segment[],System.Boolean[])
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection
+  langs:
+  - csharp
+  - vb
+  name: SearchSegmentsMasked(SearchSettings, SubsegmentSearchSettings, SubsegmentSearchCondition, Segment[], bool[])
+  nameWithType: ISubsegmentTranslationMemoryLanguageDirection.SearchSegmentsMasked(SearchSettings, SubsegmentSearchSettings, SubsegmentSearchCondition, Segment[], bool[])
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchSegmentsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings, Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings, Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition, Sdl.LanguagePlatform.Core.Segment[], bool[])
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Performs a segment-level search, and optionally a subsegment search, for an array of segments, specifying a mask which specifies which segments should actually be
+
+    searched (only those for which the corresponding mask bit is <code>true</code> are searched). If the mask is <code>null</code>, the method
+
+    search all segments. Passing a mask only makes sense in document search contexts (<xref href="Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsDocumentSearch" data-throw-if-not-resolved="false"></xref>
+
+    set to <code>true</code>).
+  example: []
+  syntax:
+    content: SegmentAndSubsegmentSearchResults[] SearchSegmentsMasked(SearchSettings settings, SubsegmentSearchSettings subsegmentSettings, SubsegmentSearchCondition condition, Segment[] segments, bool[] mask)
+    parameters:
+    - id: settings
+      type: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+      description: The settings that define the segment-level search parameters.
+    - id: subsegmentSettings
+      type: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+      description: The settings that define the subsegment search parameters, or null if a subsegment search should not be performed.
+    - id: condition
+      type: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+      description: If <code class="paramref">subsegmentSettings</code> is not null, specifies the conditions under which a subsegment search will be performed.
+    - id: segments
+      type: Sdl.LanguagePlatform.Core.Segment[]
+      description: The array containing the segments to search for.
+    - id: mask
+      type: System.Boolean[]
+      description: The array containing the segments to search for.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.SegmentAndSubsegmentSearchResults[]
+      description: >-
+        An array of <xref href="Sdl.LanguagePlatform.TranslationMemory.SearchResults" data-throw-if-not-resolved="false"></xref> objects, which mirrors the segments array. It has the exact same size and contains the
+                    search results for each segment with the same index within the segments array.
+    content.vb: Function SearchSegmentsMasked(settings As SearchSettings, subsegmentSettings As SubsegmentSearchSettings, condition As SubsegmentSearchCondition, segments As Segment(), mask As Boolean()) As SegmentAndSubsegmentSearchResults()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchSegmentsMasked*
+  nameWithType.vb: ISubsegmentTranslationMemoryLanguageDirection.SearchSegmentsMasked(SearchSettings, SubsegmentSearchSettings, SubsegmentSearchCondition, Segment(), Boolean())
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchSegmentsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings, Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings, Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition, Sdl.LanguagePlatform.Core.Segment(), Boolean())
+  name.vb: SearchSegmentsMasked(SearchSettings, SubsegmentSearchSettings, SubsegmentSearchCondition, Segment(), Boolean())
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition,Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],System.Boolean[])
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition,Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],System.Boolean[])
+  id: SearchTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings,Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition,Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[],System.Boolean[])
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection
+  langs:
+  - csharp
+  - vb
+  name: SearchTranslationUnitsMasked(SearchSettings, SubsegmentSearchSettings, SubsegmentSearchCondition, TranslationUnit[], bool[])
+  nameWithType: ISubsegmentTranslationMemoryLanguageDirection.SearchTranslationUnitsMasked(SearchSettings, SubsegmentSearchSettings, SubsegmentSearchCondition, TranslationUnit[], bool[])
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings, Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings, Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition, Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[], bool[])
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Performs a translation unit search, and optionally a subsegment search on the source segment, for an array of translation units, allows passing a mask which specifies which TUs are actually searched. This is useful
+
+    in document search contexts where some TUs are passed which should be used to establish a (text) context, but which should not be
+
+    processed.
+  example: []
+  syntax:
+    content: SegmentAndSubsegmentSearchResults[] SearchTranslationUnitsMasked(SearchSettings settings, SubsegmentSearchSettings subsegmentSettings, SubsegmentSearchCondition condition, TranslationUnit[] translationUnits, bool[] mask)
+    parameters:
+    - id: settings
+      type: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+      description: The settings that define the segment-level search parameters.
+    - id: subsegmentSettings
+      type: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+      description: The settings that define the subsegment search parameters, or null if a subsegment search should not be performed.
+    - id: condition
+      type: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+      description: If <code class="paramref">subsegmentSettings</code> is not null, specifies the conditions under which a subsegment search will be performed.
+    - id: translationUnits
+      type: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[]
+      description: The array containing the translation units to search for.
+    - id: mask
+      type: System.Boolean[]
+      description: >-
+        A <code>bool</code> array which specifies which TUs are actually searched (mask[i] = <code>true</code>). If <code>null</code>, the method
+                    will search all translation units.
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.SegmentAndSubsegmentSearchResults[]
+      description: >-
+        An array of objects, which mirrors the translation unit array. It has the exact same size and contains
+                    the search results for each translation unit with the same index within the translation unit array.
+    content.vb: Function SearchTranslationUnitsMasked(settings As SearchSettings, subsegmentSettings As SubsegmentSearchSettings, condition As SubsegmentSearchCondition, translationUnits As TranslationUnit(), mask As Boolean()) As SegmentAndSubsegmentSearchResults()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchTranslationUnitsMasked*
+  nameWithType.vb: ISubsegmentTranslationMemoryLanguageDirection.SearchTranslationUnitsMasked(SearchSettings, SubsegmentSearchSettings, SubsegmentSearchCondition, TranslationUnit(), Boolean())
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchTranslationUnitsMasked(Sdl.LanguagePlatform.TranslationMemory.SearchSettings, Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings, Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition, Sdl.LanguagePlatform.TranslationMemory.TranslationUnit(), Boolean())
+  name.vb: SearchTranslationUnitsMasked(SearchSettings, SubsegmentSearchSettings, SubsegmentSearchCondition, TranslationUnit(), Boolean())
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi
+  commentId: N:Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemoryApi
+  nameWithType: Sdl.LanguagePlatform.TranslationMemoryApi
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsDocumentSearch
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsDocumentSearch
+  parent: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html#Sdl_LanguagePlatform_TranslationMemory_SearchSettings_IsDocumentSearch
+  name: IsDocumentSearch
+  nameWithType: SearchSettings.IsDocumentSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.IsDocumentSearch
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchResults
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SearchResults
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchResults.html
+  name: SearchResults
+  nameWithType: SearchResults
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchResults
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchSegmentsMasked*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchSegmentsMasked
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.html#Sdl_LanguagePlatform_TranslationMemoryApi_ISubsegmentTranslationMemoryLanguageDirection_SearchSegmentsMasked_Sdl_LanguagePlatform_TranslationMemory_SearchSettings_Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchSettings_Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchCondition_Sdl_LanguagePlatform_Core_Segment___System_Boolean___
+  name: SearchSegmentsMasked
+  nameWithType: ISubsegmentTranslationMemoryLanguageDirection.SearchSegmentsMasked
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchSegmentsMasked
+- uid: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SearchSettings.html
+  name: SearchSettings
+  nameWithType: SearchSettings
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SearchSettings
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings.html
+  name: SubsegmentSearchSettings
+  nameWithType: SubsegmentSearchSettings
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchSettings
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition.html
+  name: SubsegmentSearchCondition
+  nameWithType: SubsegmentSearchCondition
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+- uid: Sdl.LanguagePlatform.Core.Segment[]
+  isExternal: true
+  name: Segment[]
+  nameWithType: Segment[]
+  fullName: Sdl.LanguagePlatform.Core.Segment[]
+  nameWithType.vb: Segment()
+  fullName.vb: Sdl.LanguagePlatform.Core.Segment()
+  name.vb: Segment()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.Core.Segment
+    name: Segment
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.Core.Segment
+    name: Segment
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Boolean[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool[]
+  nameWithType: bool[]
+  fullName: bool[]
+  nameWithType.vb: Boolean()
+  fullName.vb: Boolean()
+  name.vb: Boolean()
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.SegmentAndSubsegmentSearchResults[]
+  isExternal: true
+  name: SegmentAndSubsegmentSearchResults[]
+  nameWithType: SegmentAndSubsegmentSearchResults[]
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SegmentAndSubsegmentSearchResults[]
+  nameWithType.vb: SegmentAndSubsegmentSearchResults()
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SegmentAndSubsegmentSearchResults()
+  name.vb: SegmentAndSubsegmentSearchResults()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SegmentAndSubsegmentSearchResults
+    name: SegmentAndSubsegmentSearchResults
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SegmentAndSubsegmentSearchResults
+    name: SegmentAndSubsegmentSearchResults
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchTranslationUnitsMasked*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchTranslationUnitsMasked
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.html#Sdl_LanguagePlatform_TranslationMemoryApi_ISubsegmentTranslationMemoryLanguageDirection_SearchTranslationUnitsMasked_Sdl_LanguagePlatform_TranslationMemory_SearchSettings_Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchSettings_Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchCondition_Sdl_LanguagePlatform_TranslationMemory_TranslationUnit___System_Boolean___
+  name: SearchTranslationUnitsMasked
+  nameWithType: ISubsegmentTranslationMemoryLanguageDirection.SearchTranslationUnitsMasked
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ISubsegmentTranslationMemoryLanguageDirection.SearchTranslationUnitsMasked
+- uid: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[]
+  isExternal: true
+  name: TranslationUnit[]
+  nameWithType: TranslationUnit[]
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit[]
+  nameWithType.vb: TranslationUnit()
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit()
+  name.vb: TranslationUnit()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit
+    name: TranslationUnit
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.TranslationUnit
+    name: TranslationUnit
+    isExternal: true
+  - name: (
+  - name: )

@@ -1,0 +1,537 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Verification.Api.Suggestion
+  commentId: T:Sdl.Verification.Api.Suggestion
+  id: Suggestion
+  parent: Sdl.Verification.Api
+  children:
+  - Sdl.Verification.Api.Suggestion.#ctor(Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation,Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation,Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData)
+  - Sdl.Verification.Api.Suggestion.FromLocation
+  - Sdl.Verification.Api.Suggestion.SuggestionMarkup
+  - Sdl.Verification.Api.Suggestion.UptoLocation
+  langs:
+  - csharp
+  - vb
+  name: Suggestion
+  nameWithType: Suggestion
+  fullName: Sdl.Verification.Api.Suggestion
+  type: Class
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: >-
+    Suggestion class represents a suggestion that describes a change that can be made to a document
+
+    by replacing the existing markup between the from location and upto location with the suggestion markup.
+  example: []
+  syntax:
+    content: public class Suggestion
+    content.vb: Public Class Suggestion
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.Verification.Api.Suggestion.#ctor(Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation,Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation,Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData)
+  commentId: M:Sdl.Verification.Api.Suggestion.#ctor(Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation,Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation,Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData)
+  id: '#ctor(Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation,Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation,Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData)'
+  parent: Sdl.Verification.Api.Suggestion
+  langs:
+  - csharp
+  - vb
+  name: Suggestion(IMessageLocation, IMessageLocation, IAbstractMarkupData)
+  nameWithType: Suggestion.Suggestion(IMessageLocation, IMessageLocation, IAbstractMarkupData)
+  fullName: Sdl.Verification.Api.Suggestion.Suggestion(Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation, Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation, Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData)
+  type: Constructor
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: Constructor that takes the from location, upto location, and suggestion markup.
+  example: []
+  syntax:
+    content: public Suggestion(IMessageLocation fromLocation, IMessageLocation uptoLocation, IAbstractMarkupData suggestionMarkup)
+    parameters:
+    - id: fromLocation
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+      description: from location
+    - id: uptoLocation
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+      description: upto location
+    - id: suggestionMarkup
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+      description: suggestion markup - set suggestionMarkup to null to suggest deleting the existing markup between the from location and the upto location
+    content.vb: Public Sub New(fromLocation As IMessageLocation, uptoLocation As IMessageLocation, suggestionMarkup As IAbstractMarkupData)
+  overload: Sdl.Verification.Api.Suggestion.#ctor*
+  nameWithType.vb: Suggestion.New(IMessageLocation, IMessageLocation, IAbstractMarkupData)
+  fullName.vb: Sdl.Verification.Api.Suggestion.New(Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation, Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation, Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData)
+  name.vb: New(IMessageLocation, IMessageLocation, IAbstractMarkupData)
+- uid: Sdl.Verification.Api.Suggestion.FromLocation
+  commentId: P:Sdl.Verification.Api.Suggestion.FromLocation
+  id: FromLocation
+  parent: Sdl.Verification.Api.Suggestion
+  langs:
+  - csharp
+  - vb
+  name: FromLocation
+  nameWithType: Suggestion.FromLocation
+  fullName: Sdl.Verification.Api.Suggestion.FromLocation
+  type: Property
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: FromLocation property represents the "start" location of the existing markup to be replaced.
+  example: []
+  syntax:
+    content: public IMessageLocation FromLocation { get; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+    content.vb: Public ReadOnly Property FromLocation As IMessageLocation
+  overload: Sdl.Verification.Api.Suggestion.FromLocation*
+- uid: Sdl.Verification.Api.Suggestion.UptoLocation
+  commentId: P:Sdl.Verification.Api.Suggestion.UptoLocation
+  id: UptoLocation
+  parent: Sdl.Verification.Api.Suggestion
+  langs:
+  - csharp
+  - vb
+  name: UptoLocation
+  nameWithType: Suggestion.UptoLocation
+  fullName: Sdl.Verification.Api.Suggestion.UptoLocation
+  type: Property
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: UptoLocation property represents the "finish" location of the existing markup to be replaced.
+  example: []
+  syntax:
+    content: public IMessageLocation UptoLocation { get; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+    content.vb: Public ReadOnly Property UptoLocation As IMessageLocation
+  overload: Sdl.Verification.Api.Suggestion.UptoLocation*
+- uid: Sdl.Verification.Api.Suggestion.SuggestionMarkup
+  commentId: P:Sdl.Verification.Api.Suggestion.SuggestionMarkup
+  id: SuggestionMarkup
+  parent: Sdl.Verification.Api.Suggestion
+  langs:
+  - csharp
+  - vb
+  name: SuggestionMarkup
+  nameWithType: Suggestion.SuggestionMarkup
+  fullName: Sdl.Verification.Api.Suggestion.SuggestionMarkup
+  type: Property
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: SuggestionMarkup property represents the suggestion markup to replace the existing markup.
+  example: []
+  syntax:
+    content: public IAbstractMarkupData SuggestionMarkup { get; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+    content.vb: Public ReadOnly Property SuggestionMarkup As IAbstractMarkupData
+  overload: Sdl.Verification.Api.Suggestion.SuggestionMarkup*
+references:
+- uid: Sdl.Verification.Api
+  commentId: N:Sdl.Verification.Api
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Verification.Api
+  nameWithType: Sdl.Verification.Api
+  fullName: Sdl.Verification.Api
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Verification
+    name: Verification
+    isExternal: true
+    href: Sdl.Verification.html
+  - name: .
+  - uid: Sdl.Verification.Api
+    name: Api
+    isExternal: true
+    href: Sdl.Verification.Api.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Verification
+    name: Verification
+    isExternal: true
+    href: Sdl.Verification.html
+  - name: .
+  - uid: Sdl.Verification.Api
+    name: Api
+    isExternal: true
+    href: Sdl.Verification.Api.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Verification.Api.Suggestion.#ctor*
+  commentId: Overload:Sdl.Verification.Api.Suggestion.#ctor
+  isExternal: true
+  href: Sdl.Verification.Api.Suggestion.html#Sdl_Verification_Api_Suggestion__ctor_Sdl_FileTypeSupport_Framework_IntegrationApi_IMessageLocation_Sdl_FileTypeSupport_Framework_IntegrationApi_IMessageLocation_Sdl_FileTypeSupport_Framework_BilingualApi_IAbstractMarkupData_
+  name: Suggestion
+  nameWithType: Suggestion.Suggestion
+  fullName: Sdl.Verification.Api.Suggestion.Suggestion
+  nameWithType.vb: Suggestion.New
+  fullName.vb: Sdl.Verification.Api.Suggestion.New
+  name.vb: New
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  name: IMessageLocation
+  nameWithType: IMessageLocation
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IMessageLocation
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  name: IAbstractMarkupData
+  nameWithType: IAbstractMarkupData
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi
+  commentId: N:Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  name: Sdl.FileTypeSupport.Framework.BilingualApi
+  nameWithType: Sdl.FileTypeSupport.Framework.BilingualApi
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+- uid: Sdl.Verification.Api.Suggestion.FromLocation*
+  commentId: Overload:Sdl.Verification.Api.Suggestion.FromLocation
+  isExternal: true
+  href: Sdl.Verification.Api.Suggestion.html#Sdl_Verification_Api_Suggestion_FromLocation
+  name: FromLocation
+  nameWithType: Suggestion.FromLocation
+  fullName: Sdl.Verification.Api.Suggestion.FromLocation
+- uid: Sdl.Verification.Api.Suggestion.UptoLocation*
+  commentId: Overload:Sdl.Verification.Api.Suggestion.UptoLocation
+  isExternal: true
+  href: Sdl.Verification.Api.Suggestion.html#Sdl_Verification_Api_Suggestion_UptoLocation
+  name: UptoLocation
+  nameWithType: Suggestion.UptoLocation
+  fullName: Sdl.Verification.Api.Suggestion.UptoLocation
+- uid: Sdl.Verification.Api.Suggestion.SuggestionMarkup*
+  commentId: Overload:Sdl.Verification.Api.Suggestion.SuggestionMarkup
+  isExternal: true
+  href: Sdl.Verification.Api.Suggestion.html#Sdl_Verification_Api_Suggestion_SuggestionMarkup
+  name: SuggestionMarkup
+  nameWithType: Suggestion.SuggestionMarkup
+  fullName: Sdl.Verification.Api.Suggestion.SuggestionMarkup

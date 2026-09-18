@@ -1,0 +1,158 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Core.ValueStatus
+  commentId: T:Sdl.ProjectAutomation.Core.ValueStatus
+  id: ValueStatus
+  parent: Sdl.ProjectAutomation.Core
+  children:
+  - Sdl.ProjectAutomation.Core.ValueStatus.Complete
+  - Sdl.ProjectAutomation.Core.ValueStatus.None
+  - Sdl.ProjectAutomation.Core.ValueStatus.OutOfDate
+  - Sdl.ProjectAutomation.Core.ValueStatus.Partial
+  langs:
+  - csharp
+  - vb
+  name: ValueStatus
+  nameWithType: ValueStatus
+  fullName: Sdl.ProjectAutomation.Core.ValueStatus
+  type: Enum
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Enum with possible status values for various types of statistics.
+  example: []
+  syntax:
+    content: public enum ValueStatus
+    content.vb: Public Enum ValueStatus
+- uid: Sdl.ProjectAutomation.Core.ValueStatus.None
+  commentId: F:Sdl.ProjectAutomation.Core.ValueStatus.None
+  id: None
+  parent: Sdl.ProjectAutomation.Core.ValueStatus
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ValueStatus.None
+  fullName: Sdl.ProjectAutomation.Core.ValueStatus.None
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: No statistics have been computed yet.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Sdl.ProjectAutomation.Core.ValueStatus
+- uid: Sdl.ProjectAutomation.Core.ValueStatus.Partial
+  commentId: F:Sdl.ProjectAutomation.Core.ValueStatus.Partial
+  id: Partial
+  parent: Sdl.ProjectAutomation.Core.ValueStatus
+  langs:
+  - csharp
+  - vb
+  name: Partial
+  nameWithType: ValueStatus.Partial
+  fullName: Sdl.ProjectAutomation.Core.ValueStatus.Partial
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    Partial statistics have been computed. This is only valid for aggregate statistics values and means that for some of the items
+
+    statistics have been computed, but not for all of them.
+  example: []
+  syntax:
+    content: Partial = 1
+    return:
+      type: Sdl.ProjectAutomation.Core.ValueStatus
+- uid: Sdl.ProjectAutomation.Core.ValueStatus.OutOfDate
+  commentId: F:Sdl.ProjectAutomation.Core.ValueStatus.OutOfDate
+  id: OutOfDate
+  parent: Sdl.ProjectAutomation.Core.ValueStatus
+  langs:
+  - csharp
+  - vb
+  name: OutOfDate
+  nameWithType: ValueStatus.OutOfDate
+  fullName: Sdl.ProjectAutomation.Core.ValueStatus.OutOfDate
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    Statistics are available for all items, but some of the statistics are out of date. This can be the case if a file's contents
+
+    have changed after statistics were last computed.
+  example: []
+  syntax:
+    content: OutOfDate = 2
+    return:
+      type: Sdl.ProjectAutomation.Core.ValueStatus
+- uid: Sdl.ProjectAutomation.Core.ValueStatus.Complete
+  commentId: F:Sdl.ProjectAutomation.Core.ValueStatus.Complete
+  id: Complete
+  parent: Sdl.ProjectAutomation.Core.ValueStatus
+  langs:
+  - csharp
+  - vb
+  name: Complete
+  nameWithType: ValueStatus.Complete
+  fullName: Sdl.ProjectAutomation.Core.ValueStatus.Complete
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Fully up-to-date statistics are available.
+  example: []
+  syntax:
+    content: Complete = 3
+    return:
+      type: Sdl.ProjectAutomation.Core.ValueStatus
+references:
+- uid: Sdl.ProjectAutomation.Core
+  commentId: N:Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Core
+  nameWithType: Sdl.ProjectAutomation.Core
+  fullName: Sdl.ProjectAutomation.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+- uid: Sdl.ProjectAutomation.Core.ValueStatus
+  commentId: T:Sdl.ProjectAutomation.Core.ValueStatus
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ValueStatus.html
+  name: ValueStatus
+  nameWithType: ValueStatus
+  fullName: Sdl.ProjectAutomation.Core.ValueStatus

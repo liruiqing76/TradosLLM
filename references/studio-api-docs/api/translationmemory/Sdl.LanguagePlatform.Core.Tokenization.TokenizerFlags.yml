@@ -1,0 +1,331 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+  commentId: T:Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+  id: TokenizerFlags
+  parent: Sdl.LanguagePlatform.Core.Tokenization
+  children:
+  - Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.AllFlags
+  - Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnApostrophe
+  - Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnDash
+  - Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnHyphen
+  - Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnSymbol
+  - Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.DefaultFlags
+  - Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.NoFlags
+  langs:
+  - csharp
+  - vb
+  name: TokenizerFlags
+  nameWithType: TokenizerFlags
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Flags controlling tokenizer behaviour
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      [DataContract]
+
+      public enum TokenizerFlags
+    content.vb: >-
+      <Flags>
+
+      <DataContract>
+
+      Public Enum TokenizerFlags
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.NoFlags
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.NoFlags
+  id: NoFlags
+  parent: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+  langs:
+  - csharp
+  - vb
+  name: NoFlags
+  nameWithType: TokenizerFlags.NoFlags
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.NoFlags
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: No tokenizer flags set
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      NoFlags = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+    content.vb: >-
+      <EnumMember>
+
+      NoFlags = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnHyphen
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnHyphen
+  id: BreakOnHyphen
+  parent: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+  langs:
+  - csharp
+  - vb
+  name: BreakOnHyphen
+  nameWithType: TokenizerFlags.BreakOnHyphen
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnHyphen
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: If true, break tokens on hyphen characters
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      BreakOnHyphen = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+    content.vb: >-
+      <EnumMember>
+
+      BreakOnHyphen = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnDash
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnDash
+  id: BreakOnDash
+  parent: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+  langs:
+  - csharp
+  - vb
+  name: BreakOnDash
+  nameWithType: TokenizerFlags.BreakOnDash
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnDash
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: If true, break tokens on dash characters
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      BreakOnDash = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+    content.vb: >-
+      <EnumMember>
+
+      BreakOnDash = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnApostrophe
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnApostrophe
+  id: BreakOnApostrophe
+  parent: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+  langs:
+  - csharp
+  - vb
+  name: BreakOnApostrophe
+  nameWithType: TokenizerFlags.BreakOnApostrophe
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnApostrophe
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: If true, break tokens on apostrophe characters
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      BreakOnApostrophe = 4
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+    content.vb: >-
+      <EnumMember>
+
+      BreakOnApostrophe = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnSymbol
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnSymbol
+  id: BreakOnSymbol
+  parent: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+  langs:
+  - csharp
+  - vb
+  name: BreakOnSymbol
+  nameWithType: TokenizerFlags.BreakOnSymbol
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.BreakOnSymbol
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: If true, breaks tokens for a defined list of symbols
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      BreakOnSymbol = 8
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+    content.vb: >-
+      <EnumMember>
+
+      BreakOnSymbol = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.AllFlags
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.AllFlags
+  id: AllFlags
+  parent: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+  langs:
+  - csharp
+  - vb
+  name: AllFlags
+  nameWithType: TokenizerFlags.AllFlags
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.AllFlags
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: All flags set
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("use logic or operators to get better version compatibility")]
+
+      [EnumMember]
+
+      AllFlags = BreakOnHyphen | BreakOnDash
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+    content.vb: >-
+      <Obsolete("use logic or operators to get better version compatibility")>
+
+      <EnumMember>
+
+      AllFlags = BreakOnHyphen Or BreakOnDash
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: use logic or operators to get better version compatibility
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.DefaultFlags
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.DefaultFlags
+  id: DefaultFlags
+  parent: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+  langs:
+  - csharp
+  - vb
+  name: DefaultFlags
+  nameWithType: TokenizerFlags.DefaultFlags
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.DefaultFlags
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: >-
+    Default flag values
+
+    <remarks>May differ from AllFlags if further flags are added</remarks>
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      DefaultFlags = AllFlags | BreakOnApostrophe
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+    content.vb: >-
+      <EnumMember>
+
+      DefaultFlags = AllFlags Or BreakOnApostrophe
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: Sdl.LanguagePlatform.Core.Tokenization
+  commentId: N:Sdl.LanguagePlatform.Core.Tokenization
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core.Tokenization
+  nameWithType: Sdl.LanguagePlatform.Core.Tokenization
+  fullName: Sdl.LanguagePlatform.Core.Tokenization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Tokenization
+    name: Tokenization
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Tokenization.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Tokenization
+    name: Tokenization
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Tokenization.html
+- uid: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+  commentId: T:Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags
+  parent: Sdl.LanguagePlatform.Core.Tokenization
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags.html
+  name: TokenizerFlags
+  nameWithType: TokenizerFlags
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.TokenizerFlags

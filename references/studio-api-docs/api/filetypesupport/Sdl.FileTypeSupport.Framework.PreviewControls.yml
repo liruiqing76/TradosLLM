@@ -1,0 +1,171 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls
+  commentId: N:Sdl.FileTypeSupport.Framework.PreviewControls
+  id: Sdl.FileTypeSupport.Framework.PreviewControls
+  children:
+  - Sdl.FileTypeSupport.Framework.PreviewControls.AbstractNativePreviewFileWriter
+  - Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  - Sdl.FileTypeSupport.Framework.PreviewControls.DualBrowserControl
+  - Sdl.FileTypeSupport.Framework.PreviewControls.GenericExteralPreviewApplication
+  - Sdl.FileTypeSupport.Framework.PreviewControls.GenericInternalWebBrowserPreviewControl
+  - Sdl.FileTypeSupport.Framework.PreviewControls.GenericSideBySideWebBrowserPreviewControl
+  - Sdl.FileTypeSupport.Framework.PreviewControls.ITempFileProperties
+  - Sdl.FileTypeSupport.Framework.PreviewControls.MsOfficeExternalPreviewApplication
+  - Sdl.FileTypeSupport.Framework.PreviewControls.NavigableDualBrowserControl
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideRealtimeWebBrowserPreviewController
+  - Sdl.FileTypeSupport.Framework.PreviewControls.TempFileProperties
+  - Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils
+  langs:
+  - csharp
+  - vb
+  name: Sdl.FileTypeSupport.Framework.PreviewControls
+  nameWithType: Sdl.FileTypeSupport.Framework.PreviewControls
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls
+  type: Namespace
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+references:
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractNativePreviewFileWriter
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.AbstractNativePreviewFileWriter
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractNativePreviewFileWriter.html
+  name: AbstractNativePreviewFileWriter
+  nameWithType: AbstractNativePreviewFileWriter
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractNativePreviewFileWriter
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.html
+  name: AbstractPreviewControl
+  nameWithType: AbstractPreviewControl
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.DualBrowserControl
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.DualBrowserControl
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.DualBrowserControl.html
+  name: DualBrowserControl
+  nameWithType: DualBrowserControl
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.DualBrowserControl
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.GenericExteralPreviewApplication
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.GenericExteralPreviewApplication
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.GenericExteralPreviewApplication.html
+  name: GenericExteralPreviewApplication
+  nameWithType: GenericExteralPreviewApplication
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.GenericExteralPreviewApplication
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.GenericInternalWebBrowserPreviewControl
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.GenericInternalWebBrowserPreviewControl
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.GenericInternalWebBrowserPreviewControl.html
+  name: GenericInternalWebBrowserPreviewControl
+  nameWithType: GenericInternalWebBrowserPreviewControl
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.GenericInternalWebBrowserPreviewControl
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.MsOfficeExternalPreviewApplication
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.MsOfficeExternalPreviewApplication
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.MsOfficeExternalPreviewApplication.html
+  name: MsOfficeExternalPreviewApplication
+  nameWithType: MsOfficeExternalPreviewApplication
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.MsOfficeExternalPreviewApplication
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController.html
+  name: SideBySideNavigableWebBrowserPreviewController
+  nameWithType: SideBySideNavigableWebBrowserPreviewController
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.GenericSideBySideWebBrowserPreviewControl
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.GenericSideBySideWebBrowserPreviewControl
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.GenericSideBySideWebBrowserPreviewControl.html
+  name: GenericSideBySideWebBrowserPreviewControl
+  nameWithType: GenericSideBySideWebBrowserPreviewControl
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.GenericSideBySideWebBrowserPreviewControl
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.TempFileProperties
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileProperties.html
+  name: TempFileProperties
+  nameWithType: TempFileProperties
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileProperties
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.ITempFileProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.ITempFileProperties
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.ITempFileProperties.html
+  name: ITempFileProperties
+  nameWithType: ITempFileProperties
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.ITempFileProperties
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils.html
+  name: TempFileUtils
+  nameWithType: TempFileUtils
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.TempFileUtils
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.NavigableDualBrowserControl
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.NavigableDualBrowserControl
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.NavigableDualBrowserControl.html
+  name: NavigableDualBrowserControl
+  nameWithType: NavigableDualBrowserControl
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.NavigableDualBrowserControl
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideRealtimeWebBrowserPreviewController
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideRealtimeWebBrowserPreviewController
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideRealtimeWebBrowserPreviewController.html
+  name: SideBySideRealtimeWebBrowserPreviewController
+  nameWithType: SideBySideRealtimeWebBrowserPreviewController
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideRealtimeWebBrowserPreviewController
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls
+  commentId: N:Sdl.FileTypeSupport.Framework.PreviewControls
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.PreviewControls
+  nameWithType: Sdl.FileTypeSupport.Framework.PreviewControls
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.PreviewControls
+    name: PreviewControls
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.PreviewControls.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.PreviewControls
+    name: PreviewControls
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.PreviewControls.html

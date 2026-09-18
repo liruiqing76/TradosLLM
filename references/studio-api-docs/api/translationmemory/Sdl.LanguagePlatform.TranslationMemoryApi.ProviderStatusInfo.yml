@@ -1,0 +1,432 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo
+  id: ProviderStatusInfo
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  children:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.#ctor(System.Boolean,System.String)
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.Available
+  - Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.StatusMessage
+  langs:
+  - csharp
+  - vb
+  name: ProviderStatusInfo
+  nameWithType: ProviderStatusInfo
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Represents information about the status of a translation provider.
+  example: []
+  syntax:
+    content: public class ProviderStatusInfo
+    content.vb: Public Class ProviderStatusInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.#ctor(System.Boolean,System.String)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.#ctor(System.Boolean,System.String)
+  id: '#ctor(System.Boolean,System.String)'
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo
+  langs:
+  - csharp
+  - vb
+  name: ProviderStatusInfo(bool, string)
+  nameWithType: ProviderStatusInfo.ProviderStatusInfo(bool, string)
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.ProviderStatusInfo(bool, string)
+  type: Constructor
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Initializes a new instance with the specified values.
+  example: []
+  syntax:
+    content: public ProviderStatusInfo(bool available, string statusMessage)
+    parameters:
+    - id: available
+      type: System.Boolean
+      description: The availability status
+    - id: statusMessage
+      type: System.String
+      description: The status message
+    content.vb: Public Sub New(available As Boolean, statusMessage As String)
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.#ctor*
+  nameWithType.vb: ProviderStatusInfo.New(Boolean, String)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.New(Boolean, String)
+  name.vb: New(Boolean, String)
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.Available
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.Available
+  id: Available
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo
+  langs:
+  - csharp
+  - vb
+  name: Available
+  nameWithType: ProviderStatusInfo.Available
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.Available
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets or sets a flag whether the provider is available or not.
+  example: []
+  syntax:
+    content: public bool Available { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Available As Boolean
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.Available*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.StatusMessage
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.StatusMessage
+  id: StatusMessage
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo
+  langs:
+  - csharp
+  - vb
+  name: StatusMessage
+  nameWithType: ProviderStatusInfo.StatusMessage
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.StatusMessage
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Gets or sets a status message (may be null).
+  example: []
+  syntax:
+    content: public string StatusMessage { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property StatusMessage As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.StatusMessage*
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi
+  commentId: N:Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemoryApi
+  nameWithType: Sdl.LanguagePlatform.TranslationMemoryApi
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.#ctor*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.#ctor
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.html#Sdl_LanguagePlatform_TranslationMemoryApi_ProviderStatusInfo__ctor_System_Boolean_System_String_
+  name: ProviderStatusInfo
+  nameWithType: ProviderStatusInfo.ProviderStatusInfo
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.ProviderStatusInfo
+  nameWithType.vb: ProviderStatusInfo.New
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.New
+  name.vb: New
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.Available*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.Available
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.html#Sdl_LanguagePlatform_TranslationMemoryApi_ProviderStatusInfo_Available
+  name: Available
+  nameWithType: ProviderStatusInfo.Available
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.Available
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.StatusMessage*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.StatusMessage
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.html#Sdl_LanguagePlatform_TranslationMemoryApi_ProviderStatusInfo_StatusMessage
+  name: StatusMessage
+  nameWithType: ProviderStatusInfo.StatusMessage
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ProviderStatusInfo.StatusMessage

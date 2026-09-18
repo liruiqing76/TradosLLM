@@ -1,0 +1,105 @@
+
+trigger:
+  branches:
+    include:
+     - main
+
+pool:
+  vmImage: windows-2022
+
+variables:
+- group: 'SDLPLC Authenticode Credentials'
+- name: buildConfiguration
+  value: Release
+- name: buildPlatform
+  value: 'Any CPU'
+- name: Version.MajorMinor
+  value: 19.0
+- name: Version.Revision
+  value: $[counter(variables['Version.Revision'], 0)]
+- name: StudioProductIdentifier
+  value: 19
+- name: InstallerDisplayName
+  value: 'TradosStudio19Templates.vsix'
+
+name: $(Build.DefinitionName)_$(SourceBranchName)_$(Version.MajorMinor).$(Version.Revision)
+steps:
+- task: PowerShell@2
+  displayName: 'Set x64path'
+  inputs:
+    targetType: 'inline'
+    script: |
+      Write-Host "##vso[task.setvariable variable=x64path;]${Env:ProgramFiles}"
+
+- task: DownloadPipelineArtifact@2
+  displayName: 'Download Trados Studio Binaries Pipeline Artifact'
+  inputs:
+    buildType: 'specific'
+    project: 'TradosStudio'
+    definition: '1258'
+    artifactName: 'binaries'
+    buildVersionToDownload: 'latestFromBranch'
+    targetPath: '$(X64PATH)\Trados\Trados Studio\Studio$(StudioProductIdentifier)'
+    runBranch: 'refs/heads/master'
+    tags: 'Package'
+
+- task: NuGetToolInstaller@0
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: 'TemplatesVSIX/TemplatesVSIX.sln'
+    feedsToUse: 'select'
+    vstsFeed: 'af66e256-9c46-4fba-ad75-09bf110ec1cc'
+    includeNuGetOrg: true
+
+- task: PowerShell@2
+  displayName: 'Apply version to vsix'
+  inputs:
+    pwsh: True
+    targetType: filePath
+    filePath: './build/tasks/version-assemblies/update-all-versions.ps1'
+    arguments: "$(Version.MajorMinor).$(Version.Revision)"
+
+- task: VSBuild@1
+  inputs:
+    solution: 'TemplatesVSIX/TemplatesVSIX.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: CopyFiles@2
+  displayName: 'copy vsix file'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\TemplatesVSIX\bin\$(buildConfiguration)'
+    Contents: '*.vsix'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Install dotnet sign'
+  inputs:
+    command: 'custom'
+    custom: 'tool'
+    arguments: 'install --global sign --version 0.9.1-beta.24361.2'
+
+- task: PowerShell@2
+  displayName: 'Sign with Trusted Signing'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $vsix="$env:Build_ArtifactStagingDirectory\TradosStudio19Templates.vsix"
+      $tse="https://weu.codesigning.azure.net"
+      $tsa="sdl-limited"
+      $tscp="Codesigning"
+      
+      & "$env:USERPROFILE\.dotnet\tools\sign.exe" code trusted-signing $vsix -tse $tse -tsa $tsa -tscp $tscp -t 'http://timestamp.acs.microsoft.com'
+    pwsh: true
+  env:
+    AZURE_CLIENT_ID: $(SigningClientId)
+    AZURE_CLIENT_SECRET: $(SigningSecret)
+    AZURE_TENANT_ID: $(TenantID)
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'TradosStudioTemplate'
+    publishLocation: 'pipeline'

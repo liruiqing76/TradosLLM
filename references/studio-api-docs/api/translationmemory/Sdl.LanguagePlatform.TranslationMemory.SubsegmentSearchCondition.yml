@@ -1,0 +1,110 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+  id: SubsegmentSearchCondition
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition.AlwaysSearch
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition.SearchIfNoExactSegmentMatch
+  langs:
+  - csharp
+  - vb
+  name: SubsegmentSearchCondition
+  nameWithType: SubsegmentSearchCondition
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Specifies the conditions under which subsegment matching should be performed
+  example: []
+  syntax:
+    content: public enum SubsegmentSearchCondition
+    content.vb: Public Enum SubsegmentSearchCondition
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition.AlwaysSearch
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition.AlwaysSearch
+  id: AlwaysSearch
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+  langs:
+  - csharp
+  - vb
+  name: AlwaysSearch
+  nameWithType: SubsegmentSearchCondition.AlwaysSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition.AlwaysSearch
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Always perform subsegment matching
+  example: []
+  syntax:
+    content: AlwaysSearch = 0
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition.SearchIfNoExactSegmentMatch
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition.SearchIfNoExactSegmentMatch
+  id: SearchIfNoExactSegmentMatch
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+  langs:
+  - csharp
+  - vb
+  name: SearchIfNoExactSegmentMatch
+  nameWithType: SubsegmentSearchCondition.SearchIfNoExactSegmentMatch
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition.SearchIfNoExactSegmentMatch
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Perform subsegment matching if there is no exact match for the segment
+  example: []
+  syntax:
+    content: SearchIfNoExactSegmentMatch = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition.html
+  name: SubsegmentSearchCondition
+  nameWithType: SubsegmentSearchCondition
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchCondition

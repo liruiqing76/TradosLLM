@@ -1,0 +1,483 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.SortCriterium
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SortCriterium
+  id: SortCriterium
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.SortCriterium.#ctor
+  - Sdl.LanguagePlatform.TranslationMemory.SortCriterium.#ctor(System.String,Sdl.LanguagePlatform.TranslationMemory.SortDirection)
+  - Sdl.LanguagePlatform.TranslationMemory.SortCriterium.Direction
+  - Sdl.LanguagePlatform.TranslationMemory.SortCriterium.FieldName
+  langs:
+  - csharp
+  - vb
+  name: SortCriterium
+  nameWithType: SortCriterium
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SortCriterium
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Encapsulates a sort criterium.
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public class SortCriterium
+    content.vb: >-
+      <DataContract>
+
+      Public Class SortCriterium
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.#ctor
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SortCriterium.#ctor
+  id: '#ctor'
+  parent: Sdl.LanguagePlatform.TranslationMemory.SortCriterium
+  langs:
+  - csharp
+  - vb
+  name: SortCriterium()
+  nameWithType: SortCriterium.SortCriterium()
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.SortCriterium()
+  type: Constructor
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Initializes a new instance with default values.
+  example: []
+  syntax:
+    content: public SortCriterium()
+    content.vb: Public Sub New()
+  overload: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.#ctor*
+  nameWithType.vb: SortCriterium.New()
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.New()
+  name.vb: New()
+- uid: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.#ctor(System.String,Sdl.LanguagePlatform.TranslationMemory.SortDirection)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SortCriterium.#ctor(System.String,Sdl.LanguagePlatform.TranslationMemory.SortDirection)
+  id: '#ctor(System.String,Sdl.LanguagePlatform.TranslationMemory.SortDirection)'
+  parent: Sdl.LanguagePlatform.TranslationMemory.SortCriterium
+  langs:
+  - csharp
+  - vb
+  name: SortCriterium(string, SortDirection)
+  nameWithType: SortCriterium.SortCriterium(string, SortDirection)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.SortCriterium(string, Sdl.LanguagePlatform.TranslationMemory.SortDirection)
+  type: Constructor
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Initializes a new instance of the SortCriterium class with the specified field name and sort direction.
+  example: []
+  syntax:
+    content: public SortCriterium(string fieldName, SortDirection dir)
+    parameters:
+    - id: fieldName
+      type: System.String
+      description: The field name considered for sorting.
+    - id: dir
+      type: Sdl.LanguagePlatform.TranslationMemory.SortDirection
+      description: The sort direction.
+    content.vb: Public Sub New(fieldName As String, dir As SortDirection)
+  overload: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.#ctor*
+  nameWithType.vb: SortCriterium.New(String, SortDirection)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.New(String, Sdl.LanguagePlatform.TranslationMemory.SortDirection)
+  name.vb: New(String, SortDirection)
+- uid: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.FieldName
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SortCriterium.FieldName
+  id: FieldName
+  parent: Sdl.LanguagePlatform.TranslationMemory.SortCriterium
+  langs:
+  - csharp
+  - vb
+  name: FieldName
+  nameWithType: SortCriterium.FieldName
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.FieldName
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Gets or sets the field name considered for sorting.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public string FieldName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <DataMember>
+
+      Public Property FieldName As String
+  overload: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.FieldName*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.Direction
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SortCriterium.Direction
+  id: Direction
+  parent: Sdl.LanguagePlatform.TranslationMemory.SortCriterium
+  langs:
+  - csharp
+  - vb
+  name: Direction
+  nameWithType: SortCriterium.Direction
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.Direction
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Gets or sets the sort direction.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public SortDirection Direction { get; set; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.SortDirection
+    content.vb: >-
+      <DataMember>
+
+      Public Property Direction As SortDirection
+  overload: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.Direction*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.#ctor*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SortCriterium.#ctor
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.html#Sdl_LanguagePlatform_TranslationMemory_SortCriterium__ctor
+  name: SortCriterium
+  nameWithType: SortCriterium.SortCriterium
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.SortCriterium
+  nameWithType.vb: SortCriterium.New
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.LanguagePlatform.TranslationMemory.SortDirection
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SortDirection
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SortDirection.html
+  name: SortDirection
+  nameWithType: SortDirection
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SortDirection
+- uid: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.FieldName*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SortCriterium.FieldName
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.html#Sdl_LanguagePlatform_TranslationMemory_SortCriterium_FieldName
+  name: FieldName
+  nameWithType: SortCriterium.FieldName
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.FieldName
+- uid: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.Direction*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SortCriterium.Direction
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.html#Sdl_LanguagePlatform_TranslationMemory_SortCriterium_Direction
+  name: Direction
+  nameWithType: SortCriterium.Direction
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SortCriterium.Direction

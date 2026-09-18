@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Constant_ProjectType" xml:space="preserve">
+    <value>InternalProject</value>
+  </data>
+  <data name="Constant_ProjectTypeContent" xml:space="preserve">
+    <value>SingleFile</value>
+  </data>
+  <data name="Error_AddLanguages" xml:space="preserve">
+    <value>Unable to add languages to the termbase definition file!</value>
+    <comment>Adding languages to termbase definition file failed!</comment>
+  </data>
+  <data name="Error_AddXMlToProject" xml:space="preserve">
+    <value>Unable to add the XML file to the project!</value>
+    <comment>Add xml file in the Studio project failed!</comment>
+  </data>
+  <data name="Error_ConnectToTermbaseLocalRepository" xml:space="preserve">
+    <value>Unable to connect to the termbase repository!</value>
+    <comment>Connection to termbase repository failed!</comment>
+  </data>
+  <data name="Error_CreateDirectory" xml:space="preserve">
+    <value>Unable to create the folder!</value>
+    <comment>The folder failed to create!</comment>
+  </data>
+  <data name="Error_CreateEntry" xml:space="preserve">
+    <value>Unable to create the XML entry!</value>
+    <comment>XML entry creation failed!</comment>
+  </data>
+  <data name="Error_CreateTermbase" xml:space="preserve">
+    <value>Unable to generate the termbase!</value>
+    <comment>The termbase generation failed!</comment>
+  </data>
+  <data name="Error_ExtractContent" xml:space="preserve">
+    <value>Unable to extract the SDLXLIFF content!</value>
+    <comment>Extraction .sdlxliff content failed!</comment>
+  </data>
+  <data name="Error_GetProjectLanguages" xml:space="preserve">
+    <value>Unable to read the project languages!</value>
+    <comment>Extract the project languages failed!</comment>
+  </data>
+  <data name="Error_GetResourceTextFile" xml:space="preserve">
+    <value>Unable to extract the embedded resource file!</value>
+    <comment>Extraction from embedded resource file failed!</comment>
+  </data>
+  <data name="Error_IncludeTermbaseInStudio" xml:space="preserve">
+    <value>Unable to open the termbase in Studio!</value>
+    <comment>Including termbase to Studio failed!</comment>
+  </data>
+  <data name="Error_PopulateTermbase" xml:space="preserve">
+    <value>Unable to update the termbase!</value>
+    <comment>Population termbase failed!</comment>
+  </data>
+  <data name="Error_RemoveDirectory" xml:space="preserve">
+    <value>Unable to delete the folder!</value>
+    <comment>The folder failed to remove!</comment>
+  </data>
+  <data name="Error_Save" xml:space="preserve">
+    <value>Unable to save the XML file!</value>
+    <comment>The xml file failed to be saved!</comment>
+  </data>
+  <data name="Error_SaveTermbaseDefinitionToTempLocation" xml:space="preserve">
+    <value>Unable to save the termbase definition!</value>
+    <comment>Storing termbase definition file locally failed!</comment>
+  </data>
+  <data name="Error_Settings" xml:space="preserve">
+    <value>Unable to read the termbase settings!</value>
+    <comment>Termbase generation settings failed!</comment>
+  </data>
+  <data name="Error_SingleFileProject" xml:space="preserve">
+    <value>Project Terms cannot be used on a single file project. Please create a standard Studio project and try again.</value>
+  </data>
+  <data name="Info_SuccessfullyAdded" xml:space="preserve">
+    <value>Your termbase was successfully added to the project!</value>
+  </data>
+  <data name="Info_TermbaseExists" xml:space="preserve">
+    <value>  You already have a termbase for this file so you are going to have to remove it to be able to create a new one.  This will require three manual actions due to limitations in the API:
+
+  1. Go to Project Settings -&gt; All Language Pairs -&gt; Termbases and remove the termbase from your Project and then close Studio
+  2. Go to your Projects folder in Windows Explorer and delete the Tb folder
+  3. Go to c:\Users\[username]\AppData\Local\Temp\ and delete the Tb folder
+
+Restart Studio and now you should be able to generate the new termbase.</value>
+  </data>
+  <data name="MessageContent_buttonAdd" xml:space="preserve">
+    <value>The term exists in the list!</value>
+    <comment>Term already exists!</comment>
+  </data>
+  <data name="MessageContent_buttonDelete_Empty" xml:space="preserve">
+    <value>The list is empty!</value>
+    <comment>Your list is empty!</comment>
+  </data>
+  <data name="MessageContent_buttonDelete_Select" xml:space="preserve">
+    <value>Please select at least one term!</value>
+  </data>
+  <data name="MessageContent_buttonLoad" xml:space="preserve">
+    <value>Unable to find the blacklist! Please save the list once!</value>
+    <comment>Blacklist is not define!</comment>
+  </data>
+  <data name="MessageContent_SkipSettings" xml:space="preserve">
+    <value>Please open the settings window!</value>
+    <comment>You cannot skip the setting part</comment>
+  </data>
+  <data name="MessageTitle" xml:space="preserve">
+    <value>Termbase information</value>
+  </data>
+  <data name="MessageType_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="MessageType_Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Plugin_Name" xml:space="preserve">
+    <value>projectTermExtract</value>
+  </data>
+  <data name="Error_Regex" xml:space="preserve">
+    <value>Invalid regular expression, please review the rules!</value>
+    <comment>The regular expression is not valid! Please review once again!</comment>
+  </data>
+  <data name="WordCloudFileName" xml:space="preserve">
+    <value>projectTerms-sourcecloud</value>
+  </data>
+  <data name="Error_ReadXmlFile" xml:space="preserve">
+    <value>Please extract the terms first!</value>
+    <comment>The terms weren't be extracted!</comment>
+  </data>
+  <data name="BlacklistFileName" xml:space="preserve">
+    <value>blackListTerms.txt</value>
+  </data>
+  <data name="Message_ExtractedTerms" xml:space="preserve">
+    <value>The terms were extracted successfully.</value>
+    <comment>Terms was extracted with success!</comment>
+  </data>
+  <data name="Button_ExtractTermsFiles" xml:space="preserve">
+    <value>Extract Terms From Selected Files</value>
+  </data>
+  <data name="Button_ExtractTermsProject" xml:space="preserve">
+    <value>Extract Terms From Project</value>
+  </data>
+  <data name="Info_NotMatch" xml:space="preserve">
+    <value>No matches found!</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="applogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\applogo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MessageContent_multipleFilesTermbase" xml:space="preserve">
+    <value>This action cannot be run for multiples files!</value>
+  </data>
+  <data name="MessageContent_GenerateTermbaseAction" xml:space="preserve">
+    <value>You can only generate the termbase from the extracted project terms XML file.</value>
+  </data>
+  <data name="Error_UpdateExitedFile" xml:space="preserve">
+    <value>Unable to update the existed file!</value>
+  </data>
+  <data name="LocalTermbaseFilePath_Message" xml:space="preserve">
+    <value>The termbase can be found at the following location: C:\Users\UserName\AppData\Local\Temp\Tb</value>
+  </data>
+  <data name="Info_NotSuccessfullyAdded" xml:space="preserve">
+    <value>The termbase could not be added to the project! Please try to generate the termbase again.</value>
+  </data>
+  <data name="Download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\download.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ForumIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\forumicon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Question" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\question.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TellMe_Provider" xml:space="preserve">
+    <value>{0} TellMe provider</value>
+  </data>
+  <data name="TellMe_Provider_Results" xml:space="preserve">
+    <value>{0} results</value>
+  </data>
+  <data name="termbaseDefaultDefinitionFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\termbasedefaultdefinitionfile.xdt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TellMe_Documentation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\TellMe_Documentation.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TellMe_Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\TellMe_Settings.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TellMe_SourceCode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\TellMe_SourceCode.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

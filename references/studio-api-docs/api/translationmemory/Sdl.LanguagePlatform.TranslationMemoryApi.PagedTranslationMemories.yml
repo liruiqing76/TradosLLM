@@ -1,0 +1,497 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories
+  id: PagedTranslationMemories
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  children:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.#ctor
+  - Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Index
+  - Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Size
+  - Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TotalEntities
+  - Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TranslationMemories
+  langs:
+  - csharp
+  - vb
+  name: PagedTranslationMemories
+  nameWithType: PagedTranslationMemories
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: The paged translation memories
+  example: []
+  syntax:
+    content: public class PagedTranslationMemories
+    content.vb: Public Class PagedTranslationMemories
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.#ctor
+  commentId: M:Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.#ctor
+  id: '#ctor'
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories
+  langs:
+  - csharp
+  - vb
+  name: PagedTranslationMemories()
+  nameWithType: PagedTranslationMemories.PagedTranslationMemories()
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.PagedTranslationMemories()
+  type: Constructor
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  syntax:
+    content: public PagedTranslationMemories()
+    content.vb: Public Sub New()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.#ctor*
+  nameWithType.vb: PagedTranslationMemories.New()
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.New()
+  name.vb: New()
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Index
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Index
+  id: Index
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories
+  langs:
+  - csharp
+  - vb
+  name: Index
+  nameWithType: PagedTranslationMemories.Index
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Index
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Zero based index of the translations memories to be retrieved
+  example: []
+  syntax:
+    content: public int Index { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Index As Integer
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Index*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Size
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Size
+  id: Size
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: PagedTranslationMemories.Size
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Size
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: The page size to be retrieved
+  example: []
+  syntax:
+    content: public int Size { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Size As Integer
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Size*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TotalEntities
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TotalEntities
+  id: TotalEntities
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories
+  langs:
+  - csharp
+  - vb
+  name: TotalEntities
+  nameWithType: PagedTranslationMemories.TotalEntities
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TotalEntities
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Number of total translation memories result
+  example: []
+  syntax:
+    content: public int TotalEntities { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TotalEntities As Integer
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TotalEntities*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TranslationMemories
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TranslationMemories
+  id: TranslationMemories
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories
+  langs:
+  - csharp
+  - vb
+  name: TranslationMemories
+  nameWithType: PagedTranslationMemories.TranslationMemories
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TranslationMemories
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: The translation result based on the index and page size.
+  example: []
+  syntax:
+    content: public ServerBasedTranslationMemory[] TranslationMemories { get; set; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.ServerBasedTranslationMemory[]
+    content.vb: Public Property TranslationMemories As ServerBasedTranslationMemory()
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TranslationMemories*
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi
+  commentId: N:Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemoryApi
+  nameWithType: Sdl.LanguagePlatform.TranslationMemoryApi
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.#ctor*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.#ctor
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.html#Sdl_LanguagePlatform_TranslationMemoryApi_PagedTranslationMemories__ctor
+  name: PagedTranslationMemories
+  nameWithType: PagedTranslationMemories.PagedTranslationMemories
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.PagedTranslationMemories
+  nameWithType.vb: PagedTranslationMemories.New
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.New
+  name.vb: New
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Index*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Index
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.html#Sdl_LanguagePlatform_TranslationMemoryApi_PagedTranslationMemories_Index
+  name: Index
+  nameWithType: PagedTranslationMemories.Index
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Index
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Size*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Size
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.html#Sdl_LanguagePlatform_TranslationMemoryApi_PagedTranslationMemories_Size
+  name: Size
+  nameWithType: PagedTranslationMemories.Size
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.Size
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TotalEntities*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TotalEntities
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.html#Sdl_LanguagePlatform_TranslationMemoryApi_PagedTranslationMemories_TotalEntities
+  name: TotalEntities
+  nameWithType: PagedTranslationMemories.TotalEntities
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TotalEntities
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TranslationMemories*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TranslationMemories
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.html#Sdl_LanguagePlatform_TranslationMemoryApi_PagedTranslationMemories_TranslationMemories
+  name: TranslationMemories
+  nameWithType: PagedTranslationMemories.TranslationMemories
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.PagedTranslationMemories.TranslationMemories
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.ServerBasedTranslationMemory[]
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.ServerBasedTranslationMemory.html
+  name: ServerBasedTranslationMemory[]
+  nameWithType: ServerBasedTranslationMemory[]
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.ServerBasedTranslationMemory[]
+  nameWithType.vb: ServerBasedTranslationMemory()
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemoryApi.ServerBasedTranslationMemory()
+  name.vb: ServerBasedTranslationMemory()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ServerBasedTranslationMemory
+    name: ServerBasedTranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ServerBasedTranslationMemory.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi.ServerBasedTranslationMemory
+    name: ServerBasedTranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.ServerBasedTranslationMemory.html
+  - name: (
+  - name: )

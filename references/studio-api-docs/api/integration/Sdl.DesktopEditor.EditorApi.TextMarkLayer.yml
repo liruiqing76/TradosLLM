@@ -1,0 +1,125 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.TextMarkLayer
+  commentId: T:Sdl.DesktopEditor.EditorApi.TextMarkLayer
+  id: TextMarkLayer
+  parent: Sdl.DesktopEditor.EditorApi
+  children:
+  - Sdl.DesktopEditor.EditorApi.TextMarkLayer.Background
+  - Sdl.DesktopEditor.EditorApi.TextMarkLayer.Foreground
+  langs:
+  - csharp
+  - vb
+  name: TextMarkLayer
+  nameWithType: TextMarkLayer
+  fullName: Sdl.DesktopEditor.EditorApi.TextMarkLayer
+  type: Enum
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    Used together with text marks to indicate if they should be
+
+    drawn behind or in front of the main content (i.e. the text and tags)
+
+    in the edit control.
+  example: []
+  syntax:
+    content: public enum TextMarkLayer
+    content.vb: Public Enum TextMarkLayer
+- uid: Sdl.DesktopEditor.EditorApi.TextMarkLayer.Background
+  commentId: F:Sdl.DesktopEditor.EditorApi.TextMarkLayer.Background
+  id: Background
+  parent: Sdl.DesktopEditor.EditorApi.TextMarkLayer
+  langs:
+  - csharp
+  - vb
+  name: Background
+  nameWithType: TextMarkLayer.Background
+  fullName: Sdl.DesktopEditor.EditorApi.TextMarkLayer.Background
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    The mark is drawn before the main content. This will
+
+    cause the mark to appear behind the main content (and behind
+
+    any foreground marks) if they overlap.
+  example: []
+  syntax:
+    content: Background = 0
+    return:
+      type: Sdl.DesktopEditor.EditorApi.TextMarkLayer
+- uid: Sdl.DesktopEditor.EditorApi.TextMarkLayer.Foreground
+  commentId: F:Sdl.DesktopEditor.EditorApi.TextMarkLayer.Foreground
+  id: Foreground
+  parent: Sdl.DesktopEditor.EditorApi.TextMarkLayer
+  langs:
+  - csharp
+  - vb
+  name: Foreground
+  nameWithType: TextMarkLayer.Foreground
+  fullName: Sdl.DesktopEditor.EditorApi.TextMarkLayer.Foreground
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    The mark is drawn after the main content. This will cause the 
+
+    mark to appear in front of the main content (and any background 
+
+    marks) if they overlap.
+  example: []
+  syntax:
+    content: Foreground = 1
+    return:
+      type: Sdl.DesktopEditor.EditorApi.TextMarkLayer
+references:
+- uid: Sdl.DesktopEditor.EditorApi
+  commentId: N:Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi
+  nameWithType: Sdl.DesktopEditor.EditorApi
+  fullName: Sdl.DesktopEditor.EditorApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+- uid: Sdl.DesktopEditor.EditorApi.TextMarkLayer
+  commentId: T:Sdl.DesktopEditor.EditorApi.TextMarkLayer
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.TextMarkLayer.html
+  name: TextMarkLayer
+  nameWithType: TextMarkLayer
+  fullName: Sdl.DesktopEditor.EditorApi.TextMarkLayer

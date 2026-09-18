@@ -1,0 +1,155 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Core.FileRole
+  commentId: T:Sdl.ProjectAutomation.Core.FileRole
+  id: FileRole
+  parent: Sdl.ProjectAutomation.Core
+  children:
+  - Sdl.ProjectAutomation.Core.FileRole.Localizable
+  - Sdl.ProjectAutomation.Core.FileRole.Reference
+  - Sdl.ProjectAutomation.Core.FileRole.Translatable
+  - Sdl.ProjectAutomation.Core.FileRole.Unknown
+  langs:
+  - csharp
+  - vb
+  name: FileRole
+  nameWithType: FileRole
+  fullName: Sdl.ProjectAutomation.Core.FileRole
+  type: Enum
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Values indicating the role of a file.
+  example: []
+  syntax:
+    content: public enum FileRole
+    content.vb: Public Enum FileRole
+- uid: Sdl.ProjectAutomation.Core.FileRole.Unknown
+  commentId: F:Sdl.ProjectAutomation.Core.FileRole.Unknown
+  id: Unknown
+  parent: Sdl.ProjectAutomation.Core.FileRole
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: FileRole.Unknown
+  fullName: Sdl.ProjectAutomation.Core.FileRole.Unknown
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    Indicates that the file role has not been set or "scanned", or it cannot
+
+    be determined what file role the uploaded file belongs to.
+  example: []
+  syntax:
+    content: Unknown = 0
+    return:
+      type: Sdl.ProjectAutomation.Core.FileRole
+- uid: Sdl.ProjectAutomation.Core.FileRole.Translatable
+  commentId: F:Sdl.ProjectAutomation.Core.FileRole.Translatable
+  id: Translatable
+  parent: Sdl.ProjectAutomation.Core.FileRole
+  langs:
+  - csharp
+  - vb
+  name: Translatable
+  nameWithType: FileRole.Translatable
+  fullName: Sdl.ProjectAutomation.Core.FileRole.Translatable
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The file is translatable using Trados tools.
+  example: []
+  syntax:
+    content: Translatable = 1
+    return:
+      type: Sdl.ProjectAutomation.Core.FileRole
+- uid: Sdl.ProjectAutomation.Core.FileRole.Reference
+  commentId: F:Sdl.ProjectAutomation.Core.FileRole.Reference
+  id: Reference
+  parent: Sdl.ProjectAutomation.Core.FileRole
+  langs:
+  - csharp
+  - vb
+  name: Reference
+  nameWithType: FileRole.Reference
+  fullName: Sdl.ProjectAutomation.Core.FileRole.Reference
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The file is a reference file.
+  example: []
+  syntax:
+    content: Reference = 2
+    return:
+      type: Sdl.ProjectAutomation.Core.FileRole
+- uid: Sdl.ProjectAutomation.Core.FileRole.Localizable
+  commentId: F:Sdl.ProjectAutomation.Core.FileRole.Localizable
+  id: Localizable
+  parent: Sdl.ProjectAutomation.Core.FileRole
+  langs:
+  - csharp
+  - vb
+  name: Localizable
+  nameWithType: FileRole.Localizable
+  fullName: Sdl.ProjectAutomation.Core.FileRole.Localizable
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: The file is a localizable file.
+  example: []
+  syntax:
+    content: Localizable = 3
+    return:
+      type: Sdl.ProjectAutomation.Core.FileRole
+references:
+- uid: Sdl.ProjectAutomation.Core
+  commentId: N:Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Core
+  nameWithType: Sdl.ProjectAutomation.Core
+  fullName: Sdl.ProjectAutomation.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+- uid: Sdl.ProjectAutomation.Core.FileRole
+  commentId: T:Sdl.ProjectAutomation.Core.FileRole
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.FileRole.html
+  name: FileRole
+  nameWithType: FileRole
+  fullName: Sdl.ProjectAutomation.Core.FileRole

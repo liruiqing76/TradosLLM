@@ -1,0 +1,1211 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  id: IPersistentFileConversionProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationDate
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationTool
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationToolVersion
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.DependencyFiles
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileId
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileSnifferInfo
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileTypeDefinitionId
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.InputFilePath
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.Item(System.String)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalEncoding
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalFilePath
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.PreferredTargetEncoding
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.SourceLanguage
+  - Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.TargetLanguage
+  langs:
+  - csharp
+  - vb
+  name: IPersistentFileConversionProperties
+  nameWithType: IPersistentFileConversionProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    <p>
+
+    File-level properties that are guaranteed to be preserved (if necessary persisted to an
+
+    intermediate bilingual file format) during different stages of the content processing lifecycle;
+
+    passed to native content processors, parsers and writers that implement <xref href="Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware" data-throw-if-not-resolved="false"></xref>.
+
+    </p>
+
+    <p>
+
+    Components can set these properties during parsing, and they will be made available when 
+
+    generating the translated output, or during any other operation used to process content.
+
+    </p>
+
+    <p>
+
+    Custom properties can be stored as metadata key/value pairs through the <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer" data-throw-if-not-resolved="false"></xref> implementation. It is
+
+    recommended that keys are prefixed with a value that is likely to be unique in order to 
+
+    avoid conflicts with unrelated components. 
+
+    </p>
+  remarks: >-
+    <p>
+
+    Components can retrieve these properties by implementing <xref href="Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware" data-throw-if-not-resolved="false"></xref>. The
+
+    framework calls <xref href="Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)" data-throw-if-not-resolved="false"></xref> to pass
+
+    the properties.
+
+    </p>
+
+    <p>
+
+    All metadata stored by SDL components use keys prefixed "SDL:". 
+
+    </p>
+
+    <p>
+
+    Keys for a number of published file properties used by certain SDL components 
+
+    are defined in <code>Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.DefaultPersistentFilePropertiesKeys</code>. 
+
+    </p>
+  example: []
+  syntax:
+    content: 'public interface IPersistentFileConversionProperties : IMetaDataContainer, ICloneable'
+    content.vb: Public Interface IPersistentFileConversionProperties Inherits IMetaDataContainer, ICloneable
+  inheritedMembers:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaData
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.HasMetaData
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataCount
+  - System.ICloneable.Clone
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileId
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileId
+  id: FileId
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: FileId
+  nameWithType: IPersistentFileConversionProperties.FileId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileId
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    Unique identifier for this file; can be used to unambigously identify
+
+    the file in a bilingual document with multiple files.
+  remarks: >-
+    <p>
+
+    This is set by the framework, and should typically never need to be changed.
+
+    </p>
+  example: []
+  syntax:
+    content: FileId FileId { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.FileId
+    content.vb: Property FileId As FileId
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileId*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileTypeDefinitionId
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileTypeDefinitionId
+  id: FileTypeDefinitionId
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: FileTypeDefinitionId
+  nameWithType: IPersistentFileConversionProperties.FileTypeDefinitionId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileTypeDefinitionId
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The unique identifier for the file type definition used in this conversion.
+  remarks: >-
+    <p>
+
+    Can be used to identify the file type.
+
+    </p>
+  example: []
+  syntax:
+    content: FileTypeDefinitionId FileTypeDefinitionId { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.FileTypeDefinitionId
+    content.vb: Property FileTypeDefinitionId As FileTypeDefinitionId
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileTypeDefinitionId*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.Item(System.String)
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.Item(System.String)
+  id: Item(System.String)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: this[string]
+  nameWithType: IPersistentFileConversionProperties.this[string]
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.this[string]
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    <p>
+
+    Convenience getter and setter for metadata using indexer syntax. 
+
+    </p>
+
+    <p>
+
+    The getter functionality is equivalent to calling <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref>,
+
+    and setter functionality is equivalent to <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)" data-throw-if-not-resolved="false"></xref>.
+
+    </p>
+  example: []
+  syntax:
+    content: string this[string key] { get; set; }
+    parameters:
+    - id: key
+      type: System.String
+      description: Must not be <code>null</code> or empty
+    return:
+      type: System.String
+      description: The corresponding value, or <code>null</code> if none
+    content.vb: Default Property this[](key As String) As String
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.Item*
+  nameWithType.vb: IPersistentFileConversionProperties.this[](String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.this[](String)
+  name.vb: this[](String)
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.DependencyFiles
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.DependencyFiles
+  id: DependencyFiles
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: DependencyFiles
+  nameWithType: IPersistentFileConversionProperties.DependencyFiles
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.DependencyFiles
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    <p>
+
+    The dependency files used or created while parsing.
+
+    </p>
+  remarks: >-
+    <p>
+
+    The set of dependency files can change while parsing, but
+
+    should not change after the <xref href="Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.EndOfInput" data-throw-if-not-resolved="false"></xref> call.
+
+    </p>
+
+    <p>
+
+    Any dependency files reported by a parser or file type component when parsing a native file will
+
+    be passed through this property when writing the native file.
+
+    </p>
+  example: []
+  syntax:
+    content: IList<IDependencyFileProperties> DependencyFiles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties}
+    content.vb: ReadOnly Property DependencyFiles As IList(Of IDependencyFileProperties)
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.DependencyFiles*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalFilePath
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalFilePath
+  id: OriginalFilePath
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: OriginalFilePath
+  nameWithType: IPersistentFileConversionProperties.OriginalFilePath
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalFilePath
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Full path name to the native file the content originates from.
+  remarks: >-
+    <p>
+
+    Usually, this is the same as the <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.InputFilePath" data-throw-if-not-resolved="false"></xref>, but it can
+
+    be different, e.g. if file tweaking has been applied.
+
+    </p>
+  example: []
+  syntax:
+    content: string OriginalFilePath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property OriginalFilePath As String
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalFilePath*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.InputFilePath
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.InputFilePath
+  id: InputFilePath
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: InputFilePath
+  nameWithType: IPersistentFileConversionProperties.InputFilePath
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.InputFilePath
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    <p>
+
+    Full path to the file that should be used as source for the parser. 
+
+    </p>
+  remarks: >-
+    <p>
+
+    Usually, this will be the same as <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalFilePath" data-throw-if-not-resolved="false"></xref>, but under some 
+
+    circumstances (e.g. file tweaking) there may be an alternative input file produced.
+
+    </p>
+  example: []
+  syntax:
+    content: string InputFilePath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property InputFilePath As String
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.InputFilePath*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalEncoding
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalEncoding
+  id: OriginalEncoding
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: OriginalEncoding
+  nameWithType: IPersistentFileConversionProperties.OriginalEncoding
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalEncoding
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The original encoding of the native source language file from which the content originates
+  example: []
+  syntax:
+    content: Codepage OriginalEncoding { get; set; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.Codepage
+    content.vb: Property OriginalEncoding As Codepage
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalEncoding*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.SourceLanguage
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.SourceLanguage
+  id: SourceLanguage
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: SourceLanguage
+  nameWithType: IPersistentFileConversionProperties.SourceLanguage
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.SourceLanguage
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Original source language of the content
+  example: []
+  syntax:
+    content: Language SourceLanguage { get; set; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.Language
+    content.vb: Property SourceLanguage As Language
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.SourceLanguage*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.TargetLanguage
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.TargetLanguage
+  id: TargetLanguage
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: TargetLanguage
+  nameWithType: IPersistentFileConversionProperties.TargetLanguage
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.TargetLanguage
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Target language into which the content is being translated into.
+  remarks: >-
+    The target language is typically not set until the file is being translated. 
+                You can test the Language.IsValid property of the target language
+                to find out if it has been set.
+  example: []
+  syntax:
+    content: Language TargetLanguage { get; set; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.Language
+    content.vb: Property TargetLanguage As Language
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.TargetLanguage*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.PreferredTargetEncoding
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.PreferredTargetEncoding
+  id: PreferredTargetEncoding
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: PreferredTargetEncoding
+  nameWithType: IPersistentFileConversionProperties.PreferredTargetEncoding
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.PreferredTargetEncoding
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    If set, indicates the preferred codepage that the target language file should be in.
+
+    You can test the <xref href="Sdl.Core.Globalization.Codepage.IsValid" data-throw-if-not-resolved="false"></xref> property of the returned codepage
+
+    to find out if it has been set.
+
+
+    This property can be used during editing to warn the user when they try to use
+
+    characters in the translation that are not supported by the given codepage.
+
+
+    If this property is set when writing the target language version of the file, it may
+
+    be used by the native file writer (though it is ultimately up to the file writer
+
+    to decide).
+  example: []
+  syntax:
+    content: Codepage PreferredTargetEncoding { get; set; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.Codepage
+    content.vb: Property PreferredTargetEncoding As Codepage
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.PreferredTargetEncoding*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileSnifferInfo
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileSnifferInfo
+  id: FileSnifferInfo
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: FileSnifferInfo
+  nameWithType: IPersistentFileConversionProperties.FileSnifferInfo
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileSnifferInfo
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    Properties determined during successful identification of this
+
+    file type
+  example: []
+  syntax:
+    content: SniffInfo FileSnifferInfo { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.SniffInfo
+    content.vb: Property FileSnifferInfo As SniffInfo
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileSnifferInfo*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationTool
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationTool
+  id: CreationTool
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: CreationTool
+  nameWithType: IPersistentFileConversionProperties.CreationTool
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationTool
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The name of the tool used for the conversion
+  example: []
+  syntax:
+    content: string CreationTool { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property CreationTool As String
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationTool*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationToolVersion
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationToolVersion
+  id: CreationToolVersion
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: CreationToolVersion
+  nameWithType: IPersistentFileConversionProperties.CreationToolVersion
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationToolVersion
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The version number of the tool used for the conversion
+  example: []
+  syntax:
+    content: string CreationToolVersion { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property CreationToolVersion As String
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationToolVersion*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationDate
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationDate
+  id: CreationDate
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  langs:
+  - csharp
+  - vb
+  name: CreationDate
+  nameWithType: IPersistentFileConversionProperties.CreationDate
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationDate
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The time of the original conversion
+  example: []
+  syntax:
+    content: DateTime CreationDate { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Property CreationDate As Date
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationDate*
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html
+  name: INativeContentCycleAware
+  nameWithType: INativeContentCycleAware
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html
+  name: IMetaDataContainer
+  nameWithType: IMetaDataContainer
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeContentCycleAware_SetFileProperties_Sdl_FileTypeSupport_Framework_BilingualApi_IFileProperties_
+  name: SetFileProperties(IFileProperties)
+  nameWithType: INativeContentCycleAware.SetFileProperties(IFileProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+    name: SetFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeContentCycleAware_SetFileProperties_Sdl_FileTypeSupport_Framework_BilingualApi_IFileProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties
+    name: IFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.SetFileProperties(Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties)
+    name: SetFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeContentCycleAware_SetFileProperties_Sdl_FileTypeSupport_Framework_BilingualApi_IFileProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties
+    name: IFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IFileProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaDataContainsKey_System_String_
+  name: MetaDataContainsKey(string)
+  nameWithType: IMetaDataContainer.MetaDataContainsKey(string)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(string)
+  nameWithType.vb: IMetaDataContainer.MetaDataContainsKey(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(String)
+  name.vb: MetaDataContainsKey(String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+    name: MetaDataContainsKey
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaDataContainsKey_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+    name: MetaDataContainsKey
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaDataContainsKey_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_GetMetaData_System_String_
+  name: GetMetaData(string)
+  nameWithType: IMetaDataContainer.GetMetaData(string)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(string)
+  nameWithType.vb: IMetaDataContainer.GetMetaData(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(String)
+  name.vb: GetMetaData(String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+    name: GetMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_GetMetaData_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+    name: GetMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_GetMetaData_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_SetMetaData_System_String_System_String_
+  name: SetMetaData(string, string)
+  nameWithType: IMetaDataContainer.SetMetaData(string, string)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(string, string)
+  nameWithType.vb: IMetaDataContainer.SetMetaData(String, String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(String, String)
+  name.vb: SetMetaData(String, String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+    name: SetMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_SetMetaData_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+    name: SetMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_SetMetaData_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_RemoveMetaData_System_String_
+  name: RemoveMetaData(string)
+  nameWithType: IMetaDataContainer.RemoveMetaData(string)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(string)
+  nameWithType.vb: IMetaDataContainer.RemoveMetaData(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(String)
+  name.vb: RemoveMetaData(String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+    name: RemoveMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_RemoveMetaData_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+    name: RemoveMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_RemoveMetaData_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_ClearMetaData
+  name: ClearMetaData()
+  nameWithType: IMetaDataContainer.ClearMetaData()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+    name: ClearMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_ClearMetaData
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+    name: ClearMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_ClearMetaData
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaData
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaData
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaData
+  name: MetaData
+  nameWithType: IMetaDataContainer.MetaData
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaData
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.HasMetaData
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.HasMetaData
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_HasMetaData
+  name: HasMetaData
+  nameWithType: IMetaDataContainer.HasMetaData
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.HasMetaData
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataCount
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataCount
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaDataCount
+  name: MetaDataCount
+  nameWithType: IMetaDataContainer.MetaDataCount
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataCount
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileId*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileId
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_FileId
+  name: FileId
+  nameWithType: IPersistentFileConversionProperties.FileId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileId
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.FileId
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.FileId
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.FileId.html
+  name: FileId
+  nameWithType: FileId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.FileId
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileTypeDefinitionId*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileTypeDefinitionId
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_FileTypeDefinitionId
+  name: FileTypeDefinitionId
+  nameWithType: IPersistentFileConversionProperties.FileTypeDefinitionId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileTypeDefinitionId
+- uid: Sdl.FileTypeSupport.Framework.FileTypeDefinitionId
+  commentId: T:Sdl.FileTypeSupport.Framework.FileTypeDefinitionId
+  parent: Sdl.FileTypeSupport.Framework
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.FileTypeDefinitionId.html
+  name: FileTypeDefinitionId
+  nameWithType: FileTypeDefinitionId
+  fullName: Sdl.FileTypeSupport.Framework.FileTypeDefinitionId
+- uid: Sdl.FileTypeSupport.Framework
+  commentId: N:Sdl.FileTypeSupport.Framework
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework
+  nameWithType: Sdl.FileTypeSupport.Framework
+  fullName: Sdl.FileTypeSupport.Framework
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.Item*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.Item
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_Item_System_String_
+  name: this
+  nameWithType: IPersistentFileConversionProperties.this
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.this
+  nameWithType.vb: IPersistentFileConversionProperties.this[]
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.this[]
+  name.vb: this[]
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.EndOfInput
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.EndOfInput
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeContentCycleAware_EndOfInput
+  name: EndOfInput()
+  nameWithType: INativeContentCycleAware.EndOfInput()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.EndOfInput()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.EndOfInput
+    name: EndOfInput
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeContentCycleAware_EndOfInput
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.EndOfInput
+    name: EndOfInput
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.INativeContentCycleAware.html#Sdl_FileTypeSupport_Framework_NativeApi_INativeContentCycleAware_EndOfInput
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.DependencyFiles*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.DependencyFiles
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_DependencyFiles
+  name: DependencyFiles
+  nameWithType: IPersistentFileConversionProperties.DependencyFiles
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.DependencyFiles
+- uid: System.Collections.Generic.IList{Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties}
+  commentId: T:System.Collections.Generic.IList{Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<IDependencyFileProperties>
+  nameWithType: IList<IDependencyFileProperties>
+  fullName: System.Collections.Generic.IList<Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties>
+  nameWithType.vb: IList(Of IDependencyFileProperties)
+  fullName.vb: System.Collections.Generic.IList(Of Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties)
+  name.vb: IList(Of IDependencyFileProperties)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties
+    name: IDependencyFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties
+    name: IDependencyFileProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties.html
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.InputFilePath
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.InputFilePath
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_InputFilePath
+  name: InputFilePath
+  nameWithType: IPersistentFileConversionProperties.InputFilePath
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.InputFilePath
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalFilePath*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalFilePath
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_OriginalFilePath
+  name: OriginalFilePath
+  nameWithType: IPersistentFileConversionProperties.OriginalFilePath
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalFilePath
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalFilePath
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalFilePath
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_OriginalFilePath
+  name: OriginalFilePath
+  nameWithType: IPersistentFileConversionProperties.OriginalFilePath
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalFilePath
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.InputFilePath*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.InputFilePath
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_InputFilePath
+  name: InputFilePath
+  nameWithType: IPersistentFileConversionProperties.InputFilePath
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.InputFilePath
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalEncoding*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalEncoding
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_OriginalEncoding
+  name: OriginalEncoding
+  nameWithType: IPersistentFileConversionProperties.OriginalEncoding
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.OriginalEncoding
+- uid: Sdl.Core.Globalization.Codepage
+  commentId: T:Sdl.Core.Globalization.Codepage
+  parent: Sdl.Core.Globalization
+  isExternal: true
+  name: Codepage
+  nameWithType: Codepage
+  fullName: Sdl.Core.Globalization.Codepage
+- uid: Sdl.Core.Globalization
+  commentId: N:Sdl.Core.Globalization
+  isExternal: true
+  name: Sdl.Core.Globalization
+  nameWithType: Sdl.Core.Globalization
+  fullName: Sdl.Core.Globalization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.SourceLanguage*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.SourceLanguage
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_SourceLanguage
+  name: SourceLanguage
+  nameWithType: IPersistentFileConversionProperties.SourceLanguage
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.SourceLanguage
+- uid: Sdl.Core.Globalization.Language
+  commentId: T:Sdl.Core.Globalization.Language
+  parent: Sdl.Core.Globalization
+  isExternal: true
+  name: Language
+  nameWithType: Language
+  fullName: Sdl.Core.Globalization.Language
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.TargetLanguage*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.TargetLanguage
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_TargetLanguage
+  name: TargetLanguage
+  nameWithType: IPersistentFileConversionProperties.TargetLanguage
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.TargetLanguage
+- uid: Sdl.Core.Globalization.Codepage.IsValid
+  commentId: P:Sdl.Core.Globalization.Codepage.IsValid
+  isExternal: true
+  name: IsValid
+  nameWithType: Codepage.IsValid
+  fullName: Sdl.Core.Globalization.Codepage.IsValid
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.PreferredTargetEncoding*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.PreferredTargetEncoding
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_PreferredTargetEncoding
+  name: PreferredTargetEncoding
+  nameWithType: IPersistentFileConversionProperties.PreferredTargetEncoding
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.PreferredTargetEncoding
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileSnifferInfo*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileSnifferInfo
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_FileSnifferInfo
+  name: FileSnifferInfo
+  nameWithType: IPersistentFileConversionProperties.FileSnifferInfo
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.FileSnifferInfo
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SniffInfo
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.SniffInfo
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.SniffInfo.html
+  name: SniffInfo
+  nameWithType: SniffInfo
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SniffInfo
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationTool*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationTool
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_CreationTool
+  name: CreationTool
+  nameWithType: IPersistentFileConversionProperties.CreationTool
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationTool
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationToolVersion*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationToolVersion
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_CreationToolVersion
+  name: CreationToolVersion
+  nameWithType: IPersistentFileConversionProperties.CreationToolVersion
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationToolVersion
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationDate*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationDate
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_CreationDate
+  name: CreationDate
+  nameWithType: IPersistentFileConversionProperties.CreationDate
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.CreationDate
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date

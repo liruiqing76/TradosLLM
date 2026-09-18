@@ -1,0 +1,312 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+  commentId: T:Sdl.LanguagePlatform.Core.Segmentation.RuleType
+  id: RuleType
+  parent: Sdl.LanguagePlatform.Core.Segmentation
+  children:
+  - Sdl.LanguagePlatform.Core.Segmentation.RuleType.ColonRule
+  - Sdl.LanguagePlatform.Core.Segmentation.RuleType.CombinedRule
+  - Sdl.LanguagePlatform.Core.Segmentation.RuleType.FullStopRule
+  - Sdl.LanguagePlatform.Core.Segmentation.RuleType.MarksRule
+  - Sdl.LanguagePlatform.Core.Segmentation.RuleType.Other
+  - Sdl.LanguagePlatform.Core.Segmentation.RuleType.SemicolonRule
+  - Sdl.LanguagePlatform.Core.Segmentation.RuleType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: RuleType
+  nameWithType: RuleType
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: The type of a segmentation rule
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public enum RuleType
+    content.vb: >-
+      <DataContract>
+
+      Public Enum RuleType
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleType.Unknown
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.RuleType.Unknown
+  id: Unknown
+  parent: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: RuleType.Unknown
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleType.Unknown
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: Unknown rule type
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Unknown = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+    content.vb: >-
+      <EnumMember>
+
+      Unknown = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleType.FullStopRule
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.RuleType.FullStopRule
+  id: FullStopRule
+  parent: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+  langs:
+  - csharp
+  - vb
+  name: FullStopRule
+  nameWithType: RuleType.FullStopRule
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleType.FullStopRule
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: A rule to handle full stops
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      FullStopRule = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+    content.vb: >-
+      <EnumMember>
+
+      FullStopRule = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleType.MarksRule
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.RuleType.MarksRule
+  id: MarksRule
+  parent: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+  langs:
+  - csharp
+  - vb
+  name: MarksRule
+  nameWithType: RuleType.MarksRule
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleType.MarksRule
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: A rule to handle question and exclamation marks
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      MarksRule = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+    content.vb: >-
+      <EnumMember>
+
+      MarksRule = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleType.ColonRule
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.RuleType.ColonRule
+  id: ColonRule
+  parent: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+  langs:
+  - csharp
+  - vb
+  name: ColonRule
+  nameWithType: RuleType.ColonRule
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleType.ColonRule
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: A rule to handle colons
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      ColonRule = 3
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+    content.vb: >-
+      <EnumMember>
+
+      ColonRule = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleType.SemicolonRule
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.RuleType.SemicolonRule
+  id: SemicolonRule
+  parent: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+  langs:
+  - csharp
+  - vb
+  name: SemicolonRule
+  nameWithType: RuleType.SemicolonRule
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleType.SemicolonRule
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: A rule to handle semicolons
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      SemicolonRule = 4
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+    content.vb: >-
+      <EnumMember>
+
+      SemicolonRule = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleType.CombinedRule
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.RuleType.CombinedRule
+  id: CombinedRule
+  parent: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+  langs:
+  - csharp
+  - vb
+  name: CombinedRule
+  nameWithType: RuleType.CombinedRule
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleType.CombinedRule
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: A combined rule for handling multiple break characters, typically for far-east languages
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      CombinedRule = 5
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+    content.vb: >-
+      <EnumMember>
+
+      CombinedRule = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleType.Other
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.RuleType.Other
+  id: Other
+  parent: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+  langs:
+  - csharp
+  - vb
+  name: Other
+  nameWithType: RuleType.Other
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleType.Other
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: A rule for other break characters
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Other = 6
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+    content.vb: >-
+      <EnumMember>
+
+      Other = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: Sdl.LanguagePlatform.Core.Segmentation
+  commentId: N:Sdl.LanguagePlatform.Core.Segmentation
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core.Segmentation
+  nameWithType: Sdl.LanguagePlatform.Core.Segmentation
+  fullName: Sdl.LanguagePlatform.Core.Segmentation
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Segmentation
+    name: Segmentation
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segmentation.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Segmentation
+    name: Segmentation
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segmentation.html
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleType
+  commentId: T:Sdl.LanguagePlatform.Core.Segmentation.RuleType
+  parent: Sdl.LanguagePlatform.Core.Segmentation
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.Segmentation.RuleType.html
+  name: RuleType
+  nameWithType: RuleType
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleType

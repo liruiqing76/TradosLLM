@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Settings.TranslationUpdateMode
+  commentId: T:Sdl.ProjectAutomation.Settings.TranslationUpdateMode
+  id: TranslationUpdateMode
+  parent: Sdl.ProjectAutomation.Settings
+  children:
+  - Sdl.ProjectAutomation.Settings.TranslationUpdateMode.KeepExistingTranslation
+  - Sdl.ProjectAutomation.Settings.TranslationUpdateMode.OverwriteExistingTranslation
+  - Sdl.ProjectAutomation.Settings.TranslationUpdateMode.OverwriteExistingTranslationIfBetterMatch
+  langs:
+  - csharp
+  - vb
+  name: TranslationUpdateMode
+  nameWithType: TranslationUpdateMode
+  fullName: Sdl.ProjectAutomation.Settings.TranslationUpdateMode
+  type: Enum
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: Translation update modes used in the Translate automatic task.
+  example: []
+  syntax:
+    content: public enum TranslationUpdateMode
+    content.vb: Public Enum TranslationUpdateMode
+- uid: Sdl.ProjectAutomation.Settings.TranslationUpdateMode.KeepExistingTranslation
+  commentId: F:Sdl.ProjectAutomation.Settings.TranslationUpdateMode.KeepExistingTranslation
+  id: KeepExistingTranslation
+  parent: Sdl.ProjectAutomation.Settings.TranslationUpdateMode
+  langs:
+  - csharp
+  - vb
+  name: KeepExistingTranslation
+  nameWithType: TranslationUpdateMode.KeepExistingTranslation
+  fullName: Sdl.ProjectAutomation.Settings.TranslationUpdateMode.KeepExistingTranslation
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: Keep existing bilingual segments (don't overwrite existing translations)
+  example: []
+  syntax:
+    content: KeepExistingTranslation = 0
+    return:
+      type: Sdl.ProjectAutomation.Settings.TranslationUpdateMode
+- uid: Sdl.ProjectAutomation.Settings.TranslationUpdateMode.OverwriteExistingTranslationIfBetterMatch
+  commentId: F:Sdl.ProjectAutomation.Settings.TranslationUpdateMode.OverwriteExistingTranslationIfBetterMatch
+  id: OverwriteExistingTranslationIfBetterMatch
+  parent: Sdl.ProjectAutomation.Settings.TranslationUpdateMode
+  langs:
+  - csharp
+  - vb
+  name: OverwriteExistingTranslationIfBetterMatch
+  nameWithType: TranslationUpdateMode.OverwriteExistingTranslationIfBetterMatch
+  fullName: Sdl.ProjectAutomation.Settings.TranslationUpdateMode.OverwriteExistingTranslationIfBetterMatch
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: Overwrite existing translations if the current TM yields a better match than the one recorded in the input
+  example: []
+  syntax:
+    content: OverwriteExistingTranslationIfBetterMatch = 1
+    return:
+      type: Sdl.ProjectAutomation.Settings.TranslationUpdateMode
+- uid: Sdl.ProjectAutomation.Settings.TranslationUpdateMode.OverwriteExistingTranslation
+  commentId: F:Sdl.ProjectAutomation.Settings.TranslationUpdateMode.OverwriteExistingTranslation
+  id: OverwriteExistingTranslation
+  parent: Sdl.ProjectAutomation.Settings.TranslationUpdateMode
+  langs:
+  - csharp
+  - vb
+  name: OverwriteExistingTranslation
+  nameWithType: TranslationUpdateMode.OverwriteExistingTranslation
+  fullName: Sdl.ProjectAutomation.Settings.TranslationUpdateMode.OverwriteExistingTranslation
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: Always overwrite existing translations, except locked or PerfectMatch translation
+  example: []
+  syntax:
+    content: OverwriteExistingTranslation = 2
+    return:
+      type: Sdl.ProjectAutomation.Settings.TranslationUpdateMode
+references:
+- uid: Sdl.ProjectAutomation.Settings
+  commentId: N:Sdl.ProjectAutomation.Settings
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Settings
+  nameWithType: Sdl.ProjectAutomation.Settings
+  fullName: Sdl.ProjectAutomation.Settings
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.html
+- uid: Sdl.ProjectAutomation.Settings.TranslationUpdateMode
+  commentId: T:Sdl.ProjectAutomation.Settings.TranslationUpdateMode
+  parent: Sdl.ProjectAutomation.Settings
+  isExternal: true
+  href: Sdl.ProjectAutomation.Settings.TranslationUpdateMode.html
+  name: TranslationUpdateMode
+  nameWithType: TranslationUpdateMode
+  fullName: Sdl.ProjectAutomation.Settings.TranslationUpdateMode

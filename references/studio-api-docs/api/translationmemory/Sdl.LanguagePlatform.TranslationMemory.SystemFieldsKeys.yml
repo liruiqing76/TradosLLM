@@ -1,0 +1,472 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys
+  id: SystemFieldsKeys
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.ChangeDateKey
+  - Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.ChangeUserKey
+  - Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.CreationDateKey
+  - Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.CreationUserKey
+  - Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.UseCountKey
+  - Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.UseDateKey
+  - Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.UseUserKey
+  langs:
+  - csharp
+  - vb
+  name: SystemFieldsKeys
+  nameWithType: SystemFieldsKeys
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Used for systemFields metadata keys
+  example: []
+  syntax:
+    content: public static class SystemFieldsKeys
+    content.vb: Public Module SystemFieldsKeys
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.CreationUserKey
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.CreationUserKey
+  id: CreationUserKey
+  parent: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys
+  langs:
+  - csharp
+  - vb
+  name: CreationUserKey
+  nameWithType: SystemFieldsKeys.CreationUserKey
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.CreationUserKey
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public const string CreationUserKey = "creationid"
+    return:
+      type: System.String
+    content.vb: Public Const CreationUserKey As String = "creationid"
+- uid: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.ChangeUserKey
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.ChangeUserKey
+  id: ChangeUserKey
+  parent: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys
+  langs:
+  - csharp
+  - vb
+  name: ChangeUserKey
+  nameWithType: SystemFieldsKeys.ChangeUserKey
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.ChangeUserKey
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public const string ChangeUserKey = "changeid"
+    return:
+      type: System.String
+    content.vb: Public Const ChangeUserKey As String = "changeid"
+- uid: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.UseUserKey
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.UseUserKey
+  id: UseUserKey
+  parent: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys
+  langs:
+  - csharp
+  - vb
+  name: UseUserKey
+  nameWithType: SystemFieldsKeys.UseUserKey
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.UseUserKey
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public const string UseUserKey = "useId"
+    return:
+      type: System.String
+    content.vb: Public Const UseUserKey As String = "useId"
+- uid: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.CreationDateKey
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.CreationDateKey
+  id: CreationDateKey
+  parent: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys
+  langs:
+  - csharp
+  - vb
+  name: CreationDateKey
+  nameWithType: SystemFieldsKeys.CreationDateKey
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.CreationDateKey
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public const string CreationDateKey = "creationdate"
+    return:
+      type: System.String
+    content.vb: Public Const CreationDateKey As String = "creationdate"
+- uid: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.ChangeDateKey
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.ChangeDateKey
+  id: ChangeDateKey
+  parent: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys
+  langs:
+  - csharp
+  - vb
+  name: ChangeDateKey
+  nameWithType: SystemFieldsKeys.ChangeDateKey
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.ChangeDateKey
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public const string ChangeDateKey = "changedate"
+    return:
+      type: System.String
+    content.vb: Public Const ChangeDateKey As String = "changedate"
+- uid: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.UseDateKey
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.UseDateKey
+  id: UseDateKey
+  parent: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys
+  langs:
+  - csharp
+  - vb
+  name: UseDateKey
+  nameWithType: SystemFieldsKeys.UseDateKey
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.UseDateKey
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public const string UseDateKey = "lastusagedate"
+    return:
+      type: System.String
+    content.vb: Public Const UseDateKey As String = "lastusagedate"
+- uid: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.UseCountKey
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.UseCountKey
+  id: UseCountKey
+  parent: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys
+  langs:
+  - csharp
+  - vb
+  name: UseCountKey
+  nameWithType: SystemFieldsKeys.UseCountKey
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SystemFieldsKeys.UseCountKey
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public const string UseCountKey = "usagecount"
+    return:
+      type: System.String
+    content.vb: Public Const UseCountKey As String = "usagecount"
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

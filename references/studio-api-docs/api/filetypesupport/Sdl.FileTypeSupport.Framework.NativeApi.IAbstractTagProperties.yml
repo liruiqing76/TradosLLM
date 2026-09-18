@@ -1,0 +1,862 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  id: IAbstractTagProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegments(System.Collections.Generic.IEnumerable{Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties})
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.ClearSubSegments
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.HasLocalizableContent
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.LocalizableContent
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.SortSubSegments
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.TagId
+  langs:
+  - csharp
+  - vb
+  name: IAbstractTagProperties
+  nameWithType: IAbstractTagProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Common information on start tags, placeholder tags and structure tags (but not end tags).
+  remarks: These types of tags can have localizable content and unique tag identifiers.
+  example: []
+  syntax:
+    content: 'public interface IAbstractTagProperties : IAbstractBasicTagProperties, IMetaDataContainer, ICloneable'
+    content.vb: Public Interface IAbstractTagProperties Inherits IAbstractBasicTagProperties, IMetaDataContainer, ICloneable
+  inheritedMembers:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.DisplayText
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.TagContent
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaData
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.HasMetaData
+  - Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataCount
+  - System.ICloneable.Clone
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  id: AddSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  langs:
+  - csharp
+  - vb
+  name: AddSubSegment(ISubSegmentProperties)
+  nameWithType: IAbstractTagProperties.AddSubSegment(ISubSegmentProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Adds localizable content as a sub-segment for this tag.
+  remarks: >-
+    <p>
+
+    The sub-segments can be accessed through <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.LocalizableContent" data-throw-if-not-resolved="false"></xref>,
+
+    where they are sorted in the order in which they appear.
+
+    </p>
+  example: []
+  syntax:
+    content: void AddSubSegment(ISubSegmentProperties localizableContent)
+    parameters:
+    - id: localizableContent
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties
+      description: ''
+    content.vb: Sub AddSubSegment(localizableContent As ISubSegmentProperties)
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegments(System.Collections.Generic.IEnumerable{Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties})
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegments(System.Collections.Generic.IEnumerable{Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties})
+  id: AddSubSegments(System.Collections.Generic.IEnumerable{Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties})
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  langs:
+  - csharp
+  - vb
+  name: AddSubSegments(IEnumerable<ISubSegmentProperties>)
+  nameWithType: IAbstractTagProperties.AddSubSegments(IEnumerable<ISubSegmentProperties>)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegments(System.Collections.Generic.IEnumerable<Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties>)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Adds a collection of localizable sub-segments for this tag.
+  example: []
+  syntax:
+    content: void AddSubSegments(IEnumerable<ISubSegmentProperties> localizableContent)
+    parameters:
+    - id: localizableContent
+      type: System.Collections.Generic.IEnumerable{Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties}
+      description: ''
+    content.vb: Sub AddSubSegments(localizableContent As IEnumerable(Of ISubSegmentProperties))
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegments*
+  nameWithType.vb: IAbstractTagProperties.AddSubSegments(IEnumerable(Of ISubSegmentProperties))
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegments(System.Collections.Generic.IEnumerable(Of Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties))
+  name.vb: AddSubSegments(IEnumerable(Of ISubSegmentProperties))
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  id: RemoveSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  langs:
+  - csharp
+  - vb
+  name: RemoveSubSegment(ISubSegmentProperties)
+  nameWithType: IAbstractTagProperties.RemoveSubSegment(ISubSegmentProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Removes localizable content for this tag.
+  remarks: >-
+    If the specified object is not part of the localizable content
+
+    for this tag, nothing happens.
+  example: []
+  syntax:
+    content: void RemoveSubSegment(ISubSegmentProperties localizableContent)
+    parameters:
+    - id: localizableContent
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties
+      description: Localizable sub-segment to be removed
+    content.vb: Sub RemoveSubSegment(localizableContent As ISubSegmentProperties)
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.ClearSubSegments
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.ClearSubSegments
+  id: ClearSubSegments
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  langs:
+  - csharp
+  - vb
+  name: ClearSubSegments()
+  nameWithType: IAbstractTagProperties.ClearSubSegments()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.ClearSubSegments()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Removes all localizable content for this tag.
+  example: []
+  syntax:
+    content: void ClearSubSegments()
+    content.vb: Sub ClearSubSegments()
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.ClearSubSegments*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.SortSubSegments
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.SortSubSegments
+  id: SortSubSegments
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  langs:
+  - csharp
+  - vb
+  name: SortSubSegments()
+  nameWithType: IAbstractTagProperties.SortSubSegments()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.SortSubSegments()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Sorts the localizable sub-segments by start offset.
+  remarks: >-
+    <p>
+
+    The collection is automatically sorted when calling <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)" data-throw-if-not-resolved="false"></xref>.
+
+    You should only need to call this method if the start offsets of segments are
+
+    explicitly changed after they have been added to the tag.
+
+    </p>
+  example: []
+  syntax:
+    content: void SortSubSegments()
+    content.vb: Sub SortSubSegments()
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.SortSubSegments*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.LocalizableContent
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.LocalizableContent
+  id: LocalizableContent
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  langs:
+  - csharp
+  - vb
+  name: LocalizableContent
+  nameWithType: IAbstractTagProperties.LocalizableContent
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.LocalizableContent
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    Translatable content inside the tag, in the order in which it appears. An example of such content may 
+
+    be localizable attribute values in HTML or XML.
+  remarks: >-
+    <p>
+
+    For convenience, 
+
+    test the <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.HasLocalizableContent" data-throw-if-not-resolved="false"></xref> to determine if there is any localizable content for the tag.
+
+    </p>
+
+    <p>
+
+    To add or remove localizable content, call <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)" data-throw-if-not-resolved="false"></xref> or
+
+    <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)" data-throw-if-not-resolved="false"></xref>.
+
+    </p>
+
+    <p>
+
+    The sub-segments are ordered, with the lowest offset being listed first.
+
+    </p>
+  example: []
+  syntax:
+    content: IEnumerable<ISubSegmentProperties> LocalizableContent { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties}
+    content.vb: ReadOnly Property LocalizableContent As IEnumerable(Of ISubSegmentProperties)
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.LocalizableContent*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.HasLocalizableContent
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.HasLocalizableContent
+  id: HasLocalizableContent
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  langs:
+  - csharp
+  - vb
+  name: HasLocalizableContent
+  nameWithType: IAbstractTagProperties.HasLocalizableContent
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.HasLocalizableContent
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: <code>True</code> if <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.LocalizableContent" data-throw-if-not-resolved="false"></xref> is not <code>null</code>, and has at least one sub-segment.
+  example: []
+  syntax:
+    content: bool HasLocalizableContent { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property HasLocalizableContent As Boolean
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.HasLocalizableContent*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.TagId
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.TagId
+  id: TagId
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  langs:
+  - csharp
+  - vb
+  name: TagId
+  nameWithType: IAbstractTagProperties.TagId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.TagId
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    Identifier for a tag. 
+
+
+    <p>Tags originating from the native parser typically have unique ids.</p>
+
+    <p>In the bilingual content model, corresponding tags between source and target can be identified
+
+    by their ids.</p>
+
+    <p> If a tag is cloned, it will have the same id as its clone. It may therefore happen during conversion
+
+    from bilingual to native format that multiple tags have the same id. In such cases the native
+
+    content handler may assume that the tags have been cloned for localization purposes.</p>
+  example: []
+  syntax:
+    content: TagId TagId { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.TagId
+    content.vb: Property TagId As TagId
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.TagId*
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.DisplayText
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.DisplayText
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractBasicTagProperties_DisplayText
+  name: DisplayText
+  nameWithType: IAbstractBasicTagProperties.DisplayText
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.DisplayText
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.TagContent
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.TagContent
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractBasicTagProperties_TagContent
+  name: TagContent
+  nameWithType: IAbstractBasicTagProperties.TagContent
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.TagContent
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaDataContainsKey_System_String_
+  name: MetaDataContainsKey(string)
+  nameWithType: IMetaDataContainer.MetaDataContainsKey(string)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(string)
+  nameWithType.vb: IMetaDataContainer.MetaDataContainsKey(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(String)
+  name.vb: MetaDataContainsKey(String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+    name: MetaDataContainsKey
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaDataContainsKey_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataContainsKey(System.String)
+    name: MetaDataContainsKey
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaDataContainsKey_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_GetMetaData_System_String_
+  name: GetMetaData(string)
+  nameWithType: IMetaDataContainer.GetMetaData(string)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(string)
+  nameWithType.vb: IMetaDataContainer.GetMetaData(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(String)
+  name.vb: GetMetaData(String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+    name: GetMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_GetMetaData_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.GetMetaData(System.String)
+    name: GetMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_GetMetaData_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_SetMetaData_System_String_System_String_
+  name: SetMetaData(string, string)
+  nameWithType: IMetaDataContainer.SetMetaData(string, string)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(string, string)
+  nameWithType.vb: IMetaDataContainer.SetMetaData(String, String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(String, String)
+  name.vb: SetMetaData(String, String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+    name: SetMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_SetMetaData_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.SetMetaData(System.String,System.String)
+    name: SetMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_SetMetaData_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_RemoveMetaData_System_String_
+  name: RemoveMetaData(string)
+  nameWithType: IMetaDataContainer.RemoveMetaData(string)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(string)
+  nameWithType.vb: IMetaDataContainer.RemoveMetaData(String)
+  fullName.vb: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(String)
+  name.vb: RemoveMetaData(String)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+    name: RemoveMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_RemoveMetaData_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.RemoveMetaData(System.String)
+    name: RemoveMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_RemoveMetaData_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_ClearMetaData
+  name: ClearMetaData()
+  nameWithType: IMetaDataContainer.ClearMetaData()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+    name: ClearMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_ClearMetaData
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.ClearMetaData
+    name: ClearMetaData
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_ClearMetaData
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaData
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaData
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaData
+  name: MetaData
+  nameWithType: IMetaDataContainer.MetaData
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaData
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.HasMetaData
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.HasMetaData
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_HasMetaData
+  name: HasMetaData
+  nameWithType: IMetaDataContainer.HasMetaData
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.HasMetaData
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataCount
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataCount
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html#Sdl_FileTypeSupport_Framework_NativeApi_IMetaDataContainer_MetaDataCount
+  name: MetaDataCount
+  nameWithType: IMetaDataContainer.MetaDataCount
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.MetaDataCount
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.html
+  name: IAbstractBasicTagProperties
+  nameWithType: IAbstractBasicTagProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer.html
+  name: IMetaDataContainer
+  nameWithType: IMetaDataContainer
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IMetaDataContainer
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.LocalizableContent
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.LocalizableContent
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_LocalizableContent
+  name: LocalizableContent
+  nameWithType: IAbstractTagProperties.LocalizableContent
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.LocalizableContent
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_AddSubSegment_Sdl_FileTypeSupport_Framework_NativeApi_ISubSegmentProperties_
+  name: AddSubSegment
+  nameWithType: IAbstractTagProperties.AddSubSegment
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties.html
+  name: ISubSegmentProperties
+  nameWithType: ISubSegmentProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html
+  name: IAbstractTagProperties
+  nameWithType: IAbstractTagProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegments*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegments
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_AddSubSegments_System_Collections_Generic_IEnumerable_Sdl_FileTypeSupport_Framework_NativeApi_ISubSegmentProperties__
+  name: AddSubSegments
+  nameWithType: IAbstractTagProperties.AddSubSegments
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegments
+- uid: System.Collections.Generic.IEnumerable{Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties}
+  commentId: T:System.Collections.Generic.IEnumerable{Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<ISubSegmentProperties>
+  nameWithType: IEnumerable<ISubSegmentProperties>
+  fullName: System.Collections.Generic.IEnumerable<Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties>
+  nameWithType.vb: IEnumerable(Of ISubSegmentProperties)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  name.vb: IEnumerable(Of ISubSegmentProperties)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties
+    name: ISubSegmentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties
+    name: ISubSegmentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_RemoveSubSegment_Sdl_FileTypeSupport_Framework_NativeApi_ISubSegmentProperties_
+  name: RemoveSubSegment
+  nameWithType: IAbstractTagProperties.RemoveSubSegment
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.ClearSubSegments*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.ClearSubSegments
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_ClearSubSegments
+  name: ClearSubSegments
+  nameWithType: IAbstractTagProperties.ClearSubSegments
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.ClearSubSegments
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_AddSubSegment_Sdl_FileTypeSupport_Framework_NativeApi_ISubSegmentProperties_
+  name: AddSubSegment(ISubSegmentProperties)
+  nameWithType: IAbstractTagProperties.AddSubSegment(ISubSegmentProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+    name: AddSubSegment
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_AddSubSegment_Sdl_FileTypeSupport_Framework_NativeApi_ISubSegmentProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties
+    name: ISubSegmentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.AddSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+    name: AddSubSegment
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_AddSubSegment_Sdl_FileTypeSupport_Framework_NativeApi_ISubSegmentProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties
+    name: ISubSegmentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.SortSubSegments*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.SortSubSegments
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_SortSubSegments
+  name: SortSubSegments
+  nameWithType: IAbstractTagProperties.SortSubSegments
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.SortSubSegments
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.HasLocalizableContent
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.HasLocalizableContent
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_HasLocalizableContent
+  name: HasLocalizableContent
+  nameWithType: IAbstractTagProperties.HasLocalizableContent
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.HasLocalizableContent
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_RemoveSubSegment_Sdl_FileTypeSupport_Framework_NativeApi_ISubSegmentProperties_
+  name: RemoveSubSegment(ISubSegmentProperties)
+  nameWithType: IAbstractTagProperties.RemoveSubSegment(ISubSegmentProperties)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+    name: RemoveSubSegment
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_RemoveSubSegment_Sdl_FileTypeSupport_Framework_NativeApi_ISubSegmentProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties
+    name: ISubSegmentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.RemoveSubSegment(Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties)
+    name: RemoveSubSegment
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_RemoveSubSegment_Sdl_FileTypeSupport_Framework_NativeApi_ISubSegmentProperties_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties
+    name: ISubSegmentProperties
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.ISubSegmentProperties.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.LocalizableContent*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.LocalizableContent
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_LocalizableContent
+  name: LocalizableContent
+  nameWithType: IAbstractTagProperties.LocalizableContent
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.LocalizableContent
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.HasLocalizableContent*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.HasLocalizableContent
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_HasLocalizableContent
+  name: HasLocalizableContent
+  nameWithType: IAbstractTagProperties.HasLocalizableContent
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.HasLocalizableContent
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.TagId*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.TagId
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractTagProperties_TagId
+  name: TagId
+  nameWithType: IAbstractTagProperties.TagId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractTagProperties.TagId
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.TagId
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.TagId
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.TagId.html
+  name: TagId
+  nameWithType: TagId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.TagId

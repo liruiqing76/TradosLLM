@@ -1,0 +1,837 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults
+  id: SubsegmentSearchResults
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.#ctor(System.Int16,System.Int16,System.Int16)
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Add(Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult)
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Count
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Remove(Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult)
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.RemoveAll(System.Func{Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult,System.Boolean})
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SignificantFeatureCount
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureCount
+  - Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureStartIndex
+  langs:
+  - csharp
+  - vb
+  name: SubsegmentSearchResults
+  nameWithType: SubsegmentSearchResults
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Represents a set of results returned by the translation memory after a subsegment search operation for a given input (segment/translation unit/string).
+  remarks: >-
+    Each SubsegmentSearchResults lists the results retrieved and translation proposals generated for 
+                a feature-generating-token fragment query. The individual SubsegmentSearchResult
+                entries contain information about specifically which tokens in the query they match, some
+                of which may provide different coverage depending on whether leading/trailing non-feature-generating tokens could be matched.
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public class SubsegmentSearchResults : IEnumerable<SubsegmentSearchResult>, IEnumerable
+    content.vb: >-
+      <DataContract>
+
+      Public Class SubsegmentSearchResults Implements IEnumerable(Of SubsegmentSearchResult), IEnumerable
+  inheritance:
+  - System.Object
+  implements:
+  - System.Collections.Generic.IEnumerable{Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult}
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.#ctor(System.Int16,System.Int16,System.Int16)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.#ctor(System.Int16,System.Int16,System.Int16)
+  id: '#ctor(System.Int16,System.Int16,System.Int16)'
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults
+  langs:
+  - csharp
+  - vb
+  name: SubsegmentSearchResults(short, short, short)
+  nameWithType: SubsegmentSearchResults.SubsegmentSearchResults(short, short, short)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SubsegmentSearchResults(short, short, short)
+  type: Constructor
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Initializes a new instance
+  example: []
+  syntax:
+    content: public SubsegmentSearchResults(short sourceFeatureStartIndex, short sourceFeatureCount, short significantFeatureCount)
+    parameters:
+    - id: sourceFeatureStartIndex
+      type: System.Int16
+    - id: sourceFeatureCount
+      type: System.Int16
+    - id: significantFeatureCount
+      type: System.Int16
+    content.vb: Public Sub New(sourceFeatureStartIndex As Short, sourceFeatureCount As Short, significantFeatureCount As Short)
+  overload: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.#ctor*
+  nameWithType.vb: SubsegmentSearchResults.New(Short, Short, Short)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.New(Short, Short, Short)
+  name.vb: New(Short, Short, Short)
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Remove(Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Remove(Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult)
+  id: Remove(Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult)
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults
+  langs:
+  - csharp
+  - vb
+  name: Remove(SubsegmentSearchResult)
+  nameWithType: SubsegmentSearchResults.Remove(SubsegmentSearchResult)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Remove(Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public void Remove(SubsegmentSearchResult result)
+    parameters:
+    - id: result
+      type: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult
+      description: ''
+    content.vb: Public Sub Remove(result As SubsegmentSearchResult)
+  overload: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Remove*
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.RemoveAll(System.Func{Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult,System.Boolean})
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.RemoveAll(System.Func{Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult,System.Boolean})
+  id: RemoveAll(System.Func{Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult,System.Boolean})
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults
+  langs:
+  - csharp
+  - vb
+  name: RemoveAll(Func<SubsegmentSearchResult, bool>)
+  nameWithType: SubsegmentSearchResults.RemoveAll(Func<SubsegmentSearchResult, bool>)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.RemoveAll(System.Func<Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult, bool>)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Removes all the elements that match the condition defined by the specified predicate
+  example: []
+  syntax:
+    content: public int RemoveAll(Func<SubsegmentSearchResult, bool> predicate)
+    parameters:
+    - id: predicate
+      type: System.Func{Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult,System.Boolean}
+      description: the predicate to use
+    return:
+      type: System.Int32
+    content.vb: Public Function RemoveAll(predicate As Func(Of SubsegmentSearchResult, Boolean)) As Integer
+  overload: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.RemoveAll*
+  nameWithType.vb: SubsegmentSearchResults.RemoveAll(Func(Of SubsegmentSearchResult, Boolean))
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.RemoveAll(System.Func(Of Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult, Boolean))
+  name.vb: RemoveAll(Func(Of SubsegmentSearchResult, Boolean))
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Add(Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Add(Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult)
+  id: Add(Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult)
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults
+  langs:
+  - csharp
+  - vb
+  name: Add(SubsegmentSearchResult)
+  nameWithType: SubsegmentSearchResults.Add(SubsegmentSearchResult)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Add(Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult)
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public void Add(SubsegmentSearchResult result)
+    parameters:
+    - id: result
+      type: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult
+      description: ''
+    content.vb: Public Sub Add(result As SubsegmentSearchResult)
+  overload: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Add*
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Count
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Count
+  id: Count
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: SubsegmentSearchResults.Count
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Count
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Gets the number of results in this instance.
+  example: []
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Count*
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureStartIndex
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureStartIndex
+  id: SourceFeatureStartIndex
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults
+  langs:
+  - csharp
+  - vb
+  name: SourceFeatureStartIndex
+  nameWithType: SubsegmentSearchResults.SourceFeatureStartIndex
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureStartIndex
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public short SourceFeatureStartIndex { get; }
+    parameters: []
+    return:
+      type: System.Int16
+    content.vb: Public ReadOnly Property SourceFeatureStartIndex As Short
+  overload: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureStartIndex*
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureCount
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureCount
+  id: SourceFeatureCount
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults
+  langs:
+  - csharp
+  - vb
+  name: SourceFeatureCount
+  nameWithType: SubsegmentSearchResults.SourceFeatureCount
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureCount
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public short SourceFeatureCount { get; }
+    parameters: []
+    return:
+      type: System.Int16
+    content.vb: Public ReadOnly Property SourceFeatureCount As Short
+  overload: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureCount*
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SignificantFeatureCount
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SignificantFeatureCount
+  id: SignificantFeatureCount
+  parent: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults
+  langs:
+  - csharp
+  - vb
+  name: SignificantFeatureCount
+  nameWithType: SubsegmentSearchResults.SignificantFeatureCount
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SignificantFeatureCount
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ''
+  example: []
+  syntax:
+    content: public short SignificantFeatureCount { get; }
+    parameters: []
+    return:
+      type: System.Int16
+    content.vb: Public ReadOnly Property SignificantFeatureCount As Short
+  overload: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SignificantFeatureCount*
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Collections.Generic.IEnumerable{Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult}
+  commentId: T:System.Collections.Generic.IEnumerable{Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<SubsegmentSearchResult>
+  nameWithType: IEnumerable<SubsegmentSearchResult>
+  fullName: System.Collections.Generic.IEnumerable<Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult>
+  nameWithType.vb: IEnumerable(Of SubsegmentSearchResult)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult)
+  name.vb: IEnumerable(Of SubsegmentSearchResult)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult
+    name: SubsegmentSearchResult
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult
+    name: SubsegmentSearchResult
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult.html
+  - name: )
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.#ctor*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.#ctor
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.html#Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchResults__ctor_System_Int16_System_Int16_System_Int16_
+  name: SubsegmentSearchResults
+  nameWithType: SubsegmentSearchResults.SubsegmentSearchResults
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SubsegmentSearchResults
+  nameWithType.vb: SubsegmentSearchResults.New
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.New
+  name.vb: New
+- uid: System.Int16
+  commentId: T:System.Int16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int16
+  name: short
+  nameWithType: short
+  fullName: short
+  nameWithType.vb: Short
+  fullName.vb: Short
+  name.vb: Short
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Remove*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Remove
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.html#Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchResults_Remove_Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchResult_
+  name: Remove
+  nameWithType: SubsegmentSearchResults.Remove
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Remove
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult.html
+  name: SubsegmentSearchResult
+  nameWithType: SubsegmentSearchResult
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.RemoveAll*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.RemoveAll
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.html#Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchResults_RemoveAll_System_Func_Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchResult_System_Boolean__
+  name: RemoveAll
+  nameWithType: SubsegmentSearchResults.RemoveAll
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.RemoveAll
+- uid: System.Func{Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult,System.Boolean}
+  commentId: T:System.Func{Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<SubsegmentSearchResult, bool>
+  nameWithType: Func<SubsegmentSearchResult, bool>
+  fullName: System.Func<Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult, bool>
+  nameWithType.vb: Func(Of SubsegmentSearchResult, Boolean)
+  fullName.vb: System.Func(Of Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult, Boolean)
+  name.vb: Func(Of SubsegmentSearchResult, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult
+    name: SubsegmentSearchResult
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult
+    name: SubsegmentSearchResult
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResult.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Add*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Add
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.html#Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchResults_Add_Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchResult_
+  name: Add
+  nameWithType: SubsegmentSearchResults.Add
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Add
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Count*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Count
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.html#Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchResults_Count
+  name: Count
+  nameWithType: SubsegmentSearchResults.Count
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.Count
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureStartIndex*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureStartIndex
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.html#Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchResults_SourceFeatureStartIndex
+  name: SourceFeatureStartIndex
+  nameWithType: SubsegmentSearchResults.SourceFeatureStartIndex
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureStartIndex
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureCount*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureCount
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.html#Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchResults_SourceFeatureCount
+  name: SourceFeatureCount
+  nameWithType: SubsegmentSearchResults.SourceFeatureCount
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SourceFeatureCount
+- uid: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SignificantFeatureCount*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SignificantFeatureCount
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.html#Sdl_LanguagePlatform_TranslationMemory_SubsegmentSearchResults_SignificantFeatureCount
+  name: SignificantFeatureCount
+  nameWithType: SubsegmentSearchResults.SignificantFeatureCount
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SubsegmentSearchResults.SignificantFeatureCount

@@ -1,0 +1,399 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Verification.Api.IGlobalVerifier
+  commentId: T:Sdl.Verification.Api.IGlobalVerifier
+  id: IGlobalVerifier
+  parent: Sdl.Verification.Api
+  children:
+  - Sdl.Verification.Api.IGlobalVerifier.Description
+  - Sdl.Verification.Api.IGlobalVerifier.GetSettingsPageExtensionIds
+  - Sdl.Verification.Api.IGlobalVerifier.HelpTopic
+  - Sdl.Verification.Api.IGlobalVerifier.Icon
+  - Sdl.Verification.Api.IGlobalVerifier.Name
+  - Sdl.Verification.Api.IGlobalVerifier.SettingsId
+  langs:
+  - csharp
+  - vb
+  name: IGlobalVerifier
+  nameWithType: IGlobalVerifier
+  fullName: Sdl.Verification.Api.IGlobalVerifier
+  type: Interface
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: IGlobalVerifier interface represents a global verifier used to verify bilingual documents.
+  example: []
+  syntax:
+    content: public interface IGlobalVerifier
+    content.vb: Public Interface IGlobalVerifier
+- uid: Sdl.Verification.Api.IGlobalVerifier.GetSettingsPageExtensionIds
+  commentId: M:Sdl.Verification.Api.IGlobalVerifier.GetSettingsPageExtensionIds
+  id: GetSettingsPageExtensionIds
+  parent: Sdl.Verification.Api.IGlobalVerifier
+  langs:
+  - csharp
+  - vb
+  name: GetSettingsPageExtensionIds()
+  nameWithType: IGlobalVerifier.GetSettingsPageExtensionIds()
+  fullName: Sdl.Verification.Api.IGlobalVerifier.GetSettingsPageExtensionIds()
+  type: Method
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: Gets the settings page extension ids.
+  example: []
+  syntax:
+    content: IList<string> GetSettingsPageExtensionIds()
+    return:
+      type: System.Collections.Generic.IList{System.String}
+      description: settings page extension ids
+    content.vb: Function GetSettingsPageExtensionIds() As IList(Of String)
+  overload: Sdl.Verification.Api.IGlobalVerifier.GetSettingsPageExtensionIds*
+- uid: Sdl.Verification.Api.IGlobalVerifier.Name
+  commentId: P:Sdl.Verification.Api.IGlobalVerifier.Name
+  id: Name
+  parent: Sdl.Verification.Api.IGlobalVerifier
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IGlobalVerifier.Name
+  fullName: Sdl.Verification.Api.IGlobalVerifier.Name
+  type: Property
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: Name property represents the name.
+  example: []
+  syntax:
+    content: string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Name As String
+  overload: Sdl.Verification.Api.IGlobalVerifier.Name*
+- uid: Sdl.Verification.Api.IGlobalVerifier.Description
+  commentId: P:Sdl.Verification.Api.IGlobalVerifier.Description
+  id: Description
+  parent: Sdl.Verification.Api.IGlobalVerifier
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: IGlobalVerifier.Description
+  fullName: Sdl.Verification.Api.IGlobalVerifier.Description
+  type: Property
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: Description property represents the description.
+  example: []
+  syntax:
+    content: string Description { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Description As String
+  overload: Sdl.Verification.Api.IGlobalVerifier.Description*
+- uid: Sdl.Verification.Api.IGlobalVerifier.Icon
+  commentId: P:Sdl.Verification.Api.IGlobalVerifier.Icon
+  id: Icon
+  parent: Sdl.Verification.Api.IGlobalVerifier
+  langs:
+  - csharp
+  - vb
+  name: Icon
+  nameWithType: IGlobalVerifier.Icon
+  fullName: Sdl.Verification.Api.IGlobalVerifier.Icon
+  type: Property
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: Icon property represents the icon.
+  example: []
+  syntax:
+    content: Icon Icon { get; }
+    parameters: []
+    return:
+      type: System.Drawing.Icon
+    content.vb: ReadOnly Property Icon As Icon
+  overload: Sdl.Verification.Api.IGlobalVerifier.Icon*
+- uid: Sdl.Verification.Api.IGlobalVerifier.SettingsId
+  commentId: P:Sdl.Verification.Api.IGlobalVerifier.SettingsId
+  id: SettingsId
+  parent: Sdl.Verification.Api.IGlobalVerifier
+  langs:
+  - csharp
+  - vb
+  name: SettingsId
+  nameWithType: IGlobalVerifier.SettingsId
+  fullName: Sdl.Verification.Api.IGlobalVerifier.SettingsId
+  type: Property
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: SettingsId property represents the settings id.
+  example: []
+  syntax:
+    content: string SettingsId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property SettingsId As String
+  overload: Sdl.Verification.Api.IGlobalVerifier.SettingsId*
+- uid: Sdl.Verification.Api.IGlobalVerifier.HelpTopic
+  commentId: P:Sdl.Verification.Api.IGlobalVerifier.HelpTopic
+  id: HelpTopic
+  parent: Sdl.Verification.Api.IGlobalVerifier
+  langs:
+  - csharp
+  - vb
+  name: HelpTopic
+  nameWithType: IGlobalVerifier.HelpTopic
+  fullName: Sdl.Verification.Api.IGlobalVerifier.HelpTopic
+  type: Property
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: HelpTopic property represents the help topic.
+  example: []
+  syntax:
+    content: string HelpTopic { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property HelpTopic As String
+  overload: Sdl.Verification.Api.IGlobalVerifier.HelpTopic*
+references:
+- uid: Sdl.Verification.Api
+  commentId: N:Sdl.Verification.Api
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Verification.Api
+  nameWithType: Sdl.Verification.Api
+  fullName: Sdl.Verification.Api
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Verification
+    name: Verification
+    isExternal: true
+    href: Sdl.Verification.html
+  - name: .
+  - uid: Sdl.Verification.Api
+    name: Api
+    isExternal: true
+    href: Sdl.Verification.Api.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Verification
+    name: Verification
+    isExternal: true
+    href: Sdl.Verification.html
+  - name: .
+  - uid: Sdl.Verification.Api
+    name: Api
+    isExternal: true
+    href: Sdl.Verification.Api.html
+- uid: Sdl.Verification.Api.IGlobalVerifier.GetSettingsPageExtensionIds*
+  commentId: Overload:Sdl.Verification.Api.IGlobalVerifier.GetSettingsPageExtensionIds
+  isExternal: true
+  href: Sdl.Verification.Api.IGlobalVerifier.html#Sdl_Verification_Api_IGlobalVerifier_GetSettingsPageExtensionIds
+  name: GetSettingsPageExtensionIds
+  nameWithType: IGlobalVerifier.GetSettingsPageExtensionIds
+  fullName: Sdl.Verification.Api.IGlobalVerifier.GetSettingsPageExtensionIds
+- uid: System.Collections.Generic.IList{System.String}
+  commentId: T:System.Collections.Generic.IList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<string>
+  nameWithType: IList<string>
+  fullName: System.Collections.Generic.IList<string>
+  nameWithType.vb: IList(Of String)
+  fullName.vb: System.Collections.Generic.IList(Of String)
+  name.vb: IList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Sdl.Verification.Api.IGlobalVerifier.Name*
+  commentId: Overload:Sdl.Verification.Api.IGlobalVerifier.Name
+  isExternal: true
+  href: Sdl.Verification.Api.IGlobalVerifier.html#Sdl_Verification_Api_IGlobalVerifier_Name
+  name: Name
+  nameWithType: IGlobalVerifier.Name
+  fullName: Sdl.Verification.Api.IGlobalVerifier.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Verification.Api.IGlobalVerifier.Description*
+  commentId: Overload:Sdl.Verification.Api.IGlobalVerifier.Description
+  isExternal: true
+  href: Sdl.Verification.Api.IGlobalVerifier.html#Sdl_Verification_Api_IGlobalVerifier_Description
+  name: Description
+  nameWithType: IGlobalVerifier.Description
+  fullName: Sdl.Verification.Api.IGlobalVerifier.Description
+- uid: Sdl.Verification.Api.IGlobalVerifier.Icon*
+  commentId: Overload:Sdl.Verification.Api.IGlobalVerifier.Icon
+  isExternal: true
+  href: Sdl.Verification.Api.IGlobalVerifier.html#Sdl_Verification_Api_IGlobalVerifier_Icon
+  name: Icon
+  nameWithType: IGlobalVerifier.Icon
+  fullName: Sdl.Verification.Api.IGlobalVerifier.Icon
+- uid: System.Drawing.Icon
+  commentId: T:System.Drawing.Icon
+  parent: System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.drawing.icon
+  name: Icon
+  nameWithType: Icon
+  fullName: System.Drawing.Icon
+- uid: System.Drawing
+  commentId: N:System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Drawing
+  nameWithType: System.Drawing
+  fullName: System.Drawing
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+- uid: Sdl.Verification.Api.IGlobalVerifier.SettingsId*
+  commentId: Overload:Sdl.Verification.Api.IGlobalVerifier.SettingsId
+  isExternal: true
+  href: Sdl.Verification.Api.IGlobalVerifier.html#Sdl_Verification_Api_IGlobalVerifier_SettingsId
+  name: SettingsId
+  nameWithType: IGlobalVerifier.SettingsId
+  fullName: Sdl.Verification.Api.IGlobalVerifier.SettingsId
+- uid: Sdl.Verification.Api.IGlobalVerifier.HelpTopic*
+  commentId: Overload:Sdl.Verification.Api.IGlobalVerifier.HelpTopic
+  isExternal: true
+  href: Sdl.Verification.Api.IGlobalVerifier.html#Sdl_Verification_Api_IGlobalVerifier_HelpTopic
+  name: HelpTopic
+  nameWithType: IGlobalVerifier.HelpTopic
+  fullName: Sdl.Verification.Api.IGlobalVerifier.HelpTopic

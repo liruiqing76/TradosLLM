@@ -1,0 +1,1054 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  commentId: T:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  id: LanguageResourceType
+  parent: Sdl.LanguagePlatform.Core.Resources
+  children:
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Abbreviations
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CharTrigramVector
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CurrencyFST
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CurrencyFSTEx
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CurrencySymbols
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.DatePatterns
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.GenericRecognizers
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongDateFST
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongDateFSTEx
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongTimeFST
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongTimeFSTEx
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.MeasurementFST
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.MeasurementFSTEx
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.MeasurementPatterns
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.NumberFST
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.NumberFSTEx
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.NumberPatterns
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.OrdinalFollowers
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.PhysicalUnits
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.SegmentationRules
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortDateFST
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortDateFSTEx
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortTimeFST
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortTimeFSTEx
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.StemmingRules
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Stopwords
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.TimePatterns
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.TokenizerSettings
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Undefined
+  - Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Variables
+  langs:
+  - csharp
+  - vb
+  name: LanguageResourceType
+  nameWithType: LanguageResourceType
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: Enumerates the different types of language resources.
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public enum LanguageResourceType
+    content.vb: >-
+      <DataContract>
+
+      Public Enum LanguageResourceType
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Undefined
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Undefined
+  id: Undefined
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: LanguageResourceType.Undefined
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Undefined
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: The resource type is undefined. Needed for deserialization purposes, to avoid confusion with a valid type.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Undefined = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      Undefined = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Variables
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Variables
+  id: Variables
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: Variables
+  nameWithType: LanguageResourceType.Variables
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Variables
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: The resource contains variables (non-translatable tokens).
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Variables = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      Variables = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Abbreviations
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Abbreviations
+  id: Abbreviations
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: Abbreviations
+  nameWithType: LanguageResourceType.Abbreviations
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Abbreviations
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: The resource contains abbreviations.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Abbreviations = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      Abbreviations = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.OrdinalFollowers
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.OrdinalFollowers
+  id: OrdinalFollowers
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: OrdinalFollowers
+  nameWithType: LanguageResourceType.OrdinalFollowers
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.OrdinalFollowers
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: The resource contains ordinal followers.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      OrdinalFollowers = 3
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      OrdinalFollowers = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.SegmentationRules
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.SegmentationRules
+  id: SegmentationRules
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: SegmentationRules
+  nameWithType: LanguageResourceType.SegmentationRules
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.SegmentationRules
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: The resource contains segmentation rules.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      SegmentationRules = 4
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      SegmentationRules = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.TokenizerSettings
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.TokenizerSettings
+  id: TokenizerSettings
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: TokenizerSettings
+  nameWithType: LanguageResourceType.TokenizerSettings
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.TokenizerSettings
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: The resource contains tokenizer settings.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      TokenizerSettings = 5
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      TokenizerSettings = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.StemmingRules
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.StemmingRules
+  id: StemmingRules
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: StemmingRules
+  nameWithType: LanguageResourceType.StemmingRules
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.StemmingRules
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: The resource contains stemming rules.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      StemmingRules = 6
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      StemmingRules = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Stopwords
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Stopwords
+  id: Stopwords
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: Stopwords
+  nameWithType: LanguageResourceType.Stopwords
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.Stopwords
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: The resource contains stop words (very frequent words).
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Stopwords = 7
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      Stopwords = 7
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.DatePatterns
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.DatePatterns
+  id: DatePatterns
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: DatePatterns
+  nameWithType: LanguageResourceType.DatePatterns
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.DatePatterns
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: The resource contains date patterns, used for date recognition.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      DatePatterns = 8
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      DatePatterns = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.TimePatterns
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.TimePatterns
+  id: TimePatterns
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: TimePatterns
+  nameWithType: LanguageResourceType.TimePatterns
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.TimePatterns
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: The resource contains time patterns, used for time recognition.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      TimePatterns = 9
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      TimePatterns = 9
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.NumberPatterns
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.NumberPatterns
+  id: NumberPatterns
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: NumberPatterns
+  nameWithType: LanguageResourceType.NumberPatterns
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.NumberPatterns
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: The resource contains number patterns, used for number recognition.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      NumberPatterns = 10
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      NumberPatterns = 10
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.MeasurementPatterns
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.MeasurementPatterns
+  id: MeasurementPatterns
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: MeasurementPatterns
+  nameWithType: LanguageResourceType.MeasurementPatterns
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.MeasurementPatterns
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: The resource contains measurement patterns, used for measurement recognition.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      MeasurementPatterns = 11
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      MeasurementPatterns = 11
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CharTrigramVector
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CharTrigramVector
+  id: CharTrigramVector
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: CharTrigramVector
+  nameWithType: LanguageResourceType.CharTrigramVector
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CharTrigramVector
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: The resource contains normalized character trigram vectors (special, for internal use only)
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      CharTrigramVector = 12
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      CharTrigramVector = 12
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortDateFST
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortDateFST
+  id: ShortDateFST
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: ShortDateFST
+  nameWithType: LanguageResourceType.ShortDateFST
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortDateFST
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: A compiled, binary FST which recognizes short date patterns. This resource is not user-customizable.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      ShortDateFST = 13
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      ShortDateFST = 13
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongDateFST
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongDateFST
+  id: LongDateFST
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: LongDateFST
+  nameWithType: LanguageResourceType.LongDateFST
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongDateFST
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: A compiled, binary FST which recognizes long date patterns. This resource is not user-customizable.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      LongDateFST = 14
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      LongDateFST = 14
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortTimeFST
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortTimeFST
+  id: ShortTimeFST
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: ShortTimeFST
+  nameWithType: LanguageResourceType.ShortTimeFST
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortTimeFST
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: A compiled, binary FST which recognizes short time patterns. This resource is not user-customizable.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      ShortTimeFST = 15
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      ShortTimeFST = 15
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongTimeFST
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongTimeFST
+  id: LongTimeFST
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: LongTimeFST
+  nameWithType: LanguageResourceType.LongTimeFST
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongTimeFST
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: A compiled, binary FST which recognizes long time patterns. This resource is not user-customizable.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      LongTimeFST = 16
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      LongTimeFST = 16
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CurrencySymbols
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CurrencySymbols
+  id: CurrencySymbols
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: CurrencySymbols
+  nameWithType: LanguageResourceType.CurrencySymbols
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CurrencySymbols
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: >-
+    A word list containing additional currency symbols to be added to the measurement recognizer, 
+
+    position depending on the culture's number pattern
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      CurrencySymbols = 17
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      CurrencySymbols = 17
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.PhysicalUnits
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.PhysicalUnits
+  id: PhysicalUnits
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: PhysicalUnits
+  nameWithType: LanguageResourceType.PhysicalUnits
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.PhysicalUnits
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: >-
+    A word list containing additional physical units to be added to the measurement recognizer
+
+    (postfix only)
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      PhysicalUnits = 18
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      PhysicalUnits = 18
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.NumberFST
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.NumberFST
+  id: NumberFST
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: NumberFST
+  nameWithType: LanguageResourceType.NumberFST
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.NumberFST
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: A compiled, binary FST which recognizes numbers. This resource is not user-customizable.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      NumberFST = 19
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      NumberFST = 19
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.MeasurementFST
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.MeasurementFST
+  id: MeasurementFST
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: MeasurementFST
+  nameWithType: LanguageResourceType.MeasurementFST
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.MeasurementFST
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: A compiled, binary FST which recognizes measurements. This resource is not user-customizable.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      MeasurementFST = 20
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      MeasurementFST = 20
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.GenericRecognizers
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.GenericRecognizers
+  id: GenericRecognizers
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: GenericRecognizers
+  nameWithType: LanguageResourceType.GenericRecognizers
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.GenericRecognizers
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: An XML structure which defines generic recognizers which are available.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      GenericRecognizers = 21
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      GenericRecognizers = 21
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortDateFSTEx
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortDateFSTEx
+  id: ShortDateFSTEx
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: ShortDateFSTEx
+  nameWithType: LanguageResourceType.ShortDateFSTEx
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortDateFSTEx
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: Extended FST information; list of short date format strings used to build FST
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      ShortDateFSTEx = 22
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      ShortDateFSTEx = 22
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongDateFSTEx
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongDateFSTEx
+  id: LongDateFSTEx
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: LongDateFSTEx
+  nameWithType: LanguageResourceType.LongDateFSTEx
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongDateFSTEx
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: Extended FST information; list of long date format strings used to build FST
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      LongDateFSTEx = 23
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      LongDateFSTEx = 23
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortTimeFSTEx
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortTimeFSTEx
+  id: ShortTimeFSTEx
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: ShortTimeFSTEx
+  nameWithType: LanguageResourceType.ShortTimeFSTEx
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.ShortTimeFSTEx
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: Extended FST information; list of short time format strings used to build FST
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      ShortTimeFSTEx = 24
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      ShortTimeFSTEx = 24
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongTimeFSTEx
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongTimeFSTEx
+  id: LongTimeFSTEx
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: LongTimeFSTEx
+  nameWithType: LanguageResourceType.LongTimeFSTEx
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.LongTimeFSTEx
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: Extended FST information; list of long time format strings used to build FST
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      LongTimeFSTEx = 25
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      LongTimeFSTEx = 25
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.NumberFSTEx
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.NumberFSTEx
+  id: NumberFSTEx
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: NumberFSTEx
+  nameWithType: LanguageResourceType.NumberFSTEx
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.NumberFSTEx
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: Extended FST information; list of separators used to build number and measurement FSTs
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      NumberFSTEx = 26
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      NumberFSTEx = 26
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.MeasurementFSTEx
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.MeasurementFSTEx
+  id: MeasurementFSTEx
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: MeasurementFSTEx
+  nameWithType: LanguageResourceType.MeasurementFSTEx
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.MeasurementFSTEx
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: Extended FST information; list of units used to build measurement FST
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      MeasurementFSTEx = 27
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      MeasurementFSTEx = 27
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CurrencyFST
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CurrencyFST
+  id: CurrencyFST
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: CurrencyFST
+  nameWithType: LanguageResourceType.CurrencyFST
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CurrencyFST
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: A compiled, binary FST which recognizes currency values.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      CurrencyFST = 28
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      CurrencyFST = 28
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CurrencyFSTEx
+  commentId: F:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CurrencyFSTEx
+  id: CurrencyFSTEx
+  parent: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  langs:
+  - csharp
+  - vb
+  name: CurrencyFSTEx
+  nameWithType: LanguageResourceType.CurrencyFSTEx
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.CurrencyFSTEx
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Resources
+  summary: Extended FST information; list of formats used to build currency FST
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      CurrencyFSTEx = 29
+    return:
+      type: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+    content.vb: >-
+      <EnumMember>
+
+      CurrencyFSTEx = 29
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: Sdl.LanguagePlatform.Core.Resources
+  commentId: N:Sdl.LanguagePlatform.Core.Resources
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core.Resources
+  nameWithType: Sdl.LanguagePlatform.Core.Resources
+  fullName: Sdl.LanguagePlatform.Core.Resources
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Resources
+    name: Resources
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Resources.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Resources
+    name: Resources
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Resources.html
+- uid: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  commentId: T:Sdl.LanguagePlatform.Core.Resources.LanguageResourceType
+  parent: Sdl.LanguagePlatform.Core.Resources
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType.html
+  name: LanguageResourceType
+  nameWithType: LanguageResourceType
+  fullName: Sdl.LanguagePlatform.Core.Resources.LanguageResourceType

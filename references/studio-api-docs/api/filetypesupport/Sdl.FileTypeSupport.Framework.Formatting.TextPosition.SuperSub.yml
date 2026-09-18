@@ -1,0 +1,182 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+  commentId: T:Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+  id: TextPosition.SuperSub
+  parent: Sdl.FileTypeSupport.Framework.Formatting
+  children:
+  - Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Invalid
+  - Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Normal
+  - Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Subscript
+  - Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Superscript
+  langs:
+  - csharp
+  - vb
+  name: TextPosition.SuperSub
+  nameWithType: TextPosition.SuperSub
+  fullName: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+  type: Enum
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.Formatting
+  summary: Vertical position of text relative to normally formatted text
+  example: []
+  syntax:
+    content: public enum TextPosition.SuperSub
+    content.vb: Public Enum TextPosition.SuperSub
+- uid: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Normal
+  commentId: F:Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Normal
+  id: Normal
+  parent: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: TextPosition.SuperSub.Normal
+  fullName: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Normal
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.Formatting
+  summary: Text is not superscript or subscript
+  example: []
+  syntax:
+    content: Normal = 0
+    return:
+      type: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+- uid: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Superscript
+  commentId: F:Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Superscript
+  id: Superscript
+  parent: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+  langs:
+  - csharp
+  - vb
+  name: Superscript
+  nameWithType: TextPosition.SuperSub.Superscript
+  fullName: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Superscript
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.Formatting
+  summary: Superscript text
+  example: []
+  syntax:
+    content: Superscript = 1
+    return:
+      type: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+- uid: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Subscript
+  commentId: F:Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Subscript
+  id: Subscript
+  parent: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+  langs:
+  - csharp
+  - vb
+  name: Subscript
+  nameWithType: TextPosition.SuperSub.Subscript
+  fullName: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Subscript
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.Formatting
+  summary: Subscript text
+  example: []
+  syntax:
+    content: Subscript = 2
+    return:
+      type: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+- uid: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Invalid
+  commentId: F:Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Invalid
+  id: Invalid
+  parent: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+  langs:
+  - csharp
+  - vb
+  name: Invalid
+  nameWithType: TextPosition.SuperSub.Invalid
+  fullName: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.Invalid
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.Formatting
+  summary: Value is unrecognized
+  example: []
+  syntax:
+    content: Invalid = 3
+    return:
+      type: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+references:
+- uid: Sdl.FileTypeSupport.Framework.Formatting
+  commentId: N:Sdl.FileTypeSupport.Framework.Formatting
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.Formatting
+  nameWithType: Sdl.FileTypeSupport.Framework.Formatting
+  fullName: Sdl.FileTypeSupport.Framework.Formatting
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Formatting
+    name: Formatting
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Formatting.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Formatting
+    name: Formatting
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Formatting.html
+- uid: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+  commentId: T:Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+  parent: Sdl.FileTypeSupport.Framework.Formatting
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.html
+  name: TextPosition.SuperSub
+  nameWithType: TextPosition.SuperSub
+  fullName: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.Formatting.TextPosition
+    name: TextPosition
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+    name: SuperSub
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.html
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.Formatting.TextPosition
+    name: TextPosition
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub
+    name: SuperSub
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Formatting.TextPosition.SuperSub.html

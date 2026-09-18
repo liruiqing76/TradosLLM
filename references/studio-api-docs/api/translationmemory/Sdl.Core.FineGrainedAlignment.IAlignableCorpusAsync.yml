@@ -1,0 +1,615 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync
+  commentId: T:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync
+  id: IAlignableCorpusAsync
+  parent: Sdl.Core.FineGrainedAlignment
+  children:
+  - Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignedPredatedContentPairCountAsync(System.DateTime)
+  - Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignerDefinitionAsync
+  - Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairCountAsync
+  - Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairEnumeratorAsync
+  - Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPostdatedContentPairCountAsync(System.DateTime)
+  - Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetUnalignedCountAsync(System.Nullable{System.DateTime})
+  - Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.Id
+  - Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.SourceCulture
+  - Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.TargetCulture
+  langs:
+  - csharp
+  - vb
+  name: IAlignableCorpusAsync
+  nameWithType: IAlignableCorpusAsync
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync
+  type: Interface
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: public interface IAlignableCorpusAsync
+    content.vb: Public Interface IAlignableCorpusAsync
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairEnumeratorAsync
+  commentId: M:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairEnumeratorAsync
+  id: GetPairEnumeratorAsync
+  parent: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync
+  langs:
+  - csharp
+  - vb
+  name: GetPairEnumeratorAsync()
+  nameWithType: IAlignableCorpusAsync.GetPairEnumeratorAsync()
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairEnumeratorAsync()
+  type: Method
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: Task<IPairEnumerator> GetPairEnumeratorAsync()
+    return:
+      type: System.Threading.Tasks.Task{Sdl.Core.FineGrainedAlignment.IPairEnumerator}
+    content.vb: Function GetPairEnumeratorAsync() As Task(Of IPairEnumerator)
+  overload: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairEnumeratorAsync*
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignerDefinitionAsync
+  commentId: M:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignerDefinitionAsync
+  id: GetAlignerDefinitionAsync
+  parent: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync
+  langs:
+  - csharp
+  - vb
+  name: GetAlignerDefinitionAsync()
+  nameWithType: IAlignableCorpusAsync.GetAlignerDefinitionAsync()
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignerDefinitionAsync()
+  type: Method
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: Task<AlignerDefinition> GetAlignerDefinitionAsync()
+    return:
+      type: System.Threading.Tasks.Task{Sdl.Core.FineGrainedAlignment.AlignerDefinition}
+    content.vb: Function GetAlignerDefinitionAsync() As Task(Of AlignerDefinition)
+  overload: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignerDefinitionAsync*
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignedPredatedContentPairCountAsync(System.DateTime)
+  commentId: M:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignedPredatedContentPairCountAsync(System.DateTime)
+  id: GetAlignedPredatedContentPairCountAsync(System.DateTime)
+  parent: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync
+  langs:
+  - csharp
+  - vb
+  name: GetAlignedPredatedContentPairCountAsync(DateTime)
+  nameWithType: IAlignableCorpusAsync.GetAlignedPredatedContentPairCountAsync(DateTime)
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignedPredatedContentPairCountAsync(System.DateTime)
+  type: Method
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: Task<int> GetAlignedPredatedContentPairCountAsync(DateTime modelDate)
+    parameters:
+    - id: modelDate
+      type: System.DateTime
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+    content.vb: Function GetAlignedPredatedContentPairCountAsync(modelDate As Date) As Task(Of Integer)
+  overload: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignedPredatedContentPairCountAsync*
+  nameWithType.vb: IAlignableCorpusAsync.GetAlignedPredatedContentPairCountAsync(Date)
+  fullName.vb: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignedPredatedContentPairCountAsync(Date)
+  name.vb: GetAlignedPredatedContentPairCountAsync(Date)
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetUnalignedCountAsync(System.Nullable{System.DateTime})
+  commentId: M:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetUnalignedCountAsync(System.Nullable{System.DateTime})
+  id: GetUnalignedCountAsync(System.Nullable{System.DateTime})
+  parent: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync
+  langs:
+  - csharp
+  - vb
+  name: GetUnalignedCountAsync(DateTime?)
+  nameWithType: IAlignableCorpusAsync.GetUnalignedCountAsync(DateTime?)
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetUnalignedCountAsync(System.DateTime?)
+  type: Method
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: Task<int> GetUnalignedCountAsync(DateTime? modelDate)
+    parameters:
+    - id: modelDate
+      type: System.Nullable{System.DateTime}
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+    content.vb: Function GetUnalignedCountAsync(modelDate As Date?) As Task(Of Integer)
+  overload: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetUnalignedCountAsync*
+  nameWithType.vb: IAlignableCorpusAsync.GetUnalignedCountAsync(Date?)
+  fullName.vb: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetUnalignedCountAsync(Date?)
+  name.vb: GetUnalignedCountAsync(Date?)
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPostdatedContentPairCountAsync(System.DateTime)
+  commentId: M:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPostdatedContentPairCountAsync(System.DateTime)
+  id: GetPostdatedContentPairCountAsync(System.DateTime)
+  parent: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync
+  langs:
+  - csharp
+  - vb
+  name: GetPostdatedContentPairCountAsync(DateTime)
+  nameWithType: IAlignableCorpusAsync.GetPostdatedContentPairCountAsync(DateTime)
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPostdatedContentPairCountAsync(System.DateTime)
+  type: Method
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: Task<int> GetPostdatedContentPairCountAsync(DateTime modelDate)
+    parameters:
+    - id: modelDate
+      type: System.DateTime
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+    content.vb: Function GetPostdatedContentPairCountAsync(modelDate As Date) As Task(Of Integer)
+  overload: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPostdatedContentPairCountAsync*
+  nameWithType.vb: IAlignableCorpusAsync.GetPostdatedContentPairCountAsync(Date)
+  fullName.vb: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPostdatedContentPairCountAsync(Date)
+  name.vb: GetPostdatedContentPairCountAsync(Date)
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairCountAsync
+  commentId: M:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairCountAsync
+  id: GetPairCountAsync
+  parent: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync
+  langs:
+  - csharp
+  - vb
+  name: GetPairCountAsync()
+  nameWithType: IAlignableCorpusAsync.GetPairCountAsync()
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairCountAsync()
+  type: Method
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: Task<int> GetPairCountAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+    content.vb: Function GetPairCountAsync() As Task(Of Integer)
+  overload: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairCountAsync*
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.Id
+  commentId: P:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.Id
+  id: Id
+  parent: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: IAlignableCorpusAsync.Id
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.Id
+  type: Property
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: AlignableCorpusId Id { get; }
+    parameters: []
+    return:
+      type: Sdl.Core.FineGrainedAlignment.AlignableCorpusId
+    content.vb: ReadOnly Property Id As AlignableCorpusId
+  overload: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.Id*
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.SourceCulture
+  commentId: P:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.SourceCulture
+  id: SourceCulture
+  parent: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync
+  langs:
+  - csharp
+  - vb
+  name: SourceCulture
+  nameWithType: IAlignableCorpusAsync.SourceCulture
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.SourceCulture
+  type: Property
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: CultureCode SourceCulture { get; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.CultureCode
+    content.vb: ReadOnly Property SourceCulture As CultureCode
+  overload: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.SourceCulture*
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.TargetCulture
+  commentId: P:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.TargetCulture
+  id: TargetCulture
+  parent: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync
+  langs:
+  - csharp
+  - vb
+  name: TargetCulture
+  nameWithType: IAlignableCorpusAsync.TargetCulture
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.TargetCulture
+  type: Property
+  assemblies:
+  - Sdl.Core.FineGrainedAlignment
+  namespace: Sdl.Core.FineGrainedAlignment
+  syntax:
+    content: CultureCode TargetCulture { get; }
+    parameters: []
+    return:
+      type: Sdl.Core.Globalization.CultureCode
+    content.vb: ReadOnly Property TargetCulture As CultureCode
+  overload: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.TargetCulture*
+references:
+- uid: Sdl.Core.FineGrainedAlignment
+  commentId: N:Sdl.Core.FineGrainedAlignment
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.FineGrainedAlignment
+  nameWithType: Sdl.Core.FineGrainedAlignment
+  fullName: Sdl.Core.FineGrainedAlignment
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.FineGrainedAlignment
+    name: FineGrainedAlignment
+    isExternal: true
+    href: Sdl.Core.FineGrainedAlignment.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.FineGrainedAlignment
+    name: FineGrainedAlignment
+    isExternal: true
+    href: Sdl.Core.FineGrainedAlignment.html
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairEnumeratorAsync*
+  commentId: Overload:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairEnumeratorAsync
+  isExternal: true
+  href: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.html#Sdl_Core_FineGrainedAlignment_IAlignableCorpusAsync_GetPairEnumeratorAsync
+  name: GetPairEnumeratorAsync
+  nameWithType: IAlignableCorpusAsync.GetPairEnumeratorAsync
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairEnumeratorAsync
+- uid: System.Threading.Tasks.Task{Sdl.Core.FineGrainedAlignment.IPairEnumerator}
+  commentId: T:System.Threading.Tasks.Task{Sdl.Core.FineGrainedAlignment.IPairEnumerator}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IPairEnumerator>
+  nameWithType: Task<IPairEnumerator>
+  fullName: System.Threading.Tasks.Task<Sdl.Core.FineGrainedAlignment.IPairEnumerator>
+  nameWithType.vb: Task(Of IPairEnumerator)
+  fullName.vb: System.Threading.Tasks.Task(Of Sdl.Core.FineGrainedAlignment.IPairEnumerator)
+  name.vb: Task(Of IPairEnumerator)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Sdl.Core.FineGrainedAlignment.IPairEnumerator
+    name: IPairEnumerator
+    isExternal: true
+    href: Sdl.Core.FineGrainedAlignment.IPairEnumerator.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Core.FineGrainedAlignment.IPairEnumerator
+    name: IPairEnumerator
+    isExternal: true
+    href: Sdl.Core.FineGrainedAlignment.IPairEnumerator.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignerDefinitionAsync*
+  commentId: Overload:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignerDefinitionAsync
+  isExternal: true
+  href: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.html#Sdl_Core_FineGrainedAlignment_IAlignableCorpusAsync_GetAlignerDefinitionAsync
+  name: GetAlignerDefinitionAsync
+  nameWithType: IAlignableCorpusAsync.GetAlignerDefinitionAsync
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignerDefinitionAsync
+- uid: System.Threading.Tasks.Task{Sdl.Core.FineGrainedAlignment.AlignerDefinition}
+  commentId: T:System.Threading.Tasks.Task{Sdl.Core.FineGrainedAlignment.AlignerDefinition}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<AlignerDefinition>
+  nameWithType: Task<AlignerDefinition>
+  fullName: System.Threading.Tasks.Task<Sdl.Core.FineGrainedAlignment.AlignerDefinition>
+  nameWithType.vb: Task(Of AlignerDefinition)
+  fullName.vb: System.Threading.Tasks.Task(Of Sdl.Core.FineGrainedAlignment.AlignerDefinition)
+  name.vb: Task(Of AlignerDefinition)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Sdl.Core.FineGrainedAlignment.AlignerDefinition
+    name: AlignerDefinition
+    isExternal: true
+    href: Sdl.Core.FineGrainedAlignment.AlignerDefinition.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Core.FineGrainedAlignment.AlignerDefinition
+    name: AlignerDefinition
+    isExternal: true
+    href: Sdl.Core.FineGrainedAlignment.AlignerDefinition.html
+  - name: )
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignedPredatedContentPairCountAsync*
+  commentId: Overload:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignedPredatedContentPairCountAsync
+  isExternal: true
+  href: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.html#Sdl_Core_FineGrainedAlignment_IAlignableCorpusAsync_GetAlignedPredatedContentPairCountAsync_System_DateTime_
+  name: GetAlignedPredatedContentPairCountAsync
+  nameWithType: IAlignableCorpusAsync.GetAlignedPredatedContentPairCountAsync
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetAlignedPredatedContentPairCountAsync
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetUnalignedCountAsync*
+  commentId: Overload:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetUnalignedCountAsync
+  isExternal: true
+  href: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.html#Sdl_Core_FineGrainedAlignment_IAlignableCorpusAsync_GetUnalignedCountAsync_System_Nullable_System_DateTime__
+  name: GetUnalignedCountAsync
+  nameWithType: IAlignableCorpusAsync.GetUnalignedCountAsync
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetUnalignedCountAsync
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPostdatedContentPairCountAsync*
+  commentId: Overload:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPostdatedContentPairCountAsync
+  isExternal: true
+  href: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.html#Sdl_Core_FineGrainedAlignment_IAlignableCorpusAsync_GetPostdatedContentPairCountAsync_System_DateTime_
+  name: GetPostdatedContentPairCountAsync
+  nameWithType: IAlignableCorpusAsync.GetPostdatedContentPairCountAsync
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPostdatedContentPairCountAsync
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairCountAsync*
+  commentId: Overload:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairCountAsync
+  isExternal: true
+  href: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.html#Sdl_Core_FineGrainedAlignment_IAlignableCorpusAsync_GetPairCountAsync
+  name: GetPairCountAsync
+  nameWithType: IAlignableCorpusAsync.GetPairCountAsync
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.GetPairCountAsync
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.Id*
+  commentId: Overload:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.Id
+  isExternal: true
+  href: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.html#Sdl_Core_FineGrainedAlignment_IAlignableCorpusAsync_Id
+  name: Id
+  nameWithType: IAlignableCorpusAsync.Id
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.Id
+- uid: Sdl.Core.FineGrainedAlignment.AlignableCorpusId
+  commentId: T:Sdl.Core.FineGrainedAlignment.AlignableCorpusId
+  parent: Sdl.Core.FineGrainedAlignment
+  isExternal: true
+  href: Sdl.Core.FineGrainedAlignment.AlignableCorpusId.html
+  name: AlignableCorpusId
+  nameWithType: AlignableCorpusId
+  fullName: Sdl.Core.FineGrainedAlignment.AlignableCorpusId
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.SourceCulture*
+  commentId: Overload:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.SourceCulture
+  isExternal: true
+  href: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.html#Sdl_Core_FineGrainedAlignment_IAlignableCorpusAsync_SourceCulture
+  name: SourceCulture
+  nameWithType: IAlignableCorpusAsync.SourceCulture
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.SourceCulture
+- uid: Sdl.Core.Globalization.CultureCode
+  commentId: T:Sdl.Core.Globalization.CultureCode
+  parent: Sdl.Core.Globalization
+  isExternal: true
+  name: CultureCode
+  nameWithType: CultureCode
+  fullName: Sdl.Core.Globalization.CultureCode
+- uid: Sdl.Core.Globalization
+  commentId: N:Sdl.Core.Globalization
+  isExternal: true
+  name: Sdl.Core.Globalization
+  nameWithType: Sdl.Core.Globalization
+  fullName: Sdl.Core.Globalization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+  - name: .
+  - uid: Sdl.Core.Globalization
+    name: Globalization
+    isExternal: true
+- uid: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.TargetCulture*
+  commentId: Overload:Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.TargetCulture
+  isExternal: true
+  href: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.html#Sdl_Core_FineGrainedAlignment_IAlignableCorpusAsync_TargetCulture
+  name: TargetCulture
+  nameWithType: IAlignableCorpusAsync.TargetCulture
+  fullName: Sdl.Core.FineGrainedAlignment.IAlignableCorpusAsync.TargetCulture

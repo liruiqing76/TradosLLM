@@ -1,0 +1,305 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager
+  commentId: T:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager
+  id: ITerminologyProviderManager
+  parent: Sdl.Terminology.TerminologyProvider.Core
+  children:
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.CreateTermbaseAsync(Sdl.Terminology.TerminologyProvider.Core.CreateTermbaseRequest)
+  - Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.GetTerminologyProvider(System.Uri)
+  langs:
+  - csharp
+  - vb
+  name: ITerminologyProviderManager
+  nameWithType: ITerminologyProviderManager
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager
+  type: Interface
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: This interface represents a mechanism responsible for creating and getting available terminology providers
+  example: []
+  syntax:
+    content: 'public interface ITerminologyProviderManager : IDisposable'
+    content.vb: Public Interface ITerminologyProviderManager Inherits IDisposable
+  derivedClasses:
+  - Sdl.Terminology.TerminologyProvider.Core.TerminologyProviderManager
+  inheritedMembers:
+  - System.IDisposable.Dispose
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.GetTerminologyProvider(System.Uri)
+  commentId: M:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.GetTerminologyProvider(System.Uri)
+  id: GetTerminologyProvider(System.Uri)
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager
+  langs:
+  - csharp
+  - vb
+  name: GetTerminologyProvider(Uri)
+  nameWithType: ITerminologyProviderManager.GetTerminologyProvider(Uri)
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.GetTerminologyProvider(System.Uri)
+  type: Method
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Get an instance of a terminology provider, specified by its uri.
+  example: []
+  syntax:
+    content: ITerminologyProvider GetTerminologyProvider(Uri uri)
+    parameters:
+    - id: uri
+      type: System.Uri
+      description: The Uri address of the terminology provider.
+    return:
+      type: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider
+      description: The terminology provider instance.
+    content.vb: Function GetTerminologyProvider(uri As Uri) As ITerminologyProvider
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.GetTerminologyProvider*
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.CreateTermbaseAsync(Sdl.Terminology.TerminologyProvider.Core.CreateTermbaseRequest)
+  commentId: M:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.CreateTermbaseAsync(Sdl.Terminology.TerminologyProvider.Core.CreateTermbaseRequest)
+  id: CreateTermbaseAsync(Sdl.Terminology.TerminologyProvider.Core.CreateTermbaseRequest)
+  parent: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager
+  langs:
+  - csharp
+  - vb
+  name: CreateTermbaseAsync(CreateTermbaseRequest)
+  nameWithType: ITerminologyProviderManager.CreateTermbaseAsync(CreateTermbaseRequest)
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.CreateTermbaseAsync(Sdl.Terminology.TerminologyProvider.Core.CreateTermbaseRequest)
+  type: Method
+  assemblies:
+  - Sdl.Terminology.TerminologyProvider.Core
+  namespace: Sdl.Terminology.TerminologyProvider.Core
+  summary: Creates a new termbase using the specified request parameters.
+  example: []
+  syntax:
+    content: Task<OperationResult> CreateTermbaseAsync(CreateTermbaseRequest request)
+    parameters:
+    - id: request
+      type: Sdl.Terminology.TerminologyProvider.Core.CreateTermbaseRequest
+      description: The request containing details for the termbase to create.
+    return:
+      type: System.Threading.Tasks.Task{Sdl.Terminology.TerminologyProvider.Core.OperationResult}
+      description: A result object containing information about the created termbase.
+    content.vb: Function CreateTermbaseAsync(request As CreateTermbaseRequest) As Task(Of OperationResult)
+  overload: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.CreateTermbaseAsync*
+references:
+- uid: Sdl.Terminology.TerminologyProvider.Core
+  commentId: N:Sdl.Terminology.TerminologyProvider.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Terminology.TerminologyProvider.Core
+  nameWithType: Sdl.Terminology.TerminologyProvider.Core
+  fullName: Sdl.Terminology.TerminologyProvider.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Terminology
+    name: Terminology
+    isExternal: true
+    href: Sdl.Terminology.html
+  - name: .
+  - uid: Sdl.Terminology.TerminologyProvider
+    name: TerminologyProvider
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.html
+  - name: .
+  - uid: Sdl.Terminology.TerminologyProvider.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Terminology
+    name: Terminology
+    isExternal: true
+    href: Sdl.Terminology.html
+  - name: .
+  - uid: Sdl.Terminology.TerminologyProvider
+    name: TerminologyProvider
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.html
+  - name: .
+  - uid: Sdl.Terminology.TerminologyProvider.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.Core.html
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.GetTerminologyProvider*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.GetTerminologyProvider
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderManager_GetTerminologyProvider_System_Uri_
+  name: GetTerminologyProvider
+  nameWithType: ITerminologyProviderManager.GetTerminologyProvider
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.GetTerminologyProvider
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider
+  commentId: T:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider
+  parent: Sdl.Terminology.TerminologyProvider.Core
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider.html
+  name: ITerminologyProvider
+  nameWithType: ITerminologyProvider
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProvider
+- uid: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.CreateTermbaseAsync*
+  commentId: Overload:Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.CreateTermbaseAsync
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.html#Sdl_Terminology_TerminologyProvider_Core_ITerminologyProviderManager_CreateTermbaseAsync_Sdl_Terminology_TerminologyProvider_Core_CreateTermbaseRequest_
+  name: CreateTermbaseAsync
+  nameWithType: ITerminologyProviderManager.CreateTermbaseAsync
+  fullName: Sdl.Terminology.TerminologyProvider.Core.ITerminologyProviderManager.CreateTermbaseAsync
+- uid: Sdl.Terminology.TerminologyProvider.Core.CreateTermbaseRequest
+  commentId: T:Sdl.Terminology.TerminologyProvider.Core.CreateTermbaseRequest
+  parent: Sdl.Terminology.TerminologyProvider.Core
+  isExternal: true
+  href: Sdl.Terminology.TerminologyProvider.Core.CreateTermbaseRequest.html
+  name: CreateTermbaseRequest
+  nameWithType: CreateTermbaseRequest
+  fullName: Sdl.Terminology.TerminologyProvider.Core.CreateTermbaseRequest
+- uid: System.Threading.Tasks.Task{Sdl.Terminology.TerminologyProvider.Core.OperationResult}
+  commentId: T:System.Threading.Tasks.Task{Sdl.Terminology.TerminologyProvider.Core.OperationResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<OperationResult>
+  nameWithType: Task<OperationResult>
+  fullName: System.Threading.Tasks.Task<Sdl.Terminology.TerminologyProvider.Core.OperationResult>
+  nameWithType.vb: Task(Of OperationResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Sdl.Terminology.TerminologyProvider.Core.OperationResult)
+  name.vb: Task(Of OperationResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Sdl.Terminology.TerminologyProvider.Core.OperationResult
+    name: OperationResult
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.Core.OperationResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Terminology.TerminologyProvider.Core.OperationResult
+    name: OperationResult
+    isExternal: true
+    href: Sdl.Terminology.TerminologyProvider.Core.OperationResult.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

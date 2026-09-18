@@ -1,0 +1,366 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser
+  id: IBilingualParser
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  children:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.DocumentProperties
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.Output
+  langs:
+  - csharp
+  - vb
+  name: IBilingualParser
+  nameWithType: IBilingualParser
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: >-
+    Interface implemented by components that can read
+
+    bilingual data from an external source.
+  remarks: >-
+    <p>
+
+    The <xref href="Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent" data-throw-if-not-resolved="false"></xref> implementation is used to get hold 
+
+    of the item and property object factories needed to build the 
+
+    bilingual content model objects that are required to generate output from the parser.
+
+    </p>
+
+    <p>
+
+    If a bilingual parser already has existing instances of the factories, these will be
+
+    used by all the framework components.
+
+    </p>
+
+    <p>
+
+    Parsers for full intermediate bilingual file formats such as SDL XLIFF should implement
+
+    <xref href="Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualDocumentParser" data-throw-if-not-resolved="false"></xref>.
+
+    </p>
+  example: []
+  syntax:
+    content: 'public interface IBilingualParser : IParser, IDisposable, IBilingualFileTypeComponent'
+    content.vb: Public Interface IBilingualParser Inherits IParser, IDisposable, IBilingualFileTypeComponent
+  derivedClasses:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.AbstractBilingualParser
+  inheritedMembers:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IParser.ParseNext
+  - Sdl.FileTypeSupport.Framework.NativeApi.IParser.Progress
+  - System.IDisposable.Dispose
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent.ItemFactory
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent.MessageReporter
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.DocumentProperties
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.DocumentProperties
+  id: DocumentProperties
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser
+  langs:
+  - csharp
+  - vb
+  name: DocumentProperties
+  nameWithType: IBilingualParser.DocumentProperties
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.DocumentProperties
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: >-
+    This property is set by the framework before parsing commences.
+
+    The instance provided through this property should be initialized
+
+    and used by the bilingual parser for the Initialize() call on the
+
+    bilingual content processor <xref href="Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.Output" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: IDocumentProperties DocumentProperties { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties
+    content.vb: Property DocumentProperties As IDocumentProperties
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.DocumentProperties*
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.Output
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.Output
+  id: Output
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser
+  langs:
+  - csharp
+  - vb
+  name: Output
+  nameWithType: IBilingualParser.Output
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.Output
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: >-
+    This property is set by the framework during initialization of the
+
+    bilingual parser. The parser should build bilingual content model objects,
+
+    and call methods on this interface as appropriate to generate the output.
+  example: []
+  syntax:
+    content: IBilingualContentHandler Output { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler
+    content.vb: Property Output As IBilingualContentHandler
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.Output*
+references:
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent.html
+  name: IBilingualFileTypeComponent
+  nameWithType: IBilingualFileTypeComponent
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualDocumentParser
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualDocumentParser
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualDocumentParser.html
+  name: IBilingualDocumentParser
+  nameWithType: IBilingualDocumentParser
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualDocumentParser
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi
+  commentId: N:Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.BilingualApi
+  nameWithType: Sdl.FileTypeSupport.Framework.BilingualApi
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParser.ParseNext
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IParser.ParseNext
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IParser
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IParser.html#Sdl_FileTypeSupport_Framework_NativeApi_IParser_ParseNext
+  name: ParseNext()
+  nameWithType: IParser.ParseNext()
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParser.ParseNext()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IParser.ParseNext
+    name: ParseNext
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IParser.html#Sdl_FileTypeSupport_Framework_NativeApi_IParser_ParseNext
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi.IParser.ParseNext
+    name: ParseNext
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.IParser.html#Sdl_FileTypeSupport_Framework_NativeApi_IParser_ParseNext
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParser.Progress
+  commentId: E:Sdl.FileTypeSupport.Framework.NativeApi.IParser.Progress
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IParser
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IParser.html#Sdl_FileTypeSupport_Framework_NativeApi_IParser_Progress
+  name: Progress
+  nameWithType: IParser.Progress
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParser.Progress
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent.ItemFactory
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent.ItemFactory
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualFileTypeComponent_ItemFactory
+  name: ItemFactory
+  nameWithType: IBilingualFileTypeComponent.ItemFactory
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent.ItemFactory
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent.MessageReporter
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent.MessageReporter
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualFileTypeComponent_MessageReporter
+  name: MessageReporter
+  nameWithType: IBilingualFileTypeComponent.MessageReporter
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualFileTypeComponent.MessageReporter
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParser
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IParser
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IParser.html
+  name: IParser
+  nameWithType: IParser
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParser
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.Output
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.Output
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualParser_Output
+  name: Output
+  nameWithType: IBilingualParser.Output
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.Output
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.DocumentProperties*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.DocumentProperties
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualParser_DocumentProperties
+  name: DocumentProperties
+  nameWithType: IBilingualParser.DocumentProperties
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.DocumentProperties
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties.html
+  name: IDocumentProperties
+  nameWithType: IDocumentProperties
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IDocumentProperties
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.html
+  name: IBilingualParser
+  nameWithType: IBilingualParser
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.Output*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.Output
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.html#Sdl_FileTypeSupport_Framework_BilingualApi_IBilingualParser_Output
+  name: Output
+  nameWithType: IBilingualParser.Output
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualParser.Output
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler.html
+  name: IBilingualContentHandler
+  nameWithType: IBilingualContentHandler
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IBilingualContentHandler

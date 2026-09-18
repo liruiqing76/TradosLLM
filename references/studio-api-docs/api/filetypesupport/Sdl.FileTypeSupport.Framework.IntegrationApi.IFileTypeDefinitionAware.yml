@@ -1,0 +1,161 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  id: IFileTypeDefinitionAware
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  children:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  langs:
+  - csharp
+  - vb
+  name: IFileTypeDefinitionAware
+  nameWithType: IFileTypeDefinitionAware
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    This interface is implemented by components that are instantiated
+
+    through a file type definition. The framework sets the <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition" data-throw-if-not-resolved="false"></xref>
+
+    property when a component is instantiated using a file type definition.
+  remarks: >-
+    <p>
+
+    API clients can use this interface to determine which file type definition
+
+    (if any) was used to instantiate a specific component.
+
+    </p>
+  example: []
+  syntax:
+    content: public interface IFileTypeDefinitionAware
+    content.vb: Public Interface IFileTypeDefinitionAware
+  derivedClasses:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractSingleFileRefreshablePreviewController
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.DynamicFilterComponentBuilder
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator
+  - Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  - Sdl.FileTypeSupport.Framework.PreviewControls.GenericExteralPreviewApplication
+  - Sdl.FileTypeSupport.Framework.PreviewControls.GenericInternalWebBrowserPreviewControl
+  - Sdl.FileTypeSupport.Framework.PreviewControls.GenericSideBySideWebBrowserPreviewControl
+  - Sdl.FileTypeSupport.Framework.PreviewControls.MsOfficeExternalPreviewApplication
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideRealtimeWebBrowserPreviewController
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  id: FileTypeDefinition
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  langs:
+  - csharp
+  - vb
+  name: FileTypeDefinition
+  nameWithType: IFileTypeDefinitionAware.FileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    The framework sets this property for components that are
+
+    instantiated from a file type definition.
+  remarks: >-
+    <p>
+
+    This property may be <code>null</code>, e.g. if the 
+
+    component is not instantiated from a file type definition.
+
+    </p>
+  example: []
+  syntax:
+    content: IFileTypeDefinition FileTypeDefinition { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition
+    content.vb: Property FileTypeDefinition As IFileTypeDefinition
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition*
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeDefinitionAware_FileTypeDefinition
+  name: FileTypeDefinition
+  nameWithType: IFileTypeDefinitionAware.FileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.html
+  name: IFileTypeDefinitionAware
+  nameWithType: IFileTypeDefinitionAware
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeDefinitionAware_FileTypeDefinition
+  name: FileTypeDefinition
+  nameWithType: IFileTypeDefinitionAware.FileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition.html
+  name: IFileTypeDefinition
+  nameWithType: IFileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition

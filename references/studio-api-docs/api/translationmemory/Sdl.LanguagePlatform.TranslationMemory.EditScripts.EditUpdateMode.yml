@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode
+  id: EditUpdateMode
+  parent: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode.AddTranslationUnit
+  - Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode.UpdateTranslationUnit
+  langs:
+  - csharp
+  - vb
+  name: EditUpdateMode
+  nameWithType: EditUpdateMode
+  fullName: Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  summary: >-
+    Enumerates the ways how a translation unit that has been changed by an edit script should 
+
+    be updated in the TM.
+  example: []
+  syntax:
+    content: public enum EditUpdateMode
+    content.vb: Public Enum EditUpdateMode
+- uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode.UpdateTranslationUnit
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode.UpdateTranslationUnit
+  id: UpdateTranslationUnit
+  parent: Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode
+  langs:
+  - csharp
+  - vb
+  name: UpdateTranslationUnit
+  nameWithType: EditUpdateMode.UpdateTranslationUnit
+  fullName: Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode.UpdateTranslationUnit
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  summary: The translation unit should be updated (overwritten). The original translation unit will be lost.
+  example: []
+  syntax:
+    content: UpdateTranslationUnit = 0
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode
+- uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode.AddTranslationUnit
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode.AddTranslationUnit
+  id: AddTranslationUnit
+  parent: Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode
+  langs:
+  - csharp
+  - vb
+  name: AddTranslationUnit
+  nameWithType: EditUpdateMode.AddTranslationUnit
+  fullName: Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode.AddTranslationUnit
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  summary: >-
+    The edited translation unit will be added to the TM, which will then contain both the original
+
+    translation unit as well as the edited one (unless there are duplicates).
+  example: []
+  syntax:
+    content: AddTranslationUnit = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  fullName: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+    name: EditScripts
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.EditScripts.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+    name: EditScripts
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.EditScripts.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode
+  parent: Sdl.LanguagePlatform.TranslationMemory.EditScripts
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode.html
+  name: EditUpdateMode
+  nameWithType: EditUpdateMode
+  fullName: Sdl.LanguagePlatform.TranslationMemory.EditScripts.EditUpdateMode

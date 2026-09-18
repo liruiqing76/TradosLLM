@@ -1,0 +1,3281 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  commentId: T:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  id: IAbstractFrameworkEditControl
+  parent: Sdl.DesktopEditor.EditorApi
+  children:
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelectionInternal(System.Boolean)
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Document
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.EditControlDisplaySettings
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.FindCustomColumnAtPoint(System.Drawing.Point)
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Font
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideHideableTags
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideRows(System.Collections.Generic.IList{System.Int32})
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsRedoCommandSource
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsUndoCommandSource
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ReplaceSelection(Sdl.DesktopEditor.EditorApi.IDocumentFragment)
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.RestoreGhostTagsInSelection
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ShowRows(System.Collections.Generic.IList{System.Int32})
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.SuppressFormatting
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.TagDisplayMode
+  - Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ToolTipContentDelegate
+  langs:
+  - csharp
+  - vb
+  name: IAbstractFrameworkEditControl
+  nameWithType: IAbstractFrameworkEditControl
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  type: Interface
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    Base interface for filter framework specific edit controls such as the 
+
+    <xref href="Sdl.DesktopEditor.EditorApi.IFrameworkEditControl" data-throw-if-not-resolved="false"></xref> and the <xref href="Sdl.DesktopEditor.EditorApi.ISegmentEditControl" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface IAbstractFrameworkEditControl : IEditControl, IControl, IDisposable'
+    content.vb: Public Interface IAbstractFrameworkEditControl Inherits IEditControl, IControl, IDisposable
+  inheritedMembers:
+  - Sdl.DesktopEditor.EditorApi.IEditControl.AddColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn,Sdl.DesktopEditor.EditorApi.CustomColumnLocation)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.RemoveColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.Redraw
+  - Sdl.DesktopEditor.EditorApi.IEditControl.Refresh
+  - Sdl.DesktopEditor.EditorApi.IEditControl.DeleteSelection
+  - Sdl.DesktopEditor.EditorApi.IEditControl.Undo
+  - Sdl.DesktopEditor.EditorApi.IEditControl.UndoMultiple(System.Int64)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.Redo
+  - Sdl.DesktopEditor.EditorApi.IEditControl.RedoMultiple(System.Int64)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestLocation(Sdl.DesktopEditor.EditorApi.Position)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestPosition(System.Drawing.Point)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestVisiblePosition(Sdl.DesktopEditor.EditorApi.Position)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.IsWordStart(Sdl.DesktopEditor.EditorApi.Position)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.CreateTextIterator(Sdl.DesktopEditor.EditorApi.Position)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ScrollIntoView(Sdl.DesktopEditor.EditorApi.Position)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ScrollIntoView(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ScrollToCenter(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.AutoScrollToRowPosition(Sdl.DesktopEditor.EditorApi.IRowInfo,Sdl.DesktopEditor.EditorApi.IRowInfo)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ScrollToRow(System.Int64,System.Int64)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.FindRow(Sdl.DesktopEditor.EditorApi.Position)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.IsRowVisible(System.Int32)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.GetVisibleRowsInRange(Sdl.DesktopEditor.EditorApi.ContentRange)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsVisibility(System.Predicate{Sdl.DesktopEditor.EditorApi.IRowInfo})
+  - Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsHighlighted(System.Collections.Generic.IList{System.Int32},System.Boolean)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.SelectRow(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.SelectRow(Sdl.DesktopEditor.EditorApi.IRowInfo,System.Boolean,System.Boolean)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.SelectRowRange(Sdl.DesktopEditor.EditorApi.IRowInfo,Sdl.DesktopEditor.EditorApi.IRowInfo)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ChangeNextRowSelection
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ChangePreviousRowSelection
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ClearRowSelection(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ClearAllRowSelections
+  - Sdl.DesktopEditor.EditorApi.IEditControl.HasSelectedRows
+  - Sdl.DesktopEditor.EditorApi.IEditControl.BeginSelectedRowOperation
+  - Sdl.DesktopEditor.EditorApi.IEditControl.EndSelectedRowOperation
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ChangeFocusedRowSelection
+  - Sdl.DesktopEditor.EditorApi.IEditControl.FocusNextRow
+  - Sdl.DesktopEditor.EditorApi.IEditControl.FocusPreviousRow
+  - Sdl.DesktopEditor.EditorApi.IEditControl.CanCopySelectionToClipboard
+  - Sdl.DesktopEditor.EditorApi.IEditControl.CanCutSelectionToClipboard
+  - Sdl.DesktopEditor.EditorApi.IEditControl.CanPasteClipboardToDocument
+  - Sdl.DesktopEditor.EditorApi.IEditControl.CopySelectionToClipboard
+  - Sdl.DesktopEditor.EditorApi.IEditControl.CutSelectionToClipboard
+  - Sdl.DesktopEditor.EditorApi.IEditControl.PasteClipboardToDocument
+  - Sdl.DesktopEditor.EditorApi.IEditControl.AddTextMark(Sdl.DesktopEditor.EditorApi.ContentRange,Sdl.DesktopEditor.EditorApi.TextMarkLayer,Sdl.DesktopEditor.EditorApi.ITextMarkPainter)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.NotifyTextMarkChanged(Sdl.DesktopEditor.EditorApi.ITextMark)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.RemoveTextMark(Sdl.DesktopEditor.EditorApi.ITextMark)
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ClearTextMarks
+  - Sdl.DesktopEditor.EditorApi.IEditControl.AddActiveRowToSelected
+  - Sdl.DesktopEditor.EditorApi.IEditControl.IsInitialUpdateCompleted
+  - Sdl.DesktopEditor.EditorApi.IEditControl.AutoUpdate
+  - Sdl.DesktopEditor.EditorApi.IEditControl.IsReadOnly
+  - Sdl.DesktopEditor.EditorApi.IEditControl.AcceptsReturn
+  - Sdl.DesktopEditor.EditorApi.IEditControl.AcceptsTab
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ShowWhitespaceCharacters
+  - Sdl.DesktopEditor.EditorApi.IEditControl.HideFileTags
+  - Sdl.DesktopEditor.EditorApi.IEditControl.SmartPasteAdjustingSpaces
+  - Sdl.DesktopEditor.EditorApi.IEditControl.IsOverwriteModeEnabled
+  - Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedBackColor
+  - Sdl.DesktopEditor.EditorApi.IEditControl.HighlightActiveRow
+  - Sdl.DesktopEditor.EditorApi.IEditControl.SelectedBackColor
+  - Sdl.DesktopEditor.EditorApi.IEditControl.Selection
+  - Sdl.DesktopEditor.EditorApi.IEditControl.TagPainter
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ContentHeight
+  - Sdl.DesktopEditor.EditorApi.IEditControl.VerticalScrollOffset
+  - Sdl.DesktopEditor.EditorApi.IEditControl.TopmostVisibleRowNumber
+  - Sdl.DesktopEditor.EditorApi.IEditControl.TopmostVisibleRowScrollOffset
+  - Sdl.DesktopEditor.EditorApi.IEditControl.TextMarks
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ColumnsLeft
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ColumnsRight
+  - Sdl.DesktopEditor.EditorApi.IEditControl.Rows
+  - Sdl.DesktopEditor.EditorApi.IEditControl.VisibleRows
+  - Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedRows
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ActiveRow
+  - Sdl.DesktopEditor.EditorApi.IEditControl.SelectedRows
+  - Sdl.DesktopEditor.EditorApi.IEditControl.AfterInitialUpdate
+  - Sdl.DesktopEditor.EditorApi.IEditControl.SelectionChanged
+  - Sdl.DesktopEditor.EditorApi.IEditControl.SelectionWasDeleted
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ContentHeightChanged
+  - Sdl.DesktopEditor.EditorApi.IEditControl.MouseEnteringNode
+  - Sdl.DesktopEditor.EditorApi.IEditControl.MouseLeavingNode
+  - Sdl.DesktopEditor.EditorApi.IEditControl.MouseEnteringTextMarks
+  - Sdl.DesktopEditor.EditorApi.IEditControl.MouseLeavingTextMarks
+  - Sdl.DesktopEditor.EditorApi.IEditControl.VScroll
+  - Sdl.DesktopEditor.EditorApi.IEditControl.PersistentScrollInfoChanged
+  - Sdl.DesktopEditor.EditorApi.IEditControl.ActiveRowChanged
+  - Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedRowsChanged
+  - Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedRowChanged
+  - Sdl.DesktopEditor.EditorApi.IEditControl.SelectedRowChanged
+  - Sdl.DesktopEditor.EditorApi.IEditControl.AllSelectedRowsCleared
+  - Sdl.DesktopEditor.EditorApi.IEditControl.RowBackColorChanged
+  - Sdl.DesktopEditor.EditorApi.IEditControl.RowStructureChanged
+  - Sdl.DesktopEditor.EditorApi.IEditControl.BeginSelectedRowOperationChanged
+  - Sdl.DesktopEditor.EditorApi.IEditControl.EndSelectedRowOperationChanged
+  - Sdl.DesktopEditor.EditorApi.IEditControl.OverwriteModeChanged
+  - Sdl.DesktopEditor.EditorApi.IEditControl.IMEStartComposition
+  - Sdl.DesktopEditor.EditorApi.IEditControl.IMECompositionChanged
+  - Sdl.DesktopEditor.EditorApi.IEditControl.IMEEndComposition
+  - Sdl.DesktopEditor.EditorApi.IEditControl.SourceEditingModeEnded
+  - Sdl.DesktopEditor.EditorApi.IControl.Control
+  - System.IDisposable.Dispose
+  extensionMethods:
+  - System.Object.Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Action{System.Windows.Window})
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection
+  commentId: M:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection
+  id: CopySelection
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: CopySelection()
+  nameWithType: IAbstractFrameworkEditControl.CopySelection()
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection()
+  type: Method
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    Filter framework specific version of <xref href="Sdl.DesktopEditor.EditorApi.IEditControl.CopySelection" data-throw-if-not-resolved="false"></xref> that
+
+    returns a filter framework specific document fragment.
+  remarks: >-
+    <p>
+
+    May throw <code>Sdl.DesktopEditor.EditorApi.EditExeption</code> if the selection cannot be copied (e.g. if it contains
+
+    non-framework nodes or non-cloneable nodes such as Paragraph Units or Files).
+
+    </p>
+  example: []
+  syntax:
+    content: IDocumentFragment CopySelection()
+    return:
+      type: Sdl.DesktopEditor.EditorApi.IDocumentFragment
+      description: A document fragment containing a changeable copy of the current selection.
+    content.vb: Function CopySelection() As IDocumentFragment
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection*
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelectionInternal(System.Boolean)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelectionInternal(System.Boolean)
+  id: CopySelectionInternal(System.Boolean)
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: CopySelectionInternal(bool)
+  nameWithType: IAbstractFrameworkEditControl.CopySelectionInternal(bool)
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelectionInternal(bool)
+  type: Method
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Returns the document selection, allowing pre-extending it to include the revision marker.
+  example: []
+  syntax:
+    content: IDocumentFragment CopySelectionInternal(bool extendToIncludeRevision)
+    parameters:
+    - id: extendToIncludeRevision
+      type: System.Boolean
+    return:
+      type: Sdl.DesktopEditor.EditorApi.IDocumentFragment
+    content.vb: Function CopySelectionInternal(extendToIncludeRevision As Boolean) As IDocumentFragment
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelectionInternal*
+  nameWithType.vb: IAbstractFrameworkEditControl.CopySelectionInternal(Boolean)
+  fullName.vb: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelectionInternal(Boolean)
+  name.vb: CopySelectionInternal(Boolean)
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ReplaceSelection(Sdl.DesktopEditor.EditorApi.IDocumentFragment)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ReplaceSelection(Sdl.DesktopEditor.EditorApi.IDocumentFragment)
+  id: ReplaceSelection(Sdl.DesktopEditor.EditorApi.IDocumentFragment)
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: ReplaceSelection(IDocumentFragment)
+  nameWithType: IAbstractFrameworkEditControl.ReplaceSelection(IDocumentFragment)
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ReplaceSelection(Sdl.DesktopEditor.EditorApi.IDocumentFragment)
+  type: Method
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Replace the current selection with the content of a filter framework specific document fragment.
+  example: []
+  syntax:
+    content: void ReplaceSelection(IDocumentFragment newContent)
+    parameters:
+    - id: newContent
+      type: Sdl.DesktopEditor.EditorApi.IDocumentFragment
+      description: >-
+        The document fragment containing the content that will be used to replace
+                    the current selection. This document fragment can be obtained from multiple locations, including:
+                    <xref href="Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection" data-throw-if-not-resolved="false"></xref> and <xref href="Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument.CreateDocumentFragment" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Sub ReplaceSelection(newContent As IDocumentFragment)
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ReplaceSelection*
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ShowRows(System.Collections.Generic.IList{System.Int32})
+  commentId: M:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ShowRows(System.Collections.Generic.IList{System.Int32})
+  id: ShowRows(System.Collections.Generic.IList{System.Int32})
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: ShowRows(IList<int>)
+  nameWithType: IAbstractFrameworkEditControl.ShowRows(IList<int>)
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ShowRows(System.Collections.Generic.IList<int>)
+  type: Method
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    Adds the rows matching the provided row numbers to the layout and displays them in the edit control.
+
+    This method will refresh the edit control and cause a full layout to be performed 
+
+    in order to display the rows properly.
+  remarks: >-
+    <p>
+
+    This method should only be used when specific rows in this edit control need to be displayed, no other edit
+
+    control will be updated with these changes (for example, it will produce strange results in the SideBySideEditor).
+
+    In most situations <xref href="Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsVisibility(System.Predicate%7bSdl.DesktopEditor.EditorApi.IRowInfo%7d)" data-throw-if-not-resolved="false"></xref> should be used instead.
+
+    </p>
+  example: []
+  syntax:
+    content: void ShowRows(IList<int> rowNumbers)
+    parameters:
+    - id: rowNumbers
+      type: System.Collections.Generic.IList{System.Int32}
+      description: The list of row numbers that should be shown.
+    content.vb: Sub ShowRows(rowNumbers As IList(Of Integer))
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ShowRows*
+  nameWithType.vb: IAbstractFrameworkEditControl.ShowRows(IList(Of Integer))
+  fullName.vb: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ShowRows(System.Collections.Generic.IList(Of Integer))
+  name.vb: ShowRows(IList(Of Integer))
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideRows(System.Collections.Generic.IList{System.Int32})
+  commentId: M:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideRows(System.Collections.Generic.IList{System.Int32})
+  id: HideRows(System.Collections.Generic.IList{System.Int32})
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: HideRows(IList<int>)
+  nameWithType: IAbstractFrameworkEditControl.HideRows(IList<int>)
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideRows(System.Collections.Generic.IList<int>)
+  type: Method
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    Removes the rows matching the provided row numbers from the layout and hides them in the edit control.
+
+    This method will refresh the edit control and cause a fill layout to be performed
+
+    in order to remove the rows properly.
+  remarks: >-
+    <p>
+
+    This method should only be used when specific rows in this edit control need to be hidden, no other edit
+
+    control will be updated with these changes (for example, it will produce strange results in the SideBySideEditor).
+
+    In most situations <xref href="Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsVisibility(System.Predicate%7bSdl.DesktopEditor.EditorApi.IRowInfo%7d)" data-throw-if-not-resolved="false"></xref> should be used instead.
+
+    </p>
+  example: []
+  syntax:
+    content: void HideRows(IList<int> rowNumbers)
+    parameters:
+    - id: rowNumbers
+      type: System.Collections.Generic.IList{System.Int32}
+      description: The list of row numbers that should be hidden.
+    content.vb: Sub HideRows(rowNumbers As IList(Of Integer))
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideRows*
+  nameWithType.vb: IAbstractFrameworkEditControl.HideRows(IList(Of Integer))
+  fullName.vb: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideRows(System.Collections.Generic.IList(Of Integer))
+  name.vb: HideRows(IList(Of Integer))
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.RestoreGhostTagsInSelection
+  commentId: M:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.RestoreGhostTagsInSelection
+  id: RestoreGhostTagsInSelection
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: RestoreGhostTagsInSelection()
+  nameWithType: IAbstractFrameworkEditControl.RestoreGhostTagsInSelection()
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.RestoreGhostTagsInSelection()
+  type: Method
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Restores any ghost tags in the current selection to normal tags.
+  example: []
+  syntax:
+    content: void RestoreGhostTagsInSelection()
+    content.vb: Sub RestoreGhostTagsInSelection()
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.RestoreGhostTagsInSelection*
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.FindCustomColumnAtPoint(System.Drawing.Point)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.FindCustomColumnAtPoint(System.Drawing.Point)
+  id: FindCustomColumnAtPoint(System.Drawing.Point)
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: FindCustomColumnAtPoint(Point)
+  nameWithType: IAbstractFrameworkEditControl.FindCustomColumnAtPoint(Point)
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.FindCustomColumnAtPoint(System.Drawing.Point)
+  type: Method
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    Finds the custom column located at the provided device point.  Returns <code>null</code> if there is no custom column
+
+    at that point.
+  example: []
+  syntax:
+    content: ICustomColumn FindCustomColumnAtPoint(Point screenPoint)
+    parameters:
+    - id: screenPoint
+      type: System.Drawing.Point
+      description: The device point to search for a custom column.
+    return:
+      type: Sdl.DesktopEditor.EditorApi.ICustomColumn
+      description: The custom column at that point or <code>null</code> if there is no column.
+    content.vb: Function FindCustomColumnAtPoint(screenPoint As Point) As ICustomColumn
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.FindCustomColumnAtPoint*
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsUndoCommandSource
+  commentId: M:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsUndoCommandSource
+  id: IsUndoCommandSource
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: IsUndoCommandSource()
+  nameWithType: IAbstractFrameworkEditControl.IsUndoCommandSource()
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsUndoCommandSource()
+  type: Method
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Used in SideBySide editor to determine which control to use
+  example: []
+  syntax:
+    content: bool IsUndoCommandSource()
+    return:
+      type: System.Boolean
+      description: True if the undo is to be performed in a source segment
+    content.vb: Function IsUndoCommandSource() As Boolean
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsUndoCommandSource*
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsRedoCommandSource
+  commentId: M:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsRedoCommandSource
+  id: IsRedoCommandSource
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: IsRedoCommandSource()
+  nameWithType: IAbstractFrameworkEditControl.IsRedoCommandSource()
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsRedoCommandSource()
+  type: Method
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Used in SideBySide editor to determine which control to use
+  example: []
+  syntax:
+    content: bool IsRedoCommandSource()
+    return:
+      type: System.Boolean
+      description: True if the redo is to be performed in a source segment
+    content.vb: Function IsRedoCommandSource() As Boolean
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsRedoCommandSource*
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Document
+  commentId: P:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Document
+  id: Document
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: Document
+  nameWithType: IAbstractFrameworkEditControl.Document
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Document
+  type: Property
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    The document containing the data shown in the edit control.
+
+    Setting this property completely re-formats the edit control.
+  example: []
+  syntax:
+    content: IAbstractFrameworkDocument Document { get; set; }
+    parameters: []
+    return:
+      type: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument
+    content.vb: Property Document As IAbstractFrameworkDocument
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Document*
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.SuppressFormatting
+  commentId: P:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.SuppressFormatting
+  id: SuppressFormatting
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: SuppressFormatting
+  nameWithType: IAbstractFrameworkEditControl.SuppressFormatting
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.SuppressFormatting
+  type: Property
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    When <code>true</code> all semi-WYSIWYG formatting information will be ignored
+
+    and all text in the control will be formatted using the default font and 
+
+    foreground color of the <xref href="Sdl.DesktopEditor.EditorApi.IControl.Control" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>
+
+    NOTE: It is important to set the <xref href="Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideHideableTags" data-throw-if-not-resolved="false"></xref> to <code>true</code>
+
+    if this setting is enabled, otherwise there will be no visual indication
+
+    to the presence of hidden tags, as the surrounding text will all have the
+
+    same formatting.
+
+    </p>
+
+    <p>
+
+    This setting is off by default.
+
+    </p>
+
+    <p>
+
+    Note that font fallback will still be in effect, which may cause a different
+
+    font to be used for characters that cannot be displayed using the default font.
+
+    </p>
+
+    <p>
+
+    Note that font adaptation settings will still take affect, causing the default
+
+    font to be adjusted according to the settings.
+
+    </p>
+  example: []
+  syntax:
+    content: bool SuppressFormatting { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property SuppressFormatting As Boolean
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.SuppressFormatting*
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.TagDisplayMode
+  commentId: P:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.TagDisplayMode
+  id: TagDisplayMode
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: TagDisplayMode
+  nameWithType: IAbstractFrameworkEditControl.TagDisplayMode
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.TagDisplayMode
+  type: Property
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    The tag display mode used for this entire edit control. This setting is used to determine
+
+    the text that should be displayed on tags in the control.
+  remarks: >-
+    <p>In a side-by-side edit control the <xref href="Sdl.DesktopEditor.EditorApi.ISideBySideEditor.TagDisplayMode" data-throw-if-not-resolved="false"></xref> changes
+
+    tag display for both source and target controls, while this property
+
+    can be used to set different modes for source and target.
+
+    </p>
+  example: []
+  syntax:
+    content: TagDisplayMode TagDisplayMode { get; set; }
+    parameters: []
+    return:
+      type: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+    content.vb: Property TagDisplayMode As TagDisplayMode
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.TagDisplayMode*
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideHideableTags
+  commentId: P:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideHideableTags
+  id: HideHideableTags
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: HideHideableTags
+  nameWithType: IAbstractFrameworkEditControl.HideHideableTags
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideHideableTags
+  type: Property
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    When <code>true</code> any tags with <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.CanHide" data-throw-if-not-resolved="false"></xref>
+
+    set to <code>true</code> will not be shown in the editor.
+  remarks: >-
+    <p>
+
+    Hidden tags can still be manipulated through normal editing operations 
+
+    in the surrounding text, so they may get accidentally deleted!
+
+    </p>
+  example: []
+  syntax:
+    content: bool HideHideableTags { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property HideHideableTags As Boolean
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideHideableTags*
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.EditControlDisplaySettings
+  commentId: P:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.EditControlDisplaySettings
+  id: EditControlDisplaySettings
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: EditControlDisplaySettings
+  nameWithType: IAbstractFrameworkEditControl.EditControlDisplaySettings
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.EditControlDisplaySettings
+  type: Property
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    The display settings that will be used when rendering the document in the edit control, mostly
+
+    involving display colors and formatting.  These settings are mainly intended for use when adjusting 
+
+    settings for users with disabilities.
+  example: []
+  syntax:
+    content: EditControlDisplaySettings EditControlDisplaySettings { get; }
+    parameters: []
+    return:
+      type: Sdl.DesktopEditor.EditorApi.Implementation.EditControlDisplaySettings
+    content.vb: ReadOnly Property EditControlDisplaySettings As EditControlDisplaySettings
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.EditControlDisplaySettings*
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Font
+  commentId: P:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Font
+  id: Font
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: Font
+  nameWithType: IAbstractFrameworkEditControl.Font
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Font
+  type: Property
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    The default font that will be used by the edit control to display text.
+
+    IMPORTANT: Setting this property to another value will result in a memory 
+
+    leak unless the font is managed externally and disposed of correctly when it 
+
+    is no longer required - the edit control does NOT take memory ownership of fonts set here.
+  example: []
+  syntax:
+    content: Font Font { get; set; }
+    parameters: []
+    return:
+      type: System.Drawing.Font
+    content.vb: Property Font As Font
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Font*
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ToolTipContentDelegate
+  commentId: P:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ToolTipContentDelegate
+  id: ToolTipContentDelegate
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  langs:
+  - csharp
+  - vb
+  name: ToolTipContentDelegate
+  nameWithType: IAbstractFrameworkEditControl.ToolTipContentDelegate
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ToolTipContentDelegate
+  type: Property
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The delegate that will be used to get the content for Match Repair tooltips
+  example: []
+  syntax:
+    content: Func<IAbstractContentNode, string> ToolTipContentDelegate { get; set; }
+    parameters: []
+    return:
+      type: System.Func{Sdl.DesktopEditor.EditorApi.IAbstractContentNode,System.String}
+    content.vb: Property ToolTipContentDelegate As Func(Of IAbstractContentNode, String)
+  overload: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ToolTipContentDelegate*
+references:
+- uid: Sdl.DesktopEditor.EditorApi.IFrameworkEditControl
+  commentId: T:Sdl.DesktopEditor.EditorApi.IFrameworkEditControl
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IFrameworkEditControl.html
+  name: IFrameworkEditControl
+  nameWithType: IFrameworkEditControl
+  fullName: Sdl.DesktopEditor.EditorApi.IFrameworkEditControl
+- uid: Sdl.DesktopEditor.EditorApi.ISegmentEditControl
+  commentId: T:Sdl.DesktopEditor.EditorApi.ISegmentEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ISegmentEditControl.html
+  name: ISegmentEditControl
+  nameWithType: ISegmentEditControl
+  fullName: Sdl.DesktopEditor.EditorApi.ISegmentEditControl
+- uid: Sdl.DesktopEditor.EditorApi
+  commentId: N:Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi
+  nameWithType: Sdl.DesktopEditor.EditorApi
+  fullName: Sdl.DesktopEditor.EditorApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.AddColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn,Sdl.DesktopEditor.EditorApi.CustomColumnLocation)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.AddColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn,Sdl.DesktopEditor.EditorApi.CustomColumnLocation)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AddColumn_Sdl_DesktopEditor_EditorApi_ICustomColumn_Sdl_DesktopEditor_EditorApi_CustomColumnLocation_
+  name: AddColumn(ICustomColumn, CustomColumnLocation)
+  nameWithType: IEditControl.AddColumn(ICustomColumn, CustomColumnLocation)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.AddColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn, Sdl.DesktopEditor.EditorApi.CustomColumnLocation)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.AddColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn,Sdl.DesktopEditor.EditorApi.CustomColumnLocation)
+    name: AddColumn
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AddColumn_Sdl_DesktopEditor_EditorApi_ICustomColumn_Sdl_DesktopEditor_EditorApi_CustomColumnLocation_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ICustomColumn
+    name: ICustomColumn
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ICustomColumn.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.CustomColumnLocation
+    name: CustomColumnLocation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.CustomColumnLocation.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.AddColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn,Sdl.DesktopEditor.EditorApi.CustomColumnLocation)
+    name: AddColumn
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AddColumn_Sdl_DesktopEditor_EditorApi_ICustomColumn_Sdl_DesktopEditor_EditorApi_CustomColumnLocation_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ICustomColumn
+    name: ICustomColumn
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ICustomColumn.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.CustomColumnLocation
+    name: CustomColumnLocation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.CustomColumnLocation.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.RemoveColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.RemoveColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_RemoveColumn_Sdl_DesktopEditor_EditorApi_ICustomColumn_
+  name: RemoveColumn(ICustomColumn)
+  nameWithType: IEditControl.RemoveColumn(ICustomColumn)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.RemoveColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.RemoveColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn)
+    name: RemoveColumn
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_RemoveColumn_Sdl_DesktopEditor_EditorApi_ICustomColumn_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ICustomColumn
+    name: ICustomColumn
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ICustomColumn.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.RemoveColumn(Sdl.DesktopEditor.EditorApi.ICustomColumn)
+    name: RemoveColumn
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_RemoveColumn_Sdl_DesktopEditor_EditorApi_ICustomColumn_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ICustomColumn
+    name: ICustomColumn
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ICustomColumn.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.Redraw
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.Redraw
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Redraw
+  name: Redraw()
+  nameWithType: IEditControl.Redraw()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.Redraw()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.Redraw
+    name: Redraw
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Redraw
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.Redraw
+    name: Redraw
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Redraw
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.Refresh
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.Refresh
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Refresh
+  name: Refresh()
+  nameWithType: IEditControl.Refresh()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.Refresh()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.Refresh
+    name: Refresh
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Refresh
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.Refresh
+    name: Refresh
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Refresh
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.DeleteSelection
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.DeleteSelection
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_DeleteSelection
+  name: DeleteSelection()
+  nameWithType: IEditControl.DeleteSelection()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.DeleteSelection()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.DeleteSelection
+    name: DeleteSelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_DeleteSelection
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.DeleteSelection
+    name: DeleteSelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_DeleteSelection
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.Undo
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.Undo
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Undo
+  name: Undo()
+  nameWithType: IEditControl.Undo()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.Undo()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.Undo
+    name: Undo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Undo
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.Undo
+    name: Undo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Undo
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.UndoMultiple(System.Int64)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.UndoMultiple(System.Int64)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_UndoMultiple_System_Int64_
+  name: UndoMultiple(long)
+  nameWithType: IEditControl.UndoMultiple(long)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.UndoMultiple(long)
+  nameWithType.vb: IEditControl.UndoMultiple(Long)
+  fullName.vb: Sdl.DesktopEditor.EditorApi.IEditControl.UndoMultiple(Long)
+  name.vb: UndoMultiple(Long)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.UndoMultiple(System.Int64)
+    name: UndoMultiple
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_UndoMultiple_System_Int64_
+  - name: (
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.UndoMultiple(System.Int64)
+    name: UndoMultiple
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_UndoMultiple_System_Int64_
+  - name: (
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.Redo
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.Redo
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Redo
+  name: Redo()
+  nameWithType: IEditControl.Redo()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.Redo()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.Redo
+    name: Redo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Redo
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.Redo
+    name: Redo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Redo
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.RedoMultiple(System.Int64)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.RedoMultiple(System.Int64)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_RedoMultiple_System_Int64_
+  name: RedoMultiple(long)
+  nameWithType: IEditControl.RedoMultiple(long)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.RedoMultiple(long)
+  nameWithType.vb: IEditControl.RedoMultiple(Long)
+  fullName.vb: Sdl.DesktopEditor.EditorApi.IEditControl.RedoMultiple(Long)
+  name.vb: RedoMultiple(Long)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.RedoMultiple(System.Int64)
+    name: RedoMultiple
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_RedoMultiple_System_Int64_
+  - name: (
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.RedoMultiple(System.Int64)
+    name: RedoMultiple
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_RedoMultiple_System_Int64_
+  - name: (
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestLocation(Sdl.DesktopEditor.EditorApi.Position)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestLocation(Sdl.DesktopEditor.EditorApi.Position)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_GetNearestLocation_Sdl_DesktopEditor_EditorApi_Position_
+  name: GetNearestLocation(Position)
+  nameWithType: IEditControl.GetNearestLocation(Position)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestLocation(Sdl.DesktopEditor.EditorApi.Position)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestLocation(Sdl.DesktopEditor.EditorApi.Position)
+    name: GetNearestLocation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_GetNearestLocation_Sdl_DesktopEditor_EditorApi_Position_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Position
+    name: Position
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Position.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestLocation(Sdl.DesktopEditor.EditorApi.Position)
+    name: GetNearestLocation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_GetNearestLocation_Sdl_DesktopEditor_EditorApi_Position_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Position
+    name: Position
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Position.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestPosition(System.Drawing.Point)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestPosition(System.Drawing.Point)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_GetNearestPosition_System_Drawing_Point_
+  name: GetNearestPosition(Point)
+  nameWithType: IEditControl.GetNearestPosition(Point)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestPosition(System.Drawing.Point)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestPosition(System.Drawing.Point)
+    name: GetNearestPosition
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_GetNearestPosition_System_Drawing_Point_
+  - name: (
+  - uid: System.Drawing.Point
+    name: Point
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing.point
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestPosition(System.Drawing.Point)
+    name: GetNearestPosition
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_GetNearestPosition_System_Drawing_Point_
+  - name: (
+  - uid: System.Drawing.Point
+    name: Point
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing.point
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestVisiblePosition(Sdl.DesktopEditor.EditorApi.Position)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestVisiblePosition(Sdl.DesktopEditor.EditorApi.Position)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_GetNearestVisiblePosition_Sdl_DesktopEditor_EditorApi_Position_
+  name: GetNearestVisiblePosition(Position)
+  nameWithType: IEditControl.GetNearestVisiblePosition(Position)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestVisiblePosition(Sdl.DesktopEditor.EditorApi.Position)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestVisiblePosition(Sdl.DesktopEditor.EditorApi.Position)
+    name: GetNearestVisiblePosition
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_GetNearestVisiblePosition_Sdl_DesktopEditor_EditorApi_Position_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Position
+    name: Position
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Position.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.GetNearestVisiblePosition(Sdl.DesktopEditor.EditorApi.Position)
+    name: GetNearestVisiblePosition
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_GetNearestVisiblePosition_Sdl_DesktopEditor_EditorApi_Position_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Position
+    name: Position
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Position.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.IsWordStart(Sdl.DesktopEditor.EditorApi.Position)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.IsWordStart(Sdl.DesktopEditor.EditorApi.Position)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_IsWordStart_Sdl_DesktopEditor_EditorApi_Position_
+  name: IsWordStart(Position)
+  nameWithType: IEditControl.IsWordStart(Position)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.IsWordStart(Sdl.DesktopEditor.EditorApi.Position)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.IsWordStart(Sdl.DesktopEditor.EditorApi.Position)
+    name: IsWordStart
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_IsWordStart_Sdl_DesktopEditor_EditorApi_Position_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Position
+    name: Position
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Position.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.IsWordStart(Sdl.DesktopEditor.EditorApi.Position)
+    name: IsWordStart
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_IsWordStart_Sdl_DesktopEditor_EditorApi_Position_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Position
+    name: Position
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Position.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.CreateTextIterator(Sdl.DesktopEditor.EditorApi.Position)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.CreateTextIterator(Sdl.DesktopEditor.EditorApi.Position)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CreateTextIterator_Sdl_DesktopEditor_EditorApi_Position_
+  name: CreateTextIterator(Position)
+  nameWithType: IEditControl.CreateTextIterator(Position)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.CreateTextIterator(Sdl.DesktopEditor.EditorApi.Position)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CreateTextIterator(Sdl.DesktopEditor.EditorApi.Position)
+    name: CreateTextIterator
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CreateTextIterator_Sdl_DesktopEditor_EditorApi_Position_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Position
+    name: Position
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Position.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CreateTextIterator(Sdl.DesktopEditor.EditorApi.Position)
+    name: CreateTextIterator
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CreateTextIterator_Sdl_DesktopEditor_EditorApi_Position_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Position
+    name: Position
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Position.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollIntoView(Sdl.DesktopEditor.EditorApi.Position)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.ScrollIntoView(Sdl.DesktopEditor.EditorApi.Position)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ScrollIntoView_Sdl_DesktopEditor_EditorApi_Position_
+  name: ScrollIntoView(Position)
+  nameWithType: IEditControl.ScrollIntoView(Position)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollIntoView(Sdl.DesktopEditor.EditorApi.Position)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollIntoView(Sdl.DesktopEditor.EditorApi.Position)
+    name: ScrollIntoView
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ScrollIntoView_Sdl_DesktopEditor_EditorApi_Position_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Position
+    name: Position
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Position.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollIntoView(Sdl.DesktopEditor.EditorApi.Position)
+    name: ScrollIntoView
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ScrollIntoView_Sdl_DesktopEditor_EditorApi_Position_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Position
+    name: Position
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Position.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollIntoView(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.ScrollIntoView(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ScrollIntoView_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  name: ScrollIntoView(IRowInfo)
+  nameWithType: IEditControl.ScrollIntoView(IRowInfo)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollIntoView(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollIntoView(Sdl.DesktopEditor.EditorApi.IRowInfo)
+    name: ScrollIntoView
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ScrollIntoView_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollIntoView(Sdl.DesktopEditor.EditorApi.IRowInfo)
+    name: ScrollIntoView
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ScrollIntoView_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollToCenter(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.ScrollToCenter(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ScrollToCenter_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  name: ScrollToCenter(IRowInfo)
+  nameWithType: IEditControl.ScrollToCenter(IRowInfo)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollToCenter(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollToCenter(Sdl.DesktopEditor.EditorApi.IRowInfo)
+    name: ScrollToCenter
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ScrollToCenter_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollToCenter(Sdl.DesktopEditor.EditorApi.IRowInfo)
+    name: ScrollToCenter
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ScrollToCenter_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.AutoScrollToRowPosition(Sdl.DesktopEditor.EditorApi.IRowInfo,Sdl.DesktopEditor.EditorApi.IRowInfo)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.AutoScrollToRowPosition(Sdl.DesktopEditor.EditorApi.IRowInfo,Sdl.DesktopEditor.EditorApi.IRowInfo)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AutoScrollToRowPosition_Sdl_DesktopEditor_EditorApi_IRowInfo_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  name: AutoScrollToRowPosition(IRowInfo, IRowInfo)
+  nameWithType: IEditControl.AutoScrollToRowPosition(IRowInfo, IRowInfo)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.AutoScrollToRowPosition(Sdl.DesktopEditor.EditorApi.IRowInfo, Sdl.DesktopEditor.EditorApi.IRowInfo)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.AutoScrollToRowPosition(Sdl.DesktopEditor.EditorApi.IRowInfo,Sdl.DesktopEditor.EditorApi.IRowInfo)
+    name: AutoScrollToRowPosition
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AutoScrollToRowPosition_Sdl_DesktopEditor_EditorApi_IRowInfo_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.AutoScrollToRowPosition(Sdl.DesktopEditor.EditorApi.IRowInfo,Sdl.DesktopEditor.EditorApi.IRowInfo)
+    name: AutoScrollToRowPosition
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AutoScrollToRowPosition_Sdl_DesktopEditor_EditorApi_IRowInfo_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollToRow(System.Int64,System.Int64)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.ScrollToRow(System.Int64,System.Int64)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ScrollToRow_System_Int64_System_Int64_
+  name: ScrollToRow(long, long)
+  nameWithType: IEditControl.ScrollToRow(long, long)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollToRow(long, long)
+  nameWithType.vb: IEditControl.ScrollToRow(Long, Long)
+  fullName.vb: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollToRow(Long, Long)
+  name.vb: ScrollToRow(Long, Long)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollToRow(System.Int64,System.Int64)
+    name: ScrollToRow
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ScrollToRow_System_Int64_System_Int64_
+  - name: (
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ScrollToRow(System.Int64,System.Int64)
+    name: ScrollToRow
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ScrollToRow_System_Int64_System_Int64_
+  - name: (
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.FindRow(Sdl.DesktopEditor.EditorApi.Position)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.FindRow(Sdl.DesktopEditor.EditorApi.Position)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_FindRow_Sdl_DesktopEditor_EditorApi_Position_
+  name: FindRow(Position)
+  nameWithType: IEditControl.FindRow(Position)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.FindRow(Sdl.DesktopEditor.EditorApi.Position)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.FindRow(Sdl.DesktopEditor.EditorApi.Position)
+    name: FindRow
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_FindRow_Sdl_DesktopEditor_EditorApi_Position_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Position
+    name: Position
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Position.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.FindRow(Sdl.DesktopEditor.EditorApi.Position)
+    name: FindRow
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_FindRow_Sdl_DesktopEditor_EditorApi_Position_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.Position
+    name: Position
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Position.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.IsRowVisible(System.Int32)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.IsRowVisible(System.Int32)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_IsRowVisible_System_Int32_
+  name: IsRowVisible(int)
+  nameWithType: IEditControl.IsRowVisible(int)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.IsRowVisible(int)
+  nameWithType.vb: IEditControl.IsRowVisible(Integer)
+  fullName.vb: Sdl.DesktopEditor.EditorApi.IEditControl.IsRowVisible(Integer)
+  name.vb: IsRowVisible(Integer)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.IsRowVisible(System.Int32)
+    name: IsRowVisible
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_IsRowVisible_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.IsRowVisible(System.Int32)
+    name: IsRowVisible
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_IsRowVisible_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.GetVisibleRowsInRange(Sdl.DesktopEditor.EditorApi.ContentRange)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.GetVisibleRowsInRange(Sdl.DesktopEditor.EditorApi.ContentRange)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_GetVisibleRowsInRange_Sdl_DesktopEditor_EditorApi_ContentRange_
+  name: GetVisibleRowsInRange(ContentRange)
+  nameWithType: IEditControl.GetVisibleRowsInRange(ContentRange)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.GetVisibleRowsInRange(Sdl.DesktopEditor.EditorApi.ContentRange)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.GetVisibleRowsInRange(Sdl.DesktopEditor.EditorApi.ContentRange)
+    name: GetVisibleRowsInRange
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_GetVisibleRowsInRange_Sdl_DesktopEditor_EditorApi_ContentRange_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ContentRange
+    name: ContentRange
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ContentRange.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.GetVisibleRowsInRange(Sdl.DesktopEditor.EditorApi.ContentRange)
+    name: GetVisibleRowsInRange
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_GetVisibleRowsInRange_Sdl_DesktopEditor_EditorApi_ContentRange_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ContentRange
+    name: ContentRange
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ContentRange.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsVisibility(System.Predicate{Sdl.DesktopEditor.EditorApi.IRowInfo})
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsVisibility(System.Predicate{Sdl.DesktopEditor.EditorApi.IRowInfo})
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SetRowsVisibility_System_Predicate_Sdl_DesktopEditor_EditorApi_IRowInfo__
+  name: SetRowsVisibility(Predicate<IRowInfo>)
+  nameWithType: IEditControl.SetRowsVisibility(Predicate<IRowInfo>)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsVisibility(System.Predicate<Sdl.DesktopEditor.EditorApi.IRowInfo>)
+  nameWithType.vb: IEditControl.SetRowsVisibility(Predicate(Of IRowInfo))
+  fullName.vb: Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsVisibility(System.Predicate(Of Sdl.DesktopEditor.EditorApi.IRowInfo))
+  name.vb: SetRowsVisibility(Predicate(Of IRowInfo))
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsVisibility(System.Predicate{Sdl.DesktopEditor.EditorApi.IRowInfo})
+    name: SetRowsVisibility
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SetRowsVisibility_System_Predicate_Sdl_DesktopEditor_EditorApi_IRowInfo__
+  - name: (
+  - uid: System.Predicate`1
+    name: Predicate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  - name: <
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsVisibility(System.Predicate{Sdl.DesktopEditor.EditorApi.IRowInfo})
+    name: SetRowsVisibility
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SetRowsVisibility_System_Predicate_Sdl_DesktopEditor_EditorApi_IRowInfo__
+  - name: (
+  - uid: System.Predicate`1
+    name: Predicate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: )
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsHighlighted(System.Collections.Generic.IList{System.Int32},System.Boolean)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsHighlighted(System.Collections.Generic.IList{System.Int32},System.Boolean)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SetRowsHighlighted_System_Collections_Generic_IList_System_Int32__System_Boolean_
+  name: SetRowsHighlighted(IList<int>, bool)
+  nameWithType: IEditControl.SetRowsHighlighted(IList<int>, bool)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsHighlighted(System.Collections.Generic.IList<int>, bool)
+  nameWithType.vb: IEditControl.SetRowsHighlighted(IList(Of Integer), Boolean)
+  fullName.vb: Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsHighlighted(System.Collections.Generic.IList(Of Integer), Boolean)
+  name.vb: SetRowsHighlighted(IList(Of Integer), Boolean)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsHighlighted(System.Collections.Generic.IList{System.Int32},System.Boolean)
+    name: SetRowsHighlighted
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SetRowsHighlighted_System_Collections_Generic_IList_System_Int32__System_Boolean_
+  - name: (
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.SetRowsHighlighted(System.Collections.Generic.IList{System.Int32},System.Boolean)
+    name: SetRowsHighlighted
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SetRowsHighlighted_System_Collections_Generic_IList_System_Int32__System_Boolean_
+  - name: (
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectRow(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.SelectRow(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectRow_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  name: SelectRow(IRowInfo)
+  nameWithType: IEditControl.SelectRow(IRowInfo)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.SelectRow(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectRow(Sdl.DesktopEditor.EditorApi.IRowInfo)
+    name: SelectRow
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectRow_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectRow(Sdl.DesktopEditor.EditorApi.IRowInfo)
+    name: SelectRow
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectRow_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectRow(Sdl.DesktopEditor.EditorApi.IRowInfo,System.Boolean,System.Boolean)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.SelectRow(Sdl.DesktopEditor.EditorApi.IRowInfo,System.Boolean,System.Boolean)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectRow_Sdl_DesktopEditor_EditorApi_IRowInfo_System_Boolean_System_Boolean_
+  name: SelectRow(IRowInfo, bool, bool)
+  nameWithType: IEditControl.SelectRow(IRowInfo, bool, bool)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.SelectRow(Sdl.DesktopEditor.EditorApi.IRowInfo, bool, bool)
+  nameWithType.vb: IEditControl.SelectRow(IRowInfo, Boolean, Boolean)
+  fullName.vb: Sdl.DesktopEditor.EditorApi.IEditControl.SelectRow(Sdl.DesktopEditor.EditorApi.IRowInfo, Boolean, Boolean)
+  name.vb: SelectRow(IRowInfo, Boolean, Boolean)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectRow(Sdl.DesktopEditor.EditorApi.IRowInfo,System.Boolean,System.Boolean)
+    name: SelectRow
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectRow_Sdl_DesktopEditor_EditorApi_IRowInfo_System_Boolean_System_Boolean_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectRow(Sdl.DesktopEditor.EditorApi.IRowInfo,System.Boolean,System.Boolean)
+    name: SelectRow
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectRow_Sdl_DesktopEditor_EditorApi_IRowInfo_System_Boolean_System_Boolean_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectRowRange(Sdl.DesktopEditor.EditorApi.IRowInfo,Sdl.DesktopEditor.EditorApi.IRowInfo)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.SelectRowRange(Sdl.DesktopEditor.EditorApi.IRowInfo,Sdl.DesktopEditor.EditorApi.IRowInfo)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectRowRange_Sdl_DesktopEditor_EditorApi_IRowInfo_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  name: SelectRowRange(IRowInfo, IRowInfo)
+  nameWithType: IEditControl.SelectRowRange(IRowInfo, IRowInfo)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.SelectRowRange(Sdl.DesktopEditor.EditorApi.IRowInfo, Sdl.DesktopEditor.EditorApi.IRowInfo)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectRowRange(Sdl.DesktopEditor.EditorApi.IRowInfo,Sdl.DesktopEditor.EditorApi.IRowInfo)
+    name: SelectRowRange
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectRowRange_Sdl_DesktopEditor_EditorApi_IRowInfo_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectRowRange(Sdl.DesktopEditor.EditorApi.IRowInfo,Sdl.DesktopEditor.EditorApi.IRowInfo)
+    name: SelectRowRange
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectRowRange_Sdl_DesktopEditor_EditorApi_IRowInfo_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ChangeNextRowSelection
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.ChangeNextRowSelection
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ChangeNextRowSelection
+  name: ChangeNextRowSelection()
+  nameWithType: IEditControl.ChangeNextRowSelection()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ChangeNextRowSelection()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ChangeNextRowSelection
+    name: ChangeNextRowSelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ChangeNextRowSelection
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ChangeNextRowSelection
+    name: ChangeNextRowSelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ChangeNextRowSelection
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ChangePreviousRowSelection
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.ChangePreviousRowSelection
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ChangePreviousRowSelection
+  name: ChangePreviousRowSelection()
+  nameWithType: IEditControl.ChangePreviousRowSelection()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ChangePreviousRowSelection()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ChangePreviousRowSelection
+    name: ChangePreviousRowSelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ChangePreviousRowSelection
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ChangePreviousRowSelection
+    name: ChangePreviousRowSelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ChangePreviousRowSelection
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ClearRowSelection(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.ClearRowSelection(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ClearRowSelection_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  name: ClearRowSelection(IRowInfo)
+  nameWithType: IEditControl.ClearRowSelection(IRowInfo)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ClearRowSelection(Sdl.DesktopEditor.EditorApi.IRowInfo)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ClearRowSelection(Sdl.DesktopEditor.EditorApi.IRowInfo)
+    name: ClearRowSelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ClearRowSelection_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ClearRowSelection(Sdl.DesktopEditor.EditorApi.IRowInfo)
+    name: ClearRowSelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ClearRowSelection_Sdl_DesktopEditor_EditorApi_IRowInfo_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.IRowInfo
+    name: IRowInfo
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IRowInfo.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ClearAllRowSelections
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.ClearAllRowSelections
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ClearAllRowSelections
+  name: ClearAllRowSelections()
+  nameWithType: IEditControl.ClearAllRowSelections()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ClearAllRowSelections()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ClearAllRowSelections
+    name: ClearAllRowSelections
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ClearAllRowSelections
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ClearAllRowSelections
+    name: ClearAllRowSelections
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ClearAllRowSelections
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.HasSelectedRows
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.HasSelectedRows
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_HasSelectedRows
+  name: HasSelectedRows()
+  nameWithType: IEditControl.HasSelectedRows()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.HasSelectedRows()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.HasSelectedRows
+    name: HasSelectedRows
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_HasSelectedRows
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.HasSelectedRows
+    name: HasSelectedRows
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_HasSelectedRows
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.BeginSelectedRowOperation
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.BeginSelectedRowOperation
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_BeginSelectedRowOperation
+  name: BeginSelectedRowOperation()
+  nameWithType: IEditControl.BeginSelectedRowOperation()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.BeginSelectedRowOperation()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.BeginSelectedRowOperation
+    name: BeginSelectedRowOperation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_BeginSelectedRowOperation
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.BeginSelectedRowOperation
+    name: BeginSelectedRowOperation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_BeginSelectedRowOperation
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.EndSelectedRowOperation
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.EndSelectedRowOperation
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_EndSelectedRowOperation
+  name: EndSelectedRowOperation()
+  nameWithType: IEditControl.EndSelectedRowOperation()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.EndSelectedRowOperation()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.EndSelectedRowOperation
+    name: EndSelectedRowOperation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_EndSelectedRowOperation
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.EndSelectedRowOperation
+    name: EndSelectedRowOperation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_EndSelectedRowOperation
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ChangeFocusedRowSelection
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.ChangeFocusedRowSelection
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ChangeFocusedRowSelection
+  name: ChangeFocusedRowSelection()
+  nameWithType: IEditControl.ChangeFocusedRowSelection()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ChangeFocusedRowSelection()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ChangeFocusedRowSelection
+    name: ChangeFocusedRowSelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ChangeFocusedRowSelection
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ChangeFocusedRowSelection
+    name: ChangeFocusedRowSelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ChangeFocusedRowSelection
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.FocusNextRow
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.FocusNextRow
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_FocusNextRow
+  name: FocusNextRow()
+  nameWithType: IEditControl.FocusNextRow()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.FocusNextRow()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.FocusNextRow
+    name: FocusNextRow
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_FocusNextRow
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.FocusNextRow
+    name: FocusNextRow
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_FocusNextRow
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.FocusPreviousRow
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.FocusPreviousRow
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_FocusPreviousRow
+  name: FocusPreviousRow()
+  nameWithType: IEditControl.FocusPreviousRow()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.FocusPreviousRow()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.FocusPreviousRow
+    name: FocusPreviousRow
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_FocusPreviousRow
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.FocusPreviousRow
+    name: FocusPreviousRow
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_FocusPreviousRow
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.CanCopySelectionToClipboard
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.CanCopySelectionToClipboard
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CanCopySelectionToClipboard
+  name: CanCopySelectionToClipboard()
+  nameWithType: IEditControl.CanCopySelectionToClipboard()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.CanCopySelectionToClipboard()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CanCopySelectionToClipboard
+    name: CanCopySelectionToClipboard
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CanCopySelectionToClipboard
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CanCopySelectionToClipboard
+    name: CanCopySelectionToClipboard
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CanCopySelectionToClipboard
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.CanCutSelectionToClipboard
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.CanCutSelectionToClipboard
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CanCutSelectionToClipboard
+  name: CanCutSelectionToClipboard()
+  nameWithType: IEditControl.CanCutSelectionToClipboard()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.CanCutSelectionToClipboard()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CanCutSelectionToClipboard
+    name: CanCutSelectionToClipboard
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CanCutSelectionToClipboard
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CanCutSelectionToClipboard
+    name: CanCutSelectionToClipboard
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CanCutSelectionToClipboard
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.CanPasteClipboardToDocument
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.CanPasteClipboardToDocument
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CanPasteClipboardToDocument
+  name: CanPasteClipboardToDocument()
+  nameWithType: IEditControl.CanPasteClipboardToDocument()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.CanPasteClipboardToDocument()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CanPasteClipboardToDocument
+    name: CanPasteClipboardToDocument
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CanPasteClipboardToDocument
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CanPasteClipboardToDocument
+    name: CanPasteClipboardToDocument
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CanPasteClipboardToDocument
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.CopySelectionToClipboard
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.CopySelectionToClipboard
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CopySelectionToClipboard
+  name: CopySelectionToClipboard()
+  nameWithType: IEditControl.CopySelectionToClipboard()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.CopySelectionToClipboard()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CopySelectionToClipboard
+    name: CopySelectionToClipboard
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CopySelectionToClipboard
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CopySelectionToClipboard
+    name: CopySelectionToClipboard
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CopySelectionToClipboard
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.CutSelectionToClipboard
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.CutSelectionToClipboard
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CutSelectionToClipboard
+  name: CutSelectionToClipboard()
+  nameWithType: IEditControl.CutSelectionToClipboard()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.CutSelectionToClipboard()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CutSelectionToClipboard
+    name: CutSelectionToClipboard
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CutSelectionToClipboard
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CutSelectionToClipboard
+    name: CutSelectionToClipboard
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CutSelectionToClipboard
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.PasteClipboardToDocument
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.PasteClipboardToDocument
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_PasteClipboardToDocument
+  name: PasteClipboardToDocument()
+  nameWithType: IEditControl.PasteClipboardToDocument()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.PasteClipboardToDocument()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.PasteClipboardToDocument
+    name: PasteClipboardToDocument
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_PasteClipboardToDocument
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.PasteClipboardToDocument
+    name: PasteClipboardToDocument
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_PasteClipboardToDocument
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.AddTextMark(Sdl.DesktopEditor.EditorApi.ContentRange,Sdl.DesktopEditor.EditorApi.TextMarkLayer,Sdl.DesktopEditor.EditorApi.ITextMarkPainter)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.AddTextMark(Sdl.DesktopEditor.EditorApi.ContentRange,Sdl.DesktopEditor.EditorApi.TextMarkLayer,Sdl.DesktopEditor.EditorApi.ITextMarkPainter)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AddTextMark_Sdl_DesktopEditor_EditorApi_ContentRange_Sdl_DesktopEditor_EditorApi_TextMarkLayer_Sdl_DesktopEditor_EditorApi_ITextMarkPainter_
+  name: AddTextMark(ContentRange, TextMarkLayer, ITextMarkPainter)
+  nameWithType: IEditControl.AddTextMark(ContentRange, TextMarkLayer, ITextMarkPainter)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.AddTextMark(Sdl.DesktopEditor.EditorApi.ContentRange, Sdl.DesktopEditor.EditorApi.TextMarkLayer, Sdl.DesktopEditor.EditorApi.ITextMarkPainter)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.AddTextMark(Sdl.DesktopEditor.EditorApi.ContentRange,Sdl.DesktopEditor.EditorApi.TextMarkLayer,Sdl.DesktopEditor.EditorApi.ITextMarkPainter)
+    name: AddTextMark
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AddTextMark_Sdl_DesktopEditor_EditorApi_ContentRange_Sdl_DesktopEditor_EditorApi_TextMarkLayer_Sdl_DesktopEditor_EditorApi_ITextMarkPainter_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ContentRange
+    name: ContentRange
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ContentRange.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.TextMarkLayer
+    name: TextMarkLayer
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.TextMarkLayer.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.ITextMarkPainter
+    name: ITextMarkPainter
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ITextMarkPainter.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.AddTextMark(Sdl.DesktopEditor.EditorApi.ContentRange,Sdl.DesktopEditor.EditorApi.TextMarkLayer,Sdl.DesktopEditor.EditorApi.ITextMarkPainter)
+    name: AddTextMark
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AddTextMark_Sdl_DesktopEditor_EditorApi_ContentRange_Sdl_DesktopEditor_EditorApi_TextMarkLayer_Sdl_DesktopEditor_EditorApi_ITextMarkPainter_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ContentRange
+    name: ContentRange
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ContentRange.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.TextMarkLayer
+    name: TextMarkLayer
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.TextMarkLayer.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.ITextMarkPainter
+    name: ITextMarkPainter
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ITextMarkPainter.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.NotifyTextMarkChanged(Sdl.DesktopEditor.EditorApi.ITextMark)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.NotifyTextMarkChanged(Sdl.DesktopEditor.EditorApi.ITextMark)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_NotifyTextMarkChanged_Sdl_DesktopEditor_EditorApi_ITextMark_
+  name: NotifyTextMarkChanged(ITextMark)
+  nameWithType: IEditControl.NotifyTextMarkChanged(ITextMark)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.NotifyTextMarkChanged(Sdl.DesktopEditor.EditorApi.ITextMark)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.NotifyTextMarkChanged(Sdl.DesktopEditor.EditorApi.ITextMark)
+    name: NotifyTextMarkChanged
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_NotifyTextMarkChanged_Sdl_DesktopEditor_EditorApi_ITextMark_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ITextMark
+    name: ITextMark
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ITextMark.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.NotifyTextMarkChanged(Sdl.DesktopEditor.EditorApi.ITextMark)
+    name: NotifyTextMarkChanged
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_NotifyTextMarkChanged_Sdl_DesktopEditor_EditorApi_ITextMark_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ITextMark
+    name: ITextMark
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ITextMark.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.RemoveTextMark(Sdl.DesktopEditor.EditorApi.ITextMark)
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.RemoveTextMark(Sdl.DesktopEditor.EditorApi.ITextMark)
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_RemoveTextMark_Sdl_DesktopEditor_EditorApi_ITextMark_
+  name: RemoveTextMark(ITextMark)
+  nameWithType: IEditControl.RemoveTextMark(ITextMark)
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.RemoveTextMark(Sdl.DesktopEditor.EditorApi.ITextMark)
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.RemoveTextMark(Sdl.DesktopEditor.EditorApi.ITextMark)
+    name: RemoveTextMark
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_RemoveTextMark_Sdl_DesktopEditor_EditorApi_ITextMark_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ITextMark
+    name: ITextMark
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ITextMark.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.RemoveTextMark(Sdl.DesktopEditor.EditorApi.ITextMark)
+    name: RemoveTextMark
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_RemoveTextMark_Sdl_DesktopEditor_EditorApi_ITextMark_
+  - name: (
+  - uid: Sdl.DesktopEditor.EditorApi.ITextMark
+    name: ITextMark
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.ITextMark.html
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ClearTextMarks
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.ClearTextMarks
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ClearTextMarks
+  name: ClearTextMarks()
+  nameWithType: IEditControl.ClearTextMarks()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ClearTextMarks()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ClearTextMarks
+    name: ClearTextMarks
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ClearTextMarks
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.ClearTextMarks
+    name: ClearTextMarks
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ClearTextMarks
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.AddActiveRowToSelected
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.AddActiveRowToSelected
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AddActiveRowToSelected
+  name: AddActiveRowToSelected
+  nameWithType: IEditControl.AddActiveRowToSelected
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.AddActiveRowToSelected
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.IsInitialUpdateCompleted
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.IsInitialUpdateCompleted
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_IsInitialUpdateCompleted
+  name: IsInitialUpdateCompleted
+  nameWithType: IEditControl.IsInitialUpdateCompleted
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.IsInitialUpdateCompleted
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.AutoUpdate
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.AutoUpdate
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AutoUpdate
+  name: AutoUpdate
+  nameWithType: IEditControl.AutoUpdate
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.AutoUpdate
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.IsReadOnly
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.IsReadOnly
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_IsReadOnly
+  name: IsReadOnly
+  nameWithType: IEditControl.IsReadOnly
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.IsReadOnly
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.AcceptsReturn
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.AcceptsReturn
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AcceptsReturn
+  name: AcceptsReturn
+  nameWithType: IEditControl.AcceptsReturn
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.AcceptsReturn
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.AcceptsTab
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.AcceptsTab
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AcceptsTab
+  name: AcceptsTab
+  nameWithType: IEditControl.AcceptsTab
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.AcceptsTab
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ShowWhitespaceCharacters
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.ShowWhitespaceCharacters
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ShowWhitespaceCharacters
+  name: ShowWhitespaceCharacters
+  nameWithType: IEditControl.ShowWhitespaceCharacters
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ShowWhitespaceCharacters
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.HideFileTags
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.HideFileTags
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_HideFileTags
+  name: HideFileTags
+  nameWithType: IEditControl.HideFileTags
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.HideFileTags
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.SmartPasteAdjustingSpaces
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.SmartPasteAdjustingSpaces
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SmartPasteAdjustingSpaces
+  name: SmartPasteAdjustingSpaces
+  nameWithType: IEditControl.SmartPasteAdjustingSpaces
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.SmartPasteAdjustingSpaces
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.IsOverwriteModeEnabled
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.IsOverwriteModeEnabled
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_IsOverwriteModeEnabled
+  name: IsOverwriteModeEnabled
+  nameWithType: IEditControl.IsOverwriteModeEnabled
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.IsOverwriteModeEnabled
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedBackColor
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedBackColor
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_HighlightedBackColor
+  name: HighlightedBackColor
+  nameWithType: IEditControl.HighlightedBackColor
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedBackColor
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.HighlightActiveRow
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.HighlightActiveRow
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_HighlightActiveRow
+  name: HighlightActiveRow
+  nameWithType: IEditControl.HighlightActiveRow
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.HighlightActiveRow
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectedBackColor
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.SelectedBackColor
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectedBackColor
+  name: SelectedBackColor
+  nameWithType: IEditControl.SelectedBackColor
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.SelectedBackColor
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.Selection
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.Selection
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Selection
+  name: Selection
+  nameWithType: IEditControl.Selection
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.Selection
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.TagPainter
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.TagPainter
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_TagPainter
+  name: TagPainter
+  nameWithType: IEditControl.TagPainter
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.TagPainter
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ContentHeight
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.ContentHeight
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ContentHeight
+  name: ContentHeight
+  nameWithType: IEditControl.ContentHeight
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ContentHeight
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.VerticalScrollOffset
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.VerticalScrollOffset
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_VerticalScrollOffset
+  name: VerticalScrollOffset
+  nameWithType: IEditControl.VerticalScrollOffset
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.VerticalScrollOffset
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.TopmostVisibleRowNumber
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.TopmostVisibleRowNumber
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_TopmostVisibleRowNumber
+  name: TopmostVisibleRowNumber
+  nameWithType: IEditControl.TopmostVisibleRowNumber
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.TopmostVisibleRowNumber
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.TopmostVisibleRowScrollOffset
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.TopmostVisibleRowScrollOffset
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_TopmostVisibleRowScrollOffset
+  name: TopmostVisibleRowScrollOffset
+  nameWithType: IEditControl.TopmostVisibleRowScrollOffset
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.TopmostVisibleRowScrollOffset
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.TextMarks
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.TextMarks
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_TextMarks
+  name: TextMarks
+  nameWithType: IEditControl.TextMarks
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.TextMarks
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ColumnsLeft
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.ColumnsLeft
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ColumnsLeft
+  name: ColumnsLeft
+  nameWithType: IEditControl.ColumnsLeft
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ColumnsLeft
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ColumnsRight
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.ColumnsRight
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ColumnsRight
+  name: ColumnsRight
+  nameWithType: IEditControl.ColumnsRight
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ColumnsRight
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.Rows
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.Rows
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_Rows
+  name: Rows
+  nameWithType: IEditControl.Rows
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.Rows
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.VisibleRows
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.VisibleRows
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_VisibleRows
+  name: VisibleRows
+  nameWithType: IEditControl.VisibleRows
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.VisibleRows
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedRows
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedRows
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_HighlightedRows
+  name: HighlightedRows
+  nameWithType: IEditControl.HighlightedRows
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedRows
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ActiveRow
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.ActiveRow
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ActiveRow
+  name: ActiveRow
+  nameWithType: IEditControl.ActiveRow
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ActiveRow
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectedRows
+  commentId: P:Sdl.DesktopEditor.EditorApi.IEditControl.SelectedRows
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectedRows
+  name: SelectedRows
+  nameWithType: IEditControl.SelectedRows
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.SelectedRows
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.AfterInitialUpdate
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.AfterInitialUpdate
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AfterInitialUpdate
+  name: AfterInitialUpdate
+  nameWithType: IEditControl.AfterInitialUpdate
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.AfterInitialUpdate
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectionChanged
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.SelectionChanged
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectionChanged
+  name: SelectionChanged
+  nameWithType: IEditControl.SelectionChanged
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.SelectionChanged
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectionWasDeleted
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.SelectionWasDeleted
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectionWasDeleted
+  name: SelectionWasDeleted
+  nameWithType: IEditControl.SelectionWasDeleted
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.SelectionWasDeleted
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ContentHeightChanged
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.ContentHeightChanged
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ContentHeightChanged
+  name: ContentHeightChanged
+  nameWithType: IEditControl.ContentHeightChanged
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ContentHeightChanged
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.MouseEnteringNode
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.MouseEnteringNode
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_MouseEnteringNode
+  name: MouseEnteringNode
+  nameWithType: IEditControl.MouseEnteringNode
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.MouseEnteringNode
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.MouseLeavingNode
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.MouseLeavingNode
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_MouseLeavingNode
+  name: MouseLeavingNode
+  nameWithType: IEditControl.MouseLeavingNode
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.MouseLeavingNode
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.MouseEnteringTextMarks
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.MouseEnteringTextMarks
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_MouseEnteringTextMarks
+  name: MouseEnteringTextMarks
+  nameWithType: IEditControl.MouseEnteringTextMarks
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.MouseEnteringTextMarks
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.MouseLeavingTextMarks
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.MouseLeavingTextMarks
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_MouseLeavingTextMarks
+  name: MouseLeavingTextMarks
+  nameWithType: IEditControl.MouseLeavingTextMarks
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.MouseLeavingTextMarks
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.VScroll
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.VScroll
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_VScroll
+  name: VScroll
+  nameWithType: IEditControl.VScroll
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.VScroll
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.PersistentScrollInfoChanged
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.PersistentScrollInfoChanged
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_PersistentScrollInfoChanged
+  name: PersistentScrollInfoChanged
+  nameWithType: IEditControl.PersistentScrollInfoChanged
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.PersistentScrollInfoChanged
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.ActiveRowChanged
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.ActiveRowChanged
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_ActiveRowChanged
+  name: ActiveRowChanged
+  nameWithType: IEditControl.ActiveRowChanged
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.ActiveRowChanged
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedRowsChanged
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedRowsChanged
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_HighlightedRowsChanged
+  name: HighlightedRowsChanged
+  nameWithType: IEditControl.HighlightedRowsChanged
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedRowsChanged
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedRowChanged
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedRowChanged
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_HighlightedRowChanged
+  name: HighlightedRowChanged
+  nameWithType: IEditControl.HighlightedRowChanged
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.HighlightedRowChanged
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.SelectedRowChanged
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.SelectedRowChanged
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SelectedRowChanged
+  name: SelectedRowChanged
+  nameWithType: IEditControl.SelectedRowChanged
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.SelectedRowChanged
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.AllSelectedRowsCleared
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.AllSelectedRowsCleared
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_AllSelectedRowsCleared
+  name: AllSelectedRowsCleared
+  nameWithType: IEditControl.AllSelectedRowsCleared
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.AllSelectedRowsCleared
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.RowBackColorChanged
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.RowBackColorChanged
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_RowBackColorChanged
+  name: RowBackColorChanged
+  nameWithType: IEditControl.RowBackColorChanged
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.RowBackColorChanged
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.RowStructureChanged
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.RowStructureChanged
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_RowStructureChanged
+  name: RowStructureChanged
+  nameWithType: IEditControl.RowStructureChanged
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.RowStructureChanged
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.BeginSelectedRowOperationChanged
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.BeginSelectedRowOperationChanged
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_BeginSelectedRowOperationChanged
+  name: BeginSelectedRowOperationChanged
+  nameWithType: IEditControl.BeginSelectedRowOperationChanged
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.BeginSelectedRowOperationChanged
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.EndSelectedRowOperationChanged
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.EndSelectedRowOperationChanged
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_EndSelectedRowOperationChanged
+  name: EndSelectedRowOperationChanged
+  nameWithType: IEditControl.EndSelectedRowOperationChanged
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.EndSelectedRowOperationChanged
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.OverwriteModeChanged
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.OverwriteModeChanged
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_OverwriteModeChanged
+  name: OverwriteModeChanged
+  nameWithType: IEditControl.OverwriteModeChanged
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.OverwriteModeChanged
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.IMEStartComposition
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.IMEStartComposition
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_IMEStartComposition
+  name: IMEStartComposition
+  nameWithType: IEditControl.IMEStartComposition
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.IMEStartComposition
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.IMECompositionChanged
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.IMECompositionChanged
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_IMECompositionChanged
+  name: IMECompositionChanged
+  nameWithType: IEditControl.IMECompositionChanged
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.IMECompositionChanged
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.IMEEndComposition
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.IMEEndComposition
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_IMEEndComposition
+  name: IMEEndComposition
+  nameWithType: IEditControl.IMEEndComposition
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.IMEEndComposition
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.SourceEditingModeEnded
+  commentId: E:Sdl.DesktopEditor.EditorApi.IEditControl.SourceEditingModeEnded
+  parent: Sdl.DesktopEditor.EditorApi.IEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_SourceEditingModeEnded
+  name: SourceEditingModeEnded
+  nameWithType: IEditControl.SourceEditingModeEnded
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.SourceEditingModeEnded
+- uid: Sdl.DesktopEditor.EditorApi.IControl.Control
+  commentId: P:Sdl.DesktopEditor.EditorApi.IControl.Control
+  parent: Sdl.DesktopEditor.EditorApi.IControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IControl.html#Sdl_DesktopEditor_EditorApi_IControl_Control
+  name: Control
+  nameWithType: IControl.Control
+  fullName: Sdl.DesktopEditor.EditorApi.IControl.Control
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: System.Object.Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Action{System.Windows.Window})
+  commentId: M:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  parent: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  definition: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  name: ForWindowFromFrameworkElement(object, Action<Window>)
+  nameWithType: WindowsControlUtils.ForWindowFromFrameworkElement(object, Action<Window>)
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(object, System.Action<System.Windows.Window>)
+  nameWithType.vb: WindowsControlUtils.ForWindowFromFrameworkElement(Object, Action(Of Window))
+  fullName.vb: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(Object, System.Action(Of System.Windows.Window))
+  name.vb: ForWindowFromFrameworkElement(Object, Action(Of Window))
+  spec.csharp:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: )
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl
+  commentId: T:Sdl.DesktopEditor.EditorApi.IEditControl
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html
+  name: IEditControl
+  nameWithType: IEditControl
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl
+- uid: Sdl.DesktopEditor.EditorApi.IControl
+  commentId: T:Sdl.DesktopEditor.EditorApi.IControl
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IControl.html
+  name: IControl
+  nameWithType: IControl
+  fullName: Sdl.DesktopEditor.EditorApi.IControl
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  commentId: M:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  isExternal: true
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  name: ForWindowFromFrameworkElement(object, Action<Window>)
+  nameWithType: WindowsControlUtils.ForWindowFromFrameworkElement(object, Action<Window>)
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(object, System.Action<System.Windows.Window>)
+  nameWithType.vb: WindowsControlUtils.ForWindowFromFrameworkElement(Object, Action(Of Window))
+  fullName.vb: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(Object, System.Action(Of System.Windows.Window))
+  name.vb: ForWindowFromFrameworkElement(Object, Action(Of Window))
+  spec.csharp:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: )
+  - name: )
+- uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  commentId: T:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  parent: Sdl.Desktop.Platform.Controls.Controls
+  isExternal: true
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html
+  name: WindowsControlUtils
+  nameWithType: WindowsControlUtils
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Desktop.Platform.Controls.Controls
+  commentId: N:Sdl.Desktop.Platform.Controls.Controls
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Desktop.Platform.Controls.Controls
+  nameWithType: Sdl.Desktop.Platform.Controls.Controls
+  fullName: Sdl.Desktop.Platform.Controls.Controls
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.Platform
+    name: Platform
+    isExternal: true
+    href: Sdl.Desktop.Platform.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.Platform
+    name: Platform
+    isExternal: true
+    href: Sdl.Desktop.Platform.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.html
+- uid: Sdl.DesktopEditor.EditorApi.IEditControl.CopySelection
+  commentId: M:Sdl.DesktopEditor.EditorApi.IEditControl.CopySelection
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CopySelection
+  name: CopySelection()
+  nameWithType: IEditControl.CopySelection()
+  fullName: Sdl.DesktopEditor.EditorApi.IEditControl.CopySelection()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CopySelection
+    name: CopySelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CopySelection
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IEditControl.CopySelection
+    name: CopySelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IEditControl.html#Sdl_DesktopEditor_EditorApi_IEditControl_CopySelection
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_CopySelection
+  name: CopySelection
+  nameWithType: IAbstractFrameworkEditControl.CopySelection
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection
+- uid: Sdl.DesktopEditor.EditorApi.IDocumentFragment
+  commentId: T:Sdl.DesktopEditor.EditorApi.IDocumentFragment
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IDocumentFragment.html
+  name: IDocumentFragment
+  nameWithType: IDocumentFragment
+  fullName: Sdl.DesktopEditor.EditorApi.IDocumentFragment
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelectionInternal*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelectionInternal
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_CopySelectionInternal_System_Boolean_
+  name: CopySelectionInternal
+  nameWithType: IAbstractFrameworkEditControl.CopySelectionInternal
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelectionInternal
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection
+  commentId: M:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_CopySelection
+  name: CopySelection()
+  nameWithType: IAbstractFrameworkEditControl.CopySelection()
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection
+    name: CopySelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_CopySelection
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.CopySelection
+    name: CopySelection
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_CopySelection
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument.CreateDocumentFragment
+  commentId: M:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument.CreateDocumentFragment
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkDocument_CreateDocumentFragment
+  name: CreateDocumentFragment()
+  nameWithType: IAbstractFrameworkDocument.CreateDocumentFragment()
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument.CreateDocumentFragment()
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument.CreateDocumentFragment
+    name: CreateDocumentFragment
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkDocument_CreateDocumentFragment
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument.CreateDocumentFragment
+    name: CreateDocumentFragment
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkDocument_CreateDocumentFragment
+  - name: (
+  - name: )
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ReplaceSelection*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ReplaceSelection
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_ReplaceSelection_Sdl_DesktopEditor_EditorApi_IDocumentFragment_
+  name: ReplaceSelection
+  nameWithType: IAbstractFrameworkEditControl.ReplaceSelection
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ReplaceSelection
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  commentId: T:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html
+  name: IAbstractFrameworkEditControl
+  nameWithType: IAbstractFrameworkEditControl
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument
+  commentId: T:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument.html
+  name: IAbstractFrameworkDocument
+  nameWithType: IAbstractFrameworkDocument
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkDocument
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ShowRows*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ShowRows
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_ShowRows_System_Collections_Generic_IList_System_Int32__
+  name: ShowRows
+  nameWithType: IAbstractFrameworkEditControl.ShowRows
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ShowRows
+- uid: System.Collections.Generic.IList{System.Int32}
+  commentId: T:System.Collections.Generic.IList{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<int>
+  nameWithType: IList<int>
+  fullName: System.Collections.Generic.IList<int>
+  nameWithType.vb: IList(Of Integer)
+  fullName.vb: System.Collections.Generic.IList(Of Integer)
+  name.vb: IList(Of Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideRows*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideRows
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_HideRows_System_Collections_Generic_IList_System_Int32__
+  name: HideRows
+  nameWithType: IAbstractFrameworkEditControl.HideRows
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideRows
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.RestoreGhostTagsInSelection*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.RestoreGhostTagsInSelection
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_RestoreGhostTagsInSelection
+  name: RestoreGhostTagsInSelection
+  nameWithType: IAbstractFrameworkEditControl.RestoreGhostTagsInSelection
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.RestoreGhostTagsInSelection
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.FindCustomColumnAtPoint*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.FindCustomColumnAtPoint
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_FindCustomColumnAtPoint_System_Drawing_Point_
+  name: FindCustomColumnAtPoint
+  nameWithType: IAbstractFrameworkEditControl.FindCustomColumnAtPoint
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.FindCustomColumnAtPoint
+- uid: System.Drawing.Point
+  commentId: T:System.Drawing.Point
+  parent: System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.drawing.point
+  name: Point
+  nameWithType: Point
+  fullName: System.Drawing.Point
+- uid: Sdl.DesktopEditor.EditorApi.ICustomColumn
+  commentId: T:Sdl.DesktopEditor.EditorApi.ICustomColumn
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ICustomColumn.html
+  name: ICustomColumn
+  nameWithType: ICustomColumn
+  fullName: Sdl.DesktopEditor.EditorApi.ICustomColumn
+- uid: System.Drawing
+  commentId: N:System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Drawing
+  nameWithType: System.Drawing
+  fullName: System.Drawing
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsUndoCommandSource*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsUndoCommandSource
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_IsUndoCommandSource
+  name: IsUndoCommandSource
+  nameWithType: IAbstractFrameworkEditControl.IsUndoCommandSource
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsUndoCommandSource
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsRedoCommandSource*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsRedoCommandSource
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_IsRedoCommandSource
+  name: IsRedoCommandSource
+  nameWithType: IAbstractFrameworkEditControl.IsRedoCommandSource
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.IsRedoCommandSource
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Document*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Document
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_Document
+  name: Document
+  nameWithType: IAbstractFrameworkEditControl.Document
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Document
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideHideableTags
+  commentId: P:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideHideableTags
+  parent: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_HideHideableTags
+  name: HideHideableTags
+  nameWithType: IAbstractFrameworkEditControl.HideHideableTags
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideHideableTags
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.SuppressFormatting*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.SuppressFormatting
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_SuppressFormatting
+  name: SuppressFormatting
+  nameWithType: IAbstractFrameworkEditControl.SuppressFormatting
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.SuppressFormatting
+- uid: Sdl.DesktopEditor.EditorApi.ISideBySideEditor.TagDisplayMode
+  commentId: P:Sdl.DesktopEditor.EditorApi.ISideBySideEditor.TagDisplayMode
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.ISideBySideEditor.html#Sdl_DesktopEditor_EditorApi_ISideBySideEditor_TagDisplayMode
+  name: TagDisplayMode
+  nameWithType: ISideBySideEditor.TagDisplayMode
+  fullName: Sdl.DesktopEditor.EditorApi.ISideBySideEditor.TagDisplayMode
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.TagDisplayMode*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.TagDisplayMode
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_TagDisplayMode
+  name: TagDisplayMode
+  nameWithType: IAbstractFrameworkEditControl.TagDisplayMode
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.TagDisplayMode
+- uid: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+  commentId: T:Sdl.DesktopEditor.EditorApi.TagDisplayMode
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.TagDisplayMode.html
+  name: TagDisplayMode
+  nameWithType: TagDisplayMode
+  fullName: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.CanHide
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.CanHide
+  isExternal: true
+  name: CanHide
+  nameWithType: IAbstractInlineTagProperties.CanHide
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.CanHide
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideHideableTags*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideHideableTags
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_HideHideableTags
+  name: HideHideableTags
+  nameWithType: IAbstractFrameworkEditControl.HideHideableTags
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.HideHideableTags
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.EditControlDisplaySettings*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.EditControlDisplaySettings
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_EditControlDisplaySettings
+  name: EditControlDisplaySettings
+  nameWithType: IAbstractFrameworkEditControl.EditControlDisplaySettings
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.EditControlDisplaySettings
+- uid: Sdl.DesktopEditor.EditorApi.Implementation.EditControlDisplaySettings
+  commentId: T:Sdl.DesktopEditor.EditorApi.Implementation.EditControlDisplaySettings
+  parent: Sdl.DesktopEditor.EditorApi.Implementation
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.Implementation.EditControlDisplaySettings.html
+  name: EditControlDisplaySettings
+  nameWithType: EditControlDisplaySettings
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation.EditControlDisplaySettings
+- uid: Sdl.DesktopEditor.EditorApi.Implementation
+  commentId: N:Sdl.DesktopEditor.EditorApi.Implementation
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi.Implementation
+  nameWithType: Sdl.DesktopEditor.EditorApi.Implementation
+  fullName: Sdl.DesktopEditor.EditorApi.Implementation
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation
+    name: Implementation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.Implementation
+    name: Implementation
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.Implementation.html
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Font*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Font
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_Font
+  name: Font
+  nameWithType: IAbstractFrameworkEditControl.Font
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.Font
+- uid: System.Drawing.Font
+  commentId: T:System.Drawing.Font
+  parent: System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.drawing.font
+  name: Font
+  nameWithType: Font
+  fullName: System.Drawing.Font
+- uid: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ToolTipContentDelegate*
+  commentId: Overload:Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ToolTipContentDelegate
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.html#Sdl_DesktopEditor_EditorApi_IAbstractFrameworkEditControl_ToolTipContentDelegate
+  name: ToolTipContentDelegate
+  nameWithType: IAbstractFrameworkEditControl.ToolTipContentDelegate
+  fullName: Sdl.DesktopEditor.EditorApi.IAbstractFrameworkEditControl.ToolTipContentDelegate
+- uid: System.Func{Sdl.DesktopEditor.EditorApi.IAbstractContentNode,System.String}
+  commentId: T:System.Func{Sdl.DesktopEditor.EditorApi.IAbstractContentNode,System.String}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<IAbstractContentNode, string>
+  nameWithType: Func<IAbstractContentNode, string>
+  fullName: System.Func<Sdl.DesktopEditor.EditorApi.IAbstractContentNode, string>
+  nameWithType.vb: Func(Of IAbstractContentNode, String)
+  fullName.vb: System.Func(Of Sdl.DesktopEditor.EditorApi.IAbstractContentNode, String)
+  name.vb: Func(Of IAbstractContentNode, String)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Sdl.DesktopEditor.EditorApi.IAbstractContentNode
+    name: IAbstractContentNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IAbstractContentNode.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.DesktopEditor.EditorApi.IAbstractContentNode
+    name: IAbstractContentNode
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.IAbstractContentNode.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )

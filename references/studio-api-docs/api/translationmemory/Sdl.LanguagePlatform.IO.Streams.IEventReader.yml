@@ -1,0 +1,203 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.IO.Streams.IEventReader
+  commentId: T:Sdl.LanguagePlatform.IO.Streams.IEventReader
+  id: IEventReader
+  parent: Sdl.LanguagePlatform.IO.Streams
+  children:
+  - Sdl.LanguagePlatform.IO.Streams.IEventReader.ReadAsync
+  langs:
+  - csharp
+  - vb
+  name: IEventReader
+  nameWithType: IEventReader
+  fullName: Sdl.LanguagePlatform.IO.Streams.IEventReader
+  type: Interface
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.Streams
+  summary: Simple interface for reading events from a stream.
+  example: []
+  syntax:
+    content: public interface IEventReader
+    content.vb: Public Interface IEventReader
+  derivedClasses:
+  - Sdl.LanguagePlatform.IO.TMX.TMXReader
+- uid: Sdl.LanguagePlatform.IO.Streams.IEventReader.ReadAsync
+  commentId: M:Sdl.LanguagePlatform.IO.Streams.IEventReader.ReadAsync
+  id: ReadAsync
+  parent: Sdl.LanguagePlatform.IO.Streams.IEventReader
+  langs:
+  - csharp
+  - vb
+  name: ReadAsync()
+  nameWithType: IEventReader.ReadAsync()
+  fullName: Sdl.LanguagePlatform.IO.Streams.IEventReader.ReadAsync()
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.Streams
+  summary: Reads the next item in the stream and returns the corresponding Event object, from that particular item.
+  example: []
+  syntax:
+    content: Task<Event> ReadAsync()
+    return:
+      type: System.Threading.Tasks.Task{Sdl.LanguagePlatform.IO.Streams.Event}
+      description: An Event object.
+    content.vb: Function ReadAsync() As Task(Of [Event])
+  overload: Sdl.LanguagePlatform.IO.Streams.IEventReader.ReadAsync*
+references:
+- uid: Sdl.LanguagePlatform.IO.Streams
+  commentId: N:Sdl.LanguagePlatform.IO.Streams
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.IO.Streams
+  nameWithType: Sdl.LanguagePlatform.IO.Streams
+  fullName: Sdl.LanguagePlatform.IO.Streams
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO
+    name: IO
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO.Streams
+    name: Streams
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.Streams.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO
+    name: IO
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO.Streams
+    name: Streams
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.Streams.html
+- uid: Sdl.LanguagePlatform.IO.Streams.IEventReader.ReadAsync*
+  commentId: Overload:Sdl.LanguagePlatform.IO.Streams.IEventReader.ReadAsync
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.Streams.IEventReader.html#Sdl_LanguagePlatform_IO_Streams_IEventReader_ReadAsync
+  name: ReadAsync
+  nameWithType: IEventReader.ReadAsync
+  fullName: Sdl.LanguagePlatform.IO.Streams.IEventReader.ReadAsync
+- uid: System.Threading.Tasks.Task{Sdl.LanguagePlatform.IO.Streams.Event}
+  commentId: T:System.Threading.Tasks.Task{Sdl.LanguagePlatform.IO.Streams.Event}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Event>
+  nameWithType: Task<Event>
+  fullName: System.Threading.Tasks.Task<Sdl.LanguagePlatform.IO.Streams.Event>
+  nameWithType.vb: Task(Of Event)
+  fullName.vb: System.Threading.Tasks.Task(Of Sdl.LanguagePlatform.IO.Streams.Event)
+  name.vb: Task(Of Event)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Sdl.LanguagePlatform.IO.Streams.Event
+    name: Event
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.Streams.Event.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.LanguagePlatform.IO.Streams.Event
+    name: Event
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.Streams.Event.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

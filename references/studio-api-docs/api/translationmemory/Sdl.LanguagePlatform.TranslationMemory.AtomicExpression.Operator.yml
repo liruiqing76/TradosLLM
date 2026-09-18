@@ -1,0 +1,298 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  id: AtomicExpression.Operator
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Contains
+  - Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.ContainsNot
+  - Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Equal
+  - Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Greater
+  - Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.GreaterEqual
+  - Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Matches
+  - Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.MatchesNot
+  - Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.NotEqual
+  - Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Smaller
+  - Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.SmallerEqual
+  langs:
+  - csharp
+  - vb
+  name: AtomicExpression.Operator
+  nameWithType: AtomicExpression.Operator
+  fullName: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Specifies the operators available in an atomic expression.
+  example: []
+  syntax:
+    content: public enum AtomicExpression.Operator
+    content.vb: Public Enum AtomicExpression.Operator
+- uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Equal
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Equal
+  id: Equal
+  parent: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  langs:
+  - csharp
+  - vb
+  name: Equal
+  nameWithType: AtomicExpression.Operator.Equal
+  fullName: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Equal
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: == operator. Can be applied to any field type.
+  example: []
+  syntax:
+    content: Equal = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+- uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Smaller
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Smaller
+  id: Smaller
+  parent: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  langs:
+  - csharp
+  - vb
+  name: Smaller
+  nameWithType: AtomicExpression.Operator.Smaller
+  fullName: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Smaller
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: '&lt; operator. Cannot be applied to multiple-value and picklist fields.'
+  example: []
+  syntax:
+    content: Smaller = 2
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+- uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.SmallerEqual
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.SmallerEqual
+  id: SmallerEqual
+  parent: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  langs:
+  - csharp
+  - vb
+  name: SmallerEqual
+  nameWithType: AtomicExpression.Operator.SmallerEqual
+  fullName: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.SmallerEqual
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: '&lt;= operator. Cannot be applied to multiple-value and picklist fields.'
+  example: []
+  syntax:
+    content: SmallerEqual = 3
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+- uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Greater
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Greater
+  id: Greater
+  parent: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  langs:
+  - csharp
+  - vb
+  name: Greater
+  nameWithType: AtomicExpression.Operator.Greater
+  fullName: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Greater
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: '> operator. Cannot be applied to multiple-value and picklist fields.'
+  example: []
+  syntax:
+    content: Greater = 4
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+- uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.GreaterEqual
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.GreaterEqual
+  id: GreaterEqual
+  parent: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  langs:
+  - csharp
+  - vb
+  name: GreaterEqual
+  nameWithType: AtomicExpression.Operator.GreaterEqual
+  fullName: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.GreaterEqual
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: '>= operator. Cannot be applied to multiple-value and picklist fields.'
+  example: []
+  syntax:
+    content: GreaterEqual = 5
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+- uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.NotEqual
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.NotEqual
+  id: NotEqual
+  parent: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  langs:
+  - csharp
+  - vb
+  name: NotEqual
+  nameWithType: AtomicExpression.Operator.NotEqual
+  fullName: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.NotEqual
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: '!= operator. Cannot be applied to multiple-value fields.'
+  example: []
+  syntax:
+    content: NotEqual = 6
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+- uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Contains
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Contains
+  id: Contains
+  parent: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  langs:
+  - csharp
+  - vb
+  name: Contains
+  nameWithType: AtomicExpression.Operator.Contains
+  fullName: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Contains
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: '@ (contains) operator. Cannot be applied to DateTime, Integer and SinglePicklist fields.'
+  example: []
+  syntax:
+    content: Contains = 7
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+- uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.ContainsNot
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.ContainsNot
+  id: ContainsNot
+  parent: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  langs:
+  - csharp
+  - vb
+  name: ContainsNot
+  nameWithType: AtomicExpression.Operator.ContainsNot
+  fullName: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.ContainsNot
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: '!@ (does not contain) operator. Cannot be applied to DateTime, Integer and SinglePicklist fields.'
+  example: []
+  syntax:
+    content: ContainsNot = 8
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+- uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Matches
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Matches
+  id: Matches
+  parent: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  langs:
+  - csharp
+  - vb
+  name: Matches
+  nameWithType: AtomicExpression.Operator.Matches
+  fullName: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.Matches
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: ~ (matches) operator. Can only be applied to single-value string fields.
+  example: []
+  syntax:
+    content: Matches = 9
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+- uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.MatchesNot
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.MatchesNot
+  id: MatchesNot
+  parent: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  langs:
+  - csharp
+  - vb
+  name: MatchesNot
+  nameWithType: AtomicExpression.Operator.MatchesNot
+  fullName: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.MatchesNot
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: '!~ (does not match) operator. Can only be applied to single-value string fields.'
+  example: []
+  syntax:
+    content: MatchesNot = 10
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.html
+  name: AtomicExpression.Operator
+  nameWithType: AtomicExpression.Operator
+  fullName: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression
+    name: AtomicExpression
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+    name: Operator
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.html
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression
+    name: AtomicExpression
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator
+    name: Operator
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.AtomicExpression.Operator.html

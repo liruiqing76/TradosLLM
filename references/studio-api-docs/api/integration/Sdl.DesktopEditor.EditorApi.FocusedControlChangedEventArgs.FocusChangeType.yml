@@ -1,0 +1,137 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType
+  commentId: T:Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType
+  id: FocusedControlChangedEventArgs.FocusChangeType
+  parent: Sdl.DesktopEditor.EditorApi
+  children:
+  - Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType.GotFocus
+  - Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType.LostFocus
+  langs:
+  - csharp
+  - vb
+  name: FocusedControlChangedEventArgs.FocusChangeType
+  nameWithType: FocusedControlChangedEventArgs.FocusChangeType
+  fullName: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType
+  type: Enum
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Indicates the type of focus change this event is about
+  example: []
+  syntax:
+    content: public enum FocusedControlChangedEventArgs.FocusChangeType
+    content.vb: Public Enum FocusedControlChangedEventArgs.FocusChangeType
+- uid: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType.GotFocus
+  commentId: F:Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType.GotFocus
+  id: GotFocus
+  parent: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType
+  langs:
+  - csharp
+  - vb
+  name: GotFocus
+  nameWithType: FocusedControlChangedEventArgs.FocusChangeType.GotFocus
+  fullName: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType.GotFocus
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The <xref href="Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.Control" data-throw-if-not-resolved="false"></xref> received input focus.
+  example: []
+  syntax:
+    content: GotFocus = 0
+    return:
+      type: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType
+- uid: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType.LostFocus
+  commentId: F:Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType.LostFocus
+  id: LostFocus
+  parent: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType
+  langs:
+  - csharp
+  - vb
+  name: LostFocus
+  nameWithType: FocusedControlChangedEventArgs.FocusChangeType.LostFocus
+  fullName: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType.LostFocus
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The <xref href="Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.Control" data-throw-if-not-resolved="false"></xref> lost input focus.
+  example: []
+  syntax:
+    content: LostFocus = 1
+    return:
+      type: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType
+references:
+- uid: Sdl.DesktopEditor.EditorApi
+  commentId: N:Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi
+  nameWithType: Sdl.DesktopEditor.EditorApi
+  fullName: Sdl.DesktopEditor.EditorApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+- uid: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.Control
+  commentId: P:Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.Control
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.html#Sdl_DesktopEditor_EditorApi_FocusedControlChangedEventArgs_Control
+  name: Control
+  nameWithType: FocusedControlChangedEventArgs.Control
+  fullName: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.Control
+- uid: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType
+  commentId: T:Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.html
+  name: FocusedControlChangedEventArgs.FocusChangeType
+  nameWithType: FocusedControlChangedEventArgs.FocusChangeType
+  fullName: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType
+  spec.csharp:
+  - uid: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs
+    name: FocusedControlChangedEventArgs
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType
+    name: FocusChangeType
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType.html
+  spec.vb:
+  - uid: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs
+    name: FocusedControlChangedEventArgs
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType
+    name: FocusChangeType
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.FocusedControlChangedEventArgs.FocusChangeType.html

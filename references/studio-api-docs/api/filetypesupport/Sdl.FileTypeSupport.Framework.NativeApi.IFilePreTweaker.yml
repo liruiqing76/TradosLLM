@@ -1,0 +1,167 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IFilePreTweaker
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IFilePreTweaker
+  id: IFilePreTweaker
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IFilePreTweaker.TweakFilePreParsing(Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties,Sdl.FileTypeSupport.Framework.NativeApi.IPropertiesFactory)
+  langs:
+  - csharp
+  - vb
+  name: IFilePreTweaker
+  nameWithType: IFilePreTweaker
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IFilePreTweaker
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    This interface should be implemented by any objects that can be used to modify the contents of a native
+
+    file before being processed through an extractor or after being written by a generator.
+  remarks: >-
+    <p>
+
+    File tweaker implementations typically derive from <code>Sdl.FileTypeSupport.Framework.Core.Utiltites.NativeApi.AbstractFilePreTweaker</code>
+
+    rather than implementing this interface explicitly.
+
+    </p>
+  example: []
+  syntax:
+    content: 'public interface IFilePreTweaker : IFileTweaker'
+    content.vb: Public Interface IFilePreTweaker Inherits IFileTweaker
+  derivedClasses:
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.AbstractFilePreTweaker
+  - Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.RegExFilePreTweaker
+  inheritedMembers:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker.MessageReporter
+  - Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker.Enabled
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IFilePreTweaker.TweakFilePreParsing(Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties,Sdl.FileTypeSupport.Framework.NativeApi.IPropertiesFactory)
+  commentId: M:Sdl.FileTypeSupport.Framework.NativeApi.IFilePreTweaker.TweakFilePreParsing(Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties,Sdl.FileTypeSupport.Framework.NativeApi.IPropertiesFactory)
+  id: TweakFilePreParsing(Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties,Sdl.FileTypeSupport.Framework.NativeApi.IPropertiesFactory)
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IFilePreTweaker
+  langs:
+  - csharp
+  - vb
+  name: TweakFilePreParsing(IPersistentFileConversionProperties, IPropertiesFactory)
+  nameWithType: IFilePreTweaker.TweakFilePreParsing(IPersistentFileConversionProperties, IPropertiesFactory)
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IFilePreTweaker.TweakFilePreParsing(Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties, Sdl.FileTypeSupport.Framework.NativeApi.IPropertiesFactory)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    The method called by the framework for each file before parsing begins. It is the responsibility of the class implementing
+
+    this method to process the file completely.
+  example: []
+  syntax:
+    content: void TweakFilePreParsing(IPersistentFileConversionProperties properties, IPropertiesFactory propertiesFactory)
+    parameters:
+    - id: properties
+      type: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+      description: >-
+        Information on the file to be tweaked; can be modified by the implementation, e.g. to add
+                    additional dependency files.
+    - id: propertiesFactory
+      type: Sdl.FileTypeSupport.Framework.NativeApi.IPropertiesFactory
+      description: Can be used by the implementation to create dependency file properties, etc.
+    content.vb: Sub TweakFilePreParsing(properties As IPersistentFileConversionProperties, propertiesFactory As IPropertiesFactory)
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IFilePreTweaker.TweakFilePreParsing*
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker.MessageReporter
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker.MessageReporter
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker.html#Sdl_FileTypeSupport_Framework_NativeApi_IFileTweaker_MessageReporter
+  name: MessageReporter
+  nameWithType: IFileTweaker.MessageReporter
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker.MessageReporter
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker.Enabled
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker.Enabled
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker.html#Sdl_FileTypeSupport_Framework_NativeApi_IFileTweaker_Enabled
+  name: Enabled
+  nameWithType: IFileTweaker.Enabled
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker.Enabled
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker.html
+  name: IFileTweaker
+  nameWithType: IFileTweaker
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IFileTweaker
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IFilePreTweaker.TweakFilePreParsing*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IFilePreTweaker.TweakFilePreParsing
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IFilePreTweaker.html#Sdl_FileTypeSupport_Framework_NativeApi_IFilePreTweaker_TweakFilePreParsing_Sdl_FileTypeSupport_Framework_NativeApi_IPersistentFileConversionProperties_Sdl_FileTypeSupport_Framework_NativeApi_IPropertiesFactory_
+  name: TweakFilePreParsing
+  nameWithType: IFilePreTweaker.TweakFilePreParsing
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IFilePreTweaker.TweakFilePreParsing
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties.html
+  name: IPersistentFileConversionProperties
+  nameWithType: IPersistentFileConversionProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPersistentFileConversionProperties
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IPropertiesFactory
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IPropertiesFactory
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IPropertiesFactory.html
+  name: IPropertiesFactory
+  nameWithType: IPropertiesFactory
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IPropertiesFactory

@@ -1,0 +1,110 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.SortDirection
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SortDirection
+  id: SortDirection
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.SortDirection.Ascending
+  - Sdl.LanguagePlatform.TranslationMemory.SortDirection.Descending
+  langs:
+  - csharp
+  - vb
+  name: SortDirection
+  nameWithType: SortDirection
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SortDirection
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Specifies the sort direction, ascending or descending.
+  example: []
+  syntax:
+    content: public enum SortDirection
+    content.vb: Public Enum SortDirection
+- uid: Sdl.LanguagePlatform.TranslationMemory.SortDirection.Ascending
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SortDirection.Ascending
+  id: Ascending
+  parent: Sdl.LanguagePlatform.TranslationMemory.SortDirection
+  langs:
+  - csharp
+  - vb
+  name: Ascending
+  nameWithType: SortDirection.Ascending
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SortDirection.Ascending
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The translation units will be sorted ascending according to the specified sort criterium.
+  example: []
+  syntax:
+    content: Ascending = 0
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.SortDirection
+- uid: Sdl.LanguagePlatform.TranslationMemory.SortDirection.Descending
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.SortDirection.Descending
+  id: Descending
+  parent: Sdl.LanguagePlatform.TranslationMemory.SortDirection
+  langs:
+  - csharp
+  - vb
+  name: Descending
+  nameWithType: SortDirection.Descending
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SortDirection.Descending
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The translation units will be sorted descending according to the specified sort criterium.
+  example: []
+  syntax:
+    content: Descending = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.SortDirection
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.SortDirection
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.SortDirection
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.SortDirection.html
+  name: SortDirection
+  nameWithType: SortDirection
+  fullName: Sdl.LanguagePlatform.TranslationMemory.SortDirection

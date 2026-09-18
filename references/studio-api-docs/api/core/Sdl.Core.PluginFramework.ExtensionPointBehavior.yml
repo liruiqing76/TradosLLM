@@ -1,0 +1,116 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.PluginFramework.ExtensionPointBehavior
+  commentId: T:Sdl.Core.PluginFramework.ExtensionPointBehavior
+  id: ExtensionPointBehavior
+  parent: Sdl.Core.PluginFramework
+  children:
+  - Sdl.Core.PluginFramework.ExtensionPointBehavior.Dynamic
+  - Sdl.Core.PluginFramework.ExtensionPointBehavior.Static
+  langs:
+  - csharp
+  - vb
+  name: ExtensionPointBehavior
+  nameWithType: ExtensionPointBehavior
+  fullName: Sdl.Core.PluginFramework.ExtensionPointBehavior
+  type: Enum
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: Possible extension point types.
+  example: []
+  syntax:
+    content: public enum ExtensionPointBehavior
+    content.vb: Public Enum ExtensionPointBehavior
+- uid: Sdl.Core.PluginFramework.ExtensionPointBehavior.Static
+  commentId: F:Sdl.Core.PluginFramework.ExtensionPointBehavior.Static
+  id: Static
+  parent: Sdl.Core.PluginFramework.ExtensionPointBehavior
+  langs:
+  - csharp
+  - vb
+  name: Static
+  nameWithType: ExtensionPointBehavior.Static
+  fullName: Sdl.Core.PluginFramework.ExtensionPointBehavior.Static
+  type: Field
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: >-
+    Static extension point. Once the extension have been instantiated, enabling or disabling 
+
+    extensions within this extension point requires a restart of the application.
+  example: []
+  syntax:
+    content: Static = 0
+    return:
+      type: Sdl.Core.PluginFramework.ExtensionPointBehavior
+- uid: Sdl.Core.PluginFramework.ExtensionPointBehavior.Dynamic
+  commentId: F:Sdl.Core.PluginFramework.ExtensionPointBehavior.Dynamic
+  id: Dynamic
+  parent: Sdl.Core.PluginFramework.ExtensionPointBehavior
+  langs:
+  - csharp
+  - vb
+  name: Dynamic
+  nameWithType: ExtensionPointBehavior.Dynamic
+  fullName: Sdl.Core.PluginFramework.ExtensionPointBehavior.Dynamic
+  type: Field
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: >-
+    Dynamic extension point. Extensions for this extension point can be enabled or disabled without
+
+    requiring  an application restart.
+  example: []
+  syntax:
+    content: Dynamic = 1
+    return:
+      type: Sdl.Core.PluginFramework.ExtensionPointBehavior
+references:
+- uid: Sdl.Core.PluginFramework
+  commentId: N:Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.PluginFramework
+  nameWithType: Sdl.Core.PluginFramework
+  fullName: Sdl.Core.PluginFramework
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+- uid: Sdl.Core.PluginFramework.ExtensionPointBehavior
+  commentId: T:Sdl.Core.PluginFramework.ExtensionPointBehavior
+  parent: Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.Core.PluginFramework.ExtensionPointBehavior.html
+  name: ExtensionPointBehavior
+  nameWithType: ExtensionPointBehavior
+  fullName: Sdl.Core.PluginFramework.ExtensionPointBehavior

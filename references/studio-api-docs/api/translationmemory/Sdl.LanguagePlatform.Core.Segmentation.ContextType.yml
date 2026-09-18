@@ -1,0 +1,312 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+  commentId: T:Sdl.LanguagePlatform.Core.Segmentation.ContextType
+  id: ContextType
+  parent: Sdl.LanguagePlatform.Core.Segmentation
+  children:
+  - Sdl.LanguagePlatform.Core.Segmentation.ContextType.AbbreviationException
+  - Sdl.LanguagePlatform.Core.Segmentation.ContextType.LowercaseFollowerException
+  - Sdl.LanguagePlatform.Core.Segmentation.ContextType.MatchContext
+  - Sdl.LanguagePlatform.Core.Segmentation.ContextType.OrdinalFollowerException
+  - Sdl.LanguagePlatform.Core.Segmentation.ContextType.Other
+  - Sdl.LanguagePlatform.Core.Segmentation.ContextType.OtherException
+  - Sdl.LanguagePlatform.Core.Segmentation.ContextType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: ContextType
+  nameWithType: ContextType
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: The type of a break context
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public enum ContextType
+    content.vb: >-
+      <DataContract>
+
+      Public Enum ContextType
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.ContextType.Unknown
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.ContextType.Unknown
+  id: Unknown
+  parent: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: ContextType.Unknown
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.ContextType.Unknown
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: Break context type is unknown
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Unknown = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+    content.vb: >-
+      <EnumMember>
+
+      Unknown = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.ContextType.MatchContext
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.ContextType.MatchContext
+  id: MatchContext
+  parent: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+  langs:
+  - csharp
+  - vb
+  name: MatchContext
+  nameWithType: ContextType.MatchContext
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.ContextType.MatchContext
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: Break context is a match context
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      MatchContext = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+    content.vb: >-
+      <EnumMember>
+
+      MatchContext = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.ContextType.AbbreviationException
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.ContextType.AbbreviationException
+  id: AbbreviationException
+  parent: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+  langs:
+  - csharp
+  - vb
+  name: AbbreviationException
+  nameWithType: ContextType.AbbreviationException
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.ContextType.AbbreviationException
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: Break context is an exception for abbreviations
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      AbbreviationException = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+    content.vb: >-
+      <EnumMember>
+
+      AbbreviationException = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.ContextType.OrdinalFollowerException
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.ContextType.OrdinalFollowerException
+  id: OrdinalFollowerException
+  parent: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+  langs:
+  - csharp
+  - vb
+  name: OrdinalFollowerException
+  nameWithType: ContextType.OrdinalFollowerException
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.ContextType.OrdinalFollowerException
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: Break context is an exception for ordinal followers
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      OrdinalFollowerException = 3
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+    content.vb: >-
+      <EnumMember>
+
+      OrdinalFollowerException = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.ContextType.LowercaseFollowerException
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.ContextType.LowercaseFollowerException
+  id: LowercaseFollowerException
+  parent: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+  langs:
+  - csharp
+  - vb
+  name: LowercaseFollowerException
+  nameWithType: ContextType.LowercaseFollowerException
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.ContextType.LowercaseFollowerException
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: Break context is an exception for lower-case followers
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      LowercaseFollowerException = 4
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+    content.vb: >-
+      <EnumMember>
+
+      LowercaseFollowerException = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.ContextType.OtherException
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.ContextType.OtherException
+  id: OtherException
+  parent: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+  langs:
+  - csharp
+  - vb
+  name: OtherException
+  nameWithType: ContextType.OtherException
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.ContextType.OtherException
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: Break context is an exception for something else
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      OtherException = 5
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+    content.vb: >-
+      <EnumMember>
+
+      OtherException = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.ContextType.Other
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.ContextType.Other
+  id: Other
+  parent: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+  langs:
+  - csharp
+  - vb
+  name: Other
+  nameWithType: ContextType.Other
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.ContextType.Other
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: Other break context
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Other = 6
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+    content.vb: >-
+      <EnumMember>
+
+      Other = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: Sdl.LanguagePlatform.Core.Segmentation
+  commentId: N:Sdl.LanguagePlatform.Core.Segmentation
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core.Segmentation
+  nameWithType: Sdl.LanguagePlatform.Core.Segmentation
+  fullName: Sdl.LanguagePlatform.Core.Segmentation
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Segmentation
+    name: Segmentation
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segmentation.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Segmentation
+    name: Segmentation
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segmentation.html
+- uid: Sdl.LanguagePlatform.Core.Segmentation.ContextType
+  commentId: T:Sdl.LanguagePlatform.Core.Segmentation.ContextType
+  parent: Sdl.LanguagePlatform.Core.Segmentation
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.Segmentation.ContextType.html
+  name: ContextType
+  nameWithType: ContextType
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.ContextType

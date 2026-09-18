@@ -1,0 +1,150 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle
+  id: ActionStyle
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  children:
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle.PushButton
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle.ToggleButton
+  langs:
+  - csharp
+  - vb
+  name: ActionStyle
+  nameWithType: ActionStyle
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle
+  type: Enum
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Enumeration of different action styles.
+  example: []
+  syntax:
+    content: public enum ActionStyle
+    content.vb: Public Enum ActionStyle
+  seealso:
+  - linkId: Sdl.Desktop.IntegrationApi.Extensions.Internal.IAction.Style
+    commentId: P:Sdl.Desktop.IntegrationApi.Extensions.Internal.IAction.Style
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle.PushButton
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle.PushButton
+  id: PushButton
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle
+  langs:
+  - csharp
+  - vb
+  name: PushButton
+  nameWithType: ActionStyle.PushButton
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle.PushButton
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Push button action.
+  remarks: This type of action is represented by a normal menu item or toolbar button.
+  example: []
+  syntax:
+    content: PushButton = 0
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle.ToggleButton
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle.ToggleButton
+  id: ToggleButton
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle
+  langs:
+  - csharp
+  - vb
+  name: ToggleButton
+  nameWithType: ActionStyle.ToggleButton
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle.ToggleButton
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Toggle button action.
+  example: []
+  syntax:
+    content: ToggleButton = 1
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle
+references:
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.IAction.Style
+  commentId: P:Sdl.Desktop.IntegrationApi.Extensions.Internal.IAction.Style
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.IAction
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.Extensions.Internal.IAction.html#Sdl_Desktop_IntegrationApi_Extensions_Internal_IAction_Style
+  name: Style
+  nameWithType: IAction.Style
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.IAction.Style
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  commentId: N:Sdl.Desktop.IntegrationApi.Extensions.Internal
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  nameWithType: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.Internal
+    name: Internal
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.Internal.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.Internal
+    name: Internal
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.Internal.html
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.IAction
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.Internal.IAction
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.Extensions.Internal.IAction.html
+  name: IAction
+  nameWithType: IAction
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.IAction
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle.html
+  name: ActionStyle
+  nameWithType: ActionStyle
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.ActionStyle

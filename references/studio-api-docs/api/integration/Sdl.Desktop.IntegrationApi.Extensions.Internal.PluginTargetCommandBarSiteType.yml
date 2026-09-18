@@ -1,0 +1,172 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType
+  id: PluginTargetCommandBarSiteType
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  children:
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.View
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.ViewPart
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.ViewPartCommandBarProvider
+  - Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.Window
+  langs:
+  - csharp
+  - vb
+  name: PluginTargetCommandBarSiteType
+  nameWithType: PluginTargetCommandBarSiteType
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType
+  type: Enum
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Possibles sites for adding items to command bars.
+  example: []
+  syntax:
+    content: public enum PluginTargetCommandBarSiteType
+    content.vb: Public Enum PluginTargetCommandBarSiteType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.Window
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.Window
+  id: Window
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType
+  langs:
+  - csharp
+  - vb
+  name: Window
+  nameWithType: PluginTargetCommandBarSiteType.Window
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.Window
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: Adds the item to the window; it is available while the window is showing.
+  example: []
+  syntax:
+    content: Window = 0
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.View
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.View
+  id: View
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType
+  langs:
+  - csharp
+  - vb
+  name: View
+  nameWithType: PluginTargetCommandBarSiteType.View
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.View
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: 'TODO : review bellow comments'
+  example: []
+  syntax:
+    content: View = 1
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.ViewPart
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.ViewPart
+  id: ViewPart
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType
+  langs:
+  - csharp
+  - vb
+  name: ViewPart
+  nameWithType: PluginTargetCommandBarSiteType.ViewPart
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.ViewPart
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: 'TODO : review bellow comments'
+  example: []
+  syntax:
+    content: ViewPart = 2
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.ViewPartCommandBarProvider
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.ViewPartCommandBarProvider
+  id: ViewPartCommandBarProvider
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType
+  langs:
+  - csharp
+  - vb
+  name: ViewPartCommandBarProvider
+  nameWithType: PluginTargetCommandBarSiteType.ViewPartCommandBarProvider
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.ViewPartCommandBarProvider
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  summary: 'TODO : review bellow comments'
+  example: []
+  syntax:
+    content: ViewPartCommandBarProvider = 3
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType
+references:
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  commentId: N:Sdl.Desktop.IntegrationApi.Extensions.Internal
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  nameWithType: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.Internal
+    name: Internal
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.Internal.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions.Internal
+    name: Internal
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.Internal.html
+- uid: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType
+  parent: Sdl.Desktop.IntegrationApi.Extensions.Internal
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType.html
+  name: PluginTargetCommandBarSiteType
+  nameWithType: PluginTargetCommandBarSiteType
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.Internal.PluginTargetCommandBarSiteType

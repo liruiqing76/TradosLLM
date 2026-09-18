@@ -1,0 +1,236 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+  id: CascadeMessageCode
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  children:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportConcordanceSearch
+  - Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportSearchForTranslationUnits
+  - Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportSourceConcordanceSearch
+  - Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportTargetConcordanceSearch
+  - Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportUpdate
+  - Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderIsReadOnly
+  - Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderNeedsUpgrade
+  - Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderThrewException
+  langs:
+  - csharp
+  - vb
+  name: CascadeMessageCode
+  nameWithType: CascadeMessageCode
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: CascadeMessageCode enumeration represents the cascade message codes.
+  example: []
+  syntax:
+    content: public enum CascadeMessageCode
+    content.vb: Public Enum CascadeMessageCode
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderThrewException
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderThrewException
+  id: TranslationProviderThrewException
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+  langs:
+  - csharp
+  - vb
+  name: TranslationProviderThrewException
+  nameWithType: CascadeMessageCode.TranslationProviderThrewException
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderThrewException
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: The translation provider threw an exception.
+  example: []
+  syntax:
+    content: TranslationProviderThrewException = 0
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportConcordanceSearch
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportConcordanceSearch
+  id: TranslationProviderDoesNotSupportConcordanceSearch
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+  langs:
+  - csharp
+  - vb
+  name: TranslationProviderDoesNotSupportConcordanceSearch
+  nameWithType: CascadeMessageCode.TranslationProviderDoesNotSupportConcordanceSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportConcordanceSearch
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: The cascade method requires that the translation provider supports concordance search but it does not.
+  example: []
+  syntax:
+    content: TranslationProviderDoesNotSupportConcordanceSearch = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportSourceConcordanceSearch
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportSourceConcordanceSearch
+  id: TranslationProviderDoesNotSupportSourceConcordanceSearch
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+  langs:
+  - csharp
+  - vb
+  name: TranslationProviderDoesNotSupportSourceConcordanceSearch
+  nameWithType: CascadeMessageCode.TranslationProviderDoesNotSupportSourceConcordanceSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportSourceConcordanceSearch
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: The cascade method requires that the translation provider supports source concordance search but it does not.
+  example: []
+  syntax:
+    content: TranslationProviderDoesNotSupportSourceConcordanceSearch = 2
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportTargetConcordanceSearch
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportTargetConcordanceSearch
+  id: TranslationProviderDoesNotSupportTargetConcordanceSearch
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+  langs:
+  - csharp
+  - vb
+  name: TranslationProviderDoesNotSupportTargetConcordanceSearch
+  nameWithType: CascadeMessageCode.TranslationProviderDoesNotSupportTargetConcordanceSearch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportTargetConcordanceSearch
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: The cascade method requires that the translation provider supports target concordance search but it does not.
+  example: []
+  syntax:
+    content: TranslationProviderDoesNotSupportTargetConcordanceSearch = 3
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportSearchForTranslationUnits
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportSearchForTranslationUnits
+  id: TranslationProviderDoesNotSupportSearchForTranslationUnits
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+  langs:
+  - csharp
+  - vb
+  name: TranslationProviderDoesNotSupportSearchForTranslationUnits
+  nameWithType: CascadeMessageCode.TranslationProviderDoesNotSupportSearchForTranslationUnits
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportSearchForTranslationUnits
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: The cascade method requires that the translation provider supports searching for translation units but it does not.
+  example: []
+  syntax:
+    content: TranslationProviderDoesNotSupportSearchForTranslationUnits = 4
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderIsReadOnly
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderIsReadOnly
+  id: TranslationProviderIsReadOnly
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+  langs:
+  - csharp
+  - vb
+  name: TranslationProviderIsReadOnly
+  nameWithType: CascadeMessageCode.TranslationProviderIsReadOnly
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderIsReadOnly
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: The cascade method requires the the translation provider is write-able but it is read-only.
+  example: []
+  syntax:
+    content: TranslationProviderIsReadOnly = 5
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportUpdate
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportUpdate
+  id: TranslationProviderDoesNotSupportUpdate
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+  langs:
+  - csharp
+  - vb
+  name: TranslationProviderDoesNotSupportUpdate
+  nameWithType: CascadeMessageCode.TranslationProviderDoesNotSupportUpdate
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderDoesNotSupportUpdate
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: The cascade method requires that the translation providers supports update but it does not.
+  example: []
+  syntax:
+    content: TranslationProviderDoesNotSupportUpdate = 6
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderNeedsUpgrade
+  commentId: F:Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderNeedsUpgrade
+  id: TranslationProviderNeedsUpgrade
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+  langs:
+  - csharp
+  - vb
+  name: TranslationProviderNeedsUpgrade
+  nameWithType: CascadeMessageCode.TranslationProviderNeedsUpgrade
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.TranslationProviderNeedsUpgrade
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: The cascade method requires that the translation providers needs upgrade
+  example: []
+  syntax:
+    content: TranslationProviderNeedsUpgrade = 7
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi
+  commentId: N:Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemoryApi
+  nameWithType: Sdl.LanguagePlatform.TranslationMemoryApi
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode.html
+  name: CascadeMessageCode
+  nameWithType: CascadeMessageCode
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.CascadeMessageCode

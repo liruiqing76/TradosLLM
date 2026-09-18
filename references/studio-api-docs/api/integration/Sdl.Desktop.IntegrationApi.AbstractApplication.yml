@@ -1,0 +1,856 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication
+  commentId: T:Sdl.Desktop.IntegrationApi.AbstractApplication
+  id: AbstractApplication
+  parent: Sdl.Desktop.IntegrationApi
+  children:
+  - Sdl.Desktop.IntegrationApi.AbstractApplication.#ctor
+  - Sdl.Desktop.IntegrationApi.AbstractApplication.Closing
+  - Sdl.Desktop.IntegrationApi.AbstractApplication.ExecuteAction``1
+  - Sdl.Desktop.IntegrationApi.AbstractApplication.GetAction``1
+  - Sdl.Desktop.IntegrationApi.AbstractApplication.GetController``1
+  - Sdl.Desktop.IntegrationApi.AbstractApplication.GetService``1
+  - Sdl.Desktop.IntegrationApi.AbstractApplication.RegisterRelay(Sdl.Desktop.Platform.IStudioWindow)
+  langs:
+  - csharp
+  - vb
+  name: AbstractApplication
+  nameWithType: AbstractApplication
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication
+  type: Class
+  assemblies:
+  - Sdl.Desktop.IntegrationApi
+  namespace: Sdl.Desktop.IntegrationApi
+  summary: Base class for the application
+  example: []
+  syntax:
+    content: public abstract class AbstractApplication
+    content.vb: Public MustInherit Class AbstractApplication
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Sdl.TranslationStudioAutomation.IntegrationApi.Internal.SdlTradosStudioApplication
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  extensionMethods:
+  - System.Object.Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Action{System.Windows.Window})
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication.#ctor
+  commentId: M:Sdl.Desktop.IntegrationApi.AbstractApplication.#ctor
+  id: '#ctor'
+  parent: Sdl.Desktop.IntegrationApi.AbstractApplication
+  langs:
+  - csharp
+  - vb
+  name: AbstractApplication()
+  nameWithType: AbstractApplication.AbstractApplication()
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication.AbstractApplication()
+  type: Constructor
+  assemblies:
+  - Sdl.Desktop.IntegrationApi
+  namespace: Sdl.Desktop.IntegrationApi
+  summary: Initialize the instance of this class
+  example: []
+  syntax:
+    content: protected AbstractApplication()
+    content.vb: Protected Sub New()
+  overload: Sdl.Desktop.IntegrationApi.AbstractApplication.#ctor*
+  nameWithType.vb: AbstractApplication.New()
+  fullName.vb: Sdl.Desktop.IntegrationApi.AbstractApplication.New()
+  name.vb: New()
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication.GetController``1
+  commentId: M:Sdl.Desktop.IntegrationApi.AbstractApplication.GetController``1
+  id: GetController``1
+  parent: Sdl.Desktop.IntegrationApi.AbstractApplication
+  langs:
+  - csharp
+  - vb
+  name: GetController<TController>()
+  nameWithType: AbstractApplication.GetController<TController>()
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication.GetController<TController>()
+  type: Method
+  assemblies:
+  - Sdl.Desktop.IntegrationApi
+  namespace: Sdl.Desktop.IntegrationApi
+  summary: Gets the requested controller. This supports getting view or view part controllers.
+  example: []
+  syntax:
+    content: 'public virtual TController GetController<TController>() where TController : AbstractController'
+    typeParameters:
+    - id: TController
+      description: the type of the requested controller
+    return:
+      type: '{TController}'
+      description: The controller of type T requested.
+    content.vb: Public Overridable Function GetController(Of TController As AbstractController)() As TController
+  overload: Sdl.Desktop.IntegrationApi.AbstractApplication.GetController*
+  nameWithType.vb: AbstractApplication.GetController(Of TController)()
+  fullName.vb: Sdl.Desktop.IntegrationApi.AbstractApplication.GetController(Of TController)()
+  name.vb: GetController(Of TController)()
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication.GetAction``1
+  commentId: M:Sdl.Desktop.IntegrationApi.AbstractApplication.GetAction``1
+  id: GetAction``1
+  parent: Sdl.Desktop.IntegrationApi.AbstractApplication
+  langs:
+  - csharp
+  - vb
+  name: GetAction<TAction>()
+  nameWithType: AbstractApplication.GetAction<TAction>()
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication.GetAction<TAction>()
+  type: Method
+  assemblies:
+  - Sdl.Desktop.IntegrationApi
+  namespace: Sdl.Desktop.IntegrationApi
+  summary: Gets the requested action.
+  example: []
+  syntax:
+    content: 'public virtual TAction GetAction<TAction>() where TAction : AbstractAction'
+    typeParameters:
+    - id: TAction
+      description: The requested action by type.
+    return:
+      type: '{TAction}'
+      description: The action requested or null if none was found.
+    content.vb: Public Overridable Function GetAction(Of TAction As AbstractAction)() As TAction
+  overload: Sdl.Desktop.IntegrationApi.AbstractApplication.GetAction*
+  nameWithType.vb: AbstractApplication.GetAction(Of TAction)()
+  fullName.vb: Sdl.Desktop.IntegrationApi.AbstractApplication.GetAction(Of TAction)()
+  name.vb: GetAction(Of TAction)()
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication.ExecuteAction``1
+  commentId: M:Sdl.Desktop.IntegrationApi.AbstractApplication.ExecuteAction``1
+  id: ExecuteAction``1
+  parent: Sdl.Desktop.IntegrationApi.AbstractApplication
+  langs:
+  - csharp
+  - vb
+  name: ExecuteAction<TAction>()
+  nameWithType: AbstractApplication.ExecuteAction<TAction>()
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication.ExecuteAction<TAction>()
+  type: Method
+  assemblies:
+  - Sdl.Desktop.IntegrationApi
+  namespace: Sdl.Desktop.IntegrationApi
+  summary: Execute the requested action
+  example: []
+  syntax:
+    content: 'public virtual void ExecuteAction<TAction>() where TAction : AbstractAction'
+    typeParameters:
+    - id: TAction
+      description: The requested action by type.
+    content.vb: Public Overridable Sub ExecuteAction(Of TAction As AbstractAction)()
+  overload: Sdl.Desktop.IntegrationApi.AbstractApplication.ExecuteAction*
+  nameWithType.vb: AbstractApplication.ExecuteAction(Of TAction)()
+  fullName.vb: Sdl.Desktop.IntegrationApi.AbstractApplication.ExecuteAction(Of TAction)()
+  name.vb: ExecuteAction(Of TAction)()
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication.GetService``1
+  commentId: M:Sdl.Desktop.IntegrationApi.AbstractApplication.GetService``1
+  id: GetService``1
+  parent: Sdl.Desktop.IntegrationApi.AbstractApplication
+  langs:
+  - csharp
+  - vb
+  name: GetService<T>()
+  nameWithType: AbstractApplication.GetService<T>()
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication.GetService<T>()
+  type: Method
+  assemblies:
+  - Sdl.Desktop.IntegrationApi
+  namespace: Sdl.Desktop.IntegrationApi
+  summary: Gets the requested service.
+  example: []
+  syntax:
+    content: public T GetService<T>()
+    typeParameters:
+    - id: T
+      description: The requested service by type.
+    return:
+      type: '{T}'
+      description: The service requested or null if none was found.
+    content.vb: Public Function GetService(Of T)() As T
+  overload: Sdl.Desktop.IntegrationApi.AbstractApplication.GetService*
+  nameWithType.vb: AbstractApplication.GetService(Of T)()
+  fullName.vb: Sdl.Desktop.IntegrationApi.AbstractApplication.GetService(Of T)()
+  name.vb: GetService(Of T)()
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication.RegisterRelay(Sdl.Desktop.Platform.IStudioWindow)
+  commentId: M:Sdl.Desktop.IntegrationApi.AbstractApplication.RegisterRelay(Sdl.Desktop.Platform.IStudioWindow)
+  id: RegisterRelay(Sdl.Desktop.Platform.IStudioWindow)
+  parent: Sdl.Desktop.IntegrationApi.AbstractApplication
+  langs:
+  - csharp
+  - vb
+  name: RegisterRelay(IStudioWindow)
+  nameWithType: AbstractApplication.RegisterRelay(IStudioWindow)
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication.RegisterRelay(Sdl.Desktop.Platform.IStudioWindow)
+  type: Method
+  assemblies:
+  - Sdl.Desktop.IntegrationApi
+  namespace: Sdl.Desktop.IntegrationApi
+  summary: Initializes services when the window is created
+  example: []
+  syntax:
+    content: protected virtual void RegisterRelay(IStudioWindow window)
+    parameters:
+    - id: window
+      type: Sdl.Desktop.Platform.IStudioWindow
+    content.vb: Protected Overridable Sub RegisterRelay(window As IStudioWindow)
+  overload: Sdl.Desktop.IntegrationApi.AbstractApplication.RegisterRelay*
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication.Closing
+  commentId: E:Sdl.Desktop.IntegrationApi.AbstractApplication.Closing
+  id: Closing
+  parent: Sdl.Desktop.IntegrationApi.AbstractApplication
+  langs:
+  - csharp
+  - vb
+  name: Closing
+  nameWithType: AbstractApplication.Closing
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication.Closing
+  type: Event
+  assemblies:
+  - Sdl.Desktop.IntegrationApi
+  namespace: Sdl.Desktop.IntegrationApi
+  summary: Triggered when the application is closing
+  example: []
+  syntax:
+    content: public event EventHandler<CancelEventArgs> Closing
+    return:
+      type: System.EventHandler{System.ComponentModel.CancelEventArgs}
+    content.vb: Public Event Closing As EventHandler(Of CancelEventArgs)
+references:
+- uid: Sdl.Desktop.IntegrationApi
+  commentId: N:Sdl.Desktop.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Desktop.IntegrationApi
+  nameWithType: Sdl.Desktop.IntegrationApi
+  fullName: Sdl.Desktop.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Action{System.Windows.Window})
+  commentId: M:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  parent: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  definition: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  name: ForWindowFromFrameworkElement(object, Action<Window>)
+  nameWithType: WindowsControlUtils.ForWindowFromFrameworkElement(object, Action<Window>)
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(object, System.Action<System.Windows.Window>)
+  nameWithType.vb: WindowsControlUtils.ForWindowFromFrameworkElement(Object, Action(Of Window))
+  fullName.vb: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(Object, System.Action(Of System.Windows.Window))
+  name.vb: ForWindowFromFrameworkElement(Object, Action(Of Window))
+  spec.csharp:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: )
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  commentId: M:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+  isExternal: true
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  name: ForWindowFromFrameworkElement(object, Action<Window>)
+  nameWithType: WindowsControlUtils.ForWindowFromFrameworkElement(object, Action<Window>)
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(object, System.Action<System.Windows.Window>)
+  nameWithType.vb: WindowsControlUtils.ForWindowFromFrameworkElement(Object, Action(Of Window))
+  fullName.vb: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(Object, System.Action(Of System.Windows.Window))
+  name.vb: ForWindowFromFrameworkElement(Object, Action(Of Window))
+  spec.csharp:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.ForWindowFromFrameworkElement(System.Object,System.Action{System.Windows.Window})
+    name: ForWindowFromFrameworkElement
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html#Sdl_Desktop_Platform_Controls_Controls_WindowsControlUtils_ForWindowFromFrameworkElement_System_Object_System_Action_System_Windows_Window__
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Windows.Window
+    name: Window
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.window
+  - name: )
+  - name: )
+- uid: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  commentId: T:Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+  parent: Sdl.Desktop.Platform.Controls.Controls
+  isExternal: true
+  href: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils.html
+  name: WindowsControlUtils
+  nameWithType: WindowsControlUtils
+  fullName: Sdl.Desktop.Platform.Controls.Controls.WindowsControlUtils
+- uid: Sdl.Desktop.Platform.Controls.Controls
+  commentId: N:Sdl.Desktop.Platform.Controls.Controls
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Desktop.Platform.Controls.Controls
+  nameWithType: Sdl.Desktop.Platform.Controls.Controls
+  fullName: Sdl.Desktop.Platform.Controls.Controls
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.Platform
+    name: Platform
+    isExternal: true
+    href: Sdl.Desktop.Platform.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.Platform
+    name: Platform
+    isExternal: true
+    href: Sdl.Desktop.Platform.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.html
+  - name: .
+  - uid: Sdl.Desktop.Platform.Controls.Controls
+    name: Controls
+    isExternal: true
+    href: Sdl.Desktop.Platform.Controls.Controls.html
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication.#ctor*
+  commentId: Overload:Sdl.Desktop.IntegrationApi.AbstractApplication.#ctor
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.AbstractApplication.html#Sdl_Desktop_IntegrationApi_AbstractApplication__ctor
+  name: AbstractApplication
+  nameWithType: AbstractApplication.AbstractApplication
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication.AbstractApplication
+  nameWithType.vb: AbstractApplication.New
+  fullName.vb: Sdl.Desktop.IntegrationApi.AbstractApplication.New
+  name.vb: New
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication.GetController*
+  commentId: Overload:Sdl.Desktop.IntegrationApi.AbstractApplication.GetController
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.AbstractApplication.html#Sdl_Desktop_IntegrationApi_AbstractApplication_GetController__1
+  name: GetController
+  nameWithType: AbstractApplication.GetController
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication.GetController
+- uid: '{TController}'
+  commentId: '!:TController'
+  definition: TController
+  name: TController
+  nameWithType: TController
+  fullName: TController
+- uid: TController
+  name: TController
+  nameWithType: TController
+  fullName: TController
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication.GetAction*
+  commentId: Overload:Sdl.Desktop.IntegrationApi.AbstractApplication.GetAction
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.AbstractApplication.html#Sdl_Desktop_IntegrationApi_AbstractApplication_GetAction__1
+  name: GetAction
+  nameWithType: AbstractApplication.GetAction
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication.GetAction
+- uid: '{TAction}'
+  commentId: '!:TAction'
+  definition: TAction
+  name: TAction
+  nameWithType: TAction
+  fullName: TAction
+- uid: TAction
+  commentId: '!:TAction'
+  name: TAction
+  nameWithType: TAction
+  fullName: TAction
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication.ExecuteAction*
+  commentId: Overload:Sdl.Desktop.IntegrationApi.AbstractApplication.ExecuteAction
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.AbstractApplication.html#Sdl_Desktop_IntegrationApi_AbstractApplication_ExecuteAction__1
+  name: ExecuteAction
+  nameWithType: AbstractApplication.ExecuteAction
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication.ExecuteAction
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication.GetService*
+  commentId: Overload:Sdl.Desktop.IntegrationApi.AbstractApplication.GetService
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.AbstractApplication.html#Sdl_Desktop_IntegrationApi_AbstractApplication_GetService__1
+  name: GetService
+  nameWithType: AbstractApplication.GetService
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication.GetService
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Sdl.Desktop.IntegrationApi.AbstractApplication.RegisterRelay*
+  commentId: Overload:Sdl.Desktop.IntegrationApi.AbstractApplication.RegisterRelay
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.AbstractApplication.html#Sdl_Desktop_IntegrationApi_AbstractApplication_RegisterRelay_Sdl_Desktop_Platform_IStudioWindow_
+  name: RegisterRelay
+  nameWithType: AbstractApplication.RegisterRelay
+  fullName: Sdl.Desktop.IntegrationApi.AbstractApplication.RegisterRelay
+- uid: Sdl.Desktop.Platform.IStudioWindow
+  commentId: T:Sdl.Desktop.Platform.IStudioWindow
+  parent: Sdl.Desktop.Platform
+  isExternal: true
+  name: IStudioWindow
+  nameWithType: IStudioWindow
+  fullName: Sdl.Desktop.Platform.IStudioWindow
+- uid: Sdl.Desktop.Platform
+  commentId: N:Sdl.Desktop.Platform
+  isExternal: true
+  name: Sdl.Desktop.Platform
+  nameWithType: Sdl.Desktop.Platform
+  fullName: Sdl.Desktop.Platform
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+  - name: .
+  - uid: Sdl.Desktop.Platform
+    name: Platform
+    isExternal: true
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+  - name: .
+  - uid: Sdl.Desktop.Platform
+    name: Platform
+    isExternal: true
+- uid: System.EventHandler{System.ComponentModel.CancelEventArgs}
+  commentId: T:System.EventHandler{System.ComponentModel.CancelEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<CancelEventArgs>
+  nameWithType: EventHandler<CancelEventArgs>
+  fullName: System.EventHandler<System.ComponentModel.CancelEventArgs>
+  nameWithType.vb: EventHandler(Of CancelEventArgs)
+  fullName.vb: System.EventHandler(Of System.ComponentModel.CancelEventArgs)
+  name.vb: EventHandler(Of CancelEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: System.ComponentModel.CancelEventArgs
+    name: CancelEventArgs
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.canceleventargs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.ComponentModel.CancelEventArgs
+    name: CancelEventArgs
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.canceleventargs
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )

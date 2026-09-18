@@ -1,0 +1,33 @@
+trigger:
+  branches:
+    include:
+     - master
+  paths:
+    include:
+     - ProjectTermExtract/*
+
+pr:
+  branches:
+    include:
+     - master
+  paths:
+    include:
+     - ProjectTermExtract/*
+
+pool: 
+  vmImage : '$(DefaultBuildVm)'
+
+variables:
+- template: jobs/branch-variables.yml
+- name: buildPlatform
+  value: 'Any CPU'
+- name: buildConfiguration
+  value: 'Release'
+- name: solution 
+  value: '**/Sdl.Community.ProjectTerms.sln'
+- name: pathToPublish
+  value: '$(PluginPath)\Sdl.Community.projectTermExtract.sdlplugin'
+
+steps:
+  - template: jobs/build-sdlplugin.yml
+  - template: jobs/publish-build-artifact-task.yml

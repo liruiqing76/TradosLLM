@@ -1,0 +1,109 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Verification.Api.IHelpTopic
+  commentId: T:Sdl.Verification.Api.IHelpTopic
+  id: IHelpTopic
+  parent: Sdl.Verification.Api
+  children:
+  - Sdl.Verification.Api.IHelpTopic.HelpTopic
+  langs:
+  - csharp
+  - vb
+  name: IHelpTopic
+  nameWithType: IHelpTopic
+  fullName: Sdl.Verification.Api.IHelpTopic
+  type: Interface
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: This interface represents the information related to the HelpTopic
+  example: []
+  syntax:
+    content: public interface IHelpTopic
+    content.vb: Public Interface IHelpTopic
+- uid: Sdl.Verification.Api.IHelpTopic.HelpTopic
+  commentId: P:Sdl.Verification.Api.IHelpTopic.HelpTopic
+  id: HelpTopic
+  parent: Sdl.Verification.Api.IHelpTopic
+  langs:
+  - csharp
+  - vb
+  name: HelpTopic
+  nameWithType: IHelpTopic.HelpTopic
+  fullName: Sdl.Verification.Api.IHelpTopic.HelpTopic
+  type: Property
+  assemblies:
+  - Sdl.Verification.Api
+  namespace: Sdl.Verification.Api
+  summary: Returns the HelpTopic
+  example: []
+  syntax:
+    content: string HelpTopic { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property HelpTopic As String
+  overload: Sdl.Verification.Api.IHelpTopic.HelpTopic*
+references:
+- uid: Sdl.Verification.Api
+  commentId: N:Sdl.Verification.Api
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Verification.Api
+  nameWithType: Sdl.Verification.Api
+  fullName: Sdl.Verification.Api
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Verification
+    name: Verification
+    isExternal: true
+    href: Sdl.Verification.html
+  - name: .
+  - uid: Sdl.Verification.Api
+    name: Api
+    isExternal: true
+    href: Sdl.Verification.Api.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Verification
+    name: Verification
+    isExternal: true
+    href: Sdl.Verification.html
+  - name: .
+  - uid: Sdl.Verification.Api
+    name: Api
+    isExternal: true
+    href: Sdl.Verification.Api.html
+- uid: Sdl.Verification.Api.IHelpTopic.HelpTopic*
+  commentId: Overload:Sdl.Verification.Api.IHelpTopic.HelpTopic
+  isExternal: true
+  href: Sdl.Verification.Api.IHelpTopic.html#Sdl_Verification_Api_IHelpTopic_HelpTopic
+  name: HelpTopic
+  nameWithType: IHelpTopic.HelpTopic
+  fullName: Sdl.Verification.Api.IHelpTopic.HelpTopic
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

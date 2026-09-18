@@ -1,0 +1,248 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+  commentId: T:Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+  id: RuleOrigin
+  parent: Sdl.LanguagePlatform.Core.Segmentation
+  children:
+  - Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.Migration
+  - Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.Other
+  - Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.System
+  - Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.Unknown
+  - Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.User
+  langs:
+  - csharp
+  - vb
+  name: RuleOrigin
+  nameWithType: RuleOrigin
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: The rule origin
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public enum RuleOrigin
+    content.vb: >-
+      <DataContract>
+
+      Public Enum RuleOrigin
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.Unknown
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.Unknown
+  id: Unknown
+  parent: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: RuleOrigin.Unknown
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.Unknown
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: Unknown rule origin
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Unknown = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+    content.vb: >-
+      <EnumMember>
+
+      Unknown = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.System
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.System
+  id: System
+  parent: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+  langs:
+  - csharp
+  - vb
+  name: System
+  nameWithType: RuleOrigin.System
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.System
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: A system/default rule
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      System = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+    content.vb: >-
+      <EnumMember>
+
+      System = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.Migration
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.Migration
+  id: Migration
+  parent: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+  langs:
+  - csharp
+  - vb
+  name: Migration
+  nameWithType: RuleOrigin.Migration
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.Migration
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: A rule generated through rule migration
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Migration = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+    content.vb: >-
+      <EnumMember>
+
+      Migration = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.User
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.User
+  id: User
+  parent: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: RuleOrigin.User
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.User
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: A user-defined rule
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      User = 3
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+    content.vb: >-
+      <EnumMember>
+
+      User = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.Other
+  commentId: F:Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.Other
+  id: Other
+  parent: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+  langs:
+  - csharp
+  - vb
+  name: Other
+  nameWithType: RuleOrigin.Other
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.Other
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Segmentation
+  summary: Origin is other
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Other = 4
+    return:
+      type: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+    content.vb: >-
+      <EnumMember>
+
+      Other = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: Sdl.LanguagePlatform.Core.Segmentation
+  commentId: N:Sdl.LanguagePlatform.Core.Segmentation
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core.Segmentation
+  nameWithType: Sdl.LanguagePlatform.Core.Segmentation
+  fullName: Sdl.LanguagePlatform.Core.Segmentation
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Segmentation
+    name: Segmentation
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segmentation.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Segmentation
+    name: Segmentation
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Segmentation.html
+- uid: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+  commentId: T:Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin
+  parent: Sdl.LanguagePlatform.Core.Segmentation
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin.html
+  name: RuleOrigin
+  nameWithType: RuleOrigin
+  fullName: Sdl.LanguagePlatform.Core.Segmentation.RuleOrigin

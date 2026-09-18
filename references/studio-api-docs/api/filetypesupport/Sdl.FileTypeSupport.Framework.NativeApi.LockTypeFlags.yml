@@ -1,0 +1,197 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+  id: LockTypeFlags
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Externalized
+  - Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Manual
+  - Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Structure
+  - Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Unlocked
+  langs:
+  - csharp
+  - vb
+  name: LockTypeFlags
+  nameWithType: LockTypeFlags
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+  type: Enum
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Enumterator that contains the available lock types
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum LockTypeFlags
+    content.vb: >-
+      <Flags>
+
+      Public Enum LockTypeFlags
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Unlocked
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Unlocked
+  id: Unlocked
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Unlocked
+  nameWithType: LockTypeFlags.Unlocked
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Unlocked
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The content is not locked.
+  remarks: >-
+    <p>
+
+    This value should never be used with locked content items in the bilingual API,
+
+    but it is used in paragraph unit properties for paragraph units that are not locked.
+
+    </p>
+  example: []
+  syntax:
+    content: Unlocked = 0
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Structure
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Structure
+  id: Structure
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Structure
+  nameWithType: LockTypeFlags.Structure
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Structure
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Applied to structure paragraph units in the bilingual API.
+  example: []
+  syntax:
+    content: Structure = 1
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Externalized
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Externalized
+  id: Externalized
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Externalized
+  nameWithType: LockTypeFlags.Externalized
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Externalized
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    Applied to paragraph units in the bilingual API when a document has been split
+
+    into multiple instances, so that multiple translators, for example, can work on it
+
+    simultaneously. This lock type is applied automatically to paragraph units that
+
+    should not be translated in this file (when they should be translated in a different
+
+    file instead).
+  example: []
+  syntax:
+    content: Externalized = 2
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Manual
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Manual
+  id: Manual
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Manual
+  nameWithType: LockTypeFlags.Manual
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.Manual
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: A lock that was explicitly inserted, as opposed to an automatically generated lock
+  remarks: >-
+    <p>
+
+    The structure and externalized locks are automatically generated. This flag
+
+    should be used when someone explicitly locks a paragraph unit in the bilingual API.
+
+    </p>
+  example: []
+  syntax:
+    content: Manual = 4
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.html
+  name: LockTypeFlags
+  nameWithType: LockTypeFlags
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags

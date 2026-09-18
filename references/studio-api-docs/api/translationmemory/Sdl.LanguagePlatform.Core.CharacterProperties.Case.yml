@@ -1,0 +1,175 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+  commentId: T:Sdl.LanguagePlatform.Core.CharacterProperties.Case
+  id: CharacterProperties.Case
+  parent: Sdl.LanguagePlatform.Core
+  children:
+  - Sdl.LanguagePlatform.Core.CharacterProperties.Case.InitialUpper
+  - Sdl.LanguagePlatform.Core.CharacterProperties.Case.Lower
+  - Sdl.LanguagePlatform.Core.CharacterProperties.Case.Other
+  - Sdl.LanguagePlatform.Core.CharacterProperties.Case.Upper
+  langs:
+  - csharp
+  - vb
+  name: CharacterProperties.Case
+  nameWithType: CharacterProperties.Case
+  fullName: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Enumerates case variants of strings and letters.
+  example: []
+  syntax:
+    content: public enum CharacterProperties.Case
+    content.vb: Public Enum CharacterProperties.Case
+- uid: Sdl.LanguagePlatform.Core.CharacterProperties.Case.Upper
+  commentId: F:Sdl.LanguagePlatform.Core.CharacterProperties.Case.Upper
+  id: Upper
+  parent: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+  langs:
+  - csharp
+  - vb
+  name: Upper
+  nameWithType: CharacterProperties.Case.Upper
+  fullName: Sdl.LanguagePlatform.Core.CharacterProperties.Case.Upper
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Indicates an upper-case letter or letter sequence.
+  example: []
+  syntax:
+    content: Upper = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+- uid: Sdl.LanguagePlatform.Core.CharacterProperties.Case.Lower
+  commentId: F:Sdl.LanguagePlatform.Core.CharacterProperties.Case.Lower
+  id: Lower
+  parent: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+  langs:
+  - csharp
+  - vb
+  name: Lower
+  nameWithType: CharacterProperties.Case.Lower
+  fullName: Sdl.LanguagePlatform.Core.CharacterProperties.Case.Lower
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Indicates a lower-case letter or letter sequence.
+  example: []
+  syntax:
+    content: Lower = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+- uid: Sdl.LanguagePlatform.Core.CharacterProperties.Case.InitialUpper
+  commentId: F:Sdl.LanguagePlatform.Core.CharacterProperties.Case.InitialUpper
+  id: InitialUpper
+  parent: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+  langs:
+  - csharp
+  - vb
+  name: InitialUpper
+  nameWithType: CharacterProperties.Case.InitialUpper
+  fullName: Sdl.LanguagePlatform.Core.CharacterProperties.Case.InitialUpper
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: >-
+    (For strings only) indicates that the first letter is upper-case, and the 
+
+    subsequent letters are lower-case.
+  example: []
+  syntax:
+    content: InitialUpper = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+- uid: Sdl.LanguagePlatform.Core.CharacterProperties.Case.Other
+  commentId: F:Sdl.LanguagePlatform.Core.CharacterProperties.Case.Other
+  id: Other
+  parent: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+  langs:
+  - csharp
+  - vb
+  name: Other
+  nameWithType: CharacterProperties.Case.Other
+  fullName: Sdl.LanguagePlatform.Core.CharacterProperties.Case.Other
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core
+  summary: Indicates an undefined, unknown, mixed, or other letter or character sequence.
+  example: []
+  syntax:
+    content: Other = 3
+    return:
+      type: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+references:
+- uid: Sdl.LanguagePlatform.Core
+  commentId: N:Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core
+  nameWithType: Sdl.LanguagePlatform.Core
+  fullName: Sdl.LanguagePlatform.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+- uid: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+  commentId: T:Sdl.LanguagePlatform.Core.CharacterProperties.Case
+  parent: Sdl.LanguagePlatform.Core
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.CharacterProperties.html
+  name: CharacterProperties.Case
+  nameWithType: CharacterProperties.Case
+  fullName: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.Core.CharacterProperties
+    name: CharacterProperties
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.CharacterProperties.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+    name: Case
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.CharacterProperties.Case.html
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.Core.CharacterProperties
+    name: CharacterProperties
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.CharacterProperties.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.CharacterProperties.Case
+    name: Case
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.CharacterProperties.Case.html

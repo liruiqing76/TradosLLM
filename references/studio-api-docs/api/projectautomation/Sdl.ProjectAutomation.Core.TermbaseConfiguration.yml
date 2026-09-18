@@ -1,0 +1,668 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Core.TermbaseConfiguration
+  commentId: T:Sdl.ProjectAutomation.Core.TermbaseConfiguration
+  id: TermbaseConfiguration
+  parent: Sdl.ProjectAutomation.Core
+  children:
+  - Sdl.ProjectAutomation.Core.TermbaseConfiguration.#ctor
+  - Sdl.ProjectAutomation.Core.TermbaseConfiguration.LanguageIndexes
+  - Sdl.ProjectAutomation.Core.TermbaseConfiguration.TermRecognitionOptions
+  - Sdl.ProjectAutomation.Core.TermbaseConfiguration.Termbases
+  langs:
+  - csharp
+  - vb
+  name: TermbaseConfiguration
+  nameWithType: TermbaseConfiguration
+  fullName: Sdl.ProjectAutomation.Core.TermbaseConfiguration
+  type: Class
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    This class represents all termbase-related settings that control which termbases are used within a project.
+
+    To get the termbase configuration of a project, use <xref href="Sdl.ProjectAutomation.Core.IProject.GetTermbaseConfiguration(System.Boolean)" data-throw-if-not-resolved="false"></xref>. 
+
+    To update the termbase configuration, use <xref href="Sdl.ProjectAutomation.Core.IProject.UpdateTermbaseConfiguration(Sdl.ProjectAutomation.Core.TermbaseConfiguration)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public class TermbaseConfiguration
+    content.vb: Public Class TermbaseConfiguration
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.ProjectAutomation.Core.TermbaseConfiguration.#ctor
+  commentId: M:Sdl.ProjectAutomation.Core.TermbaseConfiguration.#ctor
+  id: '#ctor'
+  parent: Sdl.ProjectAutomation.Core.TermbaseConfiguration
+  langs:
+  - csharp
+  - vb
+  name: TermbaseConfiguration()
+  nameWithType: TermbaseConfiguration.TermbaseConfiguration()
+  fullName: Sdl.ProjectAutomation.Core.TermbaseConfiguration.TermbaseConfiguration()
+  type: Constructor
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  syntax:
+    content: public TermbaseConfiguration()
+    content.vb: Public Sub New()
+  overload: Sdl.ProjectAutomation.Core.TermbaseConfiguration.#ctor*
+  nameWithType.vb: TermbaseConfiguration.New()
+  fullName.vb: Sdl.ProjectAutomation.Core.TermbaseConfiguration.New()
+  name.vb: New()
+- uid: Sdl.ProjectAutomation.Core.TermbaseConfiguration.Termbases
+  commentId: P:Sdl.ProjectAutomation.Core.TermbaseConfiguration.Termbases
+  id: Termbases
+  parent: Sdl.ProjectAutomation.Core.TermbaseConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Termbases
+  nameWithType: TermbaseConfiguration.Termbases
+  fullName: Sdl.ProjectAutomation.Core.TermbaseConfiguration.Termbases
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    Gets or sets the list of termbases in this configuration. The first termbase in the list
+
+    if the default termbase.
+  example: []
+  syntax:
+    content: public List<Termbase> Termbases { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Sdl.ProjectAutomation.Core.Termbase}
+    content.vb: Public Property Termbases As List(Of Termbase)
+  overload: Sdl.ProjectAutomation.Core.TermbaseConfiguration.Termbases*
+- uid: Sdl.ProjectAutomation.Core.TermbaseConfiguration.LanguageIndexes
+  commentId: P:Sdl.ProjectAutomation.Core.TermbaseConfiguration.LanguageIndexes
+  id: LanguageIndexes
+  parent: Sdl.ProjectAutomation.Core.TermbaseConfiguration
+  langs:
+  - csharp
+  - vb
+  name: LanguageIndexes
+  nameWithType: TermbaseConfiguration.LanguageIndexes
+  fullName: Sdl.ProjectAutomation.Core.TermbaseConfiguration.LanguageIndexes
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: >-
+    Gets or sets the list of language indexes, which map a project language (source or target) onto a termbase
+
+    index of the default termbase (the default termbase is the first termbase in the <xref href="Sdl.ProjectAutomation.Core.TermbaseConfiguration.Termbases" data-throw-if-not-resolved="false"></xref> list).
+
+    There has to be a mapping for the project  source language. If there is no mapping for a certain target language, no 
+
+    terminology lookup will be performed for that target language.
+  example: []
+  syntax:
+    content: public List<TermbaseLanguageIndex> LanguageIndexes { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Sdl.ProjectAutomation.Core.TermbaseLanguageIndex}
+    content.vb: Public Property LanguageIndexes As List(Of TermbaseLanguageIndex)
+  overload: Sdl.ProjectAutomation.Core.TermbaseConfiguration.LanguageIndexes*
+- uid: Sdl.ProjectAutomation.Core.TermbaseConfiguration.TermRecognitionOptions
+  commentId: P:Sdl.ProjectAutomation.Core.TermbaseConfiguration.TermRecognitionOptions
+  id: TermRecognitionOptions
+  parent: Sdl.ProjectAutomation.Core.TermbaseConfiguration
+  langs:
+  - csharp
+  - vb
+  name: TermRecognitionOptions
+  nameWithType: TermbaseConfiguration.TermRecognitionOptions
+  fullName: Sdl.ProjectAutomation.Core.TermbaseConfiguration.TermRecognitionOptions
+  type: Property
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Gets or sets the terminology recognition options, which control the terminology lookup process.
+  example: []
+  syntax:
+    content: public TermRecognitionOptions TermRecognitionOptions { get; set; }
+    parameters: []
+    return:
+      type: Sdl.ProjectAutomation.Core.TermRecognitionOptions
+    content.vb: Public Property TermRecognitionOptions As TermRecognitionOptions
+  overload: Sdl.ProjectAutomation.Core.TermbaseConfiguration.TermRecognitionOptions*
+references:
+- uid: Sdl.ProjectAutomation.Core.IProject.GetTermbaseConfiguration(System.Boolean)
+  commentId: M:Sdl.ProjectAutomation.Core.IProject.GetTermbaseConfiguration(System.Boolean)
+  parent: Sdl.ProjectAutomation.Core.IProject
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.IProject.html#Sdl_ProjectAutomation_Core_IProject_GetTermbaseConfiguration_System_Boolean_
+  name: GetTermbaseConfiguration(bool)
+  nameWithType: IProject.GetTermbaseConfiguration(bool)
+  fullName: Sdl.ProjectAutomation.Core.IProject.GetTermbaseConfiguration(bool)
+  nameWithType.vb: IProject.GetTermbaseConfiguration(Boolean)
+  fullName.vb: Sdl.ProjectAutomation.Core.IProject.GetTermbaseConfiguration(Boolean)
+  name.vb: GetTermbaseConfiguration(Boolean)
+  spec.csharp:
+  - uid: Sdl.ProjectAutomation.Core.IProject.GetTermbaseConfiguration(System.Boolean)
+    name: GetTermbaseConfiguration
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.IProject.html#Sdl_ProjectAutomation_Core_IProject_GetTermbaseConfiguration_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Sdl.ProjectAutomation.Core.IProject.GetTermbaseConfiguration(System.Boolean)
+    name: GetTermbaseConfiguration
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.IProject.html#Sdl_ProjectAutomation_Core_IProject_GetTermbaseConfiguration_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Sdl.ProjectAutomation.Core.IProject.UpdateTermbaseConfiguration(Sdl.ProjectAutomation.Core.TermbaseConfiguration)
+  commentId: M:Sdl.ProjectAutomation.Core.IProject.UpdateTermbaseConfiguration(Sdl.ProjectAutomation.Core.TermbaseConfiguration)
+  parent: Sdl.ProjectAutomation.Core.IProject
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.IProject.html#Sdl_ProjectAutomation_Core_IProject_UpdateTermbaseConfiguration_Sdl_ProjectAutomation_Core_TermbaseConfiguration_
+  name: UpdateTermbaseConfiguration(TermbaseConfiguration)
+  nameWithType: IProject.UpdateTermbaseConfiguration(TermbaseConfiguration)
+  fullName: Sdl.ProjectAutomation.Core.IProject.UpdateTermbaseConfiguration(Sdl.ProjectAutomation.Core.TermbaseConfiguration)
+  spec.csharp:
+  - uid: Sdl.ProjectAutomation.Core.IProject.UpdateTermbaseConfiguration(Sdl.ProjectAutomation.Core.TermbaseConfiguration)
+    name: UpdateTermbaseConfiguration
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.IProject.html#Sdl_ProjectAutomation_Core_IProject_UpdateTermbaseConfiguration_Sdl_ProjectAutomation_Core_TermbaseConfiguration_
+  - name: (
+  - uid: Sdl.ProjectAutomation.Core.TermbaseConfiguration
+    name: TermbaseConfiguration
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.TermbaseConfiguration.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.ProjectAutomation.Core.IProject.UpdateTermbaseConfiguration(Sdl.ProjectAutomation.Core.TermbaseConfiguration)
+    name: UpdateTermbaseConfiguration
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.IProject.html#Sdl_ProjectAutomation_Core_IProject_UpdateTermbaseConfiguration_Sdl_ProjectAutomation_Core_TermbaseConfiguration_
+  - name: (
+  - uid: Sdl.ProjectAutomation.Core.TermbaseConfiguration
+    name: TermbaseConfiguration
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.TermbaseConfiguration.html
+  - name: )
+- uid: Sdl.ProjectAutomation.Core
+  commentId: N:Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Core
+  nameWithType: Sdl.ProjectAutomation.Core
+  fullName: Sdl.ProjectAutomation.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: Sdl.ProjectAutomation.Core.IProject
+  commentId: T:Sdl.ProjectAutomation.Core.IProject
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.IProject.html
+  name: IProject
+  nameWithType: IProject
+  fullName: Sdl.ProjectAutomation.Core.IProject
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.ProjectAutomation.Core.TermbaseConfiguration.#ctor*
+  commentId: Overload:Sdl.ProjectAutomation.Core.TermbaseConfiguration.#ctor
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.TermbaseConfiguration.html#Sdl_ProjectAutomation_Core_TermbaseConfiguration__ctor
+  name: TermbaseConfiguration
+  nameWithType: TermbaseConfiguration.TermbaseConfiguration
+  fullName: Sdl.ProjectAutomation.Core.TermbaseConfiguration.TermbaseConfiguration
+  nameWithType.vb: TermbaseConfiguration.New
+  fullName.vb: Sdl.ProjectAutomation.Core.TermbaseConfiguration.New
+  name.vb: New
+- uid: Sdl.ProjectAutomation.Core.TermbaseConfiguration.Termbases*
+  commentId: Overload:Sdl.ProjectAutomation.Core.TermbaseConfiguration.Termbases
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.TermbaseConfiguration.html#Sdl_ProjectAutomation_Core_TermbaseConfiguration_Termbases
+  name: Termbases
+  nameWithType: TermbaseConfiguration.Termbases
+  fullName: Sdl.ProjectAutomation.Core.TermbaseConfiguration.Termbases
+- uid: System.Collections.Generic.List{Sdl.ProjectAutomation.Core.Termbase}
+  commentId: T:System.Collections.Generic.List{Sdl.ProjectAutomation.Core.Termbase}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Termbase>
+  nameWithType: List<Termbase>
+  fullName: System.Collections.Generic.List<Sdl.ProjectAutomation.Core.Termbase>
+  nameWithType.vb: List(Of Termbase)
+  fullName.vb: System.Collections.Generic.List(Of Sdl.ProjectAutomation.Core.Termbase)
+  name.vb: List(Of Termbase)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Sdl.ProjectAutomation.Core.Termbase
+    name: Termbase
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.Termbase.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.ProjectAutomation.Core.Termbase
+    name: Termbase
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.Termbase.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Sdl.ProjectAutomation.Core.TermbaseConfiguration.Termbases
+  commentId: P:Sdl.ProjectAutomation.Core.TermbaseConfiguration.Termbases
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.TermbaseConfiguration.html#Sdl_ProjectAutomation_Core_TermbaseConfiguration_Termbases
+  name: Termbases
+  nameWithType: TermbaseConfiguration.Termbases
+  fullName: Sdl.ProjectAutomation.Core.TermbaseConfiguration.Termbases
+- uid: Sdl.ProjectAutomation.Core.TermbaseConfiguration.LanguageIndexes*
+  commentId: Overload:Sdl.ProjectAutomation.Core.TermbaseConfiguration.LanguageIndexes
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.TermbaseConfiguration.html#Sdl_ProjectAutomation_Core_TermbaseConfiguration_LanguageIndexes
+  name: LanguageIndexes
+  nameWithType: TermbaseConfiguration.LanguageIndexes
+  fullName: Sdl.ProjectAutomation.Core.TermbaseConfiguration.LanguageIndexes
+- uid: System.Collections.Generic.List{Sdl.ProjectAutomation.Core.TermbaseLanguageIndex}
+  commentId: T:System.Collections.Generic.List{Sdl.ProjectAutomation.Core.TermbaseLanguageIndex}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<TermbaseLanguageIndex>
+  nameWithType: List<TermbaseLanguageIndex>
+  fullName: System.Collections.Generic.List<Sdl.ProjectAutomation.Core.TermbaseLanguageIndex>
+  nameWithType.vb: List(Of TermbaseLanguageIndex)
+  fullName.vb: System.Collections.Generic.List(Of Sdl.ProjectAutomation.Core.TermbaseLanguageIndex)
+  name.vb: List(Of TermbaseLanguageIndex)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Sdl.ProjectAutomation.Core.TermbaseLanguageIndex
+    name: TermbaseLanguageIndex
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.TermbaseLanguageIndex.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.ProjectAutomation.Core.TermbaseLanguageIndex
+    name: TermbaseLanguageIndex
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.TermbaseLanguageIndex.html
+  - name: )
+- uid: Sdl.ProjectAutomation.Core.TermbaseConfiguration.TermRecognitionOptions*
+  commentId: Overload:Sdl.ProjectAutomation.Core.TermbaseConfiguration.TermRecognitionOptions
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.TermbaseConfiguration.html#Sdl_ProjectAutomation_Core_TermbaseConfiguration_TermRecognitionOptions
+  name: TermRecognitionOptions
+  nameWithType: TermbaseConfiguration.TermRecognitionOptions
+  fullName: Sdl.ProjectAutomation.Core.TermbaseConfiguration.TermRecognitionOptions
+- uid: Sdl.ProjectAutomation.Core.TermRecognitionOptions
+  commentId: T:Sdl.ProjectAutomation.Core.TermRecognitionOptions
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.TermRecognitionOptions.html
+  name: TermRecognitionOptions
+  nameWithType: TermRecognitionOptions
+  fullName: Sdl.ProjectAutomation.Core.TermRecognitionOptions

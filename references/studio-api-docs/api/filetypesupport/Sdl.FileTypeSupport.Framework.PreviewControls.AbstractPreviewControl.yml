@@ -1,0 +1,606 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  commentId: T:Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  id: AbstractPreviewControl
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls
+  children:
+  - Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.#ctor
+  - Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Control
+  - Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh
+  langs:
+  - csharp
+  - vb
+  name: AbstractPreviewControl
+  nameWithType: AbstractPreviewControl
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  type: Class
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: >-
+    This is a simple generic externalpreview control that allow the creation of a 
+
+    tempoary file for previewing and then launching of the associated or specified application for that file.
+
+    Then when this object is disposed or the launched process exits the temp file is deleted.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Moved to TradosStudio")]
+
+      public abstract class AbstractPreviewControl : AbstractFileTypeDefinitionComponent, IFileTypeDefinitionAware, IAbstractPreviewControl, IAbstractPreviewController
+    content.vb: >-
+      <Obsolete("Moved to TradosStudio")>
+
+      Public MustInherit Class AbstractPreviewControl Inherits AbstractFileTypeDefinitionComponent Implements IFileTypeDefinitionAware, IAbstractPreviewControl, IAbstractPreviewController
+  inheritance:
+  - System.Object
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  derivedClasses:
+  - Sdl.FileTypeSupport.Framework.PreviewControls.GenericInternalWebBrowserPreviewControl
+  - Sdl.FileTypeSupport.Framework.PreviewControls.GenericSideBySideWebBrowserPreviewControl
+  - Sdl.FileTypeSupport.Framework.PreviewControls.SideBySideNavigableWebBrowserPreviewController
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewController
+  inheritedMembers:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Moved to TradosStudio
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.#ctor
+  commentId: M:Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.#ctor
+  id: '#ctor'
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  langs:
+  - csharp
+  - vb
+  name: AbstractPreviewControl()
+  nameWithType: AbstractPreviewControl.AbstractPreviewControl()
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.AbstractPreviewControl()
+  type: Constructor
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: Constructor.
+  example: []
+  syntax:
+    content: public AbstractPreviewControl()
+    content.vb: Public Sub New()
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.#ctor*
+  nameWithType.vb: AbstractPreviewControl.New()
+  fullName.vb: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.New()
+  name.vb: New()
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh
+  commentId: M:Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh
+  id: Refresh
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  langs:
+  - csharp
+  - vb
+  name: Refresh()
+  nameWithType: AbstractPreviewControl.Refresh()
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: Implementation should refresh the content of the control.
+  example: []
+  syntax:
+    content: public abstract void Refresh()
+    content.vb: Public MustOverride Sub Refresh()
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh*
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Control
+  commentId: P:Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Control
+  id: Control
+  parent: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  langs:
+  - csharp
+  - vb
+  name: Control
+  nameWithType: AbstractPreviewControl.Control
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Control
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.PreviewControls
+  namespace: Sdl.FileTypeSupport.Framework.PreviewControls
+  summary: >-
+    The actual Windows Forms control for the preview display.
+
+    See: <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Control" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public abstract Control Control { get; }
+    parameters: []
+    return:
+      type: System.Windows.Forms.Control
+    content.vb: Public MustOverride ReadOnly Property Control As Control
+  overload: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Control*
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Control
+references:
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls
+  commentId: N:Sdl.FileTypeSupport.Framework.PreviewControls
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.PreviewControls
+  nameWithType: Sdl.FileTypeSupport.Framework.PreviewControls
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.PreviewControls
+    name: PreviewControls
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.PreviewControls.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.PreviewControls
+    name: PreviewControls
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.PreviewControls.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.html
+  name: AbstractFileTypeDefinitionComponent
+  nameWithType: AbstractFileTypeDefinitionComponent
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.html
+  name: IFileTypeDefinitionAware
+  nameWithType: IFileTypeDefinitionAware
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html
+  name: IAbstractPreviewControl
+  nameWithType: IAbstractPreviewControl
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewController
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewController
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewController.html
+  name: IAbstractPreviewController
+  nameWithType: IAbstractPreviewController
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewController
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.html#Sdl_FileTypeSupport_Framework_IntegrationApi_AbstractFileTypeDefinitionComponent_FileTypeDefinition
+  name: FileTypeDefinition
+  nameWithType: AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.#ctor*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.#ctor
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_PreviewControls_AbstractPreviewControl__ctor
+  name: AbstractPreviewControl
+  nameWithType: AbstractPreviewControl.AbstractPreviewControl
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.AbstractPreviewControl
+  nameWithType.vb: AbstractPreviewControl.New
+  fullName.vb: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.New
+  name.vb: New
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_PreviewControls_AbstractPreviewControl_Refresh
+  name: Refresh
+  nameWithType: AbstractPreviewControl.Refresh
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Refresh
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewControl_Refresh
+  name: Refresh()
+  nameWithType: IAbstractPreviewControl.Refresh()
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+    name: Refresh
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewControl_Refresh
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+    name: Refresh
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewControl_Refresh
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Control
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Control
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewControl_Control
+  name: Control
+  nameWithType: IAbstractPreviewControl.Control
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Control
+- uid: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Control*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Control
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_PreviewControls_AbstractPreviewControl_Control
+  name: Control
+  nameWithType: AbstractPreviewControl.Control
+  fullName: Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl.Control
+- uid: System.Windows.Forms.Control
+  commentId: T:System.Windows.Forms.Control
+  parent: System.Windows.Forms
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.windows.forms.control
+  name: Control
+  nameWithType: Control
+  fullName: System.Windows.Forms.Control
+- uid: System.Windows.Forms
+  commentId: N:System.Windows.Forms
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Windows.Forms
+  nameWithType: System.Windows.Forms
+  fullName: System.Windows.Forms
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows
+  - name: .
+  - uid: System.Windows.Forms
+    name: Forms
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.forms
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows
+  - name: .
+  - uid: System.Windows.Forms
+    name: Forms
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.forms

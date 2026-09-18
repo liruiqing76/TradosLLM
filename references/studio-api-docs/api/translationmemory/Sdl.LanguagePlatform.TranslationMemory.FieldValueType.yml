@@ -1,0 +1,306 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  id: FieldValueType
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.FieldValueType.DateTime
+  - Sdl.LanguagePlatform.TranslationMemory.FieldValueType.Integer
+  - Sdl.LanguagePlatform.TranslationMemory.FieldValueType.MultiplePicklist
+  - Sdl.LanguagePlatform.TranslationMemory.FieldValueType.MultipleString
+  - Sdl.LanguagePlatform.TranslationMemory.FieldValueType.SinglePicklist
+  - Sdl.LanguagePlatform.TranslationMemory.FieldValueType.SingleString
+  - Sdl.LanguagePlatform.TranslationMemory.FieldValueType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: FieldValueType
+  nameWithType: FieldValueType
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: >-
+    Specifies the type of a field declaration or value.
+
+
+    <p>The field type define the operators that can be applied to a particular field value.</p>
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public enum FieldValueType
+    content.vb: >-
+      <DataContract>
+
+      Public Enum FieldValueType
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.Unknown
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.FieldValueType.Unknown
+  id: Unknown
+  parent: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: FieldValueType.Unknown
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.Unknown
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Field type is unknown.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Unknown = 0
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+    content.vb: >-
+      <EnumMember>
+
+      Unknown = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.SingleString
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.FieldValueType.SingleString
+  id: SingleString
+  parent: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  langs:
+  - csharp
+  - vb
+  name: SingleString
+  nameWithType: FieldValueType.SingleString
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.SingleString
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The field value contains one string value.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      SingleString = 1
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+    content.vb: >-
+      <EnumMember>
+
+      SingleString = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.MultipleString
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.FieldValueType.MultipleString
+  id: MultipleString
+  parent: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  langs:
+  - csharp
+  - vb
+  name: MultipleString
+  nameWithType: FieldValueType.MultipleString
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.MultipleString
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The field value contains one or more strings.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      MultipleString = 2
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+    content.vb: >-
+      <EnumMember>
+
+      MultipleString = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.DateTime
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.FieldValueType.DateTime
+  id: DateTime
+  parent: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  langs:
+  - csharp
+  - vb
+  name: DateTime
+  nameWithType: FieldValueType.DateTime
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.DateTime
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The field value contains one DateTime value.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      DateTime = 3
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+    content.vb: >-
+      <EnumMember>
+
+      DateTime = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.SinglePicklist
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.FieldValueType.SinglePicklist
+  id: SinglePicklist
+  parent: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  langs:
+  - csharp
+  - vb
+  name: SinglePicklist
+  nameWithType: FieldValueType.SinglePicklist
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.SinglePicklist
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The field value contains one picklist value ID.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      SinglePicklist = 4
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+    content.vb: >-
+      <EnumMember>
+
+      SinglePicklist = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.MultiplePicklist
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.FieldValueType.MultiplePicklist
+  id: MultiplePicklist
+  parent: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  langs:
+  - csharp
+  - vb
+  name: MultiplePicklist
+  nameWithType: FieldValueType.MultiplePicklist
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.MultiplePicklist
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The field value contains one or more picklist value ID's.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      MultiplePicklist = 5
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+    content.vb: >-
+      <EnumMember>
+
+      MultiplePicklist = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.Integer
+  commentId: F:Sdl.LanguagePlatform.TranslationMemory.FieldValueType.Integer
+  id: Integer
+  parent: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  langs:
+  - csharp
+  - vb
+  name: Integer
+  nameWithType: FieldValueType.Integer
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.Integer
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: The field value contains one integer value.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      Integer = 6
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+    content.vb: >-
+      <EnumMember>
+
+      Integer = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.FieldValueType
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.FieldValueType.html
+  name: FieldValueType
+  nameWithType: FieldValueType
+  fullName: Sdl.LanguagePlatform.TranslationMemory.FieldValueType

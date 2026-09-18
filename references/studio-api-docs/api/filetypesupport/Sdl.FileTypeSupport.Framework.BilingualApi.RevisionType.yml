@@ -1,0 +1,217 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+  id: RevisionType
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  children:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.Delete
+  - Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.FeedbackAdded
+  - Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.FeedbackComment
+  - Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.FeedbackDeleted
+  - Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.Insert
+  - Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.Unchanged
+  langs:
+  - csharp
+  - vb
+  name: RevisionType
+  nameWithType: RevisionType
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+  type: Enum
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Type of revision/editing operation; used in <xref href="Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties.RevisionType" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public enum RevisionType
+    content.vb: Public Enum RevisionType
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.Insert
+  commentId: F:Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.Insert
+  id: Insert
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+  langs:
+  - csharp
+  - vb
+  name: Insert
+  nameWithType: RevisionType.Insert
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.Insert
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Content that has been inserted
+  example: []
+  syntax:
+    content: Insert = 0
+    return:
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.Delete
+  commentId: F:Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.Delete
+  id: Delete
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+  langs:
+  - csharp
+  - vb
+  name: Delete
+  nameWithType: RevisionType.Delete
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.Delete
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Content that has been deleted
+  example: []
+  syntax:
+    content: Delete = 1
+    return:
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.FeedbackComment
+  commentId: F:Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.FeedbackComment
+  id: FeedbackComment
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+  langs:
+  - csharp
+  - vb
+  name: FeedbackComment
+  nameWithType: RevisionType.FeedbackComment
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.FeedbackComment
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Content that has feedback associated with it
+  example: []
+  syntax:
+    content: FeedbackComment = 2
+    return:
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.FeedbackAdded
+  commentId: F:Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.FeedbackAdded
+  id: FeedbackAdded
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+  langs:
+  - csharp
+  - vb
+  name: FeedbackAdded
+  nameWithType: RevisionType.FeedbackAdded
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.FeedbackAdded
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Content which has been added for feedback
+  example: []
+  syntax:
+    content: FeedbackAdded = 3
+    return:
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.FeedbackDeleted
+  commentId: F:Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.FeedbackDeleted
+  id: FeedbackDeleted
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+  langs:
+  - csharp
+  - vb
+  name: FeedbackDeleted
+  nameWithType: RevisionType.FeedbackDeleted
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.FeedbackDeleted
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Content which has been deleted for feedback
+  example: []
+  syntax:
+    content: FeedbackDeleted = 4
+    return:
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.Unchanged
+  commentId: F:Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.Unchanged
+  id: Unchanged
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+  langs:
+  - csharp
+  - vb
+  name: Unchanged
+  nameWithType: RevisionType.Unchanged
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.Unchanged
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: Content that has not been changed
+  remarks: >-
+    <p>
+
+    This is equivalent to not annotating content with a revision marker.
+
+    </p>
+  example: []
+  syntax:
+    content: Unchanged = 5
+    return:
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+references:
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties.RevisionType
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties.RevisionType
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties.html#Sdl_FileTypeSupport_Framework_BilingualApi_IRevisionProperties_RevisionType
+  name: RevisionType
+  nameWithType: IRevisionProperties.RevisionType
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IRevisionProperties.RevisionType
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi
+  commentId: N:Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.BilingualApi
+  nameWithType: Sdl.FileTypeSupport.Framework.BilingualApi
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType.html
+  name: RevisionType
+  nameWithType: RevisionType
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.RevisionType

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34825.169
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sdl.Community.TMRepair", "SDLTMRepair\Sdl.Community.TMRepair.csproj", "{D1A725C3-26B7-4197-980C-738B286EB864}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1A725C3-26B7-4197-980C-738B286EB864}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{D1A725C3-26B7-4197-980C-738B286EB864}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{D1A725C3-26B7-4197-980C-738B286EB864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1A725C3-26B7-4197-980C-738B286EB864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1A725C3-26B7-4197-980C-738B286EB864}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1A725C3-26B7-4197-980C-738B286EB864}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{D1A725C3-26B7-4197-980C-738B286EB864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1A725C3-26B7-4197-980C-738B286EB864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1A725C3-26B7-4197-980C-738B286EB864}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{D1A725C3-26B7-4197-980C-738B286EB864}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D2068F9-92EA-48CD-B960-F5C8904CE587}
+	EndGlobalSection
+EndGlobal

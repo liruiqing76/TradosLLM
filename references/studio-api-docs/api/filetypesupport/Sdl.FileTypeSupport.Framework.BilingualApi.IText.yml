@@ -1,0 +1,372 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IText
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IText
+  id: IText
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  children:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IText.Properties
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IText.Split(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: IText
+  nameWithType: IText
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IText
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: >-
+    Translatable text inside the source or target in a 
+
+    localizable ParagraphUnit.
+  example: []
+  syntax:
+    content: 'public interface IText : IAbstractDataContent, IAbstractMarkupData, ICloneable, ISupportsUniqueId'
+    content.vb: Public Interface IText Inherits IAbstractDataContent, IAbstractMarkupData, ICloneable, ISupportsUniqueId
+  inheritedMembers:
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.AcceptVisitor(Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor)
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.RemoveFromParent
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.Parent
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.IndexInParent
+  - Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.ParentParagraph
+  - System.ICloneable.Clone
+  - Sdl.FileTypeSupport.Framework.NativeApi.ISupportsUniqueId.UniqueId
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IText.Split(System.Int32)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IText.Split(System.Int32)
+  id: Split(System.Int32)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IText
+  langs:
+  - csharp
+  - vb
+  name: Split(int)
+  nameWithType: IText.Split(int)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IText.Split(int)
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: >-
+    Splits the text node in two. 
+
+
+    This object retains the first part of the text.
+
+    The returned object is a clone of this object, which
+
+    contains the remainder of the text.
+  example: []
+  syntax:
+    content: IText Split(int fromIndex)
+    parameters:
+    - id: fromIndex
+      type: System.Int32
+      description: Must be a value between 0 and the length of the text
+    return:
+      type: Sdl.FileTypeSupport.Framework.BilingualApi.IText
+      description: ''
+    content.vb: Function Split(fromIndex As Integer) As IText
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.IText.Split*
+  nameWithType.vb: IText.Split(Integer)
+  fullName.vb: Sdl.FileTypeSupport.Framework.BilingualApi.IText.Split(Integer)
+  name.vb: Split(Integer)
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IText.Properties
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.IText.Properties
+  id: Properties
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IText
+  langs:
+  - csharp
+  - vb
+  name: Properties
+  nameWithType: IText.Properties
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IText.Properties
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.BilingualApi
+  summary: >-
+    Original information on the translatable text as
+
+    provided by the native file processing components.
+  example: []
+  syntax:
+    content: ITextProperties Properties { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties
+    content.vb: Property Properties As ITextProperties
+  overload: Sdl.FileTypeSupport.Framework.BilingualApi.IText.Properties*
+references:
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi
+  commentId: N:Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.BilingualApi
+  nameWithType: Sdl.FileTypeSupport.Framework.BilingualApi
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi
+    name: BilingualApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.html
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.AcceptVisitor(Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor)
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.AcceptVisitor(Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor)
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.html#Sdl_FileTypeSupport_Framework_BilingualApi_IAbstractMarkupData_AcceptVisitor_Sdl_FileTypeSupport_Framework_BilingualApi_IMarkupDataVisitor_
+  name: AcceptVisitor(IMarkupDataVisitor)
+  nameWithType: IAbstractMarkupData.AcceptVisitor(IMarkupDataVisitor)
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.AcceptVisitor(Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.AcceptVisitor(Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor)
+    name: AcceptVisitor
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.html#Sdl_FileTypeSupport_Framework_BilingualApi_IAbstractMarkupData_AcceptVisitor_Sdl_FileTypeSupport_Framework_BilingualApi_IMarkupDataVisitor_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+    name: IMarkupDataVisitor
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.AcceptVisitor(Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor)
+    name: AcceptVisitor
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.html#Sdl_FileTypeSupport_Framework_BilingualApi_IAbstractMarkupData_AcceptVisitor_Sdl_FileTypeSupport_Framework_BilingualApi_IMarkupDataVisitor_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor
+    name: IMarkupDataVisitor
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IMarkupDataVisitor.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.RemoveFromParent
+  commentId: M:Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.RemoveFromParent
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.html#Sdl_FileTypeSupport_Framework_BilingualApi_IAbstractMarkupData_RemoveFromParent
+  name: RemoveFromParent()
+  nameWithType: IAbstractMarkupData.RemoveFromParent()
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.RemoveFromParent()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.RemoveFromParent
+    name: RemoveFromParent
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.html#Sdl_FileTypeSupport_Framework_BilingualApi_IAbstractMarkupData_RemoveFromParent
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.RemoveFromParent
+    name: RemoveFromParent
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.html#Sdl_FileTypeSupport_Framework_BilingualApi_IAbstractMarkupData_RemoveFromParent
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.Parent
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.Parent
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.html#Sdl_FileTypeSupport_Framework_BilingualApi_IAbstractMarkupData_Parent
+  name: Parent
+  nameWithType: IAbstractMarkupData.Parent
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.Parent
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.IndexInParent
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.IndexInParent
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.html#Sdl_FileTypeSupport_Framework_BilingualApi_IAbstractMarkupData_IndexInParent
+  name: IndexInParent
+  nameWithType: IAbstractMarkupData.IndexInParent
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.IndexInParent
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.ParentParagraph
+  commentId: P:Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.ParentParagraph
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.html#Sdl_FileTypeSupport_Framework_BilingualApi_IAbstractMarkupData_ParentParagraph
+  name: ParentParagraph
+  nameWithType: IAbstractMarkupData.ParentParagraph
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.ParentParagraph
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ISupportsUniqueId.UniqueId
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.ISupportsUniqueId.UniqueId
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.ISupportsUniqueId
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ISupportsUniqueId.html#Sdl_FileTypeSupport_Framework_NativeApi_ISupportsUniqueId_UniqueId
+  name: UniqueId
+  nameWithType: ISupportsUniqueId.UniqueId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ISupportsUniqueId.UniqueId
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData.html
+  name: IAbstractMarkupData
+  nameWithType: IAbstractMarkupData
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IAbstractMarkupData
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ISupportsUniqueId
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ISupportsUniqueId
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ISupportsUniqueId.html
+  name: ISupportsUniqueId
+  nameWithType: ISupportsUniqueId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ISupportsUniqueId
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IText.Split*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.IText.Split
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IText.html#Sdl_FileTypeSupport_Framework_BilingualApi_IText_Split_System_Int32_
+  name: Split
+  nameWithType: IText.Split
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IText.Split
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IText
+  commentId: T:Sdl.FileTypeSupport.Framework.BilingualApi.IText
+  parent: Sdl.FileTypeSupport.Framework.BilingualApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IText.html
+  name: IText
+  nameWithType: IText
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IText
+- uid: Sdl.FileTypeSupport.Framework.BilingualApi.IText.Properties*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.BilingualApi.IText.Properties
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.BilingualApi.IText.html#Sdl_FileTypeSupport_Framework_BilingualApi_IText_Properties
+  name: Properties
+  nameWithType: IText.Properties
+  fullName: Sdl.FileTypeSupport.Framework.BilingualApi.IText.Properties
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties.html
+  name: ITextProperties
+  nameWithType: ITextProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ITextProperties

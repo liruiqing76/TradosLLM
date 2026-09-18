@@ -1,0 +1,205 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.PluginFramework.IPluginCache
+  commentId: T:Sdl.Core.PluginFramework.IPluginCache
+  id: IPluginCache
+  parent: Sdl.Core.PluginFramework
+  children:
+  - Sdl.Core.PluginFramework.IPluginCache.GetPluginState(System.String)
+  - Sdl.Core.PluginFramework.IPluginCache.Save
+  - Sdl.Core.PluginFramework.IPluginCache.StorePluginState(Sdl.Core.PluginFramework.IPlugin)
+  langs:
+  - csharp
+  - vb
+  name: IPluginCache
+  nameWithType: IPluginCache
+  fullName: Sdl.Core.PluginFramework.IPluginCache
+  type: Interface
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: Represents a plug-in cache, which is used to store plug-in state.
+  remarks: '<p>A default implementationm of this interface is available, <xref href="Sdl.Core.PluginFramework.XmlPluginCache" data-throw-if-not-resolved="false"></xref>: it stores plug-in state in an xml file.</p>'
+  example: []
+  syntax:
+    content: public interface IPluginCache
+    content.vb: Public Interface IPluginCache
+  derivedClasses:
+  - Sdl.Core.PluginFramework.XmlPluginCache
+- uid: Sdl.Core.PluginFramework.IPluginCache.GetPluginState(System.String)
+  commentId: M:Sdl.Core.PluginFramework.IPluginCache.GetPluginState(System.String)
+  id: GetPluginState(System.String)
+  parent: Sdl.Core.PluginFramework.IPluginCache
+  langs:
+  - csharp
+  - vb
+  name: GetPluginState(string)
+  nameWithType: IPluginCache.GetPluginState(string)
+  fullName: Sdl.Core.PluginFramework.IPluginCache.GetPluginState(string)
+  type: Method
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: Gets the plug-in state of the plug-in with the specified id.
+  example: []
+  syntax:
+    content: PluginState GetPluginState(string pluginId)
+    parameters:
+    - id: pluginId
+      type: System.String
+      description: The id of the plug-in for which to get the state.
+    return:
+      type: Sdl.Core.PluginFramework.PluginState
+      description: >-
+        A <xref href="Sdl.Core.PluginFramework.PluginState" data-throw-if-not-resolved="false"></xref> object containing the plug-in's state information. If no state 
+                    information is found, a default state object is created.
+    content.vb: Function GetPluginState(pluginId As String) As PluginState
+  overload: Sdl.Core.PluginFramework.IPluginCache.GetPluginState*
+  nameWithType.vb: IPluginCache.GetPluginState(String)
+  fullName.vb: Sdl.Core.PluginFramework.IPluginCache.GetPluginState(String)
+  name.vb: GetPluginState(String)
+- uid: Sdl.Core.PluginFramework.IPluginCache.StorePluginState(Sdl.Core.PluginFramework.IPlugin)
+  commentId: M:Sdl.Core.PluginFramework.IPluginCache.StorePluginState(Sdl.Core.PluginFramework.IPlugin)
+  id: StorePluginState(Sdl.Core.PluginFramework.IPlugin)
+  parent: Sdl.Core.PluginFramework.IPluginCache
+  langs:
+  - csharp
+  - vb
+  name: StorePluginState(IPlugin)
+  nameWithType: IPluginCache.StorePluginState(IPlugin)
+  fullName: Sdl.Core.PluginFramework.IPluginCache.StorePluginState(Sdl.Core.PluginFramework.IPlugin)
+  type: Method
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: Stores the state of the specified plug-in in the plug-in cache.
+  example: []
+  syntax:
+    content: void StorePluginState(IPlugin plugin)
+    parameters:
+    - id: plugin
+      type: Sdl.Core.PluginFramework.IPlugin
+      description: The plug-in for which to store the state.
+    content.vb: Sub StorePluginState(plugin As IPlugin)
+  overload: Sdl.Core.PluginFramework.IPluginCache.StorePluginState*
+- uid: Sdl.Core.PluginFramework.IPluginCache.Save
+  commentId: M:Sdl.Core.PluginFramework.IPluginCache.Save
+  id: Save
+  parent: Sdl.Core.PluginFramework.IPluginCache
+  langs:
+  - csharp
+  - vb
+  name: Save()
+  nameWithType: IPluginCache.Save()
+  fullName: Sdl.Core.PluginFramework.IPluginCache.Save()
+  type: Method
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: Saves the plug-in cache.
+  remarks: This method is called automatically when the corresponding plug-in registry is disposed.
+  example: []
+  syntax:
+    content: void Save()
+    content.vb: Sub Save()
+  overload: Sdl.Core.PluginFramework.IPluginCache.Save*
+references:
+- uid: Sdl.Core.PluginFramework.XmlPluginCache
+  commentId: T:Sdl.Core.PluginFramework.XmlPluginCache
+  isExternal: true
+  href: Sdl.Core.PluginFramework.XmlPluginCache.html
+  name: XmlPluginCache
+  nameWithType: XmlPluginCache
+  fullName: Sdl.Core.PluginFramework.XmlPluginCache
+- uid: Sdl.Core.PluginFramework
+  commentId: N:Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.PluginFramework
+  nameWithType: Sdl.Core.PluginFramework
+  fullName: Sdl.Core.PluginFramework
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+- uid: Sdl.Core.PluginFramework.PluginState
+  commentId: T:Sdl.Core.PluginFramework.PluginState
+  parent: Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.Core.PluginFramework.PluginState.html
+  name: PluginState
+  nameWithType: PluginState
+  fullName: Sdl.Core.PluginFramework.PluginState
+- uid: Sdl.Core.PluginFramework.IPluginCache.GetPluginState*
+  commentId: Overload:Sdl.Core.PluginFramework.IPluginCache.GetPluginState
+  isExternal: true
+  href: Sdl.Core.PluginFramework.IPluginCache.html#Sdl_Core_PluginFramework_IPluginCache_GetPluginState_System_String_
+  name: GetPluginState
+  nameWithType: IPluginCache.GetPluginState
+  fullName: Sdl.Core.PluginFramework.IPluginCache.GetPluginState
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Core.PluginFramework.IPluginCache.StorePluginState*
+  commentId: Overload:Sdl.Core.PluginFramework.IPluginCache.StorePluginState
+  isExternal: true
+  href: Sdl.Core.PluginFramework.IPluginCache.html#Sdl_Core_PluginFramework_IPluginCache_StorePluginState_Sdl_Core_PluginFramework_IPlugin_
+  name: StorePluginState
+  nameWithType: IPluginCache.StorePluginState
+  fullName: Sdl.Core.PluginFramework.IPluginCache.StorePluginState
+- uid: Sdl.Core.PluginFramework.IPlugin
+  commentId: T:Sdl.Core.PluginFramework.IPlugin
+  parent: Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.Core.PluginFramework.IPlugin.html
+  name: IPlugin
+  nameWithType: IPlugin
+  fullName: Sdl.Core.PluginFramework.IPlugin
+- uid: Sdl.Core.PluginFramework.IPluginCache.Save*
+  commentId: Overload:Sdl.Core.PluginFramework.IPluginCache.Save
+  isExternal: true
+  href: Sdl.Core.PluginFramework.IPluginCache.html#Sdl_Core_PluginFramework_IPluginCache_Save
+  name: Save
+  nameWithType: IPluginCache.Save
+  fullName: Sdl.Core.PluginFramework.IPluginCache.Save

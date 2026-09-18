@@ -1,0 +1,173 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Settings.TmImportOption
+  commentId: T:Sdl.ProjectAutomation.Settings.TmImportOption
+  id: TmImportOption
+  parent: Sdl.ProjectAutomation.Settings
+  children:
+  - Sdl.ProjectAutomation.Settings.TmImportOption.AlwaysAddNewTranslation
+  - Sdl.ProjectAutomation.Settings.TmImportOption.KeepMostRecentTranslation
+  - Sdl.ProjectAutomation.Settings.TmImportOption.LeaveUnchangedTranslation
+  - Sdl.ProjectAutomation.Settings.TmImportOption.MergeTranslation
+  - Sdl.ProjectAutomation.Settings.TmImportOption.OverwriteExistingTranslation
+  langs:
+  - csharp
+  - vb
+  name: TmImportOption
+  nameWithType: TmImportOption
+  fullName: Sdl.ProjectAutomation.Settings.TmImportOption
+  type: Enum
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: Options to specify how the TU should be handled when the same TU already exists in the TM
+  example: []
+  syntax:
+    content: public enum TmImportOption
+    content.vb: Public Enum TmImportOption
+- uid: Sdl.ProjectAutomation.Settings.TmImportOption.AlwaysAddNewTranslation
+  commentId: F:Sdl.ProjectAutomation.Settings.TmImportOption.AlwaysAddNewTranslation
+  id: AlwaysAddNewTranslation
+  parent: Sdl.ProjectAutomation.Settings.TmImportOption
+  langs:
+  - csharp
+  - vb
+  name: AlwaysAddNewTranslation
+  nameWithType: TmImportOption.AlwaysAddNewTranslation
+  fullName: Sdl.ProjectAutomation.Settings.TmImportOption.AlwaysAddNewTranslation
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: TU are always added as new TUs.
+  example: []
+  syntax:
+    content: AlwaysAddNewTranslation = 0
+    return:
+      type: Sdl.ProjectAutomation.Settings.TmImportOption
+- uid: Sdl.ProjectAutomation.Settings.TmImportOption.OverwriteExistingTranslation
+  commentId: F:Sdl.ProjectAutomation.Settings.TmImportOption.OverwriteExistingTranslation
+  id: OverwriteExistingTranslation
+  parent: Sdl.ProjectAutomation.Settings.TmImportOption
+  langs:
+  - csharp
+  - vb
+  name: OverwriteExistingTranslation
+  nameWithType: TmImportOption.OverwriteExistingTranslation
+  fullName: Sdl.ProjectAutomation.Settings.TmImportOption.OverwriteExistingTranslation
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: Existing translations should be overwritten or not.
+  example: []
+  syntax:
+    content: OverwriteExistingTranslation = 1
+    return:
+      type: Sdl.ProjectAutomation.Settings.TmImportOption
+- uid: Sdl.ProjectAutomation.Settings.TmImportOption.LeaveUnchangedTranslation
+  commentId: F:Sdl.ProjectAutomation.Settings.TmImportOption.LeaveUnchangedTranslation
+  id: LeaveUnchangedTranslation
+  parent: Sdl.ProjectAutomation.Settings.TmImportOption
+  langs:
+  - csharp
+  - vb
+  name: LeaveUnchangedTranslation
+  nameWithType: TmImportOption.LeaveUnchangedTranslation
+  fullName: Sdl.ProjectAutomation.Settings.TmImportOption.LeaveUnchangedTranslation
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: If true do not import TU's even if target TU's differ.
+  example: []
+  syntax:
+    content: LeaveUnchangedTranslation = 2
+    return:
+      type: Sdl.ProjectAutomation.Settings.TmImportOption
+- uid: Sdl.ProjectAutomation.Settings.TmImportOption.KeepMostRecentTranslation
+  commentId: F:Sdl.ProjectAutomation.Settings.TmImportOption.KeepMostRecentTranslation
+  id: KeepMostRecentTranslation
+  parent: Sdl.ProjectAutomation.Settings.TmImportOption
+  langs:
+  - csharp
+  - vb
+  name: KeepMostRecentTranslation
+  nameWithType: TmImportOption.KeepMostRecentTranslation
+  fullName: Sdl.ProjectAutomation.Settings.TmImportOption.KeepMostRecentTranslation
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: Always keep the most recent TU (based on TU change date).
+  example: []
+  syntax:
+    content: KeepMostRecentTranslation = 3
+    return:
+      type: Sdl.ProjectAutomation.Settings.TmImportOption
+- uid: Sdl.ProjectAutomation.Settings.TmImportOption.MergeTranslation
+  commentId: F:Sdl.ProjectAutomation.Settings.TmImportOption.MergeTranslation
+  id: MergeTranslation
+  parent: Sdl.ProjectAutomation.Settings.TmImportOption
+  langs:
+  - csharp
+  - vb
+  name: MergeTranslation
+  nameWithType: TmImportOption.MergeTranslation
+  fullName: Sdl.ProjectAutomation.Settings.TmImportOption.MergeTranslation
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Settings
+  namespace: Sdl.ProjectAutomation.Settings
+  summary: Merges with the previous version of the translation or adds a new translation if no previous version.
+  example: []
+  syntax:
+    content: MergeTranslation = 4
+    return:
+      type: Sdl.ProjectAutomation.Settings.TmImportOption
+references:
+- uid: Sdl.ProjectAutomation.Settings
+  commentId: N:Sdl.ProjectAutomation.Settings
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Settings
+  nameWithType: Sdl.ProjectAutomation.Settings
+  fullName: Sdl.ProjectAutomation.Settings
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Settings
+    name: Settings
+    isExternal: true
+    href: Sdl.ProjectAutomation.Settings.html
+- uid: Sdl.ProjectAutomation.Settings.TmImportOption
+  commentId: T:Sdl.ProjectAutomation.Settings.TmImportOption
+  parent: Sdl.ProjectAutomation.Settings
+  isExternal: true
+  href: Sdl.ProjectAutomation.Settings.TmImportOption.html
+  name: TmImportOption
+  nameWithType: TmImportOption
+  fullName: Sdl.ProjectAutomation.Settings.TmImportOption

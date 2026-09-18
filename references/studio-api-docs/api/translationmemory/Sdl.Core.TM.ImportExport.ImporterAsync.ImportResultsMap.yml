@@ -1,0 +1,542 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap
+  commentId: T:Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap
+  id: ImporterAsync.ImportResultsMap
+  parent: Sdl.Core.TM.ImportExport
+  children:
+  - Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.#ctor
+  - Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.AddedTuIds
+  - Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.MergedTuIds
+  - Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.OverwrittenTuIds
+  langs:
+  - csharp
+  - vb
+  name: ImporterAsync.ImportResultsMap
+  nameWithType: ImporterAsync.ImportResultsMap
+  fullName: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap
+  type: Class
+  assemblies:
+  - Sdl.Core.TM.ImportExport
+  namespace: Sdl.Core.TM.ImportExport
+  summary: ''
+  example: []
+  syntax:
+    content: protected class ImporterAsync.ImportResultsMap
+    content.vb: Protected Class ImporterAsync.ImportResultsMap
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.#ctor
+  commentId: M:Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.#ctor
+  id: '#ctor'
+  parent: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap
+  langs:
+  - csharp
+  - vb
+  name: ImportResultsMap()
+  nameWithType: ImporterAsync.ImportResultsMap.ImportResultsMap()
+  fullName: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.ImportResultsMap()
+  type: Constructor
+  assemblies:
+  - Sdl.Core.TM.ImportExport
+  namespace: Sdl.Core.TM.ImportExport
+  syntax:
+    content: public ImportResultsMap()
+    content.vb: Public Sub New()
+  overload: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.#ctor*
+  nameWithType.vb: ImporterAsync.ImportResultsMap.New()
+  fullName.vb: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.New()
+  name.vb: New()
+- uid: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.MergedTuIds
+  commentId: P:Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.MergedTuIds
+  id: MergedTuIds
+  parent: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap
+  langs:
+  - csharp
+  - vb
+  name: MergedTuIds
+  nameWithType: ImporterAsync.ImportResultsMap.MergedTuIds
+  fullName: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.MergedTuIds
+  type: Property
+  assemblies:
+  - Sdl.Core.TM.ImportExport
+  namespace: Sdl.Core.TM.ImportExport
+  summary: ''
+  example: []
+  syntax:
+    content: public HashSet<int> MergedTuIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.HashSet{System.Int32}
+    content.vb: Public Property MergedTuIds As HashSet(Of Integer)
+  overload: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.MergedTuIds*
+- uid: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.AddedTuIds
+  commentId: P:Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.AddedTuIds
+  id: AddedTuIds
+  parent: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap
+  langs:
+  - csharp
+  - vb
+  name: AddedTuIds
+  nameWithType: ImporterAsync.ImportResultsMap.AddedTuIds
+  fullName: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.AddedTuIds
+  type: Property
+  assemblies:
+  - Sdl.Core.TM.ImportExport
+  namespace: Sdl.Core.TM.ImportExport
+  summary: ''
+  example: []
+  syntax:
+    content: public HashSet<int> AddedTuIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.HashSet{System.Int32}
+    content.vb: Public Property AddedTuIds As HashSet(Of Integer)
+  overload: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.AddedTuIds*
+- uid: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.OverwrittenTuIds
+  commentId: P:Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.OverwrittenTuIds
+  id: OverwrittenTuIds
+  parent: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap
+  langs:
+  - csharp
+  - vb
+  name: OverwrittenTuIds
+  nameWithType: ImporterAsync.ImportResultsMap.OverwrittenTuIds
+  fullName: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.OverwrittenTuIds
+  type: Property
+  assemblies:
+  - Sdl.Core.TM.ImportExport
+  namespace: Sdl.Core.TM.ImportExport
+  summary: ''
+  example: []
+  syntax:
+    content: public HashSet<int> OverwrittenTuIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.HashSet{System.Int32}
+    content.vb: Public Property OverwrittenTuIds As HashSet(Of Integer)
+  overload: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.OverwrittenTuIds*
+references:
+- uid: Sdl.Core.TM.ImportExport
+  commentId: N:Sdl.Core.TM.ImportExport
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.TM.ImportExport
+  nameWithType: Sdl.Core.TM.ImportExport
+  fullName: Sdl.Core.TM.ImportExport
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.TM
+    name: TM
+    isExternal: true
+    href: Sdl.Core.TM.html
+  - name: .
+  - uid: Sdl.Core.TM.ImportExport
+    name: ImportExport
+    isExternal: true
+    href: Sdl.Core.TM.ImportExport.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.TM
+    name: TM
+    isExternal: true
+    href: Sdl.Core.TM.html
+  - name: .
+  - uid: Sdl.Core.TM.ImportExport
+    name: ImportExport
+    isExternal: true
+    href: Sdl.Core.TM.ImportExport.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.#ctor*
+  commentId: Overload:Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.#ctor
+  isExternal: true
+  href: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.html#Sdl_Core_TM_ImportExport_ImporterAsync_ImportResultsMap__ctor
+  name: ImportResultsMap
+  nameWithType: ImporterAsync.ImportResultsMap.ImportResultsMap
+  fullName: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.ImportResultsMap
+  nameWithType.vb: ImporterAsync.ImportResultsMap.New
+  fullName.vb: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.New
+  name.vb: New
+- uid: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.MergedTuIds*
+  commentId: Overload:Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.MergedTuIds
+  isExternal: true
+  href: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.html#Sdl_Core_TM_ImportExport_ImporterAsync_ImportResultsMap_MergedTuIds
+  name: MergedTuIds
+  nameWithType: ImporterAsync.ImportResultsMap.MergedTuIds
+  fullName: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.MergedTuIds
+- uid: System.Collections.Generic.HashSet{System.Int32}
+  commentId: T:System.Collections.Generic.HashSet{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<int>
+  nameWithType: HashSet<int>
+  fullName: System.Collections.Generic.HashSet<int>
+  nameWithType.vb: HashSet(Of Integer)
+  fullName.vb: System.Collections.Generic.HashSet(Of Integer)
+  name.vb: HashSet(Of Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.AddedTuIds*
+  commentId: Overload:Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.AddedTuIds
+  isExternal: true
+  href: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.html#Sdl_Core_TM_ImportExport_ImporterAsync_ImportResultsMap_AddedTuIds
+  name: AddedTuIds
+  nameWithType: ImporterAsync.ImportResultsMap.AddedTuIds
+  fullName: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.AddedTuIds
+- uid: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.OverwrittenTuIds*
+  commentId: Overload:Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.OverwrittenTuIds
+  isExternal: true
+  href: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.html#Sdl_Core_TM_ImportExport_ImporterAsync_ImportResultsMap_OverwrittenTuIds
+  name: OverwrittenTuIds
+  nameWithType: ImporterAsync.ImportResultsMap.OverwrittenTuIds
+  fullName: Sdl.Core.TM.ImportExport.ImporterAsync.ImportResultsMap.OverwrittenTuIds

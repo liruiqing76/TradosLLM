@@ -1,0 +1,625 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator
+  id: DuplicateIterator
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  children:
+  - Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.#ctor
+  - Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.#ctor(System.Int32)
+  - Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionFrom
+  - Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionTo
+  - Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.Reset
+  langs:
+  - csharp
+  - vb
+  name: DuplicateIterator
+  nameWithType: DuplicateIterator
+  fullName: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: >-
+    Base iterator class. Contains the common properties needed for iteration through 
+
+    a translation memory.
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public class DuplicateIterator : TranslationMemoryIterator
+    content.vb: >-
+      <DataContract>
+
+      Public Class DuplicateIterator Inherits TranslationMemoryIterator
+  inheritance:
+  - System.Object
+  - Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator
+  inheritedMembers:
+  - Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Filter
+  - Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.MaxCount
+  - Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.MaxScan
+  - Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.ProcessedTranslationUnits
+  - Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.ScannedTranslationUnits
+  - Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Forward
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.#ctor
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.#ctor
+  id: '#ctor'
+  parent: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator
+  langs:
+  - csharp
+  - vb
+  name: DuplicateIterator()
+  nameWithType: DuplicateIterator.DuplicateIterator()
+  fullName: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.DuplicateIterator()
+  type: Constructor
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Initializes a new instance with default values (the max count is set to 100).
+  example: []
+  syntax:
+    content: public DuplicateIterator()
+    content.vb: Public Sub New()
+  overload: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.#ctor*
+  nameWithType.vb: DuplicateIterator.New()
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.New()
+  name.vb: New()
+- uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.#ctor(System.Int32)
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator
+  langs:
+  - csharp
+  - vb
+  name: DuplicateIterator(int)
+  nameWithType: DuplicateIterator.DuplicateIterator(int)
+  fullName: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.DuplicateIterator(int)
+  type: Constructor
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Initializes a new instance with the specified values.
+  example: []
+  syntax:
+    content: public DuplicateIterator(int maxCount)
+    parameters:
+    - id: maxCount
+      type: System.Int32
+      description: The maximum number of TUs to return in one iteration roundtrip
+    content.vb: Public Sub New(maxCount As Integer)
+  overload: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.#ctor*
+  nameWithType.vb: DuplicateIterator.New(Integer)
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.New(Integer)
+  name.vb: New(Integer)
+- uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.Reset
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.Reset
+  id: Reset
+  parent: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: DuplicateIterator.Reset()
+  fullName: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.Reset()
+  type: Method
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: Repositions the iterator at the beginning of the translation memory.
+  example: []
+  syntax:
+    content: public override void Reset()
+    content.vb: Public Overrides Sub Reset()
+  overridden: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Reset
+  overload: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.Reset*
+- uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionFrom
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionFrom
+  id: PositionFrom
+  parent: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator
+  langs:
+  - csharp
+  - vb
+  name: PositionFrom
+  nameWithType: DuplicateIterator.PositionFrom
+  fullName: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionFrom
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: >-
+    Gets or sets the starting position of the current page in this iterator.
+
+
+    <p>The page starts at the first translation unit AFTER this position.</p>
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public DuplicateIterator.DuplicateIteratorPosition PositionFrom { get; set; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.DuplicateIteratorPosition
+    content.vb: >-
+      <DataMember>
+
+      Public Property PositionFrom As DuplicateIterator.DuplicateIteratorPosition
+  overload: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionFrom*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionTo
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionTo
+  id: PositionTo
+  parent: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator
+  langs:
+  - csharp
+  - vb
+  name: PositionTo
+  nameWithType: DuplicateIterator.PositionTo
+  fullName: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionTo
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemory
+  namespace: Sdl.LanguagePlatform.TranslationMemory
+  summary: >-
+    Gets or sets the last position of the current page in this iterator.
+
+
+    <p>The page ends at this position, inclusively.</p>
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public DuplicateIterator.DuplicateIteratorPosition PositionTo { get; set; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.DuplicateIteratorPosition
+    content.vb: >-
+      <DataMember>
+
+      Public Property PositionTo As DuplicateIterator.DuplicateIteratorPosition
+  overload: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionTo*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemory
+  commentId: N:Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemory
+  nameWithType: Sdl.LanguagePlatform.TranslationMemory
+  fullName: Sdl.LanguagePlatform.TranslationMemory
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory
+    name: TranslationMemory
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.html
+  name: TranslationMemoryIterator
+  nameWithType: TranslationMemoryIterator
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator
+- uid: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Filter
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Filter
+  parent: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.html#Sdl_LanguagePlatform_TranslationMemory_TranslationMemoryIterator_Filter
+  name: Filter
+  nameWithType: TranslationMemoryIterator.Filter
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Filter
+- uid: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.MaxCount
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.MaxCount
+  parent: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.html#Sdl_LanguagePlatform_TranslationMemory_TranslationMemoryIterator_MaxCount
+  name: MaxCount
+  nameWithType: TranslationMemoryIterator.MaxCount
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.MaxCount
+- uid: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.MaxScan
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.MaxScan
+  parent: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.html#Sdl_LanguagePlatform_TranslationMemory_TranslationMemoryIterator_MaxScan
+  name: MaxScan
+  nameWithType: TranslationMemoryIterator.MaxScan
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.MaxScan
+- uid: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.ProcessedTranslationUnits
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.ProcessedTranslationUnits
+  parent: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.html#Sdl_LanguagePlatform_TranslationMemory_TranslationMemoryIterator_ProcessedTranslationUnits
+  name: ProcessedTranslationUnits
+  nameWithType: TranslationMemoryIterator.ProcessedTranslationUnits
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.ProcessedTranslationUnits
+- uid: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.ScannedTranslationUnits
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.ScannedTranslationUnits
+  parent: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.html#Sdl_LanguagePlatform_TranslationMemory_TranslationMemoryIterator_ScannedTranslationUnits
+  name: ScannedTranslationUnits
+  nameWithType: TranslationMemoryIterator.ScannedTranslationUnits
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.ScannedTranslationUnits
+- uid: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Forward
+  commentId: P:Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Forward
+  parent: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.html#Sdl_LanguagePlatform_TranslationMemory_TranslationMemoryIterator_Forward
+  name: Forward
+  nameWithType: TranslationMemoryIterator.Forward
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Forward
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.#ctor*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.#ctor
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.html#Sdl_LanguagePlatform_TranslationMemory_DuplicateIterator__ctor
+  name: DuplicateIterator
+  nameWithType: DuplicateIterator.DuplicateIterator
+  fullName: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.DuplicateIterator
+  nameWithType.vb: DuplicateIterator.New
+  fullName.vb: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Reset
+  commentId: M:Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Reset
+  parent: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.html#Sdl_LanguagePlatform_TranslationMemory_TranslationMemoryIterator_Reset
+  name: Reset()
+  nameWithType: TranslationMemoryIterator.Reset()
+  fullName: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Reset()
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Reset
+    name: Reset
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.html#Sdl_LanguagePlatform_TranslationMemory_TranslationMemoryIterator_Reset
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.Reset
+    name: Reset
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.TranslationMemoryIterator.html#Sdl_LanguagePlatform_TranslationMemory_TranslationMemoryIterator_Reset
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.Reset*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.Reset
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.html#Sdl_LanguagePlatform_TranslationMemory_DuplicateIterator_Reset
+  name: Reset
+  nameWithType: DuplicateIterator.Reset
+  fullName: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.Reset
+- uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionFrom*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionFrom
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.html#Sdl_LanguagePlatform_TranslationMemory_DuplicateIterator_PositionFrom
+  name: PositionFrom
+  nameWithType: DuplicateIterator.PositionFrom
+  fullName: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionFrom
+- uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.DuplicateIteratorPosition
+  commentId: T:Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.DuplicateIteratorPosition
+  parent: Sdl.LanguagePlatform.TranslationMemory
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.html
+  name: DuplicateIterator.DuplicateIteratorPosition
+  nameWithType: DuplicateIterator.DuplicateIteratorPosition
+  fullName: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.DuplicateIteratorPosition
+  spec.csharp:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator
+    name: DuplicateIterator
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.DuplicateIteratorPosition
+    name: DuplicateIteratorPosition
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.DuplicateIteratorPosition.html
+  spec.vb:
+  - uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator
+    name: DuplicateIterator
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.DuplicateIteratorPosition
+    name: DuplicateIteratorPosition
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.DuplicateIteratorPosition.html
+- uid: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionTo*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionTo
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.html#Sdl_LanguagePlatform_TranslationMemory_DuplicateIterator_PositionTo
+  name: PositionTo
+  nameWithType: DuplicateIterator.PositionTo
+  fullName: Sdl.LanguagePlatform.TranslationMemory.DuplicateIterator.PositionTo

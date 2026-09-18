@@ -1,0 +1,249 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType
+  id: IControlPreviewType
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  children:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SingleFilePreviewControlId
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SourceAndTargetPreviewControlId
+  langs:
+  - csharp
+  - vb
+  name: IControlPreviewType
+  nameWithType: IControlPreviewType
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Interface implemented by preview types that provide controls, which can be
+
+    shown in the host application for viewing the preview content.
+  remarks: >-
+    <p>
+
+    Two types of controls can be provided: single file and source and
+
+    target (typically side-by-side). A control preview can provide either
+
+    or both of these.
+
+    </p>
+
+    <p>
+
+    Host applications can check these preview control ids to determine which preview
+
+    buttons/tabs should be available in the UI for a specific preview type.
+
+    </p>
+  example: []
+  syntax:
+    content: 'public interface IControlPreviewType : IPreviewType'
+    content.vb: Public Interface IControlPreviewType Inherits IPreviewType
+  inheritedMembers:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType.SourceGeneratorId
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType.TargetGeneratorId
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SingleFilePreviewControlId
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SingleFilePreviewControlId
+  id: SingleFilePreviewControlId
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType
+  langs:
+  - csharp
+  - vb
+  name: SingleFilePreviewControlId
+  nameWithType: IControlPreviewType.SingleFilePreviewControlId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SingleFilePreviewControlId
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Identifier for the preview control used to display a single source or target preview file, or <code>null</code>
+
+    if no control has been specified for viewing single files in this preview.
+  remarks: >-
+    This id can be passed to IFileTypeDefinition.BuildPreviewControl in order to create
+
+    an instance of the preview control, which should implement ISingleFilePreviewControl.
+  example: []
+  syntax:
+    content: PreviewControlId? SingleFilePreviewControlId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewControlId}
+    content.vb: Property SingleFilePreviewControlId As PreviewControlId?
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SingleFilePreviewControlId*
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SourceAndTargetPreviewControlId
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SourceAndTargetPreviewControlId
+  id: SourceAndTargetPreviewControlId
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType
+  langs:
+  - csharp
+  - vb
+  name: SourceAndTargetPreviewControlId
+  nameWithType: IControlPreviewType.SourceAndTargetPreviewControlId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SourceAndTargetPreviewControlId
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Identifier for the preview control used to display source and target preview files
+
+    side-by-side, or <code>null</code> if side-by-side preview is not supported for this preview type.
+  remarks: >-
+    This id can be passed to IFileTypeDefinition.BuildPreviewControl in order to create
+
+    an instance of the preview control, which should implement ISourceAndTargetFilePreviewControl.
+  example: []
+  syntax:
+    content: PreviewControlId? SourceAndTargetPreviewControlId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewControlId}
+    content.vb: Property SourceAndTargetPreviewControlId As PreviewControlId?
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SourceAndTargetPreviewControlId*
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType.SourceGeneratorId
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType.SourceGeneratorId
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewType_SourceGeneratorId
+  name: SourceGeneratorId
+  nameWithType: IPreviewType.SourceGeneratorId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType.SourceGeneratorId
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType.TargetGeneratorId
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType.TargetGeneratorId
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewType_TargetGeneratorId
+  name: TargetGeneratorId
+  nameWithType: IPreviewType.TargetGeneratorId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType.TargetGeneratorId
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType.html
+  name: IPreviewType
+  nameWithType: IPreviewType
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewType
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SingleFilePreviewControlId*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SingleFilePreviewControlId
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IControlPreviewType_SingleFilePreviewControlId
+  name: SingleFilePreviewControlId
+  nameWithType: IControlPreviewType.SingleFilePreviewControlId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SingleFilePreviewControlId
+- uid: System.Nullable{Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewControlId}
+  commentId: T:System.Nullable{Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewControlId}
+  parent: System
+  definition: System.Nullable`1
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewControlId.html
+  name: PreviewControlId?
+  nameWithType: PreviewControlId?
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewControlId?
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewControlId
+    name: PreviewControlId
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewControlId.html
+  - name: '?'
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewControlId
+    name: PreviewControlId
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.PreviewControlId.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SourceAndTargetPreviewControlId*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SourceAndTargetPreviewControlId
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IControlPreviewType_SourceAndTargetPreviewControlId
+  name: SourceAndTargetPreviewControlId
+  nameWithType: IControlPreviewType.SourceAndTargetPreviewControlId
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IControlPreviewType.SourceAndTargetPreviewControlId

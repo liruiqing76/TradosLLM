@@ -1,0 +1,240 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+  id: SegmentationHint
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.Exclude
+  - Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.Include
+  - Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.IncludeWithText
+  - Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.MayExclude
+  - Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.Undefined
+  langs:
+  - csharp
+  - vb
+  name: SegmentationHint
+  nameWithType: SegmentationHint
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+  type: Enum
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Used in <code>TagProperties</code> to indicate how the tag should be handled during segmentation.
+  example: []
+  syntax:
+    content: public enum SegmentationHint
+    content.vb: Public Enum SegmentationHint
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.Undefined
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.Undefined
+  id: Undefined
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: SegmentationHint.Undefined
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.Undefined
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    The value has not been explicitly specified, or the default segmentation behavior
+
+    is implied.
+  remarks: >-
+    <p>
+
+    A segmentation engine may examine the value of the 
+
+    <code>IPlaceholderTagProperties.TextEquivalent</code> property in order to 
+
+    determine whether the tag should be included in a segment when it
+
+    appears at the segment boundary.
+
+    </p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Undefined = 0
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+    content.vb: >-
+      <Obsolete>
+
+      Undefined = 0
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.Include
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.Include
+  id: Include
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+  langs:
+  - csharp
+  - vb
+  name: Include
+  nameWithType: SegmentationHint.Include
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.Include
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: If possible, the segmentation engine should always include this tag inside a segment.
+  remarks: >-
+    <p>
+
+    Tags with this property should be treated similar to tags with "TagHandlingAlwaysInclude"
+
+    in Filter Framework 1 and "placeholder" Trados tools.
+
+    </p>
+  example: []
+  syntax:
+    content: Include = 1
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.MayExclude
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.MayExclude
+  id: MayExclude
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+  langs:
+  - csharp
+  - vb
+  name: MayExclude
+  nameWithType: SegmentationHint.MayExclude
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.MayExclude
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    The tag may be left outside of the segment, e.g. if it
+
+    appears at a segment boundary.
+  remarks: >-
+    <p>
+
+    There should be no need for a segmentation engine to check the 
+
+    <code>IPlaceholderTagProperties.TextEquivalent</code> property, as this value
+
+    explicitly states that the tag can be excluded from segments.
+
+    </p>
+  example: []
+  syntax:
+    content: MayExclude = 2
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.IncludeWithText
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.IncludeWithText
+  id: IncludeWithText
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+  langs:
+  - csharp
+  - vb
+  name: IncludeWithText
+  nameWithType: SegmentationHint.IncludeWithText
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.IncludeWithText
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    The tag will be included in a segment if the segment also contains text content,
+
+    otherwise it will not be included in a segment (in order to prevent segment-only tags).
+  example: []
+  syntax:
+    content: IncludeWithText = 3
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.Exclude
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.Exclude
+  id: Exclude
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+  langs:
+  - csharp
+  - vb
+  name: Exclude
+  nameWithType: SegmentationHint.Exclude
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.Exclude
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    The tag will be excluded from a segment, even if this means changing the segmentation. This
+
+    is used for sub-content processing.
+  remarks: >-
+    There are two circumstances where a tag with SegmentationHint set to Exclude will not be excluded from a segment; 
+
+    where the tag is inside a tag pair with SegmentationHint NOT set to Exclude or where the tag is inside a review marker.
+  example: []
+  syntax:
+    content: Exclude = 4
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint.html
+  name: SegmentationHint
+  nameWithType: SegmentationHint
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SegmentationHint

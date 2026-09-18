@@ -1,0 +1,427 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  id: AbstractFileTypeDefinitionComponent
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  children:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.#ctor
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  langs:
+  - csharp
+  - vb
+  name: AbstractFileTypeDefinitionComponent
+  nameWithType: AbstractFileTypeDefinitionComponent
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  type: Class
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: >-
+    Convenient default implementation of <xref href="Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware" data-throw-if-not-resolved="false"></xref>;
+
+    ensures synchronized access to the data member, so that components
+
+    can be safely marked as singletons in the spring configuration files.
+  remarks: >-
+    <p>
+
+    Implementation classes are not required to derive from this base class, it merely
+
+    serves as a convenience.
+
+    </p>
+  example: []
+  syntax:
+    content: 'public abstract class AbstractFileTypeDefinitionComponent : IFileTypeDefinitionAware'
+    content.vb: Public MustInherit Class AbstractFileTypeDefinitionComponent Implements IFileTypeDefinitionAware
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.Implementation.FileTypeCreator
+  - Sdl.FileTypeSupport.Framework.PreviewControls.AbstractPreviewControl
+  - Sdl.FileTypeSupport.Framework.PreviewControls.GenericExteralPreviewApplication
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.#ctor
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.#ctor
+  id: '#ctor'
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  langs:
+  - csharp
+  - vb
+  name: AbstractFileTypeDefinitionComponent()
+  nameWithType: AbstractFileTypeDefinitionComponent.AbstractFileTypeDefinitionComponent()
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.AbstractFileTypeDefinitionComponent()
+  type: Constructor
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Default construction - protected as this is an abstract class.
+  example: []
+  syntax:
+    content: protected AbstractFileTypeDefinitionComponent()
+    content.vb: Protected Sub New()
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.#ctor*
+  nameWithType.vb: AbstractFileTypeDefinitionComponent.New()
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.New()
+  name.vb: New()
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  id: FileTypeDefinition
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent
+  langs:
+  - csharp
+  - vb
+  name: FileTypeDefinition
+  nameWithType: AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  summary: Implements synchronized access to this property.
+  example: []
+  syntax:
+    content: public IFileTypeDefinition FileTypeDefinition { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition
+    content.vb: Public Property FileTypeDefinition As IFileTypeDefinition
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition*
+  implements:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.html
+  name: IFileTypeDefinitionAware
+  nameWithType: IFileTypeDefinitionAware
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.#ctor*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.#ctor
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.html#Sdl_FileTypeSupport_Framework_IntegrationApi_AbstractFileTypeDefinitionComponent__ctor
+  name: AbstractFileTypeDefinitionComponent
+  nameWithType: AbstractFileTypeDefinitionComponent.AbstractFileTypeDefinitionComponent
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.AbstractFileTypeDefinitionComponent
+  nameWithType.vb: AbstractFileTypeDefinitionComponent.New
+  fullName.vb: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.New
+  name.vb: New
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.html#Sdl_FileTypeSupport_Framework_IntegrationApi_AbstractFileTypeDefinitionComponent_FileTypeDefinition
+  name: FileTypeDefinition
+  nameWithType: AbstractFileTypeDefinitionComponent.FileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractFileTypeDefinitionComponent.FileTypeDefinition
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeDefinitionAware_FileTypeDefinition
+  name: FileTypeDefinition
+  nameWithType: IFileTypeDefinitionAware.FileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition.html
+  name: IFileTypeDefinition
+  nameWithType: IFileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinition

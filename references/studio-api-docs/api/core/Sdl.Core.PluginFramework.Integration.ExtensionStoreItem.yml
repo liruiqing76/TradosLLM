@@ -1,0 +1,591 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem
+  commentId: T:Sdl.Core.PluginFramework.Integration.ExtensionStoreItem
+  id: ExtensionStoreItem
+  parent: Sdl.Core.PluginFramework.Integration
+  children:
+  - Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.AttributeType
+  - Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.DefaultInstance
+  - Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.Extension
+  - Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.ExtensionType
+  - Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.References
+  langs:
+  - csharp
+  - vb
+  name: ExtensionStoreItem
+  nameWithType: ExtensionStoreItem
+  fullName: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem
+  type: Class
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Integration
+  summary: Implements an item of the repository collection containing extension informations and its instances
+  example: []
+  syntax:
+    content: public sealed class ExtensionStoreItem
+    content.vb: Public NotInheritable Class ExtensionStoreItem
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.References
+  commentId: F:Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.References
+  id: References
+  parent: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem
+  langs:
+  - csharp
+  - vb
+  name: References
+  nameWithType: ExtensionStoreItem.References
+  fullName: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.References
+  type: Field
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Integration
+  summary: A list which stores all the extension related instances (like the adapted instances) and their type.
+  example: []
+  syntax:
+    content: public readonly List<ValuePairTypeInstance> References
+    return:
+      type: System.Collections.Generic.List{Sdl.Core.PluginFramework.Integration.ValuePairTypeInstance}
+    content.vb: Public ReadOnly References As List(Of ValuePairTypeInstance)
+- uid: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.AttributeType
+  commentId: P:Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.AttributeType
+  id: AttributeType
+  parent: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem
+  langs:
+  - csharp
+  - vb
+  name: AttributeType
+  nameWithType: ExtensionStoreItem.AttributeType
+  fullName: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.AttributeType
+  type: Property
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Integration
+  summary: Extension attribute type
+  example: []
+  syntax:
+    content: public Type AttributeType { get; set; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public Property AttributeType As Type
+  overload: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.AttributeType*
+- uid: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.Extension
+  commentId: P:Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.Extension
+  id: Extension
+  parent: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem
+  langs:
+  - csharp
+  - vb
+  name: Extension
+  nameWithType: ExtensionStoreItem.Extension
+  fullName: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.Extension
+  type: Property
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Integration
+  summary: Extension object
+  example: []
+  syntax:
+    content: public IExtension Extension { get; set; }
+    parameters: []
+    return:
+      type: Sdl.Core.PluginFramework.IExtension
+    content.vb: Public Property Extension As IExtension
+  overload: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.Extension*
+- uid: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.ExtensionType
+  commentId: P:Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.ExtensionType
+  id: ExtensionType
+  parent: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem
+  langs:
+  - csharp
+  - vb
+  name: ExtensionType
+  nameWithType: ExtensionStoreItem.ExtensionType
+  fullName: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.ExtensionType
+  type: Property
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Integration
+  summary: Extension type
+  example: []
+  syntax:
+    content: public Type ExtensionType { get; set; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public Property ExtensionType As Type
+  overload: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.ExtensionType*
+- uid: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.DefaultInstance
+  commentId: P:Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.DefaultInstance
+  id: DefaultInstance
+  parent: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem
+  langs:
+  - csharp
+  - vb
+  name: DefaultInstance
+  nameWithType: ExtensionStoreItem.DefaultInstance
+  fullName: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.DefaultInstance
+  type: Property
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework.Integration
+  summary: The default instance of the extension
+  example: []
+  syntax:
+    content: public object DefaultInstance { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property DefaultInstance As Object
+  overload: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.DefaultInstance*
+references:
+- uid: Sdl.Core.PluginFramework.Integration
+  commentId: N:Sdl.Core.PluginFramework.Integration
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.PluginFramework.Integration
+  nameWithType: Sdl.Core.PluginFramework.Integration
+  fullName: Sdl.Core.PluginFramework.Integration
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework.Integration
+    name: Integration
+    isExternal: true
+    href: Sdl.Core.PluginFramework.Integration.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework.Integration
+    name: Integration
+    isExternal: true
+    href: Sdl.Core.PluginFramework.Integration.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{Sdl.Core.PluginFramework.Integration.ValuePairTypeInstance}
+  commentId: T:System.Collections.Generic.List{Sdl.Core.PluginFramework.Integration.ValuePairTypeInstance}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ValuePairTypeInstance>
+  nameWithType: List<ValuePairTypeInstance>
+  fullName: System.Collections.Generic.List<Sdl.Core.PluginFramework.Integration.ValuePairTypeInstance>
+  nameWithType.vb: List(Of ValuePairTypeInstance)
+  fullName.vb: System.Collections.Generic.List(Of Sdl.Core.PluginFramework.Integration.ValuePairTypeInstance)
+  name.vb: List(Of ValuePairTypeInstance)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Sdl.Core.PluginFramework.Integration.ValuePairTypeInstance
+    name: ValuePairTypeInstance
+    isExternal: true
+    href: Sdl.Core.PluginFramework.Integration.ValuePairTypeInstance.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Core.PluginFramework.Integration.ValuePairTypeInstance
+    name: ValuePairTypeInstance
+    isExternal: true
+    href: Sdl.Core.PluginFramework.Integration.ValuePairTypeInstance.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.AttributeType*
+  commentId: Overload:Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.AttributeType
+  isExternal: true
+  href: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.html#Sdl_Core_PluginFramework_Integration_ExtensionStoreItem_AttributeType
+  name: AttributeType
+  nameWithType: ExtensionStoreItem.AttributeType
+  fullName: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.AttributeType
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.Extension*
+  commentId: Overload:Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.Extension
+  isExternal: true
+  href: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.html#Sdl_Core_PluginFramework_Integration_ExtensionStoreItem_Extension
+  name: Extension
+  nameWithType: ExtensionStoreItem.Extension
+  fullName: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.Extension
+- uid: Sdl.Core.PluginFramework.IExtension
+  commentId: T:Sdl.Core.PluginFramework.IExtension
+  parent: Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.Core.PluginFramework.IExtension.html
+  name: IExtension
+  nameWithType: IExtension
+  fullName: Sdl.Core.PluginFramework.IExtension
+- uid: Sdl.Core.PluginFramework
+  commentId: N:Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.PluginFramework
+  nameWithType: Sdl.Core.PluginFramework
+  fullName: Sdl.Core.PluginFramework
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+- uid: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.ExtensionType*
+  commentId: Overload:Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.ExtensionType
+  isExternal: true
+  href: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.html#Sdl_Core_PluginFramework_Integration_ExtensionStoreItem_ExtensionType
+  name: ExtensionType
+  nameWithType: ExtensionStoreItem.ExtensionType
+  fullName: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.ExtensionType
+- uid: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.DefaultInstance*
+  commentId: Overload:Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.DefaultInstance
+  isExternal: true
+  href: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.html#Sdl_Core_PluginFramework_Integration_ExtensionStoreItem_DefaultInstance
+  name: DefaultInstance
+  nameWithType: ExtensionStoreItem.DefaultInstance
+  fullName: Sdl.Core.PluginFramework.Integration.ExtensionStoreItem.DefaultInstance

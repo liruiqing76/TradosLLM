@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.FindType
+  commentId: T:Sdl.DesktopEditor.EditorApi.FindType
+  id: FindType
+  parent: Sdl.DesktopEditor.EditorApi
+  children:
+  - Sdl.DesktopEditor.EditorApi.FindType.Glob
+  - Sdl.DesktopEditor.EditorApi.FindType.Regexp
+  - Sdl.DesktopEditor.EditorApi.FindType.Text
+  langs:
+  - csharp
+  - vb
+  name: FindType
+  nameWithType: FindType
+  fullName: Sdl.DesktopEditor.EditorApi.FindType
+  type: Enum
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The type of data to search for.
+  example: []
+  syntax:
+    content: public enum FindType
+    content.vb: Public Enum FindType
+- uid: Sdl.DesktopEditor.EditorApi.FindType.Text
+  commentId: F:Sdl.DesktopEditor.EditorApi.FindType.Text
+  id: Text
+  parent: Sdl.DesktopEditor.EditorApi.FindType
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: FindType.Text
+  fullName: Sdl.DesktopEditor.EditorApi.FindType.Text
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: A text search
+  example: []
+  syntax:
+    content: Text = 0
+    return:
+      type: Sdl.DesktopEditor.EditorApi.FindType
+- uid: Sdl.DesktopEditor.EditorApi.FindType.Glob
+  commentId: F:Sdl.DesktopEditor.EditorApi.FindType.Glob
+  id: Glob
+  parent: Sdl.DesktopEditor.EditorApi.FindType
+  langs:
+  - csharp
+  - vb
+  name: Glob
+  nameWithType: FindType.Glob
+  fullName: Sdl.DesktopEditor.EditorApi.FindType.Glob
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: A Glob search (pathname pattern matching)
+  example: []
+  syntax:
+    content: Glob = 1
+    return:
+      type: Sdl.DesktopEditor.EditorApi.FindType
+- uid: Sdl.DesktopEditor.EditorApi.FindType.Regexp
+  commentId: F:Sdl.DesktopEditor.EditorApi.FindType.Regexp
+  id: Regexp
+  parent: Sdl.DesktopEditor.EditorApi.FindType
+  langs:
+  - csharp
+  - vb
+  name: Regexp
+  nameWithType: FindType.Regexp
+  fullName: Sdl.DesktopEditor.EditorApi.FindType.Regexp
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: A regular expression search
+  example: []
+  syntax:
+    content: Regexp = 2
+    return:
+      type: Sdl.DesktopEditor.EditorApi.FindType
+references:
+- uid: Sdl.DesktopEditor.EditorApi
+  commentId: N:Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi
+  nameWithType: Sdl.DesktopEditor.EditorApi
+  fullName: Sdl.DesktopEditor.EditorApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+- uid: Sdl.DesktopEditor.EditorApi.FindType
+  commentId: T:Sdl.DesktopEditor.EditorApi.FindType
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.FindType.html
+  name: FindType
+  nameWithType: FindType
+  fullName: Sdl.DesktopEditor.EditorApi.FindType

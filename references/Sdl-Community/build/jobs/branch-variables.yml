@@ -1,0 +1,15 @@
+variables:
+- name: DefaultBuildVm
+  value: 'windows-latest'
+
+- name: StudioProductIdentifier  
+  value: Studio18
+
+- name: StudioBranch
+  value: refs/heads/Release/18.1.2
+
+- name: VSVersion
+  value: '17.0'
+
+- name: PluginPath
+  value: '$(APPDATA)\Trados\Trados Studio\18\Plugins\Packages'

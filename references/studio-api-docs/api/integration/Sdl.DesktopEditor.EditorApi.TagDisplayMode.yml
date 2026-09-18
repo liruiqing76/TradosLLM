@@ -1,0 +1,236 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+  commentId: T:Sdl.DesktopEditor.EditorApi.TagDisplayMode
+  id: TagDisplayMode
+  parent: Sdl.DesktopEditor.EditorApi
+  children:
+  - Sdl.DesktopEditor.EditorApi.TagDisplayMode.DisplayText
+  - Sdl.DesktopEditor.EditorApi.TagDisplayMode.Invalid
+  - Sdl.DesktopEditor.EditorApi.TagDisplayMode.NoText
+  - Sdl.DesktopEditor.EditorApi.TagDisplayMode.TagContent
+  - Sdl.DesktopEditor.EditorApi.TagDisplayMode.TagId
+  - Sdl.DesktopEditor.EditorApi.TagDisplayMode.Unspecified
+  langs:
+  - csharp
+  - vb
+  name: TagDisplayMode
+  nameWithType: TagDisplayMode
+  fullName: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+  type: Enum
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: The different settings for tag display text in the side-by-side editor.
+  example: []
+  syntax:
+    content: public enum TagDisplayMode
+    content.vb: Public Enum TagDisplayMode
+- uid: Sdl.DesktopEditor.EditorApi.TagDisplayMode.NoText
+  commentId: F:Sdl.DesktopEditor.EditorApi.TagDisplayMode.NoText
+  id: NoText
+  parent: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+  langs:
+  - csharp
+  - vb
+  name: NoText
+  nameWithType: TagDisplayMode.NoText
+  fullName: Sdl.DesktopEditor.EditorApi.TagDisplayMode.NoText
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: Show tags without text. This makes them as small as possible.
+  example: []
+  syntax:
+    content: NoText = 0
+    return:
+      type: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+- uid: Sdl.DesktopEditor.EditorApi.TagDisplayMode.TagId
+  commentId: F:Sdl.DesktopEditor.EditorApi.TagDisplayMode.TagId
+  id: TagId
+  parent: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+  langs:
+  - csharp
+  - vb
+  name: TagId
+  nameWithType: TagDisplayMode.TagId
+  fullName: Sdl.DesktopEditor.EditorApi.TagDisplayMode.TagId
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    Show tag ID (only) on the tags. This can be useful to identify
+
+    tags between source and target in a segment, or tags that have been
+
+    split, as the corresponding tags should have the same ID (while other
+
+    tags with different ID could still have the same tag content).
+  example: []
+  syntax:
+    content: TagId = 1
+    return:
+      type: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+- uid: Sdl.DesktopEditor.EditorApi.TagDisplayMode.DisplayText
+  commentId: F:Sdl.DesktopEditor.EditorApi.TagDisplayMode.DisplayText
+  id: DisplayText
+  parent: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+  langs:
+  - csharp
+  - vb
+  name: DisplayText
+  nameWithType: TagDisplayMode.DisplayText
+  fullName: Sdl.DesktopEditor.EditorApi.TagDisplayMode.DisplayText
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    Show the <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.DisplayText" data-throw-if-not-resolved="false"></xref> on the tag.
+
+    This is the most common way to show tags, it makes them easy to 
+
+    identify while still keeping the tags short.
+  remarks: >-
+    <p>Typically the display text for a tag is the name of the element
+
+    or similar (depending on file format). Ultimately this originates from
+
+    the filter.</p>
+  example: []
+  syntax:
+    content: DisplayText = 2
+    return:
+      type: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+- uid: Sdl.DesktopEditor.EditorApi.TagDisplayMode.TagContent
+  commentId: F:Sdl.DesktopEditor.EditorApi.TagDisplayMode.TagContent
+  id: TagContent
+  parent: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+  langs:
+  - csharp
+  - vb
+  name: TagContent
+  nameWithType: TagDisplayMode.TagContent
+  fullName: Sdl.DesktopEditor.EditorApi.TagDisplayMode.TagContent
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    Show the <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.TagContent" data-throw-if-not-resolved="false"></xref> on the tag.
+
+    This shows the full text that the tag consists of, and it can result
+
+    in very long tags. However it is sometimes important to see exactly
+
+    what the content of a tag is, and that's when this mode is useful.
+  example: []
+  syntax:
+    content: TagContent = 3
+    return:
+      type: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+- uid: Sdl.DesktopEditor.EditorApi.TagDisplayMode.Unspecified
+  commentId: F:Sdl.DesktopEditor.EditorApi.TagDisplayMode.Unspecified
+  id: Unspecified
+  parent: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+  langs:
+  - csharp
+  - vb
+  name: Unspecified
+  nameWithType: TagDisplayMode.Unspecified
+  fullName: Sdl.DesktopEditor.EditorApi.TagDisplayMode.Unspecified
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: >-
+    This value is used when source and target views in the side-by-side
+
+    edit control use different tag display modes, or if the display mode
+
+    for some other reason could not be determined.
+  example: []
+  syntax:
+    content: Unspecified = 4
+    return:
+      type: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+- uid: Sdl.DesktopEditor.EditorApi.TagDisplayMode.Invalid
+  commentId: F:Sdl.DesktopEditor.EditorApi.TagDisplayMode.Invalid
+  id: Invalid
+  parent: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+  langs:
+  - csharp
+  - vb
+  name: Invalid
+  nameWithType: TagDisplayMode.Invalid
+  fullName: Sdl.DesktopEditor.EditorApi.TagDisplayMode.Invalid
+  type: Field
+  assemblies:
+  - Sdl.DesktopEditor.EditorApi
+  namespace: Sdl.DesktopEditor.EditorApi
+  summary: An invalid tag display mode. Used to indicate failures.
+  example: []
+  syntax:
+    content: Invalid = 5
+    return:
+      type: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+references:
+- uid: Sdl.DesktopEditor.EditorApi
+  commentId: N:Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.DesktopEditor.EditorApi
+  nameWithType: Sdl.DesktopEditor.EditorApi
+  fullName: Sdl.DesktopEditor.EditorApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.DesktopEditor
+    name: DesktopEditor
+    isExternal: true
+    href: Sdl.DesktopEditor.html
+  - name: .
+  - uid: Sdl.DesktopEditor.EditorApi
+    name: EditorApi
+    isExternal: true
+    href: Sdl.DesktopEditor.EditorApi.html
+- uid: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+  commentId: T:Sdl.DesktopEditor.EditorApi.TagDisplayMode
+  parent: Sdl.DesktopEditor.EditorApi
+  isExternal: true
+  href: Sdl.DesktopEditor.EditorApi.TagDisplayMode.html
+  name: TagDisplayMode
+  nameWithType: TagDisplayMode
+  fullName: Sdl.DesktopEditor.EditorApi.TagDisplayMode
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.DisplayText
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.DisplayText
+  isExternal: true
+  name: DisplayText
+  nameWithType: IAbstractBasicTagProperties.DisplayText
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.DisplayText
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.TagContent
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.TagContent
+  isExternal: true
+  name: TagContent
+  nameWithType: IAbstractBasicTagProperties.TagContent
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractBasicTagProperties.TagContent

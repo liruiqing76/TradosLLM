@@ -1,0 +1,670 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources
+  commentId: T:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources
+  id: StringResources
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi
+  children:
+  - Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Culture
+  - Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.DatabaseServer_EntityHasNoId
+  - Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Importwizard_NoLanguagePairMatch
+  - Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageExportNotFound
+  - Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageImportNotFound
+  - Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.NotUnlockedWithSufficientPermissions
+  - Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.ResourceManager
+  - Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.TranslationMemoryContainer_EntryHasNoID
+  - Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.UnvalidServerBasedTMUri
+  langs:
+  - csharp
+  - vb
+  name: StringResources
+  nameWithType: StringResources
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: A strongly-typed resource class, for looking up localized strings, etc.
+  example: []
+  syntax:
+    content: public class StringResources
+    content.vb: Public Class StringResources
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.ResourceManager
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.ResourceManager
+  id: ResourceManager
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources
+  langs:
+  - csharp
+  - vb
+  name: ResourceManager
+  nameWithType: StringResources.ResourceManager
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.ResourceManager
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Returns the cached ResourceManager instance used by this class.
+  example: []
+  syntax:
+    content: public static ResourceManager ResourceManager { get; }
+    parameters: []
+    return:
+      type: System.Resources.ResourceManager
+    content.vb: Public Shared ReadOnly Property ResourceManager As ResourceManager
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.ResourceManager*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Culture
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Culture
+  id: Culture
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources
+  langs:
+  - csharp
+  - vb
+  name: Culture
+  nameWithType: StringResources.Culture
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Culture
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: >-
+    Overrides the current thread's CurrentUICulture property for all
+
+    resource lookups using this strongly typed resource class.
+  example: []
+  syntax:
+    content: public static CultureInfo Culture { get; set; }
+    parameters: []
+    return:
+      type: System.Globalization.CultureInfo
+    content.vb: Public Shared Property Culture As CultureInfo
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Culture*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.DatabaseServer_EntityHasNoId
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.DatabaseServer_EntityHasNoId
+  id: DatabaseServer_EntityHasNoId
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources
+  langs:
+  - csharp
+  - vb
+  name: DatabaseServer_EntityHasNoId
+  nameWithType: StringResources.DatabaseServer_EntityHasNoId
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.DatabaseServer_EntityHasNoId
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Looks up a localized string similar to The database server entity should have an Id..
+  example: []
+  syntax:
+    content: public static string DatabaseServer_EntityHasNoId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property DatabaseServer_EntityHasNoId As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.DatabaseServer_EntityHasNoId*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Importwizard_NoLanguagePairMatch
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Importwizard_NoLanguagePairMatch
+  id: Importwizard_NoLanguagePairMatch
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources
+  langs:
+  - csharp
+  - vb
+  name: Importwizard_NoLanguagePairMatch
+  nameWithType: StringResources.Importwizard_NoLanguagePairMatch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Importwizard_NoLanguagePairMatch
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Looks up a localized string similar to The language pair of the import file [{0}-&gt;{1}] does not match the language pair of the Translation Memory [{2}-&gt;{3}].
+  example: []
+  syntax:
+    content: public static string Importwizard_NoLanguagePairMatch { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property Importwizard_NoLanguagePairMatch As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Importwizard_NoLanguagePairMatch*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageExportNotFound
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageExportNotFound
+  id: MessageExportNotFound
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources
+  langs:
+  - csharp
+  - vb
+  name: MessageExportNotFound
+  nameWithType: StringResources.MessageExportNotFound
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageExportNotFound
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Looks up a localized string similar to The export was not found. Either this export has been deleted or you do not have sufficient privileges to access this export..
+  example: []
+  syntax:
+    content: public static string MessageExportNotFound { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property MessageExportNotFound As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageExportNotFound*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageImportNotFound
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageImportNotFound
+  id: MessageImportNotFound
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources
+  langs:
+  - csharp
+  - vb
+  name: MessageImportNotFound
+  nameWithType: StringResources.MessageImportNotFound
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageImportNotFound
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Looks up a localized string similar to The import was not found. Either this import has been deleted or you do not have sufficient privileges to access this import..
+  example: []
+  syntax:
+    content: public static string MessageImportNotFound { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property MessageImportNotFound As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageImportNotFound*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.NotUnlockedWithSufficientPermissions
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.NotUnlockedWithSufficientPermissions
+  id: NotUnlockedWithSufficientPermissions
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources
+  langs:
+  - csharp
+  - vb
+  name: NotUnlockedWithSufficientPermissions
+  nameWithType: StringResources.NotUnlockedWithSufficientPermissions
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.NotUnlockedWithSufficientPermissions
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Looks up a localized string similar to Not unlocked with sufficient permissions..
+  example: []
+  syntax:
+    content: public static string NotUnlockedWithSufficientPermissions { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property NotUnlockedWithSufficientPermissions As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.NotUnlockedWithSufficientPermissions*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.TranslationMemoryContainer_EntryHasNoID
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.TranslationMemoryContainer_EntryHasNoID
+  id: TranslationMemoryContainer_EntryHasNoID
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources
+  langs:
+  - csharp
+  - vb
+  name: TranslationMemoryContainer_EntryHasNoID
+  nameWithType: StringResources.TranslationMemoryContainer_EntryHasNoID
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.TranslationMemoryContainer_EntryHasNoID
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Looks up a localized string similar to The container entity should have an Id..
+  example: []
+  syntax:
+    content: public static string TranslationMemoryContainer_EntryHasNoID { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property TranslationMemoryContainer_EntryHasNoID As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.TranslationMemoryContainer_EntryHasNoID*
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.UnvalidServerBasedTMUri
+  commentId: P:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.UnvalidServerBasedTMUri
+  id: UnvalidServerBasedTMUri
+  parent: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources
+  langs:
+  - csharp
+  - vb
+  name: UnvalidServerBasedTMUri
+  nameWithType: StringResources.UnvalidServerBasedTMUri
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.UnvalidServerBasedTMUri
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.TranslationMemoryApi
+  namespace: Sdl.LanguagePlatform.TranslationMemoryApi
+  summary: Looks up a localized string similar to The specified URI is not a valid server-based translation memory URI..
+  example: []
+  syntax:
+    content: public static string UnvalidServerBasedTMUri { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property UnvalidServerBasedTMUri As String
+  overload: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.UnvalidServerBasedTMUri*
+references:
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi
+  commentId: N:Sdl.LanguagePlatform.TranslationMemoryApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.TranslationMemoryApi
+  nameWithType: Sdl.LanguagePlatform.TranslationMemoryApi
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.TranslationMemoryApi
+    name: TranslationMemoryApi
+    isExternal: true
+    href: Sdl.LanguagePlatform.TranslationMemoryApi.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.ResourceManager*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.ResourceManager
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.html#Sdl_LanguagePlatform_TranslationMemoryApi_StringResources_ResourceManager
+  name: ResourceManager
+  nameWithType: StringResources.ResourceManager
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.ResourceManager
+- uid: System.Resources.ResourceManager
+  commentId: T:System.Resources.ResourceManager
+  parent: System.Resources
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.resources.resourcemanager
+  name: ResourceManager
+  nameWithType: ResourceManager
+  fullName: System.Resources.ResourceManager
+- uid: System.Resources
+  commentId: N:System.Resources
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Resources
+  nameWithType: System.Resources
+  fullName: System.Resources
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Resources
+    name: Resources
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.resources
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Resources
+    name: Resources
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.resources
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Culture*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Culture
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.html#Sdl_LanguagePlatform_TranslationMemoryApi_StringResources_Culture
+  name: Culture
+  nameWithType: StringResources.Culture
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Culture
+- uid: System.Globalization.CultureInfo
+  commentId: T:System.Globalization.CultureInfo
+  parent: System.Globalization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo
+  name: CultureInfo
+  nameWithType: CultureInfo
+  fullName: System.Globalization.CultureInfo
+- uid: System.Globalization
+  commentId: N:System.Globalization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Globalization
+  nameWithType: System.Globalization
+  fullName: System.Globalization
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Globalization
+    name: Globalization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Globalization
+    name: Globalization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.DatabaseServer_EntityHasNoId*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.DatabaseServer_EntityHasNoId
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.html#Sdl_LanguagePlatform_TranslationMemoryApi_StringResources_DatabaseServer_EntityHasNoId
+  name: DatabaseServer_EntityHasNoId
+  nameWithType: StringResources.DatabaseServer_EntityHasNoId
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.DatabaseServer_EntityHasNoId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Importwizard_NoLanguagePairMatch*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Importwizard_NoLanguagePairMatch
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.html#Sdl_LanguagePlatform_TranslationMemoryApi_StringResources_Importwizard_NoLanguagePairMatch
+  name: Importwizard_NoLanguagePairMatch
+  nameWithType: StringResources.Importwizard_NoLanguagePairMatch
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.Importwizard_NoLanguagePairMatch
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageExportNotFound*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageExportNotFound
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.html#Sdl_LanguagePlatform_TranslationMemoryApi_StringResources_MessageExportNotFound
+  name: MessageExportNotFound
+  nameWithType: StringResources.MessageExportNotFound
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageExportNotFound
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageImportNotFound*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageImportNotFound
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.html#Sdl_LanguagePlatform_TranslationMemoryApi_StringResources_MessageImportNotFound
+  name: MessageImportNotFound
+  nameWithType: StringResources.MessageImportNotFound
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.MessageImportNotFound
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.NotUnlockedWithSufficientPermissions*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.NotUnlockedWithSufficientPermissions
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.html#Sdl_LanguagePlatform_TranslationMemoryApi_StringResources_NotUnlockedWithSufficientPermissions
+  name: NotUnlockedWithSufficientPermissions
+  nameWithType: StringResources.NotUnlockedWithSufficientPermissions
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.NotUnlockedWithSufficientPermissions
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.TranslationMemoryContainer_EntryHasNoID*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.TranslationMemoryContainer_EntryHasNoID
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.html#Sdl_LanguagePlatform_TranslationMemoryApi_StringResources_TranslationMemoryContainer_EntryHasNoID
+  name: TranslationMemoryContainer_EntryHasNoID
+  nameWithType: StringResources.TranslationMemoryContainer_EntryHasNoID
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.TranslationMemoryContainer_EntryHasNoID
+- uid: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.UnvalidServerBasedTMUri*
+  commentId: Overload:Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.UnvalidServerBasedTMUri
+  isExternal: true
+  href: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.html#Sdl_LanguagePlatform_TranslationMemoryApi_StringResources_UnvalidServerBasedTMUri
+  name: UnvalidServerBasedTMUri
+  nameWithType: StringResources.UnvalidServerBasedTMUri
+  fullName: Sdl.LanguagePlatform.TranslationMemoryApi.StringResources.UnvalidServerBasedTMUri

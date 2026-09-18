@@ -1,0 +1,383 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  commentId: T:Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  id: BuiltinRecognizers
+  parent: Sdl.LanguagePlatform.Core.Tokenization
+  children:
+  - Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeAcronyms
+  - Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeAll
+  - Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeAlphaNumeric
+  - Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeDates
+  - Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeMeasurements
+  - Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeNone
+  - Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeNumbers
+  - Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeTimes
+  - Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeVariables
+  langs:
+  - csharp
+  - vb
+  name: BuiltinRecognizers
+  nameWithType: BuiltinRecognizers
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Enumerates the known types of special token recognizers.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      [DataContract]
+
+      public enum BuiltinRecognizers
+    content.vb: >-
+      <Flags>
+
+      <DataContract>
+
+      Public Enum BuiltinRecognizers
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeNone
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeNone
+  id: RecognizeNone
+  parent: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  langs:
+  - csharp
+  - vb
+  name: RecognizeNone
+  nameWithType: BuiltinRecognizers.RecognizeNone
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeNone
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Don't recognize any special tokens.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      RecognizeNone = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+    content.vb: >-
+      <EnumMember>
+
+      RecognizeNone = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeDates
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeDates
+  id: RecognizeDates
+  parent: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  langs:
+  - csharp
+  - vb
+  name: RecognizeDates
+  nameWithType: BuiltinRecognizers.RecognizeDates
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeDates
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Recognizes date tokens.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      RecognizeDates = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+    content.vb: >-
+      <EnumMember>
+
+      RecognizeDates = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeTimes
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeTimes
+  id: RecognizeTimes
+  parent: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  langs:
+  - csharp
+  - vb
+  name: RecognizeTimes
+  nameWithType: BuiltinRecognizers.RecognizeTimes
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeTimes
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Recognizes time tokens.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      RecognizeTimes = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+    content.vb: >-
+      <EnumMember>
+
+      RecognizeTimes = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeNumbers
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeNumbers
+  id: RecognizeNumbers
+  parent: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  langs:
+  - csharp
+  - vb
+  name: RecognizeNumbers
+  nameWithType: BuiltinRecognizers.RecognizeNumbers
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeNumbers
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Recognizes numbers.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      RecognizeNumbers = 4
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+    content.vb: >-
+      <EnumMember>
+
+      RecognizeNumbers = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeAcronyms
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeAcronyms
+  id: RecognizeAcronyms
+  parent: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  langs:
+  - csharp
+  - vb
+  name: RecognizeAcronyms
+  nameWithType: BuiltinRecognizers.RecognizeAcronyms
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeAcronyms
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Recognizes acronyms.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      RecognizeAcronyms = 8
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+    content.vb: >-
+      <EnumMember>
+
+      RecognizeAcronyms = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeVariables
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeVariables
+  id: RecognizeVariables
+  parent: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  langs:
+  - csharp
+  - vb
+  name: RecognizeVariables
+  nameWithType: BuiltinRecognizers.RecognizeVariables
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeVariables
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Recognizes variables.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      RecognizeVariables = 16
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+    content.vb: >-
+      <EnumMember>
+
+      RecognizeVariables = 16
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeMeasurements
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeMeasurements
+  id: RecognizeMeasurements
+  parent: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  langs:
+  - csharp
+  - vb
+  name: RecognizeMeasurements
+  nameWithType: BuiltinRecognizers.RecognizeMeasurements
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeMeasurements
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Recognizes measurements.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      RecognizeMeasurements = 32
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+    content.vb: >-
+      <EnumMember>
+
+      RecognizeMeasurements = 32
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeAlphaNumeric
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeAlphaNumeric
+  id: RecognizeAlphaNumeric
+  parent: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  langs:
+  - csharp
+  - vb
+  name: RecognizeAlphaNumeric
+  nameWithType: BuiltinRecognizers.RecognizeAlphaNumeric
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeAlphaNumeric
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: ''
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      RecognizeAlphaNumeric = 64
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+    content.vb: >-
+      <EnumMember>
+
+      RecognizeAlphaNumeric = 64
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+- uid: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeAll
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeAll
+  id: RecognizeAll
+  parent: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  langs:
+  - csharp
+  - vb
+  name: RecognizeAll
+  nameWithType: BuiltinRecognizers.RecognizeAll
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.RecognizeAll
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Recognizes all special tokens.
+  example: []
+  syntax:
+    content: >-
+      [EnumMember]
+
+      RecognizeAll = RecognizeDates | RecognizeTimes | RecognizeNumbers | RecognizeAcronyms | RecognizeVariables | RecognizeMeasurements | RecognizeAlphaNumeric
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+    content.vb: >-
+      <EnumMember>
+
+      RecognizeAll = RecognizeDates Or RecognizeTimes Or RecognizeNumbers Or RecognizeAcronyms Or RecognizeVariables Or RecognizeMeasurements Or RecognizeAlphaNumeric
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: Sdl.LanguagePlatform.Core.Tokenization
+  commentId: N:Sdl.LanguagePlatform.Core.Tokenization
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core.Tokenization
+  nameWithType: Sdl.LanguagePlatform.Core.Tokenization
+  fullName: Sdl.LanguagePlatform.Core.Tokenization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Tokenization
+    name: Tokenization
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Tokenization.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Tokenization
+    name: Tokenization
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Tokenization.html
+- uid: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  commentId: T:Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers
+  parent: Sdl.LanguagePlatform.Core.Tokenization
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers.html
+  name: BuiltinRecognizers
+  nameWithType: BuiltinRecognizers
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.BuiltinRecognizers

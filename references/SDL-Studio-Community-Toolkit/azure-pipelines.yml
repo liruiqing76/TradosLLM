@@ -1,0 +1,130 @@
+
+trigger:
+- master
+
+variables:
+- name: StudioProductIdentifier
+  value: 'Studio18'
+- name: buildPlatform
+  value: 'Any CPU'
+- name: buildConfiguration
+  value: 'Release'
+- group: StudioCommunityToolkitVersions
+
+name: $(BuildDefinitionName).$(SourceBranchName)_$(Version.Major).$(Version.Minor).$(Version.Patch).$(Build.BuildId)
+#- group: 'SDLPLC Authenticode Credentials'
+
+
+resources:
+  pipelines:
+  - pipeline: TradosStudio_Resource
+    project: TradosStudio
+    source: TradosStudio
+
+stages:
+- stage: Build
+  displayName: 'Build Studio Community Toolkit'
+  jobs:
+  - job: Do_Build
+    displayName: 'Do build'
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - task: PowerShell@2
+      displayName: 'set x86path'
+      inputs:
+        targetType: 'inline'
+        script: |
+          Write-Host "##vso[task.setvariable variable=x86path;]${Env:ProgramFiles(x86)}"
+
+
+    - task: DownloadPipelineArtifact@2
+      displayName: 'Download Package artifact'
+      inputs:
+        artifactName: 'binaries'
+        source: 'specific'
+        project: '$(resources.pipeline.TradosStudio_Resource.projectID)'
+        definition: '$(resources.pipeline.TradosStudio_Resource.pipelineID)'
+        runVersion: specific
+        runId: $(resources.pipeline.TradosStudio_Resource.runID)
+        path: '$(X86PATH)\Trados\Trados Studio\$(StudioProductIdentifier)'
+
+    - task: NuGetToolInstaller@0
+
+    - task: NuGetCommand@2
+      displayName: "Restore Trados Community Toolkit.sln"
+      inputs:
+        restoreSolution: '.\Trados Community Toolkit.sln'
+
+    - task: SDLVersion@2
+      displayName: 'Version Assemblies'
+      inputs:
+        FilenamePattern: 'AssemblyInfo.cs'
+        Field: AssemblyFileVersion
+        VersionNumber: '$(BuildDefinitionName)_$(Version.Major).$(Version.Minor).$(Version.Patch).0'
+
+    - task: VSBuild@1
+      inputs:
+        solution: '.\Trados Community Toolkit.sln'
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)' 
+
+    - task: VersionNuspec@2
+      displayName: 'Version Nuspec'
+      inputs:
+        VersionNumber: '$(Version.Major).$(Version.Minor).$(Version.Patch).0'
+        VersionRegex: '\d+\.\d+\.\d+\.\d+'
+
+    - task: NuGetCommand@2
+      displayName: 'NuGet pack'
+      inputs:
+       command: pack
+       packagesToPack: .\*.nuspec
+       packDestination: '$(Build.ArtifactStagingDirectory)\packages'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)\packages'
+        ArtifactName: 'studio-toolkit-drop'
+        publishLocation: 'Container'
+
+- stage: Publish_Beta
+  displayName: 'Publish beta version on private feed'
+  jobs:
+  - deployment: Publish_Beta
+    displayName: 'Publish on azure internal devops feed'
+    pool:
+      vmImage: 'windows-2022'
+    environment: 'Azure DevOps feed'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+
+          - task: NuGetCommand@2
+            inputs:
+              command: 'push'
+              packagesToPush: '$(Agent.BuildDirectory)/**/*.nupkg;!$(Agent.BuildDirectory)/**/*.symbols.nupkg'
+              nuGetFeedType: 'internal'
+              publishVstsFeed: 'af66e256-9c46-4fba-ad75-09bf110ec1cc'
+              allowPackageConflicts: true
+
+- stage: Publish_Nuget
+  displayName: 'Publish nuget packages'
+  jobs:
+  - deployment: Publish_Nuget
+    displayName: 'Publish on azure external devops feed'
+    pool:
+      vmImage: 'windows-2019'
+    environment: 'Azure DevOps feed'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: NuGetCommand@2
+            inputs:
+              command: 'push'
+              packagesToPush: '$(Agent.BuildDirectory)/**/*.nupkg;!$(Agent.BuildDirectory)/**/*.symbols.nupkg'
+              nuGetFeedType: 'external'
+              publishFeedCredentials: 'Nuget'
+              allowPackageConflicts: true

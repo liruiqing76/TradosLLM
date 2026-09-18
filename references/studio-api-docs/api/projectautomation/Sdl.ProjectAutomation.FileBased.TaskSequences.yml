@@ -1,0 +1,502 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.FileBased.TaskSequences
+  commentId: T:Sdl.ProjectAutomation.FileBased.TaskSequences
+  id: TaskSequences
+  parent: Sdl.ProjectAutomation.FileBased
+  children:
+  - Sdl.ProjectAutomation.FileBased.TaskSequences.AnalyzeOnly
+  - Sdl.ProjectAutomation.FileBased.TaskSequences.Finalize
+  - Sdl.ProjectAutomation.FileBased.TaskSequences.Prepare
+  - Sdl.ProjectAutomation.FileBased.TaskSequences.PrepareNoProjectTm
+  - Sdl.ProjectAutomation.FileBased.TaskSequences.PseudoTranslateRoundTrip
+  langs:
+  - csharp
+  - vb
+  name: TaskSequences
+  nameWithType: TaskSequences
+  fullName: Sdl.ProjectAutomation.FileBased.TaskSequences
+  type: Class
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: >-
+    This class defines standard sequences of well-known automatic task template IDs, which can be used to 
+
+    pass to <xref href="Sdl.ProjectAutomation.FileBased.FileBasedProject.RunAutomaticTasks(System.Guid%5b%5d%2cSystem.String%5b%5d)" data-throw-if-not-resolved="false"></xref> for running a sequence 
+
+    of automatic tasks. The task sequences defined here are similar to the default sequences available 
+
+    in the Trados Studio user interface.
+  example: []
+  syntax:
+    content: public static class TaskSequences
+    content.vb: Public Module TaskSequences
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.ProjectAutomation.FileBased.TaskSequences.Prepare
+  commentId: F:Sdl.ProjectAutomation.FileBased.TaskSequences.Prepare
+  id: Prepare
+  parent: Sdl.ProjectAutomation.FileBased.TaskSequences
+  langs:
+  - csharp
+  - vb
+  name: Prepare
+  nameWithType: TaskSequences.Prepare
+  fullName: Sdl.ProjectAutomation.FileBased.TaskSequences.Prepare
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: Convert, analyze, perfect match and pre-translate files.
+  example: []
+  syntax:
+    content: public static readonly string[] Prepare
+    return:
+      type: System.String[]
+    content.vb: Public Shared ReadOnly Prepare As String()
+- uid: Sdl.ProjectAutomation.FileBased.TaskSequences.PrepareNoProjectTm
+  commentId: F:Sdl.ProjectAutomation.FileBased.TaskSequences.PrepareNoProjectTm
+  id: PrepareNoProjectTm
+  parent: Sdl.ProjectAutomation.FileBased.TaskSequences
+  langs:
+  - csharp
+  - vb
+  name: PrepareNoProjectTm
+  nameWithType: TaskSequences.PrepareNoProjectTm
+  fullName: Sdl.ProjectAutomation.FileBased.TaskSequences.PrepareNoProjectTm
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: Convert, analyze and pre-translate files without creating project translation memories.
+  example: []
+  syntax:
+    content: public static readonly string[] PrepareNoProjectTm
+    return:
+      type: System.String[]
+    content.vb: Public Shared ReadOnly PrepareNoProjectTm As String()
+- uid: Sdl.ProjectAutomation.FileBased.TaskSequences.AnalyzeOnly
+  commentId: F:Sdl.ProjectAutomation.FileBased.TaskSequences.AnalyzeOnly
+  id: AnalyzeOnly
+  parent: Sdl.ProjectAutomation.FileBased.TaskSequences
+  langs:
+  - csharp
+  - vb
+  name: AnalyzeOnly
+  nameWithType: TaskSequences.AnalyzeOnly
+  fullName: Sdl.ProjectAutomation.FileBased.TaskSequences.AnalyzeOnly
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: Convert and analyze files without performing pre-translation.
+  example: []
+  syntax:
+    content: public static readonly string[] AnalyzeOnly
+    return:
+      type: System.String[]
+    content.vb: Public Shared ReadOnly AnalyzeOnly As String()
+- uid: Sdl.ProjectAutomation.FileBased.TaskSequences.Finalize
+  commentId: F:Sdl.ProjectAutomation.FileBased.TaskSequences.Finalize
+  id: Finalize
+  parent: Sdl.ProjectAutomation.FileBased.TaskSequences
+  langs:
+  - csharp
+  - vb
+  name: Finalize
+  nameWithType: TaskSequences.Finalize
+  fullName: Sdl.ProjectAutomation.FileBased.TaskSequences.Finalize
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: Update main translation memories and generate target translations for files.
+  example: []
+  syntax:
+    content: public static readonly string[] Finalize
+    return:
+      type: System.String[]
+    content.vb: Public Shared ReadOnly Finalize As String()
+- uid: Sdl.ProjectAutomation.FileBased.TaskSequences.PseudoTranslateRoundTrip
+  commentId: F:Sdl.ProjectAutomation.FileBased.TaskSequences.PseudoTranslateRoundTrip
+  id: PseudoTranslateRoundTrip
+  parent: Sdl.ProjectAutomation.FileBased.TaskSequences
+  langs:
+  - csharp
+  - vb
+  name: PseudoTranslateRoundTrip
+  nameWithType: TaskSequences.PseudoTranslateRoundTrip
+  fullName: Sdl.ProjectAutomation.FileBased.TaskSequences.PseudoTranslateRoundTrip
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.FileBased
+  namespace: Sdl.ProjectAutomation.FileBased
+  summary: >-
+    Simulates an end-to-end translation sequence, starting with the original source files, 
+
+    preparing these, then pseudo-translating them before generating target translation output files.
+  example: []
+  syntax:
+    content: public static readonly string[] PseudoTranslateRoundTrip
+    return:
+      type: System.String[]
+    content.vb: Public Shared ReadOnly PseudoTranslateRoundTrip As String()
+references:
+- uid: Sdl.ProjectAutomation.FileBased.FileBasedProject.RunAutomaticTasks(System.Guid[],System.String[])
+  commentId: M:Sdl.ProjectAutomation.FileBased.FileBasedProject.RunAutomaticTasks(System.Guid[],System.String[])
+  isExternal: true
+  href: Sdl.ProjectAutomation.FileBased.FileBasedProject.html#Sdl_ProjectAutomation_FileBased_FileBasedProject_RunAutomaticTasks_System_Guid___System_String___
+  name: RunAutomaticTasks(Guid[], string[])
+  nameWithType: FileBasedProject.RunAutomaticTasks(Guid[], string[])
+  fullName: Sdl.ProjectAutomation.FileBased.FileBasedProject.RunAutomaticTasks(System.Guid[], string[])
+  nameWithType.vb: FileBasedProject.RunAutomaticTasks(Guid(), String())
+  fullName.vb: Sdl.ProjectAutomation.FileBased.FileBasedProject.RunAutomaticTasks(System.Guid(), String())
+  name.vb: RunAutomaticTasks(Guid(), String())
+  spec.csharp:
+  - uid: Sdl.ProjectAutomation.FileBased.FileBasedProject.RunAutomaticTasks(System.Guid[],System.String[])
+    name: RunAutomaticTasks
+    isExternal: true
+    href: Sdl.ProjectAutomation.FileBased.FileBasedProject.html#Sdl_ProjectAutomation_FileBased_FileBasedProject_RunAutomaticTasks_System_Guid___System_String___
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Sdl.ProjectAutomation.FileBased.FileBasedProject.RunAutomaticTasks(System.Guid[],System.String[])
+    name: RunAutomaticTasks
+    isExternal: true
+    href: Sdl.ProjectAutomation.FileBased.FileBasedProject.html#Sdl_ProjectAutomation_FileBased_FileBasedProject_RunAutomaticTasks_System_Guid___System_String___
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: Sdl.ProjectAutomation.FileBased
+  commentId: N:Sdl.ProjectAutomation.FileBased
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.FileBased
+  nameWithType: Sdl.ProjectAutomation.FileBased
+  fullName: Sdl.ProjectAutomation.FileBased
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.FileBased
+    name: FileBased
+    isExternal: true
+    href: Sdl.ProjectAutomation.FileBased.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.FileBased
+    name: FileBased
+    isExternal: true
+    href: Sdl.ProjectAutomation.FileBased.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )

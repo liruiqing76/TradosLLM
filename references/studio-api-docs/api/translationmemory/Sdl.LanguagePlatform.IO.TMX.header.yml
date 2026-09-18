@@ -1,0 +1,794 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.IO.TMX.header
+  commentId: T:Sdl.LanguagePlatform.IO.TMX.header
+  id: header
+  parent: Sdl.LanguagePlatform.IO.TMX
+  children:
+  - Sdl.LanguagePlatform.IO.TMX.header.#ctor
+  - Sdl.LanguagePlatform.IO.TMX.header.Items
+  - Sdl.LanguagePlatform.IO.TMX.header.adminlang
+  - Sdl.LanguagePlatform.IO.TMX.header.changedate
+  - Sdl.LanguagePlatform.IO.TMX.header.changeid
+  - Sdl.LanguagePlatform.IO.TMX.header.creationdate
+  - Sdl.LanguagePlatform.IO.TMX.header.creationid
+  - Sdl.LanguagePlatform.IO.TMX.header.creationtool
+  - Sdl.LanguagePlatform.IO.TMX.header.creationtoolversion
+  - Sdl.LanguagePlatform.IO.TMX.header.datatype
+  - Sdl.LanguagePlatform.IO.TMX.header.oencoding
+  - Sdl.LanguagePlatform.IO.TMX.header.otmf
+  - Sdl.LanguagePlatform.IO.TMX.header.segtype
+  - Sdl.LanguagePlatform.IO.TMX.header.srclang
+  langs:
+  - csharp
+  - vb
+  name: header
+  nameWithType: header
+  fullName: Sdl.LanguagePlatform.IO.TMX.header
+  type: Class
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public class header
+    content.vb: Public Class header
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Sdl.LanguagePlatform.IO.TMX.header.#ctor
+  commentId: M:Sdl.LanguagePlatform.IO.TMX.header.#ctor
+  id: '#ctor'
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: header()
+  nameWithType: header.header()
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.header()
+  type: Constructor
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  syntax:
+    content: public header()
+    content.vb: Public Sub New()
+  overload: Sdl.LanguagePlatform.IO.TMX.header.#ctor*
+  nameWithType.vb: header.New()
+  fullName.vb: Sdl.LanguagePlatform.IO.TMX.header.New()
+  name.vb: New()
+- uid: Sdl.LanguagePlatform.IO.TMX.header.Items
+  commentId: P:Sdl.LanguagePlatform.IO.TMX.header.Items
+  id: Items
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: Items
+  nameWithType: header.Items
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.Items
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public object[] Items { get; set; }
+    parameters: []
+    return:
+      type: System.Object[]
+    content.vb: Public Property Items As Object()
+  overload: Sdl.LanguagePlatform.IO.TMX.header.Items*
+- uid: Sdl.LanguagePlatform.IO.TMX.header.creationtool
+  commentId: P:Sdl.LanguagePlatform.IO.TMX.header.creationtool
+  id: creationtool
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: creationtool
+  nameWithType: header.creationtool
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.creationtool
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public string creationtool { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property creationtool As String
+  overload: Sdl.LanguagePlatform.IO.TMX.header.creationtool*
+- uid: Sdl.LanguagePlatform.IO.TMX.header.creationtoolversion
+  commentId: P:Sdl.LanguagePlatform.IO.TMX.header.creationtoolversion
+  id: creationtoolversion
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: creationtoolversion
+  nameWithType: header.creationtoolversion
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.creationtoolversion
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public string creationtoolversion { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property creationtoolversion As String
+  overload: Sdl.LanguagePlatform.IO.TMX.header.creationtoolversion*
+- uid: Sdl.LanguagePlatform.IO.TMX.header.segtype
+  commentId: P:Sdl.LanguagePlatform.IO.TMX.header.segtype
+  id: segtype
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: segtype
+  nameWithType: header.segtype
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.segtype
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public headerSegtype segtype { get; set; }
+    parameters: []
+    return:
+      type: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+    content.vb: Public Property segtype As headerSegtype
+  overload: Sdl.LanguagePlatform.IO.TMX.header.segtype*
+- uid: Sdl.LanguagePlatform.IO.TMX.header.otmf
+  commentId: P:Sdl.LanguagePlatform.IO.TMX.header.otmf
+  id: otmf
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: otmf
+  nameWithType: header.otmf
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.otmf
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public string otmf { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property otmf As String
+  overload: Sdl.LanguagePlatform.IO.TMX.header.otmf*
+- uid: Sdl.LanguagePlatform.IO.TMX.header.adminlang
+  commentId: P:Sdl.LanguagePlatform.IO.TMX.header.adminlang
+  id: adminlang
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: adminlang
+  nameWithType: header.adminlang
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.adminlang
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public string adminlang { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property adminlang As String
+  overload: Sdl.LanguagePlatform.IO.TMX.header.adminlang*
+- uid: Sdl.LanguagePlatform.IO.TMX.header.srclang
+  commentId: P:Sdl.LanguagePlatform.IO.TMX.header.srclang
+  id: srclang
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: srclang
+  nameWithType: header.srclang
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.srclang
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public string srclang { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property srclang As String
+  overload: Sdl.LanguagePlatform.IO.TMX.header.srclang*
+- uid: Sdl.LanguagePlatform.IO.TMX.header.datatype
+  commentId: P:Sdl.LanguagePlatform.IO.TMX.header.datatype
+  id: datatype
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: datatype
+  nameWithType: header.datatype
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.datatype
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public string datatype { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property datatype As String
+  overload: Sdl.LanguagePlatform.IO.TMX.header.datatype*
+- uid: Sdl.LanguagePlatform.IO.TMX.header.oencoding
+  commentId: P:Sdl.LanguagePlatform.IO.TMX.header.oencoding
+  id: oencoding
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: oencoding
+  nameWithType: header.oencoding
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.oencoding
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public string oencoding { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property oencoding As String
+  overload: Sdl.LanguagePlatform.IO.TMX.header.oencoding*
+- uid: Sdl.LanguagePlatform.IO.TMX.header.creationdate
+  commentId: P:Sdl.LanguagePlatform.IO.TMX.header.creationdate
+  id: creationdate
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: creationdate
+  nameWithType: header.creationdate
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.creationdate
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public string creationdate { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property creationdate As String
+  overload: Sdl.LanguagePlatform.IO.TMX.header.creationdate*
+- uid: Sdl.LanguagePlatform.IO.TMX.header.creationid
+  commentId: P:Sdl.LanguagePlatform.IO.TMX.header.creationid
+  id: creationid
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: creationid
+  nameWithType: header.creationid
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.creationid
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public string creationid { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property creationid As String
+  overload: Sdl.LanguagePlatform.IO.TMX.header.creationid*
+- uid: Sdl.LanguagePlatform.IO.TMX.header.changedate
+  commentId: P:Sdl.LanguagePlatform.IO.TMX.header.changedate
+  id: changedate
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: changedate
+  nameWithType: header.changedate
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.changedate
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public string changedate { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property changedate As String
+  overload: Sdl.LanguagePlatform.IO.TMX.header.changedate*
+- uid: Sdl.LanguagePlatform.IO.TMX.header.changeid
+  commentId: P:Sdl.LanguagePlatform.IO.TMX.header.changeid
+  id: changeid
+  parent: Sdl.LanguagePlatform.IO.TMX.header
+  langs:
+  - csharp
+  - vb
+  name: changeid
+  nameWithType: header.changeid
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.changeid
+  type: Property
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public string changeid { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property changeid As String
+  overload: Sdl.LanguagePlatform.IO.TMX.header.changeid*
+references:
+- uid: Sdl.LanguagePlatform.IO.TMX
+  commentId: N:Sdl.LanguagePlatform.IO.TMX
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.IO.TMX
+  nameWithType: Sdl.LanguagePlatform.IO.TMX
+  fullName: Sdl.LanguagePlatform.IO.TMX
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO
+    name: IO
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO.TMX
+    name: TMX
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.TMX.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO
+    name: IO
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO.TMX
+    name: TMX
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.TMX.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.LanguagePlatform.IO.TMX.header.#ctor*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.#ctor
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header__ctor
+  name: header
+  nameWithType: header.header
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.header
+  nameWithType.vb: header.New
+  fullName.vb: Sdl.LanguagePlatform.IO.TMX.header.New
+  name.vb: New
+- uid: Sdl.LanguagePlatform.IO.TMX.header.Items*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.Items
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header_Items
+  name: Items
+  nameWithType: header.Items
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.Items
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: Sdl.LanguagePlatform.IO.TMX.header.creationtool*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.creationtool
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header_creationtool
+  name: creationtool
+  nameWithType: header.creationtool
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.creationtool
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Sdl.LanguagePlatform.IO.TMX.header.creationtoolversion*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.creationtoolversion
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header_creationtoolversion
+  name: creationtoolversion
+  nameWithType: header.creationtoolversion
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.creationtoolversion
+- uid: Sdl.LanguagePlatform.IO.TMX.header.segtype*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.segtype
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header_segtype
+  name: segtype
+  nameWithType: header.segtype
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.segtype
+- uid: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+  commentId: T:Sdl.LanguagePlatform.IO.TMX.headerSegtype
+  parent: Sdl.LanguagePlatform.IO.TMX
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.headerSegtype.html
+  name: headerSegtype
+  nameWithType: headerSegtype
+  fullName: Sdl.LanguagePlatform.IO.TMX.headerSegtype
+- uid: Sdl.LanguagePlatform.IO.TMX.header.otmf*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.otmf
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header_otmf
+  name: otmf
+  nameWithType: header.otmf
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.otmf
+- uid: Sdl.LanguagePlatform.IO.TMX.header.adminlang*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.adminlang
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header_adminlang
+  name: adminlang
+  nameWithType: header.adminlang
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.adminlang
+- uid: Sdl.LanguagePlatform.IO.TMX.header.srclang*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.srclang
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header_srclang
+  name: srclang
+  nameWithType: header.srclang
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.srclang
+- uid: Sdl.LanguagePlatform.IO.TMX.header.datatype*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.datatype
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header_datatype
+  name: datatype
+  nameWithType: header.datatype
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.datatype
+- uid: Sdl.LanguagePlatform.IO.TMX.header.oencoding*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.oencoding
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header_oencoding
+  name: oencoding
+  nameWithType: header.oencoding
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.oencoding
+- uid: Sdl.LanguagePlatform.IO.TMX.header.creationdate*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.creationdate
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header_creationdate
+  name: creationdate
+  nameWithType: header.creationdate
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.creationdate
+- uid: Sdl.LanguagePlatform.IO.TMX.header.creationid*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.creationid
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header_creationid
+  name: creationid
+  nameWithType: header.creationid
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.creationid
+- uid: Sdl.LanguagePlatform.IO.TMX.header.changedate*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.changedate
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header_changedate
+  name: changedate
+  nameWithType: header.changedate
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.changedate
+- uid: Sdl.LanguagePlatform.IO.TMX.header.changeid*
+  commentId: Overload:Sdl.LanguagePlatform.IO.TMX.header.changeid
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.header.html#Sdl_LanguagePlatform_IO_TMX_header_changeid
+  name: changeid
+  nameWithType: header.changeid
+  fullName: Sdl.LanguagePlatform.IO.TMX.header.changeid

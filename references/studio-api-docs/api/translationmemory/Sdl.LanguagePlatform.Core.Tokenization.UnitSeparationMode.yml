@@ -1,0 +1,183 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+  commentId: T:Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+  id: UnitSeparationMode
+  parent: Sdl.LanguagePlatform.Core.Tokenization
+  children:
+  - Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.Auto
+  - Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.DeleteWhitespace
+  - Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.InsertNonbreakingSpace
+  - Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.InsertSpace
+  - Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.InsertSpecifiedSeparator
+  langs:
+  - csharp
+  - vb
+  name: UnitSeparationMode
+  nameWithType: UnitSeparationMode
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Controls how units are separated from the numeric value in measurements.
+  example: []
+  syntax:
+    content: public enum UnitSeparationMode
+    content.vb: Public Enum UnitSeparationMode
+- uid: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.Auto
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.Auto
+  id: Auto
+  parent: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+  langs:
+  - csharp
+  - vb
+  name: Auto
+  nameWithType: UnitSeparationMode.Auto
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.Auto
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Use the whitespace handling as it is obtained from the document or memory token.
+  example: []
+  syntax:
+    content: Auto = 0
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+- uid: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.DeleteWhitespace
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.DeleteWhitespace
+  id: DeleteWhitespace
+  parent: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+  langs:
+  - csharp
+  - vb
+  name: DeleteWhitespace
+  nameWithType: UnitSeparationMode.DeleteWhitespace
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.DeleteWhitespace
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Delete any whitespace between the number and the unit.
+  example: []
+  syntax:
+    content: DeleteWhitespace = 1
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+- uid: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.InsertSpace
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.InsertSpace
+  id: InsertSpace
+  parent: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+  langs:
+  - csharp
+  - vb
+  name: InsertSpace
+  nameWithType: UnitSeparationMode.InsertSpace
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.InsertSpace
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Always insert a single standard space between the number and the unit.
+  example: []
+  syntax:
+    content: InsertSpace = 2
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+- uid: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.InsertNonbreakingSpace
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.InsertNonbreakingSpace
+  id: InsertNonbreakingSpace
+  parent: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+  langs:
+  - csharp
+  - vb
+  name: InsertNonbreakingSpace
+  nameWithType: UnitSeparationMode.InsertNonbreakingSpace
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.InsertNonbreakingSpace
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Always insert a single non-breaking space between the number and the unit.
+  example: []
+  syntax:
+    content: InsertNonbreakingSpace = 3
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+- uid: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.InsertSpecifiedSeparator
+  commentId: F:Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.InsertSpecifiedSeparator
+  id: InsertSpecifiedSeparator
+  parent: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+  langs:
+  - csharp
+  - vb
+  name: InsertSpecifiedSeparator
+  nameWithType: UnitSeparationMode.InsertSpecifiedSeparator
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.InsertSpecifiedSeparator
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.Core
+  namespace: Sdl.LanguagePlatform.Core.Tokenization
+  summary: Always insert the separator specified in the autolocalization settings
+  example: []
+  syntax:
+    content: InsertSpecifiedSeparator = 4
+    return:
+      type: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+references:
+- uid: Sdl.LanguagePlatform.Core.Tokenization
+  commentId: N:Sdl.LanguagePlatform.Core.Tokenization
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.Core.Tokenization
+  nameWithType: Sdl.LanguagePlatform.Core.Tokenization
+  fullName: Sdl.LanguagePlatform.Core.Tokenization
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Tokenization
+    name: Tokenization
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Tokenization.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core
+    name: Core
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.Core.Tokenization
+    name: Tokenization
+    isExternal: true
+    href: Sdl.LanguagePlatform.Core.Tokenization.html
+- uid: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+  commentId: T:Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode
+  parent: Sdl.LanguagePlatform.Core.Tokenization
+  isExternal: true
+  href: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode.html
+  name: UnitSeparationMode
+  nameWithType: UnitSeparationMode
+  fullName: Sdl.LanguagePlatform.Core.Tokenization.UnitSeparationMode

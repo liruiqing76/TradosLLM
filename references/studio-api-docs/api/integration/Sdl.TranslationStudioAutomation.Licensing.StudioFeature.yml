@@ -1,0 +1,94 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.TranslationStudioAutomation.Licensing.StudioFeature
+  commentId: T:Sdl.TranslationStudioAutomation.Licensing.StudioFeature
+  id: StudioFeature
+  parent: Sdl.TranslationStudioAutomation.Licensing
+  children:
+  - Sdl.TranslationStudioAutomation.Licensing.StudioFeature.AllowSupportingApplications
+  langs:
+  - csharp
+  - vb
+  name: StudioFeature
+  nameWithType: StudioFeature
+  fullName: Sdl.TranslationStudioAutomation.Licensing.StudioFeature
+  type: Enum
+  assemblies:
+  - Sdl.TranslationStudioAutomation.Licensing
+  namespace: Sdl.TranslationStudioAutomation.Licensing
+  summary: Studio features supported by this API
+  example: []
+  syntax:
+    content: public enum StudioFeature
+    content.vb: Public Enum StudioFeature
+- uid: Sdl.TranslationStudioAutomation.Licensing.StudioFeature.AllowSupportingApplications
+  commentId: F:Sdl.TranslationStudioAutomation.Licensing.StudioFeature.AllowSupportingApplications
+  id: AllowSupportingApplications
+  parent: Sdl.TranslationStudioAutomation.Licensing.StudioFeature
+  langs:
+  - csharp
+  - vb
+  name: AllowSupportingApplications
+  nameWithType: StudioFeature.AllowSupportingApplications
+  fullName: Sdl.TranslationStudioAutomation.Licensing.StudioFeature.AllowSupportingApplications
+  type: Field
+  assemblies:
+  - Sdl.TranslationStudioAutomation.Licensing
+  namespace: Sdl.TranslationStudioAutomation.Licensing
+  summary: >-
+    External applications that use some functionality of Trados Studio can check for this license feature, 
+
+    in order to only run or provide particular functionality if this feature is available.
+
+    For instance several App Store applications will not run unless this feature is licensed.
+  example: []
+  syntax:
+    content: AllowSupportingApplications = 0
+    return:
+      type: Sdl.TranslationStudioAutomation.Licensing.StudioFeature
+references:
+- uid: Sdl.TranslationStudioAutomation.Licensing
+  commentId: N:Sdl.TranslationStudioAutomation.Licensing
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.TranslationStudioAutomation.Licensing
+  nameWithType: Sdl.TranslationStudioAutomation.Licensing
+  fullName: Sdl.TranslationStudioAutomation.Licensing
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation
+    name: TranslationStudioAutomation
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.Licensing
+    name: Licensing
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.Licensing.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation
+    name: TranslationStudioAutomation
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.html
+  - name: .
+  - uid: Sdl.TranslationStudioAutomation.Licensing
+    name: Licensing
+    isExternal: true
+    href: Sdl.TranslationStudioAutomation.Licensing.html
+- uid: Sdl.TranslationStudioAutomation.Licensing.StudioFeature
+  commentId: T:Sdl.TranslationStudioAutomation.Licensing.StudioFeature
+  parent: Sdl.TranslationStudioAutomation.Licensing
+  isExternal: true
+  href: Sdl.TranslationStudioAutomation.Licensing.StudioFeature.html
+  name: StudioFeature
+  nameWithType: StudioFeature
+  fullName: Sdl.TranslationStudioAutomation.Licensing.StudioFeature

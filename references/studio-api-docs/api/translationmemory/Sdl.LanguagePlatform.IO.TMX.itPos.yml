@@ -1,0 +1,120 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.LanguagePlatform.IO.TMX.itPos
+  commentId: T:Sdl.LanguagePlatform.IO.TMX.itPos
+  id: itPos
+  parent: Sdl.LanguagePlatform.IO.TMX
+  children:
+  - Sdl.LanguagePlatform.IO.TMX.itPos.begin
+  - Sdl.LanguagePlatform.IO.TMX.itPos.end
+  langs:
+  - csharp
+  - vb
+  name: itPos
+  nameWithType: itPos
+  fullName: Sdl.LanguagePlatform.IO.TMX.itPos
+  type: Enum
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: public enum itPos
+    content.vb: Public Enum itPos
+- uid: Sdl.LanguagePlatform.IO.TMX.itPos.begin
+  commentId: F:Sdl.LanguagePlatform.IO.TMX.itPos.begin
+  id: begin
+  parent: Sdl.LanguagePlatform.IO.TMX.itPos
+  langs:
+  - csharp
+  - vb
+  name: begin
+  nameWithType: itPos.begin
+  fullName: Sdl.LanguagePlatform.IO.TMX.itPos.begin
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: begin = 0
+    return:
+      type: Sdl.LanguagePlatform.IO.TMX.itPos
+- uid: Sdl.LanguagePlatform.IO.TMX.itPos.end
+  commentId: F:Sdl.LanguagePlatform.IO.TMX.itPos.end
+  id: end
+  parent: Sdl.LanguagePlatform.IO.TMX.itPos
+  langs:
+  - csharp
+  - vb
+  name: end
+  nameWithType: itPos.end
+  fullName: Sdl.LanguagePlatform.IO.TMX.itPos.end
+  type: Field
+  assemblies:
+  - Sdl.LanguagePlatform.IO
+  namespace: Sdl.LanguagePlatform.IO.TMX
+  remarks: ''
+  example: []
+  syntax:
+    content: end = 1
+    return:
+      type: Sdl.LanguagePlatform.IO.TMX.itPos
+references:
+- uid: Sdl.LanguagePlatform.IO.TMX
+  commentId: N:Sdl.LanguagePlatform.IO.TMX
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.LanguagePlatform.IO.TMX
+  nameWithType: Sdl.LanguagePlatform.IO.TMX
+  fullName: Sdl.LanguagePlatform.IO.TMX
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO
+    name: IO
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO.TMX
+    name: TMX
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.TMX.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.LanguagePlatform
+    name: LanguagePlatform
+    isExternal: true
+    href: Sdl.LanguagePlatform.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO
+    name: IO
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.html
+  - name: .
+  - uid: Sdl.LanguagePlatform.IO.TMX
+    name: TMX
+    isExternal: true
+    href: Sdl.LanguagePlatform.IO.TMX.html
+- uid: Sdl.LanguagePlatform.IO.TMX.itPos
+  commentId: T:Sdl.LanguagePlatform.IO.TMX.itPos
+  parent: Sdl.LanguagePlatform.IO.TMX
+  isExternal: true
+  href: Sdl.LanguagePlatform.IO.TMX.itPos.html
+  name: itPos
+  nameWithType: itPos
+  fullName: Sdl.LanguagePlatform.IO.TMX.itPos

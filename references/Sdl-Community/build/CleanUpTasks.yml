@@ -1,0 +1,33 @@
+trigger:
+  branches:
+    include:
+     - master
+  paths:
+    include:
+     - CleanUp Tasks/*
+
+pr:
+  branches:
+    include:
+     - master
+  paths:
+    include:
+     - CleanUp Tasks/*
+
+pool: 
+  vmImage : '$(DefaultBuildVm)'
+
+variables:
+- template: jobs/branch-variables.yml
+- name: buildPlatform 
+  value: 'Any CPU'
+- name: buildConfiguration
+  value: 'Release'
+- name: solution
+  value: '**/Sdl.Community.CleanUpTasks.sln'
+- name: pathToPublish
+  value: '$(PluginPath)\SDLCommunityCleanUpTasks.sdlplugin'
+
+steps:
+  - template: jobs/build-sdlplugin.yml
+  - template: jobs/publish-build-artifact-task.yml

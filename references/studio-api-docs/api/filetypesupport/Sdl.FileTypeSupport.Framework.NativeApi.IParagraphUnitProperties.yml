@@ -1,0 +1,307 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+  id: IParagraphUnitProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Comments
+  - Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Contexts
+  - Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.LockType
+  - Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.ParagraphUnitId
+  - Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.SourceCount
+  langs:
+  - csharp
+  - vb
+  name: IParagraphUnitProperties
+  nameWithType: IParagraphUnitProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Properties of a (structure or localizable) paragraph unit
+  example: []
+  syntax:
+    content: 'public interface IParagraphUnitProperties : ICloneable'
+    content.vb: Public Interface IParagraphUnitProperties Inherits ICloneable
+  inheritedMembers:
+  - System.ICloneable.Clone
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.ParagraphUnitId
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.ParagraphUnitId
+  id: ParagraphUnitId
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+  langs:
+  - csharp
+  - vb
+  name: ParagraphUnitId
+  nameWithType: IParagraphUnitProperties.ParagraphUnitId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.ParagraphUnitId
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Globally unique identifier of the paragraph unit
+  example: []
+  syntax:
+    content: ParagraphUnitId ParagraphUnitId { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId
+    content.vb: Property ParagraphUnitId As ParagraphUnitId
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.ParagraphUnitId*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Contexts
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Contexts
+  id: Contexts
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+  langs:
+  - csharp
+  - vb
+  name: Contexts
+  nameWithType: IParagraphUnitProperties.Contexts
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Contexts
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Context associated with the paragraph unit
+  example: []
+  syntax:
+    content: IContextProperties Contexts { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties
+    content.vb: Property Contexts As IContextProperties
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Contexts*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.LockType
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.LockType
+  id: LockType
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+  langs:
+  - csharp
+  - vb
+  name: LockType
+  nameWithType: IParagraphUnitProperties.LockType
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.LockType
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    Indicates the lock type(s) for this paragraph unit.
+
+    For a structure paragraph unit, the Structure flag is set.
+  example: []
+  syntax:
+    content: LockTypeFlags LockType { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+    content.vb: Property LockType As LockTypeFlags
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.LockType*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Comments
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Comments
+  id: Comments
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+  langs:
+  - csharp
+  - vb
+  name: Comments
+  nameWithType: IParagraphUnitProperties.Comments
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Comments
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Comments associated with the paragraph unit; may be <code>null</code>.
+  example: []
+  syntax:
+    content: ICommentProperties Comments { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties
+    content.vb: Property Comments As ICommentProperties
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Comments*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.SourceCount
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.SourceCount
+  id: SourceCount
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties
+  langs:
+  - csharp
+  - vb
+  name: SourceCount
+  nameWithType: IParagraphUnitProperties.SourceCount
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.SourceCount
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Word/character count for the source content in this paragraph unit
+  example: []
+  syntax:
+    content: SourceCount SourceCount { get; set; }
+    parameters: []
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount
+    content.vb: Property SourceCount As SourceCount
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.SourceCount*
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.ParagraphUnitId*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.ParagraphUnitId
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IParagraphUnitProperties_ParagraphUnitId
+  name: ParagraphUnitId
+  nameWithType: IParagraphUnitProperties.ParagraphUnitId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.ParagraphUnitId
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId.html
+  name: ParagraphUnitId
+  nameWithType: ParagraphUnitId
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ParagraphUnitId
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Contexts*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Contexts
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IParagraphUnitProperties_Contexts
+  name: Contexts
+  nameWithType: IParagraphUnitProperties.Contexts
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Contexts
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties.html
+  name: IContextProperties
+  nameWithType: IContextProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IContextProperties
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.LockType*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.LockType
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IParagraphUnitProperties_LockType
+  name: LockType
+  nameWithType: IParagraphUnitProperties.LockType
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.LockType
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags.html
+  name: LockTypeFlags
+  nameWithType: LockTypeFlags
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.LockTypeFlags
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Comments*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Comments
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IParagraphUnitProperties_Comments
+  name: Comments
+  nameWithType: IParagraphUnitProperties.Comments
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.Comments
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties.html
+  name: ICommentProperties
+  nameWithType: ICommentProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.ICommentProperties
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.SourceCount*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.SourceCount
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IParagraphUnitProperties_SourceCount
+  name: SourceCount
+  nameWithType: IParagraphUnitProperties.SourceCount
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IParagraphUnitProperties.SourceCount
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.SourceCount
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount.html
+  name: SourceCount
+  nameWithType: SourceCount
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.SourceCount

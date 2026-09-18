@@ -1,0 +1,141 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.GroupStyle
+  id: GroupStyle
+  parent: Sdl.Desktop.IntegrationApi.Extensions
+  children:
+  - Sdl.Desktop.IntegrationApi.Extensions.GroupStyle.HorizontalSplit
+  - Sdl.Desktop.IntegrationApi.Extensions.GroupStyle.Tab
+  - Sdl.Desktop.IntegrationApi.Extensions.GroupStyle.VerticalSplit
+  langs:
+  - csharp
+  - vb
+  name: GroupStyle
+  nameWithType: GroupStyle
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle
+  type: Enum
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: Enum specifying possible ways a number of view parts sharing the same area can be grouped.
+  example: []
+  syntax:
+    content: public enum GroupStyle
+    content.vb: Public Enum GroupStyle
+- uid: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle.Tab
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.GroupStyle.Tab
+  id: Tab
+  parent: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle
+  langs:
+  - csharp
+  - vb
+  name: Tab
+  nameWithType: GroupStyle.Tab
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle.Tab
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: Defines a tabbed group
+  example: []
+  syntax:
+    content: Tab = 0
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle
+- uid: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle.VerticalSplit
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.GroupStyle.VerticalSplit
+  id: VerticalSplit
+  parent: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle
+  langs:
+  - csharp
+  - vb
+  name: VerticalSplit
+  nameWithType: GroupStyle.VerticalSplit
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle.VerticalSplit
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: Defines the group to be vertically split
+  example: []
+  syntax:
+    content: VerticalSplit = 1
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle
+- uid: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle.HorizontalSplit
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.GroupStyle.HorizontalSplit
+  id: HorizontalSplit
+  parent: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle
+  langs:
+  - csharp
+  - vb
+  name: HorizontalSplit
+  nameWithType: GroupStyle.HorizontalSplit
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle.HorizontalSplit
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: Defines the group to be horizontaly split
+  example: []
+  syntax:
+    content: HorizontalSplit = 2
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle
+references:
+- uid: Sdl.Desktop.IntegrationApi.Extensions
+  commentId: N:Sdl.Desktop.IntegrationApi.Extensions
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Desktop.IntegrationApi.Extensions
+  nameWithType: Sdl.Desktop.IntegrationApi.Extensions
+  fullName: Sdl.Desktop.IntegrationApi.Extensions
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+- uid: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.GroupStyle
+  parent: Sdl.Desktop.IntegrationApi.Extensions
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle.html
+  name: GroupStyle
+  nameWithType: GroupStyle
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.GroupStyle

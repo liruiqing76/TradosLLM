@@ -1,0 +1,56 @@
+trigger:
+  branches:
+    include:
+     - master
+  paths:
+    include:
+     - DSI Viewer/*
+
+pr:
+  branches:
+    include:
+     - master
+  paths:
+    include:
+     - DSI Viewer/*
+
+pool: 
+  vmImage : '$(DefaultBuildVm)'
+
+variables:
+- template: jobs/branch-variables.yml
+- name: buildPlatform 
+  value: 'Any CPU'
+- name: buildConfiguration
+  value: 'Release'
+- name: solution
+  value: '**/Sdl.Community.DsiViewer.sln'
+- name: pathToPublish
+  value: '$(PluginPath)\Sdl.Community.DsiViewer.sdlplugin'
+- name : SonarID
+  value : AppStore_DSI_Viewer
+- name : SonarName
+  value : 'DSI Viewer'
+- name : ProjectVersion
+  value : 4.0.1.0
+
+steps:
+  - task: SonarCloudPrepare@3
+    inputs:
+      SonarCloud: 'AppStorePlugins-ServiceConnection'
+      organization: 'sdl'
+      scannerMode: 'dotnet'
+      projectKey: $(SonarId)
+      projectName: $(SonarName)
+      projectVersion: $(ProjectVersion)
+
+  - template: jobs/build-sdlplugin.yml
+  - task: SonarCloudAnalyze@3
+    displayName: 'Run Code Analysis'
+
+  - task: SonarCloudPublish@3
+    inputs:
+      pollingTimeoutSec: '300'
+    displayName: 'Publish Quality Gate Result'
+
+  - template: jobs/publish-build-artifact-task.yml

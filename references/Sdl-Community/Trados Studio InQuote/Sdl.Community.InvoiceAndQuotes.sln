@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdl.Community.InvoiceAndQuotes", "Sdl.Community.InvoiceAndQuotes\Sdl.Community.InvoiceAndQuotes.csproj", "{C68E53F4-62E0-4C6E-8D96-55F59A106607}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdl.Community.InvoiceAndQuotes.Integration", "Sdl.Community.InvoiceAndQuotes.Integration\Sdl.Community.InvoiceAndQuotes.Integration.csproj", "{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		CD_ROM|Mixed Platforms = CD_ROM|Mixed Platforms
+		CD_ROM|x86 = CD_ROM|x86
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		DVD-5|Any CPU = DVD-5|Any CPU
+		DVD-5|Mixed Platforms = DVD-5|Mixed Platforms
+		DVD-5|x86 = DVD-5|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+		SingleImage|Any CPU = SingleImage|Any CPU
+		SingleImage|Mixed Platforms = SingleImage|Mixed Platforms
+		SingleImage|x86 = SingleImage|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.CD_ROM|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.CD_ROM|Mixed Platforms.Build.0 = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.CD_ROM|x86.ActiveCfg = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.DVD-5|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.DVD-5|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.DVD-5|x86.ActiveCfg = Debug|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.Release|x86.ActiveCfg = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.SingleImage|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.SingleImage|Mixed Platforms.Build.0 = Release|Any CPU
+		{C68E53F4-62E0-4C6E-8D96-55F59A106607}.SingleImage|x86.ActiveCfg = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.CD_ROM|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.CD_ROM|Mixed Platforms.Build.0 = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.CD_ROM|x86.ActiveCfg = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.CD_ROM|x86.Build.0 = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.Debug|x86.Build.0 = Debug|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.DVD-5|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.DVD-5|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.DVD-5|x86.ActiveCfg = Debug|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.DVD-5|x86.Build.0 = Debug|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.Release|x86.ActiveCfg = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.Release|x86.Build.0 = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.SingleImage|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.SingleImage|Mixed Platforms.Build.0 = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.SingleImage|x86.ActiveCfg = Release|Any CPU
+		{1CBF7231-A95E-43A5-942E-49D3A9C99D4A}.SingleImage|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,227 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+  id: DependencyFileLinkOption
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.Embed
+  - Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.Ignore
+  - Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.None
+  - Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.ReferenceAbsolute
+  - Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.ReferenceRelative
+  langs:
+  - csharp
+  - vb
+  name: DependencyFileLinkOption
+  nameWithType: DependencyFileLinkOption
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+  type: Enum
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    Used in the <xref href="Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties.PreferredLinkage" data-throw-if-not-resolved="false"></xref> property to
+
+    indicate how a dependency file may be handled when writing to an intermediate
+
+    bilingual file format (such as SDL XLIFF).
+  example: []
+  syntax:
+    content: public enum DependencyFileLinkOption
+    content.vb: Public Enum DependencyFileLinkOption
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.None
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.None
+  id: None
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: DependencyFileLinkOption.None
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.None
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Unknown or not specified
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.Ignore
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.Ignore
+  id: Ignore
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+  langs:
+  - csharp
+  - vb
+  name: Ignore
+  nameWithType: DependencyFileLinkOption.Ignore
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.Ignore
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The file or its reference should not be persisted to the intermediate format.
+  example: []
+  syntax:
+    content: Ignore = 1
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.ReferenceRelative
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.ReferenceRelative
+  id: ReferenceRelative
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+  langs:
+  - csharp
+  - vb
+  name: ReferenceRelative
+  nameWithType: DependencyFileLinkOption.ReferenceRelative
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.ReferenceRelative
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    The file is stored as a separate file, and will be located through 
+
+    a relative path to the intermediate file.
+  remarks: >-
+    <p>
+
+    The relative path may or may not be stored explicitly in the intermediate
+
+    file. (If not stored explicitly, the file may be located through conventions, e.g.
+
+    by looking for it in the same folder or in a sub-folder with a specific name.)
+
+    </p>
+  example: []
+  syntax:
+    content: ReferenceRelative = 2
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.ReferenceAbsolute
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.ReferenceAbsolute
+  id: ReferenceAbsolute
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+  langs:
+  - csharp
+  - vb
+  name: ReferenceAbsolute
+  nameWithType: DependencyFileLinkOption.ReferenceAbsolute
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.ReferenceAbsolute
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    The file is stored as a separate file, which is explicitly referenced 
+
+    through an absolute path. (The absolute path is stored in the intermediate file.)
+  remarks: >-
+    <p>
+
+    The absolute path is typically stored in the intermediate file (though it could
+
+    also be a "well known" path, which is always checked).
+
+    </p>
+
+    <p>
+
+    Use this option carefully, as it may not work if the intermediate file is moved to a different
+
+    system on which the absolute path is no longer valid.
+
+    </p>
+  example: []
+  syntax:
+    content: ReferenceAbsolute = 3
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.Embed
+  commentId: F:Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.Embed
+  id: Embed
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+  langs:
+  - csharp
+  - vb
+  name: Embed
+  nameWithType: DependencyFileLinkOption.Embed
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.Embed
+  type: Field
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: The file is embedded inside the intermediate file.
+  example: []
+  syntax:
+    content: Embed = 4
+    return:
+      type: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties.PreferredLinkage
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties.PreferredLinkage
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IDependencyFileProperties_PreferredLinkage
+  name: PreferredLinkage
+  nameWithType: IDependencyFileProperties.PreferredLinkage
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IDependencyFileProperties.PreferredLinkage
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption.html
+  name: DependencyFileLinkOption
+  nameWithType: DependencyFileLinkOption
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.DependencyFileLinkOption

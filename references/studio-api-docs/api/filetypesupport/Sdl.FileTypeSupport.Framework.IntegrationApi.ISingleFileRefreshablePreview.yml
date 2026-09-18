@@ -1,0 +1,425 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFileRefreshablePreview
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFileRefreshablePreview
+  id: ISingleFileRefreshablePreview
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  children:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFileRefreshablePreview.RefreshPreview
+  langs:
+  - csharp
+  - vb
+  name: ISingleFileRefreshablePreview
+  nameWithType: ISingleFileRefreshablePreview
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFileRefreshablePreview
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  syntax:
+    content: 'public interface ISingleFileRefreshablePreview : ISingleFilePreviewControl, IAbstractPreviewControl, IAbstractPreviewController, ISingleFilePreviewController, INavigablePreview, IDisposable, IFileTypeDefinitionAware, IPreviewUpdatedViaSegmentFile, IPreviewUpdatedViaRefresh, IAbstractUpdatablePreview'
+    content.vb: Public Interface ISingleFileRefreshablePreview Inherits ISingleFilePreviewControl, IAbstractPreviewControl, IAbstractPreviewController, ISingleFilePreviewController, INavigablePreview, IDisposable, IFileTypeDefinitionAware, IPreviewUpdatedViaSegmentFile, IPreviewUpdatedViaRefresh, IAbstractUpdatablePreview
+  derivedClasses:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.AbstractSingleFileRefreshablePreviewController
+  inheritedMembers:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Control
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFilePreviewController.PreviewFile
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.PreferredHighlightColor
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.SegmentSelected
+  - System.IDisposable.Dispose
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.CreateSegmentFile(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.UpdatePreviewFromSegmentFile(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference,Sdl.FileTypeSupport.Framework.TempFileManager)
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.BeforeFileRefresh
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.AfterFileRefresh
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.TargetFilePath
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFileRefreshablePreview.RefreshPreview
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFileRefreshablePreview.RefreshPreview
+  id: RefreshPreview
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFileRefreshablePreview
+  langs:
+  - csharp
+  - vb
+  name: RefreshPreview
+  nameWithType: ISingleFileRefreshablePreview.RefreshPreview
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFileRefreshablePreview.RefreshPreview
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi
+  syntax:
+    content: bool RefreshPreview { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property RefreshPreview As Boolean
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFileRefreshablePreview.RefreshPreview*
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewControl_Refresh
+  name: Refresh()
+  nameWithType: IAbstractPreviewControl.Refresh()
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+    name: Refresh
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewControl_Refresh
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Refresh
+    name: Refresh
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewControl_Refresh
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Control
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Control
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IAbstractPreviewControl_Control
+  name: Control
+  nameWithType: IAbstractPreviewControl.Control
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.Control
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFilePreviewController.PreviewFile
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFilePreviewController.PreviewFile
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFilePreviewController
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFilePreviewController.html#Sdl_FileTypeSupport_Framework_IntegrationApi_ISingleFilePreviewController_PreviewFile
+  name: PreviewFile
+  nameWithType: ISingleFilePreviewController.PreviewFile
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFilePreviewController.PreviewFile
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.html#Sdl_FileTypeSupport_Framework_IntegrationApi_INavigablePreview_NavigateToSegment_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentReference_
+  name: NavigateToSegment(SegmentReference)
+  nameWithType: INavigablePreview.NavigateToSegment(SegmentReference)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+    name: NavigateToSegment
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.html#Sdl_FileTypeSupport_Framework_IntegrationApi_INavigablePreview_NavigateToSegment_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentReference_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference
+    name: SegmentReference
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.NavigateToSegment(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+    name: NavigateToSegment
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.html#Sdl_FileTypeSupport_Framework_IntegrationApi_INavigablePreview_NavigateToSegment_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentReference_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference
+    name: SegmentReference
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.PreferredHighlightColor
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.PreferredHighlightColor
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.html#Sdl_FileTypeSupport_Framework_IntegrationApi_INavigablePreview_PreferredHighlightColor
+  name: PreferredHighlightColor
+  nameWithType: INavigablePreview.PreferredHighlightColor
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.PreferredHighlightColor
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.SegmentSelected
+  commentId: E:Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.SegmentSelected
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.html#Sdl_FileTypeSupport_Framework_IntegrationApi_INavigablePreview_SegmentSelected
+  name: SegmentSelected
+  nameWithType: INavigablePreview.SegmentSelected
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.SegmentSelected
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IFileTypeDefinitionAware_FileTypeDefinition
+  name: FileTypeDefinition
+  nameWithType: IFileTypeDefinitionAware.FileTypeDefinition
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.FileTypeDefinition
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.CreateSegmentFile(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.CreateSegmentFile(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewUpdatedViaSegmentFile_CreateSegmentFile_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentReference_
+  name: CreateSegmentFile(SegmentReference)
+  nameWithType: IPreviewUpdatedViaSegmentFile.CreateSegmentFile(SegmentReference)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.CreateSegmentFile(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.CreateSegmentFile(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+    name: CreateSegmentFile
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewUpdatedViaSegmentFile_CreateSegmentFile_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentReference_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference
+    name: SegmentReference
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.CreateSegmentFile(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference)
+    name: CreateSegmentFile
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewUpdatedViaSegmentFile_CreateSegmentFile_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentReference_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference
+    name: SegmentReference
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.UpdatePreviewFromSegmentFile(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference,Sdl.FileTypeSupport.Framework.TempFileManager)
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.UpdatePreviewFromSegmentFile(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference,Sdl.FileTypeSupport.Framework.TempFileManager)
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewUpdatedViaSegmentFile_UpdatePreviewFromSegmentFile_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentReference_Sdl_FileTypeSupport_Framework_TempFileManager_
+  name: UpdatePreviewFromSegmentFile(SegmentReference, TempFileManager)
+  nameWithType: IPreviewUpdatedViaSegmentFile.UpdatePreviewFromSegmentFile(SegmentReference, TempFileManager)
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.UpdatePreviewFromSegmentFile(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference, Sdl.FileTypeSupport.Framework.TempFileManager)
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.UpdatePreviewFromSegmentFile(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference,Sdl.FileTypeSupport.Framework.TempFileManager)
+    name: UpdatePreviewFromSegmentFile
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewUpdatedViaSegmentFile_UpdatePreviewFromSegmentFile_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentReference_Sdl_FileTypeSupport_Framework_TempFileManager_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference
+    name: SegmentReference
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.FileTypeSupport.Framework.TempFileManager
+    name: TempFileManager
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.TempFileManager.html
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.UpdatePreviewFromSegmentFile(Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference,Sdl.FileTypeSupport.Framework.TempFileManager)
+    name: UpdatePreviewFromSegmentFile
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewUpdatedViaSegmentFile_UpdatePreviewFromSegmentFile_Sdl_FileTypeSupport_Framework_IntegrationApi_SegmentReference_Sdl_FileTypeSupport_Framework_TempFileManager_
+  - name: (
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference
+    name: SegmentReference
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.SegmentReference.html
+  - name: ','
+  - name: " "
+  - uid: Sdl.FileTypeSupport.Framework.TempFileManager
+    name: TempFileManager
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.TempFileManager.html
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.BeforeFileRefresh
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.BeforeFileRefresh
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewUpdatedViaRefresh_BeforeFileRefresh
+  name: BeforeFileRefresh()
+  nameWithType: IPreviewUpdatedViaRefresh.BeforeFileRefresh()
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.BeforeFileRefresh()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.BeforeFileRefresh
+    name: BeforeFileRefresh
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewUpdatedViaRefresh_BeforeFileRefresh
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.BeforeFileRefresh
+    name: BeforeFileRefresh
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewUpdatedViaRefresh_BeforeFileRefresh
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.AfterFileRefresh
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.AfterFileRefresh
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewUpdatedViaRefresh_AfterFileRefresh
+  name: AfterFileRefresh()
+  nameWithType: IPreviewUpdatedViaRefresh.AfterFileRefresh()
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.AfterFileRefresh()
+  spec.csharp:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.AfterFileRefresh
+    name: AfterFileRefresh
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewUpdatedViaRefresh_AfterFileRefresh
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.AfterFileRefresh
+    name: AfterFileRefresh
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewUpdatedViaRefresh_AfterFileRefresh
+  - name: (
+  - name: )
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.TargetFilePath
+  commentId: P:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.TargetFilePath
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.html#Sdl_FileTypeSupport_Framework_IntegrationApi_IPreviewUpdatedViaRefresh_TargetFilePath
+  name: TargetFilePath
+  nameWithType: IPreviewUpdatedViaRefresh.TargetFilePath
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.TargetFilePath
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl.html
+  name: IAbstractPreviewControl
+  nameWithType: IAbstractPreviewControl
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IAbstractPreviewControl
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFilePreviewController
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFilePreviewController
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFilePreviewController.html
+  name: ISingleFilePreviewController
+  nameWithType: ISingleFilePreviewController
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFilePreviewController
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview.html
+  name: INavigablePreview
+  nameWithType: INavigablePreview
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.INavigablePreview
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware.html
+  name: IFileTypeDefinitionAware
+  nameWithType: IFileTypeDefinitionAware
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IFileTypeDefinitionAware
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile.html
+  name: IPreviewUpdatedViaSegmentFile
+  nameWithType: IPreviewUpdatedViaSegmentFile
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaSegmentFile
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh.html
+  name: IPreviewUpdatedViaRefresh
+  nameWithType: IPreviewUpdatedViaRefresh
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.IPreviewUpdatedViaRefresh
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFileRefreshablePreview.RefreshPreview*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFileRefreshablePreview.RefreshPreview
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFileRefreshablePreview.html#Sdl_FileTypeSupport_Framework_IntegrationApi_ISingleFileRefreshablePreview_RefreshPreview
+  name: RefreshPreview
+  nameWithType: ISingleFileRefreshablePreview.RefreshPreview
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.ISingleFileRefreshablePreview.RefreshPreview
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

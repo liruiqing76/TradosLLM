@@ -1,0 +1,216 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.IQuickInsertsBuilder
+  commentId: T:Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.IQuickInsertsBuilder
+  id: IQuickInsertsBuilder
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts
+  children:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.IQuickInsertsBuilder.BuildQuickInsertIdList
+  langs:
+  - csharp
+  - vb
+  name: IQuickInsertsBuilder
+  nameWithType: IQuickInsertsBuilder
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.IQuickInsertsBuilder
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts
+  summary: >-
+    Interface defining method to implement by component builders for retrieving list of QuickInsert IDs supported by a given FileType
+
+    The filetype ComponentBuilder should implement this interface if it supports the new QuickInsert implementation
+  example: []
+  syntax:
+    content: public interface IQuickInsertsBuilder
+    content.vb: Public Interface IQuickInsertsBuilder
+  derivedClasses:
+  - Sdl.FileTypeSupport.Framework.IntegrationApi.DynamicFilterComponentBuilder
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.IQuickInsertsBuilder.BuildQuickInsertIdList
+  commentId: M:Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.IQuickInsertsBuilder.BuildQuickInsertIdList
+  id: BuildQuickInsertIdList
+  parent: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.IQuickInsertsBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildQuickInsertIdList()
+  nameWithType: IQuickInsertsBuilder.BuildQuickInsertIdList()
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.IQuickInsertsBuilder.BuildQuickInsertIdList()
+  type: Method
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts
+  summary: Returns a list of QuickInsert IDs which the given File Type supports
+  example: []
+  syntax:
+    content: List<QuickInsertIds> BuildQuickInsertIdList()
+    return:
+      type: System.Collections.Generic.List{Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.QuickInsertIds}
+      description: ''
+    content.vb: Function BuildQuickInsertIdList() As List(Of QuickInsertIds)
+  overload: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.IQuickInsertsBuilder.BuildQuickInsertIdList*
+references:
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts
+  commentId: N:Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts
+  nameWithType: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts
+    name: QuickInserts
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts
+    name: QuickInserts
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.html
+- uid: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.IQuickInsertsBuilder.BuildQuickInsertIdList*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.IQuickInsertsBuilder.BuildQuickInsertIdList
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.IQuickInsertsBuilder.html#Sdl_FileTypeSupport_Framework_IntegrationApi_QuickInserts_IQuickInsertsBuilder_BuildQuickInsertIdList
+  name: BuildQuickInsertIdList
+  nameWithType: IQuickInsertsBuilder.BuildQuickInsertIdList
+  fullName: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.IQuickInsertsBuilder.BuildQuickInsertIdList
+- uid: System.Collections.Generic.List{Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.QuickInsertIds}
+  commentId: T:System.Collections.Generic.List{Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.QuickInsertIds}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<QuickInsertIds>
+  nameWithType: List<QuickInsertIds>
+  fullName: System.Collections.Generic.List<Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.QuickInsertIds>
+  nameWithType.vb: List(Of QuickInsertIds)
+  fullName.vb: System.Collections.Generic.List(Of Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.QuickInsertIds)
+  name.vb: List(Of QuickInsertIds)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.QuickInsertIds
+    name: QuickInsertIds
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.QuickInsertIds.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.QuickInsertIds
+    name: QuickInsertIds
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.IntegrationApi.QuickInserts.QuickInsertIds.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

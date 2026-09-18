@@ -1,0 +1,198 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Core.PluginFramework.PluginStatus
+  commentId: T:Sdl.Core.PluginFramework.PluginStatus
+  id: PluginStatus
+  parent: Sdl.Core.PluginFramework
+  children:
+  - Sdl.Core.PluginFramework.PluginStatus.InitializationFailed
+  - Sdl.Core.PluginFramework.PluginStatus.Initialized
+  - Sdl.Core.PluginFramework.PluginStatus.Initializing
+  - Sdl.Core.PluginFramework.PluginStatus.NotInitialized
+  langs:
+  - csharp
+  - vb
+  name: PluginStatus
+  nameWithType: PluginStatus
+  fullName: Sdl.Core.PluginFramework.PluginStatus
+  type: Enum
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: Represents the status of a plug-in.
+  example: []
+  syntax:
+    content: public enum PluginStatus
+    content.vb: Public Enum PluginStatus
+- uid: Sdl.Core.PluginFramework.PluginStatus.NotInitialized
+  commentId: F:Sdl.Core.PluginFramework.PluginStatus.NotInitialized
+  id: NotInitialized
+  parent: Sdl.Core.PluginFramework.PluginStatus
+  langs:
+  - csharp
+  - vb
+  name: NotInitialized
+  nameWithType: PluginStatus.NotInitialized
+  fullName: Sdl.Core.PluginFramework.PluginStatus.NotInitialized
+  type: Field
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: The initial status of a plug-in when the plug-in registry has been loaded.
+  example: []
+  syntax:
+    content: NotInitialized = 0
+    return:
+      type: Sdl.Core.PluginFramework.PluginStatus
+- uid: Sdl.Core.PluginFramework.PluginStatus.Initializing
+  commentId: F:Sdl.Core.PluginFramework.PluginStatus.Initializing
+  id: Initializing
+  parent: Sdl.Core.PluginFramework.PluginStatus
+  langs:
+  - csharp
+  - vb
+  name: Initializing
+  nameWithType: PluginStatus.Initializing
+  fullName: Sdl.Core.PluginFramework.PluginStatus.Initializing
+  type: Field
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: The plug-in is currently initializing. This is the case during a call to <xref href="Sdl.Core.PluginFramework.IPluginInitializer.InitializePluginAsync(System.Collections.Generic.IEnumerable%7bSdl.Core.PluginFramework.IPlugin%7d)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Initializing = 1
+    return:
+      type: Sdl.Core.PluginFramework.PluginStatus
+- uid: Sdl.Core.PluginFramework.PluginStatus.Initialized
+  commentId: F:Sdl.Core.PluginFramework.PluginStatus.Initialized
+  id: Initialized
+  parent: Sdl.Core.PluginFramework.PluginStatus
+  langs:
+  - csharp
+  - vb
+  name: Initialized
+  nameWithType: PluginStatus.Initialized
+  fullName: Sdl.Core.PluginFramework.PluginStatus.Initialized
+  type: Field
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: The plug-in has been successfully initialized. This means extensions provided by the plug-in can be instantiated.
+  example: []
+  syntax:
+    content: Initialized = 2
+    return:
+      type: Sdl.Core.PluginFramework.PluginStatus
+- uid: Sdl.Core.PluginFramework.PluginStatus.InitializationFailed
+  commentId: F:Sdl.Core.PluginFramework.PluginStatus.InitializationFailed
+  id: InitializationFailed
+  parent: Sdl.Core.PluginFramework.PluginStatus
+  langs:
+  - csharp
+  - vb
+  name: InitializationFailed
+  nameWithType: PluginStatus.InitializationFailed
+  fullName: Sdl.Core.PluginFramework.PluginStatus.InitializationFailed
+  type: Field
+  assemblies:
+  - Sdl.Core.PluginFramework
+  namespace: Sdl.Core.PluginFramework
+  summary: The plug-in failed to initialize. You cannot instantiate extensions provided by the plug-in.
+  example: []
+  syntax:
+    content: InitializationFailed = 3
+    return:
+      type: Sdl.Core.PluginFramework.PluginStatus
+references:
+- uid: Sdl.Core.PluginFramework
+  commentId: N:Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Core.PluginFramework
+  nameWithType: Sdl.Core.PluginFramework
+  fullName: Sdl.Core.PluginFramework
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Core
+    name: Core
+    isExternal: true
+    href: Sdl.Core.html
+  - name: .
+  - uid: Sdl.Core.PluginFramework
+    name: PluginFramework
+    isExternal: true
+    href: Sdl.Core.PluginFramework.html
+- uid: Sdl.Core.PluginFramework.PluginStatus
+  commentId: T:Sdl.Core.PluginFramework.PluginStatus
+  parent: Sdl.Core.PluginFramework
+  isExternal: true
+  href: Sdl.Core.PluginFramework.PluginStatus.html
+  name: PluginStatus
+  nameWithType: PluginStatus
+  fullName: Sdl.Core.PluginFramework.PluginStatus
+- uid: Sdl.Core.PluginFramework.IPluginInitializer.InitializePluginAsync(System.Collections.Generic.IEnumerable{Sdl.Core.PluginFramework.IPlugin})
+  commentId: M:Sdl.Core.PluginFramework.IPluginInitializer.InitializePluginAsync(System.Collections.Generic.IEnumerable{Sdl.Core.PluginFramework.IPlugin})
+  isExternal: true
+  href: Sdl.Core.PluginFramework.IPluginInitializer.html#Sdl_Core_PluginFramework_IPluginInitializer_InitializePluginAsync_System_Collections_Generic_IEnumerable_Sdl_Core_PluginFramework_IPlugin__
+  name: InitializePluginAsync(IEnumerable<IPlugin>)
+  nameWithType: IPluginInitializer.InitializePluginAsync(IEnumerable<IPlugin>)
+  fullName: Sdl.Core.PluginFramework.IPluginInitializer.InitializePluginAsync(System.Collections.Generic.IEnumerable<Sdl.Core.PluginFramework.IPlugin>)
+  nameWithType.vb: IPluginInitializer.InitializePluginAsync(IEnumerable(Of IPlugin))
+  fullName.vb: Sdl.Core.PluginFramework.IPluginInitializer.InitializePluginAsync(System.Collections.Generic.IEnumerable(Of Sdl.Core.PluginFramework.IPlugin))
+  name.vb: InitializePluginAsync(IEnumerable(Of IPlugin))
+  spec.csharp:
+  - uid: Sdl.Core.PluginFramework.IPluginInitializer.InitializePluginAsync(System.Collections.Generic.IEnumerable{Sdl.Core.PluginFramework.IPlugin})
+    name: InitializePluginAsync
+    isExternal: true
+    href: Sdl.Core.PluginFramework.IPluginInitializer.html#Sdl_Core_PluginFramework_IPluginInitializer_InitializePluginAsync_System_Collections_Generic_IEnumerable_Sdl_Core_PluginFramework_IPlugin__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Sdl.Core.PluginFramework.IPlugin
+    name: IPlugin
+    isExternal: true
+    href: Sdl.Core.PluginFramework.IPlugin.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Sdl.Core.PluginFramework.IPluginInitializer.InitializePluginAsync(System.Collections.Generic.IEnumerable{Sdl.Core.PluginFramework.IPlugin})
+    name: InitializePluginAsync
+    isExternal: true
+    href: Sdl.Core.PluginFramework.IPluginInitializer.html#Sdl_Core_PluginFramework_IPluginInitializer_InitializePluginAsync_System_Collections_Generic_IEnumerable_Sdl_Core_PluginFramework_IPlugin__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Sdl.Core.PluginFramework.IPlugin
+    name: IPlugin
+    isExternal: true
+    href: Sdl.Core.PluginFramework.IPlugin.html
+  - name: )
+  - name: )

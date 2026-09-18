@@ -1,0 +1,28 @@
+parameters:
+  fileToSign: 'signme.exe'
+  description: 'a file to sign'
+ 
+steps:
+
+- task: TrustedSigning@0
+  displayName: Sign with Trusted Signing
+  inputs:
+    Endpoint: '$(TS-ENDPOINT)'
+    TrustedSigningAccountName: '$(TS-ACCOUNT-NAME)'
+    CertificateProfileName: '$(TS-CERTIFICATE-PROFILE-NAME)'
+    Files: |
+      ${{ parameters.fileToSign }}
+    FileDigest: 'SHA256'
+    TimestampRfc3161: 'http://timestamp.acs.microsoft.com'
+    TimestampDigest: 'SHA256'
+    description: '${{ parameters.description }}'
+    ExcludeEnvironmentCredential: true
+    ExcludeWorkloadIdentityCredential: true
+    ExcludeManagedIdentityCredential: true
+    ExcludeSharedTokenCacheCredential: true
+    ExcludeVisualStudioCredential: true
+    ExcludeVisualStudioCodeCredential: true
+    ExcludeAzureCliCredential: false
+    ExcludeAzurePowershellCredential: true
+    ExcludeAzureDeveloperCliCredential: true
+    ExcludeInteractiveBrowserCredential: true

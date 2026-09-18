@@ -1,0 +1,204 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DockType
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.DockType
+  id: DockType
+  parent: Sdl.Desktop.IntegrationApi.Extensions
+  children:
+  - Sdl.Desktop.IntegrationApi.Extensions.DockType.Bottom
+  - Sdl.Desktop.IntegrationApi.Extensions.DockType.Fill
+  - Sdl.Desktop.IntegrationApi.Extensions.DockType.Floating
+  - Sdl.Desktop.IntegrationApi.Extensions.DockType.Left
+  - Sdl.Desktop.IntegrationApi.Extensions.DockType.Right
+  - Sdl.Desktop.IntegrationApi.Extensions.DockType.Top
+  langs:
+  - csharp
+  - vb
+  name: DockType
+  nameWithType: DockType
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DockType
+  type: Enum
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: Enum specifying possible locations where a view part can be located in.
+  example: []
+  syntax:
+    content: public enum DockType
+    content.vb: Public Enum DockType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DockType.Top
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.DockType.Top
+  id: Top
+  parent: Sdl.Desktop.IntegrationApi.Extensions.DockType
+  langs:
+  - csharp
+  - vb
+  name: Top
+  nameWithType: DockType.Top
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DockType.Top
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: The top location
+  example: []
+  syntax:
+    content: Top = 0
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.DockType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DockType.Left
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.DockType.Left
+  id: Left
+  parent: Sdl.Desktop.IntegrationApi.Extensions.DockType
+  langs:
+  - csharp
+  - vb
+  name: Left
+  nameWithType: DockType.Left
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DockType.Left
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: The left location
+  example: []
+  syntax:
+    content: Left = 1
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.DockType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DockType.Bottom
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.DockType.Bottom
+  id: Bottom
+  parent: Sdl.Desktop.IntegrationApi.Extensions.DockType
+  langs:
+  - csharp
+  - vb
+  name: Bottom
+  nameWithType: DockType.Bottom
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DockType.Bottom
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: The bottom location
+  example: []
+  syntax:
+    content: Bottom = 2
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.DockType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DockType.Right
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.DockType.Right
+  id: Right
+  parent: Sdl.Desktop.IntegrationApi.Extensions.DockType
+  langs:
+  - csharp
+  - vb
+  name: Right
+  nameWithType: DockType.Right
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DockType.Right
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: The right location
+  example: []
+  syntax:
+    content: Right = 3
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.DockType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DockType.Fill
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.DockType.Fill
+  id: Fill
+  parent: Sdl.Desktop.IntegrationApi.Extensions.DockType
+  langs:
+  - csharp
+  - vb
+  name: Fill
+  nameWithType: DockType.Fill
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DockType.Fill
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: The center location which is filling all the content
+  example: []
+  syntax:
+    content: Fill = 4
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.DockType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DockType.Floating
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.DockType.Floating
+  id: Floating
+  parent: Sdl.Desktop.IntegrationApi.Extensions.DockType
+  langs:
+  - csharp
+  - vb
+  name: Floating
+  nameWithType: DockType.Floating
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DockType.Floating
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: The floating location
+  example: []
+  syntax:
+    content: Floating = 5
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.DockType
+references:
+- uid: Sdl.Desktop.IntegrationApi.Extensions
+  commentId: N:Sdl.Desktop.IntegrationApi.Extensions
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Desktop.IntegrationApi.Extensions
+  nameWithType: Sdl.Desktop.IntegrationApi.Extensions
+  fullName: Sdl.Desktop.IntegrationApi.Extensions
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DockType
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.DockType
+  parent: Sdl.Desktop.IntegrationApi.Extensions
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.Extensions.DockType.html
+  name: DockType
+  nameWithType: DockType
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DockType

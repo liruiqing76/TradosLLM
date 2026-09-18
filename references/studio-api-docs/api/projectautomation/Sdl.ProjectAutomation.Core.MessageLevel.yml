@@ -1,0 +1,139 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.ProjectAutomation.Core.MessageLevel
+  commentId: T:Sdl.ProjectAutomation.Core.MessageLevel
+  id: MessageLevel
+  parent: Sdl.ProjectAutomation.Core
+  children:
+  - Sdl.ProjectAutomation.Core.MessageLevel.Error
+  - Sdl.ProjectAutomation.Core.MessageLevel.Information
+  - Sdl.ProjectAutomation.Core.MessageLevel.Warning
+  langs:
+  - csharp
+  - vb
+  name: MessageLevel
+  nameWithType: MessageLevel
+  fullName: Sdl.ProjectAutomation.Core.MessageLevel
+  type: Enum
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Represents the severity level of an <xref href="Sdl.ProjectAutomation.Core.ExecutionMessage" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public enum MessageLevel
+    content.vb: Public Enum MessageLevel
+- uid: Sdl.ProjectAutomation.Core.MessageLevel.Information
+  commentId: F:Sdl.ProjectAutomation.Core.MessageLevel.Information
+  id: Information
+  parent: Sdl.ProjectAutomation.Core.MessageLevel
+  langs:
+  - csharp
+  - vb
+  name: Information
+  nameWithType: MessageLevel.Information
+  fullName: Sdl.ProjectAutomation.Core.MessageLevel.Information
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Information message.
+  example: []
+  syntax:
+    content: Information = 0
+    return:
+      type: Sdl.ProjectAutomation.Core.MessageLevel
+- uid: Sdl.ProjectAutomation.Core.MessageLevel.Warning
+  commentId: F:Sdl.ProjectAutomation.Core.MessageLevel.Warning
+  id: Warning
+  parent: Sdl.ProjectAutomation.Core.MessageLevel
+  langs:
+  - csharp
+  - vb
+  name: Warning
+  nameWithType: MessageLevel.Warning
+  fullName: Sdl.ProjectAutomation.Core.MessageLevel.Warning
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Warning message.
+  example: []
+  syntax:
+    content: Warning = 1
+    return:
+      type: Sdl.ProjectAutomation.Core.MessageLevel
+- uid: Sdl.ProjectAutomation.Core.MessageLevel.Error
+  commentId: F:Sdl.ProjectAutomation.Core.MessageLevel.Error
+  id: Error
+  parent: Sdl.ProjectAutomation.Core.MessageLevel
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: MessageLevel.Error
+  fullName: Sdl.ProjectAutomation.Core.MessageLevel.Error
+  type: Field
+  assemblies:
+  - Sdl.ProjectAutomation.Core
+  namespace: Sdl.ProjectAutomation.Core
+  summary: Error message.
+  example: []
+  syntax:
+    content: Error = 2
+    return:
+      type: Sdl.ProjectAutomation.Core.MessageLevel
+references:
+- uid: Sdl.ProjectAutomation.Core.ExecutionMessage
+  commentId: T:Sdl.ProjectAutomation.Core.ExecutionMessage
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.ExecutionMessage.html
+  name: ExecutionMessage
+  nameWithType: ExecutionMessage
+  fullName: Sdl.ProjectAutomation.Core.ExecutionMessage
+- uid: Sdl.ProjectAutomation.Core
+  commentId: N:Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.ProjectAutomation.Core
+  nameWithType: Sdl.ProjectAutomation.Core
+  fullName: Sdl.ProjectAutomation.Core
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.ProjectAutomation
+    name: ProjectAutomation
+    isExternal: true
+    href: Sdl.ProjectAutomation.html
+  - name: .
+  - uid: Sdl.ProjectAutomation.Core
+    name: Core
+    isExternal: true
+    href: Sdl.ProjectAutomation.Core.html
+- uid: Sdl.ProjectAutomation.Core.MessageLevel
+  commentId: T:Sdl.ProjectAutomation.Core.MessageLevel
+  parent: Sdl.ProjectAutomation.Core
+  isExternal: true
+  href: Sdl.ProjectAutomation.Core.MessageLevel.html
+  name: MessageLevel
+  nameWithType: MessageLevel
+  fullName: Sdl.ProjectAutomation.Core.MessageLevel

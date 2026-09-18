@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <PlatformTarget>x86</PlatformTarget>
+    <PluginDeploymentPath>$(AppData)\SDL\SDL Trados Studio\15\Plugins</PluginDeploymentPath>
+    <DeployPluginPackage>true</DeployPluginPackage>
+    <CreatePluginPackage>true</CreatePluginPackage>
+    <AssemblyName>TradosToolkit</AssemblyName>
+    <RootNamespace>TradosToolkit</RootNamespace>
+    <AssemblyOriginatorKeyFile>Properties\TradosToolkit.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <TradosInstallDir>C:\Program Files (x86)\SDL\SDL Trados Studio\Studio15</TradosInstallDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- PluginFramework + Build 从 NuGet 获取（打包任务需要） -->
+    <PackageReference Include="Sdl.Core.PluginFramework">
+      <Version>2.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Sdl.Core.PluginFramework.Build">
+      <Version>18.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Data.SQLite.Core">
+      <Version>1.0.119</Version>
+    </PackageReference>
+    <PackageReference Include="HandyControl">
+      <Version>3.5.1</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 从本地 Trados 2019 安装目录引用功能 API DLL -->
+    <Reference Include="Sdl.Core.Globalization">
+      <HintPath>$(TradosInstallDir)\Sdl.Core.Globalization.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Sdl.Core.Settings">
+      <HintPath>$(TradosInstallDir)\Sdl.Core.Settings.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Sdl.Desktop.IntegrationApi">
+      <HintPath>$(TradosInstallDir)\Sdl.Desktop.IntegrationApi.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Sdl.Desktop.IntegrationApi.Extensions">
+      <HintPath>$(TradosInstallDir)\Sdl.Desktop.IntegrationApi.Extensions.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Sdl.ProjectAutomation.Core">
+      <HintPath>$(TradosInstallDir)\Sdl.ProjectAutomation.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Sdl.ProjectAutomation.FileBased">
+      <HintPath>$(TradosInstallDir)\Sdl.ProjectAutomation.FileBased.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Sdl.ProjectAutomation.AutomaticTasks">
+      <HintPath>$(TradosInstallDir)\Sdl.ProjectAutomation.AutomaticTasks.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Sdl.LanguagePlatform.Core">
+      <HintPath>$(TradosInstallDir)\Sdl.LanguagePlatform.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Sdl.LanguagePlatform.TranslationMemory">
+      <HintPath>$(TradosInstallDir)\Sdl.LanguagePlatform.TranslationMemory.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Sdl.LanguagePlatform.TranslationMemoryApi">
+      <HintPath>$(TradosInstallDir)\Sdl.LanguagePlatform.TranslationMemoryApi.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Sdl.FileTypeSupport.Framework.Core">
+      <HintPath>$(TradosInstallDir)\Sdl.FileTypeSupport.Framework.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Sdl.TranslationStudioAutomation.IntegrationApi">
+      <HintPath>$(TradosInstallDir)\Sdl.TranslationStudioAutomation.IntegrationApi.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Properties\PluginProperties.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PluginResources.Designer.cs" />
+    <Compile Include="ToolkitConfig.cs" />
+    <Compile Include="Diagnostics\ToolkitLog.cs" />
+    <Compile Include="Action\TradosToolkitRibbonGroup.cs" />
+    <Compile Include="Action\OneClickPretranslateAction.cs" />
+    <Compile Include="Server\ToolkitApiServer.cs" />
+    <Compile Include="Server\ProjectApi.cs" />
+    <Compile Include="TranslationProvider\ToolkitUri.cs" />
+    <Compile Include="TranslationProvider\ToolkitCredential.cs" />
+    <Compile Include="TranslationProvider\ToolkitTranslationProviderFactory.cs" />
+    <Compile Include="TranslationProvider\ToolkitTranslationProvider.cs" />
+    <Compile Include="TranslationProvider\ToolkitTranslationProviderLanguageDirection.cs" />
+    <Compile Include="TranslationProvider\ToolkitTranslationProviderWinFormsUI.cs" />
+    <Compile Include="TranslationProvider\Engines\ITranslationEngine.cs" />
+    <Compile Include="TranslationProvider\Engines\EngineHttp.cs" />
+    <Compile Include="TranslationProvider\Engines\TmApiEngine.cs" />
+    <Compile Include="TranslationProvider\Engines\CascadeEngine.cs" />
+    <Compile Include="TranslationProvider\Engines\OpenAiCompatEngine.cs" />
+    <Compile Include="TranslationProvider\UI\ProviderConfigWindow.xaml.cs">
+      <DependentUpon>ProviderConfigWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TranslationProvider\UI\GlossaryManagerWindow.xaml.cs">
+      <DependentUpon>GlossaryManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Glossaries\GlossaryEntry.cs" />
+    <Compile Include="Glossaries\TermReplacer.cs" />
+    <Compile Include="Glossaries\GlossaryDb.cs" />
+    <Compile Include="Glossaries\SqliteGlossaryProvider.cs" />
+    <Compile Include="BatchTasks\QaCheckBatchTask.cs" />
+    <Compile Include="BatchTasks\QaCheckSettings.cs" />
+    <Compile Include="BatchTasks\QaCheckSettingsControl.cs" />
+    <Compile Include="BatchTasks\QaCheckSettingsPage.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="PluginResources.resx" />
+    <None Include="pluginpackage.manifest.xml" />
+  </ItemGroup>
+
+  <!-- 清单反射器只扫描输出目录/GAC/旧式 csproj HintPath，SDK 风格工程解析不到；
+       生成清单前把带 HintPath 的 SDL 依赖复制进输出目录，让 Cci 能解析扩展属性类型。
+       打包内容不含这些 dll（包 = 主程序集 + ReferenceCopyLocalPaths + manifest Include）。 -->
+  <Target Name="CopySdlRefsForManifestScan" BeforeTargets="GeneratePluginManifestTarget">
+    <Copy SourceFiles="@(Reference->'%(HintPath)')"
+          DestinationFolder="$(OutDir)"
+          SkipUnchangedFiles="true"
+          Condition="'%(Reference.HintPath)' != ''" />
+    <!-- stub.system.data.sqlite 包的 targets 无自动挂钩，SDK 工程不会复制 Interop；打包任务需要它们在输出目录 -->
+    <Copy SourceFiles="$(NuGetPackageRoot)stub.system.data.sqlite.core.netframework\1.0.119\build\net46\x86\SQLite.Interop.dll"
+          DestinationFolder="$(OutDir)x86"
+          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(NuGetPackageRoot)stub.system.data.sqlite.core.netframework\1.0.119\build\net46\x64\SQLite.Interop.dll"
+          DestinationFolder="$(OutDir)x64"
+          SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

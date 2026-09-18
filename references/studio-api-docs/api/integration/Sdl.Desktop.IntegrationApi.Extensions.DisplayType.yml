@@ -1,0 +1,162 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DisplayType
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.DisplayType
+  id: DisplayType
+  parent: Sdl.Desktop.IntegrationApi.Extensions
+  children:
+  - Sdl.Desktop.IntegrationApi.Extensions.DisplayType.Default
+  - Sdl.Desktop.IntegrationApi.Extensions.DisplayType.ImageOnly
+  - Sdl.Desktop.IntegrationApi.Extensions.DisplayType.Large
+  - Sdl.Desktop.IntegrationApi.Extensions.DisplayType.Normal
+  langs:
+  - csharp
+  - vb
+  name: DisplayType
+  nameWithType: DisplayType
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DisplayType
+  type: Enum
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: The way that UI elements are displayed in the ribbon
+  example: []
+  syntax:
+    content: public enum DisplayType
+    content.vb: Public Enum DisplayType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DisplayType.Default
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.DisplayType.Default
+  id: Default
+  parent: Sdl.Desktop.IntegrationApi.Extensions.DisplayType
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: DisplayType.Default
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DisplayType.Default
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: The size of the UI element will be based on its preseted default or by its parent container.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.DisplayType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DisplayType.ImageOnly
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.DisplayType.ImageOnly
+  id: ImageOnly
+  parent: Sdl.Desktop.IntegrationApi.Extensions.DisplayType
+  langs:
+  - csharp
+  - vb
+  name: ImageOnly
+  nameWithType: DisplayType.ImageOnly
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DisplayType.ImageOnly
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: The caption of the UI element is hidden and its image is displayed.
+  example: []
+  syntax:
+    content: ImageOnly = 1
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.DisplayType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DisplayType.Normal
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.DisplayType.Normal
+  id: Normal
+  parent: Sdl.Desktop.IntegrationApi.Extensions.DisplayType
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: DisplayType.Normal
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DisplayType.Normal
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: The image and text of the UI element are both displayed.
+  example: []
+  syntax:
+    content: Normal = 2
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.DisplayType
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DisplayType.Large
+  commentId: F:Sdl.Desktop.IntegrationApi.Extensions.DisplayType.Large
+  id: Large
+  parent: Sdl.Desktop.IntegrationApi.Extensions.DisplayType
+  langs:
+  - csharp
+  - vb
+  name: Large
+  nameWithType: DisplayType.Large
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DisplayType.Large
+  type: Field
+  assemblies:
+  - Sdl.Desktop.IntegrationApi.Extensions
+  namespace: Sdl.Desktop.IntegrationApi.Extensions
+  summary: The UI element displays an enlarged image with the text below.
+  example: []
+  syntax:
+    content: Large = 3
+    return:
+      type: Sdl.Desktop.IntegrationApi.Extensions.DisplayType
+references:
+- uid: Sdl.Desktop.IntegrationApi.Extensions
+  commentId: N:Sdl.Desktop.IntegrationApi.Extensions
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.Desktop.IntegrationApi.Extensions
+  nameWithType: Sdl.Desktop.IntegrationApi.Extensions
+  fullName: Sdl.Desktop.IntegrationApi.Extensions
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.Desktop
+    name: Desktop
+    isExternal: true
+    href: Sdl.Desktop.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi
+    name: IntegrationApi
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.html
+  - name: .
+  - uid: Sdl.Desktop.IntegrationApi.Extensions
+    name: Extensions
+    isExternal: true
+    href: Sdl.Desktop.IntegrationApi.Extensions.html
+- uid: Sdl.Desktop.IntegrationApi.Extensions.DisplayType
+  commentId: T:Sdl.Desktop.IntegrationApi.Extensions.DisplayType
+  parent: Sdl.Desktop.IntegrationApi.Extensions
+  isExternal: true
+  href: Sdl.Desktop.IntegrationApi.Extensions.DisplayType.html
+  name: DisplayType
+  nameWithType: DisplayType
+  fullName: Sdl.Desktop.IntegrationApi.Extensions.DisplayType

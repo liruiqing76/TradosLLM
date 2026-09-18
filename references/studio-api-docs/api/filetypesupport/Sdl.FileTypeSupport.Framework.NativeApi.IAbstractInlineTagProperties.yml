@@ -1,0 +1,275 @@
+### YamlMime:ManagedReference
+items:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties
+  commentId: T:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties
+  id: IAbstractInlineTagProperties
+  parent: Sdl.FileTypeSupport.Framework.NativeApi
+  children:
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.CanHide
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsSoftBreak
+  - Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsWordStop
+  langs:
+  - csharp
+  - vb
+  name: IAbstractInlineTagProperties
+  nameWithType: IAbstractInlineTagProperties
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties
+  type: Interface
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Common tag properties specific to inline tags, i.e. tags that can be found inside (translatable) text.
+  example: []
+  syntax:
+    content: public interface IAbstractInlineTagProperties
+    content.vb: Public Interface IAbstractInlineTagProperties
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsWordStop
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsWordStop
+  id: IsWordStop
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties
+  langs:
+  - csharp
+  - vb
+  name: IsWordStop
+  nameWithType: IAbstractInlineTagProperties.IsWordStop
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsWordStop
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: >-
+    Determines whether the tag is considered to be a new word during segmentation. It also affects the way that the 
+
+    caret moves when using word movement keyboard actions such as CTRL+LEFT ARROW and CTRL+RIGHT ARROW in editors.
+  example:
+  - >-
+    During segmentation, if a tag has IsWordStop false then "hello[tag]world[/tag]" is considered to be one word - "hello[tag]world[/tag]" and
+
+    if a tag has IsWordStop true then "hello[tag]world[/tag]" is considered to be two words - "hello" and "[tag]world[/tag]".
+  syntax:
+    content: bool IsWordStop { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property IsWordStop As Boolean
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsWordStop*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsSoftBreak
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsSoftBreak
+  id: IsSoftBreak
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties
+  langs:
+  - csharp
+  - vb
+  name: IsSoftBreak
+  nameWithType: IAbstractInlineTagProperties.IsSoftBreak
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsSoftBreak
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Indicates whether it is valid to break the line in front of this tag during word wrap.
+  remarks: >-
+    <p>
+
+    May be used by word wrapping algorithms in editors.
+
+    </p>
+
+    <p>This is <code>true</code> by default for all tag types.</p>
+  example: []
+  syntax:
+    content: bool IsSoftBreak { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property IsSoftBreak As Boolean
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsSoftBreak*
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.CanHide
+  commentId: P:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.CanHide
+  id: CanHide
+  parent: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties
+  langs:
+  - csharp
+  - vb
+  name: CanHide
+  nameWithType: IAbstractInlineTagProperties.CanHide
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.CanHide
+  type: Property
+  assemblies:
+  - Sdl.FileTypeSupport.Framework.Core
+  namespace: Sdl.FileTypeSupport.Framework.NativeApi
+  summary: Indicates whether the tag is allowed to be hidden during editing operations.
+  remarks: >-
+    <p>
+
+    Hidden tags can easily get deleted by mistake during editing operations.
+
+    Always set this to <code>false</code> for tags that represent important content that the
+
+    user should not delete unknowingly.
+
+    </p>
+
+    <p>
+
+    Typically this is set to <code>true</code> for elements like tag pairs that represent pure
+
+    character formatting, without any other associated functionality - and only if the relevant
+
+    <xref href="Sdl.FileTypeSupport.Framework.Formatting" data-throw-if-not-resolved="false"></xref> properties have been set for the tag, so that the user
+
+    can see what the character formatting actually looks like in the editor without any need to see the tags.
+
+    </p>
+
+    <p>
+
+    Setting this to <code>true</code> does not necessarily mean that the tag will always be hidden.
+
+    This will be determined by the editor (i.e. the user may change this at runtime through a setting).
+
+    </p>
+
+    <p>This is <code>false</code> by default for all tag types.</p>
+  example: []
+  syntax:
+    content: bool CanHide { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property CanHide As Boolean
+  overload: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.CanHide*
+references:
+- uid: Sdl.FileTypeSupport.Framework.NativeApi
+  commentId: N:Sdl.FileTypeSupport.Framework.NativeApi
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.NativeApi
+  nameWithType: Sdl.FileTypeSupport.Framework.NativeApi
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.NativeApi
+    name: NativeApi
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.NativeApi.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsWordStop*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsWordStop
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractInlineTagProperties_IsWordStop
+  name: IsWordStop
+  nameWithType: IAbstractInlineTagProperties.IsWordStop
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsWordStop
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsSoftBreak*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsSoftBreak
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractInlineTagProperties_IsSoftBreak
+  name: IsSoftBreak
+  nameWithType: IAbstractInlineTagProperties.IsSoftBreak
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.IsSoftBreak
+- uid: Sdl.FileTypeSupport.Framework.Formatting
+  commentId: N:Sdl.FileTypeSupport.Framework.Formatting
+  isExternal: true
+  href: Sdl.html
+  name: Sdl.FileTypeSupport.Framework.Formatting
+  nameWithType: Sdl.FileTypeSupport.Framework.Formatting
+  fullName: Sdl.FileTypeSupport.Framework.Formatting
+  spec.csharp:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Formatting
+    name: Formatting
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Formatting.html
+  spec.vb:
+  - uid: Sdl
+    name: Sdl
+    isExternal: true
+    href: Sdl.html
+  - name: .
+  - uid: Sdl.FileTypeSupport
+    name: FileTypeSupport
+    isExternal: true
+    href: Sdl.FileTypeSupport.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework
+    name: Framework
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.html
+  - name: .
+  - uid: Sdl.FileTypeSupport.Framework.Formatting
+    name: Formatting
+    isExternal: true
+    href: Sdl.FileTypeSupport.Framework.Formatting.html
+- uid: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.CanHide*
+  commentId: Overload:Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.CanHide
+  isExternal: true
+  href: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.html#Sdl_FileTypeSupport_Framework_NativeApi_IAbstractInlineTagProperties_CanHide
+  name: CanHide
+  nameWithType: IAbstractInlineTagProperties.CanHide
+  fullName: Sdl.FileTypeSupport.Framework.NativeApi.IAbstractInlineTagProperties.CanHide
