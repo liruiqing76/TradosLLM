@@ -107,6 +107,11 @@
     <Compile Include="ToolkitConfig.cs" />
     <Compile Include="Diagnostics\ToolkitLog.cs" />
     <Compile Include="Action\TradosToolkitRibbonGroup.cs" />
+    <Compile Include="Action\ToolkitWorkbenchRibbonGroup.cs" />
+    <Compile Include="Action\WorkbenchAction.cs" />
+    <Compile Include="Workbench\WorkbenchWindow.xaml.cs">
+      <DependentUpon>WorkbenchWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Server\ToolkitApiServer.cs" />
     <Compile Include="Server\ProjectApi.cs" />
     <Compile Include="EditorPanel\LlmPanelController.cs" />

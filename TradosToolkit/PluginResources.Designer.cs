@@ -93,5 +93,29 @@ namespace TradosToolkit {
                 return ResourceManager.GetString("Qa_Task_Description", resourceCulture);
             }
         }
+
+        public static string Workbench_Group_Name {
+            get {
+                return ResourceManager.GetString("Workbench_Group_Name", resourceCulture);
+            }
+        }
+
+        public static string Workbench_Group_Description {
+            get {
+                return ResourceManager.GetString("Workbench_Group_Description", resourceCulture);
+            }
+        }
+
+        public static string Workbench_Action_Name {
+            get {
+                return ResourceManager.GetString("Workbench_Action_Name", resourceCulture);
+            }
+        }
+
+        public static string Workbench_Action_Description {
+            get {
+                return ResourceManager.GetString("Workbench_Action_Description", resourceCulture);
+            }
+        }
     }
 }

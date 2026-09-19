@@ -39,4 +39,16 @@
   <data name="Qa_Task_Description" xml:space="preserve">
     <value>Terminology consistency and missing translation checks</value>
   </data>
+  <data name="Workbench_Group_Name" xml:space="preserve">
+    <value>工作台</value>
+  </data>
+  <data name="Workbench_Group_Description" xml:space="preserve">
+    <value>TradosToolkit 工作台：运行状态与快捷入口</value>
+  </data>
+  <data name="Workbench_Action_Name" xml:space="preserve">
+    <value>工作台</value>
+  </data>
+  <data name="Workbench_Action_Description" xml:space="preserve">
+    <value>打开 TradosToolkit 工作台窗口</value>
+  </data>
 </root>
