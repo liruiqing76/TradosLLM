@@ -138,12 +138,17 @@
         <Border Grid.Row="1" Background="{DynamicResource RegionBrush}"
                 BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0,1,0,0"
                 Padding="0,12" Margin="-20,12,-20,0">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20,0">
-                <Button x:Name="OkButton" Style="{DynamicResource ButtonPrimary}" Content="确定"
-                        MinWidth="96" IsDefault="True" Click="OkButton_Click"/>
-                <Button Style="{DynamicResource ButtonDefault}" Content="取消"
-                        MinWidth="96" Margin="12,0,0,0" IsCancel="True"/>
-            </StackPanel>
+            <Grid Margin="20,0">
+                <Button Style="{DynamicResource ButtonDefault}" Content="打开日志目录"
+                        HorizontalAlignment="Left" Padding="12,6" Click="OpenLogFolder_Click"
+                        ToolTip="在资源管理器中打开 %APPDATA%\TradosToolkit\logs（按天/5MB 自动轮转，保留最近 14 份）"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="OkButton" Style="{DynamicResource ButtonPrimary}" Content="确定"
+                            MinWidth="96" IsDefault="True" Click="OkButton_Click"/>
+                    <Button Style="{DynamicResource ButtonDefault}" Content="取消"
+                            MinWidth="96" Margin="12,0,0,0" IsCancel="True"/>
+                </StackPanel>
+            </Grid>
         </Border>
     </Grid>
 </Window>

@@ -61,6 +61,11 @@ namespace TradosToolkit.TranslationProvider.UI
             new GlossaryManagerWindow(_defaultSrc, _defaultTgt) { Owner = this }.ShowDialog();
         }
 
+        private void OpenLogFolder_Click(object sender, RoutedEventArgs e)
+        {
+            ToolkitLog.OpenFolder();
+        }
+
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             var typedKey = ApiKeyBox.Password.Trim();
