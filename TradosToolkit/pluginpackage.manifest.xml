@@ -7,11 +7,9 @@
   <!-- 产品名必须与本机 Studio15\pluginconfig.xml 的 <Product name> 完全一致，否则被静默跳过：
        2019 = SDLTradosStudio；2021+ = TradosStudio（多版本发布时按目标版本切换） -->
   <RequiredProduct name="SDLTradosStudio" minversion="15.0" maxversion="19.9" />
-  <!-- 随包分发的第三方依赖（路径相对输出目录；x86/x64 由 System.Data.SQLite 按位数自动探测） -->
+  <!-- 随包分发的第三方依赖（路径相对输出目录）。
+       SQLite 不入包：运行时用 Studio 自带的 System.Data.SQLite 1.0.103 + 其原生 Interop -->
   <Include>
-    <File>System.Data.SQLite.dll</File>
-    <File>x86/SQLite.Interop.dll</File>
-    <File>x64/SQLite.Interop.dll</File>
     <File>HandyControl.dll</File>
   </Include>
 </PluginPackage>

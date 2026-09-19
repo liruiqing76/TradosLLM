@@ -25,9 +25,6 @@
     <PackageReference Include="Sdl.Core.PluginFramework.Build">
       <Version>18.0.1</Version>
     </PackageReference>
-    <PackageReference Include="System.Data.SQLite.Core">
-      <Version>1.0.119</Version>
-    </PackageReference>
     <PackageReference Include="HandyControl">
       <Version>3.5.1</Version>
     </PackageReference>
@@ -77,6 +74,12 @@
     </Reference>
     <Reference Include="Sdl.FileTypeSupport.Framework.Core">
       <HintPath>$(TradosInstallDir)\Sdl.FileTypeSupport.Framework.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <!-- SQLite 必须用 Studio 自带的 1.0.103：进程已加载其原生 SQLite.Interop.dll，
+         插件自带 1.0.119 托管层会绑到老 native 报 "sqlite3_config entry point not found" -->
+    <Reference Include="System.Data.SQLite">
+      <HintPath>$(TradosInstallDir)\System.Data.SQLite.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="Sdl.TranslationStudioAutomation.IntegrationApi">
@@ -152,13 +155,6 @@
           DestinationFolder="$(OutDir)"
           SkipUnchangedFiles="true"
           Condition="'%(Reference.HintPath)' != ''" />
-    <!-- stub.system.data.sqlite 包的 targets 无自动挂钩，SDK 工程不会复制 Interop；打包任务需要它们在输出目录 -->
-    <Copy SourceFiles="$(NuGetPackageRoot)stub.system.data.sqlite.core.netframework\1.0.119\build\net46\x86\SQLite.Interop.dll"
-          DestinationFolder="$(OutDir)x86"
-          SkipUnchangedFiles="true" />
-    <Copy SourceFiles="$(NuGetPackageRoot)stub.system.data.sqlite.core.netframework\1.0.119\build\net46\x64\SQLite.Interop.dll"
-          DestinationFolder="$(OutDir)x64"
-          SkipUnchangedFiles="true" />
   </Target>
 
 </Project>
