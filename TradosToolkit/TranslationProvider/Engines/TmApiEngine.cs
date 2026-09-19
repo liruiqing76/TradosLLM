@@ -31,6 +31,7 @@ namespace TradosToolkit.TranslationProvider.Engines
             string[] sources,
             bool[] mask,
             string apiKey,
+            SegmentContext[] contexts,
             CancellationToken cancellationToken)
         {
             var indexes = new List<int>();

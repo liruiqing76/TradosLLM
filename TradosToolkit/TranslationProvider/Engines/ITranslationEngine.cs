@@ -17,13 +17,22 @@ namespace TradosToolkit.TranslationProvider.Engines
         /// 批量查询/翻译。sources 为 Direction 抽取好的源文本
         /// （开启标签支持时含 [[n]] 占位符），返回每个段的候选结果。
         /// TM 引擎返回真实 fuzzy 分数，LLM 引擎返回固定 MT 分数。
+        /// contexts 为每段的文档邻段上下文（可整体或单项为 null），仅 LLM 引擎使用。
         /// </summary>
         Task<EngineResult[][]> TranslateAsync(
             LanguagePair languagePair,
             string[] sources,
             bool[] mask,
             string apiKey,
+            SegmentContext[] contexts,
             System.Threading.CancellationToken cancellationToken);
+    }
+
+    /// <summary>送 LLM 时的邻段上下文：同文档前一段的源文与已确定译文，用于术语/代词一致性。</summary>
+    public class SegmentContext
+    {
+        public string PrevSource { get; set; }
+        public string PrevTarget { get; set; }
     }
 
     public class EngineResult

@@ -31,7 +31,8 @@ namespace TradosToolkit.EditorPanel
 
         public static async Task<string> ChatAsync(
             string source, string target, string targetLang,
-            IList<ChatTurn> history, string userText)
+            IList<ChatTurn> history, string userText,
+            string prevSource, string prevTarget, string nextSource)
         {
             var config = ToolkitConfig.Load();
             if (IsReady() == false)
@@ -43,7 +44,7 @@ namespace TradosToolkit.EditorPanel
                 new Dictionary<string, object>
                 {
                     { "role", "system" },
-                    { "content", BuildSystemPrompt(source, target, targetLang) }
+                    { "content", BuildSystemPrompt(source, target, targetLang, prevSource, prevTarget, nextSource) }
                 }
             };
             foreach (var turn in history)
@@ -79,9 +80,11 @@ namespace TradosToolkit.EditorPanel
             return content;
         }
 
-        private static string BuildSystemPrompt(string source, string target, string targetLang)
+        private static string BuildSystemPrompt(
+            string source, string target, string targetLang,
+            string prevSource, string prevTarget, string nextSource)
         {
-            return "You are a translation review assistant embedded in the Trados Studio editor. "
+            var prompt = "You are a translation review assistant embedded in the Trados Studio editor. "
                    + "Target language: " + (string.IsNullOrEmpty(targetLang) ? "unknown (detect from the current translation)" : targetLang) + ". "
                    + "Current segment source text: " + source + " "
                    + "Current translation: " + target + " "
@@ -89,6 +92,22 @@ namespace TradosToolkit.EditorPanel
                    + "Rules: 1) Whenever you propose a final revised translation, output it on its own line wrapped exactly as <<< and >>> around the translation. "
                    + "2) Keep any placeholders/tags (e.g. [[1]]) from the source intact and in order. "
                    + "3) Write explanations in the same language the user writes in, keep them brief, no code fences.";
+
+            var context = string.Empty;
+            if (!string.IsNullOrWhiteSpace(prevSource) || !string.IsNullOrWhiteSpace(prevTarget))
+                context += " [previous segment] " + Clip(prevSource) + " => " + (string.IsNullOrWhiteSpace(prevTarget) ? "(untranslated)" : Clip(prevTarget));
+            if (!string.IsNullOrWhiteSpace(nextSource))
+                context += " [next segment source] " + Clip(nextSource);
+            if (context.Length > 0)
+                prompt += " Surrounding document context for terminology and pronoun consistency (do NOT translate or quote it):" + context;
+            return prompt;
+        }
+
+        private static string Clip(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return "(empty)";
+            text = text.Trim();
+            return text.Length <= 400 ? text : text.Substring(0, 400) + "…";
         }
 
         /// <summary>取最后一段 <<<…>>> 修订译文；没有标记时退化为整条回复。</summary>

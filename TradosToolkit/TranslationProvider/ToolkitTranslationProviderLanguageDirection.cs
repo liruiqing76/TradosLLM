@@ -37,6 +37,11 @@ namespace TradosToolkit.TranslationProvider
         private TermReplacer _preReplacer;
         private TermReplacer _postReplacer;
 
+        // 跨批上下文：预翻译按文档序分批调用同一 Direction 实例，
+        // 记住上一批最后一段的源文/译文，供下一批首段做提示词上下文。
+        private string _contextLastSource;
+        private string _contextLastTarget;
+
         public ToolkitTranslationProviderLanguageDirection(
             ITranslationProvider translationProvider,
             ITranslationEngine engine,
@@ -101,12 +106,27 @@ namespace TradosToolkit.TranslationProvider
                     sources[i] = ExtractText(segments[i], out protectedElements[i]);
                 }
 
+                var contexts = new SegmentContext[segments.Length];
+                for (var i = 0; i < segments.Length; i++)
+                {
+                    if (!mask[i] || segments[i] == null || string.IsNullOrEmpty(sources[i]))
+                        continue;
+                    var j = i - 1;
+                    while (j >= 0 && string.IsNullOrEmpty(sources[j])) j--;
+                    contexts[i] = new SegmentContext
+                    {
+                        PrevSource = j >= 0 ? sources[j] : _contextLastSource,
+                        PrevTarget = j >= 0 ? null : _contextLastTarget
+                    };
+                }
+
                 var batches = _engine
-                    .TranslateAsync(_pair, sources, mask, _apiKey, default)
+                    .TranslateAsync(_pair, sources, mask, _apiKey, contexts, default)
                     .GetAwaiter().GetResult();
 
                 var results = new SearchResults[segments.Length];
                 var hits = 0;
+                var lastRequested = -1;
                 for (var i = 0; i < segments.Length; i++)
                 {
                     if (!mask[i] || segments[i] == null)
@@ -116,8 +136,15 @@ namespace TradosToolkit.TranslationProvider
                         : null;
                     results[i] = BuildResult(segments[i], candidate, protectedElements[i]);
                     if (results[i].Results.Count > 0) hits++;
+                    if (!string.IsNullOrEmpty(sources[i]))
+                    {
+                        lastRequested = i;
+                        _contextLastSource = sources[i];
+                        _contextLastTarget = candidate?.Translation;
+                    }
                 }
-                ToolkitLog.Info("Search 完成: 命中=" + hits + "/" + requested + " 耗时=" + watch.ElapsedMilliseconds + "ms");
+                ToolkitLog.Info("Search 完成: 命中=" + hits + "/" + requested + " 上下文批尾=" +
+                                (lastRequested >= 0 ? "已更新" : "无") + " 耗时=" + watch.ElapsedMilliseconds + "ms");
                 return results;
             }
             catch (Exception e)

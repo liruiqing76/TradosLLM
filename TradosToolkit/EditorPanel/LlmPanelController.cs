@@ -92,18 +92,58 @@ namespace TradosToolkit.EditorPanel
                         break;
                     }
                 var file = _document.ActiveFile;
+                FindNeighbours(pair.Properties.Id.Id,
+                    out var prevSource, out var prevTarget, out var nextSource);
                 _view.ShowSegment(
                     pair.Properties.Id.Id,
                     pair.Source.ToString(),
                     pair.Target.ToString(),
                     pair.Properties.ConfirmationLevel.ToString(),
                     pair.Properties.IsLocked,
-                    file?.Language?.IsoAbbreviation);
+                    file?.Language?.IsoAbbreviation,
+                    prevSource, prevTarget, nextSource);
             }
             catch (Exception e)
             {
                 ToolkitLog.Error("LlmPanelController 读取当前段失败", e);
                 _view.ShowNoSegment("读取当前段失败: " + e.Message);
+            }
+        }
+
+        /// <summary>顺序遍历 SegmentPairs 找当前段的前后邻段，找到下一段即停（早停，避免全文档物化）。
+        /// 仅取文本不做标签处理；任何异常退化为无上下文，不影响面板主功能。</summary>
+        private void FindNeighbours(string activeId,
+            out string prevSource, out string prevTarget, out string nextSource)
+        {
+            prevSource = prevTarget = nextSource = null;
+            if (string.IsNullOrEmpty(activeId)) return;
+            try
+            {
+                ISegmentPair current = null;
+                ISegmentPair previous = null;
+                foreach (var sp in _document.SegmentPairs)
+                {
+                    if (current != null)
+                    {
+                        nextSource = sp.Source.ToString();
+                        break;
+                    }
+                    if (string.Equals(sp.Properties.Id.Id, activeId, StringComparison.Ordinal))
+                    {
+                        current = sp;
+                        prevSource = previous?.Source.ToString();
+                        prevTarget = previous?.Target.ToString();
+                    }
+                    else
+                    {
+                        previous = sp;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                ToolkitLog.Error("LlmPanelController 邻段扫描失败（按无上下文继续）", e);
+                prevSource = prevTarget = nextSource = null;
             }
         }
 

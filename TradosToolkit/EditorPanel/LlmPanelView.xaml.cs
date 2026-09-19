@@ -45,6 +45,9 @@ namespace TradosToolkit.EditorPanel
         private string _source = string.Empty;
         private string _target = string.Empty;
         private string _targetLang;
+        private string _prevSource;
+        private string _prevTarget;
+        private string _nextSource;
         private bool _busy;
 
         public LlmPanelView()
@@ -55,15 +58,19 @@ namespace TradosToolkit.EditorPanel
             RefreshReady();
         }
 
-        /// <summary>控制器在每次段变化/文档切换时推最新段信息；换段自动清空对话。</summary>
+        /// <summary>控制器在每次段变化/文档切换时推最新段信息（含前后邻段上下文）；换段自动清空对话。</summary>
         public void ShowSegment(string segmentId, string source, string target,
-                                string confirmationLevel, bool locked, string targetLang)
+                                string confirmationLevel, bool locked, string targetLang,
+                                string prevSource, string prevTarget, string nextSource)
         {
             var changed = !string.Equals(segmentId, _segmentId, StringComparison.Ordinal);
             _segmentId = segmentId;
             _source = source ?? string.Empty;
             _target = target ?? string.Empty;
             _targetLang = targetLang;
+            _prevSource = prevSource;
+            _prevTarget = prevTarget;
+            _nextSource = nextSource;
 
             SourceText.Text = "源: " + (_source.Length > 400 ? _source.Substring(0, 400) + "…" : _source);
             TargetText.Text = "译: " + (_target.Length > 400 ? _target.Substring(0, 400) + "…" : _target);
@@ -80,6 +87,7 @@ namespace TradosToolkit.EditorPanel
         public void ShowNoSegment(string reason)
         {
             _segmentId = null;
+            _prevSource = _prevTarget = _nextSource = null;
             SourceText.Text = reason;
             TargetText.Text = string.Empty;
             StatusChip.Text = string.Empty;
@@ -152,7 +160,8 @@ namespace TradosToolkit.EditorPanel
             SetBusy(true);
             try
             {
-                var reply = await LlmChatClient.ChatAsync(_source, _target, _targetLang, _history, userText);
+                var reply = await LlmChatClient.ChatAsync(_source, _target, _targetLang, _history, userText,
+                    _prevSource, _prevTarget, _nextSource);
                 _history.Add(new ChatTurn { Role = "assistant", Content = reply });
                 AddBubble(new Bubble { IsUser = false, Text = reply, Time = Now() });
             }

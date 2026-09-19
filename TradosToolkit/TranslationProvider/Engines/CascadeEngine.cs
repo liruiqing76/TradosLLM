@@ -43,6 +43,7 @@ namespace TradosToolkit.TranslationProvider.Engines
             string[] sources,
             bool[] mask,
             string apiKey,
+            SegmentContext[] contexts,
             CancellationToken cancellationToken)
         {
             var results = new EngineResult[sources.Length][];
@@ -59,7 +60,7 @@ namespace TradosToolkit.TranslationProvider.Engines
                 try
                 {
                     var tmResults = await _tm.TranslateAsync(
-                        languagePair, sources, mask, apiKey, cancellationToken).ConfigureAwait(false);
+                        languagePair, sources, mask, apiKey, contexts, cancellationToken).ConfigureAwait(false);
                     for (var i = 0; i < sources.Length; i++)
                         if (tmResults != null && i < tmResults.Length && tmResults[i] != null && tmResults[i].Length > 0)
                             results[i] = tmResults[i];
@@ -74,11 +75,25 @@ namespace TradosToolkit.TranslationProvider.Engines
             if (_llm != null && missing.Count > 0)
             {
                 var llmMask = new bool[sources.Length];
+                var llmContexts = new SegmentContext[sources.Length];
+                for (var i = 0; i < sources.Length; i++)
+                    llmContexts[i] = contexts != null && i < contexts.Length ? contexts[i] : null;
                 foreach (var i in missing)
+                {
                     llmMask[i] = true;
+                    // 前一段被 TM 命中的话译文此刻已确定，直接作为该段 LLM 上下文
+                    if (i > 0 && results[i - 1].Length > 0)
+                    {
+                        var prev = llmContexts[i] ?? (llmContexts[i] = new SegmentContext());
+                        if (string.IsNullOrEmpty(prev.PrevTarget))
+                            prev.PrevTarget = results[i - 1][0].Translation;
+                        if (string.IsNullOrEmpty(prev.PrevSource))
+                            prev.PrevSource = sources[i - 1];
+                    }
+                }
                 ToolkitLog.Info("级联: TM 未命中 " + missing.Count + " 段，送 LLM");
                 var llmResults = await _llm.TranslateAsync(
-                    languagePair, sources, llmMask, apiKey, cancellationToken).ConfigureAwait(false);
+                    languagePair, sources, llmMask, apiKey, llmContexts, cancellationToken).ConfigureAwait(false);
                 foreach (var i in missing)
                     if (llmResults != null && i < llmResults.Length && llmResults[i] != null && llmResults[i].Length > 0)
                         results[i] = llmResults[i];
