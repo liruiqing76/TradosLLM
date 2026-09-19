@@ -20,18 +20,29 @@ namespace TradosToolkit.Workbench
           LocationByType = typeof(TranslationStudioDefaultViews.TradosStudioViewsLocation))]
     public class TranslationCenterController : AbstractViewController
     {
+        private readonly Lazy<TranslationCenterBrowserControl> _browser;
         private readonly Lazy<ElementHost> _host;
+        private readonly Lazy<ElementHost> _navHost;
 
         public TranslationCenterController()
         {
+            _browser = new Lazy<TranslationCenterBrowserControl>(() => new TranslationCenterBrowserControl());
             _host = new Lazy<ElementHost>(() => new ElementHost
             {
                 Dock = System.Windows.Forms.DockStyle.Fill,
-                Child = new TranslationCenterBrowserControl()
+                Child = _browser.Value
+            });
+            _navHost = new Lazy<ElementHost>(() => new ElementHost
+            {
+                Dock = System.Windows.Forms.DockStyle.Fill,
+                Child = new TranslationCenterNavControl(_browser.Value)
             });
         }
 
         protected override Control GetContentControl() => _host.Value;
+
+        /// <summary>View 自带左栏（左导航条上方区域，Post-Edit 同款机制）：常用地址。</summary>
+        protected override Control GetExplorerBarControl() => _navHost.Value;
 
         protected override void Initialize(IViewContext context)
         {

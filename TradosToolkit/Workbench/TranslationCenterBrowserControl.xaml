@@ -67,7 +67,7 @@
                    TextWrapping="Wrap" Visibility="Collapsed"
                    Foreground="{DynamicResource SecondaryTextBrush}"/>
 
-        <!-- 浏览器 -->
+        <!-- 浏览器（"常用地址"在 View 自带左栏 = GetExplorerBarControl，见 TranslationCenterNavControl） -->
         <Border Grid.Row="3" Background="{DynamicResource SecondaryRegionBrush}"
                 BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="8">
             <Grid>

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Controls;
@@ -170,5 +171,38 @@ namespace TradosToolkit.Workbench
         }
 
         private void HideStatus() => StatusText.Visibility = System.Windows.Visibility.Collapsed;
+
+        /// <summary>左栏"常用地址"点击条目时调用（TranslationCenterNavControl）。</summary>
+        public void NavigateFromBookmark(string url) => Navigate(url);
+
+        /// <summary>把当前页加入常用地址并持久化；返回 false 时 message 说明原因。</summary>
+        public bool TryBookmarkCurrentPage(out string message)
+        {
+            if (!_webReady || Web.CoreWebView2 == null)
+            {
+                message = "浏览器还没就绪，稍后再试。";
+                return false;
+            }
+            var url = Web.Source == null ? null : Web.Source.AbsoluteUri;
+            if (string.IsNullOrWhiteSpace(url))
+            {
+                message = "当前没有可收藏的地址。";
+                return false;
+            }
+            var bookmarks = ToolkitConfig.Load().Bookmarks;
+            if (bookmarks.Exists(b => string.Equals(b.url, url, StringComparison.OrdinalIgnoreCase)))
+            {
+                message = "当前页已在常用地址里。";
+                return false;
+            }
+            var name = Web.CoreWebView2.DocumentTitle;
+            if (string.IsNullOrWhiteSpace(name)) name = Web.Source.Host;
+            bookmarks.Add(new ToolkitConfig.BookmarkItem { name = name, url = url });
+            ToolkitConfig.Save(bookmarks: bookmarks);
+            ToolkitLog.Info("翻译中心新增收藏: " + name + " = " + url);
+            message = "已收藏：" + name;
+            ShowStatus(message);
+            return true;
+        }
     }
 }

@@ -119,6 +119,9 @@
     <Compile Include="Workbench\TranslationCenterBrowserControl.xaml.cs">
       <DependentUpon>TranslationCenterBrowserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Workbench\TranslationCenterNavControl.xaml.cs">
+      <DependentUpon>TranslationCenterNavControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Workbench\TranslationCenterController.cs" />
     <Compile Include="Server\ToolkitApiServer.cs" />
     <Compile Include="Server\ProjectApi.cs" />
