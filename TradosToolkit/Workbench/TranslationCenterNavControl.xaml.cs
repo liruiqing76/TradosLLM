@@ -143,8 +143,9 @@ namespace TradosToolkit.Workbench
 
         private void CreateFolder(ToolkitConfig.BookmarkFolder parent)
         {
-            var name = InputDialog.Show(Window.GetWindow(this),
-                parent == null ? "新建目录" : "新建子目录（" + parent.name + "）", "目录名称：", "");
+            var name = ToolkitDialogs.Input(Window.GetWindow(this),
+                parent == null ? "新建目录" : "新建子目录", 
+                parent == null ? "目录名称：" : "在“" + parent.name + "”下新建，目录名称：", "");
             if (string.IsNullOrWhiteSpace(name)) return;
             var folder = new ToolkitConfig.BookmarkFolder { name = name.Trim() };
             if (parent == null) _folders.Add(folder);
@@ -160,7 +161,7 @@ namespace TradosToolkit.Workbench
 
         private void RenameFolder(ToolkitConfig.BookmarkFolder folder)
         {
-            var name = InputDialog.Show(Window.GetWindow(this), "重命名目录", "目录名称：", folder.name);
+            var name = ToolkitDialogs.Input(Window.GetWindow(this), "重命名目录", "目录名称：", folder.name);
             if (string.IsNullOrWhiteSpace(name)) return;
             folder.name = name.Trim();
             Persist();
@@ -170,10 +171,10 @@ namespace TradosToolkit.Workbench
 
         private void DeleteFolder(ToolkitConfig.BookmarkFolder folder)
         {
-            var confirm = MessageBox.Show(
-                "删除目录“" + folder.name + "”及其全部 " + CountAll(folder) + " 个书签（含子目录）？",
-                "翻译中心书签", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (confirm != MessageBoxResult.Yes) return;
+            var confirm = ToolkitDialogs.Confirm(Window.GetWindow(this), "删除目录",
+                "确定删除目录“" + folder.name + "”及其全部 " + CountAll(folder) + " 个书签（含子目录）吗？此操作不可撤销。",
+                danger: true);
+            if (!confirm) return;
             var host = FindHostList(_folders, folder);
             if (host == null) return;
             host.Remove(folder);
@@ -240,6 +241,16 @@ namespace TradosToolkit.Workbench
                 ShowInTaskbar = false,
                 WindowStyle = WindowStyle.ToolWindow,
             };
+            window.Resources.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new Uri("pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"),
+            });
+            window.Resources.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml"),
+            });
+            okButton.Style = (Style)window.TryFindResource("ButtonPrimary");
+            cancelButton.Style = (Style)window.TryFindResource("ButtonDefault");
             okButton.Click += (s, e) => { ok = true; window.Close(); };
             window.ShowDialog();
             if (!ok) return null;
@@ -325,41 +336,111 @@ namespace TradosToolkit.Workbench
             Escape(s).Replace("\"", "&quot;");
     }
 
-    /// <summary>轻量输入框（新建/重命名目录用），取消返回 null。</summary>
-    internal static class InputDialog
+    /// <summary>HandyControl 风格轻量弹窗（输入/确认），与配置窗口同款观感，替代原生 MessageBox。</summary>
+    internal static class ToolkitDialogs
     {
-        public static string Show(Window owner, string title, string prompt, string initial)
+        private static void ApplyTheme(Window window)
         {
-            var box = new TextBox
+            window.Resources.MergedDictionaries.Add(new ResourceDictionary
             {
-                Text = initial ?? "",
-                Margin = new Thickness(0, 6, 0, 12),
-                MinHeight = 26,
-                Padding = new Thickness(4, 2, 4, 2),
-            };
-            var ok = false;
-            var okButton = new Button { Content = "确定", MinWidth = 72, Margin = new Thickness(0, 0, 8, 0), IsDefault = true };
-            var cancelButton = new Button { Content = "取消", MinWidth = 72, IsCancel = true };
-            var panel = new StackPanel { Margin = new Thickness(14) };
-            panel.Children.Add(new TextBlock { Text = prompt });
-            panel.Children.Add(box);
-            var buttons = new StackPanel { Orientation = Orientation.Horizontal, HorizontalAlignment = HorizontalAlignment.Right };
-            buttons.Children.Add(okButton);
-            buttons.Children.Add(cancelButton);
-            panel.Children.Add(buttons);
+                Source = new Uri("pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"),
+            });
+            window.Resources.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml"),
+            });
+        }
 
+        private static StackPanel ButtonRow(params Button[] buttons)
+        {
+            var row = new StackPanel
+            {
+                Orientation = Orientation.Horizontal,
+                HorizontalAlignment = HorizontalAlignment.Right,
+                Margin = new Thickness(0, 14, 0, 0),
+            };
+            foreach (var b in buttons)
+            {
+                b.MinWidth = 76;
+                b.Margin = new Thickness(8, 0, 0, 0);
+                b.Padding = new Thickness(10, 5, 10, 5);
+                row.Children.Add(b);
+            }
+            return row;
+        }
+
+        private static Window MakeWindow(Window owner, string title, FrameworkElement content)
+        {
             var window = new Window
             {
                 Title = title,
-                Content = panel,
+                Content = content,
                 SizeToContent = SizeToContent.WidthAndHeight,
                 ResizeMode = ResizeMode.NoResize,
-                WindowStartupLocation = owner != null ? WindowStartupLocation.CenterOwner : WindowStartupLocation.CenterScreen,
+                WindowStartupLocation = owner != null
+                    ? WindowStartupLocation.CenterOwner
+                    : WindowStartupLocation.CenterScreen,
                 Owner = owner,
-                MinWidth = 280,
+                MinWidth = 300,
                 ShowInTaskbar = false,
                 WindowStyle = WindowStyle.ToolWindow,
             };
+            ApplyTheme(window);
+            return window;
+        }
+
+        /// <summary>确认弹窗；danger=true 时主按钮为红色"删除"。取消/关闭返回 false。</summary>
+        public static bool Confirm(Window owner, string title, string message, bool danger = false)
+        {
+            var panel = new StackPanel { Margin = new Thickness(18, 16, 18, 16), MaxWidth = 340 };
+            panel.Children.Add(new TextBlock
+            {
+                Text = title,
+                FontSize = 14,
+                FontWeight = FontWeights.Bold,
+                Margin = new Thickness(0, 0, 0, 8),
+            });
+            panel.Children.Add(new TextBlock
+            {
+                Text = message,
+                TextWrapping = TextWrapping.Wrap,
+                FontSize = 13,
+            });
+            var ok = false;
+            var okButton = new Button { Content = danger ? "删除" : "确定", IsDefault = true };
+            var cancelButton = new Button { Content = "取消", IsCancel = true };
+            panel.Children.Add(ButtonRow(okButton, cancelButton));
+            var window = MakeWindow(owner, title, panel);
+            // HC 样式在窗口合并字典里（Studio 的 App 级没有），必须建窗后再解析
+            okButton.Style = (Style)window.TryFindResource(danger ? "ButtonDanger" : "ButtonPrimary");
+            cancelButton.Style = (Style)window.TryFindResource("ButtonDefault");
+            okButton.Click += (s, e) => { ok = true; window.Close(); };
+            cancelButton.Focus();
+            window.ShowDialog();
+            return ok;
+        }
+
+        /// <summary>输入弹窗；取消或空白返回 null。</summary>
+        public static string Input(Window owner, string title, string prompt, string initial)
+        {
+            var panel = new StackPanel { Margin = new Thickness(18, 16, 18, 16), MinWidth = 280 };
+            panel.Children.Add(new TextBlock { Text = prompt, FontSize = 13 });
+            var box = new TextBox
+            {
+                Text = initial ?? "",
+                Margin = new Thickness(0, 8, 0, 0),
+                MinHeight = 28,
+                Padding = new Thickness(5, 3, 5, 3),
+                FontSize = 13,
+            };
+            panel.Children.Add(box);
+            var ok = false;
+            var okButton = new Button { Content = "确定", IsDefault = true };
+            var cancelButton = new Button { Content = "取消", IsCancel = true };
+            panel.Children.Add(ButtonRow(okButton, cancelButton));
+            var window = MakeWindow(owner, title, panel);
+            okButton.Style = (Style)window.TryFindResource("ButtonPrimary");
+            cancelButton.Style = (Style)window.TryFindResource("ButtonDefault");
             okButton.Click += (s, e) => { ok = true; window.Close(); };
             box.Focus();
             box.SelectAll();
