@@ -12,24 +12,36 @@
             </ResourceDictionary.MergedDictionaries>
 
             <Style x:Key="BookmarkButton" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
-                <Setter Property="Margin" Value="0,0,0,6"/>
-                <Setter Property="Padding" Value="8,6"/>
+                <Setter Property="Margin" Value="0,0,0,4"/>
+                <Setter Property="Padding" Value="6,5"/>
                 <Setter Property="HorizontalContentAlignment" Value="Left"/>
                 <Setter Property="FontSize" Value="12"/>
+            </Style>
+            <Style x:Key="FolderHeaderButton" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
+                <Setter Property="Margin" Value="0,0,0,3"/>
+                <Setter Property="Padding" Value="6,5"/>
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontWeight" Value="Bold"/>
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
 
     <DockPanel Margin="10,10,10,8">
-        <TextBlock DockPanel.Dock="Top" Text="常用地址" FontWeight="Bold" FontSize="13"
+        <TextBlock DockPanel.Dock="Top" Text="书签" FontWeight="Bold" FontSize="13"
                    Margin="2,0,0,8" Foreground="{DynamicResource PrimaryTextBrush}"/>
-        <Button DockPanel.Dock="Top" x:Name="AddBookmarkButton" Content="＋ 收藏当前页"
-                Style="{StaticResource BookmarkButton}" Click="AddBookmark_Click"
-                ToolTip="把浏览器当前页加入常用地址（自动保存到 config.json）"/>
+        <UniformGrid DockPanel.Dock="Top" Rows="1" Columns="3" Margin="0,0,0,8">
+            <Button Content="＋目录" Style="{StaticResource BookmarkButton}" Margin="0,0,4,0"
+                    Click="NewFolder_Click" ToolTip="新建书签目录"/>
+            <Button Content="☆收藏" Style="{StaticResource BookmarkButton}" Margin="0,0,4,0"
+                    Click="AddBookmark_Click" ToolTip="把浏览器当前页收藏进选中的目录"/>
+            <Button Content="⇩导出" Style="{StaticResource BookmarkButton}" Margin="0"
+                    Click="Export_Click" ToolTip="导出全部书签为 HTML（Chrome/Edge 可直接导入）"/>
+        </UniformGrid>
         <TextBlock DockPanel.Dock="Bottom" x:Name="NavStatus" FontSize="11" Margin="2,6,2,0"
                    TextWrapping="Wrap" Foreground="{DynamicResource SecondaryTextBrush}"/>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="BookmarkPanel"/>
+            <StackPanel x:Name="FolderPanel"/>
         </ScrollViewer>
     </DockPanel>
 </UserControl>
