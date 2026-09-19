@@ -105,8 +105,9 @@ namespace TradosToolkit.Workbench
                 TextTrimming = TextTrimming.CharacterEllipsis,
             };
             var url = item.url;
-            label.MouseLeftButtonUp += (s, e) => _browser.NavigateFromBookmark(url);
+            // TreeViewItem 在 MouseDown 就捕获鼠标，Up 的事件源是节点本身——处理器必须挂在节点上
             var node = new TreeViewItem { Header = label, Tag = item, ToolTip = url };
+            node.PreviewMouseLeftButtonUp += (s, e) => _browser.NavigateFromBookmark(url);
             var remove = new MenuItem { Header = "删除此地址" };
             remove.Click += (s, e) =>
             {
