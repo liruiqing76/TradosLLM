@@ -107,7 +107,6 @@
     <Compile Include="ToolkitConfig.cs" />
     <Compile Include="Diagnostics\ToolkitLog.cs" />
     <Compile Include="Action\TradosToolkitRibbonGroup.cs" />
-    <Compile Include="Action\OneClickPretranslateAction.cs" />
     <Compile Include="Server\ToolkitApiServer.cs" />
     <Compile Include="Server\ProjectApi.cs" />
     <Compile Include="EditorPanel\LlmPanelController.cs" />

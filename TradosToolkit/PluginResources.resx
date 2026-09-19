@@ -21,12 +21,6 @@
   <data name="Ribbon_Group_Description" xml:space="preserve">
     <value>TradosToolkit commands</value>
   </data>
-  <data name="Pretranslate_Action_Name" xml:space="preserve">
-    <value>One-click Pre-translate</value>
-  </data>
-  <data name="Pretranslate_Action_Description" xml:space="preserve">
-    <value>One-click pre-translate the current project</value>
-  </data>
   <data name="Toolkit_Provider_Factory_Name" xml:space="preserve">
     <value>TradosToolkit MT Provider</value>
   </data>

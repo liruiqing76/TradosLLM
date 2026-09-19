@@ -58,18 +58,6 @@ namespace TradosToolkit {
             }
         }
 
-        public static string Pretranslate_Action_Name {
-            get {
-                return ResourceManager.GetString("Pretranslate_Action_Name", resourceCulture);
-            }
-        }
-
-        public static string Pretranslate_Action_Description {
-            get {
-                return ResourceManager.GetString("Pretranslate_Action_Description", resourceCulture);
-            }
-        }
-
         public static string Toolkit_Provider_Factory_Name {
             get {
                 return ResourceManager.GetString("Toolkit_Provider_Factory_Name", resourceCulture);
