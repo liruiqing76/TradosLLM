@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Threading;
 using TradosToolkit.Diagnostics;
 
 namespace TradosToolkit.EditorPanel
@@ -49,12 +51,16 @@ namespace TradosToolkit.EditorPanel
         private string _prevTarget;
         private string _nextSource;
         private bool _busy;
+        private CancellationTokenSource _cts;
+        private readonly DispatcherTimer _busyTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
+        private DateTime _busySince;
 
         public LlmPanelView()
         {
             ToolkitLog.Info("LlmPanelView ctor");
             InitializeComponent();
             ChatList.ItemsSource = _bubbles;
+            _busyTimer.Tick += (s, e) => RefreshReady();
             RefreshReady();
         }
 
@@ -78,6 +84,7 @@ namespace TradosToolkit.EditorPanel
 
             if (changed)
             {
+                if (_busy) _cts?.Cancel();
                 _bubbles.Clear();
                 _history.Clear();
             }
@@ -95,13 +102,14 @@ namespace TradosToolkit.EditorPanel
             _history.Clear();
         }
 
-        /// <summary>LLM 未配置或无活动段时禁用发送与快捷操作并给出提示。</summary>
+        /// <summary>LLM 未配置或无活动段时禁用发送与快捷操作并给出提示；等待回复时显示秒数并允许取消。</summary>
         private void RefreshReady()
         {
             var hasSegment = _segmentId != null;
             var ready = hasSegment && LlmChatClient.IsReady();
-            InputBox.IsEnabled = ready;
-            SendButton.IsEnabled = ready && !_busy;
+            InputBox.IsEnabled = ready && !_busy;
+            SendButton.IsEnabled = ready;
+            SendButton.Content = _busy ? "取消" : "发送";
             QuickActions.IsEnabled = ready && !_busy;
 
             if (!hasSegment)
@@ -109,9 +117,15 @@ namespace TradosToolkit.EditorPanel
                 ConfigHint.Text = "打开编辑器中的目标文件后即可使用。";
                 ConfigHint.Visibility = Visibility.Visible;
             }
-            else if (!LlmChatClient.IsReady())
+            else if (!ready)
             {
                 ConfigHint.Text = "未配置 LLM：编辑 %APPDATA%\\TradosToolkit\\config.json 的 llmBaseUrl/llmModel/apiKey，或在提供程序配置窗口填写。";
+                ConfigHint.Visibility = Visibility.Visible;
+            }
+            else if (_busy)
+            {
+                var seconds = (int)((DateTime.Now - _busySince).TotalSeconds);
+                ConfigHint.Text = "⏳ 等待 LLM 回复… " + seconds + " 秒（网关较慢时可到 1 分钟，点\"取消\"可中止）";
                 ConfigHint.Visibility = Visibility.Visible;
             }
             else
@@ -123,6 +137,15 @@ namespace TradosToolkit.EditorPanel
         public void SetBusy(bool busy)
         {
             _busy = busy;
+            if (busy)
+            {
+                _busySince = DateTime.Now;
+                _busyTimer.Start();
+            }
+            else
+            {
+                _busyTimer.Stop();
+            }
             RefreshReady();
         }
 
@@ -134,6 +157,12 @@ namespace TradosToolkit.EditorPanel
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
+            if (_busy)
+            {
+                ToolkitLog.Info("面板用户取消等待中的请求");
+                _cts?.Cancel();
+                return;
+            }
             var text = InputBox.Text.Trim();
             if (!string.IsNullOrEmpty(text))
                 SendMessage(text);
@@ -158,12 +187,19 @@ namespace TradosToolkit.EditorPanel
             AddBubble(new Bubble { IsUser = true, Text = userText, Time = Now() });
             _history.Add(new ChatTurn { Role = "user", Content = userText });
             SetBusy(true);
+            _cts = new CancellationTokenSource();
             try
             {
                 var reply = await LlmChatClient.ChatAsync(_source, _target, _targetLang, _history, userText,
-                    _prevSource, _prevTarget, _nextSource);
+                    _prevSource, _prevTarget, _nextSource, _cts.Token);
                 _history.Add(new ChatTurn { Role = "assistant", Content = reply });
                 AddBubble(new Bubble { IsUser = false, Text = reply, Time = Now() });
+            }
+            catch (OperationCanceledException)
+            {
+                ToolkitLog.Info("面板对话已取消: " + userText);
+                AddBubble(new Bubble { IsUser = false, Text = "已取消等待。", Time = Now() });
+                _history.RemoveAt(_history.Count - 1);
             }
             catch (Exception ex)
             {
@@ -173,6 +209,8 @@ namespace TradosToolkit.EditorPanel
             }
             finally
             {
+                _cts.Dispose();
+                _cts = null;
                 SetBusy(false);
             }
         }

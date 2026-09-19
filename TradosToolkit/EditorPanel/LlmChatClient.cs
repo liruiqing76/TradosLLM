@@ -32,7 +32,8 @@ namespace TradosToolkit.EditorPanel
         public static async Task<string> ChatAsync(
             string source, string target, string targetLang,
             IList<ChatTurn> history, string userText,
-            string prevSource, string prevTarget, string nextSource)
+            string prevSource, string prevTarget, string nextSource,
+            CancellationToken cancellationToken = default)
         {
             var config = ToolkitConfig.Load();
             if (IsReady() == false)
@@ -61,7 +62,7 @@ namespace TradosToolkit.EditorPanel
             var url = config.LlmBaseUrl.TrimEnd('/') + "/chat/completions";
             var watch = System.Diagnostics.Stopwatch.StartNew();
             ToolkitLog.Info("面板对话请求: 历史轮数=" + history.Count / 2 + " 输入长度=" + userText.Length);
-            var response = await EngineHttp.PostJsonAsync(url, body, config.ApiKey, CancellationToken.None)
+            var response = await EngineHttp.PostJsonAsync(url, body, config.ApiKey, cancellationToken)
                                .ConfigureAwait(false);
 
             var choices = EngineHttp.AsList(response.TryGetValue("choices", out var c) ? c : null);
