@@ -1,6 +1,7 @@
 <UserControl x:Class="TradosToolkit.EditorPanel.LlmPanelView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
              FontFamily="Microsoft YaHei UI, Segoe UI" FontSize="13"
              MinWidth="240"
              Background="{DynamicResource RegionBrush}">
@@ -71,6 +72,7 @@
                                         <TextBlock Text="{Binding Time}" FontSize="10"
                                                    Foreground="{DynamicResource SecondaryTextBrush}"/>
                                         <Button Content="写入当前段" FontSize="11" Padding="7,1" Margin="10,0,0,0"
+                                                Style="{DynamicResource ButtonDefault}"
                                                 Visibility="{Binding ApplyVisibility}"
                                                 Tag="{Binding}" Click="ApplyBubble_Click"/>
                                     </StackPanel>
@@ -85,8 +87,8 @@
         <!-- 快捷操作 -->
         <WrapPanel Grid.Row="2" x:Name="QuickActions" Margin="0,8,0,6">
             <WrapPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Padding" Value="9,3"/>
+                <Style TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
+                    <Setter Property="Padding" Value="10,4"/>
                     <Setter Property="Margin" Value="0,0,6,4"/>
                     <Setter Property="FontSize" Value="12"/>
                 </Style>
@@ -105,10 +107,12 @@
                 <Button x:Name="SendButton" DockPanel.Dock="Right" Content="发送"
                         Style="{DynamicResource ButtonPrimary}" Padding="14,4" Margin="6,0,0,0"
                         Click="Send_Click"/>
-                <TextBox x:Name="InputBox" MinHeight="46" MaxHeight="120" AcceptsReturn="True"
-                         TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
-                         ToolTip="Enter 发送，Shift+Enter 换行"
-                         PreviewKeyDown="InputBox_PreviewKeyDown"/>
+                <hc:TextBox x:Name="InputBox" MinHeight="46" MaxHeight="120" AcceptsReturn="True"
+                            TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                            hc:InfoElement.Placeholder="说明修改要求，Enter 发送，Shift+Enter 换行"
+                            Style="{StaticResource TextBoxExtend}"
+                            ToolTip="Enter 发送，Shift+Enter 换行"
+                            PreviewKeyDown="InputBox_PreviewKeyDown"/>
             </DockPanel>
             <CheckBox x:Name="MarkTranslatedCheck" IsChecked="True" Margin="2,5,0,0"
                       Content="写入当前段后标记为“译文”状态"/>
