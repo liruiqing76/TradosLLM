@@ -183,4 +183,15 @@
           Condition="Exists('$(OutDir)runtimes\win-x86\native\WebView2Loader.dll')" />
   </Target>
 
+  <!-- Studio 2019 签名校验对"已签名但非 OpenX 证书"的包会误判通过（ValidatingPluginLocator
+       反编译实证），自签即可去掉每次启动的"未认证插件 Yes/No"弹窗。打完包后签名，
+       并覆盖已部署到 Packages 的副本，保证包与 Unpacked 内容一致。 -->
+  <Target Name="SignPluginPackage" AfterTargets="GeneratePluginManifestTarget">
+    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\..\tools\sign-sdlplugin.ps1&quot; -PackagePath &quot;$(TargetDir)$(TargetName).sdlplugin&quot;" />
+    <Copy SourceFiles="$(TargetDir)$(TargetName).sdlplugin"
+          DestinationFolder="$(PluginDeploymentPath)\Packages"
+          SkipUnchangedFiles="false"
+          Condition="Exists('$(PluginDeploymentPath)\Packages')" />
+  </Target>
+
 </Project>
