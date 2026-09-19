@@ -99,3 +99,26 @@ WebView2Loader.dll        ← 必须平铺在 Unpacked 根，不是 runtimes\ �
 - .NET Framework 4.8（运行时）
 - Windows 10 1803+ / Windows 11
 - （仅翻译中心浏览器）Edge WebView2 Runtime Evergreen
+
+## 五、离线构建（依赖包已随仓库分发）
+
+构建期 NuGet 依赖已全部 vendor 进仓库 `third_party/nuget/`（4 个 .nupkg，约 18MB）：
+
+| 包 | 版本 | 用途 |
+|---|---|---|
+| Sdl.Core.PluginFramework | 2.1.0 | 扩展特性/控制器基类（编译引用；运行时用 Studio 自带） |
+| Sdl.Core.PluginFramework.Build | 18.0.1 | 清单生成 + ResGen 资源编译 + .sdlplugin 打包任务 |
+| HandyControl | 3.5.1 | WPF 皮肤（打进包内） |
+| Microsoft.Web.WebView2 | 1.0.4191.47 | 翻译中心浏览器托管层（Core/Wpf 打进包内） |
+
+仓库根 `nuget.config` 已 `<clear/>` 包源并只指向 `third_party/nuget`——无网机器 clone 后直接：
+
+```
+MSBuild.exe TradosToolkit/TradosToolkit.csproj -t:Rebuild -p:Configuration=Release
+```
+
+已实测：全新空缓存（RestorePackagesPath 指向空目录）下 restore+构建全绿。
+
+注意两点：
+1. 构建机仍需**本机安装 Studio 2019**——13 个 `Sdl.*` 引用与 System.Data.SQLite 走 `$(TradosInstallDir)` HintPath（`C:\Program Files (x86)\SDL\SDL Trados Studio\Studio15`），这些是 Studio 安装件、不进仓库；ResGen.exe 需 .NET Framework SDK/Win10 SDK 注册表可寻。
+2. 以后新增 PackageReference 时，须把该包**及其传递依赖**的 .nupkg 一并放进 `third_party/nuget/`，否则离线 restore 会报错（这是 `<clear/>` 的预期行为，防止悄悄引入未 vendor 的依赖）。
