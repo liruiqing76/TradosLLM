@@ -1,11 +1,9 @@
 using System;
-using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using Sdl.Core.Globalization;
 using Sdl.Desktop.IntegrationApi;
 using Sdl.Desktop.IntegrationApi.Extensions;
-using Sdl.FileTypeSupport.Framework;
 using Sdl.FileTypeSupport.Framework.BilingualApi;
 using Sdl.TranslationStudioAutomation.IntegrationApi;
 using TradosToolkit.Diagnostics;
@@ -85,8 +83,14 @@ namespace TradosToolkit.EditorPanel
                     return;
                 }
 
-                _targetHasTags = pair.Target.OfType<IAbstractMarkupData>()
-                                     .Any(item => !(item is IText));
+                // 2019 的 Segment.GetEnumerator() 直接抛 NotImplemented，只能用 Count/索引器遍历
+                _targetHasTags = false;
+                for (var i = 0; i < pair.Target.Count; i++)
+                    if (!(pair.Target[i] is IText))
+                    {
+                        _targetHasTags = true;
+                        break;
+                    }
                 var file = _document.ActiveFile;
                 _view.ShowSegment(
                     pair.Properties.Id.Id,
