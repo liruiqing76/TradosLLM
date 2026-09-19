@@ -42,6 +42,7 @@ Trados Studio 2019（Studio15）翻译插件：**单个 .sdlplugin 兼容内网�
 
 - [docs/API.md](docs/API.md) — 本地 HTTP API 完整说明
 - [docs/SDL_PLUGIN_SIGNING.md](docs/SDL_PLUGIN_SIGNING.md) — 自签 .sdlplugin 消除未注册弹窗的完整原理与做法（含反编译证据链，可复用到其他 SDL 插件）
+- [docs/ROADMAP.md](docs/ROADMAP.md) — 优化路线图（术语库升级为原生 ITermbaseProvider 的可行性 + 体验优化提案，均为计划未实施）
 - [docs/OFFLINE_DEPLOY.md](docs/OFFLINE_DEPLOY.md) — 离线构建与部署
 - [release/README.md](release/README.md) — 现成包安装说明
 
