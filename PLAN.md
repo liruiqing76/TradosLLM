@@ -58,6 +58,7 @@ PluginResources.resx        ← 本地化字符串(插件名等)
 - [ ] M7: 多版本打包 + 签名 + AppStore 发布
 
 ## 本地 HTTP API（agent 控制入口）
+完整逐端点文档见 [docs/API.md](docs/API.md)。
 Studio 启动即随 Ribbon 组自启 HttpListener，仅监听 `http://localhost:53902/`。
 - 令牌鉴权: `%AppData%\TradosToolkit\api.token`，请求头 `X-Api-Key`（或 `?key=`）；`/api/status` 免鉴权
 - 配置: `%AppData%\TradosToolkit\api.json` `{"enabled":true,"port":53902}`；日志 `api.log`
