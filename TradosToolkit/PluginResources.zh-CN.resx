@@ -12,52 +12,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Plugin_Name" xml:space="preserve">
-    <value>TradosToolkit</value>
-  </data>
-  <data name="Ribbon_Group_Name" xml:space="preserve">
-    <value>TradosToolkit</value>
-  </data>
   <data name="Ribbon_Group_Description" xml:space="preserve">
-    <value>TradosToolkit commands</value>
+    <value>TradosToolkit 命令</value>
   </data>
   <data name="Toolkit_Provider_Factory_Name" xml:space="preserve">
-    <value>TradosToolkit MT Provider</value>
+    <value>TradosToolkit 机器翻译提供程序</value>
   </data>
   <data name="Toolkit_Provider_Factory_Description" xml:space="preserve">
-    <value>Machine translation provider by TradosToolkit</value>
+    <value>由 TradosToolkit 提供的机器翻译引擎</value>
   </data>
   <data name="Toolkit_Provider_WinFormsUI_Name" xml:space="preserve">
-    <value>TradosToolkit MT Provider</value>
+    <value>TradosToolkit 机器翻译提供程序</value>
   </data>
   <data name="Toolkit_Provider_WinFormsUI_Description" xml:space="preserve">
-    <value>Configuration UI for the TradosToolkit MT provider</value>
+    <value>TradosToolkit 机器翻译提供程序配置界面</value>
   </data>
   <data name="Qa_Task_Name" xml:space="preserve">
-    <value>TradosToolkit QA Check</value>
+    <value>TradosToolkit QA 检查</value>
   </data>
   <data name="Qa_Task_Description" xml:space="preserve">
-    <value>Terminology consistency and missing translation checks</value>
+    <value>术语一致性与漏译检查</value>
   </data>
   <data name="Workbench_Group_Name" xml:space="preserve">
-    <value>Workbench</value>
+    <value>工作台</value>
   </data>
   <data name="Workbench_Group_Description" xml:space="preserve">
-    <value>TradosToolkit workbench: status and quick entry</value>
+    <value>TradosToolkit 工作台：运行状态与快捷入口</value>
   </data>
   <data name="Workbench_Action_Name" xml:space="preserve">
-    <value>Workbench</value>
+    <value>工作台</value>
   </data>
   <data name="Workbench_Action_Description" xml:space="preserve">
-    <value>Open the TradosToolkit workbench window</value>
+    <value>打开 TradosToolkit 工作台窗口</value>
   </data>
   <data name="Translation_Center_View_Name" xml:space="preserve">
-    <value>Translation Center</value>
+    <value>翻译中心</value>
   </data>
   <data name="Translation_Center_View_Description" xml:space="preserve">
-    <value>TradosToolkit Translation Center: status and project integration</value>
-  </data>
-  <data name="Translation_Center_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\translation-center.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>TradosToolkit 翻译中心：运行状态与项目集成</value>
   </data>
 </root>

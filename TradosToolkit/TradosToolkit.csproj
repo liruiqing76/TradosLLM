@@ -158,7 +158,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- 插件资源 resx 由 SDL 打包任务用 ResGen 单独编译成 .plugin[.culture].resources，
+         排除 SDK 默认 EmbeddedResource glob，避免混进主程序集/生成多余卫星 dll -->
+    <EmbeddedResource Remove="PluginResources.resx" />
+    <EmbeddedResource Remove="PluginResources.zh-CN.resx" />
     <None Include="PluginResources.resx" />
+    <None Include="PluginResources.zh-CN.resx" />
     <None Include="pluginpackage.manifest.xml" />
   </ItemGroup>
 
