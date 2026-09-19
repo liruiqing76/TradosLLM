@@ -20,11 +20,12 @@ namespace TradosToolkit
             public string url;
         }
 
-        /// <summary>翻译中心书签目录（config.json 的 translationCenterFolders）。</summary>
+        /// <summary>翻译中心书签目录（config.json 的 translationCenterFolders，folders 字段可无限嵌套）。</summary>
         public class BookmarkFolder
         {
             public string name;
             public List<BookmarkItem> items = new List<BookmarkItem>();
+            public List<BookmarkFolder> folders = new List<BookmarkFolder>();
         }
 
         public string TmUrl = string.Empty;
@@ -138,6 +139,7 @@ namespace TradosToolkit
                 {
                     name = d.TryGetValue("name", out var n) ? (n as string ?? "未命名") : "未命名",
                     items = d.TryGetValue("items", out var its) ? ParseItems(its) : new List<BookmarkItem>(),
+                    folders = d.TryGetValue("folders", out var subs) ? ParseFolders(subs) : new List<BookmarkFolder>(),
                 };
                 folders.Add(folder);
             }
