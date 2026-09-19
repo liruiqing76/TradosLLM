@@ -14,4 +14,4 @@
 - 若插件没出现：看 `%LOCALAPPDATA%\SDL\SDL Trados Studio\15.0.0.0\SDL Trados Studio_<pid>.log`（UTF-16），
   常见原因是 RequiredProduct 与 pluginconfig.xml 不匹配（详见 ../docs/OFFLINE_DEPLOY.md）。
 
-> 该文件与 git 提交同步更新；每次改代码构建后应把新包复制到这里再提交。
+> 该文件由构建自动维护：csproj 的 `SignPluginPackage` 目标每次构建后会把最新签名包复制到这里，随代码一起提交即可。

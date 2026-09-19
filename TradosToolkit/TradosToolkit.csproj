@@ -191,7 +191,11 @@
     <Copy SourceFiles="$(TargetDir)$(TargetName).sdlplugin"
           DestinationFolder="$(PluginDeploymentPath)\Packages"
           SkipUnchangedFiles="false"
-          Condition="Exists('$(PluginDeploymentPath)\Packages')" />
+          Condition="'$(DeployPluginPackage)' == 'true' And Exists('$(PluginDeploymentPath)\Packages')" />
+    <!-- 仓库 release/ 始终放最新签名包，目标机免构建直接取用 -->
+    <Copy SourceFiles="$(TargetDir)$(TargetName).sdlplugin"
+          DestinationFolder="$(MSBuildProjectDirectory)\..\release"
+          SkipUnchangedFiles="false" />
   </Target>
 
 </Project>
