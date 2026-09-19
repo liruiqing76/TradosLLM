@@ -11,5 +11,8 @@
        SQLite 不入包：运行时用 Studio 自带的 System.Data.SQLite 1.0.103 + 其原生 Interop -->
   <Include>
     <File>HandyControl.dll</File>
+    <File>Microsoft.Web.WebView2.Core.dll</File>
+    <File>Microsoft.Web.WebView2.Wpf.dll</File>
+    <File>WebView2Loader.dll</File>
   </Include>
 </PluginPackage>

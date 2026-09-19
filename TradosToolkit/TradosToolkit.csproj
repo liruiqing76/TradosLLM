@@ -28,6 +28,10 @@
     <PackageReference Include="HandyControl">
       <Version>3.5.1</Version>
     </PackageReference>
+    <!-- 翻译中心内置浏览器：托管层很小，渲染用系统 Edge WebView2 运行时，不把浏览器塞进包 -->
+    <PackageReference Include="Microsoft.Web.WebView2">
+      <Version>1.0.4191.47</Version>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -112,8 +116,8 @@
     <Compile Include="Workbench\WorkbenchWindow.xaml.cs">
       <DependentUpon>WorkbenchWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Workbench\WorkbenchControl.xaml.cs">
-      <DependentUpon>WorkbenchControl.xaml</DependentUpon>
+    <Compile Include="Workbench\TranslationCenterBrowserControl.xaml.cs">
+      <DependentUpon>TranslationCenterBrowserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Workbench\TranslationCenterController.cs" />
     <Compile Include="Server\ToolkitApiServer.cs" />
@@ -163,6 +167,12 @@
           DestinationFolder="$(OutDir)"
           SkipUnchangedFiles="true"
           Condition="'%(Reference.HintPath)' != ''" />
+    <!-- WebView2 原生加载器：NuGet targets 只放 win-x86 子目录，插件目录无子目录探测，
+         拷到输出根随包分发，运行时由 TranslationCenterBrowserControl 按绝对路径 LoadLibrary -->
+    <Copy SourceFiles="$(OutDir)runtimes\win-x86\native\WebView2Loader.dll"
+          DestinationFolder="$(OutDir)"
+          SkipUnchangedFiles="true"
+          Condition="Exists('$(OutDir)runtimes\win-x86\native\WebView2Loader.dll')" />
   </Target>
 
 </Project>

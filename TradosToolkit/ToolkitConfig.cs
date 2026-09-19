@@ -17,6 +17,8 @@ namespace TradosToolkit
         public string ApiKey = string.Empty;
         public string LlmBaseUrl = string.Empty;
         public string LlmModel = string.Empty;
+        /// <summary>翻译中心主页地址（config.json 的 translationCenterUrl，空 = bing）。</summary>
+        public string TranslationCenterUrl = string.Empty;
         /// <summary>LLM 并发请求数（config.json 的 llmConcurrency，缺省 6）。</summary>
         public int LlmConcurrency = 6;
 
@@ -48,6 +50,8 @@ namespace TradosToolkit
                         config.LlmBaseUrl = (b ?? string.Empty).Trim();
                     if (json.TryGetValue("llmModel", out var mo) && mo is string m)
                         config.LlmModel = (m ?? string.Empty).Trim();
+                    if (json.TryGetValue("translationCenterUrl", out var tc) && tc is string t)
+                        config.TranslationCenterUrl = (t ?? string.Empty).Trim();
                     if (json.TryGetValue("llmConcurrency", out var cc))
                         config.LlmConcurrency = Math.Max(1, Math.Min(32, Convert.ToInt32(cc)));
                 }
@@ -62,7 +66,8 @@ namespace TradosToolkit
         }
 
         /// <summary>配置窗口点确定时调用：null 表示不改动该字段，保留文件里其余内容。</summary>
-        public static void Save(string apiKey = null, string llmBaseUrl = null, string llmModel = null)
+        public static void Save(string apiKey = null, string llmBaseUrl = null, string llmModel = null,
+                               string translationCenterUrl = null)
         {
             try
             {
@@ -74,6 +79,7 @@ namespace TradosToolkit
                 if (apiKey != null) doc["apiKey"] = apiKey;
                 if (llmBaseUrl != null) doc["llmBaseUrl"] = llmBaseUrl;
                 if (llmModel != null) doc["llmModel"] = llmModel;
+                if (translationCenterUrl != null) doc["translationCenterUrl"] = translationCenterUrl;
                 Directory.CreateDirectory(Path.GetDirectoryName(ConfigFilePath));
                 File.WriteAllText(ConfigFilePath, json.Serialize(doc));
                 ToolkitLog.Info("ToolkitConfig: 已保存 (apiKey=" + (apiKey == null ? "不变" : "长度" + apiKey.Length) +
