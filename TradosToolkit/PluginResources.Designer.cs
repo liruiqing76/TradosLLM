@@ -117,5 +117,17 @@ namespace TradosToolkit {
                 return ResourceManager.GetString("Workbench_Action_Description", resourceCulture);
             }
         }
+
+        public static string Translation_Center_View_Name {
+            get {
+                return ResourceManager.GetString("Translation_Center_View_Name", resourceCulture);
+            }
+        }
+
+        public static string Translation_Center_View_Description {
+            get {
+                return ResourceManager.GetString("Translation_Center_View_Description", resourceCulture);
+            }
+        }
     }
 }

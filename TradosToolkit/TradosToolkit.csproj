@@ -112,6 +112,10 @@
     <Compile Include="Workbench\WorkbenchWindow.xaml.cs">
       <DependentUpon>WorkbenchWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Workbench\WorkbenchControl.xaml.cs">
+      <DependentUpon>WorkbenchControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workbench\TranslationCenterController.cs" />
     <Compile Include="Server\ToolkitApiServer.cs" />
     <Compile Include="Server\ProjectApi.cs" />
     <Compile Include="EditorPanel\LlmPanelController.cs" />

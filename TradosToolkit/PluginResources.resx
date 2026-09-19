@@ -51,4 +51,10 @@
   <data name="Workbench_Action_Description" xml:space="preserve">
     <value>打开 TradosToolkit 工作台窗口</value>
   </data>
+  <data name="Translation_Center_View_Name" xml:space="preserve">
+    <value>翻译中心</value>
+  </data>
+  <data name="Translation_Center_View_Description" xml:space="preserve">
+    <value>TradosToolkit 翻译中心：运行状态与项目集成</value>
+  </data>
 </root>
