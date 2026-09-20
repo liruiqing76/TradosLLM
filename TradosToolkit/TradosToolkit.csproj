@@ -111,6 +111,8 @@
     <Compile Include="ToolkitConfig.cs" />
     <Compile Include="UiText.cs" />
     <Compile Include="TranslationMemories\LocalTmScanner.cs" />
+    <Compile Include="TranslationMemories\TmToolkit.cs" />
+    <Compile Include="Workbench\TmToolDialogs.cs" />
     <Compile Include="Diagnostics\ToolkitLog.cs" />
     <Compile Include="Action\TradosToolkitRibbonGroup.cs" />
     <Compile Include="Action\ToolkitWorkbenchRibbonGroup.cs" />

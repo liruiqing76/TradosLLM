@@ -301,6 +301,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
@@ -337,9 +338,22 @@
                                  VerticalAlignment="Center" Visibility="Collapsed" IsIndeterminate="True"/>
                 </StackPanel>
 
-                <Border Grid.Row="3" CornerRadius="12" BorderThickness="1"
+                <WrapPanel Grid.Row="3" Margin="0,0,0,10">
+                    <Button x:Name="NewTmButton" Content="New TM…" Style="{StaticResource GhostButton}"
+                            Margin="0,0,10,0" Click="NewTm_Click"/>
+                    <Button x:Name="MergeButton" Content="Merge selected…" Style="{StaticResource GhostButton}"
+                            Margin="0,0,10,0" Click="Merge_Click"/>
+                    <Button x:Name="DupesButton" Content="Find duplicates" Style="{StaticResource GhostButton}"
+                            Margin="0,0,10,0" Click="Dupes_Click"/>
+                    <Button x:Name="AddProjButton" Content="Add to current project" Style="{StaticResource GhostButton}"
+                            Margin="0,0,10,0" Click="AddToProject_Click"/>
+                    <Button x:Name="MemOpCancel" Content="Cancel" Style="{StaticResource GhostButton}"
+                            Visibility="Collapsed" Click="CancelMemOp_Click"/>
+                </WrapPanel>
+
+                <Border Grid.Row="4" CornerRadius="12" BorderThickness="1"
                         BorderBrush="{DynamicResource TileBorderBrush}">
-                    <ListView x:Name="TmList" BorderThickness="0"
+                    <ListView x:Name="TmList" BorderThickness="0" SelectionMode="Extended"
                               MouseDoubleClick="TmList_MouseDoubleClick">
                         <ListView.ContextMenu>
                             <ContextMenu>

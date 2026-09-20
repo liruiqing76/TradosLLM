@@ -213,4 +213,112 @@
   <data name="WB_Err_OpenFailed" xml:space="preserve">
     <value>打开失败：{0}</value>
   </data>
+  <data name="WB_Mem_Tool_New" xml:space="preserve">
+    <value>新建记忆库…</value>
+  </data>
+  <data name="WB_Mem_Tool_Merge" xml:space="preserve">
+    <value>合并所选…</value>
+  </data>
+  <data name="WB_Mem_Tool_Dupes" xml:space="preserve">
+    <value>检测重复条目</value>
+  </data>
+  <data name="WB_Mem_Tool_AddProj" xml:space="preserve">
+    <value>添加到当前项目</value>
+  </data>
+  <data name="WB_Mem_New_Path" xml:space="preserve">
+    <value>记忆库文件</value>
+  </data>
+  <data name="WB_Mem_New_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="WB_Mem_New_Src" xml:space="preserve">
+    <value>源语言</value>
+  </data>
+  <data name="WB_Mem_New_Tgt" xml:space="preserve">
+    <value>目标语言</value>
+  </data>
+  <data name="WB_Mem_Ok" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="WB_Mem_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="WB_Mem_Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="WB_Mem_Merge_Count" xml:space="preserve">
+    <value>正在合并 {0} 个记忆库：</value>
+  </data>
+  <data name="WB_Mem_Merge_Sources" xml:space="preserve">
+    <value>源库</value>
+  </data>
+  <data name="WB_Mem_Merge_Target" xml:space="preserve">
+    <value>目标文件</value>
+  </data>
+  <data name="WB_Mem_Merge_Policy" xml:space="preserve">
+    <value>冲突处理</value>
+  </data>
+  <data name="WB_Policy_Newest" xml:space="preserve">
+    <value>保留最新</value>
+  </data>
+  <data name="WB_Policy_Oldest" xml:space="preserve">
+    <value>保留最旧</value>
+  </data>
+  <data name="WB_Policy_First" xml:space="preserve">
+    <value>保留先出现</value>
+  </data>
+  <data name="WB_Mem_Err_NoPath" xml:space="preserve">
+    <value>请先选择目标文件</value>
+  </data>
+  <data name="WB_Mem_Err_Exists" xml:space="preserve">
+    <value>文件已存在</value>
+  </data>
+  <data name="WB_Mem_Err_Pair" xml:space="preserve">
+    <value>源语言与目标语言不能相同</value>
+  </data>
+  <data name="WB_Mem_Err_TargetIsSource" xml:space="preserve">
+    <value>目标文件不能是源库之一</value>
+  </data>
+  <data name="WB_Mem_Result_Dupes" xml:space="preserve">
+    <value>发现 {0} 组重复条目</value>
+  </data>
+  <data name="WB_Mem_Dupes_Count" xml:space="preserve">
+    <value>条数</value>
+  </data>
+  <data name="WB_Mem_Dupes_Source" xml:space="preserve">
+    <value>原文</value>
+  </data>
+  <data name="WB_Mem_Dupes_Targets" xml:space="preserve">
+    <value>不同译文</value>
+  </data>
+  <data name="WB_Mem_Busy" xml:space="preserve">
+    <value>处理中… {0}</value>
+  </data>
+  <data name="WB_Mem_Err_Load" xml:space="preserve">
+    <value>操作失败：{0}</value>
+  </data>
+  <data name="WB_Mem_Result_New" xml:space="preserve">
+    <value>已创建空库：{0}</value>
+  </data>
+  <data name="WB_Mem_Result_Merge" xml:space="preserve">
+    <value>合并完成：读入 {0}，写入 {1}，重复跳过 {2}，冲突 {3}</value>
+  </data>
+  <data name="WB_Mem_Result_None" xml:space="preserve">
+    <value>未发现重复条目</value>
+  </data>
+  <data name="WB_Mem_Result_Added" xml:space="preserve">
+    <value>已添加到当前项目：{0}</value>
+  </data>
+  <data name="WB_Mem_AlreadyAdded" xml:space="preserve">
+    <value>该库已在当前项目中</value>
+  </data>
+  <data name="WB_Mem_Err_NoSel" xml:space="preserve">
+    <value>先在列表中选中记忆库</value>
+  </data>
+  <data name="WB_Mem_Err_NeedTwo" xml:space="preserve">
+    <value>合并需要至少选中两个记忆库</value>
+  </data>
+  <data name="WB_Mem_Err_NoProject" xml:space="preserve">
+    <value>当前没有打开的项目</value>
+  </data>
 </root>

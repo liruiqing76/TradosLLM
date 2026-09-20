@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -104,6 +105,11 @@ namespace TradosToolkit.Workbench
             ColStatus.Content = UiText.T("WB_Mem_Col_Status");
             MenuOpenFolder.Header = UiText.T("WB_Mem_OpenFolder");
             MenuCopyPath.Header = UiText.T("WB_Mem_CopyPath");
+            NewTmButton.Content = UiText.T("WB_Mem_Tool_New");
+            MergeButton.Content = UiText.T("WB_Mem_Tool_Merge");
+            DupesButton.Content = UiText.T("WB_Mem_Tool_Dupes");
+            AddProjButton.Content = UiText.T("WB_Mem_Tool_AddProj");
+            MemOpCancel.Content = UiText.T("WB_Mem_Btn_Cancel");
 
             QuickTitle.Text = UiText.T("WB_Quik_Title").ToUpperInvariant();
             ProviderButton.Content = UiText.T("WB_Quik_Provider");
@@ -399,6 +405,189 @@ namespace TradosToolkit.Workbench
                 ToolkitLog.Error("工作台：定位文件失败", ex);
                 MessageBox.Show(this, UiText.Tf("WB_Err_OpenFailed", ex.Message), UiText.T("WB_Title"),
                     MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        // ==================== 记忆库工具（新建/合并/查重/加入项目） ====================
+
+        private CancellationTokenSource _memOpCts;
+        private bool _memOpBusy;
+
+        /// <summary>后台跑记忆库操作：状态行 + 进度条 + 取消，全部按钮禁用防重入。</summary>
+        private async Task RunMemOpAsync(string opName, Func<IProgress<string>, CancellationToken, Task> op)
+        {
+            if (_scanning || _memOpBusy) return;
+            _memOpBusy = true;
+            SetMemToolsEnabled(false);
+            MemOpCancel.Visibility = Visibility.Visible;
+            TmProgress.Visibility = Visibility.Visible;
+            var watch = Stopwatch.StartNew();
+            ToolkitLog.Info("工作台：记忆库操作开始 " + opName);
+            try
+            {
+                var progress = new Progress<string>(s => TmStatusText.Text = UiText.Tf("WB_Mem_Busy", s));
+                await op(progress, _memOpCts.Token);
+                ToolkitLog.Info("工作台：记忆库操作完成 " + opName + " 耗时=" + watch.ElapsedMilliseconds + "ms");
+            }
+            catch (OperationCanceledException)
+            {
+                TmStatusText.Text = UiText.T("WB_Mem_Cancelled");
+                ToolkitLog.Info("工作台：记忆库操作取消 " + opName);
+            }
+            catch (Exception ex)
+            {
+                TmStatusText.Text = UiText.Tf("WB_Mem_Err_Load", ex.Message);
+                ToolkitLog.Error("工作台：记忆库操作失败 " + opName, ex);
+            }
+            finally
+            {
+                _memOpBusy = false;
+                MemOpCancel.Visibility = Visibility.Collapsed;
+                TmProgress.Visibility = Visibility.Collapsed;
+                SetMemToolsEnabled(true);
+                _memOpCts.Dispose();
+                _memOpCts = null;
+            }
+        }
+
+        private void SetMemToolsEnabled(bool enabled)
+        {
+            NewTmButton.IsEnabled = enabled;
+            MergeButton.IsEnabled = enabled;
+            DupesButton.IsEnabled = enabled;
+            AddProjButton.IsEnabled = enabled;
+            ScanButton.IsEnabled = enabled;
+        }
+
+        private void CancelMemOp_Click(object sender, RoutedEventArgs e)
+        {
+            ToolkitLog.Info("工作台：用户取消记忆库操作");
+            _memOpCts?.Cancel();
+        }
+
+        /// <summary>操作成功后重跑一次扫描刷新列表（复用当前目录，不打扰用户）。</summary>
+        private async Task RescanAfterOpAsync()
+        {
+            if (!string.IsNullOrWhiteSpace(TmDirBox.Text) && Directory.Exists(TmDirBox.Text.Trim()))
+                await Scan_Click_Inline();
+        }
+
+        private async Task Scan_Click_Inline()
+        {
+            // Scan_Click 是 async void 事件处理器，这里等价的 Task 版本供操作完成后刷新
+            var dir = TmDirBox.Text.Trim();
+            if (_scanning || !Directory.Exists(dir)) return;
+            _scanning = true;
+            SetMemToolsEnabled(false);
+            ScanCancelButton.Visibility = Visibility.Visible;
+            TmProgress.Visibility = Visibility.Visible;
+            _scanCts = new CancellationTokenSource();
+            try
+            {
+                var items = await LocalTmScanner.ScanAsync(dir, null, _scanCts.Token);
+                TmList.ItemsSource = items;
+            }
+            finally
+            {
+                _scanning = false;
+                SetMemToolsEnabled(true);
+                ScanCancelButton.Visibility = Visibility.Collapsed;
+                TmProgress.Visibility = Visibility.Collapsed;
+                _scanCts.Dispose();
+                _scanCts = null;
+            }
+        }
+
+        private void NewTm_Click(object sender, RoutedEventArgs e)
+        {
+            if (!TmToolDialogs.CreateTm(this, out var path, out var name, out var src, out var tgt)) return;
+            TmStatusText.Text = UiText.Tf("WB_Mem_Result_New", name);
+            ToolkitLog.Info("工作台：新建记忆库完成 " + path + " " + src.Name + "→" + tgt.Name);
+            _ = RescanAfterOpAsync();
+        }
+
+        private void Merge_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = TmList.SelectedItems.OfType<LocalTmInfo>()
+                .Where(x => x.State == LocalTmState.Ok).ToList();
+            if (selected.Count < 2)
+            {
+                TmStatusText.Text = UiText.T("WB_Mem_Err_NeedTwo");
+                return;
+            }
+            if (!TmToolDialogs.MergeDialog(this, selected, out var targetPath, out var policy)) return;
+
+            var sources = selected.Select(x => x.FilePath).ToList();
+            _memOpCts = new CancellationTokenSource();
+            _ = RunMemOpAsync("merge(" + sources.Count + ")", async (progress, ct) =>
+            {
+                var report = await Task.Run(() => TmToolkit.Merge(sources, targetPath, policy, progress, ct), CancellationToken.None);
+                TmStatusText.Text = UiText.Tf("WB_Mem_Result_Merge", report.Read, report.Written,
+                    report.SkippedDuplicates, report.ConflictsResolved);
+                await RescanAfterOpAsync();
+            });
+        }
+
+        private void Dupes_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(TmList.SelectedItem is LocalTmInfo item) || item.State != LocalTmState.Ok)
+            {
+                TmStatusText.Text = UiText.T("WB_Mem_Err_NoSel");
+                return;
+            }
+            _memOpCts = new CancellationTokenSource();
+            var path = item.FilePath;
+            _ = RunMemOpAsync("duplicates(" + item.Name + ")", async (progress, ct) =>
+            {
+                var groups = await Task.Run(() => TmToolkit.FindDuplicates(path, null, ct), CancellationToken.None);
+                if (groups.Count == 0)
+                {
+                    TmStatusText.Text = UiText.T("WB_Mem_Result_None");
+                    return;
+                }
+                TmStatusText.Text = UiText.Tf("WB_Mem_Result_Dupes", groups.Count);
+                Dispatcher.Invoke(() => TmToolDialogs.ShowDuplicates(this, item.Name, groups));
+            });
+        }
+
+        private void AddToProject_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(TmList.SelectedItem is LocalTmInfo item) || item.State != LocalTmState.Ok)
+            {
+                TmStatusText.Text = UiText.T("WB_Mem_Err_NoSel");
+                return;
+            }
+            try
+            {
+                var projects = Sdl.TranslationStudioAutomation.IntegrationApi.SdlTradosStudio.Application
+                    .GetController<Sdl.TranslationStudioAutomation.IntegrationApi.ProjectsController>();
+                var project = projects.CurrentProject;
+                if (project == null)
+                {
+                    TmStatusText.Text = UiText.T("WB_Mem_Err_NoProject");
+                    return;
+                }
+                var uri = Sdl.LanguagePlatform.TranslationMemoryApi.FileBasedTranslationMemory
+                    .GetFileBasedTranslationMemoryUri(item.FilePath);
+                var config = project.GetTranslationProviderConfiguration();
+                if (config.Entries != null && config.Entries.Any(en =>
+                        en.MainTranslationProvider != null &&
+                        en.MainTranslationProvider.Uri != null &&
+                        en.MainTranslationProvider.Uri.Equals(uri)))
+                {
+                    TmStatusText.Text = UiText.T("WB_Mem_AlreadyAdded");
+                    return;
+                }
+                config.Entries.Add(new Sdl.ProjectAutomation.Core.TranslationProviderCascadeEntry(
+                    new Sdl.ProjectAutomation.Core.TranslationProviderReference(uri, null, true), true, true, false));
+                project.UpdateTranslationProviderConfiguration(config);
+                TmStatusText.Text = UiText.Tf("WB_Mem_Result_Added", item.Name);
+                ToolkitLog.Info("工作台：已把记忆库加入当前项目主 TM " + item.FilePath);
+            }
+            catch (Exception ex)
+            {
+                TmStatusText.Text = UiText.Tf("WB_Mem_Err_Load", ex.Message);
+                ToolkitLog.Error("工作台：加入当前项目失败 " + item.FilePath, ex);
             }
         }
 

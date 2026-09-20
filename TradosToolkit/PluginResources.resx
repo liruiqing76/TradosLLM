@@ -225,4 +225,112 @@
   <data name="WB_Err_OpenFailed" xml:space="preserve">
     <value>Open failed: {0}</value>
   </data>
+  <data name="WB_Mem_Tool_New" xml:space="preserve">
+    <value>New TM…</value>
+  </data>
+  <data name="WB_Mem_Tool_Merge" xml:space="preserve">
+    <value>Merge selected…</value>
+  </data>
+  <data name="WB_Mem_Tool_Dupes" xml:space="preserve">
+    <value>Find duplicates</value>
+  </data>
+  <data name="WB_Mem_Tool_AddProj" xml:space="preserve">
+    <value>Add to current project</value>
+  </data>
+  <data name="WB_Mem_New_Path" xml:space="preserve">
+    <value>TM file</value>
+  </data>
+  <data name="WB_Mem_New_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="WB_Mem_New_Src" xml:space="preserve">
+    <value>Source language</value>
+  </data>
+  <data name="WB_Mem_New_Tgt" xml:space="preserve">
+    <value>Target language</value>
+  </data>
+  <data name="WB_Mem_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="WB_Mem_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="WB_Mem_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="WB_Mem_Merge_Count" xml:space="preserve">
+    <value>Merging {0} translation memories:</value>
+  </data>
+  <data name="WB_Mem_Merge_Sources" xml:space="preserve">
+    <value>Sources</value>
+  </data>
+  <data name="WB_Mem_Merge_Target" xml:space="preserve">
+    <value>Target file</value>
+  </data>
+  <data name="WB_Mem_Merge_Policy" xml:space="preserve">
+    <value>Conflict resolution</value>
+  </data>
+  <data name="WB_Policy_Newest" xml:space="preserve">
+    <value>Keep newest</value>
+  </data>
+  <data name="WB_Policy_Oldest" xml:space="preserve">
+    <value>Keep oldest</value>
+  </data>
+  <data name="WB_Policy_First" xml:space="preserve">
+    <value>Keep first</value>
+  </data>
+  <data name="WB_Mem_Err_NoPath" xml:space="preserve">
+    <value>Choose a target file first</value>
+  </data>
+  <data name="WB_Mem_Err_Exists" xml:space="preserve">
+    <value>File already exists</value>
+  </data>
+  <data name="WB_Mem_Err_Pair" xml:space="preserve">
+    <value>Source and target languages must differ</value>
+  </data>
+  <data name="WB_Mem_Err_TargetIsSource" xml:space="preserve">
+    <value>Target file must not be one of the sources</value>
+  </data>
+  <data name="WB_Mem_Result_Dupes" xml:space="preserve">
+    <value>Duplicate groups found: {0}</value>
+  </data>
+  <data name="WB_Mem_Dupes_Count" xml:space="preserve">
+    <value>Entries</value>
+  </data>
+  <data name="WB_Mem_Dupes_Source" xml:space="preserve">
+    <value>Source text</value>
+  </data>
+  <data name="WB_Mem_Dupes_Targets" xml:space="preserve">
+    <value>Distinct targets</value>
+  </data>
+  <data name="WB_Mem_Busy" xml:space="preserve">
+    <value>Working… {0}</value>
+  </data>
+  <data name="WB_Mem_Err_Load" xml:space="preserve">
+    <value>Operation failed: {0}</value>
+  </data>
+  <data name="WB_Mem_Result_New" xml:space="preserve">
+    <value>Created empty TM: {0}</value>
+  </data>
+  <data name="WB_Mem_Result_Merge" xml:space="preserve">
+    <value>Merge done: read {0}, written {1}, duplicates skipped {2}, conflicts {3}</value>
+  </data>
+  <data name="WB_Mem_Result_None" xml:space="preserve">
+    <value>No duplicate entries</value>
+  </data>
+  <data name="WB_Mem_Result_Added" xml:space="preserve">
+    <value>Added to current project: {0}</value>
+  </data>
+  <data name="WB_Mem_AlreadyAdded" xml:space="preserve">
+    <value>Already in the current project</value>
+  </data>
+  <data name="WB_Mem_Err_NoSel" xml:space="preserve">
+    <value>Select a TM row first</value>
+  </data>
+  <data name="WB_Mem_Err_NeedTwo" xml:space="preserve">
+    <value>Select at least two TMs to merge</value>
+  </data>
+  <data name="WB_Mem_Err_NoProject" xml:space="preserve">
+    <value>No project is currently open</value>
+  </data>
 </root>
