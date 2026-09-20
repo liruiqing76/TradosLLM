@@ -2,8 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:hc="https://handyorg.github.io/handycontrol"
-        Title="TradosToolkit 工作台"
-        Width="600" Height="560"
+        Title="TradosToolkit Workbench"
+        Width="900" Height="640" MinWidth="780" MinHeight="540"
         FontFamily="Microsoft YaHei UI, Segoe UI" FontSize="13"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource RegionBrush}">
@@ -30,88 +30,245 @@
                 <Setter Property="Margin" Value="0,0,0,10"/>
             </Style>
 
-            <Style x:Key="StatusRow" TargetType="StackPanel">
-                <Setter Property="Orientation" Value="Horizontal"/>
-                <Setter Property="Margin" Value="0,4"/>
+            <Style x:Key="CardCaption" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Foreground" Value="{DynamicResource SecondaryTextBrush}"/>
+                <Setter Property="Margin" Value="0,0,0,6"/>
             </Style>
 
             <Style x:Key="SmallButton" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
                 <Setter Property="Padding" Value="14,6"/>
-                <Setter Property="Margin" Value="0,0,10,10"/>
+                <Setter Property="FontSize" Value="13"/>
+            </Style>
+
+            <Style x:Key="PrimaryButton" TargetType="Button" BasedOn="{StaticResource ButtonPrimary}">
+                <Setter Property="Padding" Value="14,6"/>
                 <Setter Property="FontSize" Value="13"/>
             </Style>
         </ResourceDictionary>
     </Window.Resources>
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="20,16,20,4">
-        <StackPanel>
-            <!-- 运行状态 -->
-            <Border Style="{StaticResource Card}">
-                <Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- 顶部品牌条 -->
+        <Border Grid.Row="0" Background="{DynamicResource SecondaryRegionBrush}"
+                BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0,0,0,1"
+                Padding="20,14,20,12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Width="38" Height="38" CornerRadius="9"
+                        Background="{DynamicResource PrimaryBrush}">
+                    <TextBlock Text="T" Foreground="White" FontSize="20" FontWeight="Bold"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
+                    <TextBlock x:Name="TitleText" FontSize="16" FontWeight="SemiBold"
+                               Foreground="{DynamicResource PrimaryTextBrush}"
+                               Text="TradosToolkit Workbench"/>
+                    <TextBlock x:Name="SubtitleText" FontSize="12" Margin="0,2,0,0"
+                               Foreground="{DynamicResource SecondaryTextBrush}"
+                               Text="TM / LLM / QA / local API"/>
+                </StackPanel>
+                <TextBlock x:Name="VersionText" Grid.Column="2" VerticalAlignment="Center"
+                           FontSize="12" Foreground="{DynamicResource ThirdlyTextBrush}"/>
+            </Grid>
+        </Border>
+
+        <TabControl x:Name="MainTabs" Grid.Row="1" Margin="16,10,16,14"
+                    Background="Transparent" BorderThickness="0">
+
+            <!-- ============ 概览 ============ -->
+            <TabItem x:Name="OverviewTab" Padding="16,7">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="2,10,6,0">
+                    <StackPanel>
+                        <Border Style="{StaticResource Card}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" x:Name="StatusTitle" Text="Runtime status"
+                                           Style="{StaticResource SectionTitle}"/>
+                                <Button Grid.Row="0" x:Name="RefreshButton" Content="Refresh" Width="72"
+                                        HorizontalAlignment="Right" VerticalAlignment="Top"
+                                        Style="{StaticResource SmallButton}" Click="Refresh_Click"/>
+                                <UniformGrid Grid.Row="1" Columns="3">
+                                    <StackPanel Margin="0,0,14,0">
+                                        <TextBlock x:Name="TmCardTitle" Style="{StaticResource CardCaption}" Text="TM service"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Ellipse x:Name="TmDot" Width="9" Height="9" Fill="#C0C6D2"
+                                                     VerticalAlignment="Center" Margin="0,0,8,0"/>
+                                            <TextBlock x:Name="TmStatusLabel" VerticalAlignment="Center"
+                                                       TextWrapping="Wrap" MaxWidth="220"
+                                                       Foreground="{DynamicResource PrimaryTextBrush}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Margin="0,0,14,0">
+                                        <TextBlock x:Name="LlmCardTitle" Style="{StaticResource CardCaption}" Text="LLM fallback"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Ellipse x:Name="LlmDot" Width="9" Height="9" Fill="#C0C6D2"
+                                                     VerticalAlignment="Center" Margin="0,0,8,0"/>
+                                            <TextBlock x:Name="LlmStatusLabel" VerticalAlignment="Center"
+                                                       TextWrapping="Wrap" MaxWidth="220"
+                                                       Foreground="{DynamicResource PrimaryTextBrush}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <TextBlock x:Name="ApiCardTitle" Style="{StaticResource CardCaption}" Text="Local API"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Ellipse x:Name="ApiDot" Width="9" Height="9" Fill="#C0C6D2"
+                                                     VerticalAlignment="Center" Margin="0,0,8,0"/>
+                                            <TextBlock x:Name="ApiStatusLabel" VerticalAlignment="Center"
+                                                       TextWrapping="Wrap" MaxWidth="220"
+                                                       Foreground="{DynamicResource PrimaryTextBrush}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </UniformGrid>
+                            </Grid>
+                        </Border>
+
+                        <Border Style="{StaticResource Card}">
+                            <StackPanel>
+                                <TextBlock x:Name="TestTitle" Text="LLM gateway connectivity test"
+                                           Style="{StaticResource SectionTitle}"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                    <Button x:Name="TestButton" Content="Test" Style="{StaticResource PrimaryButton}"
+                                            Click="TestLlm_Click"/>
+                                    <Button x:Name="CancelButton" Content="Cancel" Style="{StaticResource SmallButton}"
+                                            Margin="10,0,0,0" Visibility="Collapsed" Click="CancelTest_Click"/>
+                                </StackPanel>
+                                <TextBlock x:Name="TestResultText" FontSize="12" TextWrapping="Wrap"
+                                           Foreground="{DynamicResource SecondaryTextBrush}"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- ============ 记忆库 ============ -->
+            <TabItem x:Name="MemoriesTab" Padding="16,7">
+                <Grid Margin="2,10,2,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="运行状态" Style="{StaticResource SectionTitle}"/>
-                    <Button Grid.Row="0" x:Name="RefreshButton" Content="刷新" Width="64"
-                            HorizontalAlignment="Right" VerticalAlignment="Top"
-                            Style="{StaticResource SmallButton}" Margin="0,-4,0,0"
-                            Click="Refresh_Click"/>
-                    <StackPanel Grid.Row="1" Style="{StaticResource StatusRow}">
-                        <Ellipse x:Name="TmDot" Width="9" Height="9" Fill="#C0C6D2"
-                                 VerticalAlignment="Center" Margin="0,0,8,0"/>
-                        <TextBlock x:Name="TmStatusLabel" VerticalAlignment="Center" TextWrapping="Wrap"
-                                   Foreground="{DynamicResource PrimaryTextBrush}"/>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" x:Name="DirLabel" Text="Folder" VerticalAlignment="Center"
+                                   Foreground="{DynamicResource PrimaryTextBrush}" Margin="0,0,10,0"/>
+                        <TextBox Grid.Column="1" x:Name="TmDirBox" VerticalAlignment="Center" Height="30"
+                                 IsReadOnly="True"/>
+                        <Button Grid.Column="2" x:Name="BrowseButton" Content="Browse…"
+                                Style="{StaticResource SmallButton}" Margin="10,0,0,0" Click="Browse_Click"/>
+                        <Button Grid.Column="3" x:Name="ScanButton" Content="Scan"
+                                Style="{StaticResource PrimaryButton}" Margin="10,0,0,0" Click="Scan_Click"/>
+                        <Button Grid.Column="4" x:Name="ScanCancelButton" Content="Cancel"
+                                Style="{StaticResource SmallButton}" Margin="10,0,0,0"
+                                Visibility="Collapsed" Click="CancelScan_Click"/>
+                    </Grid>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,8">
+                        <TextBlock x:Name="TmStatusText" VerticalAlignment="Center" FontSize="12"
+                                   Foreground="{DynamicResource SecondaryTextBrush}"/>
+                        <ProgressBar x:Name="TmProgress" Width="180" Height="6" Margin="14,0,0,0"
+                                     VerticalAlignment="Center" Visibility="Collapsed" IsIndeterminate="True"/>
                     </StackPanel>
-                    <StackPanel Grid.Row="2" Style="{StaticResource StatusRow}">
-                        <Ellipse x:Name="LlmDot" Width="9" Height="9" Fill="#C0C6D2"
-                                 VerticalAlignment="Center" Margin="0,0,8,0"/>
-                        <TextBlock x:Name="LlmStatusLabel" VerticalAlignment="Center" TextWrapping="Wrap"
-                                   Foreground="{DynamicResource PrimaryTextBrush}"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="3" Style="{StaticResource StatusRow}">
-                        <Ellipse x:Name="ApiDot" Width="9" Height="9" Fill="#C0C6D2"
-                                 VerticalAlignment="Center" Margin="0,0,8,0"/>
-                        <TextBlock x:Name="ApiStatusLabel" VerticalAlignment="Center" TextWrapping="Wrap"
-                                   Foreground="{DynamicResource PrimaryTextBrush}"/>
-                    </StackPanel>
+
+                    <ListView Grid.Row="2" x:Name="TmList" BorderThickness="1"
+                              MouseDoubleClick="TmList_MouseDoubleClick">
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="MenuOpenFolder" Header="Open containing folder"
+                                          Click="OpenFolder_Click"/>
+                                <MenuItem x:Name="MenuCopyPath" Header="Copy path" Click="CopyPath_Click"/>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="230">
+                                    <GridViewColumnHeader x:Name="ColName" Content="File"/>
+                                    <GridViewColumn.DisplayMemberBinding>
+                                        <Binding Path="Name"/>
+                                    </GridViewColumn.DisplayMemberBinding>
+                                </GridViewColumn>
+                                <GridViewColumn Width="120">
+                                    <GridViewColumnHeader x:Name="ColLang" Content="Language pair"/>
+                                    <GridViewColumn.DisplayMemberBinding>
+                                        <Binding Path="LanguagePair"/>
+                                    </GridViewColumn.DisplayMemberBinding>
+                                </GridViewColumn>
+                                <GridViewColumn Width="90">
+                                    <GridViewColumnHeader x:Name="ColUnits" Content="Units"/>
+                                    <GridViewColumn.DisplayMemberBinding>
+                                        <Binding Path="Units"/>
+                                    </GridViewColumn.DisplayMemberBinding>
+                                </GridViewColumn>
+                                <GridViewColumn Width="80">
+                                    <GridViewColumnHeader x:Name="ColSize" Content="Size"/>
+                                    <GridViewColumn.DisplayMemberBinding>
+                                        <Binding Path="Size"/>
+                                    </GridViewColumn.DisplayMemberBinding>
+                                </GridViewColumn>
+                                <GridViewColumn Width="130">
+                                    <GridViewColumnHeader x:Name="ColModified" Content="Modified"/>
+                                    <GridViewColumn.DisplayMemberBinding>
+                                        <Binding Path="Modified" StringFormat="yyyy-MM-dd HH:mm"/>
+                                    </GridViewColumn.DisplayMemberBinding>
+                                </GridViewColumn>
+                                <GridViewColumn Width="140">
+                                    <GridViewColumnHeader x:Name="ColStatus" Content="Status"/>
+                                    <GridViewColumn.DisplayMemberBinding>
+                                        <Binding Path="StatusText"/>
+                                    </GridViewColumn.DisplayMemberBinding>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
                 </Grid>
-            </Border>
+            </TabItem>
 
-            <!-- 网关连通测试 -->
-            <Border Style="{StaticResource Card}">
-                <StackPanel>
-                    <TextBlock Text="LLM 网关连通测试" Style="{StaticResource SectionTitle}"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="TestButton" Content="测试连通" Style="{StaticResource SmallButton}"
-                                Click="TestLlm_Click"/>
-                        <Button x:Name="CancelButton" Content="取消" Style="{StaticResource SmallButton}"
-                                Visibility="Collapsed" Click="CancelTest_Click"/>
+            <!-- ============ 快捷 ============ -->
+            <TabItem x:Name="QuickTab" Padding="16,7">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="2,10,6,0">
+                    <StackPanel>
+                        <Border Style="{StaticResource Card}">
+                            <StackPanel>
+                                <TextBlock x:Name="QuickTitle" Text="Shortcuts" Style="{StaticResource SectionTitle}"/>
+                                <WrapPanel>
+                                    <Button x:Name="ProviderButton" Content="Translation provider settings…"
+                                            Style="{StaticResource SmallButton}" Margin="0,0,10,10"
+                                            Click="OpenProviderConfig_Click"/>
+                                    <Button x:Name="GlossaryButton" Content="Glossary manager…"
+                                            Style="{StaticResource SmallButton}" Margin="0,0,10,10"
+                                            Click="OpenGlossary_Click"/>
+                                    <Button x:Name="LogButton" Content="Open log folder"
+                                            Style="{StaticResource SmallButton}" Margin="0,0,10,10"
+                                            Click="OpenLogFolder_Click"/>
+                                    <Button x:Name="ConfigButton" Content="Reveal config file"
+                                            Style="{StaticResource SmallButton}" Margin="0,0,10,10"
+                                            Click="OpenConfigFile_Click"/>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
-                    <TextBlock x:Name="TestResultText" FontSize="12" TextWrapping="Wrap"
-                               Foreground="{DynamicResource SecondaryTextBrush}"
-                               Text="发送一条最小请求验证 Base URL / 模型 / API Key 是否可用（网关正常约 7 秒）。"/>
-                </StackPanel>
-            </Border>
-
-            <!-- 快捷入口 -->
-            <Border Style="{StaticResource Card}">
-                <StackPanel>
-                    <TextBlock Text="快捷入口" Style="{StaticResource SectionTitle}"/>
-                    <WrapPanel>
-                        <Button Content="翻译提供程序配置…" Style="{StaticResource SmallButton}"
-                                Click="OpenProviderConfig_Click"/>
-                        <Button Content="术语管理…" Style="{StaticResource SmallButton}"
-                                Click="OpenGlossary_Click"/>
-                        <Button Content="打开日志目录" Style="{StaticResource SmallButton}"
-                                Click="OpenLogFolder_Click"/>
-                        <Button Content="打开配置文件位置" Style="{StaticResource SmallButton}"
-                                Click="OpenConfigFile_Click"/>
-                    </WrapPanel>
-                </StackPanel>
-            </Border>
-        </StackPanel>
-    </ScrollViewer>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Window>

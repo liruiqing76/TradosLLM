@@ -63,4 +63,166 @@
   <data name="Workbench_Action_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\workbench.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="WB_Title" xml:space="preserve">
+    <value>TradosToolkit Workbench</value>
+  </data>
+  <data name="WB_Subtitle" xml:space="preserve">
+    <value>TM → LLM cascade · QA · local API</value>
+  </data>
+  <data name="WB_Tab_Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="WB_Tab_Memories" xml:space="preserve">
+    <value>Translation memories</value>
+  </data>
+  <data name="WB_Tab_Quick" xml:space="preserve">
+    <value>Quick actions</value>
+  </data>
+  <data name="WB_Status_Title" xml:space="preserve">
+    <value>Runtime status</value>
+  </data>
+  <data name="WB_Btn_Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="WB_Card_Tm" xml:space="preserve">
+    <value>TM service</value>
+  </data>
+  <data name="WB_Card_Llm" xml:space="preserve">
+    <value>LLM fallback</value>
+  </data>
+  <data name="WB_Card_Api" xml:space="preserve">
+    <value>Local API</value>
+  </data>
+  <data name="WB_Status_Tm_Unconfigured" xml:space="preserve">
+    <value>Not configured (tmUrl in config.json)</value>
+  </data>
+  <data name="WB_Status_Llm_Ok" xml:space="preserve">
+    <value>{0} · {1} · key saved</value>
+  </data>
+  <data name="WB_Status_Llm_Missing" xml:space="preserve">
+    <value>Incomplete configuration (Base URL / model / API Key) — set it in the provider settings</value>
+  </data>
+  <data name="WB_Status_Api_Init" xml:space="preserve">
+    <value>Service not initialized</value>
+  </data>
+  <data name="WB_Status_Api_Ok" xml:space="preserve">
+    <value>Listening on http://localhost:{0}</value>
+  </data>
+  <data name="WB_Status_Api_Down" xml:space="preserve">
+    <value>Not listening</value>
+  </data>
+  <data name="WB_Test_Title" xml:space="preserve">
+    <value>LLM gateway connectivity test</value>
+  </data>
+  <data name="WB_Test_Run" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="WB_Test_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="WB_Test_Idle" xml:space="preserve">
+    <value>Sends a minimal request to verify Base URL / model / API Key (≈7 s when the gateway is healthy).</value>
+  </data>
+  <data name="WB_Test_NotConfigured" xml:space="preserve">
+    <value>LLM is not fully configured. Fill in Base URL / model / API Key in the translation provider settings first.</value>
+  </data>
+  <data name="WB_Test_Running" xml:space="preserve">
+    <value>Testing… {0} s elapsed (Cancel to abort)</value>
+  </data>
+  <data name="WB_Test_Ok" xml:space="preserve">
+    <value>✓ Connected in {0} s.</value>
+  </data>
+  <data name="WB_Test_NoChoices" xml:space="preserve">
+    <value>✗ Gateway replied but no choices ({0} ms): {1}</value>
+  </data>
+  <data name="WB_Test_Fail" xml:space="preserve">
+    <value>✗ Failed ({0} ms): {1}</value>
+  </data>
+  <data name="WB_Test_Cancelled" xml:space="preserve">
+    <value>Test cancelled.</value>
+  </data>
+  <data name="WB_Mem_Dir_Label" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="WB_Mem_Btn_Browse" xml:space="preserve">
+    <value>Browse…</value>
+  </data>
+  <data name="WB_Mem_Btn_Scan" xml:space="preserve">
+    <value>Scan</value>
+  </data>
+  <data name="WB_Mem_Btn_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="WB_Mem_Col_Name" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="WB_Mem_Col_Lang" xml:space="preserve">
+    <value>Language pair</value>
+  </data>
+  <data name="WB_Mem_Col_Units" xml:space="preserve">
+    <value>Units</value>
+  </data>
+  <data name="WB_Mem_Col_Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="WB_Mem_Col_Modified" xml:space="preserve">
+    <value>Modified</value>
+  </data>
+  <data name="WB_Mem_Col_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="WB_Mem_Idle" xml:space="preserve">
+    <value>Choose a folder and click Scan to index local .sdltm files (recursive).</value>
+  </data>
+  <data name="WB_Mem_Scanning" xml:space="preserve">
+    <value>Scanning… {0} files processed</value>
+  </data>
+  <data name="WB_Mem_Done" xml:space="preserve">
+    <value>{0} memories · {1} OK · {2} protected · {3} errors ({4} s)</value>
+  </data>
+  <data name="WB_Mem_None" xml:space="preserve">
+    <value>No .sdltm files found under {0}</value>
+  </data>
+  <data name="WB_Mem_Cancelled" xml:space="preserve">
+    <value>Scan cancelled.</value>
+  </data>
+  <data name="WB_Mem_NoDir" xml:space="preserve">
+    <value>Choose a folder first.</value>
+  </data>
+  <data name="WB_Mem_BadDir" xml:space="preserve">
+    <value>Folder not found: {0}</value>
+  </data>
+  <data name="WB_Mem_St_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="WB_Mem_St_Protected" xml:space="preserve">
+    <value>Password protected</value>
+  </data>
+  <data name="WB_Mem_St_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="WB_Mem_OpenFolder" xml:space="preserve">
+    <value>Open containing folder</value>
+  </data>
+  <data name="WB_Mem_CopyPath" xml:space="preserve">
+    <value>Copy path</value>
+  </data>
+  <data name="WB_Quik_Title" xml:space="preserve">
+    <value>Shortcuts</value>
+  </data>
+  <data name="WB_Quik_Provider" xml:space="preserve">
+    <value>Translation provider settings…</value>
+  </data>
+  <data name="WB_Quik_Glossary" xml:space="preserve">
+    <value>Glossary manager…</value>
+  </data>
+  <data name="WB_Quik_Logs" xml:space="preserve">
+    <value>Open log folder</value>
+  </data>
+  <data name="WB_Quik_Config" xml:space="preserve">
+    <value>Reveal config file</value>
+  </data>
+  <data name="WB_Err_OpenFailed" xml:space="preserve">
+    <value>Open failed: {0}</value>
+  </data>
 </root>

@@ -109,6 +109,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PluginResources.Designer.cs" />
     <Compile Include="ToolkitConfig.cs" />
+    <Compile Include="UiText.cs" />
+    <Compile Include="TranslationMemories\LocalTmScanner.cs" />
     <Compile Include="Diagnostics\ToolkitLog.cs" />
     <Compile Include="Action\TradosToolkitRibbonGroup.cs" />
     <Compile Include="Action\ToolkitWorkbenchRibbonGroup.cs" />

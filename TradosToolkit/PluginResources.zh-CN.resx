@@ -51,4 +51,166 @@
   <data name="Translation_Center_View_Description" xml:space="preserve">
     <value>TradosToolkit 翻译中心：运行状态与项目集成</value>
   </data>
+  <data name="WB_Title" xml:space="preserve">
+    <value>TradosToolkit 工作台</value>
+  </data>
+  <data name="WB_Subtitle" xml:space="preserve">
+    <value>TM → LLM 级联 · QA · 本地 API</value>
+  </data>
+  <data name="WB_Tab_Overview" xml:space="preserve">
+    <value>概览</value>
+  </data>
+  <data name="WB_Tab_Memories" xml:space="preserve">
+    <value>记忆库</value>
+  </data>
+  <data name="WB_Tab_Quick" xml:space="preserve">
+    <value>快捷</value>
+  </data>
+  <data name="WB_Status_Title" xml:space="preserve">
+    <value>运行状态</value>
+  </data>
+  <data name="WB_Btn_Refresh" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="WB_Card_Tm" xml:space="preserve">
+    <value>TM 统一接口</value>
+  </data>
+  <data name="WB_Card_Llm" xml:space="preserve">
+    <value>LLM 回退</value>
+  </data>
+  <data name="WB_Card_Api" xml:space="preserve">
+    <value>本地 API</value>
+  </data>
+  <data name="WB_Status_Tm_Unconfigured" xml:space="preserve">
+    <value>未配置（config.json 的 tmUrl）</value>
+  </data>
+  <data name="WB_Status_Llm_Ok" xml:space="preserve">
+    <value>{0} · {1} · Key 已保存</value>
+  </data>
+  <data name="WB_Status_Llm_Missing" xml:space="preserve">
+    <value>配置不完整（Base URL / 模型 / API Key），请在提供程序配置里补齐</value>
+  </data>
+  <data name="WB_Status_Api_Init" xml:space="preserve">
+    <value>服务未初始化</value>
+  </data>
+  <data name="WB_Status_Api_Ok" xml:space="preserve">
+    <value>http://localhost:{0} 监听中</value>
+  </data>
+  <data name="WB_Status_Api_Down" xml:space="preserve">
+    <value>未监听</value>
+  </data>
+  <data name="WB_Test_Title" xml:space="preserve">
+    <value>LLM 网关连通测试</value>
+  </data>
+  <data name="WB_Test_Run" xml:space="preserve">
+    <value>测试连通</value>
+  </data>
+  <data name="WB_Test_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="WB_Test_Idle" xml:space="preserve">
+    <value>发送一条最小请求验证 Base URL / 模型 / API Key 是否可用（网关正常约 7 秒）。</value>
+  </data>
+  <data name="WB_Test_NotConfigured" xml:space="preserve">
+    <value>LLM 未配置完整，请先在“翻译提供程序配置”里填写 Base URL / 模型 / API Key。</value>
+  </data>
+  <data name="WB_Test_Running" xml:space="preserve">
+    <value>测试中…已等待 {0} 秒（点“取消”可中止）</value>
+  </data>
+  <data name="WB_Test_Ok" xml:space="preserve">
+    <value>✓ 连通正常，耗时 {0} 秒。</value>
+  </data>
+  <data name="WB_Test_NoChoices" xml:space="preserve">
+    <value>✗ 网关有响应但没有 choices（{0} ms）：{1}</value>
+  </data>
+  <data name="WB_Test_Fail" xml:space="preserve">
+    <value>✗ 失败（{0} ms）：{1}</value>
+  </data>
+  <data name="WB_Test_Cancelled" xml:space="preserve">
+    <value>已取消测试。</value>
+  </data>
+  <data name="WB_Mem_Dir_Label" xml:space="preserve">
+    <value>扫描目录</value>
+  </data>
+  <data name="WB_Mem_Btn_Browse" xml:space="preserve">
+    <value>浏览…</value>
+  </data>
+  <data name="WB_Mem_Btn_Scan" xml:space="preserve">
+    <value>扫描</value>
+  </data>
+  <data name="WB_Mem_Btn_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="WB_Mem_Col_Name" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="WB_Mem_Col_Lang" xml:space="preserve">
+    <value>语言对</value>
+  </data>
+  <data name="WB_Mem_Col_Units" xml:space="preserve">
+    <value>条目数</value>
+  </data>
+  <data name="WB_Mem_Col_Size" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="WB_Mem_Col_Modified" xml:space="preserve">
+    <value>修改时间</value>
+  </data>
+  <data name="WB_Mem_Col_Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="WB_Mem_Idle" xml:space="preserve">
+    <value>选择目录后点“扫描”，递归索引本地 .sdltm 记忆库。</value>
+  </data>
+  <data name="WB_Mem_Scanning" xml:space="preserve">
+    <value>扫描中…已处理 {0} 个文件</value>
+  </data>
+  <data name="WB_Mem_Done" xml:space="preserve">
+    <value>共 {0} 个：正常 {1} · 受保护 {2} · 出错 {3}（{4} 秒）</value>
+  </data>
+  <data name="WB_Mem_None" xml:space="preserve">
+    <value>{0} 下没有找到 .sdltm 文件</value>
+  </data>
+  <data name="WB_Mem_Cancelled" xml:space="preserve">
+    <value>已取消扫描。</value>
+  </data>
+  <data name="WB_Mem_NoDir" xml:space="preserve">
+    <value>请先选择扫描目录。</value>
+  </data>
+  <data name="WB_Mem_BadDir" xml:space="preserve">
+    <value>目录不存在：{0}</value>
+  </data>
+  <data name="WB_Mem_St_Ok" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="WB_Mem_St_Protected" xml:space="preserve">
+    <value>受密码保护</value>
+  </data>
+  <data name="WB_Mem_St_Error" xml:space="preserve">
+    <value>出错</value>
+  </data>
+  <data name="WB_Mem_OpenFolder" xml:space="preserve">
+    <value>打开所在文件夹</value>
+  </data>
+  <data name="WB_Mem_CopyPath" xml:space="preserve">
+    <value>复制路径</value>
+  </data>
+  <data name="WB_Quik_Title" xml:space="preserve">
+    <value>快捷入口</value>
+  </data>
+  <data name="WB_Quik_Provider" xml:space="preserve">
+    <value>翻译提供程序配置…</value>
+  </data>
+  <data name="WB_Quik_Glossary" xml:space="preserve">
+    <value>术语管理…</value>
+  </data>
+  <data name="WB_Quik_Logs" xml:space="preserve">
+    <value>打开日志目录</value>
+  </data>
+  <data name="WB_Quik_Config" xml:space="preserve">
+    <value>打开配置文件位置</value>
+  </data>
+  <data name="WB_Err_OpenFailed" xml:space="preserve">
+    <value>打开失败：{0}</value>
+  </data>
 </root>

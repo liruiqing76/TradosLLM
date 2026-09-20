@@ -1,22 +1,25 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using TradosToolkit.Diagnostics;
 using TradosToolkit.EditorPanel;
 using TradosToolkit.Server;
+using TradosToolkit.TranslationMemories;
 using TradosToolkit.TranslationProvider.Engines;
 using TradosToolkit.TranslationProvider.UI;
 
 namespace TradosToolkit.Workbench
 {
     /// <summary>
-    /// 工作台窗口（Home 功能区 "工作台" 按钮打开）：
-    /// TM/LLM/API 运行状态、网关连通测试（带秒数与取消）、常用入口。
+    /// 工作台窗口（Home 功能区"工作台"按钮打开）：概览（TM/LLM/API 状态 + 网关连通测试）、
+    /// 记忆库（扫描目录内 .sdltm 并展示元数据）、快捷入口。文案经 UiText 走随包资源做国际化。
     /// </summary>
     public partial class WorkbenchWindow : Window
     {
@@ -25,6 +28,9 @@ namespace TradosToolkit.Workbench
         private readonly DispatcherTimer _tickTimer = new DispatcherTimer();
         private CancellationTokenSource _testCts;
         private Stopwatch _testWatch;
+
+        private CancellationTokenSource _scanCts;
+        private bool _scanning;
 
         private static readonly Brush Green = new SolidColorBrush(Color.FromRgb(0x2E, 0xA8, 0x6B));
         private static readonly Brush Red = new SolidColorBrush(Color.FromRgb(0xE0, 0x5D, 0x4B));
@@ -55,9 +61,54 @@ namespace TradosToolkit.Workbench
         {
             ToolkitLog.Info("工作台窗口打开");
             InitializeComponent();
+            ApplyTexts();
             _tickTimer.Interval = TimeSpan.FromSeconds(1);
             _tickTimer.Tick += (s, e) => UpdateTestProgress();
+            TmDirBox.Text = ToolkitConfig.Load().TmScanDirectory;
+            TmStatusText.Text = UiText.T("WB_Mem_Idle");
+            VersionText.Text = "v" + typeof(WorkbenchWindow).Assembly.GetName().Version.ToString(3);
             RefreshStatus();
+        }
+
+        /// <summary>把随包资源里的文案刷到各控件（缺文化自动回退中性英文）。</summary>
+        private void ApplyTexts()
+        {
+            Title = UiText.T("WB_Title");
+            TitleText.Text = UiText.T("WB_Title");
+            SubtitleText.Text = UiText.T("WB_Subtitle");
+            OverviewTab.Header = UiText.T("WB_Tab_Overview");
+            MemoriesTab.Header = UiText.T("WB_Tab_Memories");
+            QuickTab.Header = UiText.T("WB_Tab_Quick");
+
+            StatusTitle.Text = UiText.T("WB_Status_Title");
+            RefreshButton.Content = UiText.T("WB_Btn_Refresh");
+            TmCardTitle.Text = UiText.T("WB_Card_Tm");
+            LlmCardTitle.Text = UiText.T("WB_Card_Llm");
+            ApiCardTitle.Text = UiText.T("WB_Card_Api");
+
+            TestTitle.Text = UiText.T("WB_Test_Title");
+            TestButton.Content = UiText.T("WB_Test_Run");
+            CancelButton.Content = UiText.T("WB_Test_Cancel");
+            TestResultText.Text = UiText.T("WB_Test_Idle");
+
+            DirLabel.Text = UiText.T("WB_Mem_Dir_Label");
+            BrowseButton.Content = UiText.T("WB_Mem_Btn_Browse");
+            ScanButton.Content = UiText.T("WB_Mem_Btn_Scan");
+            ScanCancelButton.Content = UiText.T("WB_Mem_Btn_Cancel");
+            ColName.Content = UiText.T("WB_Mem_Col_Name");
+            ColLang.Content = UiText.T("WB_Mem_Col_Lang");
+            ColUnits.Content = UiText.T("WB_Mem_Col_Units");
+            ColSize.Content = UiText.T("WB_Mem_Col_Size");
+            ColModified.Content = UiText.T("WB_Mem_Col_Modified");
+            ColStatus.Content = UiText.T("WB_Mem_Col_Status");
+            MenuOpenFolder.Header = UiText.T("WB_Mem_OpenFolder");
+            MenuCopyPath.Header = UiText.T("WB_Mem_CopyPath");
+
+            QuickTitle.Text = UiText.T("WB_Quik_Title");
+            ProviderButton.Content = UiText.T("WB_Quik_Provider");
+            GlossaryButton.Content = UiText.T("WB_Quik_Glossary");
+            LogButton.Content = UiText.T("WB_Quik_Logs");
+            ConfigButton.Content = UiText.T("WB_Quik_Config");
         }
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
@@ -73,30 +124,30 @@ namespace TradosToolkit.Workbench
             if (string.IsNullOrEmpty(config.TmUrl))
             {
                 TmDot.Fill = Red;
-                TmStatusLabel.Text = "TM 统一接口：未配置（config.json 的 tmUrl）";
+                TmStatusLabel.Text = UiText.T("WB_Status_Tm_Unconfigured");
             }
             else
             {
                 TmDot.Fill = Green;
-                TmStatusLabel.Text = "TM 统一接口：" + config.TmUrl;
+                TmStatusLabel.Text = config.TmUrl;
             }
 
             if (LlmChatClient.IsReady())
             {
                 LlmDot.Fill = Green;
-                LlmStatusLabel.Text = "LLM 回退：" + config.LlmBaseUrl + " · " + config.LlmModel + " · Key 已保存";
+                LlmStatusLabel.Text = UiText.Tf("WB_Status_Llm_Ok", config.LlmBaseUrl, config.LlmModel);
             }
             else
             {
                 LlmDot.Fill = Red;
-                LlmStatusLabel.Text = "LLM 回退：未配置完整（Base URL / 模型 / API Key 缺项），可在提供程序配置里补齐";
+                LlmStatusLabel.Text = UiText.T("WB_Status_Llm_Missing");
             }
 
             var server = ToolkitApiServer.Instance;
             if (server == null)
             {
                 ApiDot.Fill = Gray;
-                ApiStatusLabel.Text = "本地 API：服务未初始化";
+                ApiStatusLabel.Text = UiText.T("WB_Status_Api_Init");
             }
             else
             {
@@ -108,12 +159,12 @@ namespace TradosToolkit.Workbench
                 if (server.IsListening)
                 {
                     ApiDot.Fill = Green;
-                    ApiStatusLabel.Text = "本地 API：http://localhost:" + server.Port + " 监听中";
+                    ApiStatusLabel.Text = UiText.Tf("WB_Status_Api_Ok", server.Port);
                 }
                 else
                 {
                     ApiDot.Fill = Red;
-                    ApiStatusLabel.Text = "本地 API：未监听";
+                    ApiStatusLabel.Text = UiText.T("WB_Status_Api_Down");
                 }
             }
         }
@@ -122,7 +173,7 @@ namespace TradosToolkit.Workbench
         {
             if (!LlmChatClient.IsReady())
             {
-                TestResultText.Text = "LLM 未配置完整，请先在\"翻译提供程序配置\"里填写 Base URL / 模型 / API Key。";
+                TestResultText.Text = UiText.T("WB_Test_NotConfigured");
                 return;
             }
 
@@ -156,25 +207,25 @@ namespace TradosToolkit.Workbench
                 if (choices == null || choices.Count == 0)
                 {
                     LlmDot.Fill = Red;
-                    TestResultText.Text = "✗ 网关有响应但没有 choices（" + _testWatch.ElapsedMilliseconds + " ms）：" +
-                        EngineHttp.AsString(response.TryGetValue("error", out var err) ? err : null);
+                    TestResultText.Text = UiText.Tf("WB_Test_NoChoices", _testWatch.ElapsedMilliseconds,
+                        EngineHttp.AsString(response.TryGetValue("error", out var err) ? err : null));
                 }
                 else
                 {
                     LlmDot.Fill = Green;
-                    TestResultText.Text = "✓ 连通正常，耗时 " + (_testWatch.ElapsedMilliseconds / 1000.0).ToString("0.0") + " 秒。";
+                    TestResultText.Text = UiText.Tf("WB_Test_Ok", (_testWatch.ElapsedMilliseconds / 1000.0).ToString("0.0"));
                 }
                 ToolkitLog.Info("工作台：LLM 连通测试完成 " + _testWatch.ElapsedMilliseconds + "ms choices=" + (choices?.Count ?? 0));
             }
             catch (OperationCanceledException)
             {
-                TestResultText.Text = "已取消测试。";
+                TestResultText.Text = UiText.T("WB_Test_Cancelled");
                 ToolkitLog.Info("工作台：LLM 连通测试被取消 " + _testWatch.ElapsedMilliseconds + "ms");
             }
             catch (Exception ex)
             {
                 LlmDot.Fill = Red;
-                TestResultText.Text = "✗ 测试失败（" + _testWatch.ElapsedMilliseconds + " ms）：" + ex.Message;
+                TestResultText.Text = UiText.Tf("WB_Test_Fail", _testWatch.ElapsedMilliseconds, ex.Message);
                 ToolkitLog.Error("工作台：LLM 连通测试失败", ex);
             }
             finally
@@ -189,7 +240,7 @@ namespace TradosToolkit.Workbench
 
         private void UpdateTestProgress()
         {
-            TestResultText.Text = "测试中…已等待 " + (int)_testWatch.Elapsed.TotalSeconds + " 秒（点\"取消\"可中止）";
+            TestResultText.Text = UiText.Tf("WB_Test_Running", (int)_testWatch.Elapsed.TotalSeconds);
         }
 
         private void CancelTest_Click(object sender, RoutedEventArgs e)
@@ -197,6 +248,142 @@ namespace TradosToolkit.Workbench
             ToolkitLog.Info("工作台：用户取消 LLM 连通测试");
             _testCts?.Cancel();
         }
+
+        // ==================== 记忆库 ====================
+
+        private void Browse_Click(object sender, RoutedEventArgs e)
+        {
+            using (var dlg = new System.Windows.Forms.FolderBrowserDialog())
+            {
+                var initial = TmDirBox.Text.Trim();
+                if (!string.IsNullOrEmpty(initial) && Directory.Exists(initial))
+                    dlg.SelectedPath = initial;
+                dlg.ShowNewFolderButton = false;
+                if (dlg.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
+
+                TmDirBox.Text = dlg.SelectedPath;
+                ToolkitLog.Info("工作台：选择记忆库目录 " + dlg.SelectedPath);
+                SaveScanDirectory(dlg.SelectedPath);
+            }
+        }
+
+        private async void Scan_Click(object sender, RoutedEventArgs e)
+        {
+            if (_scanning) return;
+            var dir = TmDirBox.Text.Trim();
+            if (string.IsNullOrEmpty(dir))
+            {
+                TmStatusText.Text = UiText.T("WB_Mem_NoDir");
+                return;
+            }
+            if (!Directory.Exists(dir))
+            {
+                TmStatusText.Text = UiText.Tf("WB_Mem_BadDir", dir);
+                return;
+            }
+
+            SaveScanDirectory(dir);
+            _scanning = true;
+            ScanButton.IsEnabled = false;
+            BrowseButton.IsEnabled = false;
+            ScanCancelButton.Visibility = Visibility.Visible;
+            TmProgress.Visibility = Visibility.Visible;
+            TmList.ItemsSource = null;
+            _scanCts = new CancellationTokenSource();
+            var watch = Stopwatch.StartNew();
+            var progress = new Progress<int>(n => TmStatusText.Text = UiText.Tf("WB_Mem_Scanning", n));
+
+            try
+            {
+                var items = await LocalTmScanner.ScanAsync(dir, progress, _scanCts.Token);
+                var ok = items.Count(x => x.State == LocalTmState.Ok);
+                var prot = items.Count(x => x.State == LocalTmState.Protected);
+                var err = items.Count(x => x.State == LocalTmState.Error);
+                TmList.ItemsSource = items;
+                TmStatusText.Text = items.Count == 0
+                    ? UiText.Tf("WB_Mem_None", dir)
+                    : UiText.Tf("WB_Mem_Done", items.Count, ok, prot, err, (watch.Elapsed.TotalSeconds).ToString("0.0"));
+                ToolkitLog.Info("工作台：记忆库扫描完成 dir=" + dir + " 总数=" + items.Count +
+                                " 正常=" + ok + " 受保护=" + prot + " 出错=" + err +
+                                " 耗时=" + watch.ElapsedMilliseconds + "ms");
+            }
+            catch (OperationCanceledException)
+            {
+                TmStatusText.Text = UiText.T("WB_Mem_Cancelled");
+                ToolkitLog.Info("工作台：记忆库扫描被取消 " + watch.ElapsedMilliseconds + "ms");
+            }
+            catch (Exception ex)
+            {
+                TmStatusText.Text = UiText.Tf("WB_Test_Fail", watch.ElapsedMilliseconds, ex.Message);
+                ToolkitLog.Error("工作台：记忆库扫描失败 dir=" + dir, ex);
+            }
+            finally
+            {
+                _scanning = false;
+                ScanButton.IsEnabled = true;
+                BrowseButton.IsEnabled = true;
+                ScanCancelButton.Visibility = Visibility.Collapsed;
+                TmProgress.Visibility = Visibility.Collapsed;
+                _scanCts.Dispose();
+                _scanCts = null;
+            }
+        }
+
+        private void CancelScan_Click(object sender, RoutedEventArgs e)
+        {
+            ToolkitLog.Info("工作台：用户取消记忆库扫描");
+            _scanCts?.Cancel();
+        }
+
+        private void SaveScanDirectory(string dir)
+        {
+            try
+            {
+                ToolkitConfig.Save(tmScanDirectory: dir);
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("工作台：保存扫描目录失败", ex);
+            }
+        }
+
+        private void TmList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (TmList.SelectedItem is LocalTmInfo item) RevealInExplorer(item.FilePath);
+        }
+
+        private void OpenFolder_Click(object sender, RoutedEventArgs e)
+        {
+            if (TmList.SelectedItem is LocalTmInfo item) RevealInExplorer(item.FilePath);
+        }
+
+        private void CopyPath_Click(object sender, RoutedEventArgs e)
+        {
+            if (TmList.SelectedItem is LocalTmInfo item)
+            {
+                try { Clipboard.SetText(item.FilePath); } catch (Exception ex) { ToolkitLog.Error("工作台：复制路径失败", ex); }
+            }
+        }
+
+        private void RevealInExplorer(string filePath)
+        {
+            try
+            {
+                ToolkitLog.Info("工作台：定位记忆库文件 " + filePath);
+                Process.Start(new ProcessStartInfo("explorer.exe", "/select,\"" + filePath + "\"")
+                {
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("工作台：定位文件失败", ex);
+                MessageBox.Show(this, UiText.Tf("WB_Err_OpenFailed", ex.Message), UiText.T("WB_Title"),
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        // ==================== 快捷入口 ====================
 
         private void OpenProviderConfig_Click(object sender, RoutedEventArgs e)
         {
@@ -230,7 +417,7 @@ namespace TradosToolkit.Workbench
             catch (Exception ex)
             {
                 ToolkitLog.Error("工作台：打开配置文件位置失败", ex);
-                MessageBox.Show(this, "打开失败：" + ex.Message, "TradosToolkit",
+                MessageBox.Show(this, UiText.Tf("WB_Err_OpenFailed", ex.Message), UiText.T("WB_Title"),
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }

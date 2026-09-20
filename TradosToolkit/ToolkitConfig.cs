@@ -36,6 +36,8 @@ namespace TradosToolkit
         public string TranslationCenterUrl = string.Empty;
         /// <summary>LLM 并发请求数（config.json 的 llmConcurrency，缺省 6）。</summary>
         public int LlmConcurrency = 6;
+        /// <summary>本地记忆库扫描目录（config.json 的 tmScanDirectory，工作台"记忆库"页使用）。</summary>
+        public string TmScanDirectory = string.Empty;
         /// <summary>翻译中心书签目录树；键缺失时用内置默认，键存在则完全按文件。</summary>
         public List<BookmarkFolder> Folders = DefaultFolders();
 
@@ -86,6 +88,8 @@ namespace TradosToolkit
                         config.TranslationCenterUrl = (t ?? string.Empty).Trim();
                     if (json.TryGetValue("llmConcurrency", out var cc))
                         config.LlmConcurrency = Math.Max(1, Math.Min(32, Convert.ToInt32(cc)));
+                    if (json.TryGetValue("tmScanDirectory", out var tsd) && tsd is string td)
+                        config.TmScanDirectory = (td ?? string.Empty).Trim();
                     if (json.TryGetValue("translationCenterFolders", out var bm))
                         config.Folders = ParseFolders(bm);
                     else if (json.TryGetValue("translationCenterBookmarks", out var legacy))
@@ -148,7 +152,8 @@ namespace TradosToolkit
 
         /// <summary>配置窗口点确定时调用：null 表示不改动该字段，保留文件里其余内容。</summary>
         public static void Save(string apiKey = null, string llmBaseUrl = null, string llmModel = null,
-                               string translationCenterUrl = null, List<BookmarkFolder> folders = null)
+                               string translationCenterUrl = null, List<BookmarkFolder> folders = null,
+                               string tmScanDirectory = null)
         {
             try
             {
@@ -161,6 +166,7 @@ namespace TradosToolkit
                 if (llmBaseUrl != null) doc["llmBaseUrl"] = llmBaseUrl;
                 if (llmModel != null) doc["llmModel"] = llmModel;
                 if (translationCenterUrl != null) doc["translationCenterUrl"] = translationCenterUrl;
+                if (tmScanDirectory != null) doc["tmScanDirectory"] = tmScanDirectory;
                 if (folders != null)
                 {
                     doc["translationCenterFolders"] = folders;
