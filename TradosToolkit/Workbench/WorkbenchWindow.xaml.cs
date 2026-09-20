@@ -74,17 +74,18 @@ namespace TradosToolkit.Workbench
         private void ApplyTexts()
         {
             Title = UiText.T("WB_Title");
-            TitleText.Text = UiText.T("WB_Title");
             SubtitleText.Text = UiText.T("WB_Subtitle");
-            OverviewTab.Header = UiText.T("WB_Tab_Overview");
-            MemoriesTab.Header = UiText.T("WB_Tab_Memories");
-            QuickTab.Header = UiText.T("WB_Tab_Quick");
+            NavOverviewText.Text = UiText.T("WB_Tab_Overview");
+            NavMemoriesText.Text = UiText.T("WB_Tab_Memories");
+            NavQuickText.Text = UiText.T("WB_Tab_Quick");
+            PageTitleOverview.Text = UiText.T("WB_Tab_Overview");
+            PageTitleMemories.Text = UiText.T("WB_Tab_Memories");
+            PageTitleQuick.Text = UiText.T("WB_Tab_Quick");
 
-            StatusTitle.Text = UiText.T("WB_Status_Title");
             RefreshButton.Content = UiText.T("WB_Btn_Refresh");
-            TmCardTitle.Text = UiText.T("WB_Card_Tm");
-            LlmCardTitle.Text = UiText.T("WB_Card_Llm");
-            ApiCardTitle.Text = UiText.T("WB_Card_Api");
+            TmCardTitle.Text = UiText.T("WB_Card_Tm").ToUpperInvariant();
+            LlmCardTitle.Text = UiText.T("WB_Card_Llm").ToUpperInvariant();
+            ApiCardTitle.Text = UiText.T("WB_Card_Api").ToUpperInvariant();
 
             TestTitle.Text = UiText.T("WB_Test_Title");
             TestButton.Content = UiText.T("WB_Test_Run");
@@ -104,11 +105,26 @@ namespace TradosToolkit.Workbench
             MenuOpenFolder.Header = UiText.T("WB_Mem_OpenFolder");
             MenuCopyPath.Header = UiText.T("WB_Mem_CopyPath");
 
-            QuickTitle.Text = UiText.T("WB_Quik_Title");
+            QuickTitle.Text = UiText.T("WB_Quik_Title").ToUpperInvariant();
             ProviderButton.Content = UiText.T("WB_Quik_Provider");
             GlossaryButton.Content = UiText.T("WB_Quik_Glossary");
             LogButton.Content = UiText.T("WB_Quik_Logs");
             ConfigButton.Content = UiText.T("WB_Quik_Config");
+        }
+
+        private void Nav_Changed(object sender, RoutedEventArgs e)
+        {
+            // InitializeComponent 解析 RadioButton IsChecked=True 时字段尚未就绪
+            if (OverviewPanel == null) return;
+            var picked = sender as System.Windows.Controls.RadioButton;
+            OverviewPanel.Visibility = Visibility.Collapsed;
+            MemoriesPanel.Visibility = Visibility.Collapsed;
+            QuickPanel.Visibility = Visibility.Collapsed;
+            var target = picked?.Tag as string;
+            if (target == "MemoriesPanel") MemoriesPanel.Visibility = Visibility.Visible;
+            else if (target == "QuickPanel") QuickPanel.Visibility = Visibility.Visible;
+            else OverviewPanel.Visibility = Visibility.Visible;
+            ToolkitLog.Info("工作台：切换到 " + (target ?? "overview"));
         }
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
@@ -148,6 +164,7 @@ namespace TradosToolkit.Workbench
             {
                 ApiDot.Fill = Gray;
                 ApiStatusLabel.Text = UiText.T("WB_Status_Api_Init");
+                ApiBarText.Text = "api: -";
             }
             else
             {
@@ -160,11 +177,13 @@ namespace TradosToolkit.Workbench
                 {
                     ApiDot.Fill = Green;
                     ApiStatusLabel.Text = UiText.Tf("WB_Status_Api_Ok", server.Port);
+                    ApiBarText.Text = "localhost:" + server.Port;
                 }
                 else
                 {
                     ApiDot.Fill = Red;
                     ApiStatusLabel.Text = UiText.T("WB_Status_Api_Down");
+                    ApiBarText.Text = "api: down";
                 }
             }
         }

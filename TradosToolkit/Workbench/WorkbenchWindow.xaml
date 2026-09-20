@@ -3,24 +3,55 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         Title="TradosToolkit Workbench"
-        Width="900" Height="640" MinWidth="780" MinHeight="540"
+        Width="960" Height="640" MinWidth="820" MinHeight="560"
         FontFamily="Microsoft YaHei UI, Segoe UI" FontSize="13"
         WindowStartupLocation="CenterScreen"
+        TextOptions.TextFormattingMode="Ideal" UseLayoutRounding="True"
         Background="{DynamicResource RegionBrush}">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDark.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <Style x:Key="Card" TargetType="Border">
-                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+            <!-- ===== 设计令牌：翡翠绿控制台 ===== -->
+            <SolidColorBrush x:Key="PrimaryBrush" Color="#FF2FA57C"/>
+            <SolidColorBrush x:Key="DarkPrimaryBrush" Color="#FF2FA57C"/>
+            <SolidColorBrush x:Key="TileBrush" Color="#14FFFFFF"/>
+            <SolidColorBrush x:Key="TileBorderBrush" Color="#22FFFFFF"/>
+            <SolidColorBrush x:Key="RailCheckedBrush" Color="#26FFFFFF"/>
+            <SolidColorBrush x:Key="RailHoverBrush" Color="#0DFFFFFF"/>
+
+            <FontFamily x:Key="Mono">Consolas, Microsoft YaHei UI</FontFamily>
+            <FontFamily x:Key="Fluent">Segoe MDL2 Assets</FontFamily>
+
+            <Style x:Key="Tile" TargetType="Border">
+                <Setter Property="Background" Value="{DynamicResource TileBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource TileBorderBrush}"/>
                 <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="CornerRadius" Value="10"/>
-                <Setter Property="Padding" Value="18,14"/>
-                <Setter Property="Margin" Value="0,0,0,14"/>
+                <Setter Property="CornerRadius" Value="12"/>
+                <Setter Property="Padding" Value="18,15"/>
+            </Style>
+
+            <Style x:Key="TileCaption" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
+                <Setter Property="Margin" Value="0,0,0,8"/>
+            </Style>
+
+            <Style x:Key="Led" TargetType="Ellipse">
+                <Setter Property="Width" Value="9"/>
+                <Setter Property="Height" Value="9"/>
+                <Setter Property="Fill" Value="#6B7280"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="0,0,9,0"/>
+            </Style>
+
+            <Style x:Key="PageTitle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="19"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
             </Style>
 
             <Style x:Key="SectionTitle" TargetType="TextBlock">
@@ -30,119 +61,230 @@
                 <Setter Property="Margin" Value="0,0,0,10"/>
             </Style>
 
-            <Style x:Key="CardCaption" TargetType="TextBlock">
-                <Setter Property="FontSize" Value="12"/>
+            <!-- 左侧导航项 -->
+            <Style x:Key="RailItem" TargetType="RadioButton">
                 <Setter Property="Foreground" Value="{DynamicResource SecondaryTextBrush}"/>
-                <Setter Property="Margin" Value="0,0,0,6"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <Border x:Name="bd" CornerRadius="9" Background="Transparent"
+                                    Padding="12,10" Margin="0,2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Rectangle x:Name="pill" Width="3" Height="15" RadiusX="1.5" RadiusY="1.5"
+                                               Fill="{DynamicResource PrimaryBrush}" Opacity="0"
+                                               HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <ContentPresenter Grid.Column="1" Margin="9,0,0,0" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="bd" Property="Background" Value="{DynamicResource RailCheckedBrush}"/>
+                                    <Setter TargetName="pill" Property="Opacity" Value="1"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                                </Trigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsChecked" Value="False"/>
+                                        <Condition Property="IsMouseOver" Value="True"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter TargetName="bd" Property="Background" Value="{DynamicResource RailHoverBrush}"/>
+                                </MultiTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
 
-            <Style x:Key="SmallButton" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
+            <!-- 快捷页整行按钮 -->
+            <Style x:Key="RowButton" TargetType="Button">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="bd" CornerRadius="10" Background="{DynamicResource TileBrush}"
+                                    BorderBrush="{DynamicResource TileBorderBrush}" BorderThickness="1"
+                                    Padding="16,12" Margin="0,0,0,8">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" FontFamily="{DynamicResource Fluent}" FontSize="15"
+                                               Text="{TemplateBinding Tag}" VerticalAlignment="Center"
+                                               Foreground="{DynamicResource PrimaryBrush}" Margin="0,0,14,0"/>
+                                    <ContentPresenter Grid.Column="1" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="2" FontFamily="{DynamicResource Fluent}" FontSize="12"
+                                               Text="&#xE76C;" VerticalAlignment="Center"
+                                               Foreground="{DynamicResource ThirdlyTextBrush}"/>
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="bd" Property="Background" Value="{DynamicResource RailCheckedBrush}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="GhostButton" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
                 <Setter Property="Padding" Value="14,6"/>
                 <Setter Property="FontSize" Value="13"/>
             </Style>
 
-            <Style x:Key="PrimaryButton" TargetType="Button" BasedOn="{StaticResource ButtonPrimary}">
-                <Setter Property="Padding" Value="14,6"/>
+            <Style x:Key="JadeButton" TargetType="Button" BasedOn="{StaticResource ButtonPrimary}">
+                <Setter Property="Padding" Value="16,6"/>
                 <Setter Property="FontSize" Value="13"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
             </Style>
         </ResourceDictionary>
     </Window.Resources>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="216"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <!-- 顶部品牌条 -->
-        <Border Grid.Row="0" Background="{DynamicResource SecondaryRegionBrush}"
-                BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0,0,0,1"
-                Padding="20,14,20,12">
+        <!-- ==================== 左侧导航栏 ==================== -->
+        <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                Background="{DynamicResource SecondaryRegionBrush}"
+                BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0,0,1,0">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Width="38" Height="38" CornerRadius="9"
-                        Background="{DynamicResource PrimaryBrush}">
-                    <TextBlock Text="T" Foreground="White" FontSize="20" FontWeight="Bold"
-                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Border>
-                <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
-                    <TextBlock x:Name="TitleText" FontSize="16" FontWeight="SemiBold"
-                               Foreground="{DynamicResource PrimaryTextBrush}"
-                               Text="TradosToolkit Workbench"/>
-                    <TextBlock x:Name="SubtitleText" FontSize="12" Margin="0,2,0,0"
-                               Foreground="{DynamicResource SecondaryTextBrush}"
-                               Text="TM / LLM / QA / local API"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- 品牌块 -->
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="18,18,18,16">
+                    <Border Width="38" Height="38" CornerRadius="11">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FF35B98C" Offset="0"/>
+                                <GradientStop Color="#FF1E7D57" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <TextBlock Text="TT" Foreground="White" FontSize="15" FontWeight="Bold"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <StackPanel VerticalAlignment="Center" Margin="11,0,0,0">
+                        <TextBlock x:Name="TitleText" FontSize="14" FontWeight="SemiBold"
+                                   Foreground="{DynamicResource PrimaryTextBrush}"
+                                   Text="TradosToolkit"/>
+                        <TextBlock x:Name="SubtitleText" FontSize="10.5" Margin="0,2,0,0"
+                                   Foreground="{DynamicResource ThirdlyTextBrush}" FontFamily="{DynamicResource Mono}"
+                                   Text="workbench v1"/>
+                    </StackPanel>
                 </StackPanel>
-                <TextBlock x:Name="VersionText" Grid.Column="2" VerticalAlignment="Center"
-                           FontSize="12" Foreground="{DynamicResource ThirdlyTextBrush}"/>
+
+                <!-- 导航 -->
+                <StackPanel Grid.Row="1" Margin="10,4,10,0">
+                    <RadioButton x:Name="NavOverview" Style="{StaticResource RailItem}" IsChecked="True"
+                                 Checked="Nav_Changed" Tag="OverviewPanel">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="{DynamicResource Fluent}" FontSize="15" Text="&#xE80F;"
+                                       Width="20" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="NavOverviewText" Text="Overview" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton x:Name="NavMemories" Style="{StaticResource RailItem}"
+                                 Checked="Nav_Changed" Tag="MemoriesPanel">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="{DynamicResource Fluent}" FontSize="15" Text="&#xE8F1;"
+                                       Width="20" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="NavMemoriesText" Text="Translation memories" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton x:Name="NavQuick" Style="{StaticResource RailItem}"
+                                 Checked="Nav_Changed" Tag="QuickPanel">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="{DynamicResource Fluent}" FontSize="15" Text="&#xE71D;"
+                                       Width="20" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="NavQuickText" Text="Quick actions" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+
+                <TextBlock Grid.Row="2" x:Name="VersionText" Margin="20,0,20,14" FontSize="10.5"
+                           FontFamily="{DynamicResource Mono}" Foreground="{DynamicResource ThirdlyTextBrush}"/>
             </Grid>
         </Border>
 
-        <TabControl x:Name="MainTabs" Grid.Row="1" Margin="16,10,16,14"
-                    Background="Transparent" BorderThickness="0">
+        <!-- ==================== 内容区 ==================== -->
+        <Grid Grid.Row="0" Grid.Column="1">
 
-            <!-- ============ 概览 ============ -->
-            <TabItem x:Name="OverviewTab" Padding="16,7">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="2,10,6,0">
+            <!-- 概览 -->
+            <Grid x:Name="OverviewPanel">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="28,22,28,0">
+                    <TextBlock x:Name="PageTitleOverview" Style="{StaticResource PageTitle}" Text="Overview"/>
+                    <Button x:Name="RefreshButton" Content="Refresh" Width="84" HorizontalAlignment="Right"
+                            Style="{StaticResource GhostButton}" Click="Refresh_Click"/>
+                </Grid>
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="28,18,28,0">
                     <StackPanel>
-                        <Border Style="{StaticResource Card}">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" x:Name="StatusTitle" Text="Runtime status"
-                                           Style="{StaticResource SectionTitle}"/>
-                                <Button Grid.Row="0" x:Name="RefreshButton" Content="Refresh" Width="72"
-                                        HorizontalAlignment="Right" VerticalAlignment="Top"
-                                        Style="{StaticResource SmallButton}" Click="Refresh_Click"/>
-                                <UniformGrid Grid.Row="1" Columns="3">
-                                    <StackPanel Margin="0,0,14,0">
-                                        <TextBlock x:Name="TmCardTitle" Style="{StaticResource CardCaption}" Text="TM service"/>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Ellipse x:Name="TmDot" Width="9" Height="9" Fill="#C0C6D2"
-                                                     VerticalAlignment="Center" Margin="0,0,8,0"/>
-                                            <TextBlock x:Name="TmStatusLabel" VerticalAlignment="Center"
-                                                       TextWrapping="Wrap" MaxWidth="220"
-                                                       Foreground="{DynamicResource PrimaryTextBrush}"/>
-                                        </StackPanel>
+                        <UniformGrid Columns="3" Margin="0,0,-14,0">
+                            <Border Style="{StaticResource Tile}" Margin="0,0,14,0">
+                                <StackPanel>
+                                    <TextBlock x:Name="TmCardTitle" Style="{StaticResource TileCaption}" Text="TM SERVICE"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Ellipse x:Name="TmDot" Style="{StaticResource Led}"/>
+                                        <TextBlock x:Name="TmStatusLabel" VerticalAlignment="Center"
+                                                   TextWrapping="Wrap" MaxWidth="200" FontFamily="{DynamicResource Mono}" FontSize="12"
+                                                   Foreground="{DynamicResource PrimaryTextBrush}"/>
                                     </StackPanel>
-                                    <StackPanel Margin="0,0,14,0">
-                                        <TextBlock x:Name="LlmCardTitle" Style="{StaticResource CardCaption}" Text="LLM fallback"/>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Ellipse x:Name="LlmDot" Width="9" Height="9" Fill="#C0C6D2"
-                                                     VerticalAlignment="Center" Margin="0,0,8,0"/>
-                                            <TextBlock x:Name="LlmStatusLabel" VerticalAlignment="Center"
-                                                       TextWrapping="Wrap" MaxWidth="220"
-                                                       Foreground="{DynamicResource PrimaryTextBrush}"/>
-                                        </StackPanel>
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource Tile}" Margin="0,0,14,0">
+                                <StackPanel>
+                                    <TextBlock x:Name="LlmCardTitle" Style="{StaticResource TileCaption}" Text="LLM FALLBACK"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Ellipse x:Name="LlmDot" Style="{StaticResource Led}"/>
+                                        <TextBlock x:Name="LlmStatusLabel" VerticalAlignment="Center"
+                                                   TextWrapping="Wrap" MaxWidth="200" FontFamily="{DynamicResource Mono}" FontSize="12"
+                                                   Foreground="{DynamicResource PrimaryTextBrush}"/>
                                     </StackPanel>
-                                    <StackPanel>
-                                        <TextBlock x:Name="ApiCardTitle" Style="{StaticResource CardCaption}" Text="Local API"/>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Ellipse x:Name="ApiDot" Width="9" Height="9" Fill="#C0C6D2"
-                                                     VerticalAlignment="Center" Margin="0,0,8,0"/>
-                                            <TextBlock x:Name="ApiStatusLabel" VerticalAlignment="Center"
-                                                       TextWrapping="Wrap" MaxWidth="220"
-                                                       Foreground="{DynamicResource PrimaryTextBrush}"/>
-                                        </StackPanel>
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource Tile}">
+                                <StackPanel>
+                                    <TextBlock x:Name="ApiCardTitle" Style="{StaticResource TileCaption}" Text="LOCAL API"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Ellipse x:Name="ApiDot" Style="{StaticResource Led}"/>
+                                        <TextBlock x:Name="ApiStatusLabel" VerticalAlignment="Center"
+                                                   TextWrapping="Wrap" MaxWidth="200" FontFamily="{DynamicResource Mono}" FontSize="12"
+                                                   Foreground="{DynamicResource PrimaryTextBrush}"/>
                                     </StackPanel>
-                                </UniformGrid>
-                            </Grid>
-                        </Border>
+                                </StackPanel>
+                            </Border>
+                        </UniformGrid>
 
-                        <Border Style="{StaticResource Card}">
+                        <Border Style="{StaticResource Tile}" Margin="0,14,0,0">
                             <StackPanel>
-                                <TextBlock x:Name="TestTitle" Text="LLM gateway connectivity test"
-                                           Style="{StaticResource SectionTitle}"/>
-                                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                    <Button x:Name="TestButton" Content="Test" Style="{StaticResource PrimaryButton}"
+                                <TextBlock x:Name="TestTitle" Style="{StaticResource SectionTitle}"
+                                           Text="LLM gateway connectivity test"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                    <Button x:Name="TestButton" Content="Test" Style="{StaticResource JadeButton}"
                                             Click="TestLlm_Click"/>
-                                    <Button x:Name="CancelButton" Content="Cancel" Style="{StaticResource SmallButton}"
+                                    <Button x:Name="CancelButton" Content="Cancel" Style="{StaticResource GhostButton}"
                                             Margin="10,0,0,0" Visibility="Collapsed" Click="CancelTest_Click"/>
                                 </StackPanel>
                                 <TextBlock x:Name="TestResultText" FontSize="12" TextWrapping="Wrap"
@@ -151,18 +293,22 @@
                         </Border>
                     </StackPanel>
                 </ScrollViewer>
-            </TabItem>
+            </Grid>
 
-            <!-- ============ 记忆库 ============ -->
-            <TabItem x:Name="MemoriesTab" Padding="16,7">
-                <Grid Margin="2,10,2,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+            <!-- 记忆库 -->
+            <Grid x:Name="MemoriesPanel" Margin="28,22,28,16" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="0">
+                <TextBlock Grid.Row="0" x:Name="PageTitleMemories" Style="{StaticResource PageTitle}"
+                           Text="Translation memories"/>
+
+                <Border Grid.Row="1" Style="{StaticResource Tile}" Margin="0,16,0,0">
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
@@ -171,104 +317,106 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" x:Name="DirLabel" Text="Folder" VerticalAlignment="Center"
-                                   Foreground="{DynamicResource PrimaryTextBrush}" Margin="0,0,10,0"/>
+                                   Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,12,0"/>
                         <TextBox Grid.Column="1" x:Name="TmDirBox" VerticalAlignment="Center" Height="30"
-                                 IsReadOnly="True"/>
+                                 FontFamily="{DynamicResource Mono}" FontSize="12" IsReadOnly="True"/>
                         <Button Grid.Column="2" x:Name="BrowseButton" Content="Browse…"
-                                Style="{StaticResource SmallButton}" Margin="10,0,0,0" Click="Browse_Click"/>
+                                Style="{StaticResource GhostButton}" Margin="10,0,0,0" Click="Browse_Click"/>
                         <Button Grid.Column="3" x:Name="ScanButton" Content="Scan"
-                                Style="{StaticResource PrimaryButton}" Margin="10,0,0,0" Click="Scan_Click"/>
+                                Style="{StaticResource JadeButton}" Margin="10,0,0,0" Click="Scan_Click"/>
                         <Button Grid.Column="4" x:Name="ScanCancelButton" Content="Cancel"
-                                Style="{StaticResource SmallButton}" Margin="10,0,0,0"
+                                Style="{StaticResource GhostButton}" Margin="10,0,0,0"
                                 Visibility="Collapsed" Click="CancelScan_Click"/>
                     </Grid>
+                </Border>
 
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,8">
-                        <TextBlock x:Name="TmStatusText" VerticalAlignment="Center" FontSize="12"
-                                   Foreground="{DynamicResource SecondaryTextBrush}"/>
-                        <ProgressBar x:Name="TmProgress" Width="180" Height="6" Margin="14,0,0,0"
-                                     VerticalAlignment="Center" Visibility="Collapsed" IsIndeterminate="True"/>
-                    </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="2,12,0,8">
+                    <TextBlock x:Name="TmStatusText" VerticalAlignment="Center" FontSize="12"
+                               Foreground="{DynamicResource SecondaryTextBrush}"/>
+                    <ProgressBar x:Name="TmProgress" Width="180" Height="4" Margin="14,0,0,0"
+                                 VerticalAlignment="Center" Visibility="Collapsed" IsIndeterminate="True"/>
+                </StackPanel>
 
-                    <ListView Grid.Row="2" x:Name="TmList" BorderThickness="1"
+                <Border Grid.Row="3" CornerRadius="12" BorderThickness="1"
+                        BorderBrush="{DynamicResource TileBorderBrush}">
+                    <ListView x:Name="TmList" BorderThickness="0"
                               MouseDoubleClick="TmList_MouseDoubleClick">
                         <ListView.ContextMenu>
                             <ContextMenu>
-                                <MenuItem x:Name="MenuOpenFolder" Header="Open containing folder"
-                                          Click="OpenFolder_Click"/>
+                                <MenuItem x:Name="MenuOpenFolder" Header="Open containing folder" Click="OpenFolder_Click"/>
                                 <MenuItem x:Name="MenuCopyPath" Header="Copy path" Click="CopyPath_Click"/>
                             </ContextMenu>
                         </ListView.ContextMenu>
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Width="230">
+                                <GridViewColumn Width="240">
                                     <GridViewColumnHeader x:Name="ColName" Content="File"/>
-                                    <GridViewColumn.DisplayMemberBinding>
-                                        <Binding Path="Name"/>
-                                    </GridViewColumn.DisplayMemberBinding>
-                                </GridViewColumn>
-                                <GridViewColumn Width="120">
-                                    <GridViewColumnHeader x:Name="ColLang" Content="Language pair"/>
-                                    <GridViewColumn.DisplayMemberBinding>
-                                        <Binding Path="LanguagePair"/>
-                                    </GridViewColumn.DisplayMemberBinding>
-                                </GridViewColumn>
-                                <GridViewColumn Width="90">
-                                    <GridViewColumnHeader x:Name="ColUnits" Content="Units"/>
-                                    <GridViewColumn.DisplayMemberBinding>
-                                        <Binding Path="Units"/>
-                                    </GridViewColumn.DisplayMemberBinding>
-                                </GridViewColumn>
-                                <GridViewColumn Width="80">
-                                    <GridViewColumnHeader x:Name="ColSize" Content="Size"/>
-                                    <GridViewColumn.DisplayMemberBinding>
-                                        <Binding Path="Size"/>
-                                    </GridViewColumn.DisplayMemberBinding>
+                                    <GridViewColumn.DisplayMemberBinding><Binding Path="Name"/></GridViewColumn.DisplayMemberBinding>
                                 </GridViewColumn>
                                 <GridViewColumn Width="130">
+                                    <GridViewColumnHeader x:Name="ColLang" Content="Language pair"/>
+                                    <GridViewColumn.DisplayMemberBinding><Binding Path="LanguagePair"/></GridViewColumn.DisplayMemberBinding>
+                                </GridViewColumn>
+                                <GridViewColumn Width="95">
+                                    <GridViewColumnHeader x:Name="ColUnits" Content="Units"/>
+                                    <GridViewColumn.DisplayMemberBinding><Binding Path="Units"/></GridViewColumn.DisplayMemberBinding>
+                                </GridViewColumn>
+                                <GridViewColumn Width="85">
+                                    <GridViewColumnHeader x:Name="ColSize" Content="Size"/>
+                                    <GridViewColumn.DisplayMemberBinding><Binding Path="Size"/></GridViewColumn.DisplayMemberBinding>
+                                </GridViewColumn>
+                                <GridViewColumn Width="140">
                                     <GridViewColumnHeader x:Name="ColModified" Content="Modified"/>
                                     <GridViewColumn.DisplayMemberBinding>
                                         <Binding Path="Modified" StringFormat="yyyy-MM-dd HH:mm"/>
                                     </GridViewColumn.DisplayMemberBinding>
                                 </GridViewColumn>
-                                <GridViewColumn Width="140">
+                                <GridViewColumn Width="150">
                                     <GridViewColumnHeader x:Name="ColStatus" Content="Status"/>
-                                    <GridViewColumn.DisplayMemberBinding>
-                                        <Binding Path="StatusText"/>
-                                    </GridViewColumn.DisplayMemberBinding>
+                                    <GridViewColumn.DisplayMemberBinding><Binding Path="StatusText"/></GridViewColumn.DisplayMemberBinding>
                                 </GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
-                </Grid>
-            </TabItem>
+                </Border>
+            </Grid>
 
-            <!-- ============ 快捷 ============ -->
-            <TabItem x:Name="QuickTab" Padding="16,7">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="2,10,6,0">
-                    <StackPanel>
-                        <Border Style="{StaticResource Card}">
-                            <StackPanel>
-                                <TextBlock x:Name="QuickTitle" Text="Shortcuts" Style="{StaticResource SectionTitle}"/>
-                                <WrapPanel>
-                                    <Button x:Name="ProviderButton" Content="Translation provider settings…"
-                                            Style="{StaticResource SmallButton}" Margin="0,0,10,10"
-                                            Click="OpenProviderConfig_Click"/>
-                                    <Button x:Name="GlossaryButton" Content="Glossary manager…"
-                                            Style="{StaticResource SmallButton}" Margin="0,0,10,10"
-                                            Click="OpenGlossary_Click"/>
-                                    <Button x:Name="LogButton" Content="Open log folder"
-                                            Style="{StaticResource SmallButton}" Margin="0,0,10,10"
-                                            Click="OpenLogFolder_Click"/>
-                                    <Button x:Name="ConfigButton" Content="Reveal config file"
-                                            Style="{StaticResource SmallButton}" Margin="0,0,10,10"
-                                            Click="OpenConfigFile_Click"/>
-                                </WrapPanel>
-                            </StackPanel>
-                        </Border>
-                    </StackPanel>
-                </ScrollViewer>
-            </TabItem>
-        </TabControl>
+            <!-- 快捷 -->
+            <Grid x:Name="QuickPanel" Margin="28,22,28,16" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" x:Name="PageTitleQuick" Style="{StaticResource PageTitle}" Text="Quick actions"/>
+                <StackPanel Grid.Row="1" Margin="0,18,0,0">
+                    <TextBlock x:Name="QuickTitle" Style="{StaticResource TileCaption}" Text="SHORTCUTS"/>
+                    <Button x:Name="ProviderButton" Content="Translation provider settings…"
+                            Style="{StaticResource RowButton}" Tag="&#xE713;" Click="OpenProviderConfig_Click"/>
+                    <Button x:Name="GlossaryButton" Content="Glossary manager…"
+                            Style="{StaticResource RowButton}" Tag="&#xE8F1;" Click="OpenGlossary_Click"/>
+                    <Button x:Name="LogButton" Content="Open log folder"
+                            Style="{StaticResource RowButton}" Tag="&#xE7C3;" Click="OpenLogFolder_Click"/>
+                    <Button x:Name="ConfigButton" Content="Reveal config file"
+                            Style="{StaticResource RowButton}" Tag="&#xE8B7;" Click="OpenConfigFile_Click"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <!-- ==================== 底部状态条 ==================== -->
+        <Border Grid.Row="1" Grid.Column="1" Background="{DynamicResource SecondaryRegionBrush}"
+                BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0,1,0,0">
+            <Grid Margin="28,0,20,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontFamily="{DynamicResource Fluent}" FontSize="11" Text="&#xE7F4;"
+                               Foreground="{DynamicResource ThirdlyTextBrush}" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="ApiBarText" Margin="8,0,0,0" FontSize="11" FontFamily="{DynamicResource Mono}"
+                               Foreground="{DynamicResource ThirdlyTextBrush}" VerticalAlignment="Center"
+                               Text="local api"/>
+                </StackPanel>
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="11"
+                           FontFamily="{DynamicResource Mono}" Foreground="{DynamicResource ThirdlyTextBrush}"
+                           Text="TradosToolkit"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
