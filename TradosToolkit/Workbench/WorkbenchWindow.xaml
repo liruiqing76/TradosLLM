@@ -423,9 +423,12 @@
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <TextBlock FontFamily="{DynamicResource Fluent}" FontSize="11" Text="&#xE7F4;"
                                Foreground="{DynamicResource ThirdlyTextBrush}" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="ApiBarText" Margin="8,0,0,0" FontSize="11" FontFamily="{DynamicResource Mono}"
-                               Foreground="{DynamicResource ThirdlyTextBrush}" VerticalAlignment="Center"
-                               Text="local api"/>
+                    <TextBlock Margin="8,0,0,0" FontSize="11" FontFamily="{DynamicResource Mono}"
+                               Foreground="{DynamicResource ThirdlyTextBrush}" VerticalAlignment="Center">
+                        <Hyperlink x:Name="ApiLink" TextDecorations="{x:Null}" Click="OpenStatusPanel_Click">
+                            <Run x:Name="ApiBarText" Text="local api"/>
+                        </Hyperlink>
+                    </TextBlock>
                 </StackPanel>
                 <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="11"
                            FontFamily="{DynamicResource Mono}" Foreground="{DynamicResource ThirdlyTextBrush}"

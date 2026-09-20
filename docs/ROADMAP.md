@@ -60,6 +60,9 @@
 2. **TM 记忆库工具套件**（任务 #23）：基于 FileBasedTranslationMemory 写 API——多库合并去重、冲突条目检测、扫描库一键添加到当前项目、新建空库；入口在工作台"记忆库"页。
 3. **API 增强 + 状态面板**（任务 #24）：双语段列表导出（JSON/CSV）、任务进度查询端点、localhost:53902 极简 HTML 状态面板（进度 + 日志尾部 + TM/LLM/API 状态）。
 
+**实施状态（2026-09-20）**：1/2/3 三项均已完成并进了同一轮构建部署。
+1 = `09a1503`（SegmentDedup + LlmDiskCache，独立 A/B 16 断言）；2 = `c5792c8`（TmToolkit + 工作台四工具，真实 .sdltm A/B 18 断言）；3 = 本轮（BilingualParser 真实 .sdlxliff A/B 10 断言、`/api/project/segments`、`async=1` + `/api/task`+`/api/tasks`、`/api/requests`、`GET /` 状态面板 + 工作台底部链接入口，docs/API.md 同步）。
+
 未选留候选：**选中即译 + 术语挖掘**（编辑器选中文本即时 LLM 翻译；LLM 从存量译文/ sdltm 挖候选术语对进待审列表）。
 
 ## 四、明确不做

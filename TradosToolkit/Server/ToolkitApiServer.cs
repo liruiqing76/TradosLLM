@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading;
@@ -83,6 +84,7 @@ namespace TradosToolkit.Server
         {
             ApiResult result;
             var request = context.Request;
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             try
             {
                 var body = ReadBody(request);
@@ -99,6 +101,14 @@ namespace TradosToolkit.Server
                 ApiLog.Write("error " + request.Url.AbsolutePath + ": " + e);
                 result = ApiResult.Json(500, new Dictionary<string, object> { { "error", e.Message } });
             }
+            finally
+            {
+                watch.Stop();
+            }
+
+            // 状态面板自动刷新会刷屏，不进请求轨迹
+            if (request.Url.AbsolutePath != "/" && request.Url.AbsolutePath != "/status.html")
+                RequestTracker.Record(request.HttpMethod, request.Url.AbsolutePath, result.Status, watch.ElapsedMilliseconds);
 
             try
             {
@@ -154,6 +164,40 @@ namespace TradosToolkit.Server
             response.ContentLength64 = bytes.Length;
             response.OutputStream.Write(bytes, 0, bytes.Length);
             response.OutputStream.Close();
+        }
+    }
+
+    /// <summary>最近请求环形轨迹（不含状态面板自身的刷新），供 HTML 面板与 /api/requests 展示。</summary>
+    public static class RequestTracker
+    {
+        private const int Cap = 100;
+        private static readonly object Gate = new object();
+        private static readonly Queue<Dictionary<string, object>> Ring = new Queue<Dictionary<string, object>>();
+        private static long _total;
+
+        public static long Total => Interlocked.Read(ref _total);
+
+        public static void Record(string method, string path, int status, long ms)
+        {
+            Interlocked.Increment(ref _total);
+            var entry = new Dictionary<string, object>
+            {
+                { "time", DateTime.Now.ToString("HH:mm:ss") },
+                { "method", method },
+                { "path", path },
+                { "status", status },
+                { "ms", ms },
+            };
+            lock (Gate)
+            {
+                Ring.Enqueue(entry);
+                while (Ring.Count > Cap) Ring.Dequeue();
+            }
+        }
+
+        public static List<Dictionary<string, object>> Snapshot()
+        {
+            lock (Gate) return Ring.Reverse().ToList();
         }
     }
 

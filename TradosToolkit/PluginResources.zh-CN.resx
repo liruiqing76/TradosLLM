@@ -321,4 +321,116 @@
   <data name="WB_Mem_Err_NoProject" xml:space="preserve">
     <value>当前没有打开的项目</value>
   </data>
+  <data name="SP_Title" xml:space="preserve">
+    <value>状态面板</value>
+    <comment>SP_Title</comment>
+  </data>
+  <data name="SP_St_Down" xml:space="preserve">
+    <value>未监听</value>
+    <comment>SP_St_Down</comment>
+  </data>
+  <data name="SP_St_Unconfigured" xml:space="preserve">
+    <value>未配置</value>
+    <comment>SP_St_Unconfigured</comment>
+  </data>
+  <data name="SP_Uptime" xml:space="preserve">
+    <value>运行时长</value>
+    <comment>SP_Uptime</comment>
+  </data>
+  <data name="SP_Requests" xml:space="preserve">
+    <value>请求总数</value>
+    <comment>SP_Requests</comment>
+  </data>
+  <data name="SP_Running" xml:space="preserve">
+    <value>进行中任务</value>
+    <comment>SP_Running</comment>
+  </data>
+  <data name="SP_Dedup" xml:space="preserve">
+    <value>重复段去重</value>
+    <comment>SP_Dedup</comment>
+  </data>
+  <data name="SP_Cache" xml:space="preserve">
+    <value>LLM 磁盘缓存</value>
+    <comment>SP_Cache</comment>
+  </data>
+  <data name="SP_On" xml:space="preserve">
+    <value>开</value>
+    <comment>SP_On</comment>
+  </data>
+  <data name="SP_Off" xml:space="preserve">
+    <value>关</value>
+    <comment>SP_Off</comment>
+  </data>
+  <data name="SP_Tasks" xml:space="preserve">
+    <value>后台任务</value>
+    <comment>SP_Tasks</comment>
+  </data>
+  <data name="SP_RecentRequests" xml:space="preserve">
+    <value>最近请求</value>
+    <comment>SP_RecentRequests</comment>
+  </data>
+  <data name="SP_Projects" xml:space="preserve">
+    <value>项目</value>
+    <comment>SP_Projects</comment>
+  </data>
+  <data name="SP_Log" xml:space="preserve">
+    <value>日志尾部 - plugin.log</value>
+    <comment>SP_Log</comment>
+  </data>
+  <data name="SP_Col_Id" xml:space="preserve">
+    <value>编号</value>
+    <comment>SP_Col_Id</comment>
+  </data>
+  <data name="SP_Col_Task" xml:space="preserve">
+    <value>任务</value>
+    <comment>SP_Col_Task</comment>
+  </data>
+  <data name="SP_Col_Status" xml:space="preserve">
+    <value>状态</value>
+    <comment>SP_Col_Status</comment>
+  </data>
+  <data name="SP_Col_Started" xml:space="preserve">
+    <value>开始时间</value>
+    <comment>SP_Col_Started</comment>
+  </data>
+  <data name="SP_Col_Elapsed" xml:space="preserve">
+    <value>耗时(ms)</value>
+    <comment>SP_Col_Elapsed</comment>
+  </data>
+  <data name="SP_Col_Time" xml:space="preserve">
+    <value>时间</value>
+    <comment>SP_Col_Time</comment>
+  </data>
+  <data name="SP_Col_Method" xml:space="preserve">
+    <value>方法</value>
+    <comment>SP_Col_Method</comment>
+  </data>
+  <data name="SP_Col_Path" xml:space="preserve">
+    <value>路径</value>
+    <comment>SP_Col_Path</comment>
+  </data>
+  <data name="SP_Col_Ms" xml:space="preserve">
+    <value>毫秒</value>
+    <comment>SP_Col_Ms</comment>
+  </data>
+  <data name="SP_Col_Project" xml:space="preserve">
+    <value>项目</value>
+    <comment>SP_Col_Project</comment>
+  </data>
+  <data name="SP_Col_Langs" xml:space="preserve">
+    <value>语言</value>
+    <comment>SP_Col_Langs</comment>
+  </data>
+  <data name="SP_None" xml:space="preserve">
+    <value>暂无</value>
+    <comment>SP_None</comment>
+  </data>
+  <data name="SP_Busy" xml:space="preserve">
+    <value>（UI 忙，稍后自动重试）</value>
+    <comment>SP_Busy</comment>
+  </data>
+  <data name="WB_Status_Api_Open" xml:space="preserve">
+    <value>在浏览器中打开本地状态面板</value>
+    <comment>WB_Status_Api_Open</comment>
+  </data>
 </root>

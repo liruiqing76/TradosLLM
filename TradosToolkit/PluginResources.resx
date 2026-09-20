@@ -333,4 +333,116 @@
   <data name="WB_Mem_Err_NoProject" xml:space="preserve">
     <value>No project is currently open</value>
   </data>
+  <data name="SP_Title" xml:space="preserve">
+    <value>Status panel</value>
+    <comment>SP_Title</comment>
+  </data>
+  <data name="SP_St_Down" xml:space="preserve">
+    <value>down</value>
+    <comment>SP_St_Down</comment>
+  </data>
+  <data name="SP_St_Unconfigured" xml:space="preserve">
+    <value>not configured</value>
+    <comment>SP_St_Unconfigured</comment>
+  </data>
+  <data name="SP_Uptime" xml:space="preserve">
+    <value>Uptime</value>
+    <comment>SP_Uptime</comment>
+  </data>
+  <data name="SP_Requests" xml:space="preserve">
+    <value>Requests</value>
+    <comment>SP_Requests</comment>
+  </data>
+  <data name="SP_Running" xml:space="preserve">
+    <value>Running tasks</value>
+    <comment>SP_Running</comment>
+  </data>
+  <data name="SP_Dedup" xml:space="preserve">
+    <value>Dedup</value>
+    <comment>SP_Dedup</comment>
+  </data>
+  <data name="SP_Cache" xml:space="preserve">
+    <value>LLM disk cache</value>
+    <comment>SP_Cache</comment>
+  </data>
+  <data name="SP_On" xml:space="preserve">
+    <value>on</value>
+    <comment>SP_On</comment>
+  </data>
+  <data name="SP_Off" xml:space="preserve">
+    <value>off</value>
+    <comment>SP_Off</comment>
+  </data>
+  <data name="SP_Tasks" xml:space="preserve">
+    <value>Background tasks</value>
+    <comment>SP_Tasks</comment>
+  </data>
+  <data name="SP_RecentRequests" xml:space="preserve">
+    <value>Recent requests</value>
+    <comment>SP_RecentRequests</comment>
+  </data>
+  <data name="SP_Projects" xml:space="preserve">
+    <value>Projects</value>
+    <comment>SP_Projects</comment>
+  </data>
+  <data name="SP_Log" xml:space="preserve">
+    <value>Log tail - plugin.log</value>
+    <comment>SP_Log</comment>
+  </data>
+  <data name="SP_Col_Id" xml:space="preserve">
+    <value>Id</value>
+    <comment>SP_Col_Id</comment>
+  </data>
+  <data name="SP_Col_Task" xml:space="preserve">
+    <value>Task</value>
+    <comment>SP_Col_Task</comment>
+  </data>
+  <data name="SP_Col_Status" xml:space="preserve">
+    <value>Status</value>
+    <comment>SP_Col_Status</comment>
+  </data>
+  <data name="SP_Col_Started" xml:space="preserve">
+    <value>Started</value>
+    <comment>SP_Col_Started</comment>
+  </data>
+  <data name="SP_Col_Elapsed" xml:space="preserve">
+    <value>Elapsed ms</value>
+    <comment>SP_Col_Elapsed</comment>
+  </data>
+  <data name="SP_Col_Time" xml:space="preserve">
+    <value>Time</value>
+    <comment>SP_Col_Time</comment>
+  </data>
+  <data name="SP_Col_Method" xml:space="preserve">
+    <value>Method</value>
+    <comment>SP_Col_Method</comment>
+  </data>
+  <data name="SP_Col_Path" xml:space="preserve">
+    <value>Path</value>
+    <comment>SP_Col_Path</comment>
+  </data>
+  <data name="SP_Col_Ms" xml:space="preserve">
+    <value>Ms</value>
+    <comment>SP_Col_Ms</comment>
+  </data>
+  <data name="SP_Col_Project" xml:space="preserve">
+    <value>Project</value>
+    <comment>SP_Col_Project</comment>
+  </data>
+  <data name="SP_Col_Langs" xml:space="preserve">
+    <value>Languages</value>
+    <comment>SP_Col_Langs</comment>
+  </data>
+  <data name="SP_None" xml:space="preserve">
+    <value>none</value>
+    <comment>SP_None</comment>
+  </data>
+  <data name="SP_Busy" xml:space="preserve">
+    <value>(UI busy, retry later)</value>
+    <comment>SP_Busy</comment>
+  </data>
+  <data name="WB_Status_Api_Open" xml:space="preserve">
+    <value>Open the local status panel in your browser</value>
+    <comment>WB_Status_Api_Open</comment>
+  </data>
 </root>

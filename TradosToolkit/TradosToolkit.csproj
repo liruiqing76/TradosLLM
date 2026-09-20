@@ -129,6 +129,9 @@
     <Compile Include="Workbench\TranslationCenterController.cs" />
     <Compile Include="Server\ToolkitApiServer.cs" />
     <Compile Include="Server\ProjectApi.cs" />
+    <Compile Include="Server\BilingualParser.cs" />
+    <Compile Include="Server\TaskRegistry.cs" />
+    <Compile Include="Server\StatusPage.cs" />
     <Compile Include="EditorPanel\LlmPanelController.cs" />
     <Compile Include="EditorPanel\LlmChatClient.cs" />
     <Compile Include="EditorPanel\LlmPanelView.xaml.cs">

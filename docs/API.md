@@ -4,10 +4,16 @@ Studio 打开并加载插件后自动启动，仅供本机 agent（如 Claude Co
 Studio 关闭即服务消失，属设计行为。
 
 - 基址：`http://localhost:53902`（端口改 `%APPDATA%\TradosToolkit\api.json` 的 `port`，`enabled:false` 可整体关闭）
-- 鉴权：除 `/api/status` 外均需请求头 `X-Api-Key: <令牌>`，或查询参数 `?key=<令牌>`
+- 鉴权：除 `/api/status` 与状态面板 `/` 外均需请求头 `X-Api-Key: <令牌>`，或查询参数 `?key=<令牌>`
   - 令牌文件：`%APPDATA%\TradosToolkit\api.token`（首次启动自动生成）
 - 日志：`%APPDATA%\TradosToolkit\api.log`
 - 编码：请求/响应均为 UTF-8 JSON（`/api/file` 除外，返回字节流）
+
+## GET / （状态面板，免密钥）
+
+浏览器打开 `http://localhost:53902/`：极简浅色 HTML 面板，5 秒自动刷新——
+API/TM/LLM/去重/缓存状态磁贴、后台任务、最近请求轨迹、项目列表、`plugin.log` 尾部 30 行。
+工作台窗口底部 `localhost:53902` 链接点击即打开。只读且不含令牌等敏感值。
 
 ## GET /api/status
 
@@ -19,7 +25,8 @@ curl -s http://localhost:53902/api/status
 
 ```json
 { "product": "TradosToolkit", "studio": "x64", "version": "1.0.0.0",
-  "port": 53902, "startedAt": "2026-09-19T10:00:00", "listening": true }
+  "port": 53902, "startedAt": "2026-09-19T10:00:00", "listening": true,
+  "uptimeSeconds": 3600, "totalRequests": 42, "runningTasks": 0 }
 ```
 
 ## GET /api/templates
@@ -68,9 +75,10 @@ curl -s http://localhost:53902/api/status
 
 `target[].id` 即 task 端点 `files=` 参数用的文件 id。
 
-## POST /api/project/task?path=…&task=…&files=…
+## POST /api/project/task?path=…&task=…&files=…&async=…
 
-同步执行自动化任务（返回即完成，无轮询）。
+执行自动化任务。缺省同步（返回即完成）；`async=1` 立即回 `202 { "taskId": "…", "status": "running" }`，
+完成/失败状态用 `GET /api/task?id=` 查询（长任务 pretranslate/analyze 推荐异步，避免 HTTP 挂等）。
 
 - `task`（必填）：`pretranslate` | `analyze` | `wordcount` | `target`（目标翻译）| `export`（翻译导出）| `updatetm`（批量任务，写主 TM）
 - `files`（可选）：逗号分隔的文件 id，缺省 = 全部目标文件
@@ -86,6 +94,34 @@ curl -s -X POST "http://localhost:53902/api/project/task?path=D:\\demo.sdlp&task
 ```
 
 → `200 { "task": "pretranslate", "messages": ["…"], "reports": [{ "id": "…", "name": "…" }] }`
+
+## GET /api/task?id=… 与 GET /api/tasks
+
+异步任务查询。`/api/task?id=` 单任务详情（完成后带 `result` 原文），`/api/tasks` 最近 50 条列表（新→旧）。
+
+```json
+{ "id": "1a2b3c4d5e6f", "task": "pretranslate", "projectPath": "D:\\demo.sdlp",
+  "status": "running|done|error", "startedAt": "2026-09-20T22:00:00",
+  "finishedAt": "2026-09-20T22:01:30", "elapsedMs": 90000, "result": {…} }
+```
+
+## GET /api/project/segments?path=…&file=…&format=json|csv
+
+按双语参照文件（`.sdlxliff`）导出段级双语表。`file` 缺省 = 唯一目标文件，多目标文件时必填（文件 id 或文件名）。
+每行：`id / status(conf) / origin / percent / source / target`；`translate="no"` 结构段自动跳过。
+
+```json
+{ "project": "demo", "file": "a.docx", "fileId": "…", "language": "ru-RU",
+  "bilingualPath": "D:\\…\\a.docx.sdlxliff", "count": 100,
+  "segments": [ { "Id": "…", "Status": "Translated", "Origin": "tm", "Percent": "100",
+                  "Source": "Getting Started", "Target": "Первые шаги" } ] }
+```
+
+`format=csv` 直接回下载文件（UTF-8 BOM，Excel 双击可开）。双语文件未生成时 409。
+
+## GET /api/requests
+
+最近 100 条 API 请求轨迹（不含状态面板刷新）：`[ { "time", "method", "path", "status", "ms" } ]`。
 
 ## GET /api/project/report?path=…
 

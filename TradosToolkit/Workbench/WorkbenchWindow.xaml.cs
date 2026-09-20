@@ -116,6 +116,7 @@ namespace TradosToolkit.Workbench
             GlossaryButton.Content = UiText.T("WB_Quik_Glossary");
             LogButton.Content = UiText.T("WB_Quik_Logs");
             ConfigButton.Content = UiText.T("WB_Quik_Config");
+            ApiLink.ToolTip = UiText.T("WB_Status_Api_Open");
         }
 
         private void Nav_Changed(object sender, RoutedEventArgs e)
@@ -610,6 +611,22 @@ namespace TradosToolkit.Workbench
         {
             ToolkitLog.Info("工作台：打开日志目录");
             ToolkitLog.OpenFolder();
+        }
+
+        private void OpenStatusPanel_Click(object sender, RoutedEventArgs e)
+        {
+            var url = "http://localhost:" + ToolkitApiServer.Instance.Port + "/";
+            try
+            {
+                ToolkitLog.Info("工作台：打开状态面板 " + url);
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("工作台：打开状态面板失败", ex);
+                MessageBox.Show(this, UiText.Tf("WB_Err_OpenFailed", ex.Message), UiText.T("WB_Title"),
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void OpenConfigFile_Click(object sender, RoutedEventArgs e)

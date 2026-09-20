@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Sdl.Core.Globalization;
 using Sdl.ProjectAutomation.Core;
 using Sdl.ProjectAutomation.FileBased;
@@ -26,6 +27,9 @@ namespace TradosToolkit.Server
 
         public static ApiResult Handle(string method, string path, Dictionary<string, string> query, string body, string key, string token)
         {
+            if (path == "/" || path == "/status.html")
+                return StatusPage.Build();
+
             if (path == "/api/status")
                 return Status();
 
@@ -42,6 +46,14 @@ namespace TradosToolkit.Server
                     return ProjectFiles(query);
                 case "/api/project/task":
                     return RunTask(method, query, body);
+                case "/api/tasks":
+                    return ApiResult.Json(200, TaskRegistry.Snapshot(null));
+                case "/api/task":
+                    return TaskStatus(query);
+                case "/api/requests":
+                    return ApiResult.Json(200, RequestTracker.Snapshot());
+                case "/api/project/segments":
+                    return Segments(query);
                 case "/api/project/report":
                     return Report(query);
                 case "/api/project/tmfiles":
@@ -57,15 +69,28 @@ namespace TradosToolkit.Server
 
         private static ApiResult Status()
         {
+            var server = ToolkitApiServer.Instance;
             return ApiResult.Json(200, new Dictionary<string, object>
             {
                 { "product", "TradosToolkit" },
                 { "studio", Environment.Is64BitProcess ? "x64" : "x86" },
                 { "version", typeof(ProjectApi).Assembly.GetName().Version.ToString() },
-                { "port", ToolkitApiServer.Instance.Port },
-                { "startedAt", ToolkitApiServer.Instance.StartedAt },
-                { "listening", ToolkitApiServer.Instance.IsListening },
+                { "port", server.Port },
+                { "startedAt", server.StartedAt },
+                { "listening", server.IsListening },
+                { "uptimeSeconds", server.StartedAt == default(DateTime) ? 0 : (long)(DateTime.Now - server.StartedAt).TotalSeconds },
+                { "totalRequests", RequestTracker.Total },
+                { "runningTasks", TaskRegistry.RunningCount },
             });
+        }
+
+        private static ApiResult TaskStatus(Dictionary<string, string> query)
+        {
+            string id;
+            if (!query.TryGetValue("id", out id) || string.IsNullOrEmpty(id))
+                return ApiResult.Json(400, Error("缺少 query 参数 id"));
+            var rows = TaskRegistry.Snapshot(id);
+            return rows.Count == 0 ? ApiResult.Json(404, Error("无此任务 " + id)) : ApiResult.Json(200, rows[0]);
         }
 
         private static ApiResult Templates()
@@ -216,9 +241,10 @@ namespace TradosToolkit.Server
         }
 
         /// <summary>
-        /// POST /api/project/task?path=...&task=pretranslate|analyze|...&files=id1,id2(可选)
+        /// POST /api/project/task?path=...&task=pretranslate|analyze|...&files=id1,id2(可选)&async=1(可选)
         /// body 可选 {"providerUri":"tradostoolkit://...","providerState":""}：
         /// 预翻译前把该提供程序写入项目所有目标语言的 TM 配置。
+        /// async=1 立即返回 202 {taskId}，进度查 GET /api/task?id=；缺省仍同步阻塞到完成。
         /// </summary>
         private static ApiResult RunTask(string method, Dictionary<string, string> query, string body)
         {
@@ -230,6 +256,23 @@ namespace TradosToolkit.Server
                 return ApiResult.Json(400, Error("task 需为: " + string.Join("|", TaskTemplates.Keys)));
 
             var request = ParseBody(body);
+            Func<ApiResult> run = () => ExecuteTask(taskKey, templateId, query, request);
+
+            if (query.TryGetValue("async", out var async) && async == "1")
+            {
+                var path = query.TryGetValue("path", out var p) ? p : null;
+                var st = TaskRegistry.Start(taskKey, path, run);
+                return ApiResult.Json(202, new Dictionary<string, object>
+                {
+                    { "taskId", st.Id }, { "task", taskKey }, { "status", "running" },
+                });
+            }
+            return run();
+        }
+
+        private static ApiResult ExecuteTask(string taskKey, string templateId,
+            Dictionary<string, string> query, Dictionary<string, object> request)
+        {
             var providerUri = Str(request, "providerUri");
 
             return WithProject(query, (project, _) =>
@@ -379,6 +422,89 @@ namespace TradosToolkit.Server
 
             var bytes = File.ReadAllBytes(path);
             return ApiResult.File(bytes, "application/octet-stream", Path.GetFileName(path));
+        }
+
+        /// <summary>
+        /// GET /api/project/segments?path=...&file=&lt;targetFileId 或文件名&gt;(单目标文件可省略)&format=json|csv
+        /// 读双语参照文件 (.sdlxliff) 导出段级双语表：id/status/origin/percent/source/target。
+        /// </summary>
+        private static ApiResult Segments(Dictionary<string, string> query)
+        {
+            return WithProject(query, (project, info) =>
+            {
+                var targets = project.GetTargetLanguageFiles().ToList();
+                if (targets.Count == 0)
+                    return ApiResult.Json(400, Error("项目没有目标文件"));
+
+                var wanted = query.TryGetValue("file", out var f) ? f : null;
+                ProjectFile file;
+                if (string.IsNullOrEmpty(wanted))
+                {
+                    if (targets.Count > 1)
+                        return ApiResult.Json(400, Error("多个目标文件，请用 file 指定: " +
+                            string.Join("; ", targets.Select(t => t.Id + " = " + t.Name))));
+                    file = targets[0];
+                }
+                else
+                {
+                    file = targets.FirstOrDefault(t =>
+                        string.Equals(t.Id.ToString(), wanted, StringComparison.OrdinalIgnoreCase) ||
+                        string.Equals(t.Name, wanted, StringComparison.OrdinalIgnoreCase));
+                    if (file == null)
+                        return ApiResult.Json(404, Error("目标文件不存在: " + wanted));
+                }
+
+                var bilingualPath = file.BilingualReferenceFileLocalPath;
+                if (string.IsNullOrEmpty(bilingualPath) || !File.Exists(bilingualPath))
+                    return ApiResult.Json(409, Error("双语参照文件尚未生成（请在 Studio 打开过该文件后重试）"));
+
+                var rows = BilingualParser.Parse(bilingualPath);
+                var lang = file.Language == null ? null : file.Language.IsoAbbreviation;
+
+                var format = query.TryGetValue("format", out var fmt) ? fmt : "json";
+                if (string.Equals(format, "csv", StringComparison.OrdinalIgnoreCase))
+                {
+                    var csv = new System.Text.StringBuilder();
+                    csv.Append('\ufeff'); // Excel 双击直开
+                    csv.Append(BilingualParser.ToCsv(rows));
+                    var name = SanitizeFileName(info.Name + "_" + (lang ?? "tgt")) + "_segments.csv";
+                    return ApiResult.File(Encoding.UTF8.GetBytes(csv.ToString()), "text/csv; charset=utf-8", name);
+                }
+
+                return ApiResult.Json(200, new Dictionary<string, object>
+                {
+                    { "project", info.Name },
+                    { "file", file.Name },
+                    { "fileId", file.Id },
+                    { "language", lang },
+                    { "bilingualPath", bilingualPath },
+                    { "count", rows.Count },
+                    { "segments", rows },
+                });
+            });
+        }
+
+        /// <summary>状态面板专用：2 秒内拿不到 UI 线程就返回 null（页面显示 busy），绝不拖死 HTTP 线程。</summary>
+        public static List<Dictionary<string, object>> SafeProjects()
+        {
+            try
+            {
+                var app = System.Windows.Application.Current;
+                if (app == null) return ListProjectsOnUi();
+                return app.Dispatcher.Invoke(new Func<List<Dictionary<string, object>>>(ListProjectsOnUi),
+                    TimeSpan.FromSeconds(2)) as List<Dictionary<string, object>>;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        private static List<Dictionary<string, object>> ListProjectsOnUi()
+        {
+            return ProjectsController().GetProjects()
+                .Select(p => DescribeProject(p.GetProjectInfo()))
+                .ToList();
         }
 
         private static ApiResult WithProject(
