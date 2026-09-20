@@ -36,6 +36,10 @@ namespace TradosToolkit
         public string TranslationCenterUrl = string.Empty;
         /// <summary>LLM 并发请求数（config.json 的 llmConcurrency，缺省 6）。</summary>
         public int LlmConcurrency = 6;
+        /// <summary>批内重复段去重（config.json 的 segmentDedup，缺省 true；false=每段独立送引擎）。</summary>
+        public bool SegmentDedup = true;
+        /// <summary>LLM 译文磁盘缓存跨文档复用（config.json 的 llmDiskCache，缺省 true）。</summary>
+        public bool LlmDiskCacheEnabled = true;
         /// <summary>本地记忆库扫描目录（config.json 的 tmScanDirectory，工作台"记忆库"页使用）。</summary>
         public string TmScanDirectory = string.Empty;
         /// <summary>翻译中心书签目录树；键缺失时用内置默认，键存在则完全按文件。</summary>
@@ -88,6 +92,10 @@ namespace TradosToolkit
                         config.TranslationCenterUrl = (t ?? string.Empty).Trim();
                     if (json.TryGetValue("llmConcurrency", out var cc))
                         config.LlmConcurrency = Math.Max(1, Math.Min(32, Convert.ToInt32(cc)));
+                    if (json.TryGetValue("segmentDedup", out var sd))
+                        config.SegmentDedup = Convert.ToBoolean(sd);
+                    if (json.TryGetValue("llmDiskCache", out var dc))
+                        config.LlmDiskCacheEnabled = Convert.ToBoolean(dc);
                     if (json.TryGetValue("tmScanDirectory", out var tsd) && tsd is string td)
                         config.TmScanDirectory = (td ?? string.Empty).Trim();
                     if (json.TryGetValue("translationCenterFolders", out var bm))

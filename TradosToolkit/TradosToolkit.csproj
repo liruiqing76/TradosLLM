@@ -143,6 +143,8 @@
     <Compile Include="TranslationProvider\Engines\TmApiEngine.cs" />
     <Compile Include="TranslationProvider\Engines\CascadeEngine.cs" />
     <Compile Include="TranslationProvider\Engines\OpenAiCompatEngine.cs" />
+    <Compile Include="TranslationProvider\Engines\SegmentDedup.cs" />
+    <Compile Include="TranslationProvider\Engines\LlmDiskCache.cs" />
     <Compile Include="TranslationProvider\UI\ProviderConfigWindow.xaml.cs">
       <DependentUpon>ProviderConfigWindow.xaml</DependentUpon>
     </Compile>

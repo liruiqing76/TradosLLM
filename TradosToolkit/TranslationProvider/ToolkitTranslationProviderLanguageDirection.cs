@@ -120,9 +120,26 @@ namespace TradosToolkit.TranslationProvider
                     };
                 }
 
+                // 批内重复段去重：同文段只送引擎一次，其余复用首现结果（省网关时间 + 全文同译）
+                int[] dupOf = null;
+                var deduped = 0;
+                var engineMask = mask;
+                if (ToolkitConfig.Load().SegmentDedup)
+                {
+                    bool[] planned;
+                    deduped = SegmentDedup.Plan(sources, mask, out planned, out dupOf);
+                    if (deduped > 0)
+                    {
+                        engineMask = planned;
+                        ToolkitLog.Info("重复段去重: 本批 " + deduped + " 段同文复用，实际送引擎 " +
+                                        (requested - deduped) + "/" + requested + " 段");
+                    }
+                }
+
                 var batches = _engine
-                    .TranslateAsync(_pair, sources, mask, _apiKey, contexts, default)
+                    .TranslateAsync(_pair, sources, engineMask, _apiKey, contexts, default)
                     .GetAwaiter().GetResult();
+                if (dupOf != null && batches != null) SegmentDedup.Apply(batches, dupOf);
 
                 var results = new SearchResults[segments.Length];
                 var hits = 0;
@@ -143,7 +160,8 @@ namespace TradosToolkit.TranslationProvider
                         _contextLastTarget = candidate?.Translation;
                     }
                 }
-                ToolkitLog.Info("Search 完成: 命中=" + hits + "/" + requested + " 上下文批尾=" +
+                ToolkitLog.Info("Search 完成: 命中=" + hits + "/" + requested + " 去重=" + deduped +
+                                " 上下文批尾=" +
                                 (lastRequested >= 0 ? "已更新" : "无") + " 耗时=" + watch.ElapsedMilliseconds + "ms");
                 return results;
             }

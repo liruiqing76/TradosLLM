@@ -40,18 +40,37 @@ namespace TradosToolkit.TranslationProvider.Engines
             for (var i = 0; i < results.Length; i++)
                 results[i] = new EngineResult[0];
 
+            var config = ToolkitConfig.Load();
+            var useCache = config.LlmDiskCacheEnabled;
+            var cacheHits = 0;
             var pending = new List<int>();
             for (var i = 0; i < sources.Length; i++)
             {
                 // 空段送 LLM 会得到道歉式闲聊并被当作译文写入，直接跳过
                 if ((mask == null || mask[i]) && !string.IsNullOrWhiteSpace(sources[i]))
+                {
+                    if (useCache)
+                    {
+                        var cached = LlmDiskCache.TryGet(LlmDiskCache.KeyFor(
+                            _baseUrl, _model, languagePair.SourceCultureName, languagePair.TargetCultureName, sources[i]));
+                        if (!string.IsNullOrEmpty(cached))
+                        {
+                            results[i] = new[]
+                            {
+                                new EngineResult { Translation = cached, MatchPercentage = 0, Origin = "LLM-cache" }
+                            };
+                            cacheHits++;
+                            continue;
+                        }
+                    }
                     pending.Add(i);
+                }
             }
 
-            var concurrency = ToolkitConfig.Load().LlmConcurrency;
+            var concurrency = config.LlmConcurrency;
             var watch = System.Diagnostics.Stopwatch.StartNew();
-            ToolkitLog.Info("LLM 翻译开始: 段数=" + pending.Count + " 并发=" + concurrency +
-                            " 上下文=" + (contexts != null));
+            ToolkitLog.Info("LLM 翻译开始: 送网关=" + pending.Count + " 磁盘缓存命中=" + cacheHits +
+                            " 并发=" + concurrency + " 上下文=" + (contexts != null));
 
             // 按并发数分块推进：块内并发、块间同步栅栏，
             // 这样每块首段能拿到上一块末段的确定译文做上下文。
@@ -81,11 +100,17 @@ namespace TradosToolkit.TranslationProvider.Engines
                         {
                             new EngineResult { Translation = translation, MatchPercentage = 0, Origin = "LLM" }
                         };
+                        if (useCache && !string.IsNullOrEmpty(translation))
+                            LlmDiskCache.Put(LlmDiskCache.KeyFor(
+                                _baseUrl, _model, languagePair.SourceCultureName, languagePair.TargetCultureName, text),
+                                translation);
                     });
                 }
                 await Task.WhenAll(tasks).ConfigureAwait(false);
             }
-            ToolkitLog.Info("LLM 翻译完成: 段数=" + pending.Count + " 耗时=" + watch.ElapsedMilliseconds + "ms");
+            if (useCache) LlmDiskCache.SaveIfDirty();
+            ToolkitLog.Info("LLM 翻译完成: 网关=" + pending.Count + " 缓存命中=" + cacheHits +
+                            " 耗时=" + watch.ElapsedMilliseconds + "ms");
             return results;
         }
 
