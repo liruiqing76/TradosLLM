@@ -11,17 +11,17 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDark.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <!-- ===== 设计令牌：翡翠绿控制台 ===== -->
-            <SolidColorBrush x:Key="PrimaryBrush" Color="#FF2FA57C"/>
-            <SolidColorBrush x:Key="DarkPrimaryBrush" Color="#FF2FA57C"/>
-            <SolidColorBrush x:Key="TileBrush" Color="#14FFFFFF"/>
-            <SolidColorBrush x:Key="TileBorderBrush" Color="#22FFFFFF"/>
-            <SolidColorBrush x:Key="RailCheckedBrush" Color="#26FFFFFF"/>
-            <SolidColorBrush x:Key="RailHoverBrush" Color="#0DFFFFFF"/>
+            <!-- ===== 设计令牌：与 Studio 一致的浅色 + Trados 蓝强调 ===== -->
+            <SolidColorBrush x:Key="PrimaryBrush" Color="#FF2B6FBB"/>
+            <SolidColorBrush x:Key="DarkPrimaryBrush" Color="#FF21568F"/>
+            <SolidColorBrush x:Key="TileBrush" Color="#FFFAFBFD"/>
+            <SolidColorBrush x:Key="TileBorderBrush" Color="#FFDFE4EB"/>
+            <SolidColorBrush x:Key="RailCheckedBrush" Color="#FFE7F0FA"/>
+            <SolidColorBrush x:Key="RailHoverBrush" Color="#FFF2F5F9"/>
 
             <FontFamily x:Key="Mono">Consolas, Microsoft YaHei UI</FontFamily>
             <FontFamily x:Key="Fluent">Segoe MDL2 Assets</FontFamily>
@@ -175,8 +175,8 @@
                     <Border Width="38" Height="38" CornerRadius="11">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                <GradientStop Color="#FF35B98C" Offset="0"/>
-                                <GradientStop Color="#FF1E7D57" Offset="1"/>
+                                <GradientStop Color="#FF3D82D0" Offset="0"/>
+                                <GradientStop Color="#FF21568F" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.Background>
                         <TextBlock Text="TT" Foreground="White" FontSize="15" FontWeight="Bold"
