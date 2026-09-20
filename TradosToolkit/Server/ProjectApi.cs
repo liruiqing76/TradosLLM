@@ -214,10 +214,10 @@ namespace TradosToolkit.Server
 
         private static ApiResult ProjectFiles(Dictionary<string, string> query)
         {
-            return WithProject(query, (project, _) =>
+            return WithProject(query, (project, info) =>
             {
-                var sources = project.GetSourceLanguageFiles().Select(DescribeFile).ToList();
-                var targets = project.GetTargetLanguageFiles().Select(DescribeFile).ToList();
+                var sources = project.GetSourceLanguageFiles().Select(f => DescribeFile(f, info)).ToList();
+                var targets = project.GetTargetLanguageFiles().Select(f => DescribeFile(f, info)).ToList();
                 return ApiResult.Json(200, new Dictionary<string, object>
                 {
                     { "source", sources },
@@ -226,7 +226,7 @@ namespace TradosToolkit.Server
             });
         }
 
-        private static Dictionary<string, object> DescribeFile(ProjectFile file)
+        private static Dictionary<string, object> DescribeFile(ProjectFile file, ProjectInfo info)
         {
             return new Dictionary<string, object>
             {
@@ -236,7 +236,7 @@ namespace TradosToolkit.Server
                 { "isSource", file.IsSource },
                 { "language", file.Language == null ? null : file.Language.IsoAbbreviation },
                 { "path", file.LocalFilePath },
-                { "bilingualPath", file.BilingualReferenceFileLocalPath },
+                { "bilingualPath", file.IsSource ? null : ResolveBilingualPath(file, info) },
             };
         }
 
@@ -454,9 +454,9 @@ namespace TradosToolkit.Server
                         return ApiResult.Json(404, Error("目标文件不存在: " + wanted));
                 }
 
-                var bilingualPath = file.BilingualReferenceFileLocalPath;
-                if (string.IsNullOrEmpty(bilingualPath) || !File.Exists(bilingualPath))
-                    return ApiResult.Json(409, Error("双语参照文件尚未生成（请在 Studio 打开过该文件后重试）"));
+                var bilingualPath = ResolveBilingualPath(file, info);
+                if (bilingualPath == null)
+                    return ApiResult.Json(409, Error("双语参照文件尚未生成（请在 Studio 打开过该文件后重试）: " + file.Name));
 
                 var rows = BilingualParser.Parse(bilingualPath);
                 var lang = file.Language == null ? null : file.Language.IsoAbbreviation;
@@ -482,6 +482,49 @@ namespace TradosToolkit.Server
                     { "segments", rows },
                 });
             });
+        }
+
+        /// <summary>
+        /// 双语参照文件定位：先取 BilingualReferenceFileLocalPath 属性；该属性在部分项目
+        /// （如非文件包项目）恒为 null，回退到 &lt;项目目录&gt;\&lt;语言&gt;\ 及源文件同目录按同名 .sdlxliff 查找。
+        /// 找不到返回 null。
+        /// </summary>
+        private static string ResolveBilingualPath(ProjectFile file, ProjectInfo info)
+        {
+            var declared = file.BilingualReferenceFileLocalPath;
+            if (!string.IsNullOrEmpty(declared) && File.Exists(declared))
+                return declared;
+
+            var baseName = Path.GetFileNameWithoutExtension(file.Name);
+            if (string.Equals(baseName, file.Name, StringComparison.OrdinalIgnoreCase))
+                baseName = Path.GetFileNameWithoutExtension(baseName); // a.sdlxliff → a
+
+            var candidates = new List<string>();
+            var lang = file.Language == null ? null : file.Language.IsoAbbreviation;
+            if (info != null && !string.IsNullOrEmpty(info.LocalProjectFolder) && !string.IsNullOrEmpty(lang))
+                candidates.Add(Path.Combine(info.LocalProjectFolder, lang, file.Name));
+            var dir = Path.GetDirectoryName(file.LocalFilePath);
+            if (!string.IsNullOrEmpty(dir))
+                candidates.Add(Path.Combine(dir, file.Name));
+            if (!string.IsNullOrEmpty(baseName))
+                foreach (var c in candidates.ToList())
+                    if (!string.Equals(Path.GetFileName(c), file.Name, StringComparison.OrdinalIgnoreCase))
+                        candidates.Add(Path.Combine(Path.GetDirectoryName(c), baseName + ".sdlxliff"));
+
+            foreach (var candidate in candidates)
+                if (File.Exists(candidate)) return candidate;
+            // 语言目录内任意与文件主名前缀匹配的 .sdlxliff
+            if (info != null && !string.IsNullOrEmpty(info.LocalProjectFolder) && !string.IsNullOrEmpty(lang))
+            {
+                var folder = Path.Combine(info.LocalProjectFolder, lang);
+                if (Directory.Exists(folder) && !string.IsNullOrEmpty(baseName))
+                {
+                    var fuzzy = Directory.GetFiles(folder, baseName + "*.sdlxliff")
+                        .OrderByDescending(File.GetLastWriteTimeUtc).FirstOrDefault();
+                    if (fuzzy != null) return fuzzy;
+                }
+            }
+            return null;
         }
 
         /// <summary>状态面板专用：2 秒内拿不到 UI 线程就返回 null（页面显示 busy），绝不拖死 HTTP 线程。</summary>
