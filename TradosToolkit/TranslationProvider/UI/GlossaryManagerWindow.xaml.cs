@@ -128,8 +128,13 @@ namespace TradosToolkit.TranslationProvider.UI
                 }
                 if (search != null)
                 {
-                    search.Focus();
-                    search.SelectAll();
+                    // 下拉打开后 ComboBox 会把焦点抢回列表选中项，必须延迟一帧再聚焦搜索框，否则敲不进字
+                    combo.Dispatcher.BeginInvoke(new System.Action(() =>
+                    {
+                        search.Focus();
+                        System.Windows.Input.Keyboard.Focus(search);
+                        search.SelectAll();
+                    }), System.Windows.Threading.DispatcherPriority.Input);
                 }
             };
             combo.DropDownClosed += (s, e) =>
@@ -146,9 +151,11 @@ namespace TradosToolkit.TranslationProvider.UI
         private ObservableCollection<GlossaryEntry> Terms { get; set; }
         private List<GlossaryEntry> _allTerms = new List<GlossaryEntry>();
 
-        /// <summary>枚举 Studio 支持的全部语言，中文化名并按代码排序。</summary>
+        /// <summary>枚举 Studio 支持的全部语言，中文化名并按代码排序；进程级缓存，二次打开窗口不再重复枚举。</summary>
+        private static List<LangItem> _langsCache;
         private List<LangItem> BuildLanguages()
         {
+            if (_langsCache != null) return _langsCache;
             var list = new List<LangItem>();
             try
             {
@@ -171,7 +178,7 @@ namespace TradosToolkit.TranslationProvider.UI
                 list.Add(new LangItem { Code = "zh-CN", Label = "Chinese simplified  ·  zh-CN" });
                 list.Add(new LangItem { Code = "en-US", Label = "English (US)  ·  en-US" });
             }
-            return list.OrderBy(l => l.Label).ToList();
+            return _langsCache = list.OrderBy(l => l.Label).ToList();
         }
 
         private void TryFillProjectLanguages(ref string src, ref string tgt)

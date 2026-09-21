@@ -17,7 +17,6 @@ foreach ($p in @(@('en-US','English (United States)  ·  en-US'),
 
 $combo = New-Object System.Windows.Controls.ComboBox
 $combo.Style = $style
-$combo.DisplayMemberPath = 'Label'
 $combo.SelectedValuePath = 'Code'
 
 $view = [System.Windows.Data.ListCollectionView]::new($src)
@@ -57,6 +56,37 @@ $combo.IsDropDownOpen = $true
 $search = $combo.Template.FindName('LangSearchBox', $combo)
 Assert ($null -ne $search) 'LangSearchBox found inside dropdown template'
 Assert ($combo.IsDropDownOpen) 'dropdown openable'
+
+# 1b) popup must be focusable/activatable, otherwise the search box can never receive keyboard input
+$popup = $combo.Template.FindName('PART_Popup', $combo)
+Assert ($null -ne $popup -and $popup.Focusable) 'Popup Focusable=True (search box can get keyboard)'
+
+# production-equivalent deferred focus: ComboBox steals focus back to the list item after open,
+# so DropDownOpened must re-focus the search box one dispatcher frame later
+$combo.Add_DropDownOpened({
+    param($s,$e)
+    $sc = $combo.Dispatcher
+    $sc.BeginInvoke([System.Action]{
+        $sb = $combo.Template.FindName('LangSearchBox', $combo)
+        if ($null -ne $sb) { [void]$sb.Focus(); [System.Windows.Input.Keyboard]::Focus($sb) }
+    }, [System.Windows.Threading.DispatcherPriority]::Input) | Out-Null
+})
+$w.Activate() | Out-Null
+$combo.IsDropDownOpen = $false   # 先收起再展开，确保触发 DropDownOpened
+[System.Windows.Threading.Dispatcher]::CurrentDispatcher.Invoke([System.Action]{},
+    [System.Windows.Threading.DispatcherPriority]::Input) | Out-Null
+$combo.IsDropDownOpen = $true
+for ($i=0; $i -lt 20; $i++) {
+    [System.Windows.Threading.Dispatcher]::CurrentDispatcher.Invoke([System.Action]{},
+        [System.Windows.Threading.DispatcherPriority]::Input) | Out-Null
+}
+$kb = [System.Windows.Input.Keyboard]::FocusedElement
+Write-Host ("focused element: " + $(if ($kb) { $kb.GetType().Name } else { 'null' }))
+Assert ($kb -is [System.Windows.Controls.TextBox]) 'deferred focus lands keyboard on LangSearchBox'
+
+# 1c) selection box shows Label via ItemTemplate (not ToString of the item type)
+$combo.SelectedIndex = 2
+Assert ($null -ne $combo.ItemTemplate) 'ItemTemplate present (selection box renders Label, not ToString)'
 
 # 2) typing filters the view (same code path as TextChanged handler)
 if ($null -ne $search) {
