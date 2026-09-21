@@ -167,6 +167,9 @@
     <Compile Include="TranslationProvider\UI\GlossaryManagerWindow.xaml.cs">
       <DependentUpon>GlossaryManagerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TranslationProvider\UI\TermDialog.xaml.cs">
+      <DependentUpon>TermDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TranslationProvider\UI\TmManagerWindow.xaml.cs">
       <DependentUpon>TmManagerWindow.xaml</DependentUpon>
     </Compile>

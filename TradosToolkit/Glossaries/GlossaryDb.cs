@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using TradosToolkit.Diagnostics;
@@ -38,6 +39,9 @@ namespace TradosToolkit.Glossaries
             return conn;
         }
 
+        /// <summary>UTC 时间落库格式（ISO-8601 往返格式，带时区后缀，解析时按 UTC 还原）。</summary>
+        private const string TimeFormat = "o";
+
         private void EnsureSchema()
         {
             using (var conn = Open())
@@ -45,33 +49,65 @@ namespace TradosToolkit.Glossaries
             {
                 cmd.CommandText = @"
 CREATE TABLE IF NOT EXISTS terms(
-    id        INTEGER PRIMARY KEY AUTOINCREMENT,
-    kind      TEXT NOT NULL,
-    src       TEXT NOT NULL,
-    tgt       TEXT NOT NULL,
-    domain    TEXT NOT NULL DEFAULT '" + DomainTree.DefaultDomain + @"',
-    from_term TEXT NOT NULL,
-    to_term   TEXT NOT NULL,
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    kind       TEXT NOT NULL,
+    src        TEXT NOT NULL,
+    tgt        TEXT NOT NULL,
+    domain     TEXT NOT NULL DEFAULT '" + DomainTree.DefaultDomain + @"',
+    from_term  TEXT NOT NULL,
+    to_term    TEXT NOT NULL,
+    created_at TEXT,
+    updated_at TEXT,
     UNIQUE(kind, src, tgt, from_term)
 );";
                 cmd.ExecuteNonQuery();
-                // 老库缺 domain 列时迁移补齐（默认归入"通用"）。
-                // 注意：不能用 pragma_table_info('terms') 表值语法，net48 捆绑的旧版 SQLite 不支持，
-                // 必须用 PRAGMA table_info() 传统写法。
-                cmd.CommandText = "PRAGMA table_info(terms);";
-                var hasDomain = false;
-                using (var r = cmd.ExecuteReader())
-                    while (r.Read())
-                        if (string.Equals(Convert.ToString(r["name"]), "domain", StringComparison.OrdinalIgnoreCase))
-                        { hasDomain = true; break; }
-                if (!hasDomain)
-                {
-                    cmd.CommandText = "ALTER TABLE terms ADD COLUMN domain TEXT NOT NULL DEFAULT '" +
-                                      DomainTree.DefaultDomain + "';";
-                    cmd.ExecuteNonQuery();
-                }
+                AddMissingColumns(cmd);
             }
         }
+
+        /// <summary>
+        /// 老库按需补列：domain（默认归入"通用"）、created_at/updated_at（历史数据留 null，界面显示"—"）。
+        /// 注意：不能用 pragma_table_info('terms') 表值语法，net48 捆绑的旧版 SQLite 不支持，
+        /// 必须用 PRAGMA table_info() 传统写法。
+        /// </summary>
+        private static void AddMissingColumns(System.Data.SQLite.SQLiteCommand cmd)
+        {
+            var cols = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            cmd.CommandText = "PRAGMA table_info(terms);";
+            using (var r = cmd.ExecuteReader())
+                while (r.Read()) cols.Add(Convert.ToString(r["name"]));
+
+            if (!cols.Contains("domain"))
+            {
+                cmd.CommandText = "ALTER TABLE terms ADD COLUMN domain TEXT NOT NULL DEFAULT '" +
+                                  DomainTree.DefaultDomain + "';";
+                cmd.ExecuteNonQuery();
+            }
+            if (!cols.Contains("created_at"))
+            {
+                cmd.CommandText = "ALTER TABLE terms ADD COLUMN created_at TEXT;";
+                cmd.ExecuteNonQuery();
+            }
+            if (!cols.Contains("updated_at"))
+            {
+                cmd.CommandText = "ALTER TABLE terms ADD COLUMN updated_at TEXT;";
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>把库里的 ISO-8601 文本还原成 UTC 时间；空/解析不了返回 null。</summary>
+        private static DateTime? ParseUtc(object value)
+        {
+            var s = value as string;
+            if (string.IsNullOrWhiteSpace(s)) return null;
+            DateTime dt;
+            if (!DateTime.TryParse(s, CultureInfo.InvariantCulture,
+                                   DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal, out dt))
+                return null;
+            return DateTime.SpecifyKind(dt, DateTimeKind.Utc);
+        }
+
+        private static string NowText() => DateTime.UtcNow.ToString(TimeFormat, CultureInfo.InvariantCulture);
 
         private static string Norm(string domain)
         {
@@ -85,7 +121,7 @@ CREATE TABLE IF NOT EXISTS terms(
             using (var conn = Open())
             using (var cmd = conn.CreateCommand())
             {
-                var sql = "SELECT id, from_term, to_term, domain FROM terms WHERE kind=$kind AND src=$src AND tgt=$tgt";
+                var sql = "SELECT id, from_term, to_term, domain, created_at, updated_at FROM terms WHERE kind=$kind AND src=$src AND tgt=$tgt";
                 if (!string.IsNullOrWhiteSpace(domain)) sql += " AND domain=$domain";
                 sql += " ORDER BY id";
                 cmd.CommandText = sql;
@@ -101,36 +137,66 @@ CREATE TABLE IF NOT EXISTS terms(
                             From = r.GetString(1),
                             To = r.GetString(2),
                             Domain = r.IsDBNull(3) ? DomainTree.DefaultDomain : r.GetString(3),
+                            CreatedAt = r.IsDBNull(4) ? (DateTime?)null : ParseUtc(r.GetString(4)),
+                            UpdatedAt = r.IsDBNull(5) ? (DateTime?)null : ParseUtc(r.GetString(5)),
                         });
             }
             return list;
         }
 
+        /// <summary>
+        /// 写回一条术语。
+        /// entry.Id &gt; 0 表示修改既有行：按主键定位更新，允许改 替换前/替换为/领域，
+        /// created_at 保持首次入库时间不动，只刷新 updated_at。
+        /// entry.Id == 0 表示新增：按数据库唯一键 (kind,src,tgt,from_term) 判存（UNIQUE 不含 domain），
+        /// 命中已有行则更新其内容与领域，否则插入并写入 created_at + updated_at。
+        /// </summary>
         public void SaveTerm(string kind, string src, string tgt, GlossaryEntry entry)
         {
             var dom = Norm(entry?.Domain);
+            var now = NowText();
             using (var conn = Open())
             using (var cmd = conn.CreateCommand())
             {
-                // 按 (kind,src,tgt,domain,from_term) 做手动 UPSERT，避免跨领域同 from 互相覆盖
-                cmd.CommandText = "SELECT COUNT(*) FROM terms WHERE kind=$kind AND src=$src AND tgt=$tgt AND domain=$domain AND from_term=$from";
+                // 修改既有行：按主键更新，改 替换前/领域 不会撞唯一键，也不会留下重复行
+                if (entry.Id > 0)
+                {
+                    cmd.CommandText = "UPDATE terms SET from_term=$from, to_term=$to, domain=$domain, updated_at=$updated WHERE id=$id";
+                    cmd.Parameters.AddWithValue("$from", entry.From);
+                    cmd.Parameters.AddWithValue("$to", entry.To ?? string.Empty);
+                    cmd.Parameters.AddWithValue("$domain", dom);
+                    cmd.Parameters.AddWithValue("$updated", now);
+                    cmd.Parameters.AddWithValue("$id", entry.Id);
+                    cmd.ExecuteNonQuery();
+                    return;
+                }
+
+                // 新增：UNIQUE 只约束 (kind,src,tgt,from_term)，故按这四列判存
+                cmd.CommandText = "SELECT COUNT(*) FROM terms WHERE kind=$kind AND src=$src AND tgt=$tgt AND from_term=$from";
                 cmd.Parameters.AddWithValue("$kind", kind);
                 cmd.Parameters.AddWithValue("$src", src);
                 cmd.Parameters.AddWithValue("$tgt", tgt);
-                cmd.Parameters.AddWithValue("$domain", dom);
                 cmd.Parameters.AddWithValue("$from", entry.From);
                 var exists = Convert.ToInt64(cmd.ExecuteScalar()) > 0;
 
                 cmd.Parameters.Clear();
                 cmd.CommandText = exists
-                    ? "UPDATE terms SET to_term=$to WHERE kind=$kind AND src=$src AND tgt=$tgt AND domain=$domain AND from_term=$from"
-                    : "INSERT INTO terms(kind,src,tgt,domain,from_term,to_term) VALUES($kind,$src,$tgt,$domain,$from,$to)";
+                    ? "UPDATE terms SET to_term=$to, domain=$domain, updated_at=$updated WHERE kind=$kind AND src=$src AND tgt=$tgt AND from_term=$from"
+                    : "INSERT INTO terms(kind,src,tgt,domain,from_term,to_term,created_at,updated_at) VALUES($kind,$src,$tgt,$domain,$from,$to,$created,$updated)";
                 cmd.Parameters.AddWithValue("$kind", kind);
                 cmd.Parameters.AddWithValue("$src", src);
                 cmd.Parameters.AddWithValue("$tgt", tgt);
                 cmd.Parameters.AddWithValue("$domain", dom);
                 cmd.Parameters.AddWithValue("$from", entry.From);
                 cmd.Parameters.AddWithValue("$to", entry.To ?? string.Empty);
+                cmd.Parameters.AddWithValue("$updated", now);
+                if (!exists)
+                {
+                    // 老数据首次被改写时补上创建时间，避免一直显示"—"
+                    cmd.Parameters.AddWithValue("$created", entry.CreatedAt.HasValue
+                        ? entry.CreatedAt.Value.ToUniversalTime().ToString(TimeFormat, CultureInfo.InvariantCulture)
+                        : now);
+                }
                 cmd.ExecuteNonQuery();
             }
         }
