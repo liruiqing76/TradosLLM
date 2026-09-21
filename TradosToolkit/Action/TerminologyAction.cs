@@ -11,7 +11,7 @@ namespace TradosToolkit.Action
     /// 语言对默认取当前项目并可自由新增。
     /// </summary>
     [Action("TradosToolkit_Terminology", Name = "Terminology_Action_Name", Description = "Terminology_Action_Description")]
-    [ActionLayout(typeof(TradosToolkitRibbonGroup), 20, DisplayType.Large)]
+    [ActionLayout(typeof(TradosToolkitRibbonGroup), 20, DisplayType.Normal)]
     public class TerminologyAction : AbstractAction
     {
         protected override void Execute()

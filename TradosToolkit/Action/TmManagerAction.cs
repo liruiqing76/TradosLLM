@@ -10,7 +10,7 @@ namespace TradosToolkit.Action
     /// 扫描本地 .sdltm、新建空库、把 TMX / SDLXLIFF 导入到指定语向的记忆库。
     /// </summary>
     [Action("TradosToolkit_TmManager", Name = "TmManager_Action_Name", Description = "TmManager_Action_Description")]
-    [ActionLayout(typeof(TradosToolkitRibbonGroup), 21, DisplayType.Large)]
+    [ActionLayout(typeof(TradosToolkitRibbonGroup), 21, DisplayType.Normal)]
     public class TmManagerAction : AbstractAction
     {
         protected override void Execute()

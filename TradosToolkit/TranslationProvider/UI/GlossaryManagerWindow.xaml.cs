@@ -83,7 +83,40 @@ namespace TradosToolkit.TranslationProvider.UI
             }
             else TgtCombo.SelectedItem = tgtItem;
 
+            // 记录权威语言代码：过滤时 SelectedItem 会被清空，但 _last* 始终保持用户选定的语向
+            _lastSrc = (SrcCombo.SelectedValue as string) ?? src;
+            _lastTgt = (TgtCombo.SelectedValue as string) ?? tgt;
+            AttachLangFilter(SrcCombo);
+            AttachLangFilter(TgtCombo);
+
             Reload(null, null);
+        }
+
+        /// <summary>源/目标语言下拉在"可编辑"模式下把输入作为过滤关键词，实时收窄语言清单（无需在几百种里翻）。</summary>
+        private void AttachLangFilter(ComboBox combo)
+        {
+            combo.Loaded += (s, e) =>
+            {
+                var tb = combo.Template.FindName("PART_EditableTextBox", combo) as TextBox;
+                if (tb == null) return;
+                tb.TextChanged += (a, b) =>
+                {
+                    var q = (tb.Text ?? "").Trim().ToLowerInvariant();
+                    if (string.IsNullOrEmpty(q))
+                    {
+                        combo.ItemsSource = _langs;
+                    }
+                    else
+                    {
+                        var hits = _langs.Where(l =>
+                            l.Label.ToLowerInvariant().Contains(q) ||
+                            l.Code.ToLowerInvariant().Contains(q)).ToList();
+                        combo.ItemsSource = hits;
+                        if (hits.Count > 0)
+                            combo.IsDropDownOpen = true;
+                    }
+                };
+            };
         }
 
         private bool IsPost => KindCombo.SelectedIndex == 1;
@@ -144,6 +177,13 @@ namespace TradosToolkit.TranslationProvider.UI
         private void LangChanged(object sender, SelectionChangedEventArgs e)
         {
             if (SrcCombo == null) return;
+            // 只在真正点选(SelectedValue 非空)时更新权威语向；过滤时 SelectedItem 被清空不应覆盖
+            var v = (sender as ComboBox)?.SelectedValue as string;
+            if (!string.IsNullOrEmpty(v))
+            {
+                if (ReferenceEquals(sender, SrcCombo)) _lastSrc = v;
+                else if (ReferenceEquals(sender, TgtCombo)) _lastTgt = v;
+            }
             Reload(null, null);
         }
 
@@ -153,8 +193,9 @@ namespace TradosToolkit.TranslationProvider.UI
             Reload(null, null);
         }
 
-        private string Src => (SrcCombo.SelectedValue as string) ?? "";
-        private string Tgt => (TgtCombo.SelectedValue as string) ?? "";
+        private string _lastSrc = "", _lastTgt = "";
+        private string Src => _lastSrc;
+        private string Tgt => _lastTgt;
         private string Domain => (DomCombo.SelectedValue as string) ?? DomainTree.DefaultDomain;
 
         private void Reload(object sender, RoutedEventArgs e)
