@@ -66,6 +66,10 @@
             <Style x:Key="LangSearchCombo" TargetType="ComboBox">
                 <Setter Property="Height" Value="30"/>
                 <Setter Property="VerticalAlignment" Value="Center"/>
+                <!-- 关键：非编辑 ComboBox 默认 IsTextSearchEnabled=true，英文按键会被截去做列表首字母跳转
+                     （TextInput 在 ComboBox 层被 Handled，到不了下拉里的搜索框）；中文 IME 走组合输入
+                     通道不受影响 —— 表现为"中文能输、英文不能输"。必须关掉。 -->
+                <Setter Property="IsTextSearchEnabled" Value="False"/>
                 <Setter Property="ItemTemplate">
                     <Setter.Value>
                         <DataTemplate>

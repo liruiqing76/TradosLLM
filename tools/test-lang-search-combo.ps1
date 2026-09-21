@@ -84,6 +84,26 @@ $kb = [System.Windows.Input.Keyboard]::FocusedElement
 Write-Host ("focused element: " + $(if ($kb) { $kb.GetType().Name } else { 'null' }))
 Assert ($kb -is [System.Windows.Controls.TextBox]) 'deferred focus lands keyboard on LangSearchBox'
 
+# 1b-2) REAL keystrokes: plain-English letters must reach the search box.
+# Regression guard: non-editable ComboBox defaults IsTextSearchEnabled=true and swallows
+# TextInput for list type-ahead (IME composition bypasses it -> "中文能输英文不能输").
+Add-Type -AssemblyName System.Windows.Forms
+$w.Activate() | Out-Null
+[System.Windows.Threading.Dispatcher]::CurrentDispatcher.Invoke([System.Action]{},
+    [System.Windows.Threading.DispatcherPriority]::Background) | Out-Null
+[System.Windows.Forms.SendKeys]::SendWait('ger')
+for ($i=0; $i -lt 10; $i++) {
+    [System.Windows.Threading.Dispatcher]::CurrentDispatcher.Invoke([System.Action]{},
+        [System.Windows.Threading.DispatcherPriority]::Background) | Out-Null
+}
+$sb = $combo.Template.FindName('LangSearchBox', $combo)
+Write-Host ("search box text after SendKeys 'ger': '" + $sb.Text + "'")
+# 英文态：三个字符必须全部落框（老 bug 下首字符被 ComboBox 首字母跳转吞掉，只剩 'er'/空）；
+# 中文 IME 态：'ger' 会上屏为汉字，只要求非空。
+$isAscii = $sb.Text -cmatch '^[ -~]*$'
+if ($isAscii) { Assert ($sb.Text -eq 'ger') "english keystrokes all land in LangSearchBox (got '$($sb.Text)')" }
+else { Assert (-not [string]::IsNullOrEmpty($sb.Text)) "IME-mode keystrokes land in LangSearchBox (got '$($sb.Text)')" }
+
 # 1c) selection box shows Label via ItemTemplate (not ToString of the item type)
 $combo.SelectedIndex = 2
 Assert ($null -ne $combo.ItemTemplate) 'ItemTemplate present (selection box renders Label, not ToString)'
