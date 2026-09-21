@@ -133,6 +133,51 @@ curl -s -X POST "http://localhost:53902/api/project/task?path=D:\\demo.sdlp&task
       "perfect": {…}, "exact": {…}, "inContextExact": {…}, "new": {…}, "repetitions": {…} } } ]
 ```
 
+## GET /api/project/report?path=…
+
+项目分析统计/报价词数报告（需先跑过 `analyze`）。返回 `{ project, total, targets }`（旧版直接返回 targets 数组，现聚合为带 `total` 的对象）：
+
+```json
+{ "project": "…", "total": { "words": 6800, "segments": 520, "characters": 15200, "targetLangs": 1 },
+  "targets": [ { "targetLang": "ru-RU", "analysis": {
+      "total": { "words": 1234, "segments": 100, "characters": 2500 },
+      "perfect": {…}, "exact": {…}, "inContextExact": {…}, "new": {…}, "repetitions": {…} } } ] }
+```
+
+`total` 为各匹配等级 across 目标语言的词/句/字符汇总，供给客户报价用。追加 `&format=csv` 直接下载 UTF-8 报表：
+列 `targetLang,level,words,segments,characters`，每目标语言 × 6 匹配等级一行。
+
+## GET /api/health
+
+内网基线自检（无需项目）：对 **API 自身 / TM(tmUrl) / LLM(llmBaseUrl+model) / 术语源(termBaseUrl)** 逐项发轻量 HTTP 探测（并行、各 5s 超时），返回每项 `ok` + `latencyMs`，不通时给 `error`。部署到新内网机器后一键验证网关链路可达性。
+
+```json
+{ "product": "TradosToolkit", "listening": true, "checked": "…",
+  "tm":  { "ok": true,  "latencyMs": 3 },
+  "llm": { "ok": true,  "latencyMs": 42, "http": 200 },
+  "term":{ "ok": false, "error": "termBaseUrl 未配置" } }
+```
+
+## POST /api/project/pretranslate?path=…&files=id1,id2(可选)
+
+远程预翻译调度：等价于 `POST /api/project/task?task=pretranslate&async=1`，固定走后台异步，立即返回 `202 {taskId, task, status}`，进度查 `GET /api/task?id=`。body 可选同 task 端点：`{"providerUri":"tradostoolkit://…","providerState":""}`。
+
+## POST /api/glossary/backfill
+
+术语库自动回填（统计共现法，零 LLM 成本）。从**已确认**双语段反抽高频术语对写入译前术语库 `kind=pre`，返回抽取列表供人工复核。
+
+两种入料：`{"srcLang":"zh-CN","tgtLang":"en-US","bilingualPath":"D:\\…\\xx.sdlxliff","max":200}`（推荐：bilingualPath 可直接取自 `/api/project/segments` 的 `bilingualPath` 字段）
+或 `{"srcLang","tgtLang","segments":[{"source":"…","target":"…"},…]}`。
+
+```json
+{ "processed": 480, "extracted": 87, "max": 200, "kind": "pre",
+  "languagePair": "zh-CN->en-US",
+  "terms": [ { "term": "范围涵盖", "translation": "scope covers" }, … ],
+  "message": "已写入译前术语库 87 对，建议在术语管理界面复核后再使用" }
+```
+
+质量标准：只取两侧都出现 ≥2 次且共现覆盖度 ≥0.5 的稳定短语对；纯数字/品牌直译对（两侧相同）跳过。抽取结果默认进入译前约束与 QA 术语检查，强烈建议先在术语管理界面复核。
+
 ## GET /api/project/tmfiles?path=…
 
 项目目录下全部主 TM。

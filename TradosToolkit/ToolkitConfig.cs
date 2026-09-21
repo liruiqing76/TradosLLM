@@ -36,12 +36,18 @@ namespace TradosToolkit
         public string TranslationCenterUrl = string.Empty;
         /// <summary>LLM 并发请求数（config.json 的 llmConcurrency，缺省 6）。</summary>
         public int LlmConcurrency = 6;
+        /// <summary>单个 LLM 请求超时秒数（config.json 的 llmTimeoutSeconds，缺省 120）。</summary>
+        public int LlmTimeoutSeconds = 120;
+        /// <summary>LLM 单段失败后的额外重试次数（config.json 的 llmRetryCount，缺省 1）。</summary>
+        public int LlmRetryCount = 1;
         /// <summary>批内重复段去重（config.json 的 segmentDedup，缺省 true；false=每段独立送引擎）。</summary>
         public bool SegmentDedup = true;
         /// <summary>LLM 译文磁盘缓存跨文档复用（config.json 的 llmDiskCache，缺省 true）。</summary>
         public bool LlmDiskCacheEnabled = true;
         /// <summary>本地记忆库扫描目录（config.json 的 tmScanDirectory，工作台"记忆库"页使用）。</summary>
         public string TmScanDirectory = string.Empty;
+        /// <summary>原生术语源所调用的线上术语服务地址（config.json 的 termBaseUrl，空 = 原生源不可用、返回空）。</summary>
+        public string TermBaseUrl = string.Empty;
         /// <summary>翻译中心书签目录树；键缺失时用内置默认，键存在则完全按文件。</summary>
         public List<BookmarkFolder> Folders = DefaultFolders();
 
@@ -92,12 +98,18 @@ namespace TradosToolkit
                         config.TranslationCenterUrl = (t ?? string.Empty).Trim();
                     if (json.TryGetValue("llmConcurrency", out var cc))
                         config.LlmConcurrency = Math.Max(1, Math.Min(32, Convert.ToInt32(cc)));
+                    if (json.TryGetValue("llmTimeoutSeconds", out var lt))
+                        config.LlmTimeoutSeconds = Math.Max(5, Math.Min(600, Convert.ToInt32(lt)));
+                    if (json.TryGetValue("llmRetryCount", out var lr))
+                        config.LlmRetryCount = Math.Max(0, Math.Min(5, Convert.ToInt32(lr)));
                     if (json.TryGetValue("segmentDedup", out var sd))
                         config.SegmentDedup = Convert.ToBoolean(sd);
                     if (json.TryGetValue("llmDiskCache", out var dc))
                         config.LlmDiskCacheEnabled = Convert.ToBoolean(dc);
                     if (json.TryGetValue("tmScanDirectory", out var tsd) && tsd is string td)
                         config.TmScanDirectory = (td ?? string.Empty).Trim();
+                    if (json.TryGetValue("termBaseUrl", out var tbu) && tbu is string tb)
+                        config.TermBaseUrl = (tb ?? string.Empty).Trim();
                     if (json.TryGetValue("translationCenterFolders", out var bm))
                         config.Folders = ParseFolders(bm);
                     else if (json.TryGetValue("translationCenterBookmarks", out var legacy))
@@ -161,7 +173,7 @@ namespace TradosToolkit
         /// <summary>配置窗口点确定时调用：null 表示不改动该字段，保留文件里其余内容。</summary>
         public static void Save(string apiKey = null, string llmBaseUrl = null, string llmModel = null,
                                string translationCenterUrl = null, List<BookmarkFolder> folders = null,
-                               string tmScanDirectory = null)
+                               string tmScanDirectory = null, string termBaseUrl = null)
         {
             try
             {
@@ -175,6 +187,7 @@ namespace TradosToolkit
                 if (llmModel != null) doc["llmModel"] = llmModel;
                 if (translationCenterUrl != null) doc["translationCenterUrl"] = translationCenterUrl;
                 if (tmScanDirectory != null) doc["tmScanDirectory"] = tmScanDirectory;
+                if (termBaseUrl != null) doc["termBaseUrl"] = termBaseUrl;
                 if (folders != null)
                 {
                     doc["translationCenterFolders"] = folders;

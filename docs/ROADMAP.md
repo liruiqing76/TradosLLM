@@ -70,7 +70,20 @@
 - 一键预翻译按钮：Studio 原生已有预翻译（历史决策，见记忆"不做原生重复功能"）。
 - 独立分发术语插件：所有能力继续收敛在单一 .sdlplugin。
 
-## 五、建议实施顺序
+## 六、2026-09-21 爆点功能（本轮全部实现并构建通过）
+
+面向本地译员仓库的空战补位方向，6 项已实现（`HealthProbe.cs` + `ProjectApi.cs` 扩展 + `OpenAiCompatEngine` 术语强约束 + `QaCheckProcessor`）。docs/API.md 已同步新端点。缺口对标：译员日常的**质量抽查→术语→报价→自检→远程批量→术语积累**闭环。
+
+1. **QA 批处理**（漏译/空译/数字/标点/术语未采用/重复段同译）：`BatchTasks/QaCheckProcessor.cs` + `QaCheckSettings` 五项开关，`QaCheckBatchTask` 挂 `AddBilingualProcessor`，进 QA 报告。
+2. **术语强约束**：`OpenAiCompatEngine.TranslateOneAsync` 取当前段命中术语对进 prompt 第 5 条硬规则，译文未采用术语映射即换新 prompt 强制重译一次。
+3. **报价/词数报告**：`GET /api/project/report` 聚合 `total`(词/句/字符 × 目标语言) 供报价，追加 `&format=csv` 下载。
+4. **内网基线自检**：`GET /api/health` 对 API/TM/LLM/术语源逐项探测 ok+fail+latency，并行 5s 超时，部署到新内网机器一键验链路。
+5. **远程预翻译调度**：`POST /api/project/pretranslate`，固定后台异步（TaskRegistry），立即返回 taskId + 进度查询。
+6. **术语库自动回填**：`POST /api/glossary/backfill`，从已确认双语段统计共现反抽高频术语对写入 `kind=pre`，零 LLM 成本、确定性输出，结果供人工复核。
+
+**质量基线（第 6 项）**：只取两侧出现 ≥2 次且共现覆盖度 ≥0.5 的稳定短语对；跳过纯数字与两侧相同（品牌/代号）项。写入后默认参与术语约束与 QA 术语检查，强建议管理界面复核。
+
+## 七、建议实施顺序
 
 1. ★★★-1（预翻译并发）→ 单独构建部署验证一轮
 2. ★★★-2（连续润色）→ 与 1 分开提交，便于回滚

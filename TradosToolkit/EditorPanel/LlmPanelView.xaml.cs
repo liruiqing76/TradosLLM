@@ -37,8 +37,8 @@ namespace TradosToolkit.EditorPanel
             }
         }
 
-        /// <summary>点"写入当前段"：(提取后的修订译文, 是否标记为译文)。</summary>
-        public event Action<string, bool> ApplyRequested;
+        /// <summary>点"写入当前段"：(提取后的修订译文, 是否标记为译文, 是否连续润色)。</summary>
+        public event Action<string, bool, bool> ApplyRequested;
 
         private readonly ObservableCollection<Bubble> _bubbles = new ObservableCollection<Bubble>();
         private readonly List<ChatTurn> _history = new List<ChatTurn>();
@@ -227,7 +227,7 @@ namespace TradosToolkit.EditorPanel
             {
                 var revised = LlmChatClient.ExtractRevised(bubble.Text);
                 ToolkitLog.Info("面板请求写回: 提取长度=" + (revised?.Length ?? 0));
-                ApplyRequested?.Invoke(revised, MarkTranslatedCheck.IsChecked == true);
+                ApplyRequested?.Invoke(revised, MarkTranslatedCheck.IsChecked == true, ContinueNextCheck.IsChecked == true);
             }
         }
 

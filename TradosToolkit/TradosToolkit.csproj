@@ -90,6 +90,11 @@
       <HintPath>$(TradosInstallDir)\Sdl.TranslationStudioAutomation.IntegrationApi.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <!-- 原生术语源：Editor 术语识别/查词/验证器所依赖的术语 API -->
+    <Reference Include="Sdl.Terminology.TerminologyProvider.Core">
+      <HintPath>$(TradosInstallDir)\Sdl.Terminology.TerminologyProvider.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
 
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -132,6 +137,7 @@
     <Compile Include="Server\BilingualParser.cs" />
     <Compile Include="Server\TaskRegistry.cs" />
     <Compile Include="Server\StatusPage.cs" />
+    <Compile Include="Server\HealthProbe.cs" />
     <Compile Include="EditorPanel\LlmPanelController.cs" />
     <Compile Include="EditorPanel\LlmChatClient.cs" />
     <Compile Include="EditorPanel\LlmPanelView.xaml.cs">
@@ -160,7 +166,15 @@
     <Compile Include="Glossaries\TermReplacer.cs" />
     <Compile Include="Glossaries\GlossaryDb.cs" />
     <Compile Include="Glossaries\SqliteGlossaryProvider.cs" />
+    <Compile Include="TerminologySource\TermSearchModels.cs" />
+    <Compile Include="TerminologySource\TermHttpClient.cs" />
+    <Compile Include="TerminologySource\NativeTerminologyProviderHelper.cs" />
+    <Compile Include="TerminologySource\NativeTerminologyProvider.cs" />
+    <Compile Include="TerminologySource\NativeTerminologyProviderFactory.cs" />
+    <Compile Include="TerminologySource\NativeTerminologyProviderWinFormsUI.cs" />
+    <Compile Include="TerminologySource\NativeTerminologyDialog.cs" />
     <Compile Include="BatchTasks\QaCheckBatchTask.cs" />
+    <Compile Include="BatchTasks\QaCheckProcessor.cs" />
     <Compile Include="BatchTasks\QaCheckSettings.cs" />
     <Compile Include="BatchTasks\QaCheckSettingsControl.cs" />
     <Compile Include="BatchTasks\QaCheckSettingsPage.cs" />

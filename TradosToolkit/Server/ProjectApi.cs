@@ -7,6 +7,7 @@ using Sdl.Core.Globalization;
 using Sdl.ProjectAutomation.Core;
 using Sdl.ProjectAutomation.FileBased;
 using Sdl.TranslationStudioAutomation.IntegrationApi;
+using TradosToolkit.Glossaries;
 
 namespace TradosToolkit.Server
 {
@@ -56,12 +57,18 @@ namespace TradosToolkit.Server
                     return Segments(query);
                 case "/api/project/report":
                     return Report(query);
+                case "/api/project/pretranslate":
+                    return PreTranslate(method, query, body);
                 case "/api/project/tmfiles":
                     return TmFiles(query);
                 case "/api/project/package":
                     return Package(method, query, body);
                 case "/api/file":
                     return DownloadFile(query);
+                case "/api/health":
+                    return HealthProbe.Build();
+                case "/api/glossary/backfill":
+                    return BackfillGlossary(body);
                 default:
                     return ApiResult.Json(404, Error("未知端点 " + path));
             }
@@ -319,16 +326,105 @@ namespace TradosToolkit.Server
             return (text == null ? message.ToString() : text.GetValue(message, null) as string) ?? string.Empty;
         }
 
+        /// <summary>
+        /// POST /api/project/pretranslate?path=...&amp;files=id1,id2(可选)
+        /// body 可选 {"providerUri":"tradostoolkit://...","providerState":""}
+        /// 远程预翻译调度：等价于 /api/project/task?task=pretranslate&amp;async=1，
+        /// 固定走后台异步（TaskRegistry），立即返回 202 {taskId}，进度查 GET /api/task?id=。
+        /// </summary>
+        private static ApiResult PreTranslate(string method, Dictionary<string, string> query, string body)
+        {
+            if (method != "POST")
+                return ApiResult.Json(405, Error("pretranslate 端点需 POST"));
+
+            var request = ParseBody(body);
+            Func<ApiResult> run = () => ExecuteTask("pretranslate", TaskTemplates["pretranslate"], query, request);
+            var path = query.TryGetValue("path", out var p) ? p : null;
+            var st = TaskRegistry.Start("pretranslate", path, run);
+            return ApiResult.Json(202, new Dictionary<string, object>
+            {
+                { "taskId", st.Id }, { "task", "pretranslate" }, { "status", "running" },
+            });
+        }
+
         private static ApiResult Report(Dictionary<string, string> query)
         {
-            return WithProject(query, (project, _) =>
+            return WithProject(query, (project, info) =>
             {
                 var stats = project.GetProjectStatistics();
-                var perTarget = (stats == null ? new TargetLanguageStatistics[0] : stats.TargetLanguageStatistics)
-                    .Select(MapStatistics)
-                    .ToList();
-                return ApiResult.Json(200, perTarget);
+                var tls = stats == null ? new TargetLanguageStatistics[0] : stats.TargetLanguageStatistics;
+                var perTarget = tls.Select(MapStatistics).ToList();
+
+                // 各匹配等级跨语言汇总（报价常用总词数/总句段数）
+                var sum = new Dictionary<string, long>(); // key = words|segments|characters
+                foreach (var target in tls)
+                {
+                    var a = target.AnalysisStatistics;
+                    if (a == null) continue;
+                    Add(sum, a.Total); Add(sum, a.Perfect); Add(sum, a.Exact);
+                    Add(sum, a.InContextExact); Add(sum, a.New); Add(sum, a.Repetitions);
+                }
+                var total = new Dictionary<string, object>
+                {
+                    { "words", sumDict(sum, "words") },
+                    { "segments", sumDict(sum, "segments") },
+                    { "characters", sumDict(sum, "characters") },
+                    { "targetLangs", perTarget.Count },
+                };
+
+                var format = query.TryGetValue("format", out var fmt) ? fmt : "json";
+                if (string.Equals(format, "csv", StringComparison.OrdinalIgnoreCase))
+                {
+                    var csv = new System.Text.StringBuilder();
+                    csv.Append('\ufeff');
+                    csv.Append("targetLang,level,words,segments,characters\r\n");
+                    foreach (var t in tls)
+                    {
+                        var a = t.AnalysisStatistics;
+                        if (a == null) continue;
+                        var lang = t.TargetLanguage == null ? "" : t.TargetLanguage.IsoAbbreviation;
+                        Row(csv, lang, "Total", a.Total);
+                        Row(csv, lang, "Perfect", a.Perfect);
+                        Row(csv, lang, "Exact", a.Exact);
+                        Row(csv, lang, "InContextExact", a.InContextExact);
+                        Row(csv, lang, "New", a.New);
+                        Row(csv, lang, "Repetitions", a.Repetitions);
+                    }
+                    var name = SanitizeFileName(info.Name + "_wordcount") + ".csv";
+                    return ApiResult.File(Encoding.UTF8.GetBytes(csv.ToString()), "text/csv; charset=utf-8", name);
+                }
+
+                return ApiResult.Json(200, new Dictionary<string, object>
+                {
+                    { "project", info.Name },
+                    { "total", total },
+                    { "targets", perTarget },
+                });
             });
+        }
+
+        private static void Row(System.Text.StringBuilder csv, string lang, string level, CountData c)
+        {
+            csv.Append(BilingualParser.Csv(lang)).Append(',').Append(BilingualParser.Csv(level)).Append(',')
+               .Append(c == null ? "0" : c.Words.ToString()).Append(',')
+               .Append(c == null ? "0" : c.Segments.ToString()).Append(',')
+               .Append(c == null ? "0" : c.Characters.ToString()).Append("\r\n");
+        }
+
+        private static void Add(Dictionary<string, long> map, CountData c)
+        {
+            if (c == null) return;
+            Add(map, "words", c.Words); Add(map, "segments", c.Segments); Add(map, "characters", c.Characters);
+        }
+
+        private static void Add(Dictionary<string, long> map, string key, int value)
+        {
+            if (map.TryGetValue(key, out var cur)) map[key] = cur + value; else map[key] = value;
+        }
+
+        private static long sumDict(Dictionary<string, long> map, string key)
+        {
+            return map.TryGetValue(key, out var v) ? v : 0;
         }
 
         private static Dictionary<string, object> MapStatistics(TargetLanguageStatistics target)
@@ -422,6 +518,220 @@ namespace TradosToolkit.Server
 
             var bytes = File.ReadAllBytes(path);
             return ApiResult.File(bytes, "application/octet-stream", Path.GetFileName(path));
+        }
+
+        /// <summary>
+        /// POST /api/glossary/backfill   body: {"srcLang":"zh-CN","tgtLang":"en-US","bilingualPath":"...sdlxliff"[, "max":200]}
+        ///   或 body: {"srcLang","tgtLang","segments":[{"source":"..","target":".."},...]}
+        /// 术语库自动回填：从已确认(译前/已审)双语段，用统计共现法反抽高频术语对，写入译前术语库 kind=pre。
+        /// 纯本地、零 LLM 成本、确定性输出；返回抽取到的术语对列表供人工复核。写入量上限 max（缺省 200）。
+        /// </summary>
+        private static ApiResult BackfillGlossary(string body)
+        {
+            var request = ParseBody(body);
+            var srcLang = Str(request, "srcLang") ?? "";
+            var tgtLang = Str(request, "tgtLang") ?? "";
+            if (string.IsNullOrWhiteSpace(srcLang) || string.IsNullOrWhiteSpace(tgtLang))
+                return ApiResult.Json(400, Error("必填: srcLang tgtLang"));
+
+            var max = 200;
+            if (request.TryGetValue("max", out var mv))
+            {
+                try { max = Math.Max(20, Math.Min(1000, Convert.ToInt32(mv))); }
+                catch { max = 200; }
+            }
+
+            // —— 收集已确认双语段 (src,tgt) ——
+            var pairs = new List<KeyValuePair<string, string>>();
+            var bilingualPath = Str(request, "bilingualPath");
+            if (!string.IsNullOrWhiteSpace(bilingualPath))
+            {
+                if (!File.Exists(bilingualPath))
+                    return ApiResult.Json(404, Error("双语参照文件不存在: " + bilingualPath));
+                foreach (var seg in BilingualParser.Parse(bilingualPath))
+                    if (IsConfirmed(seg) && !string.IsNullOrWhiteSpace(seg.Source) && !string.IsNullOrWhiteSpace(seg.Target))
+                        pairs.Add(new KeyValuePair<string, string>(seg.Source.Trim(), seg.Target.Trim()));
+            }
+            else
+            {
+                var segs = request.TryGetValue("segments", out var sv) ? sv as System.Collections.IEnumerable : null;
+                if (segs != null)
+                {
+                    foreach (var o in segs)
+                    {
+                        var d = o as Dictionary<string, object>;
+                        if (d == null) continue;
+                        var s = d.TryGetValue("source", out var ss) ? ss as string : null;
+                        var t = d.TryGetValue("target", out var tt) ? tt as string : null;
+                        if (!string.IsNullOrWhiteSpace(s) && !string.IsNullOrWhiteSpace(t))
+                            pairs.Add(new KeyValuePair<string, string>(s.Trim(), t.Trim()));
+                    }
+                }
+            }
+
+            if (pairs.Count < 2)
+                return ApiResult.Json(200, new Dictionary<string, object>
+                {
+                    { "processed", pairs.Count }, { "extracted", 0 }, { "reason", "已确认段不足 2 条" },
+                    { "terms", new List<object>() },
+                });
+
+            var terms = ExtractGlossaryTerms(pairs, max);
+            var db = new GlossaryDb();
+            var written = new List<Dictionary<string, object>>();
+            foreach (var t in terms)
+            {
+                db.SaveTerm(GlossaryDb.KindPre, srcLang, tgtLang, new GlossaryEntry { From = t.Key, To = t.Value });
+                written.Add(new Dictionary<string, object> { { "term", t.Key }, { "translation", t.Value } });
+            }
+
+            var msg = terms.Count == 0
+                ? "未抽取到高频稳定的术语对（请确认双语段已含一致的译文）"
+                : "已写入译前术语库 " + terms.Count + " 对，建议在术语管理界面复核后再使用";
+            return ApiResult.Json(200, new Dictionary<string, object>
+            {
+                { "processed", pairs.Count }, { "extracted", terms.Count }, { "max", max },
+                { "kind", GlossaryDb.KindPre }, { "languagePair", srcLang + "->" + tgtLang },
+                { "message", msg }, { "terms", written },
+            });
+        }
+
+        /// <summary>段 conf 属 Decision 是否已确认（Approved / Translation / Translated）。</summary>
+        private static bool IsConfirmed(BilingualSegment seg)
+        {
+            var s = seg.Status ?? string.Empty;
+            return s.IndexOf("Approved", StringComparison.OrdinalIgnoreCase) >= 0
+                || s.IndexOf("Translation", StringComparison.OrdinalIgnoreCase) >= 0
+                || s.IndexOf("Translated", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        /// <summary>
+        /// 统计共现术语抽取：源/目标两侧各自抽高频连续短语，再按"出现在同一批已确认段的共现覆盖度"配对。
+        /// 只保留覆盖度≥0.5 且共现段数≥2 的稳定对，按 覆盖度×支持度 排序取前 max。确定性、无 LLM 成本。
+        /// </summary>
+        private static List<KeyValuePair<string, string>> ExtractGlossaryTerms(
+            List<KeyValuePair<string, string>> pairs, int max)
+        {
+            const double MinCoverage = 0.5;
+            const int MinCoSup = 2;
+
+            var src = new Dictionary<string, HashSet<int>>(); // phrase -> segment indices
+            var tgt = new Dictionary<string, HashSet<int>>();
+            for (int i = 0; i < pairs.Count; i++)
+            {
+                IndexPhrases(src, pairs[i].Key, i);
+                IndexPhrases(tgt, pairs[i].Value, i);
+            }
+
+            // 只考虑两侧都至少出现 2 次的短语
+            var srcFreq = src.Where(x => x.Value.Count >= MinCoSup).OrderByDescending(x => x.Value.Count).ToList();
+            var tgtFreq = tgt.Where(x => x.Value.Count >= MinCoSup).ToList();
+            var tgtBySeg = new Dictionary<int, List<string>>(); // 段 i -> 高频目标短语
+            foreach (var kv in tgtFreq)
+                foreach (var i in kv.Value)
+                {
+                    if (!tgtBySeg.TryGetValue(i, out var l)) { l = new List<string>(); tgtBySeg[i] = l; }
+                    l.Add(kv.Key);
+                }
+
+            var scored = new List<Tuple<double, string, string>>();
+            foreach (var skv in srcFreq)
+            {
+                var phrase = skv.Key;
+                var segs = skv.Value;
+                string bestT = null;
+                double bestScore = 0;
+                var coCounts = new Dictionary<string, int>();
+                foreach (var i in segs)
+                    if (tgtBySeg.TryGetValue(i, out var tl))
+                        foreach (var t in tl)
+                            coCounts[t] = coCounts.ContainsKey(t) ? coCounts[t] + 1 : 1;
+
+                foreach (var c in coCounts)
+                {
+                    if (c.Value < MinCoSup) continue;
+                    double coverage = (double)c.Value / segs.Count;
+                    if (coverage < MinCoverage) continue;
+                    // 更高覆盖率优先，同覆盖率取更高共现段数
+                    if (coverage > bestScore ||
+                        (coverage == bestScore && (bestT == null || c.Value > coCounts[bestT])))
+                    {
+                        bestT = c.Key; bestScore = coverage;
+                    }
+                }
+                if (bestT != null)
+                    scored.Add(Tuple.Create(bestScore * segs.Count, phrase, bestT));
+            }
+
+            // 同一目标短语避免被多个源短语重复占用：按分排序取最高者
+            var usedT = new HashSet<string>();
+            var result = new List<KeyValuePair<string, string>>();
+            foreach (var s in scored.OrderByDescending(x => x.Item1))
+            {
+                if (result.Count >= max) break;
+                if (usedT.Contains(s.Item3)) continue;
+                if (string.Equals(s.Item2, s.Item3, StringComparison.Ordinal)) continue; // 两侧相同(品牌/代号)价值低
+                usedT.Add(s.Item3);
+                result.Add(new KeyValuePair<string, string>(s.Item2, s.Item3));
+            }
+            return result;
+        }
+
+        /// <summary>把一段文本切成候选连续短语（拉丁词 n-gram / 中文连续 n-gram），去标点、折空白，句内去重。</summary>
+        private static void IndexPhrases(Dictionary<string, HashSet<int>> index, string text, int segIndex)
+        {
+            foreach (var phrase in Phrases(text))
+            {
+                if (!index.TryGetValue(phrase, out var set))
+                {
+                    set = new HashSet<int>();
+                    index[phrase] = set;
+                }
+                set.Add(segIndex);
+            }
+        }
+
+        /// <summary>把一段文本切成候选连续短语：连续 字母/数字 为一个 token，再生成 1..4 元 n-gram，纯数字短语跳过。</summary>
+        private static IEnumerable<string> Phrases(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text)) yield break;
+
+            var tokens = new List<string>();
+            var sb = new System.Text.StringBuilder();
+            foreach (var ch in text)
+            {
+                if (char.IsLetterOrDigit(ch))
+                    sb.Append(ch);
+                else if (sb.Length > 0)
+                {
+                    if (sb.Length >= 2) tokens.Add(sb.ToString());
+                    sb.Length = 0;
+                }
+            }
+            if (sb.Length >= 2) tokens.Add(sb.ToString());
+            if (tokens.Count == 0) yield break;
+
+            var maxN = Math.Min(4, tokens.Count);
+            for (int len = 1; len <= maxN; len++)
+            {
+                for (int i = 0; i + len <= tokens.Count; i++)
+                {
+                    var ph = string.Join(" ", tokens, i, len);
+                    if (ph.Length < 2) continue;
+                    if (IsAllDigits(ph)) continue;
+                    yield return ph;
+                }
+            }
+        }
+
+        private static bool IsAllDigits(string s)
+        {
+            for (int i = 0; i < s.Length; i++)
+            {
+                var c = s[i];
+                if (c != ' ' && !char.IsDigit(c)) return false;
+            }
+            return true;
         }
 
         /// <summary>

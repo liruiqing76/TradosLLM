@@ -20,8 +20,8 @@ namespace TradosToolkit.BatchTasks
     {
         protected override void ConfigureConverter(ProjectFile projectFile, IMultiFileConverter multiFileConverter)
         {
-            // TODO M5: multiFileConverter.Add(new QaCheckProcessor(Settings));
-            throw new NotImplementedException();
+            var settings = GetSetting<QaCheckSettings>();
+            multiFileConverter.AddBilingualProcessor(new QaCheckProcessor(settings));
         }
     }
 }

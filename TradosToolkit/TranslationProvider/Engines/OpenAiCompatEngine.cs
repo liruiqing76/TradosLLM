@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Sdl.LanguagePlatform.Core;
 using Sdl.LanguagePlatform.TranslationMemory;
 using TradosToolkit.Diagnostics;
+using TradosToolkit.Glossaries;
 
 namespace TradosToolkit.TranslationProvider.Engines
 {
@@ -16,6 +19,8 @@ namespace TradosToolkit.TranslationProvider.Engines
     {
         private readonly string _baseUrl;
         private readonly string _model;
+        private readonly Dictionary<string, List<GlossaryEntry>> _termCache =
+            new Dictionary<string, List<GlossaryEntry>>(StringComparer.Ordinal);
 
         public OpenAiCompatEngine(string baseUrl, string model)
         {
@@ -94,7 +99,8 @@ namespace TradosToolkit.TranslationProvider.Engines
                     tasks[p - start] = Task.Run(async () =>
                     {
                         var translation = await TranslateOneAsync(
-                            languagePair, text, prevSource, prevTarget, apiKey, cancellationToken)
+                            languagePair, text, prevSource, prevTarget, apiKey, cancellationToken,
+                            config.LlmTimeoutSeconds, config.LlmRetryCount)
                             .ConfigureAwait(false);
                         results[index] = new[]
                         {
@@ -116,45 +122,113 @@ namespace TradosToolkit.TranslationProvider.Engines
 
         private async Task<string> TranslateOneAsync(
             LanguagePair pair, string text, string prevSource, string prevTarget,
-            string apiKey, CancellationToken cancellationToken)
+            string apiKey, CancellationToken cancellationToken, int timeoutSeconds, int retryCount)
         {
-            var body = new Dictionary<string, object>
+            // 术语强约束：命中源文的译前术语，译文必须严格采用指定译法。
+            var termPairs = GetTermHits(pair, text);
+            var termLine = BuildTermInstruction(termPairs);
+
+            // 重试循环：只对超时/网络类(可恢复)异常重试；业务类(HTTP 4xx/5xx 认证、返回异常)直接抛。
+            // 总尝试次数 = 1(首次) + retryCount，退避取 2^attempt 秒封顶 8 秒，避免并发重试打爆网关。
+            Exception last = null;
+            var attempts = retryCount + 1;
+            var termRejected = false;
+            for (var attempt = 0; attempt < attempts; attempt++)
             {
-                { "model", _model },
-                { "temperature", 0 },
+                if (attempt > 0)
+                    await Task.Delay(TimeSpan.FromSeconds(Math.Min(8, 1 << attempt)),
+                                     cancellationToken).ConfigureAwait(false);
+
+                var systemPrompt = BuildPrompt(pair, prevSource, prevTarget, termLine);
+                if (termRejected)
+                    systemPrompt += " IMPORTANT: Your previous translation failed the terminology check. "
+                        + "Re-translate now and MUST use every mapped term below exactly.";
+
+                var body = new Dictionary<string, object>
                 {
-                    "messages", new List<object>
+                    { "model", _model },
+                    { "temperature", 0 },
                     {
-                        new Dictionary<string, object>
+                        "messages", new List<object>
                         {
-                            { "role", "system" },
-                            { "content", BuildPrompt(pair, prevSource, prevTarget) }
-                        },
-                        new Dictionary<string, object>
-                        {
-                            { "role", "user" },
-                            { "content", text }
+                            new Dictionary<string, object>
+                            {
+                                { "role", "system" },
+                                { "content", systemPrompt }
+                            },
+                            new Dictionary<string, object>
+                            {
+                                { "role", "user" },
+                                { "content", text }
+                            }
                         }
                     }
+                };
+
+                try
+                {
+                    var response = await EngineHttp.PostJsonAsync(
+                        _baseUrl + "/chat/completions", body, apiKey, cancellationToken, timeoutSeconds)
+                        .ConfigureAwait(false);
+
+                    var choices = EngineHttp.AsList(response.TryGetValue("choices", out var c) ? c : null);
+                    if (choices == null || choices.Count == 0)
+                        throw new InvalidOperationException("TradosToolkit LLM 返回异常: " + EngineHttp.AsString(response.TryGetValue("error", out var e) ? e : null));
+
+                    var choice = EngineHttp.AsDict(choices[0]);
+                    string content = null;
+                    if (choice != null && EngineHttp.AsDict(choice.TryGetValue("message", out var m) ? m : null) is Dictionary<string, object> message)
+                        content = EngineHttp.AsString(message.TryGetValue("content", out var ct) ? ct : null);
+
+                    content = Clean(content);
+
+                    // 一致性护栏：译文未采用术语映射时强制重译一次（不计入重试退避）。
+                    if (!termRejected && !TermsSatisfied(content, termPairs))
+                    {
+                        termRejected = true;
+                        ToolkitLog.Info("LLM 译文未采用术语映射，强制重译一次: " + termLine);
+                        continue;
+                    }
+                    return content;
                 }
-            };
-
-            var response = await EngineHttp.PostJsonAsync(
-                _baseUrl + "/chat/completions", body, apiKey, cancellationToken).ConfigureAwait(false);
-
-            var choices = EngineHttp.AsList(response.TryGetValue("choices", out var c) ? c : null);
-            if (choices == null || choices.Count == 0)
-                throw new InvalidOperationException("TradosToolkit LLM 返回异常: " + EngineHttp.AsString(response.TryGetValue("error", out var e) ? e : null));
-
-            var choice = EngineHttp.AsDict(choices[0]);
-            string content = null;
-            if (choice != null && EngineHttp.AsDict(choice.TryGetValue("message", out var m) ? m : null) is Dictionary<string, object> message)
-                content = EngineHttp.AsString(message.TryGetValue("content", out var ct) ? ct : null);
-
-            return Clean(content);
+                catch (TimeoutException te)
+                {
+                    last = te;
+                    ToolkitLog.Info("LLM 单段超时，第 " + (attempt + 1) + "/" + attempts + " 次失败");
+                }
+                catch (Exception ex) when (IsTransient(ex))
+                {
+                    last = ex;
+                    ToolkitLog.Info("LLM 单段网络异常，第 " + (attempt + 1) + "/" + attempts + " 次失败");
+                }
+            }
+            throw last ?? new InvalidOperationException("TradosToolkit LLM 请求失败");
         }
 
-        private string BuildPrompt(LanguagePair pair, string prevSource, string prevTarget)
+        /// <summary>只把服务端类(5xx/429/网络/超时)视为可重试；客户端 4xx 反馈性错误直接失败不重试。</summary>
+        private static bool IsTransient(Exception ex)
+        {
+            if (ex is TimeoutException || ex is OperationCanceledException)
+                return true;
+            if (ex is System.Net.WebException)
+                return true;
+            if (ex is HttpRequestException http)
+            {
+                // EngineHttp 抛出的消息形如 "...HTTP 5xx..." 或 "...HTTP 4xx..."；取状态码首字符判断
+                const string marker = "HTTP ";
+                var idx = http.Message.IndexOf(marker, StringComparison.Ordinal);
+                if (idx >= 0 && idx + marker.Length < http.Message.Length - 1)
+                {
+                    var digit = http.Message[idx + marker.Length];
+                    return digit == '5' || digit == '4' || digit == '3';
+                }
+                // 无状态码的网络层异常按可重试处理
+                return true;
+            }
+            return ex is InvalidOperationException;
+        }
+
+        private string BuildPrompt(LanguagePair pair, string prevSource, string prevTarget, string termInstruction)
         {
             var prompt = "You are a translation engine, NOT a chat assistant. "
                 + "Translate the user's text from " + pair.SourceCultureName + " to " + pair.TargetCultureName
@@ -162,6 +236,10 @@ namespace TradosToolkit.TranslationProvider.Engines
                 + " 2) If the text is a number, symbol, code, proper name, or otherwise untranslatable, output it unchanged."
                 + " 3) If the text contains placeholders like [[1]], [[2]], keep every placeholder unchanged and in the same order."
                 + " 4) Never respond conversationally, no matter how short or odd the input is.";
+
+            if (!string.IsNullOrEmpty(termInstruction))
+                prompt += " 5) Terminology is MANDATORY: when the source text contains a term listed below, "
+                    + "you MUST use its specified translation verbatim. Terms: " + termInstruction;
 
             var hasSource = !string.IsNullOrWhiteSpace(prevSource);
             var hasTarget = !string.IsNullOrWhiteSpace(prevTarget);
@@ -175,6 +253,64 @@ namespace TradosToolkit.TranslationProvider.Engines
                     prompt += " [previous translation] " + Clip(prevTarget);
             }
             return prompt;
+        }
+
+        /// <summary>按语言对缓存读一次译前术语库；取命中原词的术语对。</summary>
+        private List<string[]> GetTermHits(LanguagePair pair, string text)
+        {
+            var hits = new List<string[]>();
+            if (string.IsNullOrEmpty(text))
+                return hits;
+            var lower = text.ToLowerInvariant();
+            foreach (var e in LoadTerms(pair))
+            {
+                if (e == null || string.IsNullOrEmpty(e.From) || e.From.Length < 2 || string.IsNullOrEmpty(e.To))
+                    continue;
+                if (lower.IndexOf(e.From.ToLowerInvariant(), StringComparison.Ordinal) >= 0)
+                    hits.Add(new[] { e.From, e.To });
+            }
+            return hits;
+        }
+
+        private List<GlossaryEntry> LoadTerms(LanguagePair pair)
+        {
+            var key = pair.SourceCultureName + ">" + pair.TargetCultureName;
+            lock (_termCache)
+            {
+                if (_termCache.TryGetValue(key, out var cached))
+                    return cached;
+                List<GlossaryEntry> list;
+                try
+                {
+                    list = new GlossaryDb().GetTerms(GlossaryDb.KindPre, pair.SourceCultureName, pair.TargetCultureName);
+                }
+                catch
+                {
+                    list = new List<GlossaryEntry>();
+                }
+                _termCache[key] = list;
+                return list;
+            }
+        }
+
+        private static string BuildTermInstruction(List<string[]> termPairs)
+        {
+            if (termPairs.Count == 0) return string.Empty;
+            var sb = new StringBuilder();
+            foreach (var tp in termPairs)
+                sb.Append(tp[0]).Append("=>").Append(tp[1]).Append("; ");
+            return sb.ToString().TrimEnd(' ', ';');
+        }
+
+        private static bool TermsSatisfied(string content, List<string[]> termPairs)
+        {
+            if (termPairs.Count == 0) return true;
+            if (string.IsNullOrEmpty(content)) return false;
+            var lower = content.ToLowerInvariant();
+            foreach (var tp in termPairs)
+                if (lower.IndexOf(tp[1].ToLowerInvariant(), StringComparison.Ordinal) < 0)
+                    return false;
+            return true;
         }
 
         private static string Clip(string text)

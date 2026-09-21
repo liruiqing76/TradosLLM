@@ -23,6 +23,12 @@ namespace TradosToolkit.TranslationProvider.Engines
         public static async Task<Dictionary<string, object>> PostJsonAsync(
             string url, object body, string bearerToken, CancellationToken cancellationToken)
         {
+            return await PostJsonAsync(url, body, bearerToken, cancellationToken, 0).ConfigureAwait(false);
+        }
+
+        public static async Task<Dictionary<string, object>> PostJsonAsync(
+            string url, object body, string bearerToken, CancellationToken cancellationToken, int timeoutSeconds)
+        {
             var watch = Stopwatch.StartNew();
             ToolkitLog.Info("HTTP POST " + url + " key=" + (string.IsNullOrEmpty(bearerToken) ? "(无)" : "(有)"));
             using (var request = new HttpRequestMessage(HttpMethod.Post, url))
@@ -31,21 +37,36 @@ namespace TradosToolkit.TranslationProvider.Engines
                 if (!string.IsNullOrEmpty(bearerToken))
                     request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken.Trim());
 
-                using (var response = await Client.SendAsync(request, cancellationToken).ConfigureAwait(false))
+                using (var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken))
                 {
-                    var text = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    ToolkitLog.Info("HTTP " + (int)response.StatusCode + " " + url +
-                                    " " + watch.ElapsedMilliseconds + "ms 响应长度=" + (text?.Length ?? 0) +
-                                    " 响应头段=" + Truncate(text, 300));
-                    if (!response.IsSuccessStatusCode)
+                    if (timeoutSeconds > 0)
+                        cts.CancelAfter(TimeSpan.FromSeconds(timeoutSeconds));
+                    try
                     {
-                        var error = new HttpRequestException(
-                            "TradosToolkit 请求失败: HTTP " + (int)response.StatusCode + " " + response.ReasonPhrase +
-                            (string.IsNullOrEmpty(text) ? "" : " | " + Truncate(text, 500)));
-                        ToolkitLog.Error("HTTP 失败 " + url + " 响应体: " + Truncate(text, 2000), error);
-                        throw error;
+                        using (var response = await Client.SendAsync(request, cts.Token).ConfigureAwait(false))
+                        {
+                            var text = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            ToolkitLog.Info("HTTP " + (int)response.StatusCode + " " + url +
+                                            " " + watch.ElapsedMilliseconds + "ms 响应长度=" + (text?.Length ?? 0) +
+                                            " 响应头段=" + Truncate(text, 300));
+                            if (!response.IsSuccessStatusCode)
+                            {
+                                var error = new HttpRequestException(
+                                    "TradosToolkit 请求失败: HTTP " + (int)response.StatusCode + " " + response.ReasonPhrase +
+                                    (string.IsNullOrEmpty(text) ? "" : " | " + Truncate(text, 500)));
+                                ToolkitLog.Error("HTTP 失败 " + url + " 响应体: " + Truncate(text, 2000), error);
+                                throw error;
+                            }
+                            return Deserialize(text);
+                        }
                     }
-                    return Deserialize(text);
+                    catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested)
+                    {
+                        var timeout = new TimeoutException(
+                            "TradosToolkit 请求超时: " + url + " 超过 " + timeoutSeconds + " 秒");
+                        ToolkitLog.Error("HTTP 超时 " + url + " " + watch.ElapsedMilliseconds + "ms", timeout);
+                        throw timeout;
+                    }
                 }
             }
         }
@@ -53,6 +74,52 @@ namespace TradosToolkit.TranslationProvider.Engines
         public static Dictionary<string, object> Deserialize(string json)
         {
             return Json.Deserialize<Dictionary<string, object>>(json) ?? new Dictionary<string, object>();
+        }
+
+        /// <summary>探测结果：Code=-1 表示网络/超时/异常，Code∈[0,399] 视为可达。</summary>
+        public struct ProbeResult
+        {
+            public int Code;
+            public long LatencyMs;
+            public string Text;
+            public string Error;
+            public bool Ok => Code >= 0 && Code < 400;
+        }
+
+        /// <summary>轻量可达性探测（HTTP GET + 可选 Bearer + 超时）。用于内网基线自检。</summary>
+        public static async Task<ProbeResult> ProbeAsync(
+            string url, string bearerToken, int timeoutSeconds)
+        {
+            var watch = Stopwatch.StartNew();
+            ToolkitLog.Info("HTTP GET " + url + " key=" + (string.IsNullOrEmpty(bearerToken) ? "(无)" : "(有)"));
+            using (var request = new HttpRequestMessage(HttpMethod.Get, url))
+            {
+                if (!string.IsNullOrEmpty(bearerToken))
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken.Trim());
+                using (var cts = new CancellationTokenSource(TimeSpan.FromSeconds(timeoutSeconds)))
+                {
+                    try
+                    {
+                        using (var response = await Client.SendAsync(request, cts.Token).ConfigureAwait(false))
+                        {
+                            var text = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            ToolkitLog.Info("HTTP " + (int)response.StatusCode + " " + url +
+                                            " " + watch.ElapsedMilliseconds + "ms");
+                            return new ProbeResult
+                            {
+                                Code = (int)response.StatusCode,
+                                LatencyMs = watch.ElapsedMilliseconds,
+                                Text = Truncate(text, 200),
+                            };
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        ToolkitLog.Error("HTTP 探测失败 " + url + " " + watch.ElapsedMilliseconds + "ms", e);
+                        return new ProbeResult { Code = -1, LatencyMs = watch.ElapsedMilliseconds, Error = e.Message };
+                    }
+                }
+            }
         }
 
         public static Dictionary<string, object> AsDict(object value)

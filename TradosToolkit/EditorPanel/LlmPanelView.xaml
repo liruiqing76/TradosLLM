@@ -116,6 +116,8 @@
             </DockPanel>
             <CheckBox x:Name="MarkTranslatedCheck" IsChecked="True" Margin="2,5,0,0"
                       Content="写入当前段后标记为“译文”状态"/>
+            <CheckBox x:Name="ContinueNextCheck" IsChecked="False" Margin="2,2,0,0"
+                      Content="连续润色：写回后自动跳到下一未确认段（Esc 可停）"/>
         </StackPanel>
     </Grid>
 </UserControl>

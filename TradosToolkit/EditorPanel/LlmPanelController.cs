@@ -147,7 +147,7 @@ namespace TradosToolkit.EditorPanel
             }
         }
 
-        private void OnApplyRequested(string text, bool markTranslated)
+        private void OnApplyRequested(string text, bool markTranslated, bool continueNext)
         {
             try
             {
@@ -183,6 +183,8 @@ namespace TradosToolkit.EditorPanel
                 }
                 ToolkitLog.Info("面板写回成功: 段=" + pair.Properties.Id.Id +
                                 " 长度=" + text.Length + " 标记译文=" + markTranslated);
+                if (continueNext && markTranslated)
+                    JumpToNextUnconfirmed(pair.Properties.Id.Id);
             }
             catch (Exception e)
             {
@@ -193,5 +195,40 @@ namespace TradosToolkit.EditorPanel
 
         private static void Warn(string message) =>
             MessageBox.Show(message, "TradosToolkit LLM 助手", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        /// <summary>连续润色：从当前段之后找第一个"未确认"段并跳转。
+        /// 跳过已确认(Translated/Approved)与锁定段；未找到则保持当前段。
+        /// 任何异常退化为不跳转，不影响已完成的写回。</summary>
+        private void JumpToNextUnconfirmed(string activeId)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(activeId)) return;
+                var foundSelf = false;
+                foreach (var sp in _document.SegmentPairs)
+                {
+                    if (!foundSelf)
+                    {
+                        // 先定位到当前段，之后才可能进入"下一段"判定
+                        if (string.Equals(sp.Properties.Id.Id, activeId, StringComparison.Ordinal))
+                            foundSelf = true;
+                        continue;
+                    }
+                    // 从当前段之后逐段找下一个可写段（仅 Unspecified/Draft 视为"未确认"目标，其余跳过）
+                    if (sp.Properties.IsLocked) continue;
+                    var level = sp.Properties.ConfirmationLevel;
+                    if (level != ConfirmationLevel.Unspecified && level != ConfirmationLevel.Draft)
+                        continue;
+                    _document.SetActiveSegmentPair((string)null, sp.Properties.Id.Id, true);
+                    ToolkitLog.Info("连续润色跳转: 段=" + sp.Properties.Id.Id);
+                    return;
+                }
+                ToolkitLog.Info("连续润色：已到末尾，停止跳转");
+            }
+            catch (Exception e)
+            {
+                ToolkitLog.Error("连续润色跳转失败（保持当前段）", e);
+            }
+        }
     }
 }
