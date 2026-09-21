@@ -226,6 +226,14 @@
                             <TextBlock x:Name="NavToolsText" Text="Process flows" VerticalAlignment="Center"/>
                         </StackPanel>
                     </RadioButton>
+                    <RadioButton x:Name="NavReview" Style="{StaticResource RailItem}"
+                                 Checked="Nav_Changed" Tag="ReviewPanel">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="{DynamicResource Fluent}" FontSize="15" Text="&#xE9A9;"
+                                       Width="20" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="NavReviewText" Text="AI 审校" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </RadioButton>
                 </StackPanel>
 
                 <TextBlock Grid.Row="2" x:Name="VersionText" Margin="20,0,20,14" FontSize="10.5"
@@ -567,6 +575,138 @@
                         </Border>
                     </Grid>
                 </Grid>
+            </Grid>
+
+            <!-- AI 审校 -->
+            <Grid x:Name="ReviewPanel" Margin="28,22,28,16" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="172"/>
+                </Grid.RowDefinitions>
+
+                <!-- 标题 + 项目上下文 -->
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource PageTitle}" Text="AI 审校"/>
+                    <TextBlock x:Name="RevContext" VerticalAlignment="Center" FontSize="11" Margin="14,0,0,4"
+                               Foreground="{DynamicResource ThirdlyTextBrush}" TextWrapping="Wrap"/>
+                </StackPanel>
+
+                <Border Grid.Row="1" Style="{StaticResource Tile}" Margin="0,16,0,0" Padding="14,10">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="项目 (.sdlp)" Width="92" VerticalAlignment="Center"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+                            <TextBox x:Name="RevProjBox" Height="28" VerticalAlignment="Center" Width="300"
+                                     FontFamily="{DynamicResource Mono}" FontSize="12" IsReadOnly="True"/>
+                            <Button x:Name="RevPickCurrent" Content="取当前项目" Style="{StaticResource GhostButton}"
+                                    Margin="8,0,0,0" Click="RevPickCurrent_Click"/>
+                            <Button x:Name="RevBrowseProj" Content="浏览…" Style="{StaticResource GhostButton}"
+                                    Margin="8,0,0,0" Click="RevBrowseProj_Click"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                            <TextBlock Text="双语文件(可选)" Width="92" VerticalAlignment="Center"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+                            <TextBox x:Name="RevFileBox" Height="28" VerticalAlignment="Center" Width="180"
+                                     FontFamily="{DynamicResource Mono}" FontSize="12"/>
+                            <TextBlock Text="按文件名或Id匹配目标文件" Margin="12,0,0,0" VerticalAlignment="Center" FontSize="11"
+                                       Foreground="{DynamicResource ThirdlyTextBrush}"/>
+                            <TextBlock Text="审校段数上限" Margin="24,0,0,0" VerticalAlignment="Center" FontSize="11"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+                            <TextBox x:Name="RevMaxBox" Height="28" Width="70" VerticalAlignment="Center"
+                                     FontFamily="{DynamicResource Mono}" FontSize="12" Margin="8,0,0,0" Text="1000"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <!-- 工具栏 -->
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="2,12,0,8">
+                    <Button x:Name="RevRunBtn" Style="{StaticResource JadeButton}" Click="RevRun_Click">
+                        <TextBlock x:Name="RevRunText" Text="运行 AI 审校"/>
+                    </Button>
+                    <Button x:Name="RevCancelBtn" Content="取消" Style="{StaticResource GhostButton}"
+                            Margin="10,0,0,0" Visibility="Collapsed" Click="RevCancel_Click"/>
+                    <Button x:Name="RevExportBtn" Content="导出审校报告(CSV)" Style="{StaticResource GhostButton}"
+                            Margin="10,0,0,0" Click="RevExport_Click"/>
+                    <TextBlock x:Name="RevStatus" VerticalAlignment="Center" FontSize="12" Margin="16,0,0,0"
+                               TextWrapping="Wrap" Foreground="{DynamicResource SecondaryTextBrush}"/>
+                </StackPanel>
+
+                <!-- 审校结果列表 -->
+                <Border Grid.Row="3" CornerRadius="12" BorderThickness="1"
+                        BorderBrush="{DynamicResource TileBorderBrush}">
+                    <ListView x:Name="RevList" BorderThickness="0" SelectionChanged="RevList_SelectionChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="52">
+                                    <GridViewColumnHeader Content="判定"/>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding VerdictText}" FontWeight="SemiBold"
+                                                       Foreground="{Binding VerdictBrush}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="52">
+                                    <GridViewColumnHeader Content="分"/>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate><TextBlock Text="{Binding Score}"/></DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="150">
+                                    <GridViewColumnHeader Content="问题"/>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate><TextBlock Text="{Binding Issue}" TextWrapping="Wrap"/></DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="220">
+                                    <GridViewColumnHeader Content="原文"/>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate><TextBlock Text="{Binding Source}" TextWrapping="Wrap"/></DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="220">
+                                    <GridViewColumnHeader Content="现译文"/>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate><TextBlock Text="{Binding Target}" TextWrapping="Wrap"/></DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="240">
+                                    <GridViewColumnHeader Content="建议修订"/>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate><TextBlock Text="{Binding Suggestion}" TextWrapping="Wrap"/></DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+
+                <!-- 详情/采纳编辑区 -->
+                <Border Grid.Row="4" Margin="0,12,0,0" CornerRadius="12" BorderThickness="1"
+                        BorderBrush="{DynamicResource TileBorderBrush}">
+                    <Grid Margin="14,12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="RevDetailTitle" Grid.Row="0" FontWeight="SemiBold" Margin="0,0,0,8"
+                                   Text="选中段：未选择"/>
+                        <TextBox x:Name="RevDetailBox" Grid.Row="1" AcceptsReturn="True" TextWrapping="Wrap"
+                                 FontFamily="{DynamicResource Mono}" FontSize="12" Padding="8"
+                                 VerticalScrollBarVisibility="Auto" BorderThickness="0" Background="Transparent"
+                                 TextChanged="RevDetail_Changed"/>
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,8,0,0">
+                            <Button x:Name="RevApplyBtn" Content="采纳建议写回(.bak)" Style="{StaticResource JadeButton}"
+                                    Click="RevApply_Click"/>
+                            <TextBlock x:Name="RevAppliedText" VerticalAlignment="Center" FontSize="11" Margin="12,0,0,0"
+                                       Foreground="{DynamicResource SecondaryTextBrush}" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
             </Grid>
         </Grid>
 

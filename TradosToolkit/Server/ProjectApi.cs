@@ -10,6 +10,8 @@ using Sdl.ProjectAutomation.Core;
 using Sdl.ProjectAutomation.FileBased;
 using Sdl.TranslationStudioAutomation.IntegrationApi;
 using TradosToolkit.Glossaries;
+using TradosToolkit.TranslationProvider.Engines;
+using System.Threading;
 
 namespace TradosToolkit.Server
 {
@@ -81,6 +83,10 @@ namespace TradosToolkit.Server
                     return method == "POST" ? WriteSdlxliff(query, body) : ApiResult.Json(405, Error("sdlxliff 写回端点需 POST"));
                 case "/api/project/pipeline":
                     return method == "POST" ? Pipeline(query, body) : ApiResult.Json(405, Error("pipeline 端点需 POST"));
+                case "/api/review":
+                    return Review(method, query, body);
+                case "/api/review/result":
+                    return ReviewResult(query);
                 default:
                     return ApiResult.Json(404, Error("未知端点 " + path));
             }
@@ -1503,6 +1509,364 @@ namespace TradosToolkit.Server
             foreach (var c in Path.GetInvalidFileNameChars())
                 name = name.Replace(c, '_');
             return name;
+        }
+
+        /// <summary>
+        /// POST /api/review?path=...&amp;file=...
+        /// body 可选 { "maxSegments": N } 。对目标文件逐段(或空译文除外)调用 LLM 审校：
+        /// 上下文用前后段 + 当前领域术语，要求模型返回 JSON 数组逐段给出 verdict(red/amber/ok) + issues + 建议修订。
+        /// 同步执行（建议放在后台线程调用，文本量大时耗时较长）。
+        /// </summary>
+        private static ApiResult Review(string method, Dictionary<string, string> query, string body)
+        {
+            if (method != "POST")
+                return ApiResult.Json(405, Error("review 端点需 POST"));
+
+            var config = ToolkitConfig.Load();
+            if (string.IsNullOrWhiteSpace(config.LlmBaseUrl) || string.IsNullOrWhiteSpace(config.LlmModel)
+                || string.IsNullOrWhiteSpace(config.ApiKey))
+                return ApiResult.Json(412, Error("未配置 LLM(llmBaseUrl/llmModel/apiKey见 config.json)，无法审校"));
+
+            var request = ParseBody(body);
+            var want = request.ContainsKey("maxSegments")
+                ? Math.Max(1, Math.Min(5000, Convert.ToInt32(request["maxSegments"]))) : 2000;
+
+            string bp = null, fileName = null, lang = null, srcLang = null;
+            var bpErr = WithProject(query, (project, info) =>
+            {
+                var targets = project.GetTargetLanguageFiles().ToList();
+                if (targets.Count == 0) return ApiResult.Json(400, Error("项目没有目标文件"));
+                var wanted = query.TryGetValue("file", out var f) ? f : null;
+                ProjectFile file;
+                if (string.IsNullOrEmpty(wanted))
+                {
+                    if (targets.Count > 1)
+                        return ApiResult.Json(400, Error("多个目标文件，请用 file 指定: " +
+                            string.Join("; ", targets.Select(t => t.Id + " = " + t.Name))));
+                    file = targets[0];
+                }
+                else
+                {
+                    file = targets.FirstOrDefault(t =>
+                        string.Equals(t.Id.ToString(), wanted, StringComparison.OrdinalIgnoreCase) ||
+                        string.Equals(t.Name, wanted, StringComparison.OrdinalIgnoreCase));
+                    if (file == null) return ApiResult.Json(404, Error("目标文件不存在: " + wanted));
+                }
+                var p = ResolveBilingualPath(file, info);
+                if (p == null) return ApiResult.Json(409, Error("双语参照文件未生成: " + file.Name));
+                bp = p; fileName = file.Name;
+                lang = file.Language == null ? null : file.Language.IsoAbbreviation;
+                srcLang = info.SourceLanguage == null ? null : info.SourceLanguage.IsoAbbreviation;
+                return ApiResult.Json(200, new Dictionary<string, object>());
+            });
+            if (bpErr.Status >= 400) return bpErr;
+
+            List<BilingualSegment> rows;
+            try { rows = BilingualParser.Parse(bp); }
+            catch (Exception e) { return ApiResult.Json(500, Error("解析双语文件失败: " + e.Message)); }
+
+            var candidates = rows.Where(r => !string.IsNullOrWhiteSpace(r.Target)).ToList();
+            if (candidates.Count > want) candidates = candidates.Take(want).ToList();
+            if (candidates.Count == 0) return ApiResult.Json(200, EmptyReview(fileName, lang));
+
+            // 领域术语表（审校提示"术语一致性"）
+            var termsText = GlossaryTermsText(config.Domain, srcLang, lang);
+            var termPairs = SplitPairs(termsText);
+
+            // 把行号对齐：candidates 里的序号用于取前后文
+            var indexOf = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+            for (int i = 0; i < rows.Count; i++) if (!indexOf.ContainsKey(rows[i].Id)) indexOf[rows[i].Id] = i;
+
+            var items = new List<Dictionary<string, object>>();
+            foreach (var batch in Chunk(candidates, 14))
+                ReviewBatch(batch, rows, indexOf, lang, config, termsText, termPairs, items);
+
+            var summary = new Dictionary<string, long>();
+            foreach (var it in items)
+            {
+                var v = Str(it, "verdict") ?? "ok";
+                if (!summary.ContainsKey(v)) summary[v] = 0;
+                summary[v]++;
+            }
+            var csv = BuildReviewCsv(items);
+
+            return ApiResult.Json(200, new Dictionary<string, object>
+            {
+                { "project", query.TryGetValue("path", out var pp) ? Path.GetFileNameWithoutExtension(pp) : "" },
+                { "file", fileName }, { "language", lang },
+                { "count", items.Count },
+                { "summary", summary },
+                { "items", items },
+                { "csv", csv },
+                { "domain", config.Domain },
+                { "message", "审校完成：共 " + items.Count + " 段。 红=" + N(summary, "red")
+                    + " 黄(机器可改)=" + N(summary, "amber") + " 通过=" + N(summary, "ok") + "。" },
+            });
+        }
+
+        private static long N(Dictionary<string, long> map, string k)
+        {
+            return map.TryGetValue(k, out var v) ? v : 0;
+        }
+
+        private static Dictionary<string, object> EmptyReview(string fileName, string lang)
+        {
+            return new Dictionary<string, object>
+            {
+                { "file", fileName }, { "language", lang }, { "count", 0 },
+                { "summary", new Dictionary<string, long>() }, { "items", new List<Dictionary<string, object>>() },
+                { "csv", "id,score,verdict,type,reason,suggestion,source,target\r\n" },
+                { "message", "没有可审校的段落（无译文或超过最大段数）。" },
+            };
+        }
+
+        private static IEnumerable<List<BilingualSegment>> Chunk(List<BilingualSegment> all, int size)
+        {
+            for (int i = 0; i < all.Count; i += size)
+                yield return all.GetRange(i, Math.Min(size, all.Count - i));
+        }
+
+        /// <summary>把当前领域术语表转成 Prompt 里的约束文本（from => to）。ElCL语言不完全时尽量按目标语言匹配。</summary>
+        private static string GlossaryTermsText(string domain, string srcLang, string tgtLang)
+        {
+            var list = new List<string>();
+            try
+            {
+                var db = new GlossaryDb();
+                var gathered = new List<GlossaryEntry>();
+                foreach (var pair in db.GetPairs(GlossaryDb.KindPre))
+                {
+                    var lgSrc = pair[0]; var lgTgt = pair[1];
+                    var srcMatch = string.IsNullOrWhiteSpace(srcLang) || LangEq(lgSrc, srcLang);
+                    var tgtMatch = string.IsNullOrWhiteSpace(tgtLang) || LangEq(lgTgt, tgtLang);
+                    if (!srcMatch || !tgtMatch) continue;
+                    gathered.AddRange(db.GetTerms(GlossaryDb.KindPre, lgSrc, lgTgt, domain));
+                }
+                if (gathered.Count == 0 && domain != Glossaries.DomainTree.DefaultDomain)
+                    foreach (var pair in db.GetPairs(GlossaryDb.KindPre))
+                        gathered.AddRange(db.GetTerms(GlossaryDb.KindPre, pair[0], pair[1], null));
+
+                foreach (var e in gathered)
+                    if (!string.IsNullOrWhiteSpace(e.From) && !string.IsNullOrWhiteSpace(e.To))
+                        list.Add(e.From.Trim() + " => " + e.To.Trim());
+            }
+            catch (Exception) { /* 术语库不可用时不影响审校 */ }
+            return string.Join("\n", list);
+        }
+
+        private static bool LangEq(string a, string b)
+        {
+            if (string.IsNullOrEmpty(a) || string.IsNullOrEmpty(b)) return false;
+            return string.Equals(a.Trim().ToLowerInvariant(), b.Trim().ToLowerInvariant(), StringComparison.Ordinal)
+                || string.Equals(a.Trim().ToLowerInvariant(), b.Trim().ToLowerInvariant().Split('-')[0], StringComparison.Ordinal);
+        }
+
+        private static IReadOnlyList<KeyValuePair<string, string>> SplitPairs(string text)
+        {
+            var result = new List<KeyValuePair<string, string>>();
+            if (string.IsNullOrWhiteSpace(text)) return result;
+            foreach (var line in text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                var arrow = line.IndexOf("=>");
+                if (arrow < 0) continue;
+                var from = line.Substring(0, arrow).Trim();
+                var to = line.Substring(arrow + 2).Trim();
+                if (!string.IsNullOrEmpty(from))
+                    result.Add(new KeyValuePair<string, string>(from, to));
+            }
+            return result;
+        }
+
+        private static void ReviewBatch(
+            List<BilingualSegment> batch, List<BilingualSegment> rows, Dictionary<string, int> indexOf,
+            string lang, ToolkitConfig config, string termsText, IReadOnlyList<KeyValuePair<string, string>> termPairs,
+            List<Dictionary<string, object>> items)
+        {
+            var input = new List<Dictionary<string, string>>();
+            foreach (var r in batch)
+            {
+                var ctx = SegCtx(r, rows, indexOf);
+                var ctxArr = new List<string>();
+                foreach (var c in ctx) ctxArr.Add(Convert.ToString(c));
+                input.Add(new Dictionary<string, string>
+                {
+                    { "id", r.Id }, { "source", r.Source }, { "target", r.Target },
+                    { "prev", ctxArr.Count > 0 ? ctxArr[0] : "" }, { "next", ctxArr.Count > 1 ? ctxArr[1] : "" },
+                });
+            }
+
+            var prompt = BuildReviewPrompt(lang, termsText, termPairs);
+            string reply;
+            try
+            {
+                reply = CallLlmJson(config, prompt, input);
+            }
+            catch (Exception e)
+            {
+                foreach (var r in batch)
+                    items.Add(new Dictionary<string, object>
+                    {
+                        { "id", r.Id }, { "source", r.Source }, { "target", r.Target },
+                        { "score", 0 }, { "verdict", "error" },
+                        { "type", "调用失败" }, { "reason", e.Message }, { "suggestion", null },
+                    });
+                return;
+            }
+
+            var verdicts = JsonArray(reply);
+            var byId = new Dictionary<string, Dictionary<string, object>>(StringComparer.OrdinalIgnoreCase);
+            foreach (var d in verdicts)
+                if (d.TryGetValue("id", out var idv)) byId[Convert.ToString(idv).Trim()] = d;
+
+            foreach (var r in batch)
+                MergeReviewItem(r, byId.TryGetValue(r.Id, out var v) ? v : null, items);
+        }
+
+        private static void MergeReviewItem(BilingualSegment r, Dictionary<string, object> v,
+            List<Dictionary<string, object>> items)
+        {
+            if (v == null)
+            {
+                items.Add(new Dictionary<string, object>
+                {
+                    { "id", r.Id }, { "source", r.Source }, { "target", r.Target },
+                    { "score", 100 }, { "verdict", "ok" },
+                    { "type", null }, { "reason", null }, { "suggestion", null },
+                });
+                return;
+            }
+            var score = v.ContainsKey("score") ? Convert.ToInt32(v["score"]) : 100;
+            var verdict = v.ContainsKey("verdict") ? Convert.ToString(v["verdict"]) : "ok";
+            var issues = v.ContainsKey("issues") ? v["issues"] : null;
+            var issuesList = issues as List<Dictionary<string, object>>;
+            string firstType = null, firstReason = null;
+            if (issuesList != null && issuesList.Count > 0)
+            {
+                firstType = issuesList[0].ContainsKey("type") ? Convert.ToString(issuesList[0]["type"]) : null;
+                firstReason = issuesList[0].ContainsKey("reason") ? Convert.ToString(issuesList[0]["reason"]) : null;
+            }
+            var suggestion = v.ContainsKey("suggestion") ? Convert.ToString(v["suggestion"]) : null;
+            if (string.IsNullOrWhiteSpace(suggestion) && issuesList != null)
+                foreach (var iss in issuesList)
+                    if (iss.ContainsKey("suggestion") && !string.IsNullOrWhiteSpace(Convert.ToString(iss["suggestion"])))
+                    { suggestion = Convert.ToString(iss["suggestion"]); break; }
+
+            items.Add(new Dictionary<string, object>
+            {
+                { "id", r.Id }, { "source", r.Source }, { "target", r.Target },
+                { "score", score }, { "verdict", verdict },
+                { "type", firstType }, { "reason", firstReason }, { "suggestion", suggestion },
+                { "issues", issues },
+            });
+        }
+
+        private static IEnumerable<object> SegCtx(BilingualSegment r, List<BilingualSegment> rows, Dictionary<string, int> indexOf)
+        {
+            if (!indexOf.TryGetValue(r.Id, out var idx))
+            {
+                yield return ""; yield return "";
+                yield break;
+            }
+            var prev = idx > 0 ? rows[idx - 1].Target : "";
+            var next = idx < rows.Count - 1 ? rows[idx + 1].Source : "";
+            yield return Clip(prev);
+            yield return Clip(next);
+        }
+
+        private static string Clip(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return "";
+            text = text.Trim();
+            return text.Length <= 300 ? text : text.Substring(0, 300) + "…";
+        }
+
+        private static string BuildReviewPrompt(string lang, string termsText,
+            IReadOnlyList<KeyValuePair<string, string>> termPairs)
+        {
+            var termRules = string.IsNullOrWhiteSpace(termsText)
+                ? "（无可用术语表）"
+                : termsText;
+            return
+                "你是专业翻译审校。将逐段审校并只返回 JSON 数组（不要 markdown、不要额外文字）。" +
+                "目标语言: " + (string.IsNullOrEmpty(lang) ? "未知" : lang) + "。\n" +
+                "术语表(严格: 出现 from 必须用 to，违反判red):\n" + termRules + "\n" +
+                "审校规则:\n" +
+                "- 漏译/错译/数字单位错误/术语违背 -> verdict=\"red\"\n" +
+                "- 仅标点/大小写/空格/换行等安全可改 -> verdict=\"amber\"，且提供完整修正译文在 suggestion\n" +
+                "- 无明显问题 -> verdict=\"ok\"\n" +
+                "- 一律给 score(0-100)、issues 数组(元素: type, reason, suggestion)。amber/red 必须给 suggestion(完整目标译文，含占位保持原序)。\n" +
+                "- 保持源文中的占位符(如 [[1]])原位原样。\n" +
+                "输入数组元素含 {id, source, target, prev, next}。返回形如 [{\"id\":\"1\",\"score\":88,\"verdict\":\"ok\",\"issues\":[]}]。";
+        }
+
+        private static string CallLlmJson(ToolkitConfig config, string prompt, List<Dictionary<string, string>> input)
+        {
+            var messages = new List<object>
+            {
+                new Dictionary<string, object> { { "role", "system" }, { "content", prompt } },
+                new Dictionary<string, object>
+                {
+                    { "role", "user" },
+                    { "content", new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(input) },
+                },
+            };
+            var body = new Dictionary<string, object>
+            {
+                { "model", config.LlmModel },
+                { "temperature", 0 },
+                { "max_tokens", 4000 },
+                { "messages", messages },
+            };
+            var url = config.LlmBaseUrl.TrimEnd('/') + "/chat/completions";
+            var response = EngineHttp.PostJsonAsync(url, body, config.ApiKey, CancellationToken.None).GetAwaiter().GetResult();
+            var choices = EngineHttp.AsList(response.TryGetValue("choices", out var c) ? c : null);
+            if (choices == null || choices.Count == 0)
+                throw new InvalidOperationException("LLM 未返回 choices");
+            var message = EngineHttp.AsDict(
+                EngineHttp.AsDict(choices[0])?.TryGetValue("message", out var m) == true ? m : null);
+            if (message == null) throw new InvalidOperationException("LLM 未返回 message");
+            return (EngineHttp.AsString(message.TryGetValue("content", out var ct) ? ct : null) ?? string.Empty).Trim();
+        }
+
+        /// <summary>从 LLM 回复里安全抽取 JSON 数组（容忍 ``` 包裹与前后废话）。</summary>
+        private static List<Dictionary<string, object>> JsonArray(string content)
+        {
+            var result = new List<Dictionary<string, object>>();
+            if (string.IsNullOrWhiteSpace(content)) return result;
+            int start = content.IndexOf('[');
+            if (start < 0) return result;
+            int end = content.LastIndexOf(']');
+            if (end < start) return result;
+            var json = content.Substring(start, end - start + 1);
+            try
+            {
+                var ser = new System.Web.Script.Serialization.JavaScriptSerializer { MaxJsonLength = int.MaxValue };
+                var arr = ser.Deserialize<List<object>>(json);
+                foreach (var o in arr)
+                    if (o is Dictionary<string, object> d) result.Add(d);
+            }
+            catch (Exception) { }
+            return result;
+        }
+
+        private static string BuildReviewCsv(List<Dictionary<string, object>> items)
+        {
+            var sb = new System.Text.StringBuilder();
+            sb.Append('\ufeff');
+            sb.Append("id,score,verdict,type,reason,suggestion,source,target\r\n");
+            foreach (var it in items)
+                sb.Append(BilingualParser.Csv(Str(it, "id"))).Append(',').Append(BilingualParser.Csv(Convert.ToString(it["score"])))
+                  .Append(',').Append(BilingualParser.Csv(Str(it, "verdict"))).Append(',').Append(BilingualParser.Csv(Str(it, "type")))
+                  .Append(',').Append(BilingualParser.Csv(Str(it, "reason"))).Append(',').Append(BilingualParser.Csv(Str(it, "suggestion")))
+                  .Append(',').Append(BilingualParser.Csv(Str(it, "source"))).Append(',').Append(BilingualParser.Csv(Str(it, "target")))
+                  .Append("\r\n");
+            return sb.ToString();
+        }
+
+        /// <summary>GET /api/review/result?id=...：返回最近一次审校任务的 summar (保留位/交给 UI 拉取)。</summary>
+        private static ApiResult ReviewResult(Dictionary<string, string> query)
+        {
+            return ApiResult.Json(404, Error("审校结果为同步返回，无需单独拉取（POST /api/review 的响应含 items/csv）。"));
         }
 
         private static Dictionary<string, object> Error(string message)

@@ -136,10 +136,12 @@ namespace TradosToolkit.Workbench
             MemoriesPanel.Visibility = Visibility.Collapsed;
             QuickPanel.Visibility = Visibility.Collapsed;
             ToolsPanel.Visibility = Visibility.Collapsed;
+            ReviewPanel.Visibility = Visibility.Collapsed;
             var target = picked?.Tag as string;
             if (target == "MemoriesPanel") MemoriesPanel.Visibility = Visibility.Visible;
             else if (target == "QuickPanel") QuickPanel.Visibility = Visibility.Visible;
             else if (target == "ToolsPanel") ToolsPanel.Visibility = Visibility.Visible;
+            else if (target == "ReviewPanel") ReviewPanel.Visibility = Visibility.Visible;
             else OverviewPanel.Visibility = Visibility.Visible;
             ToolkitLog.Info("工作台：切换到 " + (target ?? "overview"));
         }
@@ -1141,6 +1143,300 @@ namespace TradosToolkit.Workbench
                     ToolsTgtBox.Text = info.TargetLanguages.First().IsoAbbreviation;
             }
             catch (Exception ex) { ToolkitLog.Error("工作台：读取当前项目语言失败", ex); }
+        }
+
+        // ==================== AI 审校 ====================
+
+        private bool _revBusy;
+        private CancellationTokenSource _revCts;
+
+        private void RevPickCurrent_Click(object sender, RoutedEventArgs e)
+        {
+            var proj = CurrentProjectPath();
+            if (proj == null) { RevStatus.Text = "未找到当前激活的项目。"; return; }
+            RevProjBox.Text = proj;
+            RevStatus.Text = "已取当前项目：" + proj;
+            ToolkitLog.Info("工作台：审校页取当前项目 " + proj);
+        }
+
+        private void RevBrowseProj_Click(object sender, RoutedEventArgs e)
+        {
+            var dlg = new Microsoft.Win32.OpenFileDialog { Filter = "SDL 项目|*.sdlp", CheckFileExists = true };
+            if (dlg.ShowDialog(this) == true) RevProjBox.Text = dlg.FileName;
+        }
+
+        private async void RevRun_Click(object sender, RoutedEventArgs e)
+        {
+            var path = RevProjBox.Text.Trim();
+            if (string.IsNullOrEmpty(path) || !File.Exists(path))
+            {
+                RevStatus.Text = "请先选择项目 (.sdlp)：点“取当前项目”或“浏览…”";
+                return;
+            }
+            if (!LlmChatClient.IsReady())
+            {
+                RevStatus.Text = "未配置 LLM(llmBaseUrl/llmModel/apiKey 见 config.json)，无法审校。";
+                return;
+            }
+
+            var q = new Dictionary<string, string> { { "path", path } };
+            var file = RevFileBox.Text.Trim();
+            if (!string.IsNullOrEmpty(file)) q["file"] = file;
+
+            int maxSeg = 1000;
+            int.TryParse(RevMaxBox.Text.Trim(), out maxSeg);
+            if (maxSeg <= 0) maxSeg = 1000;
+            var body = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(
+                new Dictionary<string, object> { { "maxSegments", maxSeg } });
+
+            _revBusy = true;
+            _revCts = new CancellationTokenSource();
+            RevRunBtn.IsEnabled = false;
+            RevCancelBtn.Visibility = Visibility.Visible;
+            RevList.ItemsSource = null;
+            RevStatus.Text = "AI 审校进行中（已交后台，批式调用 LLM，段数多时需等待）…";
+            RevContext.Text = Path.GetFileNameWithoutExtension(path) + (string.IsNullOrEmpty(file) ? "" : " / " + file);
+            RevDetailTitle.Text = "选中段：等待结果";
+            RevDetailBox.Text = "";
+            RevAppliedText.Text = "";
+
+            var token = ApiConfig.Load().GetOrCreateToken();
+            try
+            {
+                var result = await Task.Run(() =>
+                    ProjectApi.Handle("POST", "/api/review", q, body, token, token), CancellationToken.None);
+                if (_revCts == null || _revCts.IsCancellationRequested)
+                {
+                    RevStatus.Text = "已取消。";
+                    return;
+                }
+                if (result.Status >= 400)
+                {
+                    var err = PayloadText(result);
+                    RevStatus.Text = "审校失败：[HTTP " + result.Status + "] " + err;
+                    return;
+                }
+                PopulateReview(result.Payload);
+            }
+            catch (Exception ex)
+            {
+                RevStatus.Text = "审校异常：" + ex.Message;
+                ToolkitLog.Error("工作台：AI 审校异常", ex);
+            }
+            finally
+            {
+                _revBusy = false;
+                RevRunBtn.IsEnabled = true;
+                RevCancelBtn.Visibility = Visibility.Collapsed;
+                _revCts.Dispose();
+                _revCts = null;
+            }
+        }
+
+        private void RevCancel_Click(object sender, RoutedEventArgs e)
+        {
+            if (_revCts != null) _revCts.Cancel();
+            RevStatus.Text = "正在取消（当前 LLM 调用完成后停止）…";
+        }
+
+        private void PopulateReview(object payload)
+        {
+            var dict = payload as Dictionary<string, object>;
+            if (dict == null || !dict.ContainsKey("items")) { RevStatus.Text = "返回数据格式异常。"; return; }
+            var items = dict["items"] as List<Dictionary<string, object>>;
+            var rows = new List<ReviewRow>();
+            if (items != null)
+                foreach (var it in items)
+                    rows.Add(ReviewRow.From(it));
+            RevList.ItemsSource = rows;
+            var summary = dict.ContainsKey("summary") ? dict["summary"] as Dictionary<string, object> : null;
+            RevStatus.Text = dict.ContainsKey("message")
+                ? Convert.ToString(dict["message"])
+                : (summary == null ? "" : BuildSummaryText(summary) + ("，共 " + rows.Count + " 段"));
+            RevContext.Text = Convert.ToString(dict.ContainsKey("file")
+                ? (dict["file"] == null ? "" : dict["file"]) : "") ;
+            if (rows.Count > 0) RevList.SelectedIndex = 0;
+        }
+
+        private static string BuildSummaryText(Dictionary<string, object> summary)
+        {
+            var sb = new StringBuilder();
+            if (summary.ContainsKey("red")) sb.Append("红=").Append(summary["red"]).Append(' ');
+            if (summary.ContainsKey("amber")) sb.Append("黄(机器可改)=").Append(summary["amber"]).Append(' ');
+            if (summary.ContainsKey("ok")) sb.Append("通过=").Append(summary["ok"]).Append(' ');
+            if (summary.ContainsKey("error")) sb.Append("失败=").Append(summary["error"]).Append(' ');
+            return sb.ToString().Trim();
+        }
+
+        private void RevList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (_revCts == null) return; // 初始化期
+            var row = RevList.SelectedItem as ReviewRow;
+            if (row == null) { RevDetailTitle.Text = "选中段：未选择"; RevDetailBox.Text = ""; return; }
+            var header = "段 #" + row.ItemId;
+            if (!string.IsNullOrEmpty(row.VerdictText)) header += "  ·  " + row.VerdictText;
+            if (!string.IsNullOrEmpty(row.Issue)) header += "  ·  " + row.Issue;
+            RevDetailTitle.Text = header;
+            var sb = new StringBuilder();
+            sb.Append("原文:  ").Append(row.Source).AppendLine().AppendLine()
+              .Append("现译文:  ").Append(row.Target).AppendLine().AppendLine();
+            if (!string.IsNullOrEmpty(row.Suggestion))
+                sb.Append("建议修订:  ").Append(row.Suggestion);
+            else
+                sb.Append("建议修订:  (无，需人工处理)");
+            RevDetailBox.Text = sb.ToString();
+            RevAppliedText.Text = "";
+        }
+
+        private void RevDetail_Changed(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            // 手动编辑详情区，标记需写回
+            if (RevAppliedText != null) RevAppliedText.Text = "";
+        }
+
+        private async void RevApply_Click(object sender, RoutedEventArgs e)
+        {
+            var row = RevList.SelectedItem as ReviewRow;
+            if (row == null) { RevAppliedText.Text = "请先选中一段。"; return; }
+            var path = RevProjBox.Text.Trim();
+            if (string.IsNullOrEmpty(path)) { RevAppliedText.Text = "缺少项目路径。"; return; }
+            var file = RevFileBox.Text.Trim();
+
+            var target = parseDetailTarget(RevDetailBox.Text);
+            if (string.IsNullOrWhiteSpace(target)) { RevAppliedText.Text = "详情区没有可写回的译文。"; return; }
+            if (string.Equals(target, row.Target, StringComparison.Ordinal)) { RevAppliedText.Text = "译文未变化，无需写回。"; return; }
+
+            var q = new Dictionary<string, string> { { "path", path } };
+            if (!string.IsNullOrEmpty(file)) q["file"] = file;
+            var body = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(
+                new List<object>
+                {
+                    new Dictionary<string, object> { { "id", row.ItemId }, { "target", target } }
+                });
+            var token = ApiConfig.Load().GetOrCreateToken();
+            RevApplyBtn.IsEnabled = false;
+            RevAppliedText.Text = "写回中…";
+            try
+            {
+                var result = await Task.Run(() =>
+                    ProjectApi.Handle("POST", "/api/project/sdlxliff", q, body, token, token), CancellationToken.None);
+                if (result.Status >= 400)
+                    RevAppliedText.Text = "写回失败：[HTTP " + result.Status + "] " + PayloadText(result);
+                else
+                    RevAppliedText.Text = "已写回（含 .bak 备份）。在 Studio 重新打开该文件生效。";
+            }
+            catch (Exception ex)
+            {
+                RevAppliedText.Text = "写回异常：" + ex.Message;
+                ToolkitLog.Error("工作台：审校写回异常", ex);
+            }
+            finally
+            {
+                RevApplyBtn.IsEnabled = true;
+            }
+        }
+
+        /// <summary>从未知的详情文本里提取"建议修订"行以后的内容作为写回译文。</summary>
+        private static string parseDetailTarget(string detail)
+        {
+            if (string.IsNullOrEmpty(detail)) return null;
+            var lines = detail.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+            int idx = -1;
+            for (int i = 0; i < lines.Length; i++)
+                if (lines[i].StartsWith("建议修订:", StringComparison.Ordinal))
+                { idx = i + 1; break; }
+            if (idx < 0) return null;
+            var sb = new StringBuilder();
+            for (int i = idx; i < lines.Length; i++)
+            {
+                if (lines[i].StartsWith("建议修订:")) continue;
+                sb.AppendLine(lines[i]);
+            }
+            return sb.ToString().Trim();
+        }
+
+        private void RevExport_Click(object sender, RoutedEventArgs e)
+        {
+            var dlg = new Microsoft.Win32.SaveFileDialog
+            {
+                Filter = "CSV 报告|*.csv",
+                FileName = "审校报告_" + DateTime.Now.ToString("yyyyMMdd_HHmm") + ".csv",
+            };
+            if (dlg.ShowDialog(this) != true) return;
+            var csv = BuildReviewCsv();
+            if (string.IsNullOrEmpty(csv)) { RevStatus.Text = "没有审校结果可导出。"; return; }
+            File.WriteAllText(dlg.FileName, csv, Encoding.UTF8);
+            RevStatus.Text = "已导出：" + dlg.FileName;
+        }
+
+        private string BuildReviewCsv()
+        {
+            var sb = new StringBuilder();
+            sb.Append('\ufeff');
+            sb.Append("id,verdict,score,type,reason,suggestion,source,target\r\n");
+            var rows = RevList.ItemsSource as List<ReviewRow>;
+            if (rows == null) return null;
+            foreach (var r in rows)
+                sb.Append(r.ItemId).Append(',').Append(r.VerdictText).Append(',').Append(r.Score).Append(',')
+                  .Append(r.Issue).Append(',').Append(r.Suggestion).Append(',').Append(r.Source).Append(',').Append(r.Target)
+                  .Append("\r\n");
+            return sb.ToString();
+        }
+
+        private static string PayloadText(ApiResult result)
+        {
+            try
+            {
+                var dict = result.Payload as Dictionary<string, object>;
+                if (dict != null && dict.ContainsKey("error"))
+                    return Convert.ToString(dict["error"]);
+                return new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(result.Payload);
+            }
+            catch { return result.Status.ToString(); }
+        }
+    }
+
+    public class ReviewRow
+    {
+        public string ItemId { get; set; }
+        public string VerdictText { get; set; }
+        public Brush VerdictBrush { get; set; }
+        public int Score { get; set; }
+        public string Issue { get; set; }
+        public string Source { get; set; }
+        public string Target { get; set; }
+        public string Suggestion { get; set; }
+
+        private static readonly Brush RedBrush = new SolidColorBrush(Color.FromRgb(0xE0, 0x5D, 0x4B));
+        private static readonly Brush AmberBrush = new SolidColorBrush(Color.FromRgb(0xB0, 0x7F, 0x2A));
+        private static readonly Brush GreenBrush = new SolidColorBrush(Color.FromRgb(0x2E, 0xA8, 0x6B));
+        private static readonly Brush GrayBrush = new SolidColorBrush(Color.FromRgb(0x9A, 0xA3, 0xB2));
+
+        public static ReviewRow From(Dictionary<string, object> it)
+        {
+            string verdict = it.ContainsKey("verdict") ? Convert.ToString(it["verdict"]) : "ok";
+            string verdictText = verdict;
+            var brush = GrayBrush;
+            if (string.Equals(verdict, "red", StringComparison.OrdinalIgnoreCase)) { verdictText = "红"; brush = RedBrush; }
+            else if (string.Equals(verdict, "amber", StringComparison.OrdinalIgnoreCase)) { verdictText = "黄"; brush = AmberBrush; }
+            else if (string.Equals(verdict, "ok", StringComparison.OrdinalIgnoreCase)) { verdictText = "通过"; brush = GreenBrush; }
+
+            var type = it.ContainsKey("type") ? Convert.ToString(it["type"]) : null;
+            var reason = it.ContainsKey("reason") ? Convert.ToString(it["reason"]) : null;
+            var issue = (string.IsNullOrEmpty(type) ? "" : type)
+                        + (string.IsNullOrEmpty(reason) ? "" : (string.IsNullOrEmpty(type) ? "" : "：") + reason);
+
+            return new ReviewRow
+            {
+                ItemId = it.ContainsKey("id") ? Convert.ToString(it["id"]) : "",
+                VerdictText = verdictText,
+                VerdictBrush = brush,
+                Score = it.ContainsKey("score") ? Convert.ToInt32(it["score"]) : 0,
+                Issue = issue,
+                Source = it.ContainsKey("source") ? Convert.ToString(it["source"]) : "",
+                Target = it.ContainsKey("target") ? Convert.ToString(it["target"]) : "",
+                Suggestion = it.ContainsKey("suggestion") ? Convert.ToString(it["suggestion"]) : "",
+            };
         }
     }
 }
