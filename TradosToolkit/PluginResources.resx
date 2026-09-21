@@ -75,6 +75,12 @@
   <data name="Workbench_Action_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\workbench.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Terminology_Action_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\glossary-manager.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TmManager_Action_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\tm-manager.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="WB_Title" xml:space="preserve">
     <value>TradosToolkit Workbench</value>
   </data>
