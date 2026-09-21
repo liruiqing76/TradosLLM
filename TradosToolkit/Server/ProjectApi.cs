@@ -71,6 +71,8 @@ namespace TradosToolkit.Server
                     return HealthProbe.Build();
                 case "/api/glossary/backfill":
                     return BackfillGlossary(body);
+                case "/api/glossary/domains":
+                    return GlossaryDomains();
                 case "/api/project/triage":
                     return Triage(query);
                 case "/api/project/audit":
@@ -631,6 +633,19 @@ namespace TradosToolkit.Server
 
             var bytes = File.ReadAllBytes(path);
             return ApiResult.File(bytes, "application/octet-stream", Path.GetFileName(path));
+        }
+
+        /// <summary>
+        /// GET /api/glossary/domains  领域树（主领域/子领域两级）。
+        /// 当前由插件本地占位实现（DomainTree.Defaults）返回，供术语管理/工作台等 UI 加载领域下拉；
+        /// 服务端未来可用 API 返回真正的行业细分树。
+        /// </summary>
+        private static ApiResult GlossaryDomains()
+        {
+            return ApiResult.Json(200, new Dictionary<string, object>
+            {
+                { "domains", DomainTree.Defaults() },
+            });
         }
 
         /// <summary>

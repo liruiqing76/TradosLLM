@@ -17,7 +17,8 @@ namespace TradosToolkit.TerminologySource
             var baseUrl = NativeTerminologyProviderHelper.GetQueryParam(terminologyProviderUri, "base");
             var src = NativeTerminologyProviderHelper.GetQueryParam(terminologyProviderUri, "src");
             var tgt = NativeTerminologyProviderHelper.GetQueryParam(terminologyProviderUri, "tgt");
-            return new NativeTerminologyProvider(baseUrl, src, tgt);
+            var domain = NativeTerminologyProviderHelper.GetQueryParam(terminologyProviderUri, "domain");
+            return new NativeTerminologyProvider(baseUrl, src, tgt, domain);
         }
 
         public bool SupportsTerminologyProviderUri(Uri terminologyProviderUri)

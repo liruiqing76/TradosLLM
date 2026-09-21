@@ -9,5 +9,7 @@ namespace TradosToolkit.Glossaries
         public long Id { get; set; }
         public string From { get; set; }
         public string To { get; set; }
+        /// <summary>所属领域（对应全局领域树，如"通用/法律/医疗…"）。空串按"通用"处理。</summary>
+        public string Domain { get; set; }
     }
 }

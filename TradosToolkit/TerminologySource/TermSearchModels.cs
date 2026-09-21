@@ -12,13 +12,14 @@ namespace TradosToolkit.TerminologySource
         public int score;
     }
 
-    /// <summary>POST {termBaseUrl}/match 的请求体。</summary>
+    /// <summary>POST {termBaseUrl}/match 的请求体。domain 为当前领域，服务端可据此做领域内检索。</summary>
     public class TermMatchRequest
     {
         public string src;
         public string tgt;
         public string text;
         public int max;
+        public string domain;
     }
 
     /// <summary>术语接口统一响应容器（matches 字段多端点共用）。</summary>

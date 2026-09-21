@@ -19,14 +19,16 @@ namespace TradosToolkit.Glossaries
             _db = db ?? new GlossaryDb();
         }
 
-        public IReadOnlyList<GlossaryEntry> Load(string kind, string sourceLang, string targetLang)
+        public IReadOnlyList<GlossaryEntry> Load(string kind, string sourceLang, string targetLang, string domain = null)
         {
-            var key = kind + "|" + sourceLang + "|" + targetLang;
+            // 严格按当前领域过滤：只加载和当前领域一致的术语
+            var dom = string.IsNullOrWhiteSpace(domain) ? ToolkitConfig.Load().Domain : domain.Trim();
+            var key = kind + "|" + sourceLang + "|" + targetLang + "|" + dom;
             if (!_cache.TryGetValue(key, out var entries))
             {
                 try
                 {
-                    entries = _db.GetTerms(kind, sourceLang, targetLang);
+                    entries = _db.GetTerms(kind, sourceLang, targetLang, dom);
                     ToolkitLog.Info("术语加载 " + key + " 条数=" + entries.Count);
                 }
                 catch (Exception e)

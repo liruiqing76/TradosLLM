@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using TradosToolkit.Diagnostics;
 using Sdl.LanguagePlatform.Core;
 using Sdl.LanguagePlatform.TranslationMemory;
 
@@ -48,42 +49,80 @@ CREATE TABLE IF NOT EXISTS terms(
     kind      TEXT NOT NULL,
     src       TEXT NOT NULL,
     tgt       TEXT NOT NULL,
+    domain    TEXT NOT NULL DEFAULT '" + DomainTree.DefaultDomain + @"',
     from_term TEXT NOT NULL,
     to_term   TEXT NOT NULL,
     UNIQUE(kind, src, tgt, from_term)
 );";
                 cmd.ExecuteNonQuery();
+                // 老库缺 domain 列时迁移补齐（默认归入"通用"）
+                cmd.CommandText = "SELECT COUNT(*) FROM pragma_table_info('terms') WHERE name='domain';";
+                var hasDomain = Convert.ToInt64(cmd.ExecuteScalar()) > 0;
+                if (!hasDomain)
+                {
+                    cmd.CommandText = "ALTER TABLE terms ADD COLUMN domain TEXT NOT NULL DEFAULT '" +
+                                      DomainTree.DefaultDomain + "';";
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
 
-        public List<GlossaryEntry> GetTerms(string kind, string src, string tgt)
+        private static string Norm(string domain)
+        {
+            return string.IsNullOrWhiteSpace(domain) ? DomainTree.DefaultDomain : domain.Trim();
+        }
+
+        /// <summary>按领域查询术语；domain 为 null/空时返回全部领域（管理界面看全量用）。</summary>
+        public List<GlossaryEntry> GetTerms(string kind, string src, string tgt, string domain = null)
         {
             var list = new List<GlossaryEntry>();
             using (var conn = Open())
             using (var cmd = conn.CreateCommand())
             {
-                cmd.CommandText = "SELECT id, from_term, to_term FROM terms WHERE kind=$kind AND src=$src AND tgt=$tgt ORDER BY id";
+                var sql = "SELECT id, from_term, to_term, domain FROM terms WHERE kind=$kind AND src=$src AND tgt=$tgt";
+                if (!string.IsNullOrWhiteSpace(domain)) sql += " AND domain=$domain";
+                sql += " ORDER BY id";
+                cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("$kind", kind);
                 cmd.Parameters.AddWithValue("$src", src);
                 cmd.Parameters.AddWithValue("$tgt", tgt);
+                if (!string.IsNullOrWhiteSpace(domain)) cmd.Parameters.AddWithValue("$domain", Norm(domain));
                 using (var r = cmd.ExecuteReader())
                     while (r.Read())
-                        list.Add(new GlossaryEntry { Id = r.GetInt64(0), From = r.GetString(1), To = r.GetString(2) });
+                        list.Add(new GlossaryEntry
+                        {
+                            Id = r.GetInt64(0),
+                            From = r.GetString(1),
+                            To = r.GetString(2),
+                            Domain = r.IsDBNull(3) ? DomainTree.DefaultDomain : r.GetString(3),
+                        });
             }
             return list;
         }
 
         public void SaveTerm(string kind, string src, string tgt, GlossaryEntry entry)
         {
+            var dom = Norm(entry?.Domain);
             using (var conn = Open())
             using (var cmd = conn.CreateCommand())
             {
-                cmd.CommandText = @"INSERT INTO terms(kind,src,tgt,from_term,to_term)
-                                    VALUES($kind,$src,$tgt,$from,$to)
-                                    ON CONFLICT(kind,src,tgt,from_term) DO UPDATE SET to_term=excluded.to_term";
+                // 按 (kind,src,tgt,domain,from_term) 做手动 UPSERT，避免跨领域同 from 互相覆盖
+                cmd.CommandText = "SELECT COUNT(*) FROM terms WHERE kind=$kind AND src=$src AND tgt=$tgt AND domain=$domain AND from_term=$from";
                 cmd.Parameters.AddWithValue("$kind", kind);
                 cmd.Parameters.AddWithValue("$src", src);
                 cmd.Parameters.AddWithValue("$tgt", tgt);
+                cmd.Parameters.AddWithValue("$domain", dom);
+                cmd.Parameters.AddWithValue("$from", entry.From);
+                var exists = Convert.ToInt64(cmd.ExecuteScalar()) > 0;
+
+                cmd.Parameters.Clear();
+                cmd.CommandText = exists
+                    ? "UPDATE terms SET to_term=$to WHERE kind=$kind AND src=$src AND tgt=$tgt AND domain=$domain AND from_term=$from"
+                    : "INSERT INTO terms(kind,src,tgt,domain,from_term,to_term) VALUES($kind,$src,$tgt,$domain,$from,$to)";
+                cmd.Parameters.AddWithValue("$kind", kind);
+                cmd.Parameters.AddWithValue("$src", src);
+                cmd.Parameters.AddWithValue("$tgt", tgt);
+                cmd.Parameters.AddWithValue("$domain", dom);
                 cmd.Parameters.AddWithValue("$from", entry.From);
                 cmd.Parameters.AddWithValue("$to", entry.To ?? string.Empty);
                 cmd.ExecuteNonQuery();
@@ -117,24 +156,25 @@ CREATE TABLE IF NOT EXISTS terms(
         }
 
         /// <summary>导入两列 CSV（from,to，可有表头），按 from 冲突覆盖。返回导入条数。</summary>
-        public int ImportCsv(string kind, string src, string tgt, string csvPath)
+        public int ImportCsv(string kind, string src, string tgt, string csvPath, string domain = null)
         {
+            var dom = Norm(domain);
             var count = 0;
             foreach (var line in File.ReadAllLines(csvPath, Encoding.UTF8))
             {
                 var parts = SplitCsvLine(line);
                 if (parts.Length < 2 || parts[0] == "from") continue;
-                SaveTerm(kind, src, tgt, new GlossaryEntry { From = parts[0].Trim(), To = parts[1].Trim() });
+                SaveTerm(kind, src, tgt, new GlossaryEntry { From = parts[0].Trim(), To = parts[1].Trim(), Domain = dom });
                 count++;
             }
             return count;
         }
 
         /// <summary>导出为两列 CSV（from,to），UTF-8 BOM 方便 Excel 打开。</summary>
-        public void ExportCsv(string kind, string src, string tgt, string csvPath)
+        public void ExportCsv(string kind, string src, string tgt, string csvPath, string domain = null)
         {
             var sb = new StringBuilder("from,to\r\n");
-            foreach (var e in GetTerms(kind, src, tgt))
+            foreach (var e in GetTerms(kind, src, tgt, Norm(domain)))
                 sb.Append(EscapeCsv(e.From)).Append(',').Append(EscapeCsv(e.To)).Append("\r\n");
             File.WriteAllText(csvPath, sb.ToString(), new UTF8Encoding(true));
         }

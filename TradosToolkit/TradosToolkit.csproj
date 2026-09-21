@@ -168,6 +168,7 @@
     <Compile Include="Glossaries\TermReplacer.cs" />
     <Compile Include="Glossaries\GlossaryDb.cs" />
     <Compile Include="Glossaries\SqliteGlossaryProvider.cs" />
+    <Compile Include="Glossaries\DomainTree.cs" />
     <Compile Include="TerminologySource\TermSearchModels.cs" />
     <Compile Include="TerminologySource\TermHttpClient.cs" />
     <Compile Include="TerminologySource\NativeTerminologyProviderHelper.cs" />
@@ -189,6 +190,8 @@
     <EmbeddedResource Remove="PluginResources.zh-CN.resx" />
     <None Include="PluginResources.resx" />
     <None Include="PluginResources.zh-CN.resx" />
+    <Resource Include="Resources\workbench.ico" />
+    <Resource Include="Resources\translation-center.ico" />
     <None Include="pluginpackage.manifest.xml" />
   </ItemGroup>
 

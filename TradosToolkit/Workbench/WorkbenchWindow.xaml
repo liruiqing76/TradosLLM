@@ -411,7 +411,17 @@
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" x:Name="PageTitleQuick" Style="{StaticResource PageTitle}" Text="Quick actions"/>
                 <StackPanel Grid.Row="1" Margin="0,18,0,0">
-                    <TextBlock x:Name="QuickTitle" Style="{StaticResource TileCaption}" Text="SHORTCUTS"/>
+                    <TextBlock Style="{StaticResource TileCaption}" Text="全局领域（术语/翻译插件一致，此处可直接切换）"/>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox x:Name="DomCombo" Width="200" Height="30" VerticalAlignment="Center"/>
+                        <Button x:Name="DomApplyBtn" Content="应用" Style="{StaticResource GhostButton}"
+                                Margin="8,0,0,0" Click="ApplyDomain_Click"/>
+                        <TextBlock Text="切换后，术语管理与翻译只命中该领域的词条" VerticalAlignment="Center"
+                                   Margin="12,0,0,0" FontSize="11"
+                                   Foreground="{DynamicResource ThirdlyTextBrush}"/>
+                    </StackPanel>
+
+                    <TextBlock x:Name="QuickTitle" Style="{StaticResource TileCaption}" Text="SHORTCUTS" Margin="0,18,0,0"/>
                     <Button x:Name="ProviderButton" Content="Translation provider settings…"
                             Style="{StaticResource RowButton}" Tag="&#xE713;" Click="OpenProviderConfig_Click"/>
                     <Button x:Name="GlossaryButton" Content="Glossary manager…"

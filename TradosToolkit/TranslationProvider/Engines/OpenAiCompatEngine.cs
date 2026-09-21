@@ -127,6 +127,7 @@ namespace TradosToolkit.TranslationProvider.Engines
             // 术语强约束：命中源文的译前术语，译文必须严格采用指定译法。
             var termPairs = GetTermHits(pair, text);
             var termLine = BuildTermInstruction(termPairs);
+            var domain = ToolkitConfig.Load().Domain;
 
             // 重试循环：只对超时/网络类(可恢复)异常重试；业务类(HTTP 4xx/5xx 认证、返回异常)直接抛。
             // 总尝试次数 = 1(首次) + retryCount，退避取 2^attempt 秒封顶 8 秒，避免并发重试打爆网关。
@@ -139,7 +140,7 @@ namespace TradosToolkit.TranslationProvider.Engines
                     await Task.Delay(TimeSpan.FromSeconds(Math.Min(8, 1 << attempt)),
                                      cancellationToken).ConfigureAwait(false);
 
-                var systemPrompt = BuildPrompt(pair, prevSource, prevTarget, termLine);
+                var systemPrompt = BuildPrompt(pair, prevSource, prevTarget, termLine, domain);
                 if (termRejected)
                     systemPrompt += " IMPORTANT: Your previous translation failed the terminology check. "
                         + "Re-translate now and MUST use every mapped term below exactly.";
@@ -228,7 +229,7 @@ namespace TradosToolkit.TranslationProvider.Engines
             return ex is InvalidOperationException;
         }
 
-        private string BuildPrompt(LanguagePair pair, string prevSource, string prevTarget, string termInstruction)
+        private string BuildPrompt(LanguagePair pair, string prevSource, string prevTarget, string termInstruction, string domain)
         {
             var prompt = "You are a translation engine, NOT a chat assistant. "
                 + "Translate the user's text from " + pair.SourceCultureName + " to " + pair.TargetCultureName
@@ -240,6 +241,11 @@ namespace TradosToolkit.TranslationProvider.Engines
             if (!string.IsNullOrEmpty(termInstruction))
                 prompt += " 5) Terminology is MANDATORY: when the source text contains a term listed below, "
                     + "you MUST use its specified translation verbatim. Terms: " + termInstruction;
+
+            if (string.Equals(domain, Glossaries.DomainTree.DefaultDomain, StringComparison.Ordinal) == false
+                && !string.IsNullOrWhiteSpace(domain))
+                prompt += " 6) The text belongs to the \"" + domain + "\" domain "
+                    + "(领域=" + domain + "); align terminology, style and wording with that domain.";
 
             var hasSource = !string.IsNullOrWhiteSpace(prevSource);
             var hasTarget = !string.IsNullOrWhiteSpace(prevTarget);
@@ -274,7 +280,9 @@ namespace TradosToolkit.TranslationProvider.Engines
 
         private List<GlossaryEntry> LoadTerms(LanguagePair pair)
         {
-            var key = pair.SourceCultureName + ">" + pair.TargetCultureName;
+            // 严格按当前领域过滤：只命中和当前领域一致的术语
+            var domain = ToolkitConfig.Load().Domain;
+            var key = pair.SourceCultureName + ">" + pair.TargetCultureName + "|" + domain;
             lock (_termCache)
             {
                 if (_termCache.TryGetValue(key, out var cached))
@@ -282,7 +290,7 @@ namespace TradosToolkit.TranslationProvider.Engines
                 List<GlossaryEntry> list;
                 try
                 {
-                    list = new GlossaryDb().GetTerms(GlossaryDb.KindPre, pair.SourceCultureName, pair.TargetCultureName);
+                    list = new GlossaryDb().GetTerms(GlossaryDb.KindPre, pair.SourceCultureName, pair.TargetCultureName, domain);
                 }
                 catch
                 {

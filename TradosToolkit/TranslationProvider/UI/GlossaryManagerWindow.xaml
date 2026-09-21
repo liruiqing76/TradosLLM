@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         Title="TradosToolkit 术语管理"
-        Width="780" Height="560" MinWidth="700" MinHeight="480"
+        Width="940" Height="580" MinWidth="760" MinHeight="520"
+        Icon="Resources/workbench.ico"
         FontFamily="Microsoft YaHei UI, Segoe UI" FontSize="13"
         WindowStartupLocation="CenterScreen"
         TextOptions.TextFormattingMode="Ideal" UseLayoutRounding="True"
@@ -57,41 +58,60 @@
 
         <!-- 页头 -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,14">
+            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="18" Text="&#xE8F1;"
+                       VerticalAlignment="Center" Margin="0,0,8,0"
+                       Foreground="{DynamicResource PrimaryBrush}"/>
             <TextBlock Style="{StaticResource PageTitle}" Text="术语管理"/>
             <TextBlock Style="{StaticResource Sub}" VerticalAlignment="Bottom" Margin="12,0,0,4"
-                       Text="译前(替换源文) / 译后(替换译文) 两套本地术语库 · 语言对可下拉可新增"/>
+                       Text="译前(替换源文) / 译后(替换译文) 两套本地术语库 · 语言可输入过滤 · 按领域隔离"/>
         </StackPanel>
 
-        <!-- 筛选区：类型 + 语言对 + 加载/模板 -->
+        <!-- 筛选区：类型 + 语言(可输入过滤) + 领域 + 搜索 -->
         <Border Grid.Row="1" Style="{StaticResource Tile}" Margin="0,0,0,12">
             <DockPanel>
-                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Top" Margin="10,0,0,0">
                     <Button x:Name="LoadBtn" Content="加载术语" Style="{StaticResource JadeButton}"
                             Margin="0,0,8,0" Click="Reload"/>
                     <Button x:Name="TemplateBtn" Content="下载模板" Style="{StaticResource GhostButton}"
                             ToolTip="下载一个只有表头的 CSV 模板(from,to)" Click="DownloadTemplate"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <TextBlock Text="术语类型" VerticalAlignment="Center" Margin="0,0,8,0"
+                <WrapPanel VerticalAlignment="Top">
+                    <TextBlock Text="术语类型" VerticalAlignment="Center" Margin="0,5,8,0"
                                Foreground="{DynamicResource SecondaryTextBrush}"/>
-                    <ComboBox x:Name="KindCombo" Width="120" Height="30" SelectedIndex="0"
-                              SelectionChanged="KindChanged">
+                    <ComboBox x:Name="KindCombo" Width="132" Height="30" VerticalAlignment="Center"
+                              SelectedIndex="0" SelectionChanged="KindChanged">
                         <ComboBoxItem Content="译前（替换源文）"/>
                         <ComboBoxItem Content="译后（替换译文）"/>
                     </ComboBox>
-                    <TextBlock Text="语言对" VerticalAlignment="Center" Margin="20,0,8,0"
+
+                    <TextBlock Text="语言对" VerticalAlignment="Center" Margin="18,5,8,0"
                                Foreground="{DynamicResource SecondaryTextBrush}"/>
-                    <ComboBox x:Name="SrcCombo" Width="180" Height="30" VerticalAlignment="Center"
-                              DisplayMemberPath="Label" SelectedValuePath="Code"
+                    <ComboBox x:Name="SrcCombo" Width="200" Height="30" VerticalAlignment="Center"
+                              DisplayMemberPath="Label" SelectedValuePath="Code" IsEditable="True"
+                              IsTextSearchEnabled="True" TextSearch.TextPath="Label" StaysOpenOnEdit="True"
                               SelectionChanged="LangChanged"
-                              ToolTip="从 Studio 支持的全部语言中挑选源语言"/>
-                    <TextBlock Text=" → " VerticalAlignment="Center" Margin="8,0"
+                              ToolTip="可输入代码/名称过滤，在全部语言里挑源语言"/>
+                    <TextBlock Text=" → " VerticalAlignment="Center" Margin="6,5,6,0"
                                Foreground="{DynamicResource ThirdlyTextBrush}"/>
-                    <ComboBox x:Name="TgtCombo" Width="180" Height="30" VerticalAlignment="Center"
-                              DisplayMemberPath="Label" SelectedValuePath="Code"
+                    <ComboBox x:Name="TgtCombo" Width="200" Height="30" VerticalAlignment="Center"
+                              DisplayMemberPath="Label" SelectedValuePath="Code" IsEditable="True"
+                              IsTextSearchEnabled="True" TextSearch.TextPath="Label" StaysOpenOnEdit="True"
                               SelectionChanged="LangChanged"
-                              ToolTip="从 Studio 支持的全部语言中挑选目标语言"/>
-                </StackPanel>
+                              ToolTip="可输入代码/名称过滤，在全部语言里挑目标语言"/>
+
+                    <TextBlock Text="领域" VerticalAlignment="Center" Margin="18,5,8,0"
+                               Foreground="{DynamicResource SecondaryTextBrush}"/>
+                    <ComboBox x:Name="DomCombo" Width="110" Height="30" VerticalAlignment="Center"
+                              SelectionChanged="DomainChanged"
+                              ToolTip="全局领域：只显示/写入当前领域的术语；与翻译插件共用一个领域，工作台可直接切换"/>
+
+                    <TextBlock Text="搜索" VerticalAlignment="Center" Margin="18,5,8,0"
+                               Foreground="{DynamicResource SecondaryTextBrush}"/>
+                    <TextBox x:Name="TermSearchBox" Width="170" Height="28" VerticalAlignment="Center"
+                             Margin="0,3,0,0"
+                             ToolTip="按 来源/目标/领域 过滤已加载术语（留空显示全部）"
+                             TextChanged="TermSearch_TextChanged"/>
+                </WrapPanel>
             </DockPanel>
         </Border>
 
@@ -106,6 +126,8 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="替换前 (from)" Binding="{Binding From}" Width="*"/>
                     <DataGridTextColumn Header="替换为 (to)" Binding="{Binding To}" Width="*"/>
+                    <DataGridTextColumn Header="领域" Binding="{Binding Domain}" Width="100"
+                                        IsReadOnly="False"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Border>

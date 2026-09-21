@@ -60,6 +60,13 @@ namespace TradosToolkit.TranslationProvider.UI
             _langs = BuildLanguages();
             SrcCombo.ItemsSource = _langs;
             TgtCombo.ItemsSource = _langs;
+            DomCombo.ItemsSource = DomainTree.Flatten(DomainTree.Defaults());
+
+            // 领域默认取全局配置（工作台里切换的领域），保证术语管理与翻译插件同一领域
+            var cfgDomain = ToolkitConfig.Load().Domain;
+            DomCombo.SelectedItem = DomCombo.Items.OfType<string>()
+                .FirstOrDefault(d => string.Equals(d, cfgDomain, StringComparison.OrdinalIgnoreCase))
+                ?? DomainTree.DefaultDomain;
 
             if (string.IsNullOrWhiteSpace(src)) src = null;
             if (string.IsNullOrWhiteSpace(tgt)) tgt = null;
@@ -83,6 +90,7 @@ namespace TradosToolkit.TranslationProvider.UI
         private string Kind => IsPost ? GlossaryDb.KindPost : GlossaryDb.KindPre;
 
         private ObservableCollection<GlossaryEntry> Terms { get; set; }
+        private List<GlossaryEntry> _allTerms = new List<GlossaryEntry>();
 
         /// <summary>枚举 Studio 支持的全部语言，中文化名并按代码排序。</summary>
         private List<LangItem> BuildLanguages()
@@ -139,8 +147,15 @@ namespace TradosToolkit.TranslationProvider.UI
             Reload(null, null);
         }
 
+        private void DomainChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SrcCombo == null) return;
+            Reload(null, null);
+        }
+
         private string Src => (SrcCombo.SelectedValue as string) ?? "";
         private string Tgt => (TgtCombo.SelectedValue as string) ?? "";
+        private string Domain => (DomCombo.SelectedValue as string) ?? DomainTree.DefaultDomain;
 
         private void Reload(object sender, RoutedEventArgs e)
         {
@@ -155,15 +170,42 @@ namespace TradosToolkit.TranslationProvider.UI
                 return;
             }
             var kind = Kind;
-            Terms = new ObservableCollection<GlossaryEntry>(_db.GetTerms(kind, src, tgt));
+            var dom = Domain;
+            _allTerms = _db.GetTerms(kind, src, tgt, dom);
+            ApplySearchFilter();
+            StatusText.Text = string.Format("{0} · {1} → {2} · 领域 {3} · 共 {4} 条",
+                IsPost ? "译后" : "译前", src, tgt, dom, _allTerms.Count);
+        }
+
+        private void TermSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Terms == null) return;
+            ApplySearchFilter();
+        }
+
+        /// <summary>按搜索框的 来源/目标/领域 关键字过滤当前已加载术语。</summary>
+        private void ApplySearchFilter()
+        {
+            var q = TermSearchBox == null ? "" : (TermSearchBox.Text ?? "").Trim();
+            if (string.IsNullOrEmpty(q))
+            {
+                Terms = new ObservableCollection<GlossaryEntry>(_allTerms);
+            }
+            else
+            {
+                var ql = q.ToLowerInvariant();
+                Terms = new ObservableCollection<GlossaryEntry>(
+                    _allTerms.Where(e =>
+                        (e.From ?? "").ToLowerInvariant().Contains(ql) ||
+                        (e.To ?? "").ToLowerInvariant().Contains(ql) ||
+                        (e.Domain ?? "").ToLowerInvariant().Contains(ql)));
+            }
             TermsGrid.ItemsSource = Terms;
-            StatusText.Text = string.Format("{0} · {1} → {2} · 共 {3} 条",
-                IsPost ? "译后" : "译前", src, tgt, Terms.Count);
         }
 
         private void AddTerm(object sender, RoutedEventArgs e)
         {
-            var entry = new GlossaryEntry { From = "新术语", To = "替换为" };
+            var entry = new GlossaryEntry { From = "新术语", To = "替换为", Domain = Domain };
             Terms.Add(entry);
             TermsGrid.SelectedItem = entry;
             TermsGrid.BeginEdit();
@@ -189,8 +231,12 @@ namespace TradosToolkit.TranslationProvider.UI
             var tgt = Tgt;
             if (string.IsNullOrEmpty(src) || string.IsNullOrEmpty(tgt)) { StatusText.Text = "请先选择语言对。"; return; }
             TermsGrid.CommitEdit(DataGridEditingUnit.Row, true);
+            var dom = Domain;
             foreach (var entry in Terms)
+            {
+                if (string.IsNullOrWhiteSpace(entry.Domain)) entry.Domain = dom;
                 _db.SaveTerm(Kind, src, tgt, entry);
+            }
             RefreshAfterMutation();
             NotifyChanged();
         }
@@ -220,10 +266,10 @@ namespace TradosToolkit.TranslationProvider.UI
             var dlg = new OpenFileDialog { Filter = "CSV 文件|*.csv|所有文件|*.*" };
             if (dlg.ShowDialog(this) != true) return;
 
-            var n = _db.ImportCsv(Kind, src, tgt, dlg.FileName);
+            var n = _db.ImportCsv(Kind, src, tgt, dlg.FileName, Domain);
             RefreshAfterMutation();
             NotifyChanged();
-            StatusText.Text = string.Format("已导入 {0} 条术语（{1} → {2}）", n, src, tgt);
+            StatusText.Text = string.Format("已导入 {0} 条术语（{1} → {2} · {3}）", n, src, tgt, Domain);
         }
 
         private void ExportCsv(object sender, RoutedEventArgs e)
@@ -238,7 +284,7 @@ namespace TradosToolkit.TranslationProvider.UI
             };
             if (dlg.ShowDialog(this) != true) return;
 
-            _db.ExportCsv(Kind, src, tgt, dlg.FileName);
+            _db.ExportCsv(Kind, src, tgt, dlg.FileName, Domain);
             StatusText.Text = "导出完成：" + dlg.FileName;
         }
 

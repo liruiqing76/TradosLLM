@@ -5,19 +5,20 @@ namespace TradosToolkit.TerminologySource
 {
     /// <summary>
     /// 原生术语源的 URI 约定与读写解析，供 Provider / Factory / UI 三方共用。
-    /// URI：tradostoolkit://glossary?base=<termBaseUrl>&src=<srcLang>&tgt=<tgtLang>
+    /// URI：tradostoolkit://glossary?base=<termBaseUrl>&src=<srcLang>&tgt=<tgtLang>&domain=<domain>
     /// base 是线上术语服务地址（含协议），经 Uri.EscapeDataString 编码后放入 query。
     /// </summary>
     internal static class NativeTerminologyProviderHelper
     {
         public const string SchemeActivation = "tradostoolkit://glossary";
 
-        public static Uri BuildUri(string baseUrl, string sourceLang, string targetLang)
+        public static Uri BuildUri(string baseUrl, string sourceLang, string targetLang, string domain = null)
         {
             return new Uri(SchemeActivation
                 + "?base=" + Uri.EscapeDataString(baseUrl ?? "")
                 + "&src=" + Uri.EscapeDataString(sourceLang ?? "")
-                + "&tgt=" + Uri.EscapeDataString(targetLang ?? ""));
+                + "&tgt=" + Uri.EscapeDataString(targetLang ?? "")
+                + "&domain=" + Uri.EscapeDataString(domain ?? ""));
         }
 
         public static bool Supports(Uri uri)

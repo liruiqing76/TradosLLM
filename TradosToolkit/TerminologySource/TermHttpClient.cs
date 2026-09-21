@@ -24,12 +24,12 @@ namespace TradosToolkit.TerminologySource
         private static readonly JavaScriptSerializer Json = new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
 
         /// <summary>对段文本做包含匹配（SearchMode.Fuzzy / 编辑器识别）。失败或未配置返回空结果。</summary>
-        public static List<TermHit> Match(string baseUrl, string src, string tgt, string text, int max)
+        public static List<TermHit> Match(string baseUrl, string src, string tgt, string text, int max, string domain = null)
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(text)) return new List<TermHit>();
-                var body = new TermMatchRequest { src = src, tgt = tgt, text = text, max = Math.Max(1, max) };
+                var body = new TermMatchRequest { src = src, tgt = tgt, text = text, max = Math.Max(1, max), domain = domain };
                 var url = baseUrl.TrimEnd('/') + "/match";
                 var payload = Send(new HttpRequestMessage(HttpMethod.Post, url)
                 {
@@ -45,7 +45,7 @@ namespace TradosToolkit.TerminologySource
         }
 
         /// <summary>文本前缀匹配（SearchMode.Normal / 术语库查词窗口）。失败或未配置返回空结果。</summary>
-        public static List<TermHit> Search(string baseUrl, string src, string tgt, string text, int max)
+        public static List<TermHit> Search(string baseUrl, string src, string tgt, string text, int max, string domain = null)
         {
             try
             {
@@ -53,7 +53,8 @@ namespace TradosToolkit.TerminologySource
                 var url = baseUrl.TrimEnd('/') + "/search?src=" + Uri.EscapeDataString(src)
                     + "&tgt=" + Uri.EscapeDataString(tgt)
                     + "&q=" + Uri.EscapeDataString(text)
-                    + "&max=" + Math.Max(1, max);
+                    + "&max=" + Math.Max(1, max)
+                    + "&domain=" + Uri.EscapeDataString(domain ?? "");
                 var payload = Send(new HttpRequestMessage(HttpMethod.Get, url));
                 return ParseMatches(payload);
             }

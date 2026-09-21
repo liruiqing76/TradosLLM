@@ -19,13 +19,15 @@ namespace TradosToolkit.TerminologySource
         private readonly string _baseUrl;
         private readonly string _sourceLang;
         private readonly string _targetLang;
+        private readonly string _domain;
         private readonly List<IEntry> _entryCache = new List<IEntry>();
 
-        public NativeTerminologyProvider(string baseUrl, string sourceLang, string targetLang)
+        public NativeTerminologyProvider(string baseUrl, string sourceLang, string targetLang, string domain = null)
         {
             _baseUrl = baseUrl ?? string.Empty;
             _sourceLang = sourceLang ?? "en-US";
             _targetLang = targetLang ?? "ru-RU";
+            _domain = string.IsNullOrWhiteSpace(domain) ? Glossaries.DomainTree.DefaultDomain : domain.Trim();
         }
 
         public override IDefinition Definition => new Definition(GetDescriptiveFields(), GetDefinitionLanguages());
@@ -34,8 +36,8 @@ namespace TradosToolkit.TerminologySource
 
         public override string Name => "TradosToolkit 术语服务";
 
-        /// <summary>URI 约定见 NativeTerminologyProviderHelper（携带 base/src/tgt）。</summary>
-        public override Uri Uri => NativeTerminologyProviderHelper.BuildUri(_baseUrl, _sourceLang, _targetLang);
+        /// <summary>URI 约定见 NativeTerminologyProviderHelper（携带 base/src/tgt/domain）。</summary>
+        public override Uri Uri => NativeTerminologyProviderHelper.BuildUri(_baseUrl, _sourceLang, _targetLang, _domain);
 
         public override IEntry GetEntry(int id)
         {
@@ -73,8 +75,8 @@ namespace TradosToolkit.TerminologySource
             var tgt = destination?.Locale != null ? destination.Locale.Name : _targetLang;
 
             var hits = mode == SearchMode.Normal
-                ? TermHttpClient.Search(_baseUrl, src, tgt, text, maxResultsCount)
-                : TermHttpClient.Match(_baseUrl, src, tgt, text, maxResultsCount);
+                ? TermHttpClient.Search(_baseUrl, src, tgt, text, maxResultsCount, _domain)
+                : TermHttpClient.Match(_baseUrl, src, tgt, text, maxResultsCount, _domain);
 
             var results = new List<ISearchResult>();
             foreach (var hit in hits)

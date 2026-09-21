@@ -68,6 +68,11 @@ namespace TradosToolkit.Workbench
             _tickTimer.Interval = TimeSpan.FromSeconds(1);
             _tickTimer.Tick += (s, e) => UpdateTestProgress();
             TmDirBox.Text = ToolkitConfig.Load().TmScanDirectory;
+            DomCombo.ItemsSource = Glossaries.DomainTree.Flatten(Glossaries.DomainTree.Defaults());
+            var cfgDomain = ToolkitConfig.Load().Domain;
+            DomCombo.SelectedItem = DomCombo.Items.OfType<string>()
+                .FirstOrDefault(d => string.Equals(d, cfgDomain, StringComparison.OrdinalIgnoreCase))
+                ?? Glossaries.DomainTree.DefaultDomain;
             TmStatusText.Text = UiText.T("WB_Mem_Idle");
             VersionText.Text = "v" + typeof(WorkbenchWindow).Assembly.GetName().Version.ToString(3);
             RefreshStatus();
@@ -375,6 +380,21 @@ namespace TradosToolkit.Workbench
             catch (Exception ex)
             {
                 ToolkitLog.Error("工作台：保存扫描目录失败", ex);
+            }
+        }
+
+        private void ApplyDomain_Click(object sender, RoutedEventArgs e)
+        {
+            var sel = DomCombo.SelectedItem as string;
+            if (string.IsNullOrWhiteSpace(sel)) return;
+            try
+            {
+                ToolkitConfig.Save(domain: sel);
+                ToolkitLog.Info("工作台：已应用全局领域 " + sel);
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("工作台：应用全局领域失败", ex);
             }
         }
 
