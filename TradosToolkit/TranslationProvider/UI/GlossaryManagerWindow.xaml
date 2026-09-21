@@ -19,6 +19,10 @@
             <SolidColorBrush x:Key="TileBrush" Color="#FFFAFBFD"/>
             <SolidColorBrush x:Key="TileBorderBrush" Color="#FFDFE4EB"/>
 
+            <DataTemplate x:Key="LangItemTemplate">
+                <TextBlock Text="{Binding Label}" TextTrimming="CharacterEllipsis"/>
+            </DataTemplate>
+
             <Style x:Key="Tile" TargetType="Border">
                 <Setter Property="Background" Value="{DynamicResource TileBrush}"/>
                 <Setter Property="BorderBrush" Value="{DynamicResource TileBorderBrush}"/>
@@ -60,86 +64,12 @@
                 <Setter Property="FontWeight" Value="SemiBold"/>
             </Style>
 
-            <!-- 带搜索框的语言下拉：点开下拉顶部有可见输入框，输入即过滤（不依赖可编辑组合框的焦点技巧）。
-                 注意：Popup 必须 Focusable=True，否则独立弹出窗口不可激活、搜索框收不到键盘输入；
-                 选择框文本用显式 ItemTemplate（自定义模板下 DisplayMemberPath 的 SelectionBoxItemTemplate 不生效，会显示 ToString）。 -->
-            <Style x:Key="LangSearchCombo" TargetType="ComboBox">
-                <Setter Property="Height" Value="30"/>
-                <Setter Property="VerticalAlignment" Value="Center"/>
-                <!-- 关键：非编辑 ComboBox 默认 IsTextSearchEnabled=true，英文按键会被截去做列表首字母跳转
-                     （TextInput 在 ComboBox 层被 Handled，到不了下拉里的搜索框）；中文 IME 走组合输入
-                     通道不受影响 —— 表现为"中文能输、英文不能输"。必须关掉。 -->
-                <Setter Property="IsTextSearchEnabled" Value="False"/>
-                <Setter Property="ItemTemplate">
-                    <Setter.Value>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Label}" TextTrimming="CharacterEllipsis"/>
-                        </DataTemplate>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="ComboBox">
-                            <Grid>
-                                <ToggleButton Focusable="False" ClickMode="Press"
-                                              IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
-                                    <ToggleButton.Template>
-                                        <ControlTemplate TargetType="ToggleButton">
-                                            <Border Background="White" BorderBrush="#FFCFD6DF" BorderThickness="1" CornerRadius="4">
-                                                <Grid>
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="24"/>
-                                                    </Grid.ColumnDefinitions>
-                                                    <ContentPresenter x:Name="SelectionBox" Grid.Column="0" Margin="9,0,0,0"
-                                                                      VerticalAlignment="Center" HorizontalAlignment="Left"
-                                                                      Content="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType=ComboBox}}"
-                                                                      ContentTemplate="{Binding ItemTemplate, RelativeSource={RelativeSource AncestorType=ComboBox}}"/>
-                                                    <Path Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                          Data="M 0 0 L 4 4 L 8 0 Z" Fill="#FF7A869A"/>
-                                                </Grid>
-                                            </Border>
-                                            <ControlTemplate.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="BorderBrush" Value="#FF3A7BD5"/>
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </ToggleButton.Template>
-                                </ToggleButton>
-                                <Popup x:Name="PART_Popup" AllowsTransparency="True" Placement="Bottom" Focusable="True"
-                                       IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
-                                    <Border Background="White" BorderBrush="#FFDFE4EB" BorderThickness="1" CornerRadius="4" Margin="0,2,0,0"
-                                            MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}">
-                                        <StackPanel>
-                                            <Grid Margin="8,8,8,4">
-                                                <TextBox x:Name="LangSearchBox" Height="26" FontSize="12" Padding="5,0" Focusable="True"
-                                                         VerticalContentAlignment="Center" BorderBrush="#FFCFD6DF" BorderThickness="1"/>
-                                                <TextBlock x:Name="SearchHint" Text="输入代码或名称过滤…" Foreground="#FF9AA5B1" FontSize="12"
-                                                           Margin="8,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False"
-                                                           Visibility="Collapsed"/>
-                                            </Grid>
-                                            <Separator Margin="6,0" Background="#FFEEF1F5"/>
-                                            <ScrollViewer MaxHeight="260" CanContentScroll="True"
-                                                          VirtualizingPanel.IsVirtualizing="True"
-                                                          VirtualizingPanel.ScrollUnit="Item"
-                                                          VerticalScrollBarVisibility="Auto">
-                                                <ItemsPresenter/>
-                                            </ScrollViewer>
-                                        </StackPanel>
-                                    </Border>
-                                </Popup>
-                            </Grid>
-                            <ControlTemplate.Triggers>
-                                <!-- 空关键词时显示占位提示文字 -->
-                                <Trigger SourceName="LangSearchBox" Property="Text" Value="">
-                                    <Setter TargetName="SearchHint" Property="Visibility" Value="Visible"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
+            <!-- 语言下拉：普通选择框（非编辑，选一项显示 Label）。过滤输入走下拉外面的常驻文本框
+                 LangFilterBox——它是窗口表面的普通 TextBox，与"搜索"术语框同类控件，Studio 里输入一向正常；
+                 输入只改每框 ListCollectionView.Filter 实时收窄，已选语言被 pin 住不会被筛成空白。
+                 之前两版依赖 Popup 的方案（下拉内搜索框、hc:ComboBox AutoComplete 候选层）在 Studio 宿主
+                 下 Popup 独立窗口拿不到 Win32 键盘激活，实测都进不去字，故彻底不用弹层做输入。
+                 Src/Tgt 属性直接内联写在元素上（不加 x:Key 样式）：带键样式会顶掉 HC 隐式模板样式。 -->
         </ResourceDictionary>
     </Window.Resources>
 
@@ -181,16 +111,38 @@
 
                     <TextBlock Text="语言对" VerticalAlignment="Center" Margin="18,0,8,0"
                                Foreground="{DynamicResource SecondaryTextBrush}"/>
-                    <ComboBox x:Name="SrcCombo" Width="200" Style="{StaticResource LangSearchCombo}"
+                    <Grid Width="132" Height="30" VerticalAlignment="Center" Margin="0,0,8,0">
+                        <TextBox x:Name="LangFilterBox" VerticalContentAlignment="Center"
+                                 TextChanged="LangFilter_TextChanged"
+                                 ToolTip="输入语言代码或名称（如 en / chinese / zh），实时收窄右边两个下拉"/>
+                        <TextBlock Text="输入代码/名称过滤…" Foreground="#FF9AA5B1" FontSize="12"
+                                   Margin="7,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=LangFilterBox}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+                    <ComboBox x:Name="SrcCombo" Width="188" Height="30" VerticalAlignment="Center"
+                              IsTextSearchEnabled="False"
                               SelectedValuePath="Code"
                               SelectionChanged="LangChanged"
-                              ToolTip="点开下拉，顶部输入框里直接敲代码/名称即可过滤"/>
+                              ToolTip="在左边过滤框输关键词收窄后点选"
+                              ItemTemplate="{StaticResource LangItemTemplate}"/>
                     <TextBlock Text=" → " VerticalAlignment="Center" Margin="6,0,6,0"
                                Foreground="{DynamicResource ThirdlyTextBrush}"/>
-                    <ComboBox x:Name="TgtCombo" Width="200" Style="{StaticResource LangSearchCombo}"
+                    <ComboBox x:Name="TgtCombo" Width="188" Height="30" VerticalAlignment="Center"
+                              IsTextSearchEnabled="False"
                               SelectedValuePath="Code"
                               SelectionChanged="LangChanged"
-                              ToolTip="点开下拉，顶部输入框里直接敲代码/名称即可过滤"/>
+                              ToolTip="在左边过滤框输关键词收窄后点选"
+                              ItemTemplate="{StaticResource LangItemTemplate}"/>
                 </StackPanel>
 
                 <Grid Grid.Row="1" Margin="0,10,0,0">

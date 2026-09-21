@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using Microsoft.Win32;
 using TradosToolkit.Diagnostics;
 using TradosToolkit.Glossaries;
@@ -31,6 +30,8 @@ namespace TradosToolkit.TranslationProvider.UI
         {
             public string Code { get; set; }
             public string Label { get; set; }
+            // 可编辑组合框选中后的输入框文本走 ToString（无 DisplayMemberPath 时）
+            public override string ToString() => Label;
         }
 
         public static void ShowOrActivate()
@@ -59,9 +60,8 @@ namespace TradosToolkit.TranslationProvider.UI
             _db = new GlossaryDb();
             _provider = provider;
             _langs = BuildLanguages();
-            // 用独立 ListCollectionView 做打字过滤（重设 ItemsSource 会把输入框文本清掉，故不能换源）
-            AttachLangFilter(SrcCombo);
-            AttachLangFilter(TgtCombo);
+            // 语言过滤走下拉外面的常驻输入框：两下拉各挂 ListCollectionView，只改 Filter 不换 ItemsSource
+            SetupLangFiltering();
             DomCombo.ItemsSource = DomainTree.Flatten(DomainTree.Defaults());
 
             // 领域默认取全局配置（工作台里切换的领域），保证术语管理与翻译插件同一领域
@@ -93,83 +93,68 @@ namespace TradosToolkit.TranslationProvider.UI
         }
 
         /// <summary>
-        /// 语言下拉"下拉内搜索框"过滤：模板里 Popup 顶部有可见输入框 LangSearchBox，
-        /// 打开下拉自动聚焦它；输入只改 ListCollectionView.Filter（不换 ItemsSource、不清文本）；
-        /// 收起下拉清空关键词并恢复完整清单。
+        /// 语言下拉过滤（常驻输入框方案）：两下拉各挂独立 ListCollectionView，
+        /// LangFilterBox（窗口表面的普通 TextBox，与术语搜索框同类控件，Studio 里输入一向正常）
+        /// 的 TextChanged 只改 Filter+Refresh，不换 ItemsSource、不动已选语向。
+        /// 此前"下拉内搜索框"/hc:ComboBox AutoComplete 两版都靠 Popup 独立窗口拿键盘激活，
+        /// Studio 宿主实测进不去字；ComboBox 又不接受指向被过滤项的 SelectedItem（probe 实测
+        /// 赋值被静默拒绝、选择框变空白），故过滤时把已选语言 pin 在结果里。
         /// </summary>
-        private void AttachLangFilter(ComboBox combo)
+        private System.Windows.Data.ListCollectionView _srcView;
+        private System.Windows.Data.ListCollectionView _tgtView;
+
+        private void SetupLangFiltering()
         {
-            var view = new System.Windows.Data.ListCollectionView(_langs);
-            combo.IsSynchronizedWithCurrentItem = false;
-            combo.ItemsSource = view;
+            _srcView = new System.Windows.Data.ListCollectionView(_langs);
+            _tgtView = new System.Windows.Data.ListCollectionView(_langs);
+            SrcCombo.IsSynchronizedWithCurrentItem = false;
+            TgtCombo.IsSynchronizedWithCurrentItem = false;
+            SrcCombo.ItemsSource = _srcView;
+            TgtCombo.ItemsSource = _tgtView;
+        }
 
-            TextBox search = null;
-            // Popup 内容首次展开才实例化，DropDownOpened 时兜底再找一次
-            combo.DropDownOpened += (s, e) =>
+        private void LangFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ReapplyLangFilter();
+        }
+
+        /// <summary>按当前关键词+权威语向重设视图过滤（选新语言后 pin 也要跟着换，故 LangChanged 也调）。</summary>
+        private void ReapplyLangFilter()
+        {
+            if (_srcView == null || LangFilterBox == null) return; // InitializeComponent 期间
+            var q = (LangFilterBox.Text ?? "").Trim().ToLowerInvariant();
+            ApplyViewFilter(_srcView, q, _lastSrc);
+            ApplyViewFilter(_tgtView, q, _lastTgt);
+            _srcView.Refresh();
+            _tgtView.Refresh();
+            RestoreSelection(SrcCombo, _lastSrc);
+            RestoreSelection(TgtCombo, _lastTgt);
+        }
+
+        private static void ApplyViewFilter(System.Windows.Data.ListCollectionView view, string q, string pinnedCode)
+        {
+            if (string.IsNullOrEmpty(q))
             {
-                if (search == null)
-                {
-                    search = combo.Template.FindName("LangSearchBox", combo) as TextBox;
-                    if (search != null)
-                    {
-                        search.TextChanged += (a, b) =>
-                        {
-                            var q = (search.Text ?? "").Trim().ToLowerInvariant();
-                            if (string.IsNullOrEmpty(q)) view.Filter = null;
-                            else view.Filter = item =>
-                            {
-                                var l = item as LangItem;
-                                if (l == null) return false;
-                                return l.Label.ToLowerInvariant().Contains(q) ||
-                                       l.Code.ToLowerInvariant().Contains(q);
-                            };
-                            view.Refresh();
-                        };
-                    }
-                }
-                if (search != null)
-                {
-                    // 下拉打开后 ComboBox 会把焦点抢回列表选中项，必须延迟一帧再聚焦搜索框，否则敲不进字
-                    combo.Dispatcher.BeginInvoke(new System.Action(() =>
-                    {
-                        search.Focus();
-                        System.Windows.Input.Keyboard.Focus(search);
-                        search.SelectAll();
-                    }), System.Windows.Threading.DispatcherPriority.Input);
-                }
-            };
-            combo.DropDownClosed += (s, e) =>
-            {
-                if (search != null) search.Text = "";
                 view.Filter = null;
-                view.Refresh();
+                return;
+            }
+            view.Filter = item =>
+            {
+                var l = item as LangItem;
+                if (l == null) return false;
+                if (!string.IsNullOrEmpty(pinnedCode) &&
+                    string.Equals(l.Code, pinnedCode, StringComparison.OrdinalIgnoreCase)) return true;
+                return (l.Label ?? "").ToLowerInvariant().Contains(q) ||
+                       (l.Code ?? "").ToLowerInvariant().Contains(q);
             };
+        }
 
-            // Studio 宿主下 Popup 的独立 Win32 窗口可能拿不到激活，搜索框永远得不到键盘焦点
-            // （纯 WPF 测试窗口复现不出）。兜底：落在 combo 子树上的 TextInput/退格/空格一律转发进搜索框。
-            combo.AddHandler(UIElement.TextInputEvent, new System.Windows.Input.TextCompositionEventHandler((s, ev) =>
-            {
-                if (search == null || string.IsNullOrEmpty(ev.Text)) return;
-                if (System.Windows.Input.Keyboard.FocusedElement is TextBoxBase) return; // 已在搜索框里直接输入
-                search.AppendText(ev.Text);
-                ev.Handled = true;
-            }), true);
-            combo.AddHandler(UIElement.PreviewKeyDownEvent, new System.Windows.Input.KeyEventHandler((s, ev) =>
-            {
-                if (search == null) return;
-                if (System.Windows.Input.Keyboard.FocusedElement is TextBoxBase) return;
-                if (ev.Key == System.Windows.Input.Key.Back)
-                {
-                    var t = search.Text;
-                    if (t.Length > 0) search.Text = t.Substring(0, t.Length - 1);
-                    ev.Handled = true;
-                }
-                else if (ev.Key == System.Windows.Input.Key.Space)
-                {
-                    search.AppendText(" ");
-                    ev.Handled = true;
-                }
-            }), true);
+        /// <summary>过滤/清空后按权威语向把选中项写回（pin 保证其仍在视图内，赋值才有效）。</summary>
+        private void RestoreSelection(ComboBox combo, string code)
+        {
+            if (combo.SelectedItem != null || string.IsNullOrEmpty(code)) return;
+            var item = _langs.FirstOrDefault(l => string.Equals(l.Code, code, StringComparison.OrdinalIgnoreCase));
+            if (item != null) combo.SelectedItem = item;
         }
 
         private bool IsPost => KindCombo.SelectedIndex == 1;
@@ -238,6 +223,7 @@ namespace TradosToolkit.TranslationProvider.UI
             {
                 if (ReferenceEquals(sender, SrcCombo)) _lastSrc = v;
                 else if (ReferenceEquals(sender, TgtCombo)) _lastTgt = v;
+                ReapplyLangFilter(); // pin 跟随新的权威语向
             }
             Reload(null, null);
         }
