@@ -81,17 +81,16 @@
                        Text="译前(替换源文) / 译后(替换译文) 两套本地术语库 · 语言可输入过滤 · 按领域隔离"/>
         </StackPanel>
 
-        <!-- 筛选区：类型 + 语言(可输入过滤) + 领域 + 搜索 -->
+        <!-- 筛选区：第一行=术语类型+语言对；第二行=领域+搜索+操作按钮（固定两行，不再 WrapPanel 换行错位） -->
         <Border Grid.Row="1" Style="{StaticResource Tile}" Margin="0,0,0,12">
-            <DockPanel>
-                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Top" Margin="10,0,0,0">
-                    <Button x:Name="LoadBtn" Content="加载术语" Style="{StaticResource JadeButton}"
-                            Margin="0,0,8,0" Click="Reload"/>
-                    <Button x:Name="TemplateBtn" Content="下载模板" Style="{StaticResource GhostButton}"
-                            ToolTip="下载一个只有表头的 CSV 模板(from,to)" Click="DownloadTemplate"/>
-                </StackPanel>
-                <WrapPanel VerticalAlignment="Top">
-                    <TextBlock Text="术语类型" VerticalAlignment="Center" Margin="0,5,8,0"
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <TextBlock Text="术语类型" VerticalAlignment="Center" Margin="0,0,8,0"
                                Foreground="{DynamicResource SecondaryTextBrush}"/>
                     <ComboBox x:Name="KindCombo" Width="132" Height="30" VerticalAlignment="Center"
                               SelectedIndex="0" SelectionChanged="KindChanged">
@@ -99,35 +98,48 @@
                         <ComboBoxItem Content="译后（替换译文）"/>
                     </ComboBox>
 
-                    <TextBlock Text="语言对" VerticalAlignment="Center" Margin="18,5,8,0"
+                    <TextBlock Text="语言对" VerticalAlignment="Center" Margin="18,0,8,0"
                                Foreground="{DynamicResource SecondaryTextBrush}"/>
                     <ComboBox x:Name="SrcCombo" Width="200" Height="30" VerticalAlignment="Center"
                               DisplayMemberPath="Label" SelectedValuePath="Code" IsEditable="True"
                               IsTextSearchEnabled="True" TextSearch.TextPath="Label" StaysOpenOnEdit="True"
                               SelectionChanged="LangChanged"
                               ToolTip="可输入代码/名称过滤，在全部语言里挑源语言"/>
-                    <TextBlock Text=" → " VerticalAlignment="Center" Margin="6,5,6,0"
+                    <TextBlock Text=" → " VerticalAlignment="Center" Margin="6,0,6,0"
                                Foreground="{DynamicResource ThirdlyTextBrush}"/>
                     <ComboBox x:Name="TgtCombo" Width="200" Height="30" VerticalAlignment="Center"
                               DisplayMemberPath="Label" SelectedValuePath="Code" IsEditable="True"
                               IsTextSearchEnabled="True" TextSearch.TextPath="Label" StaysOpenOnEdit="True"
                               SelectionChanged="LangChanged"
                               ToolTip="可输入代码/名称过滤，在全部语言里挑目标语言"/>
+                </StackPanel>
 
-                    <TextBlock Text="领域" VerticalAlignment="Center" Margin="18,5,8,0"
-                               Foreground="{DynamicResource SecondaryTextBrush}"/>
-                    <ComboBox x:Name="DomCombo" Width="110" Height="30" VerticalAlignment="Center"
-                              SelectionChanged="DomainChanged"
-                              ToolTip="全局领域：只显示/写入当前领域的术语；与翻译插件共用一个领域，工作台可直接切换"/>
+                <Grid Grid.Row="1" Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal">
+                        <TextBlock Text="领域" VerticalAlignment="Center" Margin="0,0,8,0"
+                                   Foreground="{DynamicResource SecondaryTextBrush}"/>
+                        <ComboBox x:Name="DomCombo" Width="110" Height="30" VerticalAlignment="Center"
+                                  SelectionChanged="DomainChanged"
+                                  ToolTip="全局领域：只显示/写入当前领域的术语；与翻译插件共用一个领域，工作台可直接切换"/>
 
-                    <TextBlock Text="搜索" VerticalAlignment="Center" Margin="18,5,8,0"
-                               Foreground="{DynamicResource SecondaryTextBrush}"/>
-                    <TextBox x:Name="TermSearchBox" Width="170" Height="28" VerticalAlignment="Center"
-                             Margin="0,3,0,0"
-                             ToolTip="按 来源/目标/领域 过滤已加载术语（留空显示全部）"
-                             TextChanged="TermSearch_TextChanged"/>
-                </WrapPanel>
-            </DockPanel>
+                        <TextBlock Text="搜索" VerticalAlignment="Center" Margin="18,0,8,0"
+                                   Foreground="{DynamicResource SecondaryTextBrush}"/>
+                        <TextBox x:Name="TermSearchBox" Width="170" Height="28" VerticalAlignment="Center"
+                                 ToolTip="按 来源/目标/领域 过滤已加载术语（留空显示全部）"
+                                 TextChanged="TermSearch_TextChanged"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                        <Button x:Name="LoadBtn" Content="加载术语" Style="{StaticResource JadeButton}"
+                                Margin="0,0,8,0" Click="Reload"/>
+                        <Button x:Name="TemplateBtn" Content="下载模板" Style="{StaticResource GhostButton}"
+                                ToolTip="下载一个只有表头的 CSV 模板(from,to)" Click="DownloadTemplate"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
         </Border>
 
         <!-- 术语表 -->
