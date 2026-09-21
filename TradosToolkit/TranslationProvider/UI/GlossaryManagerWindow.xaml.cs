@@ -58,8 +58,9 @@ namespace TradosToolkit.TranslationProvider.UI
             _db = new GlossaryDb();
             _provider = provider;
             _langs = BuildLanguages();
-            SrcCombo.ItemsSource = _langs;
-            TgtCombo.ItemsSource = _langs;
+            // 用独立 ListCollectionView 做打字过滤（重设 ItemsSource 会把输入框文本清掉，故不能换源）
+            AttachLangFilter(SrcCombo);
+            AttachLangFilter(TgtCombo);
             DomCombo.ItemsSource = DomainTree.Flatten(DomainTree.Defaults());
 
             // 领域默认取全局配置（工作台里切换的领域），保证术语管理与翻译插件同一领域
@@ -83,39 +84,67 @@ namespace TradosToolkit.TranslationProvider.UI
             }
             else TgtCombo.SelectedItem = tgtItem;
 
-            // 记录权威语言代码：过滤时 SelectedItem 会被清空，但 _last* 始终保持用户选定的语向
+            // 记录权威语言代码：过滤/失焦可能清空选中项，但 _last* 始终保持用户选定的语向
             _lastSrc = (SrcCombo.SelectedValue as string) ?? src;
             _lastTgt = (TgtCombo.SelectedValue as string) ?? tgt;
-            AttachLangFilter(SrcCombo);
-            AttachLangFilter(TgtCombo);
 
             Reload(null, null);
         }
 
-        /// <summary>源/目标语言下拉在"可编辑"模式下把输入作为过滤关键词，实时收窄语言清单（无需在几百种里翻）。</summary>
+        /// <summary>
+        /// 源/目标语言下拉"可编辑 + 打字过滤"：每个组合框挂一个独立的 ListCollectionView，
+        /// 输入时只改视图 Filter（不重设 ItemsSource，否则输入框文本会被选中项同步清掉）。
+        /// 打开下拉自动把焦点放到输入框，保证按键就是搜索词；收起下拉恢复完整清单。
+        /// </summary>
         private void AttachLangFilter(ComboBox combo)
         {
+            var view = new System.Windows.Data.ListCollectionView(_langs);
+            combo.IsSynchronizedWithCurrentItem = false; // 防止 Refresh 移动 CurrentItem 反过来改写输入文本
+            combo.ItemsSource = view;
+
+            TextBox editBox = null;
             combo.Loaded += (s, e) =>
             {
-                var tb = combo.Template.FindName("PART_EditableTextBox", combo) as TextBox;
-                if (tb == null) return;
-                tb.TextChanged += (a, b) =>
+                editBox = combo.Template.FindName("PART_EditableTextBox", combo) as TextBox;
+                if (editBox == null) return;
+                editBox.TextChanged += (a, b) =>
                 {
-                    var q = (tb.Text ?? "").Trim().ToLowerInvariant();
+                    var q = (editBox.Text ?? "").Trim().ToLowerInvariant();
                     if (string.IsNullOrEmpty(q))
                     {
-                        combo.ItemsSource = _langs;
+                        view.Filter = null;
                     }
                     else
                     {
-                        var hits = _langs.Where(l =>
-                            l.Label.ToLowerInvariant().Contains(q) ||
-                            l.Code.ToLowerInvariant().Contains(q)).ToList();
-                        combo.ItemsSource = hits;
-                        if (hits.Count > 0)
-                            combo.IsDropDownOpen = true;
+                        view.Filter = item =>
+                        {
+                            var l = item as LangItem;
+                            if (l == null) return false;
+                            return l.Label.ToLowerInvariant().Contains(q) ||
+                                   l.Code.ToLowerInvariant().Contains(q);
+                        };
                     }
+                    view.Refresh();
+                    if (!string.IsNullOrEmpty(q) && view.Count > 0)
+                        combo.IsDropDownOpen = true;
                 };
+            };
+            // 点箭头打开下拉时焦点默认在列表上，按键打不进字 —— 主动聚焦输入框
+            combo.DropDownOpened += (s, e) =>
+            {
+                if (editBox == null)
+                    editBox = combo.Template.FindName("PART_EditableTextBox", combo) as TextBox;
+                if (editBox != null)
+                {
+                    editBox.Focus();
+                    editBox.SelectAll();
+                }
+            };
+            // 选完/关闭后恢复全量，下次打开不被上次的过滤词卡住
+            combo.DropDownClosed += (s, e) =>
+            {
+                view.Filter = null;
+                view.Refresh();
             };
         }
 

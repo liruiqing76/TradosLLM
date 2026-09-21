@@ -102,16 +102,16 @@
                                Foreground="{DynamicResource SecondaryTextBrush}"/>
                     <ComboBox x:Name="SrcCombo" Width="200" Height="30" VerticalAlignment="Center"
                               DisplayMemberPath="Label" SelectedValuePath="Code" IsEditable="True"
-                              IsTextSearchEnabled="True" TextSearch.TextPath="Label" StaysOpenOnEdit="True"
+                              StaysOpenOnEdit="True"
                               SelectionChanged="LangChanged"
-                              ToolTip="可输入代码/名称过滤，在全部语言里挑源语言"/>
+                              ToolTip="可直接输入代码/名称过滤，在全部语言里挑源语言"/>
                     <TextBlock Text=" → " VerticalAlignment="Center" Margin="6,0,6,0"
                                Foreground="{DynamicResource ThirdlyTextBrush}"/>
                     <ComboBox x:Name="TgtCombo" Width="200" Height="30" VerticalAlignment="Center"
                               DisplayMemberPath="Label" SelectedValuePath="Code" IsEditable="True"
-                              IsTextSearchEnabled="True" TextSearch.TextPath="Label" StaysOpenOnEdit="True"
+                              StaysOpenOnEdit="True"
                               SelectionChanged="LangChanged"
-                              ToolTip="可输入代码/名称过滤，在全部语言里挑目标语言"/>
+                              ToolTip="可直接输入代码/名称过滤，在全部语言里挑目标语言"/>
                 </StackPanel>
 
                 <Grid Grid.Row="1" Margin="0,10,0,0">
