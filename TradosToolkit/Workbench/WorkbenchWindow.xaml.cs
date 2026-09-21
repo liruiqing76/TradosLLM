@@ -79,6 +79,7 @@ namespace TradosToolkit.Workbench
             NavOverviewText.Text = UiText.T("WB_Tab_Overview");
             NavMemoriesText.Text = UiText.T("WB_Tab_Memories");
             NavQuickText.Text = UiText.T("WB_Tab_Quick");
+            NavToolsText.Text = "批处理工具";
             PageTitleOverview.Text = UiText.T("WB_Tab_Overview");
             PageTitleMemories.Text = UiText.T("WB_Tab_Memories");
             PageTitleQuick.Text = UiText.T("WB_Tab_Quick");
@@ -127,9 +128,11 @@ namespace TradosToolkit.Workbench
             OverviewPanel.Visibility = Visibility.Collapsed;
             MemoriesPanel.Visibility = Visibility.Collapsed;
             QuickPanel.Visibility = Visibility.Collapsed;
+            ToolsPanel.Visibility = Visibility.Collapsed;
             var target = picked?.Tag as string;
             if (target == "MemoriesPanel") MemoriesPanel.Visibility = Visibility.Visible;
             else if (target == "QuickPanel") QuickPanel.Visibility = Visibility.Visible;
+            else if (target == "ToolsPanel") ToolsPanel.Visibility = Visibility.Visible;
             else OverviewPanel.Visibility = Visibility.Visible;
             ToolkitLog.Info("工作台：切换到 " + (target ?? "overview"));
         }
@@ -645,6 +648,157 @@ namespace TradosToolkit.Workbench
                 MessageBox.Show(this, UiText.Tf("WB_Err_OpenFailed", ex.Message), UiText.T("WB_Title"),
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+        // ==================== 批处理工具 ====================
+
+        private bool _toolBusy;
+
+        /// <summary>把结果 Payload 序列化为可读 JSON 文本；非 2xx 附加状态码。</summary>
+        private string InvokeTool(string method, string path, Dictionary<string, string> query, string body)
+        {
+            var token = ApiConfig.Load().GetOrCreateToken();
+            var result = ProjectApi.Handle(method, path, query, body, token, token);
+            var json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(result.Payload);
+            return (result.Status >= 200 && result.Status < 300 ? "" : "[HTTP " + result.Status + "] ") + json;
+        }
+
+        /// <summary>后台执行一个工具并把结果/耗时刷到输出区；重活放 Task 线程，避免卡 UI。</summary>
+        private async Task RunToolAsync(string name, Func<string> work)
+        {
+            if (_toolBusy) { ToolsOutput.Text = "上一个工具仍在运行，请稍候。"; return; }
+            ToolsOutput.Text = ">> " + name + " 运行中…";
+            _toolBusy = true;
+            var watch = Stopwatch.StartNew();
+            try
+            {
+                var result = await Task.Run(work);
+                ToolsOutput.Text = result + Environment.NewLine + "—— 耗时 " + watch.ElapsedMilliseconds + " ms";
+                ToolkitLog.Info("工作台：工具完成 " + name + " 耗时=" + watch.ElapsedMilliseconds + "ms");
+            }
+            catch (Exception ex)
+            {
+                ToolsOutput.Text = name + " 失败：" + ex.Message;
+                ToolkitLog.Error("工作台：工具失败 " + name, ex);
+            }
+            finally { _toolBusy = false; }
+        }
+
+        private string NeedPath()
+        {
+            var p = ToolsProjBox.Text.Trim();
+            if (string.IsNullOrEmpty(p)) throw new InvalidOperationException("请先选择项目 (.sdlp)：点“取当前项目”或“浏览…”");
+            if (!File.Exists(p)) throw new InvalidOperationException("项目文件不存在: " + p);
+            return p;
+        }
+
+        private Dictionary<string, string> BaseQuery()
+        {
+            var q = new Dictionary<string, string> { { "path", NeedPath() } };
+            var f = ToolsFileBox.Text.Trim();
+            if (!string.IsNullOrEmpty(f)) q["file"] = f;
+            return q;
+        }
+
+        private void ToolsPickCurrent_Click(object sender, RoutedEventArgs e)
+        {
+            var proj = CurrentProjectPath();
+            if (proj == null) { ToolsOutput.Text = "未找到当前激活的项目。"; return; }
+            ToolsProjBox.Text = proj;
+            FillDefaultLanguage();
+            ToolsOutput.Text = "已取当前项目：" + proj;
+            ToolkitLog.Info("工作台：工具页取当前项目 " + proj);
+        }
+
+        private void ToolsBrowseProj_Click(object sender, RoutedEventArgs e)
+        {
+            var dlg = new Microsoft.Win32.OpenFileDialog { Filter = "SDL 项目|*.sdlp", CheckFileExists = true };
+            if (dlg.ShowDialog(this) == true) ToolsProjBox.Text = dlg.FileName;
+        }
+
+        private void ToolsBrowseFile_Click(object sender, RoutedEventArgs e)
+        {
+            var dlg = new Microsoft.Win32.OpenFileDialog { Filter = "SDLXLiff|*.sdlxliff", CheckFileExists = true };
+            if (dlg.ShowDialog(this) == true) ToolsFileBox.Text = dlg.FileName;
+        }
+
+        private string CurrentProjectPath()
+        {
+            try
+            {
+                var ctl = Sdl.TranslationStudioAutomation.IntegrationApi.SdlTradosStudio.Application
+                    .GetController<Sdl.TranslationStudioAutomation.IntegrationApi.ProjectsController>();
+                var p = ctl.CurrentProject;
+                return p == null ? null : p.FilePath;
+            }
+            catch (Exception ex) { ToolkitLog.Error("工作台：读取当前项目失败", ex); return null; }
+        }
+
+        private void FillDefaultLanguage()
+        {
+            try
+            {
+                var ctl = Sdl.TranslationStudioAutomation.IntegrationApi.SdlTradosStudio.Application
+                    .GetController<Sdl.TranslationStudioAutomation.IntegrationApi.ProjectsController>();
+                var p = ctl.CurrentProject;
+                if (p == null) return;
+                var info = p.GetProjectInfo();
+                if (string.IsNullOrWhiteSpace(ToolsSrcBox.Text) && info.SourceLanguage != null)
+                    ToolsSrcBox.Text = info.SourceLanguage.IsoAbbreviation;
+                if (string.IsNullOrWhiteSpace(ToolsTgtBox.Text) && info.TargetLanguages != null && info.TargetLanguages.Count() > 0)
+                    ToolsTgtBox.Text = info.TargetLanguages.First().IsoAbbreviation;
+            }
+            catch (Exception ex) { ToolkitLog.Error("工作台：读取当前项目语言失败", ex); }
+        }
+
+        private async void ToolsHealth_Click(object sender, RoutedEventArgs e) =>
+            await RunToolAsync("健康自检", () => InvokeTool("GET", "/api/health", new Dictionary<string, string>(), ""));
+
+        private async void ToolsReport_Click(object sender, RoutedEventArgs e) =>
+            await RunToolAsync("词数/报价报告",
+                () => InvokeTool("GET", "/api/project/report", new Dictionary<string, string> { { "path", NeedPath() } }, ""));
+
+        private async void ToolsTriage_Click(object sender, RoutedEventArgs e) =>
+            await RunToolAsync("翻译前分诊", () => InvokeTool("GET", "/api/project/triage", BaseQuery(), ""));
+
+        private async void ToolsDupAuditGet_Click(object sender, RoutedEventArgs e) =>
+            await RunToolAsync("一致性审计(预览)", () => InvokeTool("GET", "/api/project/audit", BaseQuery(), ""));
+
+        private async void ToolsDupAuditApply_Click(object sender, RoutedEventArgs e) =>
+            await RunToolAsync("一键统一译文", () => InvokeTool("POST", "/api/project/audit", BaseQuery(), ""));
+
+        private async void ToolsDupAuditAll_Click(object sender, RoutedEventArgs e) =>
+            await RunToolAsync("一致性审计(跨文件)",
+                () => InvokeTool("GET", "/api/project/audit", new Dictionary<string, string> { { "path", NeedPath() }, { "all", "1" } }, ""));
+
+        private async void ToolsBackfill_Click(object sender, RoutedEventArgs e)
+        {
+            var src = ToolsSrcBox.Text.Trim();
+            var tgt = ToolsTgtBox.Text.Trim();
+            var bp = ToolsFileBox.Text.Trim();
+            if (string.IsNullOrEmpty(src) || string.IsNullOrEmpty(tgt))
+            {
+                ToolsOutput.Text = "请填写语言对（源/目标），或先“取当前项目”自动带入。";
+                return;
+            }
+            var req = new Dictionary<string, object> { { "srcLang", src }, { "tgtLang", tgt } };
+            if (!string.IsNullOrEmpty(bp)) req["bilingualPath"] = bp;
+            var body = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(req);
+            await RunToolAsync("术语自动回填", () => InvokeTool("POST", "/api/glossary/backfill", new Dictionary<string, string>(), body));
+        }
+
+        private async void ToolsPipeline_Click(object sender, RoutedEventArgs e)
+        {
+            var steps = new List<Dictionary<string, object>>();
+            if (ToolsStepTm.IsChecked == true) steps.Add(new Dictionary<string, object> { { "task", "updatetm" } });
+            if (ToolsStepWc.IsChecked == true) steps.Add(new Dictionary<string, object> { { "task", "wordcount" } });
+            if (ToolsStepTarget.IsChecked == true) steps.Add(new Dictionary<string, object> { { "task", "target" } });
+            if (ToolsStepExport.IsChecked == true) steps.Add(new Dictionary<string, object> { { "task", "export" } });
+            if (steps.Count == 0) { ToolsOutput.Text = "请至少勾选一个管线步骤。"; return; }
+            var body = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(
+                new Dictionary<string, object> { { "steps", steps }, { "tolerant", true } });
+            await RunToolAsync("多步自动管线",
+                () => InvokeTool("POST", "/api/project/pipeline", new Dictionary<string, string> { { "path", NeedPath() } }, body));
         }
     }
 }

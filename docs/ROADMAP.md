@@ -92,6 +92,16 @@
 
 > 未做：分诊/审计的图形界面，走 API（与 #3/#5 一致的数据驱动风格）；POST audit 就地改写仅限纯文本目标，标签场景留人工。
 
+## 九、2026-09-21 第三弹：sdlxliff 文件操作 + 自动任务编排强化（本轮实现并构建通过）
+
+按用户选择把两块从"只读/单模板"推到"写回/编排"：
+
+9. **批量写回译文** `POST /api/project/sdlxliff`：按段 id 写 target(+可选 conf 状态)，先备份 `.bak`。安全规则——仅无结构内联标签(g/x/bx/ex/ph)且单文本片段时才整体替换（保留 mrk），含内联标签/多文本片段跳过列 `skippedTagged` 防毁占位符，`SaveOptions.DisableFormatting` 保留空白。
+10. **跨文件一致性审计** `GET /api/project/audit?all=1`：遍历项目全部目标文件汇总分歧，`segIds` 形如 `segId@文件名` 定位到文件；POST 逐文件应用。
+11. **多步批处理管线** `POST /api/project/pipeline`：`steps` 按序编排(如 pretranslate→updatetm)，固定后台异步，`tolerant` 开关决定失败是否中断；TaskRegistry 新增 `SetProgress`/`progress` 字段，`/api/task` 可见逐步进度（currentStep + 每步 done/error/skipped + 每步 result）。
+
+> 未做：跨文件级 POST 统一（留每文件 file 参数应用）、切分/合并多人分发（未选，成本中重）。写回/审计均就地改纯文本目标，标签场景留 Studio 人工，生产先 GET 审阅再 POST，`.bak` 可回滚。
+
 ## 七、建议实施顺序
 
 1. ★★★-1（预翻译并发）→ 单独构建部署验证一轮

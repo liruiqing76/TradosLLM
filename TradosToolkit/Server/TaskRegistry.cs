@@ -15,6 +15,7 @@ namespace TradosToolkit.Server
         public DateTime StartedAt;
         public DateTime? FinishedAt;
         public string Error;
+        public Dictionary<string, object> Progress;   // 可选：任务内逐步进度明细（如 pipeline 的每步状态）
         public ApiResult Result;            // 仅完成后有值，列表端点不下发
 
         public Dictionary<string, object> Summarize(bool includeResult)
@@ -30,6 +31,7 @@ namespace TradosToolkit.Server
                 { "elapsedMs", ((FinishedAt ?? DateTime.Now) - StartedAt).TotalMilliseconds },
             };
             if (Error != null) map["error"] = Error;
+            if (Progress != null) map["progress"] = Progress;
             if (includeResult && Result != null) map["result"] = Result.Payload;
             return map;
         }
@@ -101,6 +103,16 @@ namespace TradosToolkit.Server
         public static int RunningCount
         {
             get { lock (Gate) return Tasks.Count(t => t.Status == "running"); }
+        }
+
+        /// <summary>更新某后台任务的逐步进度明细（/api/task 可见）。任务不存在则忽略。</summary>
+        public static void SetProgress(string id, Dictionary<string, object> progress)
+        {
+            lock (Gate)
+            {
+                var t = Tasks.FirstOrDefault(x => x.Id == id);
+                if (t != null) t.Progress = progress;
+            }
         }
     }
 }

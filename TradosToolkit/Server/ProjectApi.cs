@@ -75,6 +75,10 @@ namespace TradosToolkit.Server
                     return Triage(query);
                 case "/api/project/audit":
                     return Audit(method, query);
+                case "/api/project/sdlxliff":
+                    return method == "POST" ? WriteSdlxliff(query, body) : ApiResult.Json(405, Error("sdlxliff 写回端点需 POST"));
+                case "/api/project/pipeline":
+                    return method == "POST" ? Pipeline(query, body) : ApiResult.Json(405, Error("pipeline 端点需 POST"));
                 default:
                     return ApiResult.Json(404, Error("未知端点 " + path));
             }
@@ -286,43 +290,47 @@ namespace TradosToolkit.Server
         private static ApiResult ExecuteTask(string taskKey, string templateId,
             Dictionary<string, string> query, Dictionary<string, object> request)
         {
+            return WithProject(query, (project, _) => ExecuteTaskOnProject(project, taskKey, templateId, query, request));
+        }
+
+        /// <summary>在已打开的 project 上跑单个自动任务（providerUri 先写入级联配置）。供单任务与 pipeline 复用。</summary>
+        private static ApiResult ExecuteTaskOnProject(FileBasedProject project, string taskKey, string templateId,
+            Dictionary<string, string> query, Dictionary<string, object> request)
+        {
             var providerUri = Str(request, "providerUri");
 
-            return WithProject(query, (project, _) =>
+            Guid[] fileIds;
+            if (query.TryGetValue("files", out var ids) && !string.IsNullOrEmpty(ids))
+                fileIds = ids.Split(',').Select(Guid.Parse).ToArray();
+            else
+                fileIds = project.GetTargetLanguageFiles().Select(f => f.Id).ToArray();
+
+            if (fileIds.Length == 0)
+                return ApiResult.Json(400, Error("项目没有目标文件"));
+
+            if (!string.IsNullOrEmpty(providerUri))
             {
-                Guid[] fileIds;
-                if (query.TryGetValue("files", out var ids) && !string.IsNullOrEmpty(ids))
-                    fileIds = ids.Split(',').Select(Guid.Parse).ToArray();
-                else
-                    fileIds = project.GetTargetLanguageFiles().Select(f => f.Id).ToArray();
-
-                if (fileIds.Length == 0)
-                    return ApiResult.Json(400, Error("项目没有目标文件"));
-
-                if (!string.IsNullOrEmpty(providerUri))
+                var config = new TranslationProviderConfiguration
                 {
-                    var config = new TranslationProviderConfiguration
+                    Entries = new List<TranslationProviderCascadeEntry>
                     {
-                        Entries = new List<TranslationProviderCascadeEntry>
-                        {
-                            new TranslationProviderCascadeEntry(
-                                new TranslationProviderReference(new Uri(providerUri), Str(request, "providerState") ?? string.Empty, true),
-                                false, true, false)
-                        },
-                        StopSearchingWhenResultsFound = true,
-                    };
-                    foreach (var lang in project.GetProjectInfo().TargetLanguages)
-                        project.UpdateTranslationProviderConfiguration(lang, config);
-                }
+                        new TranslationProviderCascadeEntry(
+                            new TranslationProviderReference(new Uri(providerUri), Str(request, "providerState") ?? string.Empty, true),
+                            false, true, false)
+                    },
+                    StopSearchingWhenResultsFound = true,
+                };
+                foreach (var lang in project.GetProjectInfo().TargetLanguages)
+                    project.UpdateTranslationProviderConfiguration(lang, config);
+            }
 
-                var task = project.RunAutomaticTask(fileIds, templateId);
-                return ApiResult.Json(200, new Dictionary<string, object>
-                {
-                    { "task", taskKey },
-                    { "messages", (task.Messages ?? new ExecutionMessage[0]).Select(MessageText).ToList() },
-                    { "reports", (task.Reports ?? new TaskReport[0]).Select(r => new Dictionary<string, object>
-                        { { "id", r.Id }, { "name", r.Name } }).ToList() },
-                });
+            var task = project.RunAutomaticTask(fileIds, templateId);
+            return ApiResult.Json(200, new Dictionary<string, object>
+            {
+                { "task", taskKey },
+                { "messages", (task.Messages ?? new ExecutionMessage[0]).Select(MessageText).ToList() },
+                { "reports", (task.Reports ?? new TaskReport[0]).Select(r => new Dictionary<string, object>
+                    { { "id", r.Id }, { "name", r.Name } }).ToList() },
             });
         }
 
@@ -351,6 +359,105 @@ namespace TradosToolkit.Server
             {
                 { "taskId", st.Id }, { "task", "pretranslate" }, { "status", "running" },
             });
+        }
+
+        /// <summary>
+        /// POST /api/project/pipeline?path=...
+        /// body { "files": "id1,id2"(可选), "steps": [ { "task": "pretranslate", "providerUri": "...", "providerState": "" }, { "task": "updatetm" } ],
+        ///        "tolerant": false(可选，缺省 false；true=某步失败不中断后续) }
+        /// 多步自动任务按序编排：一次提交按 steps 顺序执行，后台异步（TaskRegistry），/api/task 可见逐步进度（currentStep + 每步 done/error）。
+        /// </summary>
+        private static ApiResult Pipeline(Dictionary<string, string> query, string body)
+        {
+            var request = ParseBody(body);
+            var stepsRaw = request.ContainsKey("steps") ? request["steps"] as List<object> : null;
+            if (stepsRaw == null || stepsRaw.Count == 0)
+                return ApiResult.Json(400, Error("缺少 steps 数组"));
+
+            var steps = new List<Dictionary<string, object>>();
+            foreach (var o in stepsRaw)
+            {
+                var s = o as Dictionary<string, object>;
+                if (s == null) continue;
+                var tk = Str(s, "task");
+                if (string.IsNullOrEmpty(tk) || !TaskTemplates.ContainsKey(tk)) continue;
+                steps.Add(s);
+            }
+            if (steps.Count == 0)
+                return ApiResult.Json(400, Error("steps 里没有可识别的 task（" + string.Join("|", TaskTemplates.Keys) + "）"));
+
+            var tolerant = Bool(request, "tolerant");
+            var path = query.TryGetValue("path", out var p) ? p : null;
+            BackgroundTask st = null;
+            st = TaskRegistry.Start("pipeline", path, () =>
+            {
+                var stepsState = new List<Dictionary<string, object>>();
+                for (int i = 0; i < steps.Count; i++)
+                    stepsState.Add(new Dictionary<string, object> { { "step", i + 1 }, { "task", Str(steps[i], "task") }, { "status", "pending" } });
+
+                TaskRegistry.SetProgress(st.Id, new Dictionary<string, object>
+                { { "currentStep", 0 }, { "stepCount", steps.Count }, { "steps", stepsState }, { "status", "running" } });
+
+                ApiResult outcome = null;
+                var wp = WithProject(query, (project, info) =>
+                {
+                    for (int i = 0; i < steps.Count; i++)
+                    {
+                        var step = steps[i];
+                        var tk = Str(step, "task");
+                        stepsState[i]["status"] = "running";
+                        TaskRegistry.SetProgress(st.Id, new Dictionary<string, object>
+                        { { "currentStep", i + 1 }, { "stepCount", steps.Count }, { "steps", stepsState }, { "status", "running" } });
+
+                        var stepReq = new Dictionary<string, object>();
+                        if (Str(step, "providerUri") != null) stepReq["providerUri"] = Str(step, "providerUri");
+                        if (Str(step, "providerState") != null) stepReq["providerState"] = Str(step, "providerState");
+
+                        ApiResult stepResult;
+                        try { stepResult = ExecuteTaskOnProject(project, tk, TaskTemplates[tk], query, stepReq); }
+                        catch (Exception e) { stepResult = ApiResult.Json(500, Error(e.Message)); }
+
+                        var ok = stepResult != null && stepResult.Status >= 200 && stepResult.Status < 300;
+                        stepsState[i]["status"] = ok ? "done" : "error";
+                        stepsState[i]["error"] = ok ? null : ErrorText(stepResult);
+                        if (ok)
+                        {
+                            stepsState[i]["result"] = stepResult.Payload;
+                            outcome = stepResult;
+                        }
+                        else
+                        {
+                            if (!tolerant)
+                            {
+                                for (int j = i + 1; j < steps.Count; j++) stepsState[j]["status"] = "skipped";
+                                break;
+                            }
+                        }
+                    }
+                    return ApiResult.Json(200, new Dictionary<string, object>());
+                });
+
+                if (outcome == null && wp != null && wp.Status >= 400)
+                    outcome = wp;
+                if (outcome == null)
+                    outcome = ApiResult.Json(200, new Dictionary<string, object> { { "pipeline", "completed" }, { "steps", stepsState } });
+
+                TaskRegistry.SetProgress(st.Id, new Dictionary<string, object>
+                { { "currentStep", steps.Count }, { "stepCount", steps.Count }, { "steps", stepsState },
+                  { "status", stepsState.Any(x => (string)x["status"] == "error") ? "warn" : "done" } });
+                return outcome;
+            });
+
+            return ApiResult.Json(202, new Dictionary<string, object>
+            {
+                { "taskId", st.Id }, { "task", "pipeline" }, { "steps", steps.Count }, { "status", "running" },
+            });
+        }
+
+        private static object ErrorText(ApiResult r)
+        {
+            var pd = r == null ? null : r.Payload as Dictionary<string, object>;
+            return pd != null && pd.ContainsKey("error") ? pd["error"] : "step failed";
         }
 
         private static ApiResult Report(Dictionary<string, string> query)
@@ -890,6 +997,9 @@ namespace TradosToolkit.Server
         /// </summary>
         private static ApiResult Audit(string method, Dictionary<string, string> query)
         {
+            var all = query.TryGetValue("all", out var av) && av == "1";
+            if (all) return AuditAllFiles(method, query);
+
             var apply = string.Equals(method, "POST", StringComparison.OrdinalIgnoreCase);
             return WithTargetBilingual(query, (info, file, bp, rows) =>
             {
@@ -1002,6 +1112,185 @@ namespace TradosToolkit.Server
                 { "backup", backup },
                 { "message", "已统一 " + applied + " 处译文；含标签分歧组自动跳过 " + skippedTags +
                              " 组(列人工)；原文件已备份到 .bak，请在 Studio 重新打开该文件生效。预览/应用的是目标文本，不含内部标签语义。" },
+            });
+        }
+
+        /// <summary>
+        /// POST /api/project/sdlxliff?path=...&amp;file=&lt;可选&gt;
+        /// body { "segments": [ { "id": "...", "target": "...", "status": "Translated|SignedOff|..." } ] }
+        /// 批量写回目标译文（+可选确认状态）。先备份 .bak。
+        /// 安全规则：仅当 target 无结构内联标签(g/x/bx/ex/ph 等)且是单文本片段时才整体替换（保留 mrk 分隔）；
+        /// 含内联标签/多文本片段的段跳过列 skipped，避免破坏占位符。Studio 重新打开该文件生效。
+        /// </summary>
+        private static ApiResult WriteSdlxliff(Dictionary<string, string> query, string body)
+        {
+            var request = ParseBody(body);
+            var segsRaw = request.ContainsKey("segments") ? request["segments"] as List<object> : null;
+            if (segsRaw == null || segsRaw.Count == 0)
+                return ApiResult.Json(400, Error("缺少 segments 数组 [{id,target?,status?}]"));
+
+            return WithProject(query, (project, info) =>
+            {
+                var targets = project.GetTargetLanguageFiles().ToList();
+                if (targets.Count == 0) return ApiResult.Json(400, Error("项目没有目标文件"));
+
+                ProjectFile file;
+                var wanted = query.TryGetValue("file", out var f) ? f : null;
+                if (string.IsNullOrEmpty(wanted))
+                {
+                    if (targets.Count > 1)
+                        return ApiResult.Json(400, Error("多个目标文件，请用 file 指定: " +
+                            string.Join("; ", targets.Select(t => t.Id + " = " + t.Name))));
+                    file = targets[0];
+                }
+                else
+                {
+                    file = targets.FirstOrDefault(t =>
+                        string.Equals(t.Id.ToString(), wanted, StringComparison.OrdinalIgnoreCase) ||
+                        string.Equals(t.Name, wanted, StringComparison.OrdinalIgnoreCase));
+                    if (file == null) return ApiResult.Json(404, Error("目标文件不存在: " + wanted));
+                }
+
+                var bp = ResolveBilingualPath(file, info);
+                if (bp == null)
+                    return ApiResult.Json(409, Error("双语参照文件尚未生成（请在 Studio 打开过该文件后重试）: " + file.Name));
+
+                XDocument doc;
+                try { doc = XDocument.Load(bp); }
+                catch (Exception e) { return ApiResult.Json(500, Error("解析双语文件失败: " + e.Message)); }
+
+                var backup = bp + ".bak";
+                int applied = 0, skipped = 0, missing = 0, statuses = 0;
+                var dirty = false;
+                foreach (var o in segsRaw)
+                {
+                    var s = o as Dictionary<string, object>;
+                    if (s == null) continue;
+                    var id = Str(s, "id");
+                    if (string.IsNullOrEmpty(id)) continue;
+
+                    var tu = doc.Descendants().FirstOrDefault(e =>
+                        e.Name.LocalName == "trans-unit" && (string)e.Attribute("id") == id);
+                    if (tu == null) { missing++; continue; }
+                    var tgtEl = tu.Elements().FirstOrDefault(e => e.Name.LocalName == "target");
+                    if (tgtEl == null) { missing++; continue; }
+
+                    var target = Str(s, "target");
+                    if (target != null)
+                    {
+                        var textNodes = tgtEl.DescendantNodes().OfType<XText>().ToList();
+                        var structural = tgtEl.Descendants().Any(e => IsStructuralTag(e.Name.LocalName));
+                        if (!structural && textNodes.Count == 1)
+                        {
+                            textNodes[0].Value = target;
+                            applied++; dirty = true;
+                        }
+                        else skipped++;
+                    }
+
+                    var status = Str(s, "status");
+                    if (!string.IsNullOrEmpty(status)) { tu.SetAttributeValue("conf", status); statuses++; dirty = true; }
+                }
+
+                if (dirty)
+                {
+                    try { File.Copy(bp, backup, true); }
+                    catch (IOException e2) { return ApiResult.Json(409, Error("备份失败(文件被 Studio 占用?): " + e2.Message)); }
+                    try { doc.Save(bp, SaveOptions.DisableFormatting); }
+                    catch (IOException e2) { return ApiResult.Json(409, Error("写入失败(文件被 Studio 占用，请关闭该文件后重试): " + e2.Message)); }
+                }
+
+                var lang = file.Language == null ? null : file.Language.IsoAbbreviation;
+                return ApiResult.Json(200, new Dictionary<string, object>
+                {
+                    { "project", info.Name }, { "file", file.Name }, { "language", lang },
+                    { "requested", segsRaw.Count }, { "applied", applied }, { "statusesSet", statuses },
+                    { "skippedTagged", skipped }, { "missingIds", missing }, { "backup", backup },
+                    { "hasBackup", dirty },
+                    { "message", "写回 " + applied + " 段译文" +
+                        (statuses > 0 ? "+" + statuses + " 段状态" : "") +
+                        (skipped > 0 ? "；含内联标签/多文本片段跳过 " + skipped + " 段(请到 Studio 编辑)" : "") +
+                        (missing > 0 ? "；未定位段 " + missing : "") + "。备份于 " + backup + "，Studio 重新打开该文件生效。" },
+                });
+            });
+        }
+
+        private static bool IsStructuralTag(string name)
+        {
+            // 内联占位/标签类元素（携带格式与顺序，直接改文本会破坏）；mrk 仅做分段不视为破坏。
+            switch (name)
+            {
+                case "g": case "x": case "bx": case "ex": case "ph": case "it":
+                case "bp": case "ep": case "xid": return true;
+                default: return false;
+            }
+        }
+
+        /// <summary>
+        /// GET /api/project/audit?path=...&amp;all=1   → 跨文件一致性审计（只读）
+        /// 遍历项目全部目标文件，跨文件汇总"同源文译文不一致"分组；POST 统一暂不开放在跨文件级（逐文件用 file 参数应用）。
+        /// votes 的 segIds 形如 "&lt;segId&gt;@&lt;文件名&gt;"，可定位到具体文件。
+        /// </summary>
+        private static ApiResult AuditAllFiles(string method, Dictionary<string, string> query)
+        {
+            if (string.Equals(method, "POST", StringComparison.OrdinalIgnoreCase))
+                return ApiResult.Json(405, Error("跨文件一致性 POST 未开放，请用 file 参数逐文件应用"));
+
+            return WithProject(query, (project, info) =>
+            {
+                var targets = project.GetTargetLanguageFiles().ToList();
+                var byKey = new Dictionary<string, Dictionary<string, List<string>>>(StringComparer.OrdinalIgnoreCase);
+                var fileInfo = new List<Dictionary<string, object>>();
+                int totalSegs = 0, parseable = 0, skippedNoBilingual = 0;
+
+                foreach (var f in targets)
+                {
+                    var bp = ResolveBilingualPath(f, info);
+                    if (bp == null) { skippedNoBilingual++; continue; }
+                    var rows = BilingualParser.Parse(bp);
+                    totalSegs += rows.Count; parseable++;
+                    foreach (var seg in rows)
+                    {
+                        if (string.IsNullOrWhiteSpace(seg.Target)) continue;
+                        var key = NormKey(seg.Source);
+                        if (!byKey.TryGetValue(key, out var m))
+                        { m = new Dictionary<string, List<string>>(StringComparer.Ordinal); byKey[key] = m; }
+                        var tv = seg.Target.Trim();
+                        if (!m.TryGetValue(tv, out var ids)) { ids = new List<string>(); m[tv] = ids; }
+                        ids.Add(seg.Id + "@" + f.Name);
+                    }
+                    var lang = f.Language == null ? null : f.Language.IsoAbbreviation;
+                    fileInfo.Add(new Dictionary<string, object>
+                    { { "file", f.Name }, { "language", lang }, { "bilingual", bp }, { "segments", rows.Count } });
+                }
+
+                var groups = new List<Dictionary<string, object>>();
+                foreach (var kv in byKey.OrderByDescending(k => k.Value.Values.Sum(v => v.Count)))
+                {
+                    if (kv.Value.Count < 2) continue;
+                    var ordered = kv.Value.OrderByDescending(v => v.Value.Count).ToList();
+                    var occurrences = ordered.Sum(v => v.Value.Count);
+                    var needsManual = ordered.Any(v => v.Key.IndexOf('<') >= 0);
+                    var votes = ordered.Select(v => new Dictionary<string, object>
+                    { { "target", v.Key }, { "count", v.Value.Count }, { "segIds", v.Value } }).Cast<object>().ToList();
+                    groups.Add(new Dictionary<string, object>
+                    {
+                        { "source", kv.Key }, { "occurrences", occurrences },
+                        { "distinctTranslations", ordered.Count }, { "needsManual", needsManual },
+                        { "majorityTarget", ordered[0].Key }, { "votes", votes },
+                    });
+                }
+
+                return ApiResult.Json(200, new Dictionary<string, object>
+                {
+                    { "project", info.Name }, { "mode", "all-files" },
+                    { "targetFiles", targets.Count }, { "parseableFiles", parseable },
+                    { "skippedBilingual", skippedNoBilingual }, { "totalSegments", totalSegs },
+                    { "files", fileInfo },
+                    { "divergentGroups", groups.Count },
+                    { "needsManual", groups.Count(g => (bool)g["needsManual"]) },
+                    { "groups", groups.Take(200).ToList() },
+                });
             });
         }
 

@@ -220,6 +220,50 @@ curl -s -X POST "http://localhost:53902/api/project/task?path=D:\\demo.sdlp&task
 
 > 注意：POST 是**就地改写目标文本**（仅文本、不含内部标签语义）。生产环境建议先 GET 审阅分歧列表、确认主译法合理，再决定是否 POST；随时可从 `.bak` 回滚。
 
+追加 `&all=1`：**跨文件一致性审计**（只读，POST 统一暂未开放）。遍历项目全部目标文件汇总分歧，`votes[].segIds` 形如 `"<segId>@<文件名>"` 可定位到具体文件：
+
+```json
+{ "mode": "all-files", "targetFiles": 3, "parseableFiles": 2, "skippedBilingual": 1,
+  "totalSegments": 510, "divergentGroups": 5, "needsManual": 1, "files": [ { "file": "a.docx", … } ],
+  "groups": [ … ] }
+```
+
+## POST /api/project/sdlxliff?path=…&file=可选
+
+**批量写回目标译文（+可选确认状态）**。body `segments` 数组按段 id 定位：
+
+```json
+{ "segments": [ { "id": "sg3", "target": "修改后的译文", "status": "Translated" } ] }
+```
+
+安全规则：仅当 target **无结构内联标签**(g/x/bx/ex/ph 等)且是**单文本片段**时才整体替换（保留 mrk 分隔）；含内联标签/多文本片段的段跳过列 `skippedTagged`，避免破坏占位符。写前自动备份 `.bak`，Studio 重新打开该文件生效。
+
+```json
+{ "applied": 10, "statusesSet": 2, "skippedTagged": 1, "missingIds": 0,
+  "backup": "D:\\…\\a.docx.sdlxliff.bak", "message": "写回 10 段译文+2 段状态…" }
+```
+
+## POST /api/project/pipeline?path=…
+
+多步自动任务按序编排。body：
+
+```json
+{ "files": "id1,id2"(可选), "tolerant": false,
+  "steps": [ { "task": "pretranslate", "providerUri": "tradostoolkit://…", "providerState": "" },
+             { "task": "updatetm" } ] }
+```
+
+固定后台异步，立即回 `202 { taskId, task:"pipeline", steps:N, status }`。执行中 `GET /api/task?id=` 的 `progress` 字段给出**逐步进度明细**（逐步 + 每步 done/error/skipped）：
+
+```json
+{ "progress": { "currentStep": 2, "stepCount": 3,
+    "steps": [ { "step":1, "task":"pretranslate", "status":"done", "result":{…} },
+               { "step":2, "task":"updatetm", "status":"running" } ],
+    "status": "running" } }
+```
+
+`tolerant:true` = 某步失败不中断后续（失败步标 error，任务收尾 status=warn）；缺省 false（失败即中止，后续步标记 skipped）。多步共享同一 provider 配置的级联写回。
+
 ## GET /api/project/tmfiles?path=…
 
 项目目录下全部主 TM。
