@@ -92,57 +92,49 @@ namespace TradosToolkit.TranslationProvider.UI
         }
 
         /// <summary>
-        /// 源/目标语言下拉"可编辑 + 打字过滤"：每个组合框挂一个独立的 ListCollectionView，
-        /// 输入时只改视图 Filter（不重设 ItemsSource，否则输入框文本会被选中项同步清掉）。
-        /// 打开下拉自动把焦点放到输入框，保证按键就是搜索词；收起下拉恢复完整清单。
+        /// 语言下拉"下拉内搜索框"过滤：模板里 Popup 顶部有可见输入框 LangSearchBox，
+        /// 打开下拉自动聚焦它；输入只改 ListCollectionView.Filter（不换 ItemsSource、不清文本）；
+        /// 收起下拉清空关键词并恢复完整清单。
         /// </summary>
         private void AttachLangFilter(ComboBox combo)
         {
             var view = new System.Windows.Data.ListCollectionView(_langs);
-            combo.IsSynchronizedWithCurrentItem = false; // 防止 Refresh 移动 CurrentItem 反过来改写输入文本
+            combo.IsSynchronizedWithCurrentItem = false;
             combo.ItemsSource = view;
 
-            TextBox editBox = null;
-            combo.Loaded += (s, e) =>
-            {
-                editBox = combo.Template.FindName("PART_EditableTextBox", combo) as TextBox;
-                if (editBox == null) return;
-                editBox.TextChanged += (a, b) =>
-                {
-                    var q = (editBox.Text ?? "").Trim().ToLowerInvariant();
-                    if (string.IsNullOrEmpty(q))
-                    {
-                        view.Filter = null;
-                    }
-                    else
-                    {
-                        view.Filter = item =>
-                        {
-                            var l = item as LangItem;
-                            if (l == null) return false;
-                            return l.Label.ToLowerInvariant().Contains(q) ||
-                                   l.Code.ToLowerInvariant().Contains(q);
-                        };
-                    }
-                    view.Refresh();
-                    if (!string.IsNullOrEmpty(q) && view.Count > 0)
-                        combo.IsDropDownOpen = true;
-                };
-            };
-            // 点箭头打开下拉时焦点默认在列表上，按键打不进字 —— 主动聚焦输入框
+            TextBox search = null;
+            // Popup 内容首次展开才实例化，DropDownOpened 时兜底再找一次
             combo.DropDownOpened += (s, e) =>
             {
-                if (editBox == null)
-                    editBox = combo.Template.FindName("PART_EditableTextBox", combo) as TextBox;
-                if (editBox != null)
+                if (search == null)
                 {
-                    editBox.Focus();
-                    editBox.SelectAll();
+                    search = combo.Template.FindName("LangSearchBox", combo) as TextBox;
+                    if (search != null)
+                    {
+                        search.TextChanged += (a, b) =>
+                        {
+                            var q = (search.Text ?? "").Trim().ToLowerInvariant();
+                            if (string.IsNullOrEmpty(q)) view.Filter = null;
+                            else view.Filter = item =>
+                            {
+                                var l = item as LangItem;
+                                if (l == null) return false;
+                                return l.Label.ToLowerInvariant().Contains(q) ||
+                                       l.Code.ToLowerInvariant().Contains(q);
+                            };
+                            view.Refresh();
+                        };
+                    }
+                }
+                if (search != null)
+                {
+                    search.Focus();
+                    search.SelectAll();
                 }
             };
-            // 选完/关闭后恢复全量，下次打开不被上次的过滤词卡住
             combo.DropDownClosed += (s, e) =>
             {
+                if (search != null) search.Text = "";
                 view.Filter = null;
                 view.Refresh();
             };

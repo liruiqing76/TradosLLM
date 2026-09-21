@@ -59,6 +59,70 @@
                 <Setter Property="FontSize" Value="13"/>
                 <Setter Property="FontWeight" Value="SemiBold"/>
             </Style>
+
+            <!-- 带搜索框的语言下拉：点开下拉顶部有可见输入框，输入即过滤（不依赖可编辑组合框的焦点技巧） -->
+            <Style x:Key="LangSearchCombo" TargetType="ComboBox">
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ComboBox">
+                            <Grid>
+                                <ToggleButton Focusable="False" ClickMode="Press"
+                                              IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <ToggleButton.Template>
+                                        <ControlTemplate TargetType="ToggleButton">
+                                            <Border Background="White" BorderBrush="#FFCFD6DF" BorderThickness="1" CornerRadius="4">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="24"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <ContentPresenter Grid.Column="0" Margin="9,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                                      Content="{Binding SelectionBoxItem, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                                                      ContentTemplate="{Binding SelectionBoxItemTemplate, RelativeSource={RelativeSource AncestorType=ComboBox}}"/>
+                                                    <Path Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                          Data="M 0 0 L 4 4 L 8 0 Z" Fill="#FF7A869A"/>
+                                                </Grid>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="BorderBrush" Value="#FF3A7BD5"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </ToggleButton.Template>
+                                </ToggleButton>
+                                <Popup AllowsTransparency="True" Placement="Bottom" Focusable="False" PopupAnimation="Fade"
+                                       IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <Border Background="White" BorderBrush="#FFDFE4EB" BorderThickness="1" CornerRadius="4" Margin="0,2,0,0"
+                                            MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}">
+                                        <StackPanel>
+                                            <Grid Margin="8,8,8,4">
+                                                <TextBox x:Name="LangSearchBox" Height="26" FontSize="12" Padding="5,0"
+                                                         VerticalContentAlignment="Center" BorderBrush="#FFCFD6DF" BorderThickness="1"/>
+                                                <TextBlock x:Name="SearchHint" Text="输入代码或名称过滤…" Foreground="#FF9AA5B1" FontSize="12"
+                                                           Margin="8,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False"
+                                                           Visibility="Collapsed"/>
+                                            </Grid>
+                                            <Separator Margin="6,0" Background="#FFEEF1F5"/>
+                                            <ScrollViewer MaxHeight="260" VerticalScrollBarVisibility="Auto">
+                                                <ItemsPresenter/>
+                                            </ScrollViewer>
+                                        </StackPanel>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <!-- 空关键词时显示占位提示文字 -->
+                                <Trigger SourceName="LangSearchBox" Property="Text" Value="">
+                                    <Setter TargetName="SearchHint" Property="Visibility" Value="Visible"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
 
@@ -100,18 +164,16 @@
 
                     <TextBlock Text="语言对" VerticalAlignment="Center" Margin="18,0,8,0"
                                Foreground="{DynamicResource SecondaryTextBrush}"/>
-                    <ComboBox x:Name="SrcCombo" Width="200" Height="30" VerticalAlignment="Center"
-                              DisplayMemberPath="Label" SelectedValuePath="Code" IsEditable="True"
-                              StaysOpenOnEdit="True"
+                    <ComboBox x:Name="SrcCombo" Width="200" Style="{StaticResource LangSearchCombo}"
+                              DisplayMemberPath="Label" SelectedValuePath="Code"
                               SelectionChanged="LangChanged"
-                              ToolTip="可直接输入代码/名称过滤，在全部语言里挑源语言"/>
+                              ToolTip="点开下拉，顶部输入框里直接敲代码/名称即可过滤"/>
                     <TextBlock Text=" → " VerticalAlignment="Center" Margin="6,0,6,0"
                                Foreground="{DynamicResource ThirdlyTextBrush}"/>
-                    <ComboBox x:Name="TgtCombo" Width="200" Height="30" VerticalAlignment="Center"
-                              DisplayMemberPath="Label" SelectedValuePath="Code" IsEditable="True"
-                              StaysOpenOnEdit="True"
+                    <ComboBox x:Name="TgtCombo" Width="200" Style="{StaticResource LangSearchCombo}"
+                              DisplayMemberPath="Label" SelectedValuePath="Code"
                               SelectionChanged="LangChanged"
-                              ToolTip="可直接输入代码/名称过滤，在全部语言里挑目标语言"/>
+                              ToolTip="点开下拉，顶部输入框里直接敲代码/名称即可过滤"/>
                 </StackPanel>
 
                 <Grid Grid.Row="1" Margin="0,10,0,0">
