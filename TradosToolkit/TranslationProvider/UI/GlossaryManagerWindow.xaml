@@ -1,46 +1,127 @@
 <Window x:Class="TradosToolkit.TranslationProvider.UI.GlossaryManagerWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         Title="TradosToolkit 术语管理"
-        Width="640" Height="460"
-        WindowStartupLocation="CenterScreen">
-    <Grid Margin="12">
+        Width="780" Height="560" MinWidth="700" MinHeight="480"
+        FontFamily="Microsoft YaHei UI, Segoe UI" FontSize="13"
+        WindowStartupLocation="CenterScreen"
+        TextOptions.TextFormattingMode="Ideal" UseLayoutRounding="True"
+        Background="{DynamicResource RegionBrush}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="PrimaryBrush" Color="#FF2B6FBB"/>
+            <SolidColorBrush x:Key="TileBrush" Color="#FFFAFBFD"/>
+            <SolidColorBrush x:Key="TileBorderBrush" Color="#FFDFE4EB"/>
+
+            <Style x:Key="Tile" TargetType="Border">
+                <Setter Property="Background" Value="{DynamicResource TileBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource TileBorderBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Padding" Value="14,12"/>
+            </Style>
+            <Style x:Key="PageTitle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="19"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+            </Style>
+            <Style x:Key="Sub" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
+            </Style>
+            <Style x:Key="GhostButton" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
+                <Setter Property="Padding" Value="13,6"/>
+                <Setter Property="FontSize" Value="13"/>
+            </Style>
+            <Style x:Key="JadeButton" TargetType="Button" BasedOn="{StaticResource ButtonPrimary}">
+                <Setter Property="Padding" Value="15,6"/>
+                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="18">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,8">
-            <TextBlock Text="类型：" VerticalAlignment="Center"/>
-            <ComboBox x:Name="KindCombo" Width="110" SelectedIndex="0" SelectionChanged="Reload">
-                <ComboBoxItem Content="译前（替换源文）"/>
-                <ComboBoxItem Content="译后（替换译文）"/>
-            </ComboBox>
-            <TextBlock Text="语言对：" Margin="16,0,4,0" VerticalAlignment="Center"/>
-            <TextBox x:Name="SrcBox" Width="90" VerticalAlignment="Center"/>
-            <TextBlock Text=" → " VerticalAlignment="Center"/>
-            <TextBox x:Name="TgtBox" Width="90" VerticalAlignment="Center"/>
-            <Button Content="加载" Width="60" Height="24" Margin="12,0,0,0" Click="Reload"/>
+        <!-- 页头 -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,14">
+            <TextBlock Style="{StaticResource PageTitle}" Text="术语管理"/>
+            <TextBlock Style="{StaticResource Sub}" VerticalAlignment="Bottom" Margin="12,0,0,4"
+                       Text="译前(替换源文) / 译后(替换译文) 两套本地术语库 · 语言对可下拉可新增"/>
         </StackPanel>
 
-        <DataGrid x:Name="TermsGrid" Grid.Row="1"
-                  AutoGenerateColumns="False" CanUserAddRows="False"
-                  SelectionMode="Extended" HeadersVisibility="Column">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="替换前 (from)" Binding="{Binding From}" Width="*"/>
-                <DataGridTextColumn Header="替换为 (to)" Binding="{Binding To}" Width="*"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <!-- 筛选区：类型 + 语言对 + 加载/模板 -->
+        <Border Grid.Row="1" Style="{StaticResource Tile}" Margin="0,0,0,12">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button x:Name="LoadBtn" Content="加载术语" Style="{StaticResource JadeButton}"
+                            Margin="0,0,8,0" Click="Reload"/>
+                    <Button x:Name="TemplateBtn" Content="下载模板" Style="{StaticResource GhostButton}"
+                            ToolTip="下载一个只有表头的 CSV 模板(from,to)" Click="DownloadTemplate"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="术语类型" VerticalAlignment="Center" Margin="0,0,8,0"
+                               Foreground="{DynamicResource SecondaryTextBrush}"/>
+                    <ComboBox x:Name="KindCombo" Width="120" Height="30" SelectedIndex="0"
+                              SelectionChanged="KindChanged">
+                        <ComboBoxItem Content="译前（替换源文）"/>
+                        <ComboBoxItem Content="译后（替换译文）"/>
+                    </ComboBox>
+                    <TextBlock Text="语言对" VerticalAlignment="Center" Margin="20,0,8,0"
+                               Foreground="{DynamicResource SecondaryTextBrush}"/>
+                    <ComboBox x:Name="SrcCombo" Width="180" Height="30" VerticalAlignment="Center"
+                              DisplayMemberPath="Label" SelectedValuePath="Code"
+                              SelectionChanged="LangChanged"
+                              ToolTip="从 Studio 支持的全部语言中挑选源语言"/>
+                    <TextBlock Text=" → " VerticalAlignment="Center" Margin="8,0"
+                               Foreground="{DynamicResource ThirdlyTextBrush}"/>
+                    <ComboBox x:Name="TgtCombo" Width="180" Height="30" VerticalAlignment="Center"
+                              DisplayMemberPath="Label" SelectedValuePath="Code"
+                              SelectionChanged="LangChanged"
+                              ToolTip="从 Studio 支持的全部语言中挑选目标语言"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
 
-        <WrapPanel Grid.Row="2" Margin="0,8,0,0">
-            <Button Content="新增" Width="72" Height="26" Click="AddTerm"/>
-            <Button Content="删除选中" Width="72" Height="26" Margin="8,0,0,0" Click="DeleteTerms"/>
-            <Button Content="保存修改" Width="72" Height="26" Margin="8,0,0,0" Click="SaveTerms"/>
+        <!-- 术语表 -->
+        <Border Grid.Row="2" CornerRadius="10" BorderThickness="1"
+                BorderBrush="{DynamicResource TileBorderBrush}">
+            <DataGrid x:Name="TermsGrid"
+                      AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                      SelectionMode="Extended" HeadersVisibility="Column"
+                      BorderThickness="0" Background="Transparent"
+                      GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#EEF1F5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="替换前 (from)" Binding="{Binding From}" Width="*"/>
+                    <DataGridTextColumn Header="替换为 (to)" Binding="{Binding To}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <!-- 工具栏 -->
+        <WrapPanel Grid.Row="3" Margin="0,12,0,0">
+            <Button Content="新增" Style="{StaticResource JadeButton}" Width="76" Click="AddTerm"/>
+            <Button Content="删除选中" Style="{StaticResource GhostButton}" Margin="8,0,0,0" Click="DeleteTerms"/>
+            <Button Content="保存修改" Style="{StaticResource GhostButton}" Margin="8,0,0,0" Click="SaveTerms"/>
             <Separator Width="12" Background="Transparent"/>
-            <Button Content="导入 CSV" Width="80" Height="26" Click="ImportCsv"/>
-            <Button Content="导出 CSV" Width="80" Height="26" Margin="8,0,0,0" Click="ExportCsv"/>
-            <Button Content="关闭" Width="72" Height="26" Margin="8,0,0,0" Click="CloseButton"/>
+            <Button Content="导入 CSV" Style="{StaticResource GhostButton}" Width="90" Click="ImportCsv"/>
+            <Button Content="导出 CSV" Style="{StaticResource GhostButton}" Width="90" Margin="8,0,0,0" Click="ExportCsv"/>
+            <Separator Width="12" Background="Transparent"/>
+            <Button Content="关闭" Style="{StaticResource GhostButton}" Width="76" Margin="8,0,0,0" Click="CloseButton"/>
+            <TextBlock x:Name="StatusText" VerticalAlignment="Center" Margin="18,0,0,0" FontSize="12"
+                       Foreground="{DynamicResource SecondaryTextBrush}"/>
         </WrapPanel>
     </Grid>
 </Window>

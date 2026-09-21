@@ -223,7 +223,7 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="{DynamicResource Fluent}" FontSize="15" Text="&#xE8EF;"
                                        Width="20" VerticalAlignment="Center"/>
-                            <TextBlock x:Name="NavToolsText" Text="Batch tools" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="NavToolsText" Text="Process flows" VerticalAlignment="Center"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>
@@ -423,105 +423,138 @@
                 </StackPanel>
             </Grid>
 
-            <!-- 批处理工具 -->
+            <!-- 流程编排 -->
             <Grid x:Name="ToolsPanel" Margin="28,22,28,16" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <TextBlock Style="{StaticResource PageTitle}" Text="流程编排"/>
+                    <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="11"
+                               Foreground="{DynamicResource ThirdlyTextBrush}"
+                               Text="把 Studio 已有的自动任务与插件特有步骤串成可复跑的流程"/>
+                </Grid>
 
-                <TextBlock Grid.Row="0" Style="{StaticResource PageTitle}" Text="批处理工具"/>
+                <Grid Grid.Row="1" Margin="0,16,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="256"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <!-- 输入区 -->
-                <Border Grid.Row="1" Style="{StaticResource Tile}" Margin="0,16,0,0">
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                            <TextBlock Text="项目 (.sdlp)" Width="92" VerticalAlignment="Center"
-                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
-                            <TextBox x:Name="ToolsProjBox" Height="30" VerticalAlignment="Center" Width="420"
-                                     FontFamily="{DynamicResource Mono}" FontSize="12" IsReadOnly="True"/>
-                            <Button x:Name="ToolsPickCurrent" Content="取当前项目" Style="{StaticResource GhostButton}"
-                                    Margin="10,0,0,0" Click="ToolsPickCurrent_Click"/>
-                            <Button x:Name="ToolsBrowseProj" Content="浏览…" Style="{StaticResource GhostButton}"
-                                    Margin="10,0,0,0" Click="ToolsBrowseProj_Click"/>
+                    <!-- 左：流程卡列表 -->
+                    <DockPanel Grid.Column="0">
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+                            <Button x:Name="FlowAddBtn" Content="＋新建流程" Style="{StaticResource GhostButton}"
+                                    Margin="0,0,6,0" Click="FlowAdd_Click"/>
+                            <Button x:Name="FlowRenameBtn" Content="重命名" Style="{StaticResource GhostButton}"
+                                    Margin="0,0,6,0" Click="FlowRename_Click"/>
+                            <Button x:Name="FlowDelBtn" Content="删除" Style="{StaticResource GhostButton}"
+                                    Click="FlowDel_Click"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                            <TextBlock Text="双语文件(可选)" Width="92" VerticalAlignment="Center"
-                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
-                            <TextBox x:Name="ToolsFileBox" Height="30" VerticalAlignment="Center" Width="420"
-                                     FontFamily="{DynamicResource Mono}" FontSize="12"/>
-                            <Button x:Name="ToolsBrowseFile" Content="浏览…" Style="{StaticResource GhostButton}"
-                                    Margin="10,0,0,0" Click="ToolsBrowseFile_Click"/>
-                            <TextBlock Text="留空 = 整项目" VerticalAlignment="Center" Margin="14,0,0,0"
-                                       FontSize="11" Foreground="{DynamicResource ThirdlyTextBrush}"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="语言对(术语回填)" Width="92" VerticalAlignment="Center"
-                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
-                            <TextBox x:Name="ToolsSrcBox" Height="30" Width="88" VerticalAlignment="Center"
-                                     FontFamily="{DynamicResource Mono}" FontSize="12"/>
-                            <TextBlock Text="→" VerticalAlignment="Center" Margin="8,0"
+                        <TextBlock DockPanel.Dock="Bottom" x:Name="FlowStatus" FontSize="11" Margin="2,6,2,0"
+                                   TextWrapping="Wrap" Foreground="{DynamicResource SecondaryTextBrush}"/>
+                        <Border CornerRadius="12" BorderThickness="1"
+                                BorderBrush="{DynamicResource TileBorderBrush}">
+                            <ListBox x:Name="FlowList" BorderThickness="0" Background="Transparent"
+                                     SelectionChanged="FlowList_SelectionChanged" Padding="4"
+                                     DisplayMemberPath="name"/>
+                        </Border>
+                    </DockPanel>
+
+                    <!-- 右：步骤编辑 + 运行 + 输出 -->
+                    <Grid Grid.Column="1" Margin="16,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="185"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- 项目上下文 -->
+                        <Border Grid.Row="0" Style="{StaticResource Tile}" Padding="14,10">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                                    <TextBlock Text="项目 (.sdlp)" Width="92" VerticalAlignment="Center"
+                                               Foreground="{DynamicResource SecondaryTextBrush}"/>
+                                    <TextBox x:Name="ToolsProjBox" Height="28" VerticalAlignment="Center" Width="300"
+                                             FontFamily="{DynamicResource Mono}" FontSize="12" IsReadOnly="True"/>
+                                    <Button x:Name="ToolsPickCurrent" Content="取当前项目" Style="{StaticResource GhostButton}"
+                                            Margin="8,0,0,0" Click="ToolsPickCurrent_Click"/>
+                                    <Button x:Name="ToolsBrowseProj" Content="浏览…" Style="{StaticResource GhostButton}"
+                                            Margin="8,0,0,0" Click="ToolsBrowseProj_Click"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="双语文件(可选)" Width="92" VerticalAlignment="Center"
+                                               Foreground="{DynamicResource SecondaryTextBrush}"/>
+                                    <TextBox x:Name="ToolsFileBox" Height="28" VerticalAlignment="Center" Width="180"
+                                             FontFamily="{DynamicResource Mono}" FontSize="12"/>
+                                    <Button x:Name="ToolsBrowseFile" Content="浏览…" Style="{StaticResource GhostButton}"
+                                            Margin="8,0,0,0" Click="ToolsBrowseFile_Click"/>
+                                    <TextBlock Text="语言对(回填)" Margin="16,0,0,0" VerticalAlignment="Center"
+                                               Foreground="{DynamicResource SecondaryTextBrush}"/>
+                                    <TextBox x:Name="ToolsSrcBox" Height="28" Width="60" VerticalAlignment="Center"
+                                             FontFamily="{DynamicResource Mono}" FontSize="12" Margin="8,0,0,0"/>
+                                    <TextBlock Text="→" VerticalAlignment="Center" Margin="6,0"
+                                               Foreground="{DynamicResource ThirdlyTextBrush}"/>
+                                    <TextBox x:Name="ToolsTgtBox" Height="28" Width="60" VerticalAlignment="Center"
+                                             FontFamily="{DynamicResource Mono}" FontSize="12"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- 步骤标题 + 列表 -->
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="2,14,0,6">
+                            <TextBlock x:Name="FlowTitle" Style="{StaticResource SectionTitle}" Text="步骤"/>
+                            <TextBlock x:Name="FlowRunNote" VerticalAlignment="Center" FontSize="11" Margin="10,0,0,8"
                                        Foreground="{DynamicResource ThirdlyTextBrush}"/>
-                            <TextBox x:Name="ToolsTgtBox" Height="30" Width="88" VerticalAlignment="Center"
-                                     FontFamily="{DynamicResource Mono}" FontSize="12"/>
-                            <TextBlock Text="留空 = 自动取当前项目语言" VerticalAlignment="Center" Margin="14,0,0,0"
-                                       FontSize="11" Foreground="{DynamicResource ThirdlyTextBrush}"/>
                         </StackPanel>
-                    </StackPanel>
-                </Border>
+                        <Border Grid.Row="2" CornerRadius="12" BorderThickness="1"
+                                BorderBrush="{DynamicResource TileBorderBrush}">
+                            <ListBox x:Name="FlowSteps" BorderThickness="0" Background="Transparent"
+                                     SelectionChanged="FlowSteps_SelectionChanged" Padding="4"
+                                     HorizontalContentAlignment="Stretch"/>
+                        </Border>
 
-                <!-- 操作按钮 -->
-                <StackPanel Grid.Row="2" Margin="0,16,0,0">
-                    <Button x:Name="ToolsHealthBtn" Style="{StaticResource RowButton}" Tag="&#xE7F4;"
-                            Click="ToolsHealth_Click">
-                        <TextBlock Text="健康自检  — 一键体检 API / 记忆库 / LLM / 术语源并显示耗时"/>
-                    </Button>
-                    <Button x:Name="ToolsReportBtn" Style="{StaticResource RowButton}" Tag="&#xE8EF;"
-                            Click="ToolsReport_Click">
-                        <TextBlock Text="词数 / 报价报告  — 按匹配等级汇总字数、句段数"/>
-                    </Button>
-                    <Button x:Name="ToolsTriageBtn" Style="{StaticResource RowButton}" Tag="&#xE80F;"
-                            Click="ToolsTriage_Click">
-                        <TextBlock Text="翻译前分诊  — 筛查可跳过 / 重复 / 高风险源段"/>
-                    </Button>
-                    <Button x:Name="ToolsAuditGetBtn" Style="{StaticResource RowButton}" Tag="&#xE945;"
-                            Click="ToolsDupAuditGet_Click">
-                        <TextBlock Text="一致性审计(预览)  — 找出同一源文的多种译法"/>
-                    </Button>
-                    <Button x:Name="ToolsAuditApplyBtn" Style="{StaticResource RowButton}" Tag="&#xE8FB;"
-                            Click="ToolsDupAuditApply_Click">
-                        <TextBlock Text="一键统一译文  — 把分歧句统一为主流译法，先备份 .bak"/>
-                    </Button>
-                    <Button x:Name="ToolsAuditAllBtn" Style="{StaticResource RowButton}" Tag="&#xE8F1;"
-                            Click="ToolsDupAuditAll_Click">
-                        <TextBlock Text="一致性审计(跨文件)  — 在整个项目范围汇总分歧"/>
-                    </Button>
-                    <Button x:Name="ToolsBackfillBtn" Style="{StaticResource RowButton}" Tag="&#xE8D5;"
-                            Click="ToolsBackfill_Click">
-                        <TextBlock Text="术语自动回填  — 从已确认双语段反抽高频术语对写入术语库"/>
-                    </Button>
-                    <Button x:Name="ToolsPipelineBtn" Style="{StaticResource RowButton}" Tag="&#xE768;"
-                            Click="ToolsPipeline_Click">
-                        <TextBlock Text="多步自动管线  — 按下方勾选的步骤顺序后台执行"/>
-                    </Button>
-                    <StackPanel Orientation="Horizontal" Margin="6,0,0,4">
-                        <CheckBox x:Name="ToolsStepTm" Content="更新记忆库" IsChecked="True"/>
-                        <CheckBox x:Name="ToolsStepWc" Content="字数统计" IsChecked="True" Margin="16,0,0,0"/>
-                        <CheckBox x:Name="ToolsStepTarget" Content="生成目标译文" Margin="16,0,0,0"/>
-                        <CheckBox x:Name="ToolsStepExport" Content="导出译文" Margin="16,0,0,0"/>
-                    </StackPanel>
-                </StackPanel>
+                        <!-- 步骤编辑工具条 -->
+                        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,8,0,0">
+                            <ComboBox x:Name="FlowOpCombo" Width="260" Height="30" VerticalAlignment="Center"
+                                      DisplayMemberPath="Label"
+                                      SelectionChanged="FlowOpCombo_SelectionChanged"/>
+                            <Button x:Name="FlowStepAdd" Content="＋添加" Style="{StaticResource GhostButton}"
+                                    Margin="8,0,0,0" Click="FlowStepAdd_Click"/>
+                            <Button x:Name="FlowStepSet" Content="设为该操作" Style="{StaticResource GhostButton}"
+                                    Margin="6,0,0,0" Click="FlowStepSet_Click"/>
+                            <Button x:Name="FlowStepUp" Content="↑" Style="{StaticResource GhostButton}"
+                                    Margin="6,0,0,0" Width="36" Click="FlowStepUp_Click"/>
+                            <Button x:Name="FlowStepDown" Content="↓" Style="{StaticResource GhostButton}"
+                                    Margin="6,0,0,0" Width="36" Click="FlowStepDown_Click"/>
+                            <Button x:Name="FlowStepDel" Content="删除该步" Style="{StaticResource GhostButton}"
+                                    Margin="6,0,0,0" Click="FlowStepDel_Click"/>
+                        </StackPanel>
 
-                <!-- 结果区 -->
-                <Border Grid.Row="3" Margin="0,14,0,0" CornerRadius="12" BorderThickness="1"
-                        BorderBrush="{DynamicResource TileBorderBrush}">
-                    <TextBox x:Name="ToolsOutput" IsReadOnly="True" AcceptsReturn="True"
-                             FontFamily="{DynamicResource Mono}" FontSize="12" BorderThickness="0"
-                             Background="Transparent" Padding="14" SelectionBrush="{DynamicResource PrimaryBrush}"
-                             HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
-                </Border>
+                        <!-- 运行 -->
+                        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,12,0,0">
+                            <Button x:Name="FlowRunBtn" Style="{StaticResource JadeButton}"
+                                    Click="FlowRun_Click">
+                                <TextBlock x:Name="FlowRunText" Text="运行本流程"/>
+                            </Button>
+                            <Button x:Name="FlowRunCancel" Content="取消" Style="{StaticResource GhostButton}"
+                                    Margin="10,0,0,0" Visibility="Collapsed" Click="FlowRunCancel_Click"/>
+                        </StackPanel>
+
+                        <!-- 输出 -->
+                        <Border Grid.Row="5" Margin="0,12,0,0" CornerRadius="12" BorderThickness="1"
+                                BorderBrush="{DynamicResource TileBorderBrush}">
+                            <TextBox x:Name="ToolsOutput" IsReadOnly="True" AcceptsReturn="True"
+                                     FontFamily="{DynamicResource Mono}" FontSize="12" BorderThickness="0"
+                                     Background="Transparent" Padding="12" SelectionBrush="{DynamicResource PrimaryBrush}"
+                                     HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+                        </Border>
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
 

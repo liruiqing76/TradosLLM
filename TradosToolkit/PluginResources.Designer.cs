@@ -118,6 +118,18 @@ namespace TradosToolkit {
             }
         }
 
+        public static string Terminology_Action_Name {
+            get {
+                return ResourceManager.GetString("Terminology_Action_Name", resourceCulture);
+            }
+        }
+
+        public static string Terminology_Action_Description {
+            get {
+                return ResourceManager.GetString("Terminology_Action_Description", resourceCulture);
+            }
+        }
+
         public static string Translation_Center_View_Name {
             get {
                 return ResourceManager.GetString("Translation_Center_View_Name", resourceCulture);

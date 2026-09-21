@@ -51,6 +51,12 @@
   <data name="Workbench_Action_Description" xml:space="preserve">
     <value>Open the TradosToolkit workbench window</value>
   </data>
+  <data name="Terminology_Action_Name" xml:space="preserve">
+    <value>术语管理</value>
+  </data>
+  <data name="Terminology_Action_Description" xml:space="preserve">
+    <value>在独立页面维护译前/译后术语：增删改查、CSV 导入导出、模板下载</value>
+  </data>
   <data name="Translation_Center_View_Name" xml:space="preserve">
     <value>Translation Center</value>
   </data>

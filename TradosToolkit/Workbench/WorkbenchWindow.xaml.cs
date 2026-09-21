@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -63,6 +64,7 @@ namespace TradosToolkit.Workbench
             ToolkitLog.Info("工作台窗口打开");
             InitializeComponent();
             ApplyTexts();
+            InitFlows();
             _tickTimer.Interval = TimeSpan.FromSeconds(1);
             _tickTimer.Tick += (s, e) => UpdateTestProgress();
             TmDirBox.Text = ToolkitConfig.Load().TmScanDirectory;
@@ -79,7 +81,7 @@ namespace TradosToolkit.Workbench
             NavOverviewText.Text = UiText.T("WB_Tab_Overview");
             NavMemoriesText.Text = UiText.T("WB_Tab_Memories");
             NavQuickText.Text = UiText.T("WB_Tab_Quick");
-            NavToolsText.Text = "批处理工具";
+            NavToolsText.Text = "流程编排";
             PageTitleOverview.Text = UiText.T("WB_Tab_Overview");
             PageTitleMemories.Text = UiText.T("WB_Tab_Memories");
             PageTitleQuick.Text = UiText.T("WB_Tab_Quick");
@@ -606,8 +608,8 @@ namespace TradosToolkit.Workbench
 
         private void OpenGlossary_Click(object sender, RoutedEventArgs e)
         {
-            ToolkitLog.Info("工作台：打开术语管理");
-            new GlossaryManagerWindow("zh-CN", "en-US") { Owner = this }.ShowDialog();
+            ToolkitLog.Info("工作台：打开术语管理（独立页）");
+            GlossaryManagerWindow.ShowOrActivate();
         }
 
         private void OpenLogFolder_Click(object sender, RoutedEventArgs e)
@@ -650,39 +652,403 @@ namespace TradosToolkit.Workbench
             }
         }
 
-        // ==================== 批处理工具 ====================
+        // ==================== 流程编排 ====================
 
-        private bool _toolBusy;
-
-        /// <summary>把结果 Payload 序列化为可读 JSON 文本；非 2xx 附加状态码。</summary>
-        private string InvokeTool(string method, string path, Dictionary<string, string> query, string body)
+        /// <summary>一个可编排的操作步骤。Studio 自动任务只做透传，不重做；插件步骤是插件真正增值的部分。</summary>
+        private sealed class ProcOp
         {
-            var token = ApiConfig.Load().GetOrCreateToken();
-            var result = ProjectApi.Handle(method, path, query, body, token, token);
-            var json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(result.Payload);
-            return (result.Status >= 200 && result.Status < 300 ? "" : "[HTTP " + result.Status + "] ") + json;
+            public string Key;
+            public string Label;
+            public string Kind; // "studio" 原生自动任务(透传 pipeline task 名) | "plugin" 插件特有步骤
+            public ProcOp(string key, string label, string kind) { Key = key; Label = label; Kind = kind; }
         }
 
-        /// <summary>后台执行一个工具并把结果/耗时刷到输出区；重活放 Task 线程，避免卡 UI。</summary>
-        private async Task RunToolAsync(string name, Func<string> work)
+        /// <summary>可选操作清单：Studio 已有功能仅透传其 task 名，插件新能力按独立步骤串入。</summary>
+        private static readonly List<ProcOp> ProcOps = new List<ProcOp>
         {
-            if (_toolBusy) { ToolsOutput.Text = "上一个工具仍在运行，请稍候。"; return; }
-            ToolsOutput.Text = ">> " + name + " 运行中…";
-            _toolBusy = true;
+            // ---- Studio 原生自动任务（插件只负责触发，绝不去重做实现）----
+            new ProcOp("pretranslate", "预翻译（Studio 自动任务）", "studio"),
+            new ProcOp("analyze", "分析（Studio 自动任务）", "studio"),
+            new ProcOp("wordcount", "字数统计（Studio 自动任务）", "studio"),
+            new ProcOp("target", "生成目标译文（Studio 自动任务）", "studio"),
+            new ProcOp("export", "导出译文（Studio 自动任务）", "studio"),
+            new ProcOp("updatetm", "更新记忆库（Studio 自动任务）", "studio"),
+            // ---- 插件特有步骤（把上面 Studio 动作与插件能力串成完整流程）----
+            new ProcOp("health", "健康自检（插件）", "plugin"),
+            new ProcOp("report", "词数/报价报告（插件）", "plugin"),
+            new ProcOp("triage", "翻译前分诊（插件）", "plugin"),
+            new ProcOp("audit", "一致性审计·预览（插件）", "plugin"),
+            new ProcOp("auditapply", "一键统一译文（插件·备份.bak）", "plugin"),
+            new ProcOp("auditall", "一致性审计·跨文件（插件）", "plugin"),
+            new ProcOp("backfill", "术语自动回填（插件）", "plugin"),
+        };
+
+        private static readonly Dictionary<string, ProcOp> OpIndex = ProcOps.ToDictionary(o => o.Key, StringComparer.OrdinalIgnoreCase);
+
+        private List<ToolkitConfig.ProcessCard> _flowCards;
+        private bool _flowBusy;
+        private CancellationTokenSource _flowCts;
+        private string _pendingOp;
+
+        private void InitFlows()
+        {
+            try { _flowCards = ToolkitConfig.Load().ProcessCards; }
+            catch (Exception ex) { ToolkitLog.Error("工作台：流程卡读取失败，用默认", ex); _flowCards = ToolkitConfig.DefaultProcessCards(); }
+            if (_flowCards.Count == 0) _flowCards.Add(new ToolkitConfig.ProcessCard { name = "我的流程" });
+            foreach (var op in ProcOps) FlowOpCombo.Items.Add(op);
+            if (ProcOps.Count > 0) { FlowOpCombo.SelectedIndex = 0; _pendingOp = ProcOps[0].Key; }
+            RebuildFlowList();
+        }
+
+        private void PersistFlows()
+        {
+            try { ToolkitConfig.Save(processCards: _flowCards); }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("工作台：流程卡保存失败", ex);
+                FlowStatus.Text = "保存失败：" + ex.Message;
+            }
+        }
+
+        private void RebuildFlowList()
+        {
+            var prev = (FlowList.SelectedItem as ToolkitConfig.ProcessCard)?.name;
+            FlowList.Items.Clear();
+            foreach (var c in _flowCards) FlowList.Items.Add(c);
+            if (prev != null)
+            {
+                var match = _flowCards.FirstOrDefault(x => x.name == prev);
+                if (match != null) FlowList.SelectedItem = match;
+            }
+            if (FlowList.SelectedItem == null && _flowCards.Count > 0) FlowList.SelectedIndex = 0;
+            SelectCard(_flowCards.FirstOrDefault(x => FlowList.SelectedItem == x));
+        }
+
+        private ToolkitConfig.ProcessCard SelectedCard() => FlowList.SelectedItem as ToolkitConfig.ProcessCard;
+
+        private void SelectCard(ToolkitConfig.ProcessCard card)
+        {
+            FlowSteps.Items.Clear();
+            FlowRunNote.Text = "";
+            if (card != null)
+            {
+                FlowTitle.Text = "步骤  —  " + card.name;
+                for (int k = 0; k < card.steps.Count; k++)
+                    FlowSteps.Items.Add((k + 1) + ".  " + OpLabel(card.steps[k]));
+                FlowRunText.Text = "运行《" + card.name + "》";
+            }
+            else
+            {
+                FlowTitle.Text = "步骤";
+                FlowRunText.Text = "运行本流程";
+            }
+        }
+
+        private static string OpLabel(string key)
+        {
+            ProcOp op;
+            return OpIndex.TryGetValue(key ?? "", out op) ? op.Label : "未知步骤:" + key;
+        }
+
+        private static bool IsStudio(string key) => OpIndex.TryGetValue(key ?? "", out var op) && op.Kind == "studio";
+
+        private void FlowList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            SelectCard(SelectedCard());
+        }
+
+        private void FlowAdd_Click(object sender, RoutedEventArgs e)
+        {
+            var n = _flowCards.Count + 1;
+            var name = "新流程 " + n;
+            while (_flowCards.Any(c => c.name == name)) name = "新流程 " + (++n);
+            var card = new ToolkitConfig.ProcessCard { name = name, steps = new List<string>() };
+            _flowCards.Add(card);
+            PersistFlows();
+            RebuildFlowList();
+            FlowList.SelectedItem = card;
+            ToolkitLog.Info("工作台：新建流程卡 " + name);
+        }
+
+        private void FlowRename_Click(object sender, RoutedEventArgs e)
+        {
+            var card = SelectedCard();
+            if (card == null) { FlowStatus.Text = "请先在左侧选择一张流程卡。"; return; }
+            var input = Microsoft.VisualBasic.Interaction.InputBox("新流程名称：", "重命名流程", card.name, -1, -1);
+            if (string.IsNullOrWhiteSpace(input) || input == card.name) return;
+            card.name = input.Trim();
+            PersistFlows();
+            RebuildFlowList();
+            ToolkitLog.Info("工作台：流程卡重命名 " + input);
+        }
+
+        private void FlowDel_Click(object sender, RoutedEventArgs e)
+        {
+            var card = SelectedCard();
+            if (card == null) { FlowStatus.Text = "请先在左侧选择一张流程卡。"; return; }
+            if (MessageBox.Show(this, "删除流程《" + card.name + "》？", "流程编排",
+                    MessageBoxButton.OKCancel, MessageBoxImage.Warning) != MessageBoxResult.OK) return;
+            _flowCards.Remove(card);
+            PersistFlows();
+            RebuildFlowList();
+        }
+
+        private void FlowOpCombo_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (FlowOpCombo.SelectedItem is ProcOp op) _pendingOp = op.Key;
+        }
+
+        private void FlowSteps_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            var card = SelectedCard();
+            var idx = FlowSteps.SelectedIndex;
+            if (card == null || idx < 0 || idx >= card.steps.Count) return;
+            // 选中某步时，把该步当前操作带到下拉框，便于"设为该操作"二次编辑
+            var op = OpIndex.TryGetValue(card.steps[idx], out var o) ? o : null;
+            if (op != null)
+            {
+                FlowOpCombo.SelectedItem = op;
+                _pendingOp = op.Key;
+            }
+        }
+
+        private string PendingOp()
+        {
+            if (string.IsNullOrEmpty(_pendingOp) || !OpIndex.ContainsKey(_pendingOp)) return ProcOps[0].Key;
+            return _pendingOp;
+        }
+
+        private void FlowStepAdd_Click(object sender, RoutedEventArgs e)
+        {
+            var card = SelectedCard();
+            if (card == null) { FlowStatus.Text = "请先选一张流程卡再添加步骤。"; return; }
+            card.steps.Add(PendingOp());
+            PersistFlows();
+            SelectCard(card);
+            FlowSteps.SelectedIndex = card.steps.Count - 1;
+        }
+
+        private void FlowStepSet_Click(object sender, RoutedEventArgs e)
+        {
+            var card = SelectedCard();
+            var idx = FlowSteps.SelectedIndex;
+            if (card == null || idx < 0 || idx >= card.steps.Count) { FlowStatus.Text = "请先在上方选中一个步骤。"; return; }
+            var key = PendingOp();
+            if (card.steps[idx] == key) return;
+            card.steps[idx] = key;
+            PersistFlows();
+            SelectCard(card);
+            FlowSteps.SelectedIndex = idx;
+        }
+
+        private void MoveStep(int dir)
+        {
+            var card = SelectedCard();
+            var idx = FlowSteps.SelectedIndex;
+            if (card == null || idx < 0) return;
+            var j = idx + dir;
+            if (j < 0 || j >= card.steps.Count) return;
+            var tmp = card.steps[idx];
+            card.steps[idx] = card.steps[j];
+            card.steps[j] = tmp;
+            PersistFlows();
+            SelectCard(card);
+            FlowSteps.SelectedIndex = j;
+        }
+
+        private void FlowStepUp_Click(object sender, RoutedEventArgs e) => MoveStep(-1);
+
+        private void FlowStepDown_Click(object sender, RoutedEventArgs e) => MoveStep(1);
+
+        private void FlowStepDel_Click(object sender, RoutedEventArgs e)
+        {
+            var card = SelectedCard();
+            var idx = FlowSteps.SelectedIndex;
+            if (card == null || idx < 0 || idx >= card.steps.Count) { FlowStatus.Text = "请先在上方选中一个步骤。"; return; }
+            card.steps.RemoveAt(idx);
+            PersistFlows();
+            SelectCard(card);
+        }
+
+        private void FlowRunCancel_Click(object sender, RoutedEventArgs e)
+        {
+            ToolkitLog.Info("工作台：用户取消流程运行");
+            _flowCts?.Cancel();
+        }
+
+        private void SetFlowRunning(bool running)
+        {
+            FlowRunBtn.IsEnabled = !running;
+            FlowRunCancel.Visibility = running ? Visibility.Visible : Visibility.Collapsed;
+            FlowAddBtn.IsEnabled = !running; FlowRenameBtn.IsEnabled = !running; FlowDelBtn.IsEnabled = !running;
+            FlowStepAdd.IsEnabled = !running; FlowStepSet.IsEnabled = !running;
+            FlowStepUp.IsEnabled = !running; FlowStepDown.IsEnabled = !running; FlowStepDel.IsEnabled = !running;
+        }
+
+        /// <summary>直调插件 HTTP 端点；返回 (状态是否成功, 展示文本)。Studio 自动任务不走这里。</summary>
+        private Tuple<bool, string> RunPluginStep(string key)
+        {
+            var q = new Dictionary<string, string>();
+            var body = "";
+            var method = "GET";
+            var path = "/api/health";
+            switch (key)
+            {
+                case "health":
+                    break;
+                case "report":
+                    path = "/api/project/report";
+                    q = new Dictionary<string, string> { { "path", NeedPath() } };
+                    break;
+                case "triage":
+                    path = "/api/project/triage";
+                    q = BaseQuery();
+                    break;
+                case "audit":
+                    path = "/api/project/audit";
+                    q = BaseQuery();
+                    break;
+                case "auditapply":
+                    path = "/api/project/audit";
+                    method = "POST";
+                    q = BaseQuery();
+                    break;
+                case "auditall":
+                    path = "/api/project/audit";
+                    q = new Dictionary<string, string> { { "path", NeedPath() }, { "all", "1" } };
+                    break;
+                case "backfill":
+                    path = "/api/glossary/backfill";
+                    var src = ToolsSrcBox.Text.Trim();
+                    var tgt = ToolsTgtBox.Text.Trim();
+                    if (string.IsNullOrEmpty(src) || string.IsNullOrEmpty(tgt))
+                        return Tuple.Create(false, "请填写语言对（源/目标），或先“取当前项目”自动带入。");
+                    var req = new Dictionary<string, object> { { "srcLang", src }, { "tgtLang", tgt } };
+                    var bp = ToolsFileBox.Text.Trim();
+                    if (!string.IsNullOrEmpty(bp)) req["bilingualPath"] = bp;
+                    body = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(req);
+                    break;
+            }
+            var token = ApiConfig.Load().GetOrCreateToken();
+            var result = ProjectApi.Handle(method, path, q, body, token, token);
+            var ok = result.Status >= 200 && result.Status < 300;
+            var json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(result.Payload);
+            return Tuple.Create(ok, (ok ? "" : "[HTTP " + result.Status + "] ") + json);
+        }
+
+        /// <summary>把连续的一段 Studio 自动任务合并成一次 pipeline 调用（tolerant，单步顺序执行）。</summary>
+        private Tuple<bool, string> RunStudioPipeline(List<string> keys)
+        {
+            var steps = new List<Dictionary<string, object>>();
+            foreach (var k in keys) steps.Add(new Dictionary<string, object> { { "task", k } });
+            var body = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(
+                new Dictionary<string, object> { { "steps", steps }, { "tolerant", true } });
+            var token = ApiConfig.Load().GetOrCreateToken();
+            var result = ProjectApi.Handle("POST", "/api/project/pipeline",
+                new Dictionary<string, string> { { "path", NeedPath() } }, body, token, token);
+            var ok = result.Status >= 200 && result.Status < 300;
+            var json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(result.Payload);
+            return Tuple.Create(ok, (ok ? "" : "[HTTP " + result.Status + "] ") + json);
+        }
+
+        private async void FlowRun_Click(object sender, RoutedEventArgs e)
+        {
+            var card = SelectedCard();
+            if (card == null) { ToolsOutput.Text = "请先在左侧选一张流程卡。"; return; }
+            if (card.steps.Count == 0) { ToolsOutput.Text = "该流程没有步骤。请用下方“＋添加/设为该操作”编排步骤。"; return; }
+            if (_flowBusy) { ToolsOutput.Text = "流程正在运行，请稍候。"; return; }
+
+            _flowBusy = true;
+            SetFlowRunning(true);
+            _flowCts = new CancellationTokenSource();
+            var token = _flowCts.Token;
             var watch = Stopwatch.StartNew();
+            var sb = new StringBuilder();
+            sb.AppendLine(">> 运行流程《" + card.name + "》  ·  " + string.Join(" → ", card.steps.Select(OpLabel)));
+            sb.AppendLine();
+            ToolsOutput.Text = sb.ToString();
+            ToolkitLog.Info("工作台：运行流程卡 " + card.name + " 步骤=" + string.Join(",", card.steps));
+
+            var failed = 0;
+            var index = 0;
             try
             {
-                var result = await Task.Run(work);
-                ToolsOutput.Text = result + Environment.NewLine + "—— 耗时 " + watch.ElapsedMilliseconds + " ms";
-                ToolkitLog.Info("工作台：工具完成 " + name + " 耗时=" + watch.ElapsedMilliseconds + "ms");
+                while (index < card.steps.Count)
+                {
+                    token.ThrowIfCancellationRequested();
+                    if (IsStudio(card.steps[index]))
+                    {
+                        // 合并连续一段 Studio 自动任务为一次 pipeline 调用，保持相对顺序
+                        var seq = new List<string>();
+                        while (index < card.steps.Count && IsStudio(card.steps[index])) { seq.Add(card.steps[index]); index++; }
+                        var start = index - seq.Count;
+                        var stepLine = string.Join(" → ", seq.Select(OpLabel));
+                        AppendLine(sb, "· [开始] " + (start + 1) + ".." + index + " " + stepLine);
+                        var sw = Stopwatch.StartNew();
+                        var r = await Task.Run(() => RunStudioPipeline(seq), CancellationToken.None);
+                        sw.Stop();
+                        AppendLine(sb, r.Item1 ? "[完成] " + stepLine + "  ·  " + sw.ElapsedMilliseconds + " ms"
+                                              : "[失败] " + stepLine + "  ·  " + r.Item2);
+                        if (!r.Item1) failed++;
+                    }
+                    else
+                    {
+                        var key = card.steps[index];
+                        var nth = index + 1;
+                        var sw = Stopwatch.StartNew();
+                        AppendLine(sb, "· [开始] " + nth + ". " + OpLabel(key));
+                        try
+                        {
+                            var r = await Task.Run(() => RunPluginStep(key), CancellationToken.None);
+                            sw.Stop();
+                            AppendLine(sb, r.Item1 ? "[完成] " + nth + ". " + OpLabel(key) + "  ·  " + sw.ElapsedMilliseconds + " ms"
+                                                  : "[失败] " + nth + ". " + OpLabel(key) + "  ·  " + r.Item2);
+                            if (!r.Item1) failed++;
+                        }
+                        catch (InvalidOperationException ex)
+                        {
+                            // 例如未选项目 —— 中断
+                            sb.AppendLine("[失败] " + nth + ". " + OpLabel(key) + "  ·  " + ex.Message);
+                            ToolsOutput.Text = sb.ToString();
+                            throw;
+                        }
+                        index++;
+                    }
+                    ToolsOutput.Text = sb.ToString();
+                }
+                token.ThrowIfCancellationRequested();
+                sb.AppendLine();
+                sb.AppendLine("—— 流程结束：失败 " + failed + " 步，总耗时 " + watch.ElapsedMilliseconds + " ms");
+            }
+            catch (OperationCanceledException)
+            {
+                sb.AppendLine();
+                sb.AppendLine("—— 已取消，已执行部分保留。");
+                ToolkitLog.Info("工作台：流程运行被取消 " + card.name);
             }
             catch (Exception ex)
             {
-                ToolsOutput.Text = name + " 失败：" + ex.Message;
-                ToolkitLog.Error("工作台：工具失败 " + name, ex);
+                sb.AppendLine();
+                sb.AppendLine("—— 流程中断：" + ex.Message);
+                ToolkitLog.Error("工作台：流程运行中断 " + card.name, ex);
             }
-            finally { _toolBusy = false; }
+            finally
+            {
+                _flowBusy = false;
+                SetFlowRunning(false);
+                _flowCts.Dispose();
+                _flowCts = null;
+            }
+            ToolsOutput.Text = sb.ToString();
         }
+
+        private void AppendLine(StringBuilder sb, string line)
+        {
+            sb.AppendLine(line);
+            ToolsOutput.Text = sb.ToString();
+        }
+
+        // ==================== 批处理工具输入区（流程编排共用） ====================
 
         private string NeedPath()
         {
@@ -707,7 +1073,7 @@ namespace TradosToolkit.Workbench
             ToolsProjBox.Text = proj;
             FillDefaultLanguage();
             ToolsOutput.Text = "已取当前项目：" + proj;
-            ToolkitLog.Info("工作台：工具页取当前项目 " + proj);
+            ToolkitLog.Info("工作台：流程页取当前项目 " + proj);
         }
 
         private void ToolsBrowseProj_Click(object sender, RoutedEventArgs e)
@@ -749,56 +1115,6 @@ namespace TradosToolkit.Workbench
                     ToolsTgtBox.Text = info.TargetLanguages.First().IsoAbbreviation;
             }
             catch (Exception ex) { ToolkitLog.Error("工作台：读取当前项目语言失败", ex); }
-        }
-
-        private async void ToolsHealth_Click(object sender, RoutedEventArgs e) =>
-            await RunToolAsync("健康自检", () => InvokeTool("GET", "/api/health", new Dictionary<string, string>(), ""));
-
-        private async void ToolsReport_Click(object sender, RoutedEventArgs e) =>
-            await RunToolAsync("词数/报价报告",
-                () => InvokeTool("GET", "/api/project/report", new Dictionary<string, string> { { "path", NeedPath() } }, ""));
-
-        private async void ToolsTriage_Click(object sender, RoutedEventArgs e) =>
-            await RunToolAsync("翻译前分诊", () => InvokeTool("GET", "/api/project/triage", BaseQuery(), ""));
-
-        private async void ToolsDupAuditGet_Click(object sender, RoutedEventArgs e) =>
-            await RunToolAsync("一致性审计(预览)", () => InvokeTool("GET", "/api/project/audit", BaseQuery(), ""));
-
-        private async void ToolsDupAuditApply_Click(object sender, RoutedEventArgs e) =>
-            await RunToolAsync("一键统一译文", () => InvokeTool("POST", "/api/project/audit", BaseQuery(), ""));
-
-        private async void ToolsDupAuditAll_Click(object sender, RoutedEventArgs e) =>
-            await RunToolAsync("一致性审计(跨文件)",
-                () => InvokeTool("GET", "/api/project/audit", new Dictionary<string, string> { { "path", NeedPath() }, { "all", "1" } }, ""));
-
-        private async void ToolsBackfill_Click(object sender, RoutedEventArgs e)
-        {
-            var src = ToolsSrcBox.Text.Trim();
-            var tgt = ToolsTgtBox.Text.Trim();
-            var bp = ToolsFileBox.Text.Trim();
-            if (string.IsNullOrEmpty(src) || string.IsNullOrEmpty(tgt))
-            {
-                ToolsOutput.Text = "请填写语言对（源/目标），或先“取当前项目”自动带入。";
-                return;
-            }
-            var req = new Dictionary<string, object> { { "srcLang", src }, { "tgtLang", tgt } };
-            if (!string.IsNullOrEmpty(bp)) req["bilingualPath"] = bp;
-            var body = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(req);
-            await RunToolAsync("术语自动回填", () => InvokeTool("POST", "/api/glossary/backfill", new Dictionary<string, string>(), body));
-        }
-
-        private async void ToolsPipeline_Click(object sender, RoutedEventArgs e)
-        {
-            var steps = new List<Dictionary<string, object>>();
-            if (ToolsStepTm.IsChecked == true) steps.Add(new Dictionary<string, object> { { "task", "updatetm" } });
-            if (ToolsStepWc.IsChecked == true) steps.Add(new Dictionary<string, object> { { "task", "wordcount" } });
-            if (ToolsStepTarget.IsChecked == true) steps.Add(new Dictionary<string, object> { { "task", "target" } });
-            if (ToolsStepExport.IsChecked == true) steps.Add(new Dictionary<string, object> { { "task", "export" } });
-            if (steps.Count == 0) { ToolsOutput.Text = "请至少勾选一个管线步骤。"; return; }
-            var body = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(
-                new Dictionary<string, object> { { "steps", steps }, { "tolerant", true } });
-            await RunToolAsync("多步自动管线",
-                () => InvokeTool("POST", "/api/project/pipeline", new Dictionary<string, string> { { "path", NeedPath() } }, body));
         }
     }
 }

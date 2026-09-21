@@ -28,6 +28,13 @@ namespace TradosToolkit
             public List<BookmarkFolder> folders = new List<BookmarkFolder>();
         }
 
+        /// <summary>流程编排里的一张流程卡：一个有序步骤列表（steps 为操作 key，见工作台 ProcOps）。</summary>
+        public class ProcessCard
+        {
+            public string name;
+            public List<string> steps = new List<string>();
+        }
+
         public string TmUrl = string.Empty;
         public string ApiKey = string.Empty;
         public string LlmBaseUrl = string.Empty;
@@ -50,6 +57,19 @@ namespace TradosToolkit
         public string TermBaseUrl = string.Empty;
         /// <summary>翻译中心书签目录树；键缺失时用内置默认，键存在则完全按文件。</summary>
         public List<BookmarkFolder> Folders = DefaultFolders();
+
+        /// <summary>流程编排卡（config.json 的 processCards）。</summary>
+        public List<ProcessCard> ProcessCards = DefaultProcessCards();
+
+        /// <summary>内置示例流程卡：演示"用 Studio 原生自动任务 + 插件特有步骤 串成一条流程"。</summary>
+        public static List<ProcessCard> DefaultProcessCards() => new List<ProcessCard>
+        {
+            new ProcessCard
+            {
+                name = "示例：预翻译→回填→统一→导出",
+                steps = new List<string> { "pretranslate", "backfill", "auditapply", "updatetm" },
+            },
+        };
 
         public static List<BookmarkFolder> DefaultFolders() => new List<BookmarkFolder>
         {
@@ -119,6 +139,8 @@ namespace TradosToolkit
                         foreach (var item in ParseItems(legacy)) migrated.items.Add(item);
                         if (migrated.items.Count > 0) config.Folders = new List<BookmarkFolder> { migrated };
                     }
+                    if (json.TryGetValue("processCards", out var pc))
+                        config.ProcessCards = ParseProcessCards(pc);
                 }
             }
             catch (Exception e)
@@ -170,10 +192,35 @@ namespace TradosToolkit
             return folders;
         }
 
+        private static List<ProcessCard> ParseProcessCards(object value)
+        {
+            var cards = new List<ProcessCard>();
+            var items = value as System.Collections.IEnumerable;
+            if (items == null) return cards;
+            foreach (var o in items)
+            {
+                var d = o as Dictionary<string, object>;
+                if (d == null) continue;
+                var card = new ProcessCard
+                {
+                    name = d.TryGetValue("name", out var n) ? (n as string ?? "未命名") : "未命名",
+                    steps = new List<string>(),
+                };
+                if (d.TryGetValue("steps", out var st) && st is System.Collections.IEnumerable se)
+                {
+                    foreach (var s in se) { var sk = s as string; if (!string.IsNullOrWhiteSpace(sk)) card.steps.Add(sk); }
+                }
+                if (string.IsNullOrEmpty(card.name)) card.name = "未命名";
+                if (card.steps.Count > 0) cards.Add(card);
+            }
+            return cards;
+        }
+
         /// <summary>配置窗口点确定时调用：null 表示不改动该字段，保留文件里其余内容。</summary>
         public static void Save(string apiKey = null, string llmBaseUrl = null, string llmModel = null,
                                string translationCenterUrl = null, List<BookmarkFolder> folders = null,
-                               string tmScanDirectory = null, string termBaseUrl = null)
+                               string tmScanDirectory = null, string termBaseUrl = null,
+                               List<ProcessCard> processCards = null)
         {
             try
             {
@@ -193,6 +240,7 @@ namespace TradosToolkit
                     doc["translationCenterFolders"] = folders;
                     doc.Remove("translationCenterBookmarks");
                 }
+                if (processCards != null) doc["processCards"] = processCards;
                 Directory.CreateDirectory(Path.GetDirectoryName(ConfigFilePath));
                 File.WriteAllText(ConfigFilePath, json.Serialize(doc));
                 ToolkitLog.Info("ToolkitConfig: 已保存 (apiKey=" + (apiKey == null ? "不变" : "长度" + apiKey.Length) +
