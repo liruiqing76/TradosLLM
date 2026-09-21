@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using Microsoft.Win32;
 using TradosToolkit.Diagnostics;
 using TradosToolkit.Glossaries;
@@ -143,6 +144,32 @@ namespace TradosToolkit.TranslationProvider.UI
                 view.Filter = null;
                 view.Refresh();
             };
+
+            // Studio 宿主下 Popup 的独立 Win32 窗口可能拿不到激活，搜索框永远得不到键盘焦点
+            // （纯 WPF 测试窗口复现不出）。兜底：落在 combo 子树上的 TextInput/退格/空格一律转发进搜索框。
+            combo.AddHandler(UIElement.TextInputEvent, new System.Windows.Input.TextCompositionEventHandler((s, ev) =>
+            {
+                if (search == null || string.IsNullOrEmpty(ev.Text)) return;
+                if (System.Windows.Input.Keyboard.FocusedElement is TextBoxBase) return; // 已在搜索框里直接输入
+                search.AppendText(ev.Text);
+                ev.Handled = true;
+            }), true);
+            combo.AddHandler(UIElement.PreviewKeyDownEvent, new System.Windows.Input.KeyEventHandler((s, ev) =>
+            {
+                if (search == null) return;
+                if (System.Windows.Input.Keyboard.FocusedElement is TextBoxBase) return;
+                if (ev.Key == System.Windows.Input.Key.Back)
+                {
+                    var t = search.Text;
+                    if (t.Length > 0) search.Text = t.Substring(0, t.Length - 1);
+                    ev.Handled = true;
+                }
+                else if (ev.Key == System.Windows.Input.Key.Space)
+                {
+                    search.AppendText(" ");
+                    ev.Handled = true;
+                }
+            }), true);
         }
 
         private bool IsPost => KindCombo.SelectedIndex == 1;

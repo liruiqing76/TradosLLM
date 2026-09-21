@@ -104,6 +104,43 @@ $isAscii = $sb.Text -cmatch '^[ -~]*$'
 if ($isAscii) { Assert ($sb.Text -eq 'ger') "english keystrokes all land in LangSearchBox (got '$($sb.Text)')" }
 else { Assert (-not [string]::IsNullOrEmpty($sb.Text)) "IME-mode keystrokes land in LangSearchBox (got '$($sb.Text)')" }
 
+# 1b-3) Studio-host fallback: when the popup window can't be activated, keyboard focus stays
+# on the ComboBox itself — production forwards TextInput/Back/Space into the search box.
+$combo.AddHandler([System.Windows.UIElement]::TextInputEvent, [System.Windows.Input.TextCompositionEventHandler]{
+    param($s,$ev)
+    $sbx = $combo.Template.FindName('LangSearchBox', $combo)
+    if ($null -eq $sbx -or [string]::IsNullOrEmpty($ev.Text)) { return }
+    if ([System.Windows.Input.Keyboard]::FocusedElement -is [System.Windows.Controls.Primitives.TextBoxBase]) { return }
+    $sbx.AppendText($ev.Text)
+    $ev.Handled = $true
+})
+$combo.AddHandler([System.Windows.UIElement]::PreviewKeyDownEvent, [System.Windows.Input.KeyEventHandler]{
+    param($s,$ev)
+    $sbx = $combo.Template.FindName('LangSearchBox', $combo)
+    if ($null -eq $sbx) { return }
+    if ([System.Windows.Input.Keyboard]::FocusedElement -is [System.Windows.Controls.Primitives.TextBoxBase]) { return }
+    if ($ev.Key -eq 'Back') {
+        $t = $sbx.Text
+        if ($t.Length -gt 0) { $sbx.Text = $t.Substring(0, $t.Length - 1) }
+        $ev.Handled = $true
+    }
+})
+$null = [System.Windows.Input.Keyboard]::Focus($combo)   # 模拟焦点被抢回 combo
+$sb.Text = ''
+[System.Windows.Forms.SendKeys]::SendWait('de')
+for ($i=0; $i -lt 10; $i++) {
+    [System.Windows.Threading.Dispatcher]::CurrentDispatcher.Invoke([System.Action]{},
+        [System.Windows.Threading.DispatcherPriority]::Background) | Out-Null
+}
+Write-Host ("search box text via forwarding path: '" + $sb.Text + "'")
+Assert ($sb.Text -eq 'de') "TextInput forwarded to search box while focus on ComboBox (got '$($sb.Text)')"
+[System.Windows.Forms.SendKeys]::SendWait('{BACKSPACE}')
+for ($i=0; $i -lt 10; $i++) {
+    [System.Windows.Threading.Dispatcher]::CurrentDispatcher.Invoke([System.Action]{},
+        [System.Windows.Threading.DispatcherPriority]::Background) | Out-Null
+}
+Assert ($sb.Text -eq 'd') "Backspace forwarded (got '$($sb.Text)')"
+
 # 1c) selection box shows Label via ItemTemplate (not ToString of the item type)
 $combo.SelectedIndex = 2
 Assert ($null -ne $combo.ItemTemplate) 'ItemTemplate present (selection box renders Label, not ToString)'
