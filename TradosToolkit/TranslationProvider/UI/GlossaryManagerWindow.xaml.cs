@@ -50,6 +50,9 @@ namespace TradosToolkit.TranslationProvider.UI
             var w = new GlossaryManagerWindow(null, null);
             _instance = w;
             w.Closed += (s, e) => { if (ReferenceEquals(_instance, w)) _instance = null; };
+            // 挂到 Studio 主窗：无属主的 Show() 独立页在 Studio 消息环里收不到 TranslateMessage，
+            // 全窗口英文敲不进（中文 IME 走 TSF 通道不受影响）——配置窗口一直正常即因它设了 Owner。
+            InputProbe.SetStudioOwner(w);
             w.Show();
         }
 
@@ -57,6 +60,7 @@ namespace TradosToolkit.TranslationProvider.UI
         public GlossaryManagerWindow(string src, string tgt, SqliteGlossaryProvider provider = null)
         {
             InitializeComponent();
+            InputProbe.Attach(this); // 键盘链路探针（诊断 Studio 下英文敲不进）
             _db = new GlossaryDb();
             _provider = provider;
             _langs = BuildLanguages();

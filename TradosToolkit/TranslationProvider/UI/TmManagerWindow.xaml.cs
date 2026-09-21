@@ -29,6 +29,7 @@ namespace TradosToolkit.TranslationProvider.UI
         public TmManagerWindow()
         {
             InitializeComponent();
+            InputProbe.Attach(this); // 键盘链路探针（诊断 Studio 下英文敲不进）
             TmGrid.ItemsSource = _tms;
             var cfg = ToolkitConfig.Load();
             TmDirBox.Text = string.IsNullOrWhiteSpace(cfg.TmScanDirectory)

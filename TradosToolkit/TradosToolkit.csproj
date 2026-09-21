@@ -120,6 +120,7 @@
     <Compile Include="TranslationMemories\TmToolkit.cs" />
     <Compile Include="Workbench\TmToolDialogs.cs" />
     <Compile Include="Diagnostics\ToolkitLog.cs" />
+    <Compile Include="Diagnostics\InputProbe.cs" />
     <Compile Include="Action\TradosToolkitRibbonGroup.cs" />
     <Compile Include="Action\ToolkitWorkbenchRibbonGroup.cs" />
     <Compile Include="Action\WorkbenchAction.cs" />
