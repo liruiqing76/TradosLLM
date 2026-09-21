@@ -55,9 +55,15 @@ CREATE TABLE IF NOT EXISTS terms(
     UNIQUE(kind, src, tgt, from_term)
 );";
                 cmd.ExecuteNonQuery();
-                // 老库缺 domain 列时迁移补齐（默认归入"通用"）
-                cmd.CommandText = "SELECT COUNT(*) FROM pragma_table_info('terms') WHERE name='domain';";
-                var hasDomain = Convert.ToInt64(cmd.ExecuteScalar()) > 0;
+                // 老库缺 domain 列时迁移补齐（默认归入"通用"）。
+                // 注意：不能用 pragma_table_info('terms') 表值语法，net48 捆绑的旧版 SQLite 不支持，
+                // 必须用 PRAGMA table_info() 传统写法。
+                cmd.CommandText = "PRAGMA table_info(terms);";
+                var hasDomain = false;
+                using (var r = cmd.ExecuteReader())
+                    while (r.Read())
+                        if (string.Equals(Convert.ToString(r["name"]), "domain", StringComparison.OrdinalIgnoreCase))
+                        { hasDomain = true; break; }
                 if (!hasDomain)
                 {
                     cmd.CommandText = "ALTER TABLE terms ADD COLUMN domain TEXT NOT NULL DEFAULT '" +

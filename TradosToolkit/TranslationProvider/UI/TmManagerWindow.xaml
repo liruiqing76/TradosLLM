@@ -35,6 +35,21 @@
                 <Setter Property="FontSize" Value="11"/>
                 <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
             </Style>
+            <Style x:Key="HeaderEmblem" TargetType="Border">
+                <Setter Property="Width" Value="30"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="CornerRadius" Value="7"/>
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FF3A7BD5" Offset="0"/>
+                            <GradientStop Color="#FF2B6FBB" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
             <Style x:Key="GhostButton" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
                 <Setter Property="Padding" Value="13,6"/>
                 <Setter Property="FontSize" Value="13"/>
@@ -57,9 +72,10 @@
 
         <!-- 页头 -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,14">
-            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="18" Text="&#xE8B7;"
-                       VerticalAlignment="Center" Margin="0,0,8,0"
-                       Foreground="{DynamicResource PrimaryBrush}"/>
+            <Border Style="{StaticResource HeaderEmblem}" Margin="0,0,10,0">
+                <TextBlock Text="库" Foreground="White" FontSize="15" FontWeight="Bold"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
             <TextBlock Style="{StaticResource PageTitle}" Text="记忆库管理"/>
             <TextBlock Style="{StaticResource Sub}" VerticalAlignment="Bottom" Margin="12,0,0,4"
                        Text="扫描本地 .sdltm · 新建空库 · 把 TMX / SDLXLIFF 导入到指定语向的记忆库"/>
