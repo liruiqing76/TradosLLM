@@ -4,7 +4,6 @@
         xmlns:hc="https://handyorg.github.io/handycontrol"
         Title="TradosToolkit 术语管理"
         Width="940" Height="580" MinWidth="760" MinHeight="520"
-        Icon="Resources/workbench.ico"
         FontFamily="Microsoft YaHei UI, Segoe UI" FontSize="13"
         WindowStartupLocation="CenterScreen"
         TextOptions.TextFormattingMode="Ideal" UseLayoutRounding="True"

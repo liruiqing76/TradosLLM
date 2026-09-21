@@ -124,6 +124,8 @@
     <Compile Include="Action\ToolkitWorkbenchRibbonGroup.cs" />
     <Compile Include="Action\WorkbenchAction.cs" />
     <Compile Include="Action\TerminologyAction.cs" />
+    <Compile Include="Action\TmManagerAction.cs" />
+    <Compile Include="TranslationMemories\TmImporter.cs" />
     <Compile Include="Workbench\WorkbenchWindow.xaml.cs">
       <DependentUpon>WorkbenchWindow.xaml</DependentUpon>
     </Compile>
@@ -163,6 +165,9 @@
     </Compile>
     <Compile Include="TranslationProvider\UI\GlossaryManagerWindow.xaml.cs">
       <DependentUpon>GlossaryManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TranslationProvider\UI\TmManagerWindow.xaml.cs">
+      <DependentUpon>TmManagerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Glossaries\GlossaryEntry.cs" />
     <Compile Include="Glossaries\TermReplacer.cs" />

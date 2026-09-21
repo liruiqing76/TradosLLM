@@ -426,6 +426,8 @@
                             Style="{StaticResource RowButton}" Tag="&#xE713;" Click="OpenProviderConfig_Click"/>
                     <Button x:Name="GlossaryButton" Content="Glossary manager…"
                             Style="{StaticResource RowButton}" Tag="&#xE8F1;" Click="OpenGlossary_Click"/>
+                    <Button x:Name="TmButton" Content="Translation memory manager…"
+                            Style="{StaticResource RowButton}" Tag="&#xE8B7;" Click="OpenTm_Click"/> 
                     <Button x:Name="LogButton" Content="Open log folder"
                             Style="{StaticResource RowButton}" Tag="&#xE7C3;" Click="OpenLogFolder_Click"/>
                     <Button x:Name="ConfigButton" Content="Reveal config file"

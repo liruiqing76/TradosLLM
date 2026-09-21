@@ -632,6 +632,12 @@ namespace TradosToolkit.Workbench
             GlossaryManagerWindow.ShowOrActivate();
         }
 
+        private void OpenTm_Click(object sender, RoutedEventArgs e)
+        {
+            ToolkitLog.Info("工作台：打开记忆库管理（独立页）");
+            TmManagerWindow.ShowOrActivate();
+        }
+
         private void OpenLogFolder_Click(object sender, RoutedEventArgs e)
         {
             ToolkitLog.Info("工作台：打开日志目录");

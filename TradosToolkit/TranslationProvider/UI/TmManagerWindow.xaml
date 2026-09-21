@@ -1,0 +1,146 @@
+<Window x:Class="TradosToolkit.TranslationProvider.UI.TmManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        Title="TradosToolkit 记忆库管理"
+        Width="960" Height="600" MinWidth="780" MinHeight="520"
+        FontFamily="Microsoft YaHei UI, Segoe UI" FontSize="13"
+        WindowStartupLocation="CenterScreen"
+        TextOptions.TextFormattingMode="Ideal" UseLayoutRounding="True"
+        Background="{DynamicResource RegionBrush}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="PrimaryBrush" Color="#FF2B6FBB"/>
+            <SolidColorBrush x:Key="TileBrush" Color="#FFFAFBFD"/>
+            <SolidColorBrush x:Key="TileBorderBrush" Color="#FFDFE4EB"/>
+
+            <Style x:Key="Tile" TargetType="Border">
+                <Setter Property="Background" Value="{DynamicResource TileBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource TileBorderBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Padding" Value="14,12"/>
+            </Style>
+            <Style x:Key="PageTitle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="19"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+            </Style>
+            <Style x:Key="Sub" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
+            </Style>
+            <Style x:Key="GhostButton" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
+                <Setter Property="Padding" Value="13,6"/>
+                <Setter Property="FontSize" Value="13"/>
+            </Style>
+            <Style x:Key="JadeButton" TargetType="Button" BasedOn="{StaticResource ButtonPrimary}">
+                <Setter Property="Padding" Value="15,6"/>
+                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="18">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- 页头 -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,14">
+            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="18" Text="&#xE8B7;"
+                       VerticalAlignment="Center" Margin="0,0,8,0"
+                       Foreground="{DynamicResource PrimaryBrush}"/>
+            <TextBlock Style="{StaticResource PageTitle}" Text="记忆库管理"/>
+            <TextBlock Style="{StaticResource Sub}" VerticalAlignment="Bottom" Margin="12,0,0,4"
+                       Text="扫描本地 .sdltm · 新建空库 · 把 TMX / SDLXLIFF 导入到指定语向的记忆库"/>
+        </StackPanel>
+
+        <!-- 目录 + 扫描 + 新建 -->
+        <Border Grid.Row="1" Style="{StaticResource Tile}" Margin="0,0,0,12">
+            <WrapPanel>
+                <TextBlock Text="记忆库目录" VerticalAlignment="Center" Margin="0,5,8,0"
+                           Foreground="{DynamicResource SecondaryTextBrush}"/>
+                <TextBox x:Name="TmDirBox" Width="320" Height="30" VerticalAlignment="Center"
+                         ToolTip="按此目录（含子目录）扫描 .sdltm；留空使用全局配置的记忆库目录"/>
+                <Button x:Name="BrowseBtn" Content="浏览" Style="{StaticResource GhostButton}"
+                        Margin="8,0,0,0" Click="Browse_Click"/>
+                <Button x:Name="ScanBtn" Content="扫描" Style="{StaticResource JadeButton}"
+                        Margin="8,0,0,0" Click="Scan_Click"/>
+                <Button x:Name="NewBtn" Content="新建空库…" Style="{StaticResource GhostButton}"
+                        Margin="8,0,0,0" Click="NewTm_Click" ToolTip="在当前目录创建一个新的空记忆库"/>
+                <TextBlock x:Name="DirHint" Style="{StaticResource Sub}" VerticalAlignment="Center"
+                           Margin="14,0,0,0" Text="目录内容越多扫描越慢"/>
+            </WrapPanel>
+        </Border>
+
+        <!-- 记忆库列表 -->
+        <Border Grid.Row="2" Style="{StaticResource Tile}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Style="{StaticResource Sub}" Text="本地记忆库（点击选中作为导入目标，语向=该库语言对）" Margin="0,0,0,6"/>
+                <DataGrid x:Name="TmGrid" Grid.Row="1"
+                          AutoGenerateColumns="False" IsReadOnly="True"
+                          HeadersVisibility="Column" SelectionMode="Single"
+                          CanUserAddRows="False" CanUserDeleteRows="False"
+                          SelectionChanged="TmGrid_SelectionChanged"
+                          BorderThickness="0" Background="Transparent"
+                          GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#22DFE4EB"
+                          RowHeight="30" AlternatingRowBackground="#16000000"
+                          FontSize="12.5">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="记忆库" Binding="{Binding Name}" Width="2*"/>
+                        <DataGridTextColumn Header="语言对(语向)" Binding="{Binding LanguagePair}" Width="*"/>
+                        <DataGridTextColumn Header="条目" Binding="{Binding Units}" Width="90"/>
+                        <DataGridTextColumn Header="大小" Binding="{Binding Size}" Width="90"/>
+                        <DataGridTextColumn Header="状态" Binding="{Binding StatusText}" Width="70"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+
+        <!-- 操作 / 导入 -->
+        <Border Grid.Row="3" Style="{StaticResource Tile}" Margin="0,12,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <WrapPanel Grid.Row="0">
+                    <TextBlock Text="导入到选中记忆库" VerticalAlignment="Center" Margin="0,3,10,2"
+                               Foreground="{DynamicResource SecondaryTextBrush}"/>
+                    <Button x:Name="ImportTmxBtn" Content="导入 TMX…" Style="{StaticResource JadeButton}"
+                            Click="Import_Click" Tag=".tmx" ToolTip="把 TMX 双语句对导入到选中记忆库（按该库语向匹配自动过滤）"/>
+                    <Button x:Name="ImportSdlBtn" Content="导入 SDLXLIFF…" Style="{StaticResource GhostButton}"
+                            Margin="8,0,0,0" Click="Import_Click" Tag=".sdlxliff"
+                            ToolTip="把已翻译的 SDLXLIFF 句对导入到选中记忆库"/>
+                    <Button x:Name="HelpBtn" Content="?" Style="{StaticResource GhostButton}" Width="28"
+                            FontWeight="Bold" Padding="0" Margin="14,0,0,0" Click="Help_Click"/>
+                </WrapPanel>
+                <Grid Grid.Row="1" Margin="0,8,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ProgressBar x:Name="ImportProgress" Grid.Column="0" Height="8" VerticalAlignment="Center"
+                                 Maximum="1" Visibility="Collapsed"/>
+                    <TextBlock x:Name="StatusText" Grid.Column="1" Style="{StaticResource Sub}"
+                               Text="请选择记忆库目录并扫描，或选一个库后导入 TMX / SDLXLIFF"
+                               TextTrimming="CharacterEllipsis" Margin="12,0,0,0"/>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

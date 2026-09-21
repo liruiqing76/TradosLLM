@@ -57,6 +57,12 @@
   <data name="Terminology_Action_Description" xml:space="preserve">
     <value>在独立页面维护译前/译后术语：增删改查、CSV 导入导出、模板下载</value>
   </data>
+  <data name="TmManager_Action_Name" xml:space="preserve">
+    <value>记忆库管理</value>
+  </data>
+  <data name="TmManager_Action_Description" xml:space="preserve">
+    <value>扫描本地记忆库、新建空库，把 TMX / SDLXLIFF 导入到指定语向的记忆库</value>
+  </data>
   <data name="Translation_Center_View_Name" xml:space="preserve">
     <value>Translation Center</value>
   </data>
