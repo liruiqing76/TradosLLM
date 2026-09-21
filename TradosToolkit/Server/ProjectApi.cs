@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Xml.Linq;
 using Sdl.Core.Globalization;
 using Sdl.ProjectAutomation.Core;
 using Sdl.ProjectAutomation.FileBased;
@@ -69,6 +71,10 @@ namespace TradosToolkit.Server
                     return HealthProbe.Build();
                 case "/api/glossary/backfill":
                     return BackfillGlossary(body);
+                case "/api/project/triage":
+                    return Triage(query);
+                case "/api/project/audit":
+                    return Audit(method, query);
                 default:
                     return ApiResult.Json(404, Error("未知端点 " + path));
             }
@@ -732,6 +738,271 @@ namespace TradosToolkit.Server
                 if (c != ' ' && !char.IsDigit(c)) return false;
             }
             return true;
+        }
+
+        /// <summary>
+        /// 按 query 选定目标文件并解析其双语参照文件，交给 handler；统一处理 多文件/无文件/双语未生成 三种失败。
+        /// </summary>
+        private static ApiResult WithTargetBilingual(
+            Dictionary<string, string> query,
+            Func<ProjectInfo, ProjectFile, string, List<BilingualSegment>, ApiResult> handler)
+        {
+            return WithProject(query, (project, info) =>
+            {
+                var targets = project.GetTargetLanguageFiles().ToList();
+                if (targets.Count == 0)
+                    return ApiResult.Json(400, Error("项目没有目标文件"));
+
+                ProjectFile file;
+                var wanted = query.TryGetValue("file", out var f) ? f : null;
+                if (string.IsNullOrEmpty(wanted))
+                {
+                    if (targets.Count > 1)
+                        return ApiResult.Json(400, Error("多个目标文件，请用 file 指定: " +
+                            string.Join("; ", targets.Select(t => t.Id + " = " + t.Name))));
+                    file = targets[0];
+                }
+                else
+                {
+                    file = targets.FirstOrDefault(t =>
+                        string.Equals(t.Id.ToString(), wanted, StringComparison.OrdinalIgnoreCase) ||
+                        string.Equals(t.Name, wanted, StringComparison.OrdinalIgnoreCase));
+                    if (file == null)
+                        return ApiResult.Json(404, Error("目标文件不存在: " + wanted));
+                }
+
+                var bp = ResolveBilingualPath(file, info);
+                if (bp == null)
+                    return ApiResult.Json(409, Error("双语参照文件尚未生成（请在 Studio 打开过该文件后重试）: " + file.Name));
+                return handler(info, file, bp, BilingualParser.Parse(bp));
+            });
+        }
+
+        /// <summary>源文归一化键：折叠空白 + 小写，用于重复检测/一致性分组。</summary>
+        private static string NormKey(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return string.Empty;
+            return Regex.Replace(s.Trim(), @"\s+", " ").ToLowerInvariant();
+        }
+
+        private static int CountChar(string s, char c)
+        {
+            int n = 0;
+            foreach (var x in s) if (x == c) n++;
+            return n;
+        }
+
+        /// <summary>单段分类：skip=可跳过(省成本) / chunk=超长 / highrisk=疑似异常 / normal=正常。reason 说明原因。</summary>
+        private static string TriageCategory(string src, out string reason)
+        {
+            reason = string.Empty;
+            var t = (src ?? string.Empty).Trim();
+            if (string.IsNullOrEmpty(t)) { reason = "空文本"; return "skip"; }
+
+            var hasLetter = false;
+            foreach (var c in t) if (char.IsLetter(c)) { hasLetter = true; break; }
+            if (!hasLetter) { reason = "纯数字/符号"; return "skip"; }
+
+            if (t.IndexOf("http://", StringComparison.OrdinalIgnoreCase) >= 0
+                || t.IndexOf("https://", StringComparison.OrdinalIgnoreCase) >= 0
+                || t.IndexOf("www.", StringComparison.OrdinalIgnoreCase) >= 0)
+            { reason = "URL"; return "skip"; }
+
+            if (CountChar(t, '(') != CountChar(t, ')') || CountChar(t, '[') != CountChar(t, ']')
+                || CountChar(t, '{') != CountChar(t, '}') || CountChar(t, '（') != CountChar(t, '）')
+                || CountChar(t, '「') != CountChar(t, '」') || CountChar(t, '“') != CountChar(t, '”')
+                || CountChar(t, '"') % 2 != 0)
+            { reason = "括号/引号不闭合"; return "highrisk"; }
+
+            if (t.IndexOf('\uFFFD') >= 0) { reason = "含替换字符(疑似乱码)"; return "highrisk"; }
+
+            if (t.Length > 200) { reason = "超长句(" + t.Length + "字)"; return "chunk"; }
+
+            return "normal";
+        }
+
+        /// <summary>
+        /// GET /api/project/triage?path=...&amp;file=&lt;可选&gt;
+        /// 翻译前智能分诊：给每条源段分类（skip/chunk/highrisk/normal + 重复次数），
+        /// 产出"重活 vs 白花钱"总结，开工前先看清这份活有多少重复可去重、多少异常要盯。纯本地、零 LLM、零依赖。
+        /// </summary>
+        private static ApiResult Triage(Dictionary<string, string> query)
+        {
+            return WithTargetBilingual(query, (info, file, bp, rows) =>
+            {
+                var lang = file.Language == null ? null : file.Language.IsoAbbreviation;
+                var counts = new Dictionary<string, int> { { "skip", 0 }, { "chunk", 0 }, { "highrisk", 0 }, { "normal", 0 } };
+
+                // pass1: 重复键频次
+                var repeatKey = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+                foreach (var seg in rows)
+                {
+                    var key = NormKey(seg.Source);
+                    repeatKey[key] = repeatKey.ContainsKey(key) ? repeatKey[key] + 1 : 1;
+                }
+
+                // pass2: 分类
+                var per = new List<Dictionary<string, object>>();
+                foreach (var seg in rows)
+                {
+                    var cat = TriageCategory(seg.Source, out var reason);
+                    if (counts.ContainsKey(cat)) counts[cat]++;
+                    var key = NormKey(seg.Source);
+                    per.Add(new Dictionary<string, object>
+                    {
+                        { "id", seg.Id }, { "source", seg.Source }, { "target", seg.Target },
+                        { "status", seg.Status }, { "category", cat }, { "reason", reason },
+                        { "repeat", repeatKey[key] },
+                    });
+                }
+
+                var repeatGroups = repeatKey.Where(kv => kv.Value >= 3)
+                    .OrderByDescending(kv => kv.Value).Take(30)
+                    .Select(kv => new Dictionary<string, object> { { "source", kv.Key }, { "count", kv.Value } })
+                    .ToList();
+
+                var highrisk = per.Where(p => (string)p["category"] == "highrisk").Take(50).ToList();
+                var chunks = per.Where(p => (string)p["category"] == "chunk").Take(30).ToList();
+
+                var summary = "共 " + rows.Count + " 段：正常 " + counts["normal"]
+                    + "；可跳过(省网关费) " + counts["skip"]
+                    + "；超长待分块 " + counts["chunk"]
+                    + "；疑似异常待人工 " + counts["highrisk"]
+                    + "；重复出现≥3次的源段 " + repeatGroups.Count + " 组。";
+
+                return ApiResult.Json(200, new Dictionary<string, object>
+                {
+                    { "project", info.Name }, { "file", file.Name }, { "language", lang },
+                    { "count", rows.Count }, { "summary", summary },
+                    { "categories", counts },
+                    { "repeatGroups", repeatGroups },
+                    { "highrisk", highrisk },
+                    { "chunks", chunks },
+                });
+            });
+        }
+
+        /// <summary>
+        /// GET /api/project/audit?path=...&amp;file=&lt;可选&gt;          → 一致性审计列表（只读）
+        /// POST /api/project/audit?path=...&amp;file=&lt;可选&gt;          → 对全部分歧组应用"统一为主流译法"
+        /// 同源文多次出现却译得不一样 → 分组列出分歧，POST 把少数派改写为主流译文（写入 .sdlxliff，先备份 .bak；
+        /// 目标文本含标签组的跳过列人工，避免误伤标签）。
+        /// </summary>
+        private static ApiResult Audit(string method, Dictionary<string, string> query)
+        {
+            var apply = string.Equals(method, "POST", StringComparison.OrdinalIgnoreCase);
+            return WithTargetBilingual(query, (info, file, bp, rows) =>
+            {
+                var lang = file.Language == null ? null : file.Language.IsoAbbreviation;
+                var byKey = new Dictionary<string, List<BilingualSegment>>(StringComparer.OrdinalIgnoreCase);
+                foreach (var seg in rows)
+                {
+                    if (string.IsNullOrWhiteSpace(seg.Target)) continue;
+                    var key = NormKey(seg.Source);
+                    if (!byKey.TryGetValue(key, out var l)) { l = new List<BilingualSegment>(); byKey[key] = l; }
+                    l.Add(seg);
+                }
+
+                var groups = new List<Dictionary<string, object>>();
+                foreach (var kv in byKey.OrderByDescending(k => k.Value.Count))
+                {
+                    var votes = new Dictionary<string, List<string>>(StringComparer.Ordinal);
+                    foreach (var seg in kv.Value)
+                    {
+                        var tv = seg.Target.Trim();
+                        if (!votes.TryGetValue(tv, out var ids)) { ids = new List<string>(); votes[tv] = ids; }
+                        ids.Add(seg.Id ?? string.Empty);
+                    }
+                    if (votes.Count < 2) continue;
+
+                    var ordered = votes.OrderByDescending(v => v.Value.Count).ToList();
+                    var majority = ordered[0];
+                    var needsManual = kv.Value.Any(s => s.Target.IndexOf('<') >= 0);
+                    groups.Add(new Dictionary<string, object>
+                    {
+                        { "source", kv.Key },
+                        { "occurrences", kv.Value.Count },
+                        { "distinctTranslations", ordered.Count },
+                        { "needsManual", needsManual },
+                        { "majorityTarget", majority.Key },
+                        { "votes", ordered.Select(v => new Dictionary<string, object>
+                            {
+                                { "target", v.Key }, { "count", v.Value.Count }, { "segIds", v.Value },
+                            }).ToList() },
+                    });
+                }
+
+                if (!apply)
+                    return ApiResult.Json(200, new Dictionary<string, object>
+                    {
+                        { "project", info.Name }, { "file", file.Name }, { "language", lang },
+                        { "segments", rows.Count },
+                        { "divergentGroups", groups.Count },
+                        { "needsManual", groups.Count(g => (bool)g["needsManual"]) },
+                        { "groups", groups.Take(100).ToList() },
+                    });
+
+                return ApplyUniform(bp, groups);
+            });
+        }
+
+        /// <summary>把分歧组的少数派译文改写为组内主流译文。纯文本目标才改写；备份 .bak 后再保存。</summary>
+        private static ApiResult ApplyUniform(string bp, List<Dictionary<string, object>> groups)
+        {
+            if (groups.Count == 0)
+                return ApiResult.Json(200, new Dictionary<string, object> { { "applied", 0 }, { "skippedTags", 0 } });
+
+            XDocument doc;
+            try { doc = XDocument.Load(bp); }
+            catch (Exception e) { return ApiResult.Json(500, Error("解析双语文件失败: " + e.Message)); }
+
+            var backup = bp + ".bak";
+            var applied = 0;
+            var skippedTags = 0;
+            var missing = 0;
+
+            foreach (var g in groups)
+            {
+                if ((bool)g["needsManual"]) { skippedTags++; continue; }
+                var majority = (string)g["majorityTarget"];
+                var votes = g["votes"] as List<Dictionary<string, object>>;
+                if (votes == null) continue;
+                foreach (var v in votes)
+                {
+                    var target = (string)v["target"];
+                    if (string.Equals(target, majority, StringComparison.Ordinal)) continue;
+                    var segIds = v["segIds"] as List<string>;
+                    if (segIds == null) continue;
+                    foreach (var id in segIds)
+                    {
+                        var tu = doc.Descendants().FirstOrDefault(e =>
+                            e.Name.LocalName == "trans-unit" && (string)e.Attribute("id") == id);
+                        if (tu == null) { missing++; continue; }
+                        var tgtEl = tu.Elements().FirstOrDefault(e => e.Name.LocalName == "target");
+                        if (tgtEl == null) { missing++; continue; }
+                        tgtEl.RemoveNodes();
+                        tgtEl.Add(new XText(majority));
+                        applied++;
+                    }
+                }
+            }
+
+            if (applied == 0)
+                return ApiResult.Json(200, new Dictionary<string, object> { { "applied", 0 }, { "skippedTags", skippedTags } });
+
+            try { File.Copy(bp, backup, true); }
+            catch (IOException e) { return ApiResult.Json(409, Error("原文件备份失败(可能被 Studio 占用): " + e.Message)); }
+
+            try { doc.Save(bp, SaveOptions.DisableFormatting); }
+            catch (IOException e) { return ApiResult.Json(409, Error("写入失败(文件被 Studio 占用，请关闭该文件后重试): " + e.Message)); }
+
+            return ApiResult.Json(200, new Dictionary<string, object>
+            {
+                { "applied", applied }, { "skippedTags", skippedTags }, { "missingIds", missing },
+                { "backup", backup },
+                { "message", "已统一 " + applied + " 处译文；含标签分歧组自动跳过 " + skippedTags +
+                             " 组(列人工)；原文件已备份到 .bak，请在 Studio 重新打开该文件生效。预览/应用的是目标文本，不含内部标签语义。" },
+            });
         }
 
         /// <summary>

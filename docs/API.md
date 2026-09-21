@@ -178,6 +178,48 @@ curl -s -X POST "http://localhost:53902/api/project/task?path=D:\\demo.sdlp&task
 
 质量标准：只取两侧都出现 ≥2 次且共现覆盖度 ≥0.5 的稳定短语对；纯数字/品牌直译对（两侧相同）跳过。抽取结果默认进入译前约束与 QA 术语检查，强烈建议先在术语管理界面复核。
 
+## GET /api/project/triage?path=…&file=可选
+
+翻译前智能分诊（只读、零 LLM、零依赖）。按双语参照文件给每条源段分类并统计"重活 vs 白花钱"：
+
+- 分类：`skip`(空/纯数字符号/URL，可省网关费) / `chunk`(超长>200字，待分块) / `highrisk`(括号引号不闭合、含替换字符疑似乱码，待人工) / `normal`
+- 每条给 `repeat`(该源文在本文件出现次数)，并列出 `repeatGroups`(出现≥3次的源段)、高风险的 `highrisk`、超长的 `chunks`
+
+```json
+{ "project": "…", "file": "a.docx", "language": "ru-RU", "count": 100,
+  "summary": "共 100 段：正常 80；可跳过(省网关费) 10；超长待分块 5；疑似异常待人工 2；重复出现≥3次的源段 6 组。",
+  "categories": { "skip": 10, "chunk": 5, "highrisk": 2, "normal": 80 },
+  "repeatGroups": [ { "source": "Getting Started", "count": 12 } ],
+  "highrisk":  [ { "id": "…", "source": "…", "target": "…", "status": "…", "category": "highrisk", "reason": "括号/引号不闭合", "repeat": 1 } ],
+  "chunks":    [ … ] }
+```
+
+`file` 缺省 = 唯一目标文件（多目标必填，用法同 segments）。双语未生成时 409。
+
+## GET|POST /api/project/audit?path=…&file=可选
+
+全文术语/译文一致性审计 + 一键统一。
+
+**GET（只读）**：把"同一源文多次出现却译得不一样"的分歧组列出来。每组含 `source`、`occurrences`、`distinctTranslations`、`majorityTarget`(主流译法)、`needsManual`(组内含标签，不能自动改) 与 `votes`(各译法 + 命中 segId 列表)。
+
+```json
+{ "project": "…", "file": "a.docx", "language": "ru-RU", "segments": 100,
+  "divergentGroups": 12, "needsManual": 3,
+  "groups": [ { "source": "scope covers", "occurrences": 8, "distinctTranslations": 2,
+                "needsManual": false, "majorityTarget": "范围涵盖",
+                "votes": [ { "target": "范围涵盖", "count": 6, "segIds": ["sg1","sg2"] },
+                           { "target": "涉及到",   "count": 2, "segIds": ["sg7"] } ] } ] }
+```
+
+**POST**：作用于全部分歧组——把每组**少数派译文**改写为组内主流译文，写入 `.sdlxliff`（先备份 `.bak`；目标文本含标签的分歧组自动跳过列人工，避免误伤标签）。原文件备份为 `.bak` 后保存，Studio 需重新打开该文件生效。
+
+```json
+{ "applied": 6, "skippedTags": 3, "missingIds": 0, "backup": "D:\\…\\a.docx.sdlxliff.bak",
+  "message": "已统一 6 处译文；含标签分歧组自动跳过 3 组(列人工)；原文件已备份到 .bak，请在 Studio 重新打开该文件生效。…" }
+```
+
+> 注意：POST 是**就地改写目标文本**（仅文本、不含内部标签语义）。生产环境建议先 GET 审阅分歧列表、确认主译法合理，再决定是否 POST；随时可从 `.bak` 回滚。
+
 ## GET /api/project/tmfiles?path=…
 
 项目目录下全部主 TM。
