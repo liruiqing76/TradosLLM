@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         Title="TradosToolkit 记忆库管理"
-        Width="960" Height="600" MinWidth="780" MinHeight="520"
+        Width="1180" Height="760" MinWidth="980" MinHeight="640"
         FontFamily="Microsoft YaHei UI, Segoe UI" FontSize="13"
         WindowStartupLocation="CenterScreen"
         TextOptions.TextFormattingMode="Ideal" UseLayoutRounding="True"

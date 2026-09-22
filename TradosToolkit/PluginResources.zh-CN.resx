@@ -243,6 +243,12 @@
   <data name="WB_Mem_New_Tgt" xml:space="preserve">
     <value>目标语言</value>
   </data>
+  <data name="WB_Mem_New_Dir" xml:space="preserve">
+    <value>保存目录</value>
+  </data>
+  <data name="WB_Mem_New_DirHint" xml:space="preserve">
+    <value>留空则使用记忆库目录</value>
+  </data>
   <data name="WB_Mem_Ok" xml:space="preserve">
     <value>确定</value>
   </data>

@@ -119,8 +119,10 @@ namespace TradosToolkit.TranslationProvider.UI
         {
             string filePath, name;
             System.Globalization.CultureInfo s, t;
-            if (!TmToolDialogs.CreateTm(this, out filePath, out name, out s, out t)) return;
+            // 传当前目录作兜底：对话框里"保存目录"留空即建在这里
+            if (!TmToolDialogs.CreateTm(this, out filePath, out name, out s, out t, TmDirBox.Text.Trim())) return;
             TmDirBox.Text = Path.GetDirectoryName(filePath);
+            StatusText.Text = "已新建空记忆库：" + name + "（" + s.Name + " → " + t.Name + "）";
             Scan_Click(null, null);
         }
 
@@ -199,7 +201,8 @@ namespace TradosToolkit.TranslationProvider.UI
                 "记忆库管理说明：\n· 扫描：把目录（含子目录）里的 .sdltm 列出来。\n" +
                 "· 导入 TMX / SDLXLIFF：先在列表选中一个可用记忆库作目标（语向=该库的语言对）。\n" +
                 "  文件里语向不匹配的句对会跳过；含内联结构标签（保护占位）的段跳过不破坏。\n" +
-                "· 新建空库：在当前目录创建空记忆库，建好后可继续向其导入。",
+                "· 新建空库：选源/目标语言（下拉内可搜索）与保存目录，名称默认=目标语言英文全称_源语言缩略语_目标语言缩略语，\n" +
+                "  保存目录留空就建在当前记忆库目录；建好后可继续向其导入。",
                 "记忆库管理", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 

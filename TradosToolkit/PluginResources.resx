@@ -276,6 +276,12 @@
   <data name="WB_Mem_New_Tgt" xml:space="preserve">
     <value>Target language</value>
   </data>
+  <data name="WB_Mem_New_Dir" xml:space="preserve">
+    <value>Save folder</value>
+  </data>
+  <data name="WB_Mem_New_DirHint" xml:space="preserve">
+    <value>Leave empty to use the TM folder</value>
+  </data>
   <data name="WB_Mem_Ok" xml:space="preserve">
     <value>OK</value>
   </data>

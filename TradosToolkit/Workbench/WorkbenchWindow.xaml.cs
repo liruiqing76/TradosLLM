@@ -529,7 +529,8 @@ namespace TradosToolkit.Workbench
 
         private void NewTm_Click(object sender, RoutedEventArgs e)
         {
-            if (!TmToolDialogs.CreateTm(this, out var path, out var name, out var src, out var tgt)) return;
+            if (!TmToolDialogs.CreateTm(this, out var path, out var name, out var src, out var tgt,
+                    ToolkitConfig.Load().TmScanDirectory)) return;
             TmStatusText.Text = UiText.Tf("WB_Mem_Result_New", name);
             ToolkitLog.Info("工作台：新建记忆库完成 " + path + " " + src.Name + "→" + tgt.Name);
             _ = RescanAfterOpAsync();

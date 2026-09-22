@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         Title="TradosToolkit 术语管理"
-        Width="1080" Height="580" MinWidth="880" MinHeight="520"
+        Width="1180" Height="760" MinWidth="980" MinHeight="640"
         FontFamily="Microsoft YaHei UI, Segoe UI" FontSize="13"
         WindowStartupLocation="CenterScreen"
         TextOptions.TextFormattingMode="Ideal" UseLayoutRounding="True"
