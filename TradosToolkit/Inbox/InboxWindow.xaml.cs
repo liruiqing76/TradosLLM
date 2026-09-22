@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
+using TradosToolkit.Common;
 using TradosToolkit.Diagnostics;
 using TradosToolkit.Workbench;
 
@@ -30,15 +30,6 @@ namespace TradosToolkit.Inbox
         private string _lastTgt = "en-US";
         private InboxJob _selected;
 
-        /// <summary>语言下拉项：显示名+代码，选中带回 Code（SelectedValuePath=Code）。</summary>
-        private class LangItem
-        {
-            public string Code { get; set; }
-            public string Label { get; set; }
-            // 无 DisplayMemberPath 时，输入框回显走 ToString
-            public override string ToString() => Label;
-        }
-
         public InboxWindow()
         {
             InitializeComponent();
@@ -49,8 +40,8 @@ namespace TradosToolkit.Inbox
             InboxJob.UiDispatcher = Dispatcher;
             InboxWatcher.Instance.JobCreated += OnJobCreated;
 
-            // 语言下拉：与术语管理同一套「下拉内搜索框」，覆盖全部语种
-            _langs = BuildLanguages();
+            // 语言下拉：与术语管理共用同一份进程级缓存清单（LanguageCatalog）
+            _langs = LanguageCatalog.All();
             AttachLangFilter(SrcCombo);
             AttachLangFilter(TgtCombo);
 
@@ -244,36 +235,6 @@ namespace TradosToolkit.Inbox
                     if (item != null) combo.SelectedItem = item;
                 }
             };
-        }
-
-        /// <summary>枚举 Studio 支持的全部语言，英文化名并按名称排序；进程级缓存，二次打开不再重复枚举。</summary>
-        private static List<LangItem> _langsCache;
-        private static List<LangItem> BuildLanguages()
-        {
-            if (_langsCache != null) return _langsCache;
-            var list = new List<LangItem>();
-            try
-            {
-                IEnumerable<Sdl.Core.Globalization.Language> all =
-                    Sdl.Core.Globalization.Language.GetAllLanguages();
-                foreach (var l in all)
-                {
-                    var code = l.IsoAbbreviation;
-                    var name = l.IsoAbbreviation;
-                    try { name = new CultureInfo(code.Replace("_", "-")).EnglishName; }
-                    catch (Exception) { name = code; }
-                    list.Add(new LangItem { Code = code, Label = name + "  ·  " + code });
-                }
-                if (list.Count == 0) throw new Exception("Studio 语言清单为空");
-            }
-            catch (Exception ex)
-            {
-                ToolkitLog.Error("收件箱：枚举 Studio 语言失败", ex);
-                // 回退：至少给出常用中英两种，保证界面可用
-                list.Add(new LangItem { Code = "zh-CN", Label = "Chinese simplified  ·  zh-CN" });
-                list.Add(new LangItem { Code = "en-US", Label = "English (US)  ·  en-US" });
-            }
-            return _langsCache = list.OrderBy(l => l.Label).ToList();
         }
 
         // ==================== 启停 / 处理 ====================

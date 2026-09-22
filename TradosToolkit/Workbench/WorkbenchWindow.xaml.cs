@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
+using TradosToolkit.Common;
 using TradosToolkit.Diagnostics;
 using TradosToolkit.EditorPanel;
 using TradosToolkit.Server;
@@ -68,7 +69,7 @@ namespace TradosToolkit.Workbench
             _tickTimer.Interval = TimeSpan.FromSeconds(1);
             _tickTimer.Tick += (s, e) => UpdateTestProgress();
             TmDirBox.Text = ToolkitConfig.Load().TmScanDirectory;
-            DomCombo.ItemsSource = Glossaries.DomainTree.Flatten(Glossaries.DomainTree.Defaults());
+            DomCombo.ItemsSource = DomainCatalog.Names();
             var cfgDomain = ToolkitConfig.Load().Domain;
             DomCombo.SelectedItem = DomCombo.Items.OfType<string>()
                 .FirstOrDefault(d => string.Equals(d, cfgDomain, StringComparison.OrdinalIgnoreCase))

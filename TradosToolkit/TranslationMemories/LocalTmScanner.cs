@@ -5,6 +5,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Sdl.LanguagePlatform.TranslationMemoryApi;
+using TradosToolkit.Common;
 using TradosToolkit.Diagnostics;
 
 namespace TradosToolkit.TranslationMemories
@@ -125,11 +126,7 @@ namespace TradosToolkit.TranslationMemories
 
         public static string HumanSize(long bytes)
         {
-            string[] units = { "B", "KB", "MB", "GB" };
-            int u = 0;
-            double v = bytes;
-            while (v >= 1024 && u < units.Length - 1) { v /= 1024; u++; }
-            return (u == 0 ? v.ToString("0") : v.ToString("0.0")) + " " + units[u];
+            return FileKit.HumanSize(bytes);
         }
     }
 }

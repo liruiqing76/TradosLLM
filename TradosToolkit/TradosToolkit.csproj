@@ -116,6 +116,11 @@
     <Compile Include="PluginResources.Designer.cs" />
     <Compile Include="ToolkitConfig.cs" />
     <Compile Include="UiText.cs" />
+    <Compile Include="Common\Cache\MemoryCache.cs" />
+    <Compile Include="Common\Text\StringKit.cs" />
+    <Compile Include="Common\IO\FileKit.cs" />
+    <Compile Include="Common\Catalog\LanguageCatalog.cs" />
+    <Compile Include="Common\Catalog\DomainCatalog.cs" />
     <Compile Include="TranslationMemories\LocalTmScanner.cs" />
     <Compile Include="TranslationMemories\TmToolkit.cs" />
     <Compile Include="Workbench\TmToolDialogs.cs" />

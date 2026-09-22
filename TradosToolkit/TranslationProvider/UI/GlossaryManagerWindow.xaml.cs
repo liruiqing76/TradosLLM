@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 using Microsoft.Win32;
+using TradosToolkit.Common;
 using TradosToolkit.Diagnostics;
 using TradosToolkit.Glossaries;
 
@@ -30,15 +30,6 @@ namespace TradosToolkit.TranslationProvider.UI
         private readonly GlossaryDb _db;
         private readonly SqliteGlossaryProvider _provider;
         private readonly List<LangItem> _langs;
-
-        /// <summary>下拉项：显示中文名+代码，选中带回 IsoAbbreviation。</summary>
-        private class LangItem
-        {
-            public string Code { get; set; }
-            public string Label { get; set; }
-            // 可编辑组合框选中后的输入框文本走 ToString（无 DisplayMemberPath 时）
-            public override string ToString() => Label;
-        }
 
         public static void ShowOrActivate()
         {
@@ -96,11 +87,11 @@ namespace TradosToolkit.TranslationProvider.UI
             InputProbe.Attach(this); // 键盘链路探针（诊断 Studio 下英文敲不进）
             _db = new GlossaryDb();
             _provider = provider;
-            _langs = BuildLanguages();
+            _langs = LanguageCatalog.All();
             // 语言下拉"下拉内搜索框"：点开下拉顶部即见输入框，各挂独立 ListCollectionView，只改 Filter 不换 ItemsSource
             AttachLangFilter(SrcCombo);
             AttachLangFilter(TgtCombo);
-            DomCombo.ItemsSource = DomainTree.Flatten(DomainTree.Defaults());
+            DomCombo.ItemsSource = DomainCatalog.Names();
 
             // 领域默认取全局配置（工作台里切换的领域），保证术语管理与翻译插件同一领域
             var cfgDomain = ToolkitConfig.Load().Domain;
@@ -209,36 +200,6 @@ namespace TradosToolkit.TranslationProvider.UI
 
         private ObservableCollection<GlossaryEntry> Terms { get; set; }
         private List<GlossaryEntry> _allTerms = new List<GlossaryEntry>();
-
-        /// <summary>枚举 Studio 支持的全部语言，中文化名并按代码排序；进程级缓存，二次打开窗口不再重复枚举。</summary>
-        private static List<LangItem> _langsCache;
-        private List<LangItem> BuildLanguages()
-        {
-            if (_langsCache != null) return _langsCache;
-            var list = new List<LangItem>();
-            try
-            {
-                IEnumerable<Sdl.Core.Globalization.Language> all =
-                    Sdl.Core.Globalization.Language.GetAllLanguages();
-                foreach (var l in all)
-                {
-                    var code = l.IsoAbbreviation;
-                    var name = l.IsoAbbreviation;
-                    try { name = new CultureInfo(code.Replace("_", "-")).EnglishName; }
-                    catch (Exception) { name = code; }
-                    list.Add(new LangItem { Code = code, Label = name + "  ·  " + code });
-                }
-                if (list.Count == 0) throw new Exception("Studio 语言清单为空");
-            }
-            catch (Exception ex)
-            {
-                ToolkitLog.Error("术语管理：枚举 Studio 语言失败", ex);
-                // 回退：至少给出常用中英两种，保证界面可用
-                list.Add(new LangItem { Code = "zh-CN", Label = "Chinese simplified  ·  zh-CN" });
-                list.Add(new LangItem { Code = "en-US", Label = "English (US)  ·  en-US" });
-            }
-            return _langsCache = list.OrderBy(l => l.Label).ToList();
-        }
 
         /// <summary>取当前项目的源/目标语言；只能从 Studio UI 线程调用（宿主自动化对象跨线程不可用）。</summary>
         private static void TryFillProjectLanguages(ref string src, ref string tgt)
@@ -379,7 +340,7 @@ namespace TradosToolkit.TranslationProvider.UI
 
         private string KindLabel => IsPost ? "译后" : "译前";
         private string PairLabel => string.Format("{0} → {1}", Src, Tgt);
-        private List<string> DomainList => DomainTree.Flatten(DomainTree.Defaults());
+        private List<string> DomainList => DomainCatalog.Names();
 
         private void DeleteTerms(object sender, RoutedEventArgs e)
         {

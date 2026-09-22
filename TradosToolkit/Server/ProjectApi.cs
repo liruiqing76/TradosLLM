@@ -9,6 +9,7 @@ using Sdl.Core.Globalization;
 using Sdl.ProjectAutomation.Core;
 using Sdl.ProjectAutomation.FileBased;
 using Sdl.TranslationStudioAutomation.IntegrationApi;
+using TradosToolkit.Common;
 using TradosToolkit.Diagnostics;
 using TradosToolkit.Glossaries;
 using TradosToolkit.TranslationProvider.Engines;
@@ -753,7 +754,7 @@ namespace TradosToolkit.Server
         {
             return ApiResult.Json(200, new Dictionary<string, object>
             {
-                { "domains", DomainTree.Defaults() },
+                { "domains", DomainCatalog.Tree() },
             });
         }
 
@@ -1614,9 +1615,7 @@ namespace TradosToolkit.Server
 
         internal static string SanitizeFileName(string name)
         {
-            foreach (var c in Path.GetInvalidFileNameChars())
-                name = name.Replace(c, '_');
-            return name;
+            return FileKit.SanitizeFileName(name, string.Empty);
         }
 
         /// <summary>
