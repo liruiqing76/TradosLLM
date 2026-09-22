@@ -35,7 +35,7 @@ namespace TradosToolkit.Inbox
 
                 // ---- 0 匹配本地记忆库 ----
                 current = 0;
-                job.BeginStep(0, "扫描本地记忆库目录…");
+                job.BeginStep(0, "查询本地记忆库索引…");
                 haveTm = TryMatchTm(cfg, job, out tmPath, out tmName);
 
                 // ---- 1 创建项目 ----
@@ -137,13 +137,11 @@ namespace TradosToolkit.Inbox
                 return false;
             }
 
-            var tms = LocalTmScanner.Scan(root, null, CancellationToken.None);
-            var hit = tms.FirstOrDefault(t => t.State == LocalTmState.Ok &&
-                                              string.Equals(t.LanguagePair, want, StringComparison.OrdinalIgnoreCase));
+            var hit = LocalTmIndex.FindByLanguagePair(root, want, CancellationToken.None);
             if (hit == null)
             {
                 job.SkipStep(0, "未找到语言对 " + want + " 的可用本地库");
-                job.AppendLog("未找到匹配的本地记忆库：" + want + "（已扫描 " + tms.Count + " 个）。");
+                job.AppendLog("未找到匹配的本地记忆库：" + want + "。");
                 return false;
             }
 

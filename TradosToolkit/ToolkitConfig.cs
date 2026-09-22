@@ -53,6 +53,12 @@ namespace TradosToolkit
         public bool LlmDiskCacheEnabled = true;
         /// <summary>本地记忆库扫描目录（config.json 的 tmScanDirectory，工作台"记忆库"页使用）。</summary>
         public string TmScanDirectory = string.Empty;
+        /// <summary>是否按天定时重建本地库索引（config.json 的 tmIndexAutoRefresh，缺省 false）。</summary>
+        public bool TmIndexAutoRefresh = false;
+        /// <summary>本地库索引每日重建时间（config.json 的 tmIndexRefreshTime，HH:mm，缺省 02:00）。</summary>
+        public string TmIndexRefreshTime = "02:00";
+        /// <summary>上次自动重建本地库索引的完成时间（config.json 的 tmIndexLastRun，ISO 字符串）。</summary>
+        public string TmIndexLastRun = string.Empty;
         /// <summary>收件箱（目录监视）监听的投放目录（config.json 的 inboxWatchFolder）。</summary>
         public string InboxWatchFolder = string.Empty;
         /// <summary>收件箱产出目录：每个任务一个子目录，放分析报告 / 交付包 / 匹配库（config.json 的 inboxOutputFolder）。</summary>
@@ -106,6 +112,15 @@ namespace TradosToolkit
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                          "TradosToolkit", "config.json");
 
+        /// <summary>校验 "HH:mm" 形式的每日时间（00:00–23:59）。</summary>
+        public static bool IsValidTime(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value)) return false;
+            return DateTime.TryParseExact(value.Trim(), new[] { "H:mm", "HH:mm" },
+                System.Globalization.CultureInfo.InvariantCulture,
+                System.Globalization.DateTimeStyles.None, out _);
+        }
+
         public static ToolkitConfig Load()
         {
             var config = new ToolkitConfig();
@@ -144,6 +159,12 @@ namespace TradosToolkit
                         config.LlmDiskCacheEnabled = Convert.ToBoolean(dc);
                     if (json.TryGetValue("tmScanDirectory", out var tsd) && tsd is string td)
                         config.TmScanDirectory = (td ?? string.Empty).Trim();
+                    if (json.TryGetValue("tmIndexAutoRefresh", out var tiar))
+                        config.TmIndexAutoRefresh = Convert.ToBoolean(tiar);
+                    if (json.TryGetValue("tmIndexRefreshTime", out var tirt) && tirt is string tirts)
+                        config.TmIndexRefreshTime = IsValidTime(tirts) ? tirts.Trim() : "02:00";
+                    if (json.TryGetValue("tmIndexLastRun", out var tilr) && tilr is string tilrs)
+                        config.TmIndexLastRun = (tilrs ?? string.Empty).Trim();
                     if (json.TryGetValue("inboxWatchFolder", out var iwf) && iwf is string iwfs)
                         config.InboxWatchFolder = (iwfs ?? string.Empty).Trim();
                     if (json.TryGetValue("inboxOutputFolder", out var iof) && iof is string iofs)
@@ -256,7 +277,9 @@ namespace TradosToolkit
                                string inboxWatchFolder = null, string inboxOutputFolder = null,
                                string inboxProjectRoot = null, string inboxSourceLang = null,
                                string inboxTargetLang = null, bool? inboxAutoStart = null,
-                               string inboxReportFormat = null)
+                               string inboxReportFormat = null,
+                               bool? tmIndexAutoRefresh = null, string tmIndexRefreshTime = null,
+                               string tmIndexLastRun = null)
         {
             try
             {
@@ -270,6 +293,10 @@ namespace TradosToolkit
                 if (llmModel != null) doc["llmModel"] = llmModel;
                 if (translationCenterUrl != null) doc["translationCenterUrl"] = translationCenterUrl;
                 if (tmScanDirectory != null) doc["tmScanDirectory"] = tmScanDirectory;
+                if (tmIndexAutoRefresh != null) doc["tmIndexAutoRefresh"] = tmIndexAutoRefresh.Value;
+                if (tmIndexRefreshTime != null)
+                    doc["tmIndexRefreshTime"] = IsValidTime(tmIndexRefreshTime) ? tmIndexRefreshTime.Trim() : "02:00";
+                if (tmIndexLastRun != null) doc["tmIndexLastRun"] = tmIndexLastRun;
                 if (termBaseUrl != null) doc["termBaseUrl"] = termBaseUrl;
                 if (domain != null) doc["domain"] = domain;
                 if (inboxWatchFolder != null) doc["inboxWatchFolder"] = inboxWatchFolder;

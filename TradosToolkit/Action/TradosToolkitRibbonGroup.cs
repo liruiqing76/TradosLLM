@@ -21,6 +21,7 @@ namespace TradosToolkit.Action
             ToolkitLog.Info("Ribbon 组实例化，启动 API 服务");
             ToolkitApiServer.Instance.EnsureStarted();
             InboxWatcher.Instance.AutoStart();
+            TranslationMemories.TmIndexScheduler.Start();
         }
     }
 }

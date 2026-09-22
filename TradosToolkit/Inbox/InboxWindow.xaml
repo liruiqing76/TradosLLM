@@ -190,8 +190,10 @@
                 <WrapPanel Margin="0,10,0,0">
                     <TextBlock Style="{StaticResource Label}" Text="本地库目录"/>
                     <TextBox x:Name="TmBox" Width="260" Height="30" VerticalAlignment="Center"
-                             ToolTip="从这个目录（含子目录）里挑语言对匹配的 .sdltm 套进项目"/>
+                             ToolTip="从这个目录（含子目录）里挑语言对匹配的 .sdltm 套进项目；结果缓存在共享索引里，逐任务不再全盘扫描"/>
                     <Button Content="浏览" Style="{StaticResource GhostButton}" Margin="8,0,0,0" Click="BrowseTm_Click"/>
+                    <Button Content="刷新库索引" Style="{StaticResource GhostButton}" Margin="8,0,0,0" Click="RefreshIndex_Click"
+                            ToolTip="全量重扫本地库目录并写入共享索引；平时无需点，索引会按文件时间增量刷新"/>
                     <TextBlock Style="{StaticResource Label}" Text="源语言" Margin="18,0,8,0"/>
                     <ComboBox x:Name="SrcCombo" Width="150" Style="{StaticResource LangSearchCombo}"
                               SelectedValuePath="Code" SelectionChanged="LangChanged"

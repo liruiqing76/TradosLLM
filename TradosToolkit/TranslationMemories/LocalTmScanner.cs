@@ -62,7 +62,7 @@ namespace TradosToolkit.TranslationMemories
             return result;
         }
 
-        private static LocalTmInfo ReadOne(string path)
+        internal static LocalTmInfo ReadOne(string path)
         {
             var info = new LocalTmInfo
             {

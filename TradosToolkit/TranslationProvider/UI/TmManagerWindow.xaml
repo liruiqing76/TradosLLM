@@ -66,6 +66,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -99,8 +100,37 @@
             </WrapPanel>
         </Border>
 
+        <!-- 定时刷新本地库索引 -->
+        <Border Grid.Row="2" Style="{StaticResource Tile}" Margin="0,0,0,12">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <WrapPanel Grid.Row="0">
+                    <TextBlock Text="定时刷新本地库数据" VerticalAlignment="Center" Margin="0,3,10,2"
+                               Foreground="{DynamicResource SecondaryTextBrush}"/>
+                    <CheckBox x:Name="AutoRefreshBox" Content="启用每日自动重建索引" VerticalAlignment="Center"
+                              Checked="Scheduler_Changed" Unchecked="Scheduler_Changed"
+                              ToolTip="按设定时间每天重建一次共享索引（记忆库管理与收件箱共用），到点由插件后台线程执行"/>
+                    <TextBlock Text="每日时间" VerticalAlignment="Center" Margin="18,3,8,2"
+                               Foreground="{DynamicResource SecondaryTextBrush}"/>
+                    <TextBox x:Name="RefreshTimeBox" Width="70" Height="30" VerticalAlignment="Center"
+                             Text="02:00" ToolTip="24 小时制 HH:mm，例如 02:00、22:30"
+                             TextChanged="RefreshTime_Changed"/>
+                    <Button x:Name="RunNowBtn" Content="立即重建" Style="{StaticResource GhostButton}"
+                            Margin="10,0,0,0" Click="RunIndexNow_Click"
+                            ToolTip="不等定时，马上全量重建一次共享索引"/>
+                    <TextBlock x:Name="NextRunText" Style="{StaticResource Sub}" VerticalAlignment="Center"
+                               Margin="14,0,0,0" Text="定时未启用"/>
+                </WrapPanel>
+                <TextBlock x:Name="SchedulerHint" Grid.Row="1" Style="{StaticResource Sub}" Margin="0,8,0,0"
+                           Text="提示：启用后每天到点自动重建；同一自然日只跑一次。重建期间收件箱查索引不受影响。"/>
+            </Grid>
+        </Border>
+
         <!-- 记忆库列表 -->
-        <Border Grid.Row="2" Style="{StaticResource Tile}">
+        <Border Grid.Row="3" Style="{StaticResource Tile}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -128,7 +158,7 @@
         </Border>
 
         <!-- 操作 / 导入 -->
-        <Border Grid.Row="3" Style="{StaticResource Tile}" Margin="0,12,0,0">
+        <Border Grid.Row="4" Style="{StaticResource Tile}" Margin="0,12,0,0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>

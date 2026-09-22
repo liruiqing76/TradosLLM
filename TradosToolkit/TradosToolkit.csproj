@@ -122,6 +122,8 @@
     <Compile Include="Common\Catalog\LanguageCatalog.cs" />
     <Compile Include="Common\Catalog\DomainCatalog.cs" />
     <Compile Include="TranslationMemories\LocalTmScanner.cs" />
+    <Compile Include="TranslationMemories\LocalTmIndex.cs" />
+    <Compile Include="TranslationMemories\TmIndexScheduler.cs" />
     <Compile Include="TranslationMemories\TmToolkit.cs" />
     <Compile Include="Workbench\TmToolDialogs.cs" />
     <Compile Include="Diagnostics\ToolkitLog.cs" />

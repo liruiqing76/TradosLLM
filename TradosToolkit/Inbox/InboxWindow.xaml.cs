@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Threading;
 using TradosToolkit.Common;
 using TradosToolkit.Diagnostics;
+using TradosToolkit.TranslationMemories;
 using TradosToolkit.Workbench;
 
 namespace TradosToolkit.Inbox
@@ -387,6 +388,30 @@ namespace TradosToolkit.Inbox
         private void BrowseOutput_Click(object sender, RoutedEventArgs e) => PickFolder(OutputBox, "选择产出目录");
         private void BrowseTm_Click(object sender, RoutedEventArgs e) => PickFolder(TmBox, "选择本地记忆库目录");
 
+        /// <summary>全量重扫本地库目录并写入共享索引（平时无需点，索引会按文件时间增量刷新）。</summary>
+        private async void RefreshIndex_Click(object sender, RoutedEventArgs e)
+        {
+            var dir = (TmBox.Text ?? string.Empty).Trim();
+            if (string.IsNullOrEmpty(dir) || !Directory.Exists(dir))
+            {
+                StateText.Text = "本地库目录不存在：" + dir;
+                return;
+            }
+            StateText.Text = "正在重建库索引（" + dir + "）…";
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                var list = await System.Threading.Tasks.Task.Run(
+                    () => LocalTmIndex.Refresh(dir, null, System.Threading.CancellationToken.None));
+                StateText.Text = string.Format("库索引已更新：{0} 个记忆库，耗时 {1:0.0}s（收件箱逐任务直接复用）",
+                    list.Count, watch.ElapsedMilliseconds / 1000.0);
+            }
+            catch (Exception ex)
+            {
+                StateText.Text = "重建库索引失败：" + ex.Message;
+            }
+        }
+
         private void PickFolder(TextBox box, string title)
         {
             var dlg = new System.Windows.Forms.FolderBrowserDialog
@@ -411,6 +436,9 @@ namespace TradosToolkit.Inbox
                 "· 每个文件产出三件套：分析报告(Trados 原生报告另存为) + 交付包(.sdlppx) + 匹配到的本地库(.sdltm)。\n" +
                 "· 报告格式：可选 Excel(.xls)/XML/HTML/MHT，默认 Excel；改后随配置保存并立即生效，无需重启监视。\n" +
                 "· 本地库目录：从该目录（含子目录）里挑与「源/目标语言」语言对一致、可写的 .sdltm 套进项目并预翻译。\n" +
+                "· 库索引：扫描结果缓存在共享索引里（与「记忆库管理」同一份，%APPDATA%\\TradosToolkit\\tm-index.json），\n" +
+                "  每个任务只查索引、不再全盘扫描；索引按文件时间增量刷新。共享目录首次较慢，之后基本瞬时。\n" +
+                "  需要强制重建时点「刷新库索引」，或在「记忆库管理」里点「扫描」。\n" +
                 "· 源/目标语言：点开下拉，顶部输入框里敲代码或名称即可过滤（如 zh-CN、English），回车选中第一项；选中即保存并立即生效。\n" +
                 "· 「随插件自动开始监视」勾选后，每次打开 Studio 会自动开始监视。\n" +
                 "· 关掉本窗口不影响后台监视；处理进度仍在继续。",

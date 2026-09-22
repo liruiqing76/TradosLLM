@@ -25,6 +25,7 @@ namespace TradosToolkit.TranslationProvider.UI
         private static TmManagerWindow _instance;
         private readonly ObservableCollection<LocalTmInfo> _tms = new ObservableCollection<LocalTmInfo>();
         private CancellationTokenSource _cts;
+        private bool _loading;
 
         public TmManagerWindow()
         {
@@ -35,6 +36,15 @@ namespace TradosToolkit.TranslationProvider.UI
             TmDirBox.Text = string.IsNullOrWhiteSpace(cfg.TmScanDirectory)
                 ? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TradosToolkit")
                 : cfg.TmScanDirectory.Trim();
+
+            _loading = true;
+            AutoRefreshBox.IsChecked = cfg.TmIndexAutoRefresh;
+            RefreshTimeBox.Text = string.IsNullOrWhiteSpace(cfg.TmIndexRefreshTime) ? "02:00" : cfg.TmIndexRefreshTime;
+            _loading = false;
+            UpdateNextRunText();
+
+            TmIndexScheduler.Refreshed += OnSchedulerRefreshed;
+            Closed += (s, e) => TmIndexScheduler.Refreshed -= OnSchedulerRefreshed;
             UpdateImportState();
         }
 
@@ -98,10 +108,10 @@ namespace TradosToolkit.TranslationProvider.UI
             watch.Start();
             try
             {
-                var list = await Task.Run(() => LocalTmScanner.Scan(dir, null, cts.Token), CancellationToken.None);
+                var list = await Task.Run(() => LocalTmIndex.Refresh(dir, null, cts.Token), CancellationToken.None);
                 _tms.Clear();
                 foreach (var t in list) _tms.Add(t);
-                ShowBusy(false, string.Format("扫描完成：{0} 个记忆库，耗时 {1:0.0}s",
+                ShowBusy(false, string.Format("扫描完成：{0} 个记忆库，耗时 {1:0.0}s（已写入共享索引，收件箱直接复用）",
                     _tms.Count, watch.ElapsedMilliseconds / 1000.0));
             }
             catch (OperationCanceledException)
@@ -182,6 +192,8 @@ namespace TradosToolkit.TranslationProvider.UI
                 item.Units = CountUnits(item.FilePath);
                 item.Modified = File.Exists(item.FilePath) ? File.GetLastWriteTime(item.FilePath) : item.Modified;
                 TmGrid.Items.Refresh();
+                // 导入改动了库 → 回写共享索引，收件箱下次查命中即用最新状态
+                LocalTmIndex.Upsert(item);
             }
         }
 
@@ -202,8 +214,86 @@ namespace TradosToolkit.TranslationProvider.UI
                 "· 导入 TMX / SDLXLIFF：先在列表选中一个可用记忆库作目标（语向=该库的语言对）。\n" +
                 "  文件里语向不匹配的句对会跳过；含内联结构标签（保护占位）的段跳过不破坏。\n" +
                 "· 新建空库：选源/目标语言（下拉内可搜索）与保存目录，名称默认=目标语言英文全称_源语言缩略语_目标语言缩略语，\n" +
-                "  保存目录留空就建在当前记忆库目录；建好后可继续向其导入。",
+                "  保存目录留空就建在当前记忆库目录；建好后可继续向其导入。\n" +
+                "· 定时刷新：勾选后每天到点由插件后台线程自动重建共享索引（%APPDATA%\\TradosToolkit\\tm-index.json），\n" +
+                "  记忆库管理与收件箱共用同一份；同一自然日只跑一次。需立即刷新可点「立即重建」。",
                 "记忆库管理", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        /// <summary>勾选/取消「每日自动重建索引」，以及时间变化时保存定时配置。</summary>
+        private void Scheduler_Changed(object sender, RoutedEventArgs e) => SaveScheduler();
+
+        private void RefreshTime_Changed(object sender, TextChangedEventArgs e) => SaveScheduler();
+
+        private void SaveScheduler()
+        {
+            if (_loading) return; // 初始化回填时不落盘
+            var enabled = AutoRefreshBox.IsChecked == true;
+            var time = (RefreshTimeBox.Text ?? string.Empty).Trim();
+            if (!ToolkitConfig.IsValidTime(time))
+            {
+                SchedulerHint.Text = "时间格式应为 24 小时制 HH:mm（如 08:30），当前值未保存。";
+                return;
+            }
+            ToolkitConfig.Save(tmIndexAutoRefresh: enabled, tmIndexRefreshTime: time);
+            SchedulerHint.Text = enabled
+                ? "已启用：每天 " + time + " 自动重建共享索引；同一自然日只跑一次。"
+                : "已停用每日定时；共享索引仍会在扫描/导入时按需更新。";
+            UpdateNextRunText();
+        }
+
+        private void UpdateNextRunText()
+        {
+            try
+            {
+                var cfg = ToolkitConfig.Load();
+                if (!cfg.TmIndexAutoRefresh)
+                {
+                    NextRunText.Text = "定时未启用";
+                    return;
+                }
+                var due = TmIndexScheduler.NextDue(cfg, DateTime.Now);
+                var last = TmIndexScheduler.LastRun;
+                var lastTxt = last == DateTime.MinValue ? "未运行过" : last.ToString("MM-dd HH:mm");
+                NextRunText.Text = due == null
+                    ? "下次运行：需先设置记忆库目录（上次 " + lastTxt + "）"
+                    : "下次运行：" + due.Value.ToString("MM-dd HH:mm") + "（上次 " + lastTxt + "）";
+            }
+            catch (Exception ex) { ToolkitLog.Error("更新下次运行时间失败", ex); }
+        }
+
+        /// <summary>不等定时，马上全量重建一次共享索引。</summary>
+        private async void RunIndexNow_Click(object sender, RoutedEventArgs e)
+        {
+            var dir = TmDirBox.Text.Trim();
+            if (!Directory.Exists(dir)) { StatusText.Text = "目录不存在: " + dir; return; }
+            if (AutoRefreshBox.IsChecked == true && ToolkitConfig.IsValidTime(RefreshTimeBox.Text.Trim()))
+                ToolkitConfig.Save(tmScanDirectory: dir); // 定时启用时，确保定时用的是同一个目录
+            ShowBusy(true, "正在重建共享索引 " + dir + " …");
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                var list = await Task.Run(() => LocalTmIndex.Refresh(dir, null, CancellationToken.None), CancellationToken.None);
+                _tms.Clear();
+                foreach (var t in list) _tms.Add(t);
+                ShowBusy(false, string.Format("索引已重建：{0} 个记忆库，耗时 {1:0.0}s", _tms.Count, watch.ElapsedMilliseconds / 1000.0));
+                UpdateNextRunText();
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("立即重建索引失败", ex);
+                ShowBusy(false, "重建失败：" + ex.Message);
+            }
+        }
+
+        /// <summary>定时线程完成自动重建后回显到界面（工作线程 → marshal 回 UI）。</summary>
+        private void OnSchedulerRefreshed(string message)
+        {
+            Dispatcher.BeginInvoke(new System.Action(() =>
+            {
+                StatusText.Text = message;
+                UpdateNextRunText();
+            }));
         }
 
         private void ShowBusy(bool active, string msg)
