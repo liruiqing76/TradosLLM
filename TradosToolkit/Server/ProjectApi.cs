@@ -200,8 +200,28 @@ namespace TradosToolkit.Server
 
                 var project = new FileBasedProject(info, template);
                 var added = project.AddFiles(files.ToArray());
-                project.SetFileRole(added.Select(f => f.Id).ToArray(), FileRole.Translatable);
+                var ids = added.Select(f => f.Id).ToArray();
+                project.SetFileRole(ids, FileRole.Translatable);
+
+                var prepared = new List<string>();
+                foreach (var taskTemplateId in new[]
+                         {
+                             AutomaticTaskTemplateIds.Scan,
+                             AutomaticTaskTemplateIds.ConvertToTranslatableFormat,
+                             AutomaticTaskTemplateIds.CopyToTargetLanguages,
+                         })
+                {
+                    var prepareTask = project.RunAutomaticTask(ids, taskTemplateId);
+                    foreach (var m in prepareTask.Messages ?? new ExecutionMessage[0])
+                    {
+                        var text = MessageText(m);
+                        if (!string.IsNullOrWhiteSpace(text)) prepared.Add(text);
+                    }
+                }
                 project.Save();
+
+                if (project.GetTargetLanguageFiles().Length == 0)
+                    return ApiResult.Json(500, Error("项目已创建但未生成目标文件，Prepare 失败: " + string.Join(" | ", prepared)));
 
                 var sdlp = project.FilePath;
                 if (Bool(request, "openInStudio"))
@@ -211,6 +231,7 @@ namespace TradosToolkit.Server
                 {
                     { "projectPath", sdlp },
                     { "id", project.GetProjectInfo().Id },
+                    { "prepare", prepared },
                 });
             });
         }
