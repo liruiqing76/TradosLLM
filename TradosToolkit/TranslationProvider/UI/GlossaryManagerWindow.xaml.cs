@@ -198,8 +198,8 @@ namespace TradosToolkit.TranslationProvider.UI
         private bool IsPost => KindCombo.SelectedIndex == 1;
         private string Kind => IsPost ? GlossaryDb.KindPost : GlossaryDb.KindPre;
 
-        private ObservableCollection<GlossaryEntry> Terms { get; set; }
-        private List<GlossaryEntry> _allTerms = new List<GlossaryEntry>();
+        private ObservableCollection<TermEntry> Terms { get; set; }
+        private List<TermEntry> _allTerms = new List<TermEntry>();
 
         /// <summary>取当前项目的源/目标语言；只能从 Studio UI 线程调用（宿主自动化对象跨线程不可用）。</summary>
         private static void TryFillProjectLanguages(ref string src, ref string tgt)
@@ -254,18 +254,28 @@ namespace TradosToolkit.TranslationProvider.UI
             var tgt = Tgt;
             if (string.IsNullOrEmpty(src) || string.IsNullOrEmpty(tgt))
             {
-                Terms = new ObservableCollection<GlossaryEntry>();
+                Terms = new ObservableCollection<TermEntry>();
                 TermsGrid.ItemsSource = Terms;
                 StatusText.Text = "请在上方选择源/目标语言。";
                 return;
             }
             var kind = Kind;
             var dom = Domain;
-            _allTerms = _db.GetTerms(kind, src, tgt, dom);
+            // 术语类型（译前/译后）不影响完整模型：完整条目按语言对+领域统一存放，
+            // 首次加载时把扁平 terms 表（译前）迁移进 term_entries，保证历史术语不丢失。
+            if (!_migrated)
+            {
+                try { var n = _db.MigrateFlatTerms(GlossaryDb.KindPre); if (n > 0) ToolkitLog.Info("术语管理：迁移历史扁平术语 " + n + " 条"); }
+                catch (Exception ex) { ToolkitLog.Error("术语管理：迁移历史术语失败", ex); }
+                _migrated = true;
+            }
+            _allTerms = _db.GetTermEntries(src, tgt, dom);
             ApplySearchFilter();
             StatusText.Text = string.Format("{0} · {1} → {2} · 领域 {3} · 共 {4} 条",
                 IsPost ? "译后" : "译前", src, tgt, dom, _allTerms.Count);
         }
+
+        private bool _migrated;
 
         private void TermSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -273,48 +283,50 @@ namespace TradosToolkit.TranslationProvider.UI
             ApplySearchFilter();
         }
 
-        /// <summary>按搜索框的 来源/目标/领域 关键字过滤当前已加载术语。</summary>
+        /// <summary>按搜索框的 源/目标/领域/定义/同义词 关键字过滤当前已加载术语条目。</summary>
         private void ApplySearchFilter()
         {
             var q = TermSearchBox == null ? "" : (TermSearchBox.Text ?? "").Trim();
             if (string.IsNullOrEmpty(q))
             {
-                Terms = new ObservableCollection<GlossaryEntry>(_allTerms);
+                Terms = new ObservableCollection<TermEntry>(_allTerms);
             }
             else
             {
                 var ql = q.ToLowerInvariant();
-                Terms = new ObservableCollection<GlossaryEntry>(
+                Terms = new ObservableCollection<TermEntry>(
                     _allTerms.Where(e =>
-                        (e.From ?? "").ToLowerInvariant().Contains(ql) ||
-                        (e.To ?? "").ToLowerInvariant().Contains(ql) ||
-                        (e.Domain ?? "").ToLowerInvariant().Contains(ql)));
+                        (e.FromTerm ?? "").ToLowerInvariant().Contains(ql) ||
+                        (e.ToTerm ?? "").ToLowerInvariant().Contains(ql) ||
+                        (e.Domain ?? "").ToLowerInvariant().Contains(ql) ||
+                        (e.Definition ?? "").ToLowerInvariant().Contains(ql) ||
+                        (e.SynonymText ?? "").ToLowerInvariant().Contains(ql)));
             }
             TermsGrid.ItemsSource = Terms;
         }
 
-        /// <summary>新增：弹表单收集 替换前/替换为/领域，确定后落库（不再在格子里直接编辑）。</summary>
+        /// <summary>新增：弹完整表单收集术语信息，确定后落库。</summary>
         private void AddTerm(object sender, RoutedEventArgs e)
         {
             if (!EnsurePair()) return;
-            var dlg = new TermDialog(null, KindLabel, PairLabel, DomainList, Domain) { Owner = this };
+            var dlg = new TermDialog(null, KindLabel, PairLabel, DomainList, Domain, Src, Tgt) { Owner = this };
             if (dlg.ShowDialog() != true) return;
-            _db.SaveTerm(Kind, Src, Tgt, dlg.Result);
+            _db.SaveTermEntry(dlg.Result);
             RefreshAfterMutation();
             NotifyChanged();
             StatusText.Text = "已新增术语。";
         }
 
-        /// <summary>双击某行改为弹表单修改；落在表头/滚动条/空白处不响应。</summary>
+        /// <summary>双击某行改为弹完整表单修改；落在表头/滚动条/空白处不响应。</summary>
         private void EditTerm(object sender, MouseButtonEventArgs e)
         {
             var row = FindRow(e.OriginalSource as DependencyObject);
-            var entry = row == null ? null : row.Item as GlossaryEntry;
+            var entry = row == null ? null : row.Item as TermEntry;
             if (entry == null || entry.Id <= 0) return;
             if (!EnsurePair()) return;
-            var dlg = new TermDialog(entry, KindLabel, PairLabel, DomainList, Domain) { Owner = this };
+            var dlg = new TermDialog(entry, KindLabel, PairLabel, DomainList, Domain, Src, Tgt) { Owner = this };
             if (dlg.ShowDialog() != true) return;
-            _db.SaveTerm(Kind, Src, Tgt, dlg.Result);
+            _db.SaveTermEntry(dlg.Result);
             RefreshAfterMutation();
             NotifyChanged();
             StatusText.Text = "已更新术语。";
@@ -347,9 +359,9 @@ namespace TradosToolkit.TranslationProvider.UI
             var src = Src;
             var tgt = Tgt;
             if (string.IsNullOrEmpty(src) || string.IsNullOrEmpty(tgt)) { StatusText.Text = "请先选择语言对。"; return; }
-            foreach (var entry in TermsGrid.SelectedItems.Cast<GlossaryEntry>().ToList())
+            foreach (var entry in TermsGrid.SelectedItems.Cast<TermEntry>().ToList())
             {
-                if (entry.Id > 0) _db.DeleteTerm(entry.Id);
+                if (entry.Id > 0) _db.DeleteTermEntry(entry.Id);
                 Terms.Remove(entry);
             }
             RefreshAfterMutation();
@@ -369,7 +381,9 @@ namespace TradosToolkit.TranslationProvider.UI
                 FileName = "术语模板.csv",
             };
             if (dlg.ShowDialog(this) != true) return;
-            File.WriteAllText(dlg.FileName, "from,to\r\n", Encoding.UTF8);
+            File.WriteAllText(dlg.FileName,
+                "from,to,pos,status,domain,definition,example,note,src_syn,tgt_syn\r\n",
+                new UTF8Encoding(true));
             StatusText.Text = "模板已下载：" + dlg.FileName;
         }
 
@@ -381,7 +395,7 @@ namespace TradosToolkit.TranslationProvider.UI
             var dlg = new OpenFileDialog { Filter = "CSV 文件|*.csv|所有文件|*.*" };
             if (dlg.ShowDialog(this) != true) return;
 
-            var n = _db.ImportCsv(Kind, src, tgt, dlg.FileName, Domain);
+            var n = _db.ImportTermEntriesCsv(src, tgt, dlg.FileName, Domain);
             RefreshAfterMutation();
             NotifyChanged();
             StatusText.Text = string.Format("已导入 {0} 条术语（{1} → {2} · {3}）", n, src, tgt, Domain);
@@ -395,11 +409,11 @@ namespace TradosToolkit.TranslationProvider.UI
             var dlg = new SaveFileDialog
             {
                 Filter = "CSV 文件|*.csv",
-                FileName = string.Format("{0}-{1}.{2}.csv", src, tgt, IsPost ? "post" : "pre"),
+                FileName = string.Format("{0}-{1}.terms.csv", src, tgt),
             };
             if (dlg.ShowDialog(this) != true) return;
 
-            _db.ExportCsv(Kind, src, tgt, dlg.FileName, Domain);
+            _db.ExportTermEntriesCsv(src, tgt, dlg.FileName, Domain);
             StatusText.Text = "导出完成：" + dlg.FileName;
         }
 

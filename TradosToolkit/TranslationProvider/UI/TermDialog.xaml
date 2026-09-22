@@ -2,8 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="术语"
-        Width="470" SizeToContent="Height"
-        ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
+        Width="620" Height="700" MinWidth="560" MinHeight="560"
+        ResizeMode="CanResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
         FontFamily="Microsoft YaHei UI, Segoe UI" FontSize="13"
         TextOptions.TextFormattingMode="Ideal" UseLayoutRounding="True"
         Background="{DynamicResource RegionBrush}">
@@ -50,7 +50,14 @@
             </Style>
             <Style x:Key="FieldLabel" TargetType="TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource SecondaryTextBrush}"/>
-                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Top"/>
+                <Setter Property="Margin" Value="0,6,10,0"/>
+            </Style>
+            <Style x:Key="GroupTitle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                <Setter Property="Margin" Value="0,0,0,8"/>
             </Style>
             <Style x:Key="GhostButton" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
                 <Setter Property="Padding" Value="13,6"/>
@@ -61,13 +68,18 @@
                 <Setter Property="FontSize" Value="13"/>
                 <Setter Property="FontWeight" Value="SemiBold"/>
             </Style>
+            <Style x:Key="MiniButton" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
+                <Setter Property="Padding" Value="8,2"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="MinWidth" Value="0"/>
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
 
     <Grid Margin="18">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
@@ -81,47 +93,124 @@
             <TextBlock x:Name="SubText" Style="{StaticResource Sub}" VerticalAlignment="Bottom" Margin="12,0,0,4"/>
         </StackPanel>
 
-        <!-- 表单：标签在左、输入在右；创建/更新时间仅"修改"时出现 -->
-        <Border Grid.Row="1" Style="{StaticResource Tile}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <!-- 基本信息：源/目标术语 + 词性/状态/领域 -->
+                <Border Style="{StaticResource Tile}" Margin="0,0,0,12">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource GroupTitle}" Text="基本信息"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="替换前 (from)" Margin="0,0,10,12"
-                           Style="{StaticResource FieldLabel}"/>
-                <TextBox x:Name="FromBox" Grid.Row="0" Grid.Column="1" Height="30" Margin="0,0,0,12"
-                         Padding="6,0" VerticalContentAlignment="Center"
-                         ToolTip="要被替换掉的那段文字（必填）"/>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="源术语" Style="{StaticResource FieldLabel}"/>
+                            <TextBox x:Name="FromBox" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Height="30"
+                                     Margin="0,0,0,12" Padding="6,0" VerticalContentAlignment="Center"
+                                     ToolTip="源语言侧的术语（必填）"/>
 
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="替换为 (to)" Margin="0,0,10,12"
-                           Style="{StaticResource FieldLabel}"/>
-                <TextBox x:Name="ToBox" Grid.Row="1" Grid.Column="1" Height="30" Margin="0,0,0,12"
-                         Padding="6,0" VerticalContentAlignment="Center"
-                         ToolTip="替换后的内容；留空表示把命中的内容删掉"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="目标术语" Style="{StaticResource FieldLabel}"/>
+                            <TextBox x:Name="ToBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Height="30"
+                                     Margin="0,0,0,12" Padding="6,0" VerticalContentAlignment="Center"
+                                     ToolTip="目标语言侧的术语（必填）"/>
 
-                <TextBlock x:Name="DomLabel" Grid.Row="2" Grid.Column="0" Text="领域" Margin="0,0,10,12"
-                           Style="{StaticResource FieldLabel}"/>
-                <ComboBox x:Name="DomCombo" Grid.Row="2" Grid.Column="1" Height="30" Margin="0,0,0,12"
-                          VerticalAlignment="Center"
-                          ToolTip="术语按领域隔离：翻译时只命中当前领域的术语"/>
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="词性" Style="{StaticResource FieldLabel}"/>
+                            <ComboBox x:Name="PosCombo" Grid.Row="2" Grid.Column="1" Height="30" Margin="0,0,16,0"
+                                      VerticalAlignment="Center"/>
 
-                <StackPanel x:Name="MetaPanel" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,0">
-                    <Separator Margin="0,0,0,8"/>
-                    <TextBlock x:Name="CreatedText" FontSize="12"
-                               Foreground="{DynamicResource ThirdlyTextBrush}"/>
-                    <TextBlock x:Name="UpdatedText" FontSize="12" Margin="0,4,0,0"
-                               Foreground="{DynamicResource ThirdlyTextBrush}"/>
-                </StackPanel>
-            </Grid>
-        </Border>
+                            <TextBlock Grid.Row="2" Grid.Column="2" Text="状态" Style="{StaticResource FieldLabel}"/>
+                            <ComboBox x:Name="StatusCombo" Grid.Row="2" Grid.Column="3" Height="30"
+                                      VerticalAlignment="Center"
+                                      ToolTip="首选=推荐译法；可用=允许但非首选；禁用=不可使用的错误译法"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- 同义词：按源/目标语言分两组，每行一个写法 -->
+                <Border Style="{StaticResource Tile}" Margin="0,0,0,12">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource GroupTitle}" Text="同义词（源侧 / 目标侧）"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="16"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" x:Name="SrcSynLabel" FontSize="12"
+                                       Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,4"/>
+                            <TextBox x:Name="SrcSynBox" Grid.Row="1" Grid.Column="0" Height="72"
+                                     AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                                     Padding="6,4"
+                                     ToolTip="源语言侧的同义写法，一行一个"/>
+
+                            <TextBlock Grid.Row="0" Grid.Column="2" x:Name="TgtSynLabel" FontSize="12"
+                                       Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,4"/>
+                            <TextBox x:Name="TgtSynBox" Grid.Row="1" Grid.Column="2" Height="72"
+                                     AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                                     Padding="6,4"
+                                     ToolTip="目标语言侧的同义写法，一行一个"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- 描述信息：定义 / 例句 / 备注 -->
+                <Border Style="{StaticResource Tile}" Margin="0,0,0,12">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource GroupTitle}" Text="描述"/>
+                        <TextBlock Text="定义" FontSize="12" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,4"/>
+                        <TextBox x:Name="DefBox" Height="60" AcceptsReturn="True" TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto" Padding="6,4" Margin="0,0,0,10"/>
+
+                        <TextBlock Text="例句" FontSize="12" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,4"/>
+                        <TextBox x:Name="ExampleBox" Height="60" AcceptsReturn="True" TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto" Padding="6,4" Margin="0,0,0,10"/>
+
+                        <TextBlock Text="备注" FontSize="12" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,4"/>
+                        <TextBox x:Name="NoteBox" Height="52" AcceptsReturn="True" TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto" Padding="6,4"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 领域 + 只读时间（修改时出现） -->
+                <Border Style="{StaticResource Tile}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock x:Name="DomLabel" Grid.Row="0" Grid.Column="0" Text="领域"
+                                   Style="{StaticResource FieldLabel}" Margin="0,0,10,0"/>
+                        <ComboBox x:Name="DomCombo" Grid.Row="0" Grid.Column="1" Height="30" VerticalAlignment="Center"
+                                  ToolTip="术语按领域隔离：翻译时只命中当前领域的术语"/>
+
+                        <StackPanel x:Name="MetaPanel" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0">
+                            <TextBlock x:Name="CreatedText" FontSize="12"
+                                       Foreground="{DynamicResource ThirdlyTextBrush}"/>
+                            <TextBlock x:Name="UpdatedText" FontSize="12" Margin="0,4,0,0"
+                                       Foreground="{DynamicResource ThirdlyTextBrush}"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
 
         <!-- 页脚：左错误提示、右操作按钮；回车=确定、Esc=取消 -->
         <Grid Grid.Row="2" Margin="0,14,0,0">

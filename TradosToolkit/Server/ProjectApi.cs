@@ -93,6 +93,8 @@ namespace TradosToolkit.Server
                     return ReviewResult(query);
                 case "/api/project/btqa":
                     return BackTranslateQa.Handle(method, query, body);
+                case "/api/project/terminology":
+                    return method == "POST" ? MountTerminology(query) : TerminologyStatus(query);
                 default:
                     return ApiResult.Json(404, Error("未知端点 " + path));
             }
@@ -224,6 +226,23 @@ namespace TradosToolkit.Server
                 }
                 project.Save();
 
+                // 术语挂载：把插件术语源写进项目术语库配置，使项目"术语库"插件点直接生效。
+                // 本地库有内容则挂本地源；配置了线上服务则同一语言对再挂线上源（两套并存）。
+                var termMounted = 0;
+                try
+                {
+                    var cfg = ToolkitConfig.Load();
+                    var db = new GlossaryDb();
+                    termMounted = TerminologySource.ProjectTerminology.Mount(
+                        project, db.GetAllTermPairs(), cfg.TermBaseUrl, cfg.Domain);
+                    if (termMounted > 0) project.Save();
+                }
+                catch (Exception e)
+                {
+                    prepared.Add("术语挂载失败: " + e.Message);
+                    ToolkitLog.Error("CreateProject: 术语挂载失败", e);
+                }
+
                 if (project.GetTargetLanguageFiles().Length == 0)
                     return ApiResult.Json(500, Error("项目已创建但未生成目标文件，Prepare 失败: " + string.Join(" | ", prepared)));
 
@@ -235,6 +254,7 @@ namespace TradosToolkit.Server
                 {
                     { "projectPath", sdlp },
                     { "id", project.GetProjectInfo().Id },
+                    { "terminologyMounted", termMounted },
                     { "prepare", prepared },
                 });
             });
@@ -276,6 +296,59 @@ namespace TradosToolkit.Server
                     { "target", targets },
                 });
             });
+        }
+
+        private static ApiResult TerminologyStatus(Dictionary<string, string> query)
+        {
+            return WithProject(query, (project, _) =>
+            {
+                var config = project.GetTermbaseConfiguration();
+                var rows = (config == null || config.Termbases == null)
+                    ? new List<Dictionary<string, object>>()
+                    : config.Termbases.Select(t => new Dictionary<string, object>
+                    {
+                        { "name", t.Name },
+                        { "enabled", t.Enabled },
+                        { "path", SettingsPath(t.SettingsXML) },
+                    }).ToList();
+                return ApiResult.Json(200, new Dictionary<string, object>
+                {
+                    { "count", rows.Count },
+                    { "termbases", rows },
+                });
+            });
+        }
+
+        private static ApiResult MountTerminology(Dictionary<string, string> query)
+        {
+            return WithProject(query, (project, _) =>
+            {
+                var cfg = ToolkitConfig.Load();
+                var db = new GlossaryDb();
+                var mounted = TerminologySource.ProjectTerminology.Mount(
+                    project, db.GetAllTermPairs(), cfg.TermBaseUrl, cfg.Domain);
+                if (mounted > 0) project.Save();
+                return ApiResult.Json(200, new Dictionary<string, object>
+                {
+                    { "mounted", mounted },
+                    { "domain", cfg.Domain },
+                    { "onlineConfigured", !string.IsNullOrWhiteSpace(cfg.TermBaseUrl) },
+                });
+            });
+        }
+
+        private static string SettingsPath(string settingsXml)
+        {
+            if (string.IsNullOrEmpty(settingsXml)) return null;
+            try
+            {
+                var doc = System.Xml.Linq.XDocument.Parse(settingsXml);
+                return doc.Root?.Element("Path")?.Value;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         private static Dictionary<string, object> DescribeFile(ProjectFile file, ProjectInfo info)

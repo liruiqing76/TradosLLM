@@ -189,6 +189,7 @@
       <DependentUpon>TmManagerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Glossaries\GlossaryEntry.cs" />
+    <Compile Include="Glossaries\TermEntry.cs" />
     <Compile Include="Glossaries\TermReplacer.cs" />
     <Compile Include="Glossaries\GlossaryDb.cs" />
     <Compile Include="Glossaries\SqliteGlossaryProvider.cs" />
@@ -196,9 +197,12 @@
     <Compile Include="TerminologySource\TermSearchModels.cs" />
     <Compile Include="TerminologySource\TermHttpClient.cs" />
     <Compile Include="TerminologySource\NativeTerminologyProviderHelper.cs" />
+    <Compile Include="TerminologySource\ProjectTerminology.cs" />
     <Compile Include="TerminologySource\NativeTerminologyProvider.cs" />
     <Compile Include="TerminologySource\NativeTerminologyProviderFactory.cs" />
     <Compile Include="TerminologySource\NativeTerminologyProviderWinFormsUI.cs" />
+    <Compile Include="TerminologySource\NativeTerminologyProviderViewerWinFormsUI.cs" />
+    <Compile Include="TerminologySource\TermEntryEditorDialog.cs" />
     <Compile Include="TerminologySource\NativeTerminologyDialog.cs" />
     <Compile Include="BatchTasks\QaCheckBatchTask.cs" />
     <Compile Include="BatchTasks\QaCheckProcessor.cs" />

@@ -46,6 +46,26 @@ namespace TradosToolkit.TranslationProvider.UI
             TmIndexScheduler.Refreshed += OnSchedulerRefreshed;
             Closed += (s, e) => TmIndexScheduler.Refreshed -= OnSchedulerRefreshed;
             UpdateImportState();
+
+            // 打开页面即用共享索引回填上一次的扫描结果（文件没变则瞬时返回，不会重扫共享目录）
+            Loaded += (s, e) => LoadFromIndex();
+        }
+
+        /// <summary>从共享索引回填列表（关窗重开时保持上次扫描结果），必要时做增量补齐。</summary>
+        private async void LoadFromIndex()
+        {
+            var dir = (TmDirBox.Text ?? string.Empty).Trim();
+            if (!Directory.Exists(dir)) return;
+            if (_tms.Count > 0) return; // 已有数据不覆盖
+            try
+            {
+                var list = await Task.Run(() => LocalTmIndex.GetOrScan(dir));
+                if (_tms.Count > 0) return;
+                foreach (var t in list) _tms.Add(t);
+                if (_tms.Count > 0)
+                    StatusText.Text = string.Format("已从共享索引载入 {0} 个记忆库（上次扫描结果；点「扫描」可全量重建）", _tms.Count);
+            }
+            catch (Exception ex) { ToolkitLog.Error("从索引回填记忆库列表失败", ex); }
         }
 
         public static void ShowOrActivate()

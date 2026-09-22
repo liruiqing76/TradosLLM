@@ -169,7 +169,7 @@
             </Border>
             <TextBlock Style="{StaticResource PageTitle}" Text="术语管理"/>
             <TextBlock Style="{StaticResource Sub}" VerticalAlignment="Bottom" Margin="12,0,0,4"
-                       Text="译前(替换源文) / 译后(替换译文) 两套本地术语库 · 语言可输入过滤 · 按领域隔离"/>
+                       Text="译前(替换源文) / 译后(替换译文) 两套本地术语库 · 支持词性/定义/例句/同义词/状态 · 语言可输入过滤 · 按领域隔离"/>
         </StackPanel>
 
         <!-- 筛选区：第一行=术语类型+语言对；第二行=领域+搜索+操作按钮（固定两行，不再 WrapPanel 换行错位） -->
@@ -220,7 +220,7 @@
                         <TextBlock Text="搜索" VerticalAlignment="Center" Margin="18,0,8,0"
                                    Foreground="{DynamicResource SecondaryTextBrush}"/>
                         <TextBox x:Name="TermSearchBox" Width="170" Height="28" VerticalAlignment="Center"
-                                 ToolTip="按 来源/目标/领域 过滤已加载术语（留空显示全部）"
+                                 ToolTip="按 源术语/目标术语/领域/定义 过滤已加载术语条目（留空显示全部）"
                                  TextChanged="TermSearch_TextChanged"/>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
@@ -233,7 +233,7 @@
             </Grid>
         </Border>
 
-        <!-- 术语表：只读展示，不再在格子里直接编辑；新增/修改都走 TermDialog 表单 -->
+        <!-- 术语条目表：只读展示，新增/修改都走 TermDialog 完整表单（双击一行修改） -->
         <Border Grid.Row="2" CornerRadius="10" BorderThickness="1"
                 BorderBrush="{DynamicResource TileBorderBrush}">
             <DataGrid x:Name="TermsGrid"
@@ -242,14 +242,16 @@
                       SelectionMode="Extended" HeadersVisibility="Column"
                       BorderThickness="0" Background="Transparent"
                       GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#EEF1F5"
-                      ToolTip="双击一行修改该术语；新增请点左下角「新增」"
+                      ToolTip="双击一行修改该术语条目；新增请点左下角「新增」"
                       MouseDoubleClick="EditTerm">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="替换前 (from)" Binding="{Binding From}" Width="*"/>
-                    <DataGridTextColumn Header="替换为 (to)" Binding="{Binding To}" Width="*"/>
-                    <DataGridTextColumn Header="领域" Binding="{Binding Domain}" Width="100"/>
-                    <DataGridTextColumn Header="创建时间" Binding="{Binding CreatedAtText}" Width="142"/>
-                    <DataGridTextColumn Header="更新时间" Binding="{Binding UpdatedAtText}" Width="142"/>
+                    <DataGridTextColumn Header="源术语" Binding="{Binding FromTerm}" Width="*"/>
+                    <DataGridTextColumn Header="目标术语" Binding="{Binding ToTerm}" Width="*"/>
+                    <DataGridTextColumn Header="词性" Binding="{Binding PartOfSpeechText}" Width="72"/>
+                    <DataGridTextColumn Header="状态" Binding="{Binding StatusText}" Width="64"/>
+                    <DataGridTextColumn Header="领域" Binding="{Binding Domain}" Width="96"/>
+                    <DataGridTextColumn Header="同义词" Binding="{Binding SynonymText}" Width="150"/>
+                    <DataGridTextColumn Header="更新时间" Binding="{Binding UpdatedAtText}" Width="126"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Border>
