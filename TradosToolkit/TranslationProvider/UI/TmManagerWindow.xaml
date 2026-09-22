@@ -116,7 +116,7 @@
                     <TextBlock Text="每日时间" VerticalAlignment="Center" Margin="18,3,8,2"
                                Foreground="{DynamicResource SecondaryTextBrush}"/>
                     <TextBox x:Name="RefreshTimeBox" Width="70" Height="30" VerticalAlignment="Center"
-                             Text="02:00" ToolTip="24 小时制 HH:mm，例如 02:00、22:30"
+                             ToolTip="24 小时制 HH:mm，例如 02:00、22:30"
                              TextChanged="RefreshTime_Changed"/>
                     <Button x:Name="RunNowBtn" Content="立即重建" Style="{StaticResource GhostButton}"
                             Margin="10,0,0,0" Click="RunIndexNow_Click"

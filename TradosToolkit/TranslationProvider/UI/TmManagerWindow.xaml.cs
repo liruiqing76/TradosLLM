@@ -228,22 +228,26 @@ namespace TradosToolkit.TranslationProvider.UI
         private void SaveScheduler()
         {
             if (_loading) return; // 初始化回填时不落盘
+            if (AutoRefreshBox == null || RefreshTimeBox == null) return; // XAML 初始化过程中的 TextChanged 早于控件就绪
             var enabled = AutoRefreshBox.IsChecked == true;
             var time = (RefreshTimeBox.Text ?? string.Empty).Trim();
             if (!ToolkitConfig.IsValidTime(time))
             {
-                SchedulerHint.Text = "时间格式应为 24 小时制 HH:mm（如 08:30），当前值未保存。";
+                if (SchedulerHint != null)
+                    SchedulerHint.Text = "时间格式应为 24 小时制 HH:mm（如 08:30），当前值未保存。";
                 return;
             }
             ToolkitConfig.Save(tmIndexAutoRefresh: enabled, tmIndexRefreshTime: time);
-            SchedulerHint.Text = enabled
-                ? "已启用：每天 " + time + " 自动重建共享索引；同一自然日只跑一次。"
-                : "已停用每日定时；共享索引仍会在扫描/导入时按需更新。";
+            if (SchedulerHint != null)
+                SchedulerHint.Text = enabled
+                    ? "已启用：每天 " + time + " 自动重建共享索引；同一自然日只跑一次。"
+                    : "已停用每日定时；共享索引仍会在扫描/导入时按需更新。";
             UpdateNextRunText();
         }
 
         private void UpdateNextRunText()
         {
+            if (NextRunText == null) return;
             try
             {
                 var cfg = ToolkitConfig.Load();
