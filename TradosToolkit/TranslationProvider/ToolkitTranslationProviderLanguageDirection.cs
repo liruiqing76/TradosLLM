@@ -197,6 +197,33 @@ namespace TradosToolkit.TranslationProvider
             return SearchSegmentsMasked(settings, segments, mask);
         }
 
+        /// <summary>
+        /// 把引擎给的来源标记映射为 Studio 段来源（编辑器里显示的标识）。
+        /// TM 命中恒为 TM；LLM/大模型结果取 config.json 的 llmOrigin（可自定义，缺省 AdaptiveMachineTranslation）。
+        /// 注意：Studio 2019 的 TranslationUnitOrigin 枚举实测只有
+        /// Unknown=0/TM=1/MachineTranslation=2/Alignment=3/ContextTM=4/AdaptiveMachineTranslation=5，
+        /// 并没有 Nmt（那是后续版本才加的）。
+        /// </summary>
+        private static TranslationUnitOrigin ResolveOrigin(string engineOrigin)
+        {
+            if (string.Equals(engineOrigin, "TM", StringComparison.OrdinalIgnoreCase))
+                return TranslationUnitOrigin.TM;
+            return ParseOrigin(ToolkitConfig.Load().LlmOrigin);
+        }
+
+        /// <summary>把配置里的枚举名解析为 TranslationUnitOrigin；非法/空 → AdaptiveMachineTranslation。</summary>
+        private static TranslationUnitOrigin ParseOrigin(string name)
+        {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(name) &&
+                    Enum.TryParse(name.Trim(), true, out TranslationUnitOrigin parsed))
+                    return parsed;
+            }
+            catch { /* 枚举名非法则用缺省 */ }
+            return TranslationUnitOrigin.AdaptiveMachineTranslation;
+        }
+
         private SearchResults BuildResult(Segment source, EngineResult candidate, List<SegmentElement> protectedElements)
         {
             var searchResults = new SearchResults
@@ -212,9 +239,7 @@ namespace TradosToolkit.TranslationProvider
 
             var translationUnit = new TranslationUnit(source.Duplicate(), target)
             {
-                Origin = candidate.Origin == "TM"
-                    ? TranslationUnitOrigin.TM
-                    : TranslationUnitOrigin.MachineTranslation,
+                Origin = ResolveOrigin(candidate.Origin),
                 ConfirmationLevel = ConfirmationLevel.Draft
             };
             translationUnit.ResourceId = new PersistentObjectToken(translationUnit.GetHashCode(), Guid.Empty);

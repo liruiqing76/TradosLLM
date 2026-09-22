@@ -51,6 +51,13 @@ namespace TradosToolkit
         public bool SegmentDedup = true;
         /// <summary>LLM 译文磁盘缓存跨文档复用（config.json 的 llmDiskCache，缺省 true）。</summary>
         public bool LlmDiskCacheEnabled = true;
+        /// <summary>
+        /// 编辑器里 LLM 译文显示的来源标识（config.json 的 llmOrigin）。
+        /// 取值用 Studio 的 TranslationUnitOrigin 枚举名；Studio 2019 实测可用：
+        /// AdaptiveMachineTranslation（缺省，显示"AdaptiveMT 自动化翻译"）/ MachineTranslation（自动翻译）/
+        /// TM（翻译记忆库）/ Unknown（无标识）/ Alignment / ContextTM。
+        /// </summary>
+        public string LlmOrigin = "AdaptiveMachineTranslation";
         /// <summary>本地记忆库扫描目录（config.json 的 tmScanDirectory，工作台"记忆库"页使用）。</summary>
         public string TmScanDirectory = string.Empty;
         /// <summary>是否按天定时重建本地库索引（config.json 的 tmIndexAutoRefresh，缺省 false）。</summary>
@@ -121,6 +128,30 @@ namespace TradosToolkit
                 System.Globalization.DateTimeStyles.None, out _);
         }
 
+        /// <summary>
+        /// LLM 来源标识可选值（用到 Studio 的 TranslationUnitOrigin 枚举名，注释为编辑器实际显示文案）。
+        /// 只列 Studio 2019 枚举真实存在的值——该版本没有 Nmt（新版才有）。
+        /// </summary>
+        public static readonly string[] LlmOriginValues =
+        {
+            "AdaptiveMachineTranslation", // AdaptiveMT 自动化翻译（带自动化/AI 字样的标识）
+            "MachineTranslation",         // 自动翻译
+            "TM",                         // 翻译记忆库
+            "Unknown",                    // 未知原文（编辑器不显示来源标识）
+            "Alignment",                  // 自动对齐
+            "ContextTM",                  // 上下文匹配
+        };
+
+        /// <summary>把 llmOrigin 归一为合法枚举名；非法/空 → 缺省 AdaptiveMachineTranslation。</summary>
+        public static string NormalizeLlmOrigin(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value)) return "AdaptiveMachineTranslation";
+            var v = value.Trim();
+            foreach (var opt in LlmOriginValues)
+                if (string.Equals(opt, v, StringComparison.OrdinalIgnoreCase)) return opt;
+            return "AdaptiveMachineTranslation";
+        }
+
         public static ToolkitConfig Load()
         {
             var config = new ToolkitConfig();
@@ -157,6 +188,8 @@ namespace TradosToolkit
                         config.SegmentDedup = Convert.ToBoolean(sd);
                     if (json.TryGetValue("llmDiskCache", out var dc))
                         config.LlmDiskCacheEnabled = Convert.ToBoolean(dc);
+                    if (json.TryGetValue("llmOrigin", out var lo) && lo is string los)
+                        config.LlmOrigin = NormalizeLlmOrigin(los);
                     if (json.TryGetValue("tmScanDirectory", out var tsd) && tsd is string td)
                         config.TmScanDirectory = (td ?? string.Empty).Trim();
                     if (json.TryGetValue("tmIndexAutoRefresh", out var tiar))
@@ -279,7 +312,7 @@ namespace TradosToolkit
                                string inboxTargetLang = null, bool? inboxAutoStart = null,
                                string inboxReportFormat = null,
                                bool? tmIndexAutoRefresh = null, string tmIndexRefreshTime = null,
-                               string tmIndexLastRun = null)
+                               string tmIndexLastRun = null, string llmOrigin = null)
         {
             try
             {
@@ -297,6 +330,7 @@ namespace TradosToolkit
                 if (tmIndexRefreshTime != null)
                     doc["tmIndexRefreshTime"] = IsValidTime(tmIndexRefreshTime) ? tmIndexRefreshTime.Trim() : "02:00";
                 if (tmIndexLastRun != null) doc["tmIndexLastRun"] = tmIndexLastRun;
+                if (llmOrigin != null) doc["llmOrigin"] = NormalizeLlmOrigin(llmOrigin);
                 if (termBaseUrl != null) doc["termBaseUrl"] = termBaseUrl;
                 if (domain != null) doc["domain"] = domain;
                 if (inboxWatchFolder != null) doc["inboxWatchFolder"] = inboxWatchFolder;

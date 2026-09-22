@@ -104,6 +104,17 @@
                                           Content="保留标签（用 [[n]] 占位符保护标签并回填译文；关闭则输出纯文本）"/>
                             </StackPanel>
                         </Border>
+
+                        <!-- 译文来源标识 -->
+                        <Border Style="{StaticResource Card}">
+                            <StackPanel>
+                                <TextBlock Text="译文来源标识（编辑器里显示）" Style="{StaticResource SectionTitle}"/>
+                                <ComboBox x:Name="OriginCombo" Width="300" HorizontalAlignment="Left"
+                                          SelectedValuePath="Tag"/>
+                                <TextBlock Style="{StaticResource HintText}" Margin="0,8,0,0"
+                                           Text="TM 命中的段落始终显示「翻译记忆库」；此项只控制 LLM/大模型译文在编辑器里显示的来源标识。Studio 2019 枚举没有 Nmt，故可选值如上（AdaptiveMT 自动化翻译 即带自动化字样的那个标识）。"/>
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>

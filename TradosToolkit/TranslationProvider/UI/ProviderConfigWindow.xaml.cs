@@ -23,6 +23,7 @@ namespace TradosToolkit.TranslationProvider.UI
             var config = ToolkitConfig.Load();
             if (!string.IsNullOrEmpty(config.LlmBaseUrl)) BaseUrlBox.Text = config.LlmBaseUrl;
             if (!string.IsNullOrEmpty(config.LlmModel)) ModelBox.Text = config.LlmModel;
+            InitOriginCombo(config.LlmOrigin);
             if (string.IsNullOrEmpty(config.TmUrl))
             {
                 TmStatusLabel.Text = "未配置（编辑 %APPDATA%\\TradosToolkit\\config.json 的 tmUrl）";
@@ -44,6 +45,34 @@ namespace TradosToolkit.TranslationProvider.UI
                 ApiKeyStatusLabel.Text = "已保存 API Key（长度 " + config.ApiKey.Length + "），留空则沿用";
                 ApiKeyDot.Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(0x2E, 0xA8, 0x6B));
             }
+        }
+
+        /// <summary>
+        /// 译文来源标识下拉：Value(Tag)=Studio 枚举名，Label=编辑器实际显示文案。
+        /// 只列 Studio 2019 枚举真实存在的值（该版本没有 Nmt）。
+        /// </summary>
+        private void InitOriginCombo(string current)
+        {
+            var opts = new[]
+            {
+                new OriginOption("AdaptiveMachineTranslation", "AdaptiveMT 自动化翻译（AI 标识）"),
+                new OriginOption("MachineTranslation", "自动翻译"),
+                new OriginOption("TM", "翻译记忆库"),
+                new OriginOption("Unknown", "无标识（像普通译文）"),
+                new OriginOption("Alignment", "自动对齐"),
+                new OriginOption("ContextTM", "上下文匹配"),
+            };
+            OriginCombo.ItemsSource = opts;
+            var want = ToolkitConfig.NormalizeLlmOrigin(current);
+            OriginCombo.SelectedItem = Array.Find(opts, o => o.Tag == want) ?? opts[0];
+        }
+
+        private class OriginOption
+        {
+            public OriginOption(string tag, string label) { Tag = tag; Label = label; }
+            public string Tag { get; }
+            public string Label { get; }
+            public override string ToString() => Label;
         }
 
         public bool HasTm => !string.IsNullOrEmpty(ToolkitConfig.Load().TmUrl);
@@ -102,7 +131,8 @@ namespace TradosToolkit.TranslationProvider.UI
                 ToolkitConfig.Save(
                     typedKey.Length > 0 ? typedKey : null,
                     HasLlm ? BaseUrl : null,
-                    HasLlm ? Model : null);
+                    HasLlm ? Model : null,
+                    llmOrigin: (OriginCombo.SelectedItem as OriginOption)?.Tag);
             }
             catch (Exception ex)
             {
