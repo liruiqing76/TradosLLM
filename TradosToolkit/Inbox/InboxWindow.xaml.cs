@@ -28,6 +28,7 @@ namespace TradosToolkit.Inbox
         private readonly List<LangItem> _langs;
         private string _lastSrc = "zh-CN";
         private string _lastTgt = "en-US";
+        private bool _loading;
         private InboxJob _selected;
 
         public InboxWindow()
@@ -109,18 +110,27 @@ namespace TradosToolkit.Inbox
 
         private void LoadIntoUi(ToolkitConfig cfg)
         {
-            WatchBox.Text = cfg.InboxWatchFolder ?? string.Empty;
-            OutputBox.Text = cfg.InboxOutputFolder ?? string.Empty;
-            TmBox.Text = cfg.TmScanDirectory ?? string.Empty;
-            SelectLang(SrcCombo, cfg.InboxSourceLang, "zh-CN");
-            SelectLang(TgtCombo, cfg.InboxTargetLang, "en-US");
+            _loading = true;
+            try
+            {
+                WatchBox.Text = cfg.InboxWatchFolder ?? string.Empty;
+                OutputBox.Text = cfg.InboxOutputFolder ?? string.Empty;
+                TmBox.Text = cfg.TmScanDirectory ?? string.Empty;
+                SelectLang(SrcCombo, cfg.InboxSourceLang, "zh-CN");
+                SelectLang(TgtCombo, cfg.InboxTargetLang, "en-US");
+                SelectReportFormat(cfg.InboxReportFormat);
+                AutoStartBox.IsChecked = cfg.InboxAutoStart;
+            }
+            finally
+            {
+                _loading = false;
+            }
             // 记录权威语言代码：过滤/失焦可能清空选中项，但 _last* 始终保持用户选定的语向
             _lastSrc = (SrcCombo.SelectedValue as string) ?? "zh-CN";
             _lastTgt = (TgtCombo.SelectedValue as string) ?? "en-US";
-            AutoStartBox.IsChecked = cfg.InboxAutoStart;
         }
 
-        /// <summary>把界面上的值写回配置并返回最新配置（供 Start 使用）。</summary>
+        /// <summary>把界面上的值写回配置并返回最新配置（供 Start / RefreshConfig 使用）。</summary>
         private ToolkitConfig Persist()
         {
             var watch = WatchBox.Text.Trim();
@@ -129,10 +139,12 @@ namespace TradosToolkit.Inbox
             var src = string.IsNullOrEmpty(_lastSrc) ? "zh-CN" : _lastSrc;
             var tgt = string.IsNullOrEmpty(_lastTgt) ? "en-US" : _lastTgt;
             var auto = AutoStartBox.IsChecked == true;
+            var reportFormat = CurrentReportFormat();
             ToolkitConfig.Save(tmScanDirectory: tm, inboxWatchFolder: watch, inboxOutputFolder: output,
                 inboxSourceLang: src,
                 inboxTargetLang: tgt,
-                inboxAutoStart: auto);
+                inboxAutoStart: auto,
+                inboxReportFormat: reportFormat);
             var cfg = ToolkitConfig.Load();
             cfg.TmScanDirectory = tm;
             cfg.InboxWatchFolder = watch;
@@ -140,7 +152,26 @@ namespace TradosToolkit.Inbox
             cfg.InboxSourceLang = src;
             cfg.InboxTargetLang = tgt;
             cfg.InboxAutoStart = auto;
+            cfg.InboxReportFormat = reportFormat;
             return cfg;
+        }
+
+        /// <summary>界面配置一改就落盘，并推给正在运行的监视器——改语向/报告格式无需重启监视即生效。</summary>
+        private void ApplyConfig()
+        {
+            if (_loading) return;
+            try
+            {
+                var cfg = Persist();
+                InboxWatcher.Instance.RefreshConfig(cfg);
+                StatusText.Text = "配置已保存：语向 " + cfg.InboxSourceLang + " → " + cfg.InboxTargetLang +
+                                  "，报告格式 " + cfg.InboxReportFormat;
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("收件箱：保存配置失败", ex);
+                StatusText.Text = "配置保存失败：" + ex.Message;
+            }
         }
 
         // ==================== 语言下拉（与术语管理同一套） ====================
@@ -162,6 +193,8 @@ namespace TradosToolkit.Inbox
             if (string.IsNullOrEmpty(v)) return;
             if (ReferenceEquals(sender, SrcCombo)) _lastSrc = v;
             else if (ReferenceEquals(sender, TgtCombo)) _lastTgt = v;
+            // 选中即落盘并同步到运行中的监视器：这正是「设了语言却在查默认中英」的根因
+            ApplyConfig();
         }
 
         /// <summary>
@@ -236,6 +269,36 @@ namespace TradosToolkit.Inbox
                 }
             };
         }
+
+        // ==================== 报告格式（默认项） ====================
+
+        /// <summary>当前界面选定的报告格式名（excel/xml/html/mht），缺省 excel。</summary>
+        private string CurrentReportFormat()
+        {
+            var item = ReportFormatCombo == null ? null : ReportFormatCombo.SelectedItem as ComboBoxItem;
+            var tag = item == null ? null : item.Tag as string;
+            return string.IsNullOrWhiteSpace(tag) ? "excel" : tag.Trim().ToLowerInvariant();
+        }
+
+        /// <summary>按配置选中报告格式（找不到回退第一项=Excel）。</summary>
+        private void SelectReportFormat(string format)
+        {
+            var want = string.IsNullOrWhiteSpace(format) ? "excel" : format.Trim().ToLowerInvariant();
+            foreach (var obj in ReportFormatCombo.Items)
+            {
+                var item = obj as ComboBoxItem;
+                if (item != null && string.Equals(item.Tag as string, want, StringComparison.OrdinalIgnoreCase))
+                {
+                    ReportFormatCombo.SelectedItem = item;
+                    return;
+                }
+            }
+            ReportFormatCombo.SelectedIndex = 0;
+        }
+
+        private void ReportFormatChanged(object sender, SelectionChangedEventArgs e) => ApplyConfig();
+
+        private void AutoStart_Changed(object sender, RoutedEventArgs e) => ApplyConfig();
 
         // ==================== 启停 / 处理 ====================
 
@@ -334,7 +397,10 @@ namespace TradosToolkit.Inbox
                     : Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
             };
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
                 box.Text = dlg.SelectedPath;
+                ApplyConfig();
+            }
         }
 
         private void Help_Click(object sender, RoutedEventArgs e)
@@ -342,9 +408,10 @@ namespace TradosToolkit.Inbox
             MessageBox.Show(
                 "收件箱说明：\n" +
                 "· 监视目录：把待处理的源文件拖进这个目录，插件自动开始处理，无需手动操作。\n" +
-                "· 每个文件产出三件套：分析报告(.csv) + 交付包(.sdlppx) + 匹配到的本地库(.sdltm)。\n" +
+                "· 每个文件产出三件套：分析报告(Trados 原生报告另存为) + 交付包(.sdlppx) + 匹配到的本地库(.sdltm)。\n" +
+                "· 报告格式：可选 Excel(.xls)/XML/HTML/MHT，默认 Excel；改后随配置保存并立即生效，无需重启监视。\n" +
                 "· 本地库目录：从该目录（含子目录）里挑与「源/目标语言」语言对一致、可写的 .sdltm 套进项目并预翻译。\n" +
-                "· 源/目标语言：点开下拉，顶部输入框里敲代码或名称即可过滤（如 zh-CN、English），回车选中第一项。\n" +
+                "· 源/目标语言：点开下拉，顶部输入框里敲代码或名称即可过滤（如 zh-CN、English），回车选中第一项；选中即保存并立即生效。\n" +
                 "· 「随插件自动开始监视」勾选后，每次打开 Studio 会自动开始监视。\n" +
                 "· 关掉本窗口不影响后台监视；处理进度仍在继续。",
                 "TradosToolkit 收件箱", MessageBoxButton.OK, MessageBoxImage.Information);

@@ -63,6 +63,8 @@ namespace TradosToolkit
         public string InboxSourceLang = "zh-CN";
         /// <summary>收件箱目标语言（config.json 的 inboxTargetLang，缺省 en-US）。</summary>
         public string InboxTargetLang = "en-US";
+        /// <summary>收件箱分析报告「另存为」格式（config.json 的 inboxReportFormat，缺省 excel；可选 excel|xml|html|mht）。</summary>
+        public string InboxReportFormat = "excel";
         /// <summary>插件启动时是否自动开始目录监视（config.json 的 inboxAutoStart）。</summary>
         public bool InboxAutoStart = false;
         /// <summary>原生术语源所调用的线上术语服务地址（config.json 的 termBaseUrl，空 = 原生源不可用、返回空）。</summary>
@@ -152,6 +154,8 @@ namespace TradosToolkit
                         config.InboxSourceLang = string.IsNullOrWhiteSpace(isls) ? "zh-CN" : isls.Trim();
                     if (json.TryGetValue("inboxTargetLang", out var itl) && itl is string itls)
                         config.InboxTargetLang = string.IsNullOrWhiteSpace(itls) ? "en-US" : itls.Trim();
+                    if (json.TryGetValue("inboxReportFormat", out var irf) && irf is string irfs)
+                        config.InboxReportFormat = string.IsNullOrWhiteSpace(irfs) ? "excel" : irfs.Trim().ToLowerInvariant();
                     if (json.TryGetValue("inboxAutoStart", out var ias))
                         config.InboxAutoStart = Convert.ToBoolean(ias);
                     if (json.TryGetValue("termBaseUrl", out var tbu) && tbu is string tb)
@@ -251,7 +255,8 @@ namespace TradosToolkit
                                List<ProcessCard> processCards = null, string domain = null,
                                string inboxWatchFolder = null, string inboxOutputFolder = null,
                                string inboxProjectRoot = null, string inboxSourceLang = null,
-                               string inboxTargetLang = null, bool? inboxAutoStart = null)
+                               string inboxTargetLang = null, bool? inboxAutoStart = null,
+                               string inboxReportFormat = null)
         {
             try
             {
@@ -272,6 +277,7 @@ namespace TradosToolkit
                 if (inboxProjectRoot != null) doc["inboxProjectRoot"] = inboxProjectRoot;
                 if (inboxSourceLang != null) doc["inboxSourceLang"] = inboxSourceLang;
                 if (inboxTargetLang != null) doc["inboxTargetLang"] = inboxTargetLang;
+                if (inboxReportFormat != null) doc["inboxReportFormat"] = inboxReportFormat;
                 if (inboxAutoStart != null) doc["inboxAutoStart"] = inboxAutoStart.Value;
                 if (folders != null)
                 {

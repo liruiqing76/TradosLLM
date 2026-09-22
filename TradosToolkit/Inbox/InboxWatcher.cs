@@ -99,6 +99,23 @@ namespace TradosToolkit.Inbox
             lock (_gate) StopLocked();
         }
 
+        /// <summary>
+        /// 界面改了配置（源/目标语言、报告格式、产出目录等）时调用：运行中也立即生效，无需重启监视。
+        /// 监视目录变更不在其列——那要重开 FileSystemWatcher，走 Stop/Start。
+        /// </summary>
+        public void RefreshConfig(ToolkitConfig cfg)
+        {
+            if (cfg == null) return;
+            lock (_gate)
+            {
+                if (!_running) return;
+                _cfg = cfg;
+                _outputRoot = (cfg.InboxOutputFolder ?? string.Empty).Trim();
+                ToolkitLog.Info("收件箱：运行中配置已刷新（语向 " + cfg.InboxSourceLang + "→" + cfg.InboxTargetLang +
+                                "，报告格式 " + cfg.InboxReportFormat + "）");
+            }
+        }
+
         private void StopLocked()
         {
             if (_watcher != null)

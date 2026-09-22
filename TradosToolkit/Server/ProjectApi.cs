@@ -63,6 +63,8 @@ namespace TradosToolkit.Server
                     return Segments(query);
                 case "/api/project/report":
                     return Report(query);
+                case "/api/project/report/save":
+                    return SaveTaskReport(query);
                 case "/api/project/pretranslate":
                     return PreTranslate(method, query, body);
                 case "/api/project/tmfiles":
@@ -582,28 +584,6 @@ namespace TradosToolkit.Server
                     { "targetLangs", perTarget.Count },
                 };
 
-                var format = query.TryGetValue("format", out var fmt) ? fmt : "json";
-                if (string.Equals(format, "csv", StringComparison.OrdinalIgnoreCase))
-                {
-                    var csv = new System.Text.StringBuilder();
-                    csv.Append('\ufeff');
-                    csv.Append("targetLang,level,words,segments,characters\r\n");
-                    foreach (var t in tls)
-                    {
-                        var a = t.AnalysisStatistics;
-                        if (a == null) continue;
-                        var lang = t.TargetLanguage == null ? "" : t.TargetLanguage.IsoAbbreviation;
-                        Row(csv, lang, "Total", a.Total);
-                        Row(csv, lang, "Perfect", a.Perfect);
-                        Row(csv, lang, "Exact", a.Exact);
-                        Row(csv, lang, "InContextExact", a.InContextExact);
-                        Row(csv, lang, "New", a.New);
-                        Row(csv, lang, "Repetitions", a.Repetitions);
-                    }
-                    var name = SanitizeFileName(info.Name + "_wordcount") + ".csv";
-                    return ApiResult.File(Encoding.UTF8.GetBytes(csv.ToString()), "text/csv; charset=utf-8", name);
-                }
-
                 return ApiResult.Json(200, new Dictionary<string, object>
                 {
                     { "project", info.Name },
@@ -613,12 +593,51 @@ namespace TradosToolkit.Server
             });
         }
 
-        private static void Row(System.Text.StringBuilder csv, string lang, string level, CountData c)
+        /// <summary>
+        /// GET /api/project/report/save?path=...&reportId=&lt;guid&gt;&out=...&format=excel|xml|html|mht
+        /// 把项目里已生成的任务报告，按 Trados 原生方式（SaveTaskReportAs）「另存为」到 out。
+        /// 产出的是 Studio 自带报告引擎的结果（Excel/XML/HTML/MHT），不是自造 CSV。
+        /// </summary>
+        internal static ApiResult SaveTaskReport(Dictionary<string, string> query)
         {
-            csv.Append(BilingualParser.Csv(lang)).Append(',').Append(BilingualParser.Csv(level)).Append(',')
-               .Append(c == null ? "0" : c.Words.ToString()).Append(',')
-               .Append(c == null ? "0" : c.Segments.ToString()).Append(',')
-               .Append(c == null ? "0" : c.Characters.ToString()).Append("\r\n");
+            return WithProject(query, (project, _) =>
+            {
+                if (!query.TryGetValue("reportId", out var idText) || !Guid.TryParse(idText, out var reportId))
+                    return ApiResult.Json(400, Error("缺少或非法的 query 参数 reportId（任务报告 Id）"));
+                if (!query.TryGetValue("out", out var outPath) || string.IsNullOrEmpty(outPath))
+                    return ApiResult.Json(400, Error("缺少 query 参数 out（报告另存为路径）"));
+
+                var format = ParseReportFormat(query.TryGetValue("format", out var fmt) ? fmt : null);
+                outPath = Path.GetFullPath(outPath);
+                var dir = Path.GetDirectoryName(outPath);
+                if (!string.IsNullOrEmpty(dir)) Directory.CreateDirectory(dir);
+
+                // 走 Studio 原生报告引擎：把项目里已有的任务报告另存为指定格式
+                project.SaveTaskReportAs(reportId, outPath, format);
+
+                if (!File.Exists(outPath) || new FileInfo(outPath).Length == 0)
+                    return ApiResult.Json(500, Error("报告另存为失败：" + outPath));
+
+                ToolkitLog.Info("报告另存为：" + outPath + "（" + format.Name + "）");
+                return ApiResult.Json(200, new Dictionary<string, object>
+                {
+                    { "reportPath", outPath },
+                    { "format", format.Name },
+                    { "size", new FileInfo(outPath).Length },
+                });
+            });
+        }
+
+        /// <summary>报告格式名 → Sdl.ProjectAutomation.Core.ReportFormat（缺省 Excel）。</summary>
+        private static ReportFormat ParseReportFormat(string format)
+        {
+            switch ((format ?? string.Empty).Trim().ToLowerInvariant())
+            {
+                case "xml": return ReportFormat.Xml;
+                case "html": return ReportFormat.Html;
+                case "mht": return ReportFormat.Mht;
+                default: return ReportFormat.Excel;
+            }
         }
 
         private static void Add(Dictionary<string, long> map, CountData c)

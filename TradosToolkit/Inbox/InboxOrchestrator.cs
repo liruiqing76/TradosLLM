@@ -62,13 +62,13 @@ namespace TradosToolkit.Inbox
                 // ---- 3 分析统计 ----
                 current = 3;
                 job.BeginStep(3, "运行分析统计…");
-                RunTask(job, projectPath, "analyze", null);
+                var reports = RunTask(job, projectPath, "analyze", null);
                 job.EndStep(3, true, "分析完成");
 
-                // ---- 4 生成分析报告 ----
+                // ---- 4 生成分析报告（Trados 原生报告另存为） ----
                 current = 4;
-                job.BeginStep(4, "生成分析报告…");
-                WriteReport(job, projectPath);
+                job.BeginStep(4, "另存分析报告…");
+                SaveReport(job, cfg, projectPath, reports);
                 job.EndStep(4, true, Path.GetFileName(job.ReportPath));
                 job.AppendLog("分析报告：" + job.ReportPath);
 
@@ -209,7 +209,10 @@ namespace TradosToolkit.Inbox
 
         // ==================== 步骤 2/3：自动任务 ====================
 
-        private static void RunTask(InboxJob job, string projectPath, string taskKey, string providerTmPath)
+        /// <summary>
+        /// 在项目上跑一个 Studio 自动任务；返回该任务产出的报告（{id,name}），供后续「报告另存为」使用。
+        /// </summary>
+        private static List<Dictionary<string, object>> RunTask(InboxJob job, string projectPath, string taskKey, string providerTmPath)
         {
             var query = new Dictionary<string, string> { { "path", projectPath } };
             var request = new Dictionary<string, object>();
@@ -233,27 +236,67 @@ namespace TradosToolkit.Inbox
                     var text = Convert.ToString(m);
                     if (!string.IsNullOrWhiteSpace(text)) job.AppendLog("  · " + text);
                 }
+
+            var reports = new List<Dictionary<string, object>>();
+            var rawReports = payload != null && payload.ContainsKey("reports")
+                ? payload["reports"] as System.Collections.IEnumerable
+                : null;
+            if (rawReports != null)
+                foreach (var r in rawReports)
+                {
+                    var rd = r as Dictionary<string, object>;
+                    if (rd != null) reports.Add(rd);
+                }
+            return reports;
         }
 
         // ==================== 步骤 4：分析报告 ====================
 
-        private static void WriteReport(InboxJob job, string projectPath)
+        /// <summary>
+        /// 把分析任务产出的报告，按 Trados 原生方式「另存为」到任务目录。
+        /// 格式取自配置（excel/xml/html/mht，缺省 excel），产出的是 Studio 报告引擎生成的报告，不是插件自造的 CSV。
+        /// </summary>
+        private static void SaveReport(InboxJob job, ToolkitConfig cfg, string projectPath, List<Dictionary<string, object>> reports)
         {
+            var report = reports == null ? null : reports.FirstOrDefault(r => r.ContainsKey("id") && r["id"] != null);
+            if (report == null)
+                throw new InvalidOperationException("分析任务未产出报告");
+
+            var format = (cfg == null || string.IsNullOrWhiteSpace(cfg.InboxReportFormat))
+                ? "excel"
+                : cfg.InboxReportFormat.Trim().ToLowerInvariant();
+            var reportId = Convert.ToString(report["id"]);
+            var baseName = ProjectApi.SanitizeFileName(Path.GetFileNameWithoutExtension(job.FileName) + "_分析报告");
+            var outPath = Path.Combine(job.JobFolder, baseName + ReportExtension(format));
+
             var query = new Dictionary<string, string>
             {
                 { "path", projectPath },
-                { "format", "csv" },
+                { "reportId", reportId },
+                { "out", outPath },
+                { "format", format },
             };
-            var result = ProjectApi.Report(query);
+            var result = ProjectApi.SaveTaskReport(query);
             if (result == null || result.Status < 200 || result.Status >= 300)
-                throw new InvalidOperationException("生成报告失败：" + ErrorOf(result));
-            if (result.Bytes == null || result.Bytes.Length == 0)
-                throw new InvalidOperationException("报告内容为空");
+                throw new InvalidOperationException("另存分析报告失败：" + ErrorOf(result));
 
-            var name = string.IsNullOrEmpty(result.DownloadName) ? "wordcount.csv" : result.DownloadName;
-            var path = Path.Combine(job.JobFolder, name);
-            File.WriteAllBytes(path, result.Bytes);
+            var payload = result.Payload as Dictionary<string, object>;
+            var path = payload != null && payload.ContainsKey("reportPath") ? payload["reportPath"] as string : outPath;
+            if (string.IsNullOrEmpty(path) || !File.Exists(path))
+                throw new InvalidOperationException("分析报告未生成");
             job.ReportPath = path;
+        }
+
+        /// <summary>报告格式名 → 文件扩展名（与 ProjectApi.ParseReportFormat 保持一致）。</summary>
+        private static string ReportExtension(string format)
+        {
+            switch ((format ?? string.Empty).Trim().ToLowerInvariant())
+            {
+                case "xml": return ".xml";
+                case "html": return ".html";
+                case "mht": return ".mht";
+                default: return ".xls";
+            }
         }
 
         // ==================== 步骤 5：交付包 ====================
