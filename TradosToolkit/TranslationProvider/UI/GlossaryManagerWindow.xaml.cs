@@ -33,8 +33,14 @@ namespace TradosToolkit.TranslationProvider.UI
         private readonly SqliteGlossaryProvider _provider;
         private readonly List<LangItem> _langs;
 
+        // InitializeComponent 全部完成前为 false：XAML 里带 SelectionChanged 的控件
+        // （KindCombo 有 SelectedIndex="0"）会在解析期即回调，此刻 MainTabs 字段虽已赋值，
+        // 但其内部控件（ReplGrid/ReplStatusText 等）尚未创建，用 MainTabs==null 当哨兵会漏判 →
+        // Reload 触到 null 控件抛 NRE → 构造失败 → _instance 变僵尸实例 → 之后点击无反应。
+        private bool _ready;
+
         // 当前页签（0=替换词条，1=术语表）
-        private bool OnGlossaryTab => MainTabs != null && MainTabs.SelectedIndex == 1;
+        private bool OnGlossaryTab => _ready && MainTabs != null && MainTabs.SelectedIndex == 1;
 
         // 两套语言对各自记忆：替换词条页用 _replSrc/_replTgt，术语表页用 _lastSrc/_lastTgt
         private string _lastSrc = "", _lastTgt = "";
@@ -66,19 +72,20 @@ namespace TradosToolkit.TranslationProvider.UI
                 try
                 {
                     var w = new GlossaryManagerWindow(src, tgt);
-                    _instance = w;
                     w.Closed += (s, e) =>
                     {
                         if (ReferenceEquals(_instance, w)) _instance = null;
                         w.Dispatcher.InvokeShutdown(); // 窗口关了就撤线程泵
                     };
+                    w.Show(); // 先 Show 成功再登记实例：Show 抛异常则 _instance 保持 null，下次点击可重试
+                    _instance = w;
                     ready.Set();
-                    w.Show();
                     Dispatcher.Run();
                 }
                 catch (Exception ex)
                 {
                     ToolkitLog.Error("术语管理：独立线程创建失败", ex);
+                    _instance = null; // 失败不留僵尸实例，否则后续点击只会 Activate 一个从未显示的窗口
                     ready.Set();
                 }
             });
@@ -127,6 +134,7 @@ namespace TradosToolkit.TranslationProvider.UI
             _lastSrc = LangCodeOf(SrcCombo, src);
             _lastTgt = LangCodeOf(TgtCombo, tgt);
 
+            _ready = true; // 控件已全部建好，此后 SelectionChanged 才允许触发 Reload
             Reload(null, null);
         }
 
@@ -276,7 +284,7 @@ namespace TradosToolkit.TranslationProvider.UI
 
         private void MainTabChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (MainTabs == null) return;
+            if (!_ready) return;
             Reload(null, null);
         }
 
@@ -285,13 +293,13 @@ namespace TradosToolkit.TranslationProvider.UI
 
         private void KindChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (MainTabs == null) return; // InitializeComponent 期间
+            if (!_ready) return; // InitializeComponent 期间
             Reload(null, null);
         }
 
         private void LangChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (MainTabs == null) return;
+            if (!_ready) return;
             // 只在真正点选(SelectedValue 非空)时更新权威语向；过滤清掉 SelectedItem 时不应覆盖
             var v = (sender as ComboBox)?.SelectedValue as string;
             if (!string.IsNullOrEmpty(v))
@@ -306,7 +314,7 @@ namespace TradosToolkit.TranslationProvider.UI
 
         private void DomainChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (MainTabs == null) return;
+            if (!_ready) return;
             // 领域在"全局配置"里是共享的：两页签任一处切换都同步到另一边，保证与翻译插件同一领域
             var v = (sender as ComboBox)?.SelectedItem as string;
             if (!string.IsNullOrEmpty(v))
@@ -329,7 +337,7 @@ namespace TradosToolkit.TranslationProvider.UI
 
         private void Reload(object sender, RoutedEventArgs e)
         {
-            if (MainTabs == null) return; // InitializeComponent 期间的 SelectionChanged
+            if (!_ready) return; // InitializeComponent 期间的 SelectionChanged
             if (OnGlossaryTab) ReloadGlossary();
             else ReloadRepl();
         }

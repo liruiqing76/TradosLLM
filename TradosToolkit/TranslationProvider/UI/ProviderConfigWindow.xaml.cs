@@ -87,7 +87,16 @@ namespace TradosToolkit.TranslationProvider.UI
 
         private void OpenGlossaryManager(object sender, RoutedEventArgs e)
         {
-            new GlossaryManagerWindow(_defaultSrc, _defaultTgt) { Owner = this }.ShowDialog();
+            try
+            {
+                new GlossaryManagerWindow(_defaultSrc, _defaultTgt) { Owner = this }.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("打开术语管理失败", ex);
+                System.Windows.MessageBox.Show(this, "打开术语管理失败：" + ex.Message,
+                    "TradosToolkit", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
+            }
         }
 
         private void OpenLogFolder_Click(object sender, RoutedEventArgs e)
