@@ -1,8 +1,12 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -21,7 +25,19 @@ namespace TradosToolkit.Inbox
         private static InboxWindow _instance;
         private readonly ObservableCollection<InboxJob> _jobs = new ObservableCollection<InboxJob>();
         private readonly DispatcherTimer _timer = new DispatcherTimer();
+        private readonly List<LangItem> _langs;
+        private string _lastSrc = "zh-CN";
+        private string _lastTgt = "en-US";
         private InboxJob _selected;
+
+        /// <summary>语言下拉项：显示名+代码，选中带回 Code（SelectedValuePath=Code）。</summary>
+        private class LangItem
+        {
+            public string Code { get; set; }
+            public string Label { get; set; }
+            // 无 DisplayMemberPath 时，输入框回显走 ToString
+            public override string ToString() => Label;
+        }
 
         public InboxWindow()
         {
@@ -32,6 +48,11 @@ namespace TradosToolkit.Inbox
             // 界面打开即接管 UI 线程归属，任务步骤/日志会实时回到这里
             InboxJob.UiDispatcher = Dispatcher;
             InboxWatcher.Instance.JobCreated += OnJobCreated;
+
+            // 语言下拉：与术语管理同一套「下拉内搜索框」，覆盖全部语种
+            _langs = BuildLanguages();
+            AttachLangFilter(SrcCombo);
+            AttachLangFilter(TgtCombo);
 
             LoadIntoUi(ToolkitConfig.Load());
 
@@ -58,16 +79,39 @@ namespace TradosToolkit.Inbox
                 }));
                 return;
             }
-            ToolkitLog.Info("收件箱：新建独立页");
-            var w = new InboxWindow();
-            _instance = w;
-            w.Closed += (s, e) =>
+            ToolkitLog.Info("收件箱：新建独立页（专用 UI 线程）");
+            // 根因同术语管理：Studio 宿主消息泵不为外挂顶层窗口 TranslateMessage，留在宿主线程
+            // Show() 的窗口收不到 WM_CHAR，英文敲不进（语言下拉搜索框会失效）。放专用 STA 线程跑
+            // WPF 自己的 Dispatcher 泵，输入链路不再过宿主泵，仍是无属主独立窗口。
+            var ready = new ManualResetEvent(false);
+            var t = new Thread(() =>
             {
-                if (ReferenceEquals(_instance, w)) _instance = null;
-                InboxWatcher.Instance.JobCreated -= w.OnJobCreated;
-                InboxJob.UiDispatcher = null; // 退化为后台模式
-            };
-            w.Show();
+                try
+                {
+                    var w = new InboxWindow();
+                    _instance = w;
+                    w.Closed += (s, e) =>
+                    {
+                        if (ReferenceEquals(_instance, w)) _instance = null;
+                        InboxWatcher.Instance.JobCreated -= w.OnJobCreated;
+                        InboxJob.UiDispatcher = null; // 退化为后台模式
+                        w.Dispatcher.InvokeShutdown(); // 窗口关了就撤线程泵
+                    };
+                    ready.Set();
+                    w.Show();
+                    Dispatcher.Run();
+                }
+                catch (Exception ex)
+                {
+                    ToolkitLog.Error("收件箱：独立线程创建失败", ex);
+                    ready.Set();
+                }
+            });
+            t.SetApartmentState(ApartmentState.STA);
+            t.IsBackground = true; // Studio 退出时进程不被本线程拖住
+            t.Name = "TradosToolkit.InboxUI";
+            t.Start();
+            ready.WaitOne(TimeSpan.FromSeconds(15)); // 等构造完成再返回，防连点出两窗
         }
 
         // ==================== 配置读写 ====================
@@ -77,8 +121,11 @@ namespace TradosToolkit.Inbox
             WatchBox.Text = cfg.InboxWatchFolder ?? string.Empty;
             OutputBox.Text = cfg.InboxOutputFolder ?? string.Empty;
             TmBox.Text = cfg.TmScanDirectory ?? string.Empty;
-            SourceLangBox.Text = string.IsNullOrWhiteSpace(cfg.InboxSourceLang) ? "zh-CN" : cfg.InboxSourceLang;
-            TargetLangBox.Text = string.IsNullOrWhiteSpace(cfg.InboxTargetLang) ? "en-US" : cfg.InboxTargetLang;
+            SelectLang(SrcCombo, cfg.InboxSourceLang, "zh-CN");
+            SelectLang(TgtCombo, cfg.InboxTargetLang, "en-US");
+            // 记录权威语言代码：过滤/失焦可能清空选中项，但 _last* 始终保持用户选定的语向
+            _lastSrc = (SrcCombo.SelectedValue as string) ?? "zh-CN";
+            _lastTgt = (TgtCombo.SelectedValue as string) ?? "en-US";
             AutoStartBox.IsChecked = cfg.InboxAutoStart;
         }
 
@@ -88,21 +135,145 @@ namespace TradosToolkit.Inbox
             var watch = WatchBox.Text.Trim();
             var output = OutputBox.Text.Trim();
             var tm = TmBox.Text.Trim();
-            var src = SourceLangBox.Text.Trim();
-            var tgt = TargetLangBox.Text.Trim();
+            var src = string.IsNullOrEmpty(_lastSrc) ? "zh-CN" : _lastSrc;
+            var tgt = string.IsNullOrEmpty(_lastTgt) ? "en-US" : _lastTgt;
             var auto = AutoStartBox.IsChecked == true;
             ToolkitConfig.Save(tmScanDirectory: tm, inboxWatchFolder: watch, inboxOutputFolder: output,
-                inboxSourceLang: string.IsNullOrEmpty(src) ? "zh-CN" : src,
-                inboxTargetLang: string.IsNullOrEmpty(tgt) ? "en-US" : tgt,
+                inboxSourceLang: src,
+                inboxTargetLang: tgt,
                 inboxAutoStart: auto);
             var cfg = ToolkitConfig.Load();
             cfg.TmScanDirectory = tm;
             cfg.InboxWatchFolder = watch;
             cfg.InboxOutputFolder = output;
-            cfg.InboxSourceLang = string.IsNullOrEmpty(src) ? "zh-CN" : src;
-            cfg.InboxTargetLang = string.IsNullOrEmpty(tgt) ? "en-US" : tgt;
+            cfg.InboxSourceLang = src;
+            cfg.InboxTargetLang = tgt;
             cfg.InboxAutoStart = auto;
             return cfg;
+        }
+
+        // ==================== 语言下拉（与术语管理同一套） ====================
+
+        /// <summary>按代码选中语言；找不到则回退默认代码，再回退第一项。</summary>
+        private void SelectLang(ComboBox combo, string code, string fallback)
+        {
+            var item = _langs.FirstOrDefault(l => string.Equals(l.Code, code, StringComparison.OrdinalIgnoreCase))
+                    ?? _langs.FirstOrDefault(l => string.Equals(l.Code, fallback, StringComparison.OrdinalIgnoreCase))
+                    ?? _langs.FirstOrDefault();
+            combo.SelectedItem = item;
+        }
+
+        /// <summary>只在真正点选(SelectedValue 非空)时更新权威语向；过滤清掉 SelectedItem 时不应覆盖。</summary>
+        private void LangChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SrcCombo == null) return; // InitializeComponent 期间的 SelectionChanged
+            var v = (sender as ComboBox)?.SelectedValue as string;
+            if (string.IsNullOrEmpty(v)) return;
+            if (ReferenceEquals(sender, SrcCombo)) _lastSrc = v;
+            else if (ReferenceEquals(sender, TgtCombo)) _lastTgt = v;
+        }
+
+        /// <summary>
+        /// 语言下拉"下拉内搜索框"过滤：模板 Popup 顶部有可见输入框 LangSearchBox，
+        /// 打开下拉自动聚焦它；输入只改 ListCollectionView.Filter（不换 ItemsSource、不清文本）；
+        /// 回车=选中过滤后第一项；收起下拉清空关键词恢复完整清单，未点选则回显权威语向
+        /// （过滤会清掉 SelectedItem，但 ComboBox 拒收指向被过滤项的赋值，故必须先清过滤再恢复）。
+        /// </summary>
+        private void AttachLangFilter(ComboBox combo)
+        {
+            var view = new System.Windows.Data.ListCollectionView(_langs);
+            combo.IsSynchronizedWithCurrentItem = false;
+            combo.ItemsSource = view;
+
+            TextBox search = null;
+            // Popup 内容首次展开才实例化，DropDownOpened 时兜底再找一次
+            combo.DropDownOpened += (s, e) =>
+            {
+                if (search == null)
+                {
+                    search = combo.Template.FindName("LangSearchBox", combo) as TextBox;
+                    if (search != null)
+                    {
+                        search.TextChanged += (a, b) =>
+                        {
+                            var q = (search.Text ?? "").Trim().ToLowerInvariant();
+                            if (string.IsNullOrEmpty(q)) view.Filter = null;
+                            else view.Filter = item =>
+                            {
+                                var l = item as LangItem;
+                                if (l == null) return false;
+                                return l.Label.ToLowerInvariant().Contains(q) ||
+                                       l.Code.ToLowerInvariant().Contains(q);
+                            };
+                            view.Refresh();
+                        };
+                        search.PreviewKeyDown += (a, b) =>
+                        {
+                            if (b.Key == System.Windows.Input.Key.Enter)
+                            {
+                                var first = view.OfType<LangItem>().FirstOrDefault();
+                                if (first != null) combo.SelectedItem = first;
+                                combo.IsDropDownOpen = false;
+                                b.Handled = true;
+                            }
+                        };
+                    }
+                }
+                if (search != null)
+                {
+                    // 下拉打开后 ComboBox 会把焦点抢回列表选中项，延迟一帧再聚焦搜索框，否则敲不进字
+                    combo.Dispatcher.BeginInvoke(new System.Action(() =>
+                    {
+                        search.Focus();
+                        System.Windows.Input.Keyboard.Focus(search);
+                        search.SelectAll();
+                    }), System.Windows.Threading.DispatcherPriority.Input);
+                }
+            };
+            combo.DropDownClosed += (s, e) =>
+            {
+                if (search != null) search.Text = ""; // 触发 TextChanged → 清过滤
+                view.Filter = null;
+                view.Refresh();
+                if (combo.SelectedItem == null)
+                {
+                    // 未点选（过滤期间选中项被清空）：按权威语向恢复显示
+                    var code = ReferenceEquals(combo, SrcCombo) ? _lastSrc : _lastTgt;
+                    var item = _langs.FirstOrDefault(l =>
+                        string.Equals(l.Code, code, StringComparison.OrdinalIgnoreCase));
+                    if (item != null) combo.SelectedItem = item;
+                }
+            };
+        }
+
+        /// <summary>枚举 Studio 支持的全部语言，英文化名并按名称排序；进程级缓存，二次打开不再重复枚举。</summary>
+        private static List<LangItem> _langsCache;
+        private static List<LangItem> BuildLanguages()
+        {
+            if (_langsCache != null) return _langsCache;
+            var list = new List<LangItem>();
+            try
+            {
+                IEnumerable<Sdl.Core.Globalization.Language> all =
+                    Sdl.Core.Globalization.Language.GetAllLanguages();
+                foreach (var l in all)
+                {
+                    var code = l.IsoAbbreviation;
+                    var name = l.IsoAbbreviation;
+                    try { name = new CultureInfo(code.Replace("_", "-")).EnglishName; }
+                    catch (Exception) { name = code; }
+                    list.Add(new LangItem { Code = code, Label = name + "  ·  " + code });
+                }
+                if (list.Count == 0) throw new Exception("Studio 语言清单为空");
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("收件箱：枚举 Studio 语言失败", ex);
+                // 回退：至少给出常用中英两种，保证界面可用
+                list.Add(new LangItem { Code = "zh-CN", Label = "Chinese simplified  ·  zh-CN" });
+                list.Add(new LangItem { Code = "en-US", Label = "English (US)  ·  en-US" });
+            }
+            return _langsCache = list.OrderBy(l => l.Label).ToList();
         }
 
         // ==================== 启停 / 处理 ====================
@@ -212,7 +383,7 @@ namespace TradosToolkit.Inbox
                 "· 监视目录：把待处理的源文件拖进这个目录，插件自动开始处理，无需手动操作。\n" +
                 "· 每个文件产出三件套：分析报告(.csv) + 交付包(.sdlppx) + 匹配到的本地库(.sdltm)。\n" +
                 "· 本地库目录：从该目录（含子目录）里挑与「源/目标语言」语言对一致、可写的 .sdltm 套进项目并预翻译。\n" +
-                "· 语言用 ISO 代码（如 zh-CN、en-US）。\n" +
+                "· 源/目标语言：点开下拉，顶部输入框里敲代码或名称即可过滤（如 zh-CN、English），回车选中第一项。\n" +
                 "· 「随插件自动开始监视」勾选后，每次打开 Studio 会自动开始监视。\n" +
                 "· 关掉本窗口不影响后台监视；处理进度仍在继续。",
                 "TradosToolkit 收件箱", MessageBoxButton.OK, MessageBoxImage.Information);

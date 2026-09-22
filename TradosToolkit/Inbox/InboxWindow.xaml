@@ -59,6 +59,89 @@
                 <Setter Property="FontSize" Value="13"/>
                 <Setter Property="FontWeight" Value="SemiBold"/>
             </Style>
+            <DataTemplate x:Key="LangItemTemplate">
+                <TextBlock Text="{Binding Label}" TextTrimming="CharacterEllipsis"/>
+            </DataTemplate>
+
+            <!-- 带搜索框的语言下拉：与术语管理同一套样式。点开后 Popup 顶部有输入框，输入即过滤，
+                 回车=选中过滤后第一项，收起未点选则回显当前语向。窗口跑专用 STA 线程后键盘链路正常。 -->
+            <Style x:Key="LangSearchCombo" TargetType="ComboBox">
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="ItemTemplate" Value="{StaticResource LangItemTemplate}"/>
+                <!-- 语言近 460 种，默认条目宿主不虚拟化会全量生成容器而卡顿，换 VirtualizingStackPanel -->
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel/>
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ComboBox">
+                            <Grid>
+                                <ToggleButton Focusable="False" ClickMode="Press"
+                                              IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <ToggleButton.Template>
+                                        <ControlTemplate TargetType="ToggleButton">
+                                            <Border x:Name="ComboBorder" Background="{DynamicResource RegionBrush}"
+                                                    BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="4">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="24"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <ContentPresenter Grid.Column="0" Margin="9,0,0,0"
+                                                                      VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                                      Content="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                                                      ContentTemplate="{Binding ItemTemplate, RelativeSource={RelativeSource AncestorType=ComboBox}}"/>
+                                                    <Path Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                          Data="M 0 0 L 4 4 L 8 0 Z" Fill="{DynamicResource SecondaryTextBrush}"/>
+                                                </Grid>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="ComboBorder" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </ToggleButton.Template>
+                                </ToggleButton>
+                                <Popup x:Name="PART_Popup" AllowsTransparency="True" Placement="Bottom" Focusable="True"
+                                       IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <Border Background="{DynamicResource RegionBrush}" BorderBrush="{DynamicResource BorderBrush}"
+                                            BorderThickness="1" CornerRadius="4" Margin="0,2,0,0"
+                                            MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}">
+                                        <StackPanel>
+                                            <Grid Margin="8,8,8,4">
+                                                <TextBox x:Name="LangSearchBox" Height="26" FontSize="12" Padding="5,0" Focusable="True"
+                                                         VerticalContentAlignment="Center"/>
+                                                <TextBlock x:Name="SearchHint" Text="输入代码或名称过滤…" Foreground="{DynamicResource ThirdlyTextBrush}" FontSize="12"
+                                                           Margin="8,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False"
+                                                           Visibility="Collapsed"/>
+                                            </Grid>
+                                            <Separator Margin="6,0"/>
+                                            <ScrollViewer MaxHeight="260" CanContentScroll="True"
+                                                          VirtualizingPanel.IsVirtualizing="True"
+                                                          VirtualizingPanel.ScrollUnit="Item"
+                                                          VerticalScrollBarVisibility="Auto">
+                                                <ItemsPresenter/>
+                                            </ScrollViewer>
+                                        </StackPanel>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger SourceName="LangSearchBox" Property="Text" Value="">
+                                    <Setter TargetName="SearchHint" Property="Visibility" Value="Visible"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
             <Style x:Key="Label" TargetType="TextBlock">
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="Margin" Value="0,0,8,0"/>
@@ -105,11 +188,13 @@
                              ToolTip="从这个目录（含子目录）里挑语言对匹配的 .sdltm 套进项目"/>
                     <Button Content="浏览" Style="{StaticResource GhostButton}" Margin="8,0,0,0" Click="BrowseTm_Click"/>
                     <TextBlock Style="{StaticResource Label}" Text="源语言" Margin="18,0,8,0"/>
-                    <TextBox x:Name="SourceLangBox" Width="90" Height="30" VerticalAlignment="Center"
-                             ToolTip="ISO 代码，如 zh-CN / en-US"/>
+                    <ComboBox x:Name="SrcCombo" Width="150" Style="{StaticResource LangSearchCombo}"
+                              SelectedValuePath="Code" SelectionChanged="LangChanged"
+                              ToolTip="点开下拉，顶部输入框里敲代码/名称即可过滤，回车选中第一项"/>
                     <TextBlock Style="{StaticResource Label}" Text="目标语言" Margin="12,0,8,0"/>
-                    <TextBox x:Name="TargetLangBox" Width="90" Height="30" VerticalAlignment="Center"
-                             ToolTip="ISO 代码，如 en-US / zh-CN"/>
+                    <ComboBox x:Name="TgtCombo" Width="150" Style="{StaticResource LangSearchCombo}"
+                              SelectedValuePath="Code" SelectionChanged="LangChanged"
+                              ToolTip="点开下拉，顶部输入框里敲代码/名称即可过滤，回车选中第一项"/>
                     <CheckBox x:Name="AutoStartBox" Content="随插件自动开始监视" VerticalAlignment="Center"
                               Margin="18,0,0,0"/>
                 </WrapPanel>

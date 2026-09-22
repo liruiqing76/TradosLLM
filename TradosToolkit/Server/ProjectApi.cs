@@ -9,6 +9,7 @@ using Sdl.Core.Globalization;
 using Sdl.ProjectAutomation.Core;
 using Sdl.ProjectAutomation.FileBased;
 using Sdl.TranslationStudioAutomation.IntegrationApi;
+using TradosToolkit.Diagnostics;
 using TradosToolkit.Glossaries;
 using TradosToolkit.TranslationProvider.Engines;
 using System.Threading;
@@ -291,7 +292,7 @@ namespace TradosToolkit.Server
         /// <summary>
         /// POST /api/project/task?path=...&task=pretranslate|analyze|...&files=id1,id2(可选)&async=1(可选)
         /// body 可选 {"providerUri":"tradostoolkit://...","providerState":""}：
-        /// 预翻译前把该提供程序写入项目所有目标语言的 TM 配置。
+        /// 预翻译前把该提供程序并入项目级级联（不覆盖模板既有提供程序）；本地配置了 LLM 时自动补入插件 TM→LLM 提供程序。
         /// async=1 立即返回 202 {taskId}，进度查 GET /api/task?id=；缺省仍同步阻塞到完成。
         /// </summary>
         private static ApiResult RunTask(string method, Dictionary<string, string> query, string body)
@@ -339,20 +340,28 @@ namespace TradosToolkit.Server
             if (fileIds.Length == 0)
                 return ApiResult.Json(400, Error("项目没有目标文件"));
 
-            if (!string.IsNullOrEmpty(providerUri))
+            if (!string.IsNullOrEmpty(providerUri) || HasConfiguredLlm())
             {
-                var config = new TranslationProviderConfiguration
+                var state = Str(request, "providerState") ?? string.Empty;
+                var config = GetProviderConfig(project);
+
+                // 已匹配的本地库：插到级联最前优先查询；并入而非覆盖，避免冲掉模板里既有的提供程序
+                if (!string.IsNullOrEmpty(providerUri))
                 {
-                    Entries = new List<TranslationProviderCascadeEntry>
-                    {
-                        new TranslationProviderCascadeEntry(
-                            new TranslationProviderReference(new Uri(providerUri), Str(request, "providerState") ?? string.Empty, true),
-                            false, true, false)
-                    },
-                    StopSearchingWhenResultsFound = true,
-                };
-                foreach (var lang in project.GetProjectInfo().TargetLanguages)
-                    project.UpdateTranslationProviderConfiguration(lang, config);
+                    var tmUri = new Uri(providerUri);
+                    if (!ContainsProvider(config, tmUri))
+                        config.Entries.Insert(0, new TranslationProviderCascadeEntry(
+                            new TranslationProviderReference(tmUri, state, true), false, true, false));
+                }
+
+                // 本地已配置 LLM：把插件 TM→LLM 提供程序补进级联，保证预翻译走 LLM 回退
+                var toolkitUri = BuildToolkitUri();
+                if (toolkitUri != null && !ContainsProvider(config, toolkitUri))
+                    config.Entries.Add(new TranslationProviderCascadeEntry(
+                        new TranslationProviderReference(toolkitUri, null, true), false, true, false));
+
+                project.UpdateTranslationProviderConfiguration(config);
+                ToolkitLog.Info("预翻译：已更新项目提供程序级联，共 " + config.Entries.Count + " 项");
             }
 
             var task = project.RunAutomaticTask(fileIds, templateId);
@@ -369,6 +378,62 @@ namespace TradosToolkit.Server
         {
             var text = message.GetType().GetProperty("Message");
             return (text == null ? message.ToString() : text.GetValue(message, null) as string) ?? string.Empty;
+        }
+
+        /// <summary>读取项目级提供程序配置；读不到则返回空配置（不覆盖父级）。</summary>
+        private static TranslationProviderConfiguration GetProviderConfig(FileBasedProject project)
+        {
+            TranslationProviderConfiguration config = null;
+            try
+            {
+                config = project.GetTranslationProviderConfiguration();
+            }
+            catch (Exception e)
+            {
+                ToolkitLog.Error("读取项目提供程序配置失败，改为空配置", e);
+            }
+            if (config == null)
+                config = new TranslationProviderConfiguration();
+            if (config.Entries == null)
+                config.Entries = new List<TranslationProviderCascadeEntry>();
+            return config;
+        }
+
+        private static bool ContainsProvider(TranslationProviderConfiguration config, Uri uri)
+        {
+            return config.Entries != null && config.Entries.Any(e =>
+                e != null && e.MainTranslationProvider != null &&
+                e.MainTranslationProvider.Uri != null &&
+                e.MainTranslationProvider.Uri.Equals(uri));
+        }
+
+        private static bool HasConfiguredLlm()
+        {
+            try
+            {
+                return !string.IsNullOrEmpty(ToolkitConfig.Load().LlmBaseUrl);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>用本地 config.json 的 LLM 参数构建插件 TM→LLM 提供程序 URI；未配置 LLM 返回 null。</summary>
+        private static Uri BuildToolkitUri()
+        {
+            try
+            {
+                var cfg = ToolkitConfig.Load();
+                if (string.IsNullOrEmpty(cfg.LlmBaseUrl))
+                    return null;
+                return TranslationProvider.ToolkitUri.Build(cfg.LlmBaseUrl, cfg.LlmModel, true, true, true);
+            }
+            catch (Exception e)
+            {
+                ToolkitLog.Error("构建插件提供程序 URI 失败", e);
+                return null;
+            }
         }
 
         /// <summary>
@@ -645,12 +710,27 @@ namespace TradosToolkit.Server
                     RecomputeAnalysisStatistics = true,
                 };
                 var package = project.CreateProjectPackage(manualTask.Id, name, Str(request, "comment") ?? "created by TradosToolkit api", options);
-                project.SavePackageAs(package.Task.Id, outPath);
+                if (package == null)
+                    return ApiResult.Json(500, Error("打包失败：未返回打包结果"));
+
+                var waited = 0;
+                while (package.Status == PackageStatus.NotStarted || package.Status == PackageStatus.Scheduled
+                       || package.Status == PackageStatus.InProgress || package.Status == PackageStatus.Cancelling)
+                {
+                    if (waited >= 180000)
+                        return ApiResult.Json(500, Error("打包超时（" + package.Status + "）：" + package.StatusMessage));
+                    Thread.Sleep(200);
+                    waited += 200;
+                }
+                if (package.Status != PackageStatus.Completed)
+                    return ApiResult.Json(500, Error("打包失败（" + package.Status + "）：" + package.StatusMessage));
+
+                project.SavePackageAs(package.PackageId, outPath);
 
                 return ApiResult.Json(200, new Dictionary<string, object>
                 {
                     { "packagePath", outPath },
-                    { "manualTaskId", package.Task.Id },
+                    { "manualTaskId", manualTask.Id },
                 });
             });
         }
