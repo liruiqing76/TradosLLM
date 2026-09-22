@@ -17,9 +17,11 @@ using TradosToolkit.Glossaries;
 namespace TradosToolkit.TranslationProvider.UI
 {
     /// <summary>
-    /// 术语管理独立页：译前/译后术语库的增删改查 + CSV 导入导出 + 模板下载。
-    /// 语言对下拉带搜索框：点开下拉顶部即见输入框，敲代码/名称即输即筛（默认带出当前项目语言），
-    /// 覆盖所有语种。Add-ins 附加项 Ribbon 按钮独立打开。
+    /// 术语管理独立页，分两个页签——两者是**两码事**，各自独立的存储与用途：
+    /// 1)「替换词条（译前/译后）」：扁平 from→to，写 terms 表，供翻译流水线 TermReplacer 做译前替换源文 / 译后修正译文；
+    /// 2)「术语表（术语识别）」：完整模型（词性/定义/例句/状态/同义词/领域），写 term_entries 表，
+    ///    是真正的术语库，供 Studio 原生术语引擎识别/查询与项目术语挂载使用。
+    /// 语言对下拉带搜索框：点开下拉顶部即见输入框，敲代码/名称即输即筛（默认带出当前项目语言）。
     /// 窗口跑在专用 STA 线程（ShowOrActivate）：Studio 宿主消息泵不为外挂顶层窗口 TranslateMessage，
     /// 留在宿主线程的 Show() 窗口收不到 WM_CHAR（英文敲不进，中文走 IME/TSF 幸存）；
     /// 专用线程上由 WPF 自己的 Dispatcher 泵转译消息，输入恢复正常且仍是无属主独立窗口。
@@ -30,6 +32,13 @@ namespace TradosToolkit.TranslationProvider.UI
         private readonly GlossaryDb _db;
         private readonly SqliteGlossaryProvider _provider;
         private readonly List<LangItem> _langs;
+
+        // 当前页签（0=替换词条，1=术语表）
+        private bool OnGlossaryTab => MainTabs != null && MainTabs.SelectedIndex == 1;
+
+        // 两套语言对各自记忆：替换词条页用 _replSrc/_replTgt，术语表页用 _lastSrc/_lastTgt
+        private string _lastSrc = "", _lastTgt = "";
+        private string _replSrc = "", _replTgt = "";
 
         public static void ShowOrActivate()
         {
@@ -88,38 +97,79 @@ namespace TradosToolkit.TranslationProvider.UI
             _db = new GlossaryDb();
             _provider = provider;
             _langs = LanguageCatalog.All();
-            // 语言下拉"下拉内搜索框"：点开下拉顶部即见输入框，各挂独立 ListCollectionView，只改 Filter 不换 ItemsSource
+
+            // 各下拉挂"下拉内搜索框"（独立 ListCollectionView，只改 Filter 不换 ItemsSource）
+            AttachLangFilter(ReplSrcCombo);
+            AttachLangFilter(ReplTgtCombo);
             AttachLangFilter(SrcCombo);
             AttachLangFilter(TgtCombo);
-            DomCombo.ItemsSource = DomainCatalog.Names();
 
-            // 领域默认取全局配置（工作台里切换的领域），保证术语管理与翻译插件同一领域
+            // 领域下拉：两个页签各一份，默认取全局配置（工作台里切换的领域），与翻译插件共用同一领域
+            var domNames = DomainCatalog.Names();
             var cfgDomain = ToolkitConfig.Load().Domain;
-            DomCombo.SelectedItem = DomCombo.Items.OfType<string>()
-                .FirstOrDefault(d => string.Equals(d, cfgDomain, StringComparison.OrdinalIgnoreCase))
-                ?? DomainTree.DefaultDomain;
+            var domDefault = domNames.FirstOrDefault(d => string.Equals(d, cfgDomain, StringComparison.OrdinalIgnoreCase))
+                             ?? DomainTree.DefaultDomain;
+            ReplDomCombo.ItemsSource = domNames;
+            ReplDomCombo.SelectedItem = domDefault;
+            DomCombo.ItemsSource = domNames;
+            DomCombo.SelectedItem = domDefault;
 
             if (string.IsNullOrWhiteSpace(src)) src = null;
             if (string.IsNullOrWhiteSpace(tgt)) tgt = null;
             // 注意：不再在构造里取当前项目语言——SdlTradosStudio.Automation 只能在 Studio UI 线程访问，
             // 独立线程方案下由 ShowOrActivate 在建线程前取好传进来。
 
-            var srcItem = _langs.FirstOrDefault(l => l.Code == src);
-            var tgtItem = _langs.FirstOrDefault(l => l.Code == tgt);
-            SrcCombo.SelectedItem = srcItem ?? _langs.FirstOrDefault();
-            if (tgtItem == null)
-            {
-                var zh = _langs.FirstOrDefault(l => l.Code.StartsWith("zh-"))
-                          ?? _langs.Skip(1).FirstOrDefault();
-                TgtCombo.SelectedItem = zh;
-            }
-            else TgtCombo.SelectedItem = tgtItem;
-
-            // 记录权威语言代码：过滤/失焦可能清空选中项，但 _last* 始终保持用户选定的语向
-            _lastSrc = (SrcCombo.SelectedValue as string) ?? src;
-            _lastTgt = (TgtCombo.SelectedValue as string) ?? tgt;
+            // 两个页签的语言对下拉都按传入的项目语言初始化
+            InitLangPair(ReplSrcCombo, ReplTgtCombo, src, tgt);
+            InitLangPair(SrcCombo, TgtCombo, src, tgt);
+            _replSrc = LangCodeOf(ReplSrcCombo, src);
+            _replTgt = LangCodeOf(ReplTgtCombo, tgt);
+            _lastSrc = LangCodeOf(SrcCombo, src);
+            _lastTgt = LangCodeOf(TgtCombo, tgt);
 
             Reload(null, null);
+        }
+
+        /// <summary>
+        /// 用给定语言代码初始化一对下拉：大小写不敏感匹配（Studio 的 IsoAbbreviation 大小写不稳定，
+        /// 如 zh-cn / zh-CN）；绝不能"找不到就退到第一个语言"，否则会把词条存到项目语言对之外的语向下。
+        /// </summary>
+        private void InitLangPair(ComboBox srcCombo, ComboBox tgtCombo, string src, string tgt)
+        {
+            var srcItem = FindLang(_langs, src);
+            var tgtItem = FindLang(_langs, tgt);
+            SetComboSelection(srcCombo, srcItem ?? _langs.FirstOrDefault());
+            if (tgtItem == null)
+            {
+                var zh = FindLang(_langs, "zh-CN")
+                         ?? _langs.FirstOrDefault(l => l.Code.StartsWith("zh-", StringComparison.OrdinalIgnoreCase))
+                         ?? _langs.Skip(1).FirstOrDefault();
+                SetComboSelection(tgtCombo, zh);
+            }
+            else SetComboSelection(tgtCombo, tgtItem);
+        }
+
+        /// <summary>从下拉取出权威语言代码：优先用传入的项目代码（已归一），拿不到才回退到实际选中项。</summary>
+        private string LangCodeOf(ComboBox combo, string projectCode)
+        {
+            if (!string.IsNullOrEmpty(projectCode)) return NormalizeLang(projectCode, _langs);
+            return combo.SelectedValue as string;
+        }
+
+        /// <summary>按代码取语言项，大小写不敏感；code 为空返回 null。</summary>
+        private static LangItem FindLang(List<LangItem> langs, string code)
+        {
+            if (string.IsNullOrWhiteSpace(code) || langs == null) return null;
+            return langs.FirstOrDefault(l =>
+                string.Equals(l.Code, code, StringComparison.OrdinalIgnoreCase));
+        }
+
+        /// <summary>把语言代码归一为目录中的规范写法（大小写修正）；目录里没有则原样返回。</summary>
+        private static string NormalizeLang(string code, List<LangItem> langs)
+        {
+            if (string.IsNullOrWhiteSpace(code)) return code;
+            var hit = FindLang(langs, code);
+            return hit == null ? code : hit.Code;
         }
 
         /// <summary>
@@ -187,19 +237,24 @@ namespace TradosToolkit.TranslationProvider.UI
                 if (combo.SelectedItem == null)
                 {
                     // 未点选（过滤期间选中项被清空）：按权威语向恢复显示
-                    var code = ReferenceEquals(combo, SrcCombo) ? _lastSrc : _lastTgt;
+                    var code = ReferenceEquals(combo, ReplSrcCombo) ? _replSrc
+                             : ReferenceEquals(combo, ReplTgtCombo) ? _replTgt
+                             : ReferenceEquals(combo, SrcCombo) ? _lastSrc : _lastTgt;
                     var item = _langs.FirstOrDefault(l =>
                         string.Equals(l.Code, code, StringComparison.OrdinalIgnoreCase));
-                    if (item != null) combo.SelectedItem = item;
+                    if (item != null) SetComboSelection(combo, item);
                 }
             };
         }
 
-        private bool IsPost => KindCombo.SelectedIndex == 1;
-        private string Kind => IsPost ? GlossaryDb.KindPost : GlossaryDb.KindPre;
-
-        private ObservableCollection<TermEntry> Terms { get; set; }
-        private List<TermEntry> _allTerms = new List<TermEntry>();
+        /// <summary>ComboBox 拒收指向被过滤项的赋值，故先清过滤再赋值。</summary>
+        private static void SetComboSelection(ComboBox combo, LangItem item)
+        {
+            if (combo == null || item == null) return;
+            var view = combo.ItemsSource as System.Windows.Data.ListCollectionView;
+            if (view != null && view.Filter != null) { view.Filter = null; view.Refresh(); }
+            combo.SelectedItem = item;
+        }
 
         /// <summary>取当前项目的源/目标语言；只能从 Studio UI 线程调用（宿主自动化对象跨线程不可用）。</summary>
         private static void TryFillProjectLanguages(ref string src, ref string tgt)
@@ -217,20 +272,33 @@ namespace TradosToolkit.TranslationProvider.UI
             catch (Exception ex) { ToolkitLog.Error("术语管理：读取当前项目语言失败", ex); }
         }
 
+        // ====================== 页签切换 / 事件 ======================
+
+        private void MainTabChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (MainTabs == null) return;
+            Reload(null, null);
+        }
+
+        private bool IsPost => KindCombo != null && KindCombo.SelectedIndex == 1;
+        private string Kind => IsPost ? GlossaryDb.KindPost : GlossaryDb.KindPre;
+
         private void KindChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (SrcCombo == null) return; // InitializeComponent 期间
+            if (MainTabs == null) return; // InitializeComponent 期间
             Reload(null, null);
         }
 
         private void LangChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (SrcCombo == null) return;
+            if (MainTabs == null) return;
             // 只在真正点选(SelectedValue 非空)时更新权威语向；过滤清掉 SelectedItem 时不应覆盖
             var v = (sender as ComboBox)?.SelectedValue as string;
             if (!string.IsNullOrEmpty(v))
             {
-                if (ReferenceEquals(sender, SrcCombo)) _lastSrc = v;
+                if (ReferenceEquals(sender, ReplSrcCombo)) _replSrc = v;
+                else if (ReferenceEquals(sender, ReplTgtCombo)) _replTgt = v;
+                else if (ReferenceEquals(sender, SrcCombo)) _lastSrc = v;
                 else if (ReferenceEquals(sender, TgtCombo)) _lastTgt = v;
             }
             Reload(null, null);
@@ -238,18 +306,131 @@ namespace TradosToolkit.TranslationProvider.UI
 
         private void DomainChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (SrcCombo == null) return;
+            if (MainTabs == null) return;
+            // 领域在"全局配置"里是共享的：两页签任一处切换都同步到另一边，保证与翻译插件同一领域
+            var v = (sender as ComboBox)?.SelectedItem as string;
+            if (!string.IsNullOrEmpty(v))
+            {
+                if (ReferenceEquals(sender, ReplDomCombo) && DomCombo != null) DomCombo.SelectedItem = v;
+                else if (ReferenceEquals(sender, DomCombo) && ReplDomCombo != null) ReplDomCombo.SelectedItem = v;
+            }
             Reload(null, null);
         }
 
-        private string _lastSrc = "", _lastTgt = "";
         private string Src => _lastSrc;
         private string Tgt => _lastTgt;
-        private string Domain => (DomCombo.SelectedValue as string) ?? DomainTree.DefaultDomain;
+        private string ReplSrc => _replSrc;
+        private string ReplTgt => _replTgt;
+        private string Domain => (OnGlossaryTab
+            ? DomCombo?.SelectedValue as string
+            : ReplDomCombo?.SelectedValue as string) ?? DomainTree.DefaultDomain;
+
+        // ====================== 加载 ======================
 
         private void Reload(object sender, RoutedEventArgs e)
         {
-            if (TermsGrid == null) return; // InitializeComponent 期间的 SelectionChanged
+            if (MainTabs == null) return; // InitializeComponent 期间的 SelectionChanged
+            if (OnGlossaryTab) ReloadGlossary();
+            else ReloadRepl();
+        }
+
+        // ---------- 页签一：替换词条（terms 表，扁平 from→to） ----------
+
+        private ObservableCollection<GlossaryEntry> ReplTerms { get; set; }
+        private List<GlossaryEntry> _allRepl = new List<GlossaryEntry>();
+
+        private void ReloadRepl()
+        {
+            var src = ReplSrc;
+            var tgt = ReplTgt;
+            if (string.IsNullOrEmpty(src) || string.IsNullOrEmpty(tgt))
+            {
+                ReplTerms = new ObservableCollection<GlossaryEntry>();
+                ReplGrid.ItemsSource = ReplTerms;
+                ReplStatusText.Text = "请在上方选择源/目标语言。";
+                return;
+            }
+            var dom = Domain;
+            try { _allRepl = _db.GetTerms(Kind, src, tgt, dom); }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("术语管理：加载替换词条失败", ex);
+                _allRepl = new List<GlossaryEntry>();
+            }
+            ApplyReplFilter();
+            ReplStatusText.Text = string.Format("{0} · {1} → {2} · 领域 {3} · 共 {4} 条",
+                IsPost ? "译后" : "译前", src, tgt, dom, _allRepl.Count);
+        }
+
+        private void ReplSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (ReplTerms == null) return;
+            ApplyReplFilter();
+        }
+
+        private void ApplyReplFilter()
+        {
+            var q = ReplSearchBox == null ? "" : (ReplSearchBox.Text ?? "").Trim();
+            if (string.IsNullOrEmpty(q)) ReplTerms = new ObservableCollection<GlossaryEntry>(_allRepl);
+            else
+            {
+                var ql = q.ToLowerInvariant();
+                ReplTerms = new ObservableCollection<GlossaryEntry>(_allRepl.Where(x =>
+                    (x.From ?? "").ToLowerInvariant().Contains(ql) ||
+                    (x.To ?? "").ToLowerInvariant().Contains(ql) ||
+                    (x.Domain ?? "").ToLowerInvariant().Contains(ql)));
+            }
+            ReplGrid.ItemsSource = ReplTerms;
+        }
+
+        /// <summary>新增替换词条：扁平表单（替换前/替换为/领域），写 terms 表供流水线替换。</summary>
+        private void AddReplTerm(object sender, RoutedEventArgs e)
+        {
+            if (!EnsureReplPair()) return;
+            var dlg = new TermDialog(null, KindLabel, PairLabel, DomainList, Domain, ReplSrc, ReplTgt) { Owner = this };
+            if (dlg.ShowDialog() != true) return;
+            _db.SaveTerm(Kind, ReplSrc, ReplTgt, new GlossaryEntry
+            {
+                From = dlg.Result.FromTerm,
+                To = dlg.Result.ToTerm,
+                Domain = Domain,
+            });
+            RefreshAfterMutation();
+            ReplStatusText.Text = "已新增替换词条。";
+        }
+
+        private void DeleteReplTerms(object sender, RoutedEventArgs e)
+        {
+            if (!EnsureReplPair()) return;
+            foreach (var entry in ReplGrid.SelectedItems.Cast<GlossaryEntry>().ToList())
+            {
+                if (entry.Id > 0) _db.DeleteTerm(entry.Id);
+                ReplTerms.Remove(entry);
+            }
+            RefreshAfterMutation();
+            ReplStatusText.Text = "已删除选中替换词条。";
+        }
+
+        private bool EnsureReplPair()
+        {
+            if (!string.IsNullOrEmpty(ReplSrc) && !string.IsNullOrEmpty(ReplTgt)) return true;
+            ReplStatusText.Text = "请先选择语言对。";
+            return false;
+        }
+
+        private string KindLabel => IsPost ? "译后" : "译前";
+        private string PairLabel => OnGlossaryTab
+            ? string.Format("{0} → {1}", Src, Tgt)
+            : string.Format("{0} → {1}", ReplSrc, ReplTgt);
+        private List<string> DomainList => DomainCatalog.Names();
+
+        // ---------- 页签二：术语表（term_entries 表，完整模型） ----------
+
+        private ObservableCollection<TermEntry> Terms { get; set; }
+        private List<TermEntry> _allTerms = new List<TermEntry>();
+
+        private void ReloadGlossary()
+        {
             var src = Src;
             var tgt = Tgt;
             if (string.IsNullOrEmpty(src) || string.IsNullOrEmpty(tgt))
@@ -259,23 +440,12 @@ namespace TradosToolkit.TranslationProvider.UI
                 StatusText.Text = "请在上方选择源/目标语言。";
                 return;
             }
-            var kind = Kind;
             var dom = Domain;
-            // 术语类型（译前/译后）不影响完整模型：完整条目按语言对+领域统一存放，
-            // 首次加载时把扁平 terms 表（译前）迁移进 term_entries，保证历史术语不丢失。
-            if (!_migrated)
-            {
-                try { var n = _db.MigrateFlatTerms(GlossaryDb.KindPre); if (n > 0) ToolkitLog.Info("术语管理：迁移历史扁平术语 " + n + " 条"); }
-                catch (Exception ex) { ToolkitLog.Error("术语管理：迁移历史术语失败", ex); }
-                _migrated = true;
-            }
             _allTerms = _db.GetTermEntries(src, tgt, dom);
             ApplySearchFilter();
-            StatusText.Text = string.Format("{0} · {1} → {2} · 领域 {3} · 共 {4} 条",
-                IsPost ? "译后" : "译前", src, tgt, dom, _allTerms.Count);
+            StatusText.Text = string.Format("术语表 · {0} → {1} · 领域 {2} · 共 {3} 条",
+                src, tgt, dom, _allTerms.Count);
         }
-
-        private bool _migrated;
 
         private void TermSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -313,7 +483,6 @@ namespace TradosToolkit.TranslationProvider.UI
             if (dlg.ShowDialog() != true) return;
             _db.SaveTermEntry(dlg.Result);
             RefreshAfterMutation();
-            NotifyChanged();
             StatusText.Text = "已新增术语。";
         }
 
@@ -328,7 +497,6 @@ namespace TradosToolkit.TranslationProvider.UI
             if (dlg.ShowDialog() != true) return;
             _db.SaveTermEntry(dlg.Result);
             RefreshAfterMutation();
-            NotifyChanged();
             StatusText.Text = "已更新术语。";
         }
 
@@ -350,10 +518,6 @@ namespace TradosToolkit.TranslationProvider.UI
             return false;
         }
 
-        private string KindLabel => IsPost ? "译后" : "译前";
-        private string PairLabel => string.Format("{0} → {1}", Src, Tgt);
-        private List<string> DomainList => DomainCatalog.Names();
-
         private void DeleteTerms(object sender, RoutedEventArgs e)
         {
             var src = Src;
@@ -365,26 +529,55 @@ namespace TradosToolkit.TranslationProvider.UI
                 Terms.Remove(entry);
             }
             RefreshAfterMutation();
-            NotifyChanged();
+            StatusText.Text = "已删除选中术语。";
         }
 
         private void RefreshAfterMutation()
         {
             Reload(null, null);
+            NotifyChanged();
         }
+
+        private void NotifyChanged() => _provider?.InvalidateCache();
+
+        // ====================== CSV / 模板 ======================
 
         private void DownloadTemplate(object sender, RoutedEventArgs e)
         {
+            var repl = !OnGlossaryTab;
             var dlg = new SaveFileDialog
             {
                 Filter = "CSV 文件|*.csv",
-                FileName = "术语模板.csv",
+                FileName = repl ? "替换词条模板.csv" : "术语表模板.csv",
             };
             if (dlg.ShowDialog(this) != true) return;
             File.WriteAllText(dlg.FileName,
-                "from,to,pos,status,domain,definition,example,note,src_syn,tgt_syn\r\n",
+                repl ? "from,to\r\n" : "from,to,pos,status,domain,definition,example,note,src_syn,tgt_syn\r\n",
                 new UTF8Encoding(true));
-            StatusText.Text = "模板已下载：" + dlg.FileName;
+            (repl ? ReplStatusText : StatusText).Text = "模板已下载：" + dlg.FileName;
+        }
+
+        private void ImportReplCsv(object sender, RoutedEventArgs e)
+        {
+            if (!EnsureReplPair()) return;
+            var dlg = new OpenFileDialog { Filter = "CSV 文件|*.csv|所有文件|*.*" };
+            if (dlg.ShowDialog(this) != true) return;
+            var n = _db.ImportCsv(Kind, ReplSrc, ReplTgt, dlg.FileName, Domain);
+            RefreshAfterMutation();
+            ReplStatusText.Text = string.Format("已导入 {0} 条替换词条（{1} → {2} · {3}）", n, ReplSrc, ReplTgt, Domain);
+        }
+
+        private void ExportReplCsv(object sender, RoutedEventArgs e)
+        {
+            if (!EnsureReplPair()) return;
+            var dlg = new SaveFileDialog
+            {
+                Filter = "CSV 文件|*.csv",
+                FileName = string.Format("{0}-{1}.{2}.csv", ReplSrc, ReplTgt, Kind),
+            };
+            if (dlg.ShowDialog(this) != true) return;
+            _db.ExportCsv(Kind, ReplSrc, ReplTgt, dlg.FileName, Domain);
+            ReplStatusText.Text = "导出完成：" + dlg.FileName;
         }
 
         private void ImportCsv(object sender, RoutedEventArgs e)
@@ -397,7 +590,6 @@ namespace TradosToolkit.TranslationProvider.UI
 
             var n = _db.ImportTermEntriesCsv(src, tgt, dlg.FileName, Domain);
             RefreshAfterMutation();
-            NotifyChanged();
             StatusText.Text = string.Format("已导入 {0} 条术语（{1} → {2} · {3}）", n, src, tgt, Domain);
         }
 
@@ -416,9 +608,5 @@ namespace TradosToolkit.TranslationProvider.UI
             _db.ExportTermEntriesCsv(src, tgt, dlg.FileName, Domain);
             StatusText.Text = "导出完成：" + dlg.FileName;
         }
-
-        private void CloseButton(object sender, RoutedEventArgs e) => Close();
-
-        private void NotifyChanged() => _provider?.InvalidateCache();
     }
 }

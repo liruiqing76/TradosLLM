@@ -274,7 +274,7 @@ CREATE INDEX IF NOT EXISTS ix_term_synonyms_entry ON term_synonyms(entry_id);";
                 using (var cmd = conn.CreateCommand())
                 {
                     var sql = "SELECT id, src_lang, tgt_lang, domain, from_term, to_term, pos, definition, example, status, note, created_at, updated_at " +
-                              "FROM term_entries WHERE src_lang=$src AND tgt_lang=$tgt";
+                              "FROM term_entries WHERE src_lang=$src COLLATE NOCASE AND tgt_lang=$tgt COLLATE NOCASE";
                     if (!string.IsNullOrWhiteSpace(domain)) sql += " AND domain=$domain";
                     sql += " ORDER BY from_term";
                     cmd.CommandText = sql;
@@ -414,8 +414,8 @@ CREATE INDEX IF NOT EXISTS ix_term_synonyms_entry ON term_synonyms(entry_id);";
                     }
                     else
                     {
-                        // UNIQUE 不含 kind，故按 (src_lang,tgt_lang,domain,from_term) 判存
-                        cmd.CommandText = "SELECT id FROM term_entries WHERE src_lang=$src AND tgt_lang=$tgt AND domain=$domain AND from_term=$from";
+                        // UNIQUE 不含 kind，故按 (src_lang,tgt_lang,domain,from_term) 判存；语言大小写不敏感，避免重复行
+                        cmd.CommandText = "SELECT id FROM term_entries WHERE src_lang=$src COLLATE NOCASE AND tgt_lang=$tgt COLLATE NOCASE AND domain=$domain AND from_term=$from";
                         cmd.Parameters.AddWithValue("$src", entry.SourceLang);
                         cmd.Parameters.AddWithValue("$tgt", entry.TargetLang);
                         cmd.Parameters.AddWithValue("$domain", dom);

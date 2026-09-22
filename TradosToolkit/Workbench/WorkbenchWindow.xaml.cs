@@ -1102,8 +1102,36 @@ namespace TradosToolkit.Workbench
             if (proj == null) { ToolsOutput.Text = "未找到当前激活的项目。"; return; }
             ToolsProjBox.Text = proj;
             FillDefaultLanguage();
-            ToolsOutput.Text = "已取当前项目：" + proj;
+            var mounted = RemountCurrentProjectTerminology();
+            ToolsOutput.Text = mounted > 0
+                ? "已取当前项目：" + proj + "（术语源已按本项目语言对重新挂载 " + mounted + " 个）"
+                : "已取当前项目：" + proj;
             ToolkitLog.Info("工作台：流程页取当前项目 " + proj);
+        }
+
+        /// <summary>
+        /// 按**当前激活项目**重新挂载插件术语源：切换项目后术语插入点的目标语言才会跟着变。
+        /// 语言对以项目为准，并清理历史遗留的旧语言对挂载。
+        /// </summary>
+        private int RemountCurrentProjectTerminology()
+        {
+            try
+            {
+                var ctl = Sdl.TranslationStudioAutomation.IntegrationApi.SdlTradosStudio.Application
+                    .GetController<Sdl.TranslationStudioAutomation.IntegrationApi.ProjectsController>();
+                var current = ctl.CurrentProject as Sdl.ProjectAutomation.FileBased.FileBasedProject;
+                if (current == null) return 0;
+                var cfg = ToolkitConfig.Load();
+                var db = new Glossaries.GlossaryDb();
+                var mounted = TerminologySource.ProjectTerminology.Mount(
+                    current, db.GetAllTermPairs(), cfg.TermBaseUrl, cfg.Domain);
+                return mounted;
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("工作台：重新挂载项目术语源失败", ex);
+                return 0;
+            }
         }
 
         private void ToolsBrowseProj_Click(object sender, RoutedEventArgs e)

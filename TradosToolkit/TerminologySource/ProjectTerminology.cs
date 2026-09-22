@@ -89,25 +89,38 @@ namespace TradosToolkit.TerminologySource
         /// <summary>
         /// 把插件术语源挂到项目术语库配置上（幂等：同语言对+领域已存在则跳过）。
         /// 返回挂载的术语库个数；0 表示没有可挂的（如本地库为空且未配置线上服务）。
+        ///
+        /// 语言对**以项目为准**：源语言取项目源语言，目标语言取项目各目标语言；
+        /// localPairs 仅用于判断"本地库在这对语言上是否有内容"，不再决定挂载哪些语言对
+        /// ——否则切换项目后会沿用上一个项目的目标语言。
         /// </summary>
-        /// <param name="localPairs">本地库的语言对（src,tgt），来自 GlossaryDb.GetAllTermPairs()。</param>
+        /// <param name="localPairs">本地库已有内容的语言对（src,tgt），来自 GlossaryDb.GetAllTermPairs()。</param>
         public static int Mount(FileBasedProject project, IEnumerable<string[]> localPairs,
                                 string onlineBaseUrl, string domain)
         {
             if (project == null) return 0;
 
+            var projectPairs = ProjectPairs(project);
+            if (projectPairs.Count == 0) return 0;
+
+            var dbPairs = new HashSet<string>(
+                (localPairs ?? Enumerable.Empty<string[]>())
+                    .Where(p => p != null && p.Length >= 2 && !string.IsNullOrWhiteSpace(p[0]) && !string.IsNullOrWhiteSpace(p[1]))
+                    .Select(p => p[0] + "|" + p[1]),
+                StringComparer.OrdinalIgnoreCase);
+
             var termbases = new List<Tuple<string, string, string, string>>(); // kind, base, src, tgt
 
-            foreach (var pair in localPairs ?? Enumerable.Empty<string[]>())
+            foreach (var pair in projectPairs)
             {
-                if (pair == null || pair.Length < 2) continue;
-                if (string.IsNullOrWhiteSpace(pair[0]) || string.IsNullOrWhiteSpace(pair[1])) continue;
-                termbases.Add(Tuple.Create(TermSourceKind.Local, (string)null, pair[0], pair[1]));
-            }
+                // 本地源：仅当本地库在该语言对上确有内容时才挂，避免空库占位。
+                if (dbPairs.Contains(pair[0] + "|" + pair[1]))
+                    termbases.Add(Tuple.Create(TermSourceKind.Local, (string)null, pair[0], pair[1]));
 
-            if (!string.IsNullOrWhiteSpace(onlineBaseUrl))
-                foreach (var pair in LocalPairsForOnline(project))
+                // 线上源：配置了服务地址即按项目语言对挂载（服务端自行决定有无数据）。
+                if (!string.IsNullOrWhiteSpace(onlineBaseUrl))
                     termbases.Add(Tuple.Create(TermSourceKind.Online, onlineBaseUrl, pair[0], pair[1]));
+            }
 
             if (termbases.Count == 0)
                 return 0;
@@ -116,6 +129,15 @@ namespace TradosToolkit.TerminologySource
             if (config == null) config = new TermbaseConfiguration();
             if (config.Termbases == null) config.Termbases = new List<Termbase>();
             if (config.LanguageIndexes == null) config.LanguageIndexes = new List<TermbaseLanguageIndex>();
+
+            // 清掉本项目语言对之外的历史挂载（切换项目/改语向后遗留的旧语言对），
+            // 否则 Studio 术语插入点仍会显示上一个项目的目标语言。
+            var stale = config.Termbases.Where(t => IsPluginTermbase(t) && !IsForProjectPairs(t, projectPairs)).ToList();
+            foreach (var t in stale)
+            {
+                config.Termbases.Remove(t);
+                ToolkitLog.Info("项目术语挂载：移除过期术语库 " + t.Name + "（不属于当前项目语言对）");
+            }
 
             var mounted = 0;
             foreach (var item in termbases)
@@ -133,12 +155,16 @@ namespace TradosToolkit.TerminologySource
                     continue;
                 }
                 config.Termbases.Add(tb);
-                TryAddLanguageIndex(config, project, item.Item3);
-                TryAddLanguageIndex(config, project, item.Item4);
                 mounted++;
             }
 
-            if (mounted == 0) return 0;
+            foreach (var pair in projectPairs)
+            {
+                TryAddLanguageIndex(config, project, pair[0]);
+                TryAddLanguageIndex(config, project, pair[1]);
+            }
+
+            if (mounted == 0 && stale.Count == 0) return 0;
 
             // 坑位：Terminology 引擎要求至少一个术语库；但我们只在挂载了内容时才更新，
             // 因此这里 Termbases 必非空。仍做保护，防止把空配置写回导致异常。
@@ -147,6 +173,7 @@ namespace TradosToolkit.TerminologySource
             try
             {
                 project.UpdateTermbaseConfiguration(config);
+                project.Save();
             }
             catch (Exception e)
             {
@@ -154,14 +181,56 @@ namespace TradosToolkit.TerminologySource
                 return 0;
             }
 
-            ToolkitLog.Info($"项目术语挂载：已挂载 {mounted} 个术语库（domain={domain}）");
+            ToolkitLog.Info($"项目术语挂载：新增 {mounted} 个、清理 {stale.Count} 个术语库（domain={domain}）");
             return mounted;
         }
 
-        /// <summary>线上服务按项目的源/目标语言组合生成挂载项。</summary>
-        private static List<string[]> LocalPairsForOnline(FileBasedProject project)
+        /// <summary>是否本插件挂载的术语库（按 Path 是否为 tradostoolkit:// URI 判断）。</summary>
+        private static bool IsPluginTermbase(Termbase termbase)
+        {
+            var path = SettingsPath(termbase);
+            return !string.IsNullOrEmpty(path) &&
+                   path.StartsWith(NativeTerminologyProviderHelper.SchemeActivation, StringComparison.OrdinalIgnoreCase);
+        }
+
+        /// <summary>该插件术语库的 src/tgt 是否属于给定项目语言对集合。</summary>
+        private static bool IsForProjectPairs(Termbase termbase, List<string[]> projectPairs)
+        {
+            var path = SettingsPath(termbase);
+            if (string.IsNullOrEmpty(path)) return false;
+            try
+            {
+                var uri = new Uri(path);
+                var src = NativeTerminologyProviderHelper.GetQueryParam(uri, "src");
+                var tgt = NativeTerminologyProviderHelper.GetQueryParam(uri, "tgt");
+                return projectPairs.Any(p =>
+                    string.Equals(p[0], src, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(p[1], tgt, StringComparison.OrdinalIgnoreCase));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        private static string SettingsPath(Termbase termbase)
+        {
+            if (termbase == null || string.IsNullOrEmpty(termbase.SettingsXML)) return null;
+            try
+            {
+                return XDocument.Parse(termbase.SettingsXML).Root?.Element("Path")?.Value;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>项目自身的语言对：源语言 × 各目标语言。</summary>
+        public static List<string[]> ProjectPairs(FileBasedProject project)
         {
             var pairs = new List<string[]>();
+            if (project == null) return pairs;
             try
             {
                 var info = project.GetProjectInfo();
