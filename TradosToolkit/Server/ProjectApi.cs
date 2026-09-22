@@ -20,7 +20,7 @@ namespace TradosToolkit.Server
     /// </summary>
     public static class ProjectApi
     {
-        private static readonly Dictionary<string, string> TaskTemplates = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+        internal static readonly Dictionary<string, string> TaskTemplates = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
         {
             { "pretranslate", AutomaticTaskTemplateIds.PreTranslateFiles },
             { "analyze", AutomaticTaskTemplateIds.AnalyzeFiles },
@@ -160,7 +160,7 @@ namespace TradosToolkit.Server
             };
         }
 
-        private static ApiResult CreateProject(string body)
+        internal static ApiResult CreateProject(string body)
         {
             var request = ParseBody(body);
             var name = Str(request, "name");
@@ -304,7 +304,7 @@ namespace TradosToolkit.Server
         }
 
         /// <summary>在已打开的 project 上跑单个自动任务（providerUri 先写入级联配置）。供单任务与 pipeline 复用。</summary>
-        private static ApiResult ExecuteTaskOnProject(FileBasedProject project, string taskKey, string templateId,
+        internal static ApiResult ExecuteTaskOnProject(FileBasedProject project, string taskKey, string templateId,
             Dictionary<string, string> query, Dictionary<string, object> request)
         {
             var providerUri = Str(request, "providerUri");
@@ -380,7 +380,7 @@ namespace TradosToolkit.Server
         private static ApiResult Pipeline(Dictionary<string, string> query, string body)
         {
             var request = ParseBody(body);
-            var stepsRaw = request.ContainsKey("steps") ? request["steps"] as List<object> : null;
+            var stepsRaw = request.ContainsKey("steps") ? EngineHttp.AsList(request["steps"]) : null;
             if (stepsRaw == null || stepsRaw.Count == 0)
                 return ApiResult.Json(400, Error("缺少 steps 数组"));
 
@@ -470,7 +470,7 @@ namespace TradosToolkit.Server
             return pd != null && pd.ContainsKey("error") ? pd["error"] : "step failed";
         }
 
-        private static ApiResult Report(Dictionary<string, string> query)
+        internal static ApiResult Report(Dictionary<string, string> query)
         {
             return WithProject(query, (project, info) =>
             {
@@ -598,7 +598,7 @@ namespace TradosToolkit.Server
         /// POST /api/project/package?path=...  body 可选 {"out":"d:\\x.sdlppx","packageName":"..","comment":".."}
         /// 建交付任务 → 打包 sdlppx（含主 TM 与分析结果）→ 保存到项目目录（或 out）。
         /// </summary>
-        private static ApiResult Package(string method, Dictionary<string, string> query, string body)
+        internal static ApiResult Package(string method, Dictionary<string, string> query, string body)
         {
             if (method != "POST")
                 return ApiResult.Json(405, Error("package 端点需 POST"));
@@ -1443,7 +1443,7 @@ namespace TradosToolkit.Server
                 .ToList();
         }
 
-        private static ApiResult WithProject(
+        internal static ApiResult WithProject(
             Dictionary<string, string> query, Func<FileBasedProject, ProjectInfo, ApiResult> handler)
         {
             if (!query.TryGetValue("path", out var path) || string.IsNullOrEmpty(path))
@@ -1501,12 +1501,17 @@ namespace TradosToolkit.Server
         private static List<string> StrList(Dictionary<string, object> map, string key)
         {
             var result = new List<string>();
-            if (map.TryGetValue(key, out var value) && value is List<object> list)
-                result.AddRange(list.OfType<string>());
+            // JavaScriptSerializer 的 JSON 数组是 ArrayList，只实现非泛型 IEnumerable
+            if (map.TryGetValue(key, out var value) && value is System.Collections.IEnumerable items && !(value is string))
+                foreach (var o in items)
+                {
+                    var s = o as string;
+                    if (s != null) result.Add(s);
+                }
             return result;
         }
 
-        private static string SanitizeFileName(string name)
+        internal static string SanitizeFileName(string name)
         {
             foreach (var c in Path.GetInvalidFileNameChars())
                 name = name.Replace(c, '_');

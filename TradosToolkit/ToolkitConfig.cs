@@ -53,6 +53,18 @@ namespace TradosToolkit
         public bool LlmDiskCacheEnabled = true;
         /// <summary>本地记忆库扫描目录（config.json 的 tmScanDirectory，工作台"记忆库"页使用）。</summary>
         public string TmScanDirectory = string.Empty;
+        /// <summary>收件箱（目录监视）监听的投放目录（config.json 的 inboxWatchFolder）。</summary>
+        public string InboxWatchFolder = string.Empty;
+        /// <summary>收件箱产出目录：每个任务一个子目录，放分析报告 / 交付包 / 匹配库（config.json 的 inboxOutputFolder）。</summary>
+        public string InboxOutputFolder = string.Empty;
+        /// <summary>收件箱自动创建项目的存放目录（config.json 的 inboxProjectRoot，空 = 产出目录下的 Projects）。</summary>
+        public string InboxProjectRoot = string.Empty;
+        /// <summary>收件箱源语言（config.json 的 inboxSourceLang，缺省 zh-CN）。</summary>
+        public string InboxSourceLang = "zh-CN";
+        /// <summary>收件箱目标语言（config.json 的 inboxTargetLang，缺省 en-US）。</summary>
+        public string InboxTargetLang = "en-US";
+        /// <summary>插件启动时是否自动开始目录监视（config.json 的 inboxAutoStart）。</summary>
+        public bool InboxAutoStart = false;
         /// <summary>原生术语源所调用的线上术语服务地址（config.json 的 termBaseUrl，空 = 原生源不可用、返回空）。</summary>
         public string TermBaseUrl = string.Empty;
         /// <summary>全局领域（config.json 的 domain，缺省"通用"）。术语库/翻译插件/原生术语插件共用同一领域，工作台可直接切换。</summary>
@@ -130,6 +142,18 @@ namespace TradosToolkit
                         config.LlmDiskCacheEnabled = Convert.ToBoolean(dc);
                     if (json.TryGetValue("tmScanDirectory", out var tsd) && tsd is string td)
                         config.TmScanDirectory = (td ?? string.Empty).Trim();
+                    if (json.TryGetValue("inboxWatchFolder", out var iwf) && iwf is string iwfs)
+                        config.InboxWatchFolder = (iwfs ?? string.Empty).Trim();
+                    if (json.TryGetValue("inboxOutputFolder", out var iof) && iof is string iofs)
+                        config.InboxOutputFolder = (iofs ?? string.Empty).Trim();
+                    if (json.TryGetValue("inboxProjectRoot", out var ipr) && ipr is string iprs)
+                        config.InboxProjectRoot = (iprs ?? string.Empty).Trim();
+                    if (json.TryGetValue("inboxSourceLang", out var isl) && isl is string isls)
+                        config.InboxSourceLang = string.IsNullOrWhiteSpace(isls) ? "zh-CN" : isls.Trim();
+                    if (json.TryGetValue("inboxTargetLang", out var itl) && itl is string itls)
+                        config.InboxTargetLang = string.IsNullOrWhiteSpace(itls) ? "en-US" : itls.Trim();
+                    if (json.TryGetValue("inboxAutoStart", out var ias))
+                        config.InboxAutoStart = Convert.ToBoolean(ias);
                     if (json.TryGetValue("termBaseUrl", out var tbu) && tbu is string tb)
                         config.TermBaseUrl = (tb ?? string.Empty).Trim();
                     if (json.TryGetValue("domain", out var dom) && dom is string d)
@@ -224,7 +248,10 @@ namespace TradosToolkit
         public static void Save(string apiKey = null, string llmBaseUrl = null, string llmModel = null,
                                string translationCenterUrl = null, List<BookmarkFolder> folders = null,
                                string tmScanDirectory = null, string termBaseUrl = null,
-                               List<ProcessCard> processCards = null, string domain = null)
+                               List<ProcessCard> processCards = null, string domain = null,
+                               string inboxWatchFolder = null, string inboxOutputFolder = null,
+                               string inboxProjectRoot = null, string inboxSourceLang = null,
+                               string inboxTargetLang = null, bool? inboxAutoStart = null)
         {
             try
             {
@@ -240,6 +267,12 @@ namespace TradosToolkit
                 if (tmScanDirectory != null) doc["tmScanDirectory"] = tmScanDirectory;
                 if (termBaseUrl != null) doc["termBaseUrl"] = termBaseUrl;
                 if (domain != null) doc["domain"] = domain;
+                if (inboxWatchFolder != null) doc["inboxWatchFolder"] = inboxWatchFolder;
+                if (inboxOutputFolder != null) doc["inboxOutputFolder"] = inboxOutputFolder;
+                if (inboxProjectRoot != null) doc["inboxProjectRoot"] = inboxProjectRoot;
+                if (inboxSourceLang != null) doc["inboxSourceLang"] = inboxSourceLang;
+                if (inboxTargetLang != null) doc["inboxTargetLang"] = inboxTargetLang;
+                if (inboxAutoStart != null) doc["inboxAutoStart"] = inboxAutoStart.Value;
                 if (folders != null)
                 {
                     doc["translationCenterFolders"] = folders;

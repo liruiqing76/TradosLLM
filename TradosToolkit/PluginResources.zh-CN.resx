@@ -45,6 +45,12 @@
   <data name="Workbench_Action_Description" xml:space="preserve">
     <value>打开 TradosToolkit 工作台窗口</value>
   </data>
+  <data name="InboxMonitor_Action_Name" xml:space="preserve">
+    <value>收件箱</value>
+  </data>
+  <data name="InboxMonitor_Action_Description" xml:space="preserve">
+    <value>监视一个目录：拖入源文件即自动建项目、套本地库，产出报告 / 交付包 / 匹配库三件套</value>
+  </data>
   <data name="Translation_Center_View_Name" xml:space="preserve">
     <value>翻译中心</value>
   </data>

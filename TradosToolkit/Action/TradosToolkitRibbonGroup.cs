@@ -2,6 +2,7 @@ using Sdl.Desktop.IntegrationApi;
 using Sdl.Desktop.IntegrationApi.Extensions;
 using Sdl.TranslationStudioAutomation.IntegrationApi.Presentation.DefaultLocations;
 using TradosToolkit.Diagnostics;
+using TradosToolkit.Inbox;
 using TradosToolkit.Server;
 
 namespace TradosToolkit.Action
@@ -19,6 +20,7 @@ namespace TradosToolkit.Action
             ToolkitLog.Boot("ribbon");
             ToolkitLog.Info("Ribbon 组实例化，启动 API 服务");
             ToolkitApiServer.Instance.EnsureStarted();
+            InboxWatcher.Instance.AutoStart();
         }
     }
 }

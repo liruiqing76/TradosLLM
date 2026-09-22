@@ -126,6 +126,13 @@
     <Compile Include="Action\WorkbenchAction.cs" />
     <Compile Include="Action\TerminologyAction.cs" />
     <Compile Include="Action\TmManagerAction.cs" />
+    <Compile Include="Action\InboxMonitorAction.cs" />
+    <Compile Include="Inbox\InboxJob.cs" />
+    <Compile Include="Inbox\InboxOrchestrator.cs" />
+    <Compile Include="Inbox\InboxWatcher.cs" />
+    <Compile Include="Inbox\InboxWindow.xaml.cs">
+      <DependentUpon>InboxWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TranslationMemories\TmImporter.cs" />
     <Compile Include="Workbench\WorkbenchWindow.xaml.cs">
       <DependentUpon>WorkbenchWindow.xaml</DependentUpon>
@@ -204,6 +211,7 @@
     <Resource Include="Resources\translation-center.ico" />
     <Resource Include="Resources\glossary-manager.ico" />
     <Resource Include="Resources\tm-manager.ico" />
+    <Resource Include="Resources\inbox.ico" />
     <None Include="pluginpackage.manifest.xml" />
   </ItemGroup>
 

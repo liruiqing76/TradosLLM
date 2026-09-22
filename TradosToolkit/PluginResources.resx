@@ -63,6 +63,12 @@
   <data name="TmManager_Action_Description" xml:space="preserve">
     <value>扫描本地记忆库、新建空库，把 TMX / SDLXLIFF 导入到指定语向的记忆库</value>
   </data>
+  <data name="InboxMonitor_Action_Name" xml:space="preserve">
+    <value>收件箱</value>
+  </data>
+  <data name="InboxMonitor_Action_Description" xml:space="preserve">
+    <value>监视一个目录：拖入源文件即自动建项目、套本地库，产出报告 / 交付包 / 匹配库三件套</value>
+  </data>
   <data name="Translation_Center_View_Name" xml:space="preserve">
     <value>Translation Center</value>
   </data>
@@ -80,6 +86,9 @@
   </data>
   <data name="TmManager_Action_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\tm-manager.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InboxMonitor_Action_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\inbox.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WB_Title" xml:space="preserve">
     <value>TradosToolkit Workbench</value>
