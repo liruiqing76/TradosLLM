@@ -102,6 +102,24 @@
 
 > 未做：跨文件级 POST 统一（留每文件 file 参数应用）、切分/合并多人分发（未选，成本中重）。写回/审计均就地改纯文本目标，标签场景留 Studio 人工，生产先 GET 审阅再 POST，`.bak` 可回滚。
 
+## 十、2026-09-22 创新功能：回译语义校验（Back-Translation QA，本轮实现并构建通过）
+
+**痛点定位**：已有 QA / 一致性审计 / 分诊全部是**规则式**（数字、标点、术语、重复、标签），只能抓机械错误；而翻译最致命、最耗人工的是**语义级问题**——漏译、增译、错译、语义漂移。规则式手段对此完全无感。
+
+**原创思路**：把译文**独立回译**成源语言，再与原源文比对。忠实译文经得起"往返（round-trip）"；差异越大越可疑。用 LLM 做"盲回译"，再用确定性指标收敛度对照，形成**语义级**质检闭环——这是本插件第一个不依赖机械规则的质量能力。
+
+**三段式流水线（兼顾质量与成本）**：
+
+1. **本地预筛**（零 LLM）：复用分诊规则剔除空/纯数字符号/URL 噪声，并对相同 `(源,译)` 去重——把贵的是非题留给真正需要的段。
+2. **回译**（LLM）：每批译文回译成源语言，输入仅 `{id,text}`，批大小可调（缺省 10）。
+3. **判官**（LLM + 确定性收敛度）：LLM 判语义保真（给 `score`/`verdict`/`issues`/`suggestion`）；叠加**本地字符 bigram Dice 收敛度**做锚点——判官放过但收敛度低于 `minScore` 的自动降级为"需复核"，防止判官被轻易蒙混。
+
+**端点**：`GET /api/project/btqa`（零成本预检：需校验段数 + 预计 LLM 调用数）/ `POST /api/project/btqa`（执行，`async=1` 走后台任务返回 202）。`verdict` 四态 `red`/`amber`/`ok`/`error`，输出带 BOM 的 CSV 可直接 Excel 复核。
+
+**实现落点**：新增 `Server/BackTranslateQa.cs`（三段式流水线 + 提示词 + Dice 收敛度）；`ProjectApi.cs` 注册路由并把 12 个复用助手由 `private` 提升为 `internal`（`WithTargetBilingual`/`TriageCategory`/`Chunk`/`CallLlmJson`/`JsonArray`/`NormKey`/`GlossaryTermsText`/`Clip`/`ParseBody`/`Str`/`Bool`/`Error`），零逻辑复制。docs/API.md 已同步。
+
+> 未做：图形界面（沿用 API 数据驱动风格）；POST 自动改写（本轮只出诊断与 `suggestion` 修复建议，写回走既有 `/api/project/sdlxliff`，避免误伤）。
+
 ## 七、建议实施顺序
 
 1. ★★★-1（预翻译并发）→ 单独构建部署验证一轮

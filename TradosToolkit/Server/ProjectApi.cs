@@ -87,6 +87,8 @@ namespace TradosToolkit.Server
                     return Review(method, query, body);
                 case "/api/review/result":
                     return ReviewResult(query);
+                case "/api/project/btqa":
+                    return BackTranslateQa.Handle(method, query, body);
                 default:
                     return ApiResult.Json(404, Error("未知端点 " + path));
             }
@@ -871,7 +873,7 @@ namespace TradosToolkit.Server
         /// <summary>
         /// 按 query 选定目标文件并解析其双语参照文件，交给 handler；统一处理 多文件/无文件/双语未生成 三种失败。
         /// </summary>
-        private static ApiResult WithTargetBilingual(
+        internal static ApiResult WithTargetBilingual(
             Dictionary<string, string> query,
             Func<ProjectInfo, ProjectFile, string, List<BilingualSegment>, ApiResult> handler)
         {
@@ -907,7 +909,7 @@ namespace TradosToolkit.Server
         }
 
         /// <summary>源文归一化键：折叠空白 + 小写，用于重复检测/一致性分组。</summary>
-        private static string NormKey(string s)
+        internal static string NormKey(string s)
         {
             if (string.IsNullOrEmpty(s)) return string.Empty;
             return Regex.Replace(s.Trim(), @"\s+", " ").ToLowerInvariant();
@@ -921,7 +923,7 @@ namespace TradosToolkit.Server
         }
 
         /// <summary>单段分类：skip=可跳过(省成本) / chunk=超长 / highrisk=疑似异常 / normal=正常。reason 说明原因。</summary>
-        private static string TriageCategory(string src, out string reason)
+        internal static string TriageCategory(string src, out string reason)
         {
             reason = string.Empty;
             var t = (src ?? string.Empty).Trim();
@@ -1472,7 +1474,7 @@ namespace TradosToolkit.Server
             return SdlTradosStudio.Application.GetController<ProjectsController>();
         }
 
-        private static Dictionary<string, object> ParseBody(string body)
+        internal static Dictionary<string, object> ParseBody(string body)
         {
             var normalized = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
             if (string.IsNullOrWhiteSpace(body))
@@ -1486,12 +1488,12 @@ namespace TradosToolkit.Server
             return normalized;
         }
 
-        private static string Str(Dictionary<string, object> map, string key)
+        internal static string Str(Dictionary<string, object> map, string key)
         {
             return map.TryGetValue(key, out var value) ? value as string : null;
         }
 
-        private static bool Bool(Dictionary<string, object> map, string key)
+        internal static bool Bool(Dictionary<string, object> map, string key)
         {
             return map.TryGetValue(key, out var value) && value is bool b && b;
         }
@@ -1620,14 +1622,14 @@ namespace TradosToolkit.Server
             };
         }
 
-        private static IEnumerable<List<BilingualSegment>> Chunk(List<BilingualSegment> all, int size)
+        internal static IEnumerable<List<BilingualSegment>> Chunk(List<BilingualSegment> all, int size)
         {
             for (int i = 0; i < all.Count; i += size)
                 yield return all.GetRange(i, Math.Min(size, all.Count - i));
         }
 
         /// <summary>把当前领域术语表转成 Prompt 里的约束文本（from => to）。ElCL语言不完全时尽量按目标语言匹配。</summary>
-        private static string GlossaryTermsText(string domain, string srcLang, string tgtLang)
+        internal static string GlossaryTermsText(string domain, string srcLang, string tgtLang)
         {
             var list = new List<string>();
             try
@@ -1773,7 +1775,7 @@ namespace TradosToolkit.Server
             yield return Clip(next);
         }
 
-        private static string Clip(string text)
+        internal static string Clip(string text)
         {
             if (string.IsNullOrEmpty(text)) return "";
             text = text.Trim();
@@ -1799,7 +1801,7 @@ namespace TradosToolkit.Server
                 "输入数组元素含 {id, source, target, prev, next}。返回形如 [{\"id\":\"1\",\"score\":88,\"verdict\":\"ok\",\"issues\":[]}]。";
         }
 
-        private static string CallLlmJson(ToolkitConfig config, string prompt, List<Dictionary<string, string>> input)
+        internal static string CallLlmJson(ToolkitConfig config, string prompt, List<Dictionary<string, string>> input)
         {
             var messages = new List<object>
             {
@@ -1829,7 +1831,7 @@ namespace TradosToolkit.Server
         }
 
         /// <summary>从 LLM 回复里安全抽取 JSON 数组（容忍 ``` 包裹与前后废话）。</summary>
-        private static List<Dictionary<string, object>> JsonArray(string content)
+        internal static List<Dictionary<string, object>> JsonArray(string content)
         {
             var result = new List<Dictionary<string, object>>();
             if (string.IsNullOrWhiteSpace(content)) return result;
@@ -1869,7 +1871,7 @@ namespace TradosToolkit.Server
             return ApiResult.Json(404, Error("审校结果为同步返回，无需单独拉取（POST /api/review 的响应含 items/csv）。"));
         }
 
-        private static Dictionary<string, object> Error(string message)
+        internal static Dictionary<string, object> Error(string message)
         {
             return new Dictionary<string, object> { { "error", message } };
         }

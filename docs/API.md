@@ -228,6 +228,49 @@ curl -s -X POST "http://localhost:53902/api/project/task?path=D:\\demo.sdlp&task
   "groups": [ … ] }
 ```
 
+## GET|POST /api/project/btqa?path=…&file=可选
+
+**回译语义校验（Back-Translation QA）**——本插件唯一的**语义级**质检能力。现有 QA/一致性审计都是"规则式"（数字/标点/术语/重复/标签），只能抓机械错误，抓不到**漏译、增译、错译、语义漂移**这些最致命、最费人工的问题。本端点把译文独立**回译**成源语言，再与原源文比对：忠实译文经得起"往返"，差异越大越可疑。
+
+三段式流水线，兼顾质量与成本：
+
+1. **本地预筛**（零 LLM 成本）：复用分诊规则剔除空/纯数字符号/URL 噪声，并对相同 `(源,译)` 去重；
+2. **回译**（LLM）：把每批译文回译成源语言，输入仅 `{id,text}`；
+3. **判官**（LLM + 确定性收敛度）：LLM 判语义保真，叠加本地字符 bigram **Dice 收敛度**做锚点——判官放过但收敛度低于 `minScore` 的自动降级为"需复核"，避免判官被轻易蒙混。
+
+**GET（预检）**：不调 LLM，先看清要花多少：
+
+```json
+{ "project": "…", "file": "a.docx", "language": "ru-RU", "srcLanguage": "zh-CN",
+  "segments": 100, "translated": 92, "untranslated": 8,
+  "noiseSkipped": 10, "duplicatesCollapsed": 6, "plannedChecks": 76,
+  "batchSize": 10, "estLlmCalls": 16,
+  "skippedSamples": [ { "id": "sg5", "source": "https://…", "reason": "URL" } ],
+  "summary": "共 100 段：已译 92、未译 8；噪声跳过 10、重复去重 6；实际需回译校验 76 段，预计 16 次 LLM 调用（回译+判官各半）。" }
+```
+
+**POST（执行）**：body 可选
+
+```json
+{ "maxSegments": 300, "batchSize": 10, "minScore": 60, "async": 0 }
+```
+
+`maxSegments`(1–2000，缺省 300)、`batchSize`(2–30，缺省 10)、`minScore`(0–100，缺省 60，收敛度兜底阈值)。`async=1` 时走后台任务立即回 `202 { taskId, task:"btqa", status:"running" }`，进度由 `GET /api/task?id=` 的 `progress`(`stage`: `backtranslate`/`judge`/`done` + `batch/batches/done`) 给出。LLM 未配置返回 412。
+
+```json
+{ "project": "…", "file": "a.docx", "language": "ru-RU", "srcLanguage": "zh-CN", "domain": "通用",
+  "segments": 100, "checked": 76, "untranslated": 8, "noiseSkipped": 10, "duplicatesCollapsed": 6,
+  "count": 76, "summary": { "red": 5, "amber": 9, "ok": 60, "error": 2 },
+  "items": [ { "id": "sg3", "source": "范围涵盖", "target": "scope covers", "back": "范围包括",
+               "dice": 67, "llmScore": 55, "score": 61, "verdict": "red",
+               "type": "漏译", "reason": "回译缺少'全部'的语义", "suggestion": "the scope fully covers",
+               "repeat": 2 } ],
+  "csv": "id,dice,llmScore,score,verdict,type,reason,suggestion,source,target,back\r\n…",
+  "message": "回译语义校验完成：共校验 76 段。 红(语义不符)=5 黄(需复核)=9 通过=60。 调用失败=2（可重试）。" }
+```
+
+`items` 按严重度排序（`red` → `amber` → `error` → `ok`，同级按 `score` 升序）。`verdict`：`red`(语义不符) / `amber`(需复核) / `ok` / `error`(调用失败，可重试)。`score` = `(llmScore + dice)/2`，`csv` 带 BOM 可直接 Excel 打开。`file` 缺省 = 唯一目标文件（多目标必填，用法同 segments）。双语未生成时 409。
+
 ## POST /api/project/sdlxliff?path=…&file=可选
 
 **批量写回目标译文（+可选确认状态）**。body `segments` 数组按段 id 定位：
