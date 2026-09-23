@@ -20,8 +20,10 @@ namespace TradosToolkit.TerminologySource
     ///
     /// 原理：Studio 把"自定义 Terminology Provider 型术语库"持久化在项目 SettingsBundle
     /// 的 TerminologyProviderSettings 分组里（设置键 Termbases / TermbasesOrder），
-    /// 条目只需一个 SettingsXml，其中 &lt;Path&gt; 即术语源 URI（tradostoolkit://…），
-    /// 由已注册的 NativeTerminologyProviderFactory 实例化，不做文件校验。
+    /// 条目只需一个 SettingsXml，其中 &lt;Path&gt; 即"术语源 URI（tradostoolkit://…）+ 分隔符
+    /// \%\ + 术语库名"，由已注册的 NativeTerminologyProviderFactory 实例化，不做文件校验。
+    /// 分隔符不可省：Studio 的 TermbaseSettings.GetProviderUri() 按它切分 Path，缺失会抛
+    /// "长度不能小于 0。参数名: length"（见 NativeTerminologyProviderHelper.ProviderPathSeparator）。
     /// 该分组按"分组类型名"存取，因此用公开的 GetSettingsGroup(字符串 id) 即可读写，
     /// 值用本文件定义的 DataContract 兼容类型（序列化形状与 Studio 内部一致）承载。
     ///
@@ -192,6 +194,22 @@ namespace TradosToolkit.TerminologySource
             var entries = TryReadEntries(group);
             if (entries == null) return 0;
 
+            // 修复历史遗留：早期版本写入的 <Path> 缺少 \%\ 分隔符，Studio 的
+            // TermbaseSettings.GetProviderUri() 会因此抛"长度不能小于 0。参数名: length"，
+            // 表现为打开项目即崩溃。这里就地补上分隔符（名字用条目自身 nameField）。
+            var healed = 0;
+            foreach (var t in entries.Where(IsPluginTermbase).ToList())
+            {
+                var raw = RawSettingsPath(t);
+                if (string.IsNullOrEmpty(raw)) continue;
+                if (raw.IndexOf(NativeTerminologyProviderHelper.ProviderPathSeparator, StringComparison.Ordinal) >= 0)
+                    continue;
+                t.settingsXmlField = BuildSettingsXml(
+                    NativeTerminologyProviderHelper.ComposePath(raw, t.nameField));
+                healed++;
+                ToolkitLog.Info("项目术语挂载：修复缺失分隔符的术语库 " + t.nameField);
+            }
+
             // 清掉本项目语言对之外的历史挂载（切换项目/改语向后遗留的旧语言对），
             // 否则 Studio 术语插入点仍会显示上一个项目的目标语言。
             var stale = 0;
@@ -224,15 +242,19 @@ namespace TradosToolkit.TerminologySource
                 var uri = NativeTerminologyProviderHelper.BuildUri(item.Item1, item.Item2, item.Item3, item.Item4, domain);
                 if (HasPairAndKind(entries, item.Item3, item.Item4, item.Item1, domain)) continue;
 
+                var name = TermbaseName(item.Item1, item.Item3, item.Item4);
                 entries.Add(new TermbaseEntry
                 {
-                    nameField = TermbaseName(item.Item1, item.Item3, item.Item4),
-                    settingsXmlField = BuildSettingsXml(uri.ToString())
+                    nameField = name,
+                    // Studio 的 TermbaseSettings.GetProviderUri() 要求 <Path> 形如
+                    // "<providerUri>\%\<name>"，缺分隔符会在打开项目时抛"长度不能小于 0"。
+                    settingsXmlField = BuildSettingsXml(
+                        NativeTerminologyProviderHelper.ComposePath(uri.ToString(), name))
                 });
                 added++;
             }
 
-            if (added == 0 && stale == 0 && dedup == 0) return 0;
+            if (added == 0 && stale == 0 && dedup == 0 && healed == 0) return 0;
 
             // 坑位：Terminology 引擎要求至少一个术语库；我们只在有变更时才写回，
             // 此时列表必非空。仍做保护，防止把空配置写回导致异常。
@@ -259,7 +281,7 @@ namespace TradosToolkit.TerminologySource
             UpsertLanguageIndexMappings(project, allPairs);
 
             ToolkitLog.Info($"项目术语挂载：语言对 {string.Join(",", allPairs.Select(p => p[0] + "-" + p[1]))}，"
-                            + $"新增 {added} 个、清理 {stale + dedup} 个术语库（domain={domain}）");
+                            + $"新增 {added} 个、修复 {healed} 个、清理 {stale + dedup} 个术语库（domain={domain}）");
 
             return added;
         }
@@ -407,7 +429,14 @@ namespace TradosToolkit.TerminologySource
             }
         }
 
+        /// <summary>取 &lt;Path&gt; 中的纯提供程序 URI（截掉 \%\ 之后的名字后缀）。</summary>
         private static string SettingsPath(TermbaseEntry termbase)
+        {
+            return NativeTerminologyProviderHelper.ProviderUriPart(RawSettingsPath(termbase));
+        }
+
+        /// <summary>取 &lt;Path&gt; 原文（含可能的 \%\名字后缀）。</summary>
+        private static string RawSettingsPath(TermbaseEntry termbase)
         {
             if (termbase == null || string.IsNullOrEmpty(termbase.settingsXmlField)) return null;
             try

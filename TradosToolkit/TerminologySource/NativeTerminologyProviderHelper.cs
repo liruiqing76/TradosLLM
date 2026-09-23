@@ -32,6 +32,31 @@ namespace TradosToolkit.TerminologySource
     {
         public const string SchemeActivation = "tradostoolkit://glossary";
 
+        /// <summary>
+        /// Studio 内嵌术语库设置里 &lt;Path&gt; 的"提供程序 URI"与"术语库名"之间的分隔符
+        /// （对应 MultiTerm 内部常量 TerminologyProviderPathSeparator，值为 \%\）。
+        /// Studio 的 TermbaseSettings.GetProviderUri() 以该分隔符切分 Path：
+        /// 取前半段为提供程序 URI、后半段为术语库名；若 Path 不含此分隔符，
+        /// 其内部会对 Substring 传入负长度而抛
+        /// "长度不能小于 0。参数名: length"，导致打开项目即崩溃。
+        /// 因此写入 &lt;Path&gt; 时必须带上它。
+        /// </summary>
+        public const string ProviderPathSeparator = "\\%\\";
+
+        /// <summary>拼出 Studio 期望的 &lt;Path&gt;：&lt;providerUri&gt;\%\&lt;name&gt;。</summary>
+        public static string ComposePath(string providerUri, string name)
+        {
+            return (providerUri ?? string.Empty) + ProviderPathSeparator + (name ?? string.Empty);
+        }
+
+        /// <summary>取 &lt;Path&gt; 中分隔符之前的纯提供程序 URI；无分隔符时原样返回。</summary>
+        public static string ProviderUriPart(string path)
+        {
+            if (string.IsNullOrEmpty(path)) return path;
+            var i = path.IndexOf(ProviderPathSeparator, StringComparison.Ordinal);
+            return i >= 0 ? path.Substring(0, i) : path;
+        }
+
         public static Uri BuildUri(string kind, string baseUrl, string sourceLang, string targetLang, string domain = null)
         {
             return new Uri(SchemeActivation
@@ -60,6 +85,13 @@ namespace TradosToolkit.TerminologySource
                 if (string.Equals(part.Substring(0, eq), key, StringComparison.OrdinalIgnoreCase))
                 {
                     var raw = Uri.UnescapeDataString(part.Substring(eq + 1));
+                    // 防御：若整个 Path（含 \%\名）被当作 URI 传入，最后一个 query 值会带上后缀，
+                    // 这里统一截掉，保证 domain/kind/src/tgt 解析结果干净。
+                    if (raw != null)
+                    {
+                        var sep = raw.IndexOf(ProviderPathSeparator, StringComparison.Ordinal);
+                        if (sep >= 0) raw = raw.Substring(0, sep);
+                    }
                     return raw ?? string.Empty;
                 }
             }

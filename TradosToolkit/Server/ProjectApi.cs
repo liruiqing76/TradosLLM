@@ -424,7 +424,9 @@ namespace TradosToolkit.Server
             try
             {
                 var doc = System.Xml.Linq.XDocument.Parse(settingsXml);
-                return doc.Root?.Element("Path")?.Value;
+                // <Path> 形如 "<providerUri>\%\<name>"，对外只暴露纯 URI（截掉名字后缀）。
+                return TerminologySource.NativeTerminologyProviderHelper.ProviderUriPart(
+                    doc.Root?.Element("Path")?.Value);
             }
             catch (Exception)
             {
