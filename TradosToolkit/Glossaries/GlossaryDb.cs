@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using TradosToolkit.Diagnostics;
+using TradosToolkit.Common.Catalog;
 using Sdl.LanguagePlatform.Core;
 using Sdl.LanguagePlatform.TranslationMemory;
 

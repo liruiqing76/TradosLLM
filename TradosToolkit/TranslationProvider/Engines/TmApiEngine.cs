@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Sdl.LanguagePlatform.Core;
 using Sdl.LanguagePlatform.TranslationMemory;
+using TradosToolkit.Diagnostics;
 
 namespace TradosToolkit.TranslationProvider.Engines
 {
@@ -34,6 +36,7 @@ namespace TradosToolkit.TranslationProvider.Engines
             SegmentContext[] contexts,
             CancellationToken cancellationToken)
         {
+            var watch = Stopwatch.StartNew();
             var indexes = new List<int>();
             for (var i = 0; i < sources.Length; i++)
                 if (mask == null || mask[i])
@@ -42,6 +45,9 @@ namespace TradosToolkit.TranslationProvider.Engines
             var results = sources.Select(_ => new EngineResult[0]).ToArray();
             if (indexes.Count == 0)
                 return results;
+
+            ToolkitLog.Info("TM 引擎开始: " + languagePair.SourceCultureName + "->" + languagePair.TargetCultureName +
+                            " 段数=" + indexes.Count);
 
             var body = new Dictionary<string, object>
             {
@@ -54,6 +60,7 @@ namespace TradosToolkit.TranslationProvider.Engines
             var list = EngineHttp.AsList(response.TryGetValue("results", out var r) ? r : null)
                         ?? new List<object>();
 
+            var hits = 0;
             for (var j = 0; j < indexes.Count && j < list.Count; j++)
             {
                 var item = EngineHttp.AsDict(list[j]);
@@ -71,7 +78,11 @@ namespace TradosToolkit.TranslationProvider.Engines
                         Origin = "TM"
                     }
                 };
+                hits++;
             }
+            watch.Stop();
+            ToolkitLog.Info("TM 引擎完成: 命中=" + hits + "/" + indexes.Count +
+                            " 耗时=" + watch.ElapsedMilliseconds + "ms");
             return results;
         }
     }

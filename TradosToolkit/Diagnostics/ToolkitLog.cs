@@ -46,6 +46,16 @@ namespace TradosToolkit.Diagnostics
             Write("INFO ", message, null);
         }
 
+        public static void Debug(string message)
+        {
+            Write("DEBUG", message, null);
+        }
+
+        public static void Warn(string message, Exception e = null)
+        {
+            Write("WARN ", message, e);
+        }
+
         public static void Error(string message, Exception e = null)
         {
             Write("ERROR", message, e);

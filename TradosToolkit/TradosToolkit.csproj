@@ -205,7 +205,7 @@
     <Compile Include="Glossaries\TermReplacer.cs" />
     <Compile Include="Glossaries\GlossaryDb.cs" />
     <Compile Include="Glossaries\SqliteGlossaryProvider.cs" />
-    <Compile Include="Glossaries\DomainTree.cs" />
+    <Compile Include="Common\Catalog\DomainTree.cs" />
     <Compile Include="TerminologySource\TermSearchModels.cs" />
     <Compile Include="TerminologySource\TermHttpClient.cs" />
     <Compile Include="TerminologySource\NativeTerminologyProviderHelper.cs" />

@@ -73,7 +73,7 @@ namespace TradosToolkit.Workbench
             var cfgDomain = ToolkitConfig.Load().Domain;
             DomCombo.SelectedItem = DomCombo.Items.OfType<string>()
                 .FirstOrDefault(d => string.Equals(d, cfgDomain, StringComparison.OrdinalIgnoreCase))
-                ?? Glossaries.DomainTree.DefaultDomain;
+                ?? Common.Catalog.DomainTree.DefaultDomain;
             TmStatusText.Text = UiText.T("WB_Mem_Idle");
             VersionText.Text = "v" + typeof(WorkbenchWindow).Assembly.GetName().Version.ToString(3);
             RefreshStatus();
@@ -210,71 +210,75 @@ namespace TradosToolkit.Workbench
 
         private async void TestLlm_Click(object sender, RoutedEventArgs e)
         {
-            if (!LlmChatClient.IsReady())
-            {
-                TestResultText.Text = UiText.T("WB_Test_NotConfigured");
-                return;
-            }
-
-            var config = ToolkitConfig.Load();
-            TestButton.IsEnabled = false;
-            CancelButton.Visibility = Visibility.Visible;
-            _testWatch = Stopwatch.StartNew();
-            _testCts = new CancellationTokenSource();
-            _tickTimer.Start();
-            UpdateTestProgress();
-            ToolkitLog.Info("工作台：开始 LLM 连通测试 baseUrl=" + config.LlmBaseUrl + " model=" + config.LlmModel);
-
             try
             {
-                var body = new Dictionary<string, object>
+                if (!LlmChatClient.IsReady())
                 {
-                    { "model", config.LlmModel },
-                    { "temperature", 0 },
-                    { "max_tokens", 8 },
-                    { "messages", new List<object>
-                        {
-                            new Dictionary<string, object> { { "role", "user" }, { "content", "回复 OK 两个字母即可" } }
-                        }
-                    },
-                };
-                var url = config.LlmBaseUrl.TrimEnd('/') + "/chat/completions";
-                var response = await EngineHttp.PostJsonAsync(url, body, config.ApiKey, _testCts.Token);
+                    TestResultText.Text = UiText.T("WB_Test_NotConfigured");
+                    return;
+                }
 
-                var choices = EngineHttp.AsList(response.TryGetValue("choices", out var c) ? c : null);
-                _tickTimer.Stop();
-                if (choices == null || choices.Count == 0)
+                var config = ToolkitConfig.Load();
+                TestButton.IsEnabled = false;
+                CancelButton.Visibility = Visibility.Visible;
+                _testWatch = Stopwatch.StartNew();
+                _testCts = new CancellationTokenSource();
+                _tickTimer.Start();
+                UpdateTestProgress();
+                ToolkitLog.Info("工作台：开始 LLM 连通测试 baseUrl=" + config.LlmBaseUrl + " model=" + config.LlmModel);
+
+                try
+                {
+                    var body = new Dictionary<string, object>
+                    {
+                        { "model", config.LlmModel },
+                        { "temperature", 0 },
+                        { "max_tokens", 8 },
+                        { "messages", new List<object>
+                            {
+                                new Dictionary<string, object> { { "role", "user" }, { "content", "回复 OK 两个字母即可" } }
+                            }
+                        },
+                    };
+                    var url = config.LlmBaseUrl.TrimEnd('/') + "/chat/completions";
+                    var response = await EngineHttp.PostJsonAsync(url, body, config.ApiKey, _testCts.Token);
+
+                    var choices = EngineHttp.AsList(response.TryGetValue("choices", out var c) ? c : null);
+                    _tickTimer.Stop();
+                    if (choices == null || choices.Count == 0)
+                    {
+                        LlmDot.Fill = Red;
+                        TestResultText.Text = UiText.Tf("WB_Test_NoChoices", _testWatch.ElapsedMilliseconds,
+                            EngineHttp.AsString(response.TryGetValue("error", out var err) ? err : null));
+                    }
+                    else
+                    {
+                        LlmDot.Fill = Green;
+                        TestResultText.Text = UiText.Tf("WB_Test_Ok", (_testWatch.ElapsedMilliseconds / 1000.0).ToString("0.0"));
+                    }
+                    ToolkitLog.Info("工作台：LLM 连通测试完成 " + _testWatch.ElapsedMilliseconds + "ms choices=" + (choices?.Count ?? 0));
+                }
+                catch (OperationCanceledException)
+                {
+                    TestResultText.Text = UiText.T("WB_Test_Cancelled");
+                    ToolkitLog.Info("工作台：LLM 连通测试被取消 " + _testWatch.ElapsedMilliseconds + "ms");
+                }
+                catch (Exception ex)
                 {
                     LlmDot.Fill = Red;
-                    TestResultText.Text = UiText.Tf("WB_Test_NoChoices", _testWatch.ElapsedMilliseconds,
-                        EngineHttp.AsString(response.TryGetValue("error", out var err) ? err : null));
+                    TestResultText.Text = UiText.Tf("WB_Test_Fail", _testWatch.ElapsedMilliseconds, ex.Message);
+                    ToolkitLog.Error("工作台：LLM 连通测试失败", ex);
                 }
-                else
+                finally
                 {
-                    LlmDot.Fill = Green;
-                    TestResultText.Text = UiText.Tf("WB_Test_Ok", (_testWatch.ElapsedMilliseconds / 1000.0).ToString("0.0"));
+                    _tickTimer.Stop();
+                    TestButton.IsEnabled = true;
+                    CancelButton.Visibility = Visibility.Collapsed;
+                    _testCts.Dispose();
+                    _testCts = null;
                 }
-                ToolkitLog.Info("工作台：LLM 连通测试完成 " + _testWatch.ElapsedMilliseconds + "ms choices=" + (choices?.Count ?? 0));
             }
-            catch (OperationCanceledException)
-            {
-                TestResultText.Text = UiText.T("WB_Test_Cancelled");
-                ToolkitLog.Info("工作台：LLM 连通测试被取消 " + _testWatch.ElapsedMilliseconds + "ms");
-            }
-            catch (Exception ex)
-            {
-                LlmDot.Fill = Red;
-                TestResultText.Text = UiText.Tf("WB_Test_Fail", _testWatch.ElapsedMilliseconds, ex.Message);
-                ToolkitLog.Error("工作台：LLM 连通测试失败", ex);
-            }
-            finally
-            {
-                _tickTimer.Stop();
-                TestButton.IsEnabled = true;
-                CancelButton.Visibility = Visibility.Collapsed;
-                _testCts.Dispose();
-                _testCts = null;
-            }
+            catch (Exception ex) { ToolkitLog.Error("WorkbenchWindow.TestLlm_Click 异常", ex); }
         }
 
         private void UpdateTestProgress()
@@ -308,64 +312,68 @@ namespace TradosToolkit.Workbench
 
         private async void Scan_Click(object sender, RoutedEventArgs e)
         {
-            if (_scanning) return;
-            var dir = TmDirBox.Text.Trim();
-            if (string.IsNullOrEmpty(dir))
-            {
-                TmStatusText.Text = UiText.T("WB_Mem_NoDir");
-                return;
-            }
-            if (!Directory.Exists(dir))
-            {
-                TmStatusText.Text = UiText.Tf("WB_Mem_BadDir", dir);
-                return;
-            }
-
-            SaveScanDirectory(dir);
-            _scanning = true;
-            ScanButton.IsEnabled = false;
-            BrowseButton.IsEnabled = false;
-            ScanCancelButton.Visibility = Visibility.Visible;
-            TmProgress.Visibility = Visibility.Visible;
-            TmList.ItemsSource = null;
-            _scanCts = new CancellationTokenSource();
-            var watch = Stopwatch.StartNew();
-            var progress = new Progress<int>(n => TmStatusText.Text = UiText.Tf("WB_Mem_Scanning", n));
-
             try
             {
-                var items = await LocalTmScanner.ScanAsync(dir, progress, _scanCts.Token);
-                var ok = items.Count(x => x.State == LocalTmState.Ok);
-                var prot = items.Count(x => x.State == LocalTmState.Protected);
-                var err = items.Count(x => x.State == LocalTmState.Error);
-                TmList.ItemsSource = items;
-                TmStatusText.Text = items.Count == 0
-                    ? UiText.Tf("WB_Mem_None", dir)
-                    : UiText.Tf("WB_Mem_Done", items.Count, ok, prot, err, (watch.Elapsed.TotalSeconds).ToString("0.0"));
-                ToolkitLog.Info("工作台：记忆库扫描完成 dir=" + dir + " 总数=" + items.Count +
-                                " 正常=" + ok + " 受保护=" + prot + " 出错=" + err +
-                                " 耗时=" + watch.ElapsedMilliseconds + "ms");
+                if (_scanning) return;
+                var dir = TmDirBox.Text.Trim();
+                if (string.IsNullOrEmpty(dir))
+                {
+                    TmStatusText.Text = UiText.T("WB_Mem_NoDir");
+                    return;
+                }
+                if (!Directory.Exists(dir))
+                {
+                    TmStatusText.Text = UiText.Tf("WB_Mem_BadDir", dir);
+                    return;
+                }
+
+                SaveScanDirectory(dir);
+                _scanning = true;
+                ScanButton.IsEnabled = false;
+                BrowseButton.IsEnabled = false;
+                ScanCancelButton.Visibility = Visibility.Visible;
+                TmProgress.Visibility = Visibility.Visible;
+                TmList.ItemsSource = null;
+                _scanCts = new CancellationTokenSource();
+                var watch = Stopwatch.StartNew();
+                var progress = new Progress<int>(n => TmStatusText.Text = UiText.Tf("WB_Mem_Scanning", n));
+
+                try
+                {
+                    var items = await LocalTmScanner.ScanAsync(dir, progress, _scanCts.Token);
+                    var ok = items.Count(x => x.State == LocalTmState.Ok);
+                    var prot = items.Count(x => x.State == LocalTmState.Protected);
+                    var err = items.Count(x => x.State == LocalTmState.Error);
+                    TmList.ItemsSource = items;
+                    TmStatusText.Text = items.Count == 0
+                        ? UiText.Tf("WB_Mem_None", dir)
+                        : UiText.Tf("WB_Mem_Done", items.Count, ok, prot, err, (watch.Elapsed.TotalSeconds).ToString("0.0"));
+                    ToolkitLog.Info("工作台：记忆库扫描完成 dir=" + dir + " 总数=" + items.Count +
+                                    " 正常=" + ok + " 受保护=" + prot + " 出错=" + err +
+                                    " 耗时=" + watch.ElapsedMilliseconds + "ms");
+                }
+                catch (OperationCanceledException)
+                {
+                    TmStatusText.Text = UiText.T("WB_Mem_Cancelled");
+                    ToolkitLog.Info("工作台：记忆库扫描被取消 " + watch.ElapsedMilliseconds + "ms");
+                }
+                catch (Exception ex)
+                {
+                    TmStatusText.Text = UiText.Tf("WB_Test_Fail", watch.ElapsedMilliseconds, ex.Message);
+                    ToolkitLog.Error("工作台：记忆库扫描失败 dir=" + dir, ex);
+                }
+                finally
+                {
+                    _scanning = false;
+                    ScanButton.IsEnabled = true;
+                    BrowseButton.IsEnabled = true;
+                    ScanCancelButton.Visibility = Visibility.Collapsed;
+                    TmProgress.Visibility = Visibility.Collapsed;
+                    _scanCts.Dispose();
+                    _scanCts = null;
+                }
             }
-            catch (OperationCanceledException)
-            {
-                TmStatusText.Text = UiText.T("WB_Mem_Cancelled");
-                ToolkitLog.Info("工作台：记忆库扫描被取消 " + watch.ElapsedMilliseconds + "ms");
-            }
-            catch (Exception ex)
-            {
-                TmStatusText.Text = UiText.Tf("WB_Test_Fail", watch.ElapsedMilliseconds, ex.Message);
-                ToolkitLog.Error("工作台：记忆库扫描失败 dir=" + dir, ex);
-            }
-            finally
-            {
-                _scanning = false;
-                ScanButton.IsEnabled = true;
-                BrowseButton.IsEnabled = true;
-                ScanCancelButton.Visibility = Visibility.Collapsed;
-                TmProgress.Visibility = Visibility.Collapsed;
-                _scanCts.Dispose();
-                _scanCts = null;
-            }
+            catch (Exception ex) { ToolkitLog.Error("WorkbenchWindow.Scan_Click 异常", ex); }
         }
 
         private void CancelScan_Click(object sender, RoutedEventArgs e)
@@ -983,93 +991,97 @@ namespace TradosToolkit.Workbench
 
         private async void FlowRun_Click(object sender, RoutedEventArgs e)
         {
-            var card = SelectedCard();
-            if (card == null) { ToolsOutput.Text = "请先在左侧选一张流程卡。"; return; }
-            if (card.steps.Count == 0) { ToolsOutput.Text = "该流程没有步骤。请用下方“＋添加/设为该操作”编排步骤。"; return; }
-            if (_flowBusy) { ToolsOutput.Text = "流程正在运行，请稍候。"; return; }
-
-            _flowBusy = true;
-            SetFlowRunning(true);
-            _flowCts = new CancellationTokenSource();
-            var token = _flowCts.Token;
-            var watch = Stopwatch.StartNew();
-            var sb = new StringBuilder();
-            sb.AppendLine(">> 运行流程《" + card.name + "》  ·  " + string.Join(" → ", card.steps.Select(OpLabel)));
-            sb.AppendLine();
-            ToolsOutput.Text = sb.ToString();
-            ToolkitLog.Info("工作台：运行流程卡 " + card.name + " 步骤=" + string.Join(",", card.steps));
-
-            var failed = 0;
-            var index = 0;
             try
             {
-                while (index < card.steps.Count)
+                var card = SelectedCard();
+                if (card == null) { ToolsOutput.Text = "请先在左侧选一张流程卡。"; return; }
+                if (card.steps.Count == 0) { ToolsOutput.Text = "该流程没有步骤。请用下方“＋添加/设为该操作”编排步骤。"; return; }
+                if (_flowBusy) { ToolsOutput.Text = "流程正在运行，请稍候。"; return; }
+
+                _flowBusy = true;
+                SetFlowRunning(true);
+                _flowCts = new CancellationTokenSource();
+                var token = _flowCts.Token;
+                var watch = Stopwatch.StartNew();
+                var sb = new StringBuilder();
+                sb.AppendLine(">> 运行流程《" + card.name + "》  ·  " + string.Join(" → ", card.steps.Select(OpLabel)));
+                sb.AppendLine();
+                ToolsOutput.Text = sb.ToString();
+                ToolkitLog.Info("工作台：运行流程卡 " + card.name + " 步骤=" + string.Join(",", card.steps));
+
+                var failed = 0;
+                var index = 0;
+                try
                 {
-                    token.ThrowIfCancellationRequested();
-                    if (IsStudio(card.steps[index]))
+                    while (index < card.steps.Count)
                     {
-                        // 合并连续一段 Studio 自动任务为一次 pipeline 调用，保持相对顺序
-                        var seq = new List<string>();
-                        while (index < card.steps.Count && IsStudio(card.steps[index])) { seq.Add(card.steps[index]); index++; }
-                        var start = index - seq.Count;
-                        var stepLine = string.Join(" → ", seq.Select(OpLabel));
-                        AppendLine(sb, "· [开始] " + (start + 1) + ".." + index + " " + stepLine);
-                        var sw = Stopwatch.StartNew();
-                        var r = await Task.Run(() => RunStudioPipeline(seq), CancellationToken.None);
-                        sw.Stop();
-                        AppendLine(sb, r.Item1 ? "[完成] " + stepLine + "  ·  " + sw.ElapsedMilliseconds + " ms"
-                                              : "[失败] " + stepLine + "  ·  " + r.Item2);
-                        if (!r.Item1) failed++;
-                    }
-                    else
-                    {
-                        var key = card.steps[index];
-                        var nth = index + 1;
-                        var sw = Stopwatch.StartNew();
-                        AppendLine(sb, "· [开始] " + nth + ". " + OpLabel(key));
-                        try
+                        token.ThrowIfCancellationRequested();
+                        if (IsStudio(card.steps[index]))
                         {
-                            var r = await Task.Run(() => RunPluginStep(key), CancellationToken.None);
+                            // 合并连续一段 Studio 自动任务为一次 pipeline 调用，保持相对顺序
+                            var seq = new List<string>();
+                            while (index < card.steps.Count && IsStudio(card.steps[index])) { seq.Add(card.steps[index]); index++; }
+                            var start = index - seq.Count;
+                            var stepLine = string.Join(" → ", seq.Select(OpLabel));
+                            AppendLine(sb, "· [开始] " + (start + 1) + ".." + index + " " + stepLine);
+                            var sw = Stopwatch.StartNew();
+                            var r = await Task.Run(() => RunStudioPipeline(seq), CancellationToken.None);
                             sw.Stop();
-                            AppendLine(sb, r.Item1 ? "[完成] " + nth + ". " + OpLabel(key) + "  ·  " + sw.ElapsedMilliseconds + " ms"
-                                                  : "[失败] " + nth + ". " + OpLabel(key) + "  ·  " + r.Item2);
+                            AppendLine(sb, r.Item1 ? "[完成] " + stepLine + "  ·  " + sw.ElapsedMilliseconds + " ms"
+                                                  : "[失败] " + stepLine + "  ·  " + r.Item2);
                             if (!r.Item1) failed++;
                         }
-                        catch (InvalidOperationException ex)
+                        else
                         {
-                            // 例如未选项目 —— 中断
-                            sb.AppendLine("[失败] " + nth + ". " + OpLabel(key) + "  ·  " + ex.Message);
-                            ToolsOutput.Text = sb.ToString();
-                            throw;
+                            var key = card.steps[index];
+                            var nth = index + 1;
+                            var sw = Stopwatch.StartNew();
+                            AppendLine(sb, "· [开始] " + nth + ". " + OpLabel(key));
+                            try
+                            {
+                                var r = await Task.Run(() => RunPluginStep(key), CancellationToken.None);
+                                sw.Stop();
+                                AppendLine(sb, r.Item1 ? "[完成] " + nth + ". " + OpLabel(key) + "  ·  " + sw.ElapsedMilliseconds + " ms"
+                                                      : "[失败] " + nth + ". " + OpLabel(key) + "  ·  " + r.Item2);
+                                if (!r.Item1) failed++;
+                            }
+                            catch (InvalidOperationException ex)
+                            {
+                                // 例如未选项目 —— 中断
+                                sb.AppendLine("[失败] " + nth + ". " + OpLabel(key) + "  ·  " + ex.Message);
+                                ToolsOutput.Text = sb.ToString();
+                                throw;
+                            }
+                            index++;
                         }
-                        index++;
+                        ToolsOutput.Text = sb.ToString();
                     }
-                    ToolsOutput.Text = sb.ToString();
+                    token.ThrowIfCancellationRequested();
+                    sb.AppendLine();
+                    sb.AppendLine("—— 流程结束：失败 " + failed + " 步，总耗时 " + watch.ElapsedMilliseconds + " ms");
                 }
-                token.ThrowIfCancellationRequested();
-                sb.AppendLine();
-                sb.AppendLine("—— 流程结束：失败 " + failed + " 步，总耗时 " + watch.ElapsedMilliseconds + " ms");
+                catch (OperationCanceledException)
+                {
+                    sb.AppendLine();
+                    sb.AppendLine("—— 已取消，已执行部分保留。");
+                    ToolkitLog.Info("工作台：流程运行被取消 " + card.name);
+                }
+                catch (Exception ex)
+                {
+                    sb.AppendLine();
+                    sb.AppendLine("—— 流程中断：" + ex.Message);
+                    ToolkitLog.Error("工作台：流程运行中断 " + card.name, ex);
+                }
+                finally
+                {
+                    _flowBusy = false;
+                    SetFlowRunning(false);
+                    _flowCts.Dispose();
+                    _flowCts = null;
+                }
+                ToolsOutput.Text = sb.ToString();
             }
-            catch (OperationCanceledException)
-            {
-                sb.AppendLine();
-                sb.AppendLine("—— 已取消，已执行部分保留。");
-                ToolkitLog.Info("工作台：流程运行被取消 " + card.name);
-            }
-            catch (Exception ex)
-            {
-                sb.AppendLine();
-                sb.AppendLine("—— 流程中断：" + ex.Message);
-                ToolkitLog.Error("工作台：流程运行中断 " + card.name, ex);
-            }
-            finally
-            {
-                _flowBusy = false;
-                SetFlowRunning(false);
-                _flowCts.Dispose();
-                _flowCts = null;
-            }
-            ToolsOutput.Text = sb.ToString();
+            catch (Exception ex) { ToolkitLog.Error("WorkbenchWindow.FlowRun_Click 异常", ex); }
         }
 
         private void AppendLine(StringBuilder sb, string line)
@@ -1202,70 +1214,74 @@ namespace TradosToolkit.Workbench
 
         private async void RevRun_Click(object sender, RoutedEventArgs e)
         {
-            var path = RevProjBox.Text.Trim();
-            if (string.IsNullOrEmpty(path) || !File.Exists(path))
-            {
-                RevStatus.Text = "请先选择项目 (.sdlp)：点“取当前项目”或“浏览…”";
-                return;
-            }
-            if (!LlmChatClient.IsReady())
-            {
-                RevStatus.Text = "未配置 LLM(llmBaseUrl/llmModel/apiKey 见 config.json)，无法审校。";
-                return;
-            }
-
-            var q = new Dictionary<string, string> { { "path", path } };
-            var file = RevFileBox.Text.Trim();
-            if (!string.IsNullOrEmpty(file)) q["file"] = file;
-
-            int maxSeg = 1000;
-            int.TryParse(RevMaxBox.Text.Trim(), out maxSeg);
-            if (maxSeg <= 0) maxSeg = 1000;
-            var body = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(
-                new Dictionary<string, object> { { "maxSegments", maxSeg } });
-
-            _revBusy = true;
-            _revCts = new CancellationTokenSource();
-            RevRunBtn.IsEnabled = false;
-            RevCancelBtn.Visibility = Visibility.Visible;
-            RevList.ItemsSource = null;
-            RevStatus.Text = "AI 审校进行中（已交后台，批式调用 LLM，段数多时需等待）…";
-            RevContext.Text = Path.GetFileNameWithoutExtension(path) + (string.IsNullOrEmpty(file) ? "" : " / " + file);
-            RevDetailTitle.Text = "选中段：等待结果";
-            RevDetailBox.Text = "";
-            RevAppliedText.Text = "";
-
-            var token = ApiConfig.Load().GetOrCreateToken();
             try
             {
-                var result = await Task.Run(() =>
-                    ProjectApi.Handle("POST", "/api/review", q, body, token, token), CancellationToken.None);
-                if (_revCts == null || _revCts.IsCancellationRequested)
+                var path = RevProjBox.Text.Trim();
+                if (string.IsNullOrEmpty(path) || !File.Exists(path))
                 {
-                    RevStatus.Text = "已取消。";
+                    RevStatus.Text = "请先选择项目 (.sdlp)：点“取当前项目”或“浏览…”";
                     return;
                 }
-                if (result.Status >= 400)
+                if (!LlmChatClient.IsReady())
                 {
-                    var err = PayloadText(result);
-                    RevStatus.Text = "审校失败：[HTTP " + result.Status + "] " + err;
+                    RevStatus.Text = "未配置 LLM(llmBaseUrl/llmModel/apiKey 见 config.json)，无法审校。";
                     return;
                 }
-                PopulateReview(result.Payload);
+
+                var q = new Dictionary<string, string> { { "path", path } };
+                var file = RevFileBox.Text.Trim();
+                if (!string.IsNullOrEmpty(file)) q["file"] = file;
+
+                int maxSeg = 1000;
+                int.TryParse(RevMaxBox.Text.Trim(), out maxSeg);
+                if (maxSeg <= 0) maxSeg = 1000;
+                var body = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(
+                    new Dictionary<string, object> { { "maxSegments", maxSeg } });
+
+                _revBusy = true;
+                _revCts = new CancellationTokenSource();
+                RevRunBtn.IsEnabled = false;
+                RevCancelBtn.Visibility = Visibility.Visible;
+                RevList.ItemsSource = null;
+                RevStatus.Text = "AI 审校进行中（已交后台，批式调用 LLM，段数多时需等待）…";
+                RevContext.Text = Path.GetFileNameWithoutExtension(path) + (string.IsNullOrEmpty(file) ? "" : " / " + file);
+                RevDetailTitle.Text = "选中段：等待结果";
+                RevDetailBox.Text = "";
+                RevAppliedText.Text = "";
+
+                var token = ApiConfig.Load().GetOrCreateToken();
+                try
+                {
+                    var result = await Task.Run(() =>
+                        ProjectApi.Handle("POST", "/api/review", q, body, token, token), CancellationToken.None);
+                    if (_revCts == null || _revCts.IsCancellationRequested)
+                    {
+                        RevStatus.Text = "已取消。";
+                        return;
+                    }
+                    if (result.Status >= 400)
+                    {
+                        var err = PayloadText(result);
+                        RevStatus.Text = "审校失败：[HTTP " + result.Status + "] " + err;
+                        return;
+                    }
+                    PopulateReview(result.Payload);
+                }
+                catch (Exception ex)
+                {
+                    RevStatus.Text = "审校异常：" + ex.Message;
+                    ToolkitLog.Error("工作台：AI 审校异常", ex);
+                }
+                finally
+                {
+                    _revBusy = false;
+                    RevRunBtn.IsEnabled = true;
+                    RevCancelBtn.Visibility = Visibility.Collapsed;
+                    _revCts.Dispose();
+                    _revCts = null;
+                }
             }
-            catch (Exception ex)
-            {
-                RevStatus.Text = "审校异常：" + ex.Message;
-                ToolkitLog.Error("工作台：AI 审校异常", ex);
-            }
-            finally
-            {
-                _revBusy = false;
-                RevRunBtn.IsEnabled = true;
-                RevCancelBtn.Visibility = Visibility.Collapsed;
-                _revCts.Dispose();
-                _revCts = null;
-            }
+            catch (Exception ex) { ToolkitLog.Error("WorkbenchWindow.RevRun_Click 异常", ex); }
         }
 
         private void RevCancel_Click(object sender, RoutedEventArgs e)
@@ -1331,44 +1347,48 @@ namespace TradosToolkit.Workbench
 
         private async void RevApply_Click(object sender, RoutedEventArgs e)
         {
-            var row = RevList.SelectedItem as ReviewRow;
-            if (row == null) { RevAppliedText.Text = "请先选中一段。"; return; }
-            var path = RevProjBox.Text.Trim();
-            if (string.IsNullOrEmpty(path)) { RevAppliedText.Text = "缺少项目路径。"; return; }
-            var file = RevFileBox.Text.Trim();
-
-            var target = parseDetailTarget(RevDetailBox.Text);
-            if (string.IsNullOrWhiteSpace(target)) { RevAppliedText.Text = "详情区没有可写回的译文。"; return; }
-            if (string.Equals(target, row.Target, StringComparison.Ordinal)) { RevAppliedText.Text = "译文未变化，无需写回。"; return; }
-
-            var q = new Dictionary<string, string> { { "path", path } };
-            if (!string.IsNullOrEmpty(file)) q["file"] = file;
-            var body = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(
-                new List<object>
-                {
-                    new Dictionary<string, object> { { "id", row.ItemId }, { "target", target } }
-                });
-            var token = ApiConfig.Load().GetOrCreateToken();
-            RevApplyBtn.IsEnabled = false;
-            RevAppliedText.Text = "写回中…";
             try
             {
-                var result = await Task.Run(() =>
-                    ProjectApi.Handle("POST", "/api/project/sdlxliff", q, body, token, token), CancellationToken.None);
-                if (result.Status >= 400)
-                    RevAppliedText.Text = "写回失败：[HTTP " + result.Status + "] " + PayloadText(result);
-                else
-                    RevAppliedText.Text = "已写回（含 .bak 备份）。在 Studio 重新打开该文件生效。";
+                var row = RevList.SelectedItem as ReviewRow;
+                if (row == null) { RevAppliedText.Text = "请先选中一段。"; return; }
+                var path = RevProjBox.Text.Trim();
+                if (string.IsNullOrEmpty(path)) { RevAppliedText.Text = "缺少项目路径。"; return; }
+                var file = RevFileBox.Text.Trim();
+
+                var target = parseDetailTarget(RevDetailBox.Text);
+                if (string.IsNullOrWhiteSpace(target)) { RevAppliedText.Text = "详情区没有可写回的译文。"; return; }
+                if (string.Equals(target, row.Target, StringComparison.Ordinal)) { RevAppliedText.Text = "译文未变化，无需写回。"; return; }
+
+                var q = new Dictionary<string, string> { { "path", path } };
+                if (!string.IsNullOrEmpty(file)) q["file"] = file;
+                var body = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(
+                    new List<object>
+                    {
+                        new Dictionary<string, object> { { "id", row.ItemId }, { "target", target } }
+                    });
+                var token = ApiConfig.Load().GetOrCreateToken();
+                RevApplyBtn.IsEnabled = false;
+                RevAppliedText.Text = "写回中…";
+                try
+                {
+                    var result = await Task.Run(() =>
+                        ProjectApi.Handle("POST", "/api/project/sdlxliff", q, body, token, token), CancellationToken.None);
+                    if (result.Status >= 400)
+                        RevAppliedText.Text = "写回失败：[HTTP " + result.Status + "] " + PayloadText(result);
+                    else
+                        RevAppliedText.Text = "已写回（含 .bak 备份）。在 Studio 重新打开该文件生效。";
+                }
+                catch (Exception ex)
+                {
+                    RevAppliedText.Text = "写回异常：" + ex.Message;
+                    ToolkitLog.Error("工作台：审校写回异常", ex);
+                }
+                finally
+                {
+                    RevApplyBtn.IsEnabled = true;
+                }
             }
-            catch (Exception ex)
-            {
-                RevAppliedText.Text = "写回异常：" + ex.Message;
-                ToolkitLog.Error("工作台：审校写回异常", ex);
-            }
-            finally
-            {
-                RevApplyBtn.IsEnabled = true;
-            }
+            catch (Exception ex) { ToolkitLog.Error("WorkbenchWindow.RevApply_Click 异常", ex); }
         }
 
         /// <summary>从未知的详情文本里提取"建议修订"行以后的内容作为写回译文。</summary>

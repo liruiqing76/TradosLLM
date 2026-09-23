@@ -391,25 +391,29 @@ namespace TradosToolkit.Inbox
         /// <summary>全量重扫本地库目录并写入共享索引（平时无需点，索引会按文件时间增量刷新）。</summary>
         private async void RefreshIndex_Click(object sender, RoutedEventArgs e)
         {
-            var dir = (TmBox.Text ?? string.Empty).Trim();
-            if (string.IsNullOrEmpty(dir) || !Directory.Exists(dir))
-            {
-                StateText.Text = "本地库目录不存在：" + dir;
-                return;
-            }
-            StateText.Text = "正在重建库索引（" + dir + "）…";
-            var watch = System.Diagnostics.Stopwatch.StartNew();
             try
             {
-                var list = await System.Threading.Tasks.Task.Run(
-                    () => LocalTmIndex.Refresh(dir, null, System.Threading.CancellationToken.None));
-                StateText.Text = string.Format("库索引已更新：{0} 个记忆库，耗时 {1:0.0}s（收件箱逐任务直接复用）",
-                    list.Count, watch.ElapsedMilliseconds / 1000.0);
+                var dir = (TmBox.Text ?? string.Empty).Trim();
+                if (string.IsNullOrEmpty(dir) || !Directory.Exists(dir))
+                {
+                    StateText.Text = "本地库目录不存在：" + dir;
+                    return;
+                }
+                StateText.Text = "正在重建库索引（" + dir + "）…";
+                var watch = System.Diagnostics.Stopwatch.StartNew();
+                try
+                {
+                    var list = await System.Threading.Tasks.Task.Run(
+                        () => LocalTmIndex.Refresh(dir, null, System.Threading.CancellationToken.None));
+                    StateText.Text = string.Format("库索引已更新：{0} 个记忆库，耗时 {1:0.0}s（收件箱逐任务直接复用）",
+                        list.Count, watch.ElapsedMilliseconds / 1000.0);
+                }
+                catch (Exception ex)
+                {
+                    StateText.Text = "重建库索引失败：" + ex.Message;
+                }
             }
-            catch (Exception ex)
-            {
-                StateText.Text = "重建库索引失败：" + ex.Message;
-            }
+            catch (Exception ex) { ToolkitLog.Error("InboxWindow.RefreshIndex_Click 异常", ex); }
         }
 
         private void PickFolder(TextBox box, string title)

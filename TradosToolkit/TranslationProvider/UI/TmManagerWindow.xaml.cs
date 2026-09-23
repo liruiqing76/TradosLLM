@@ -54,18 +54,22 @@ namespace TradosToolkit.TranslationProvider.UI
         /// <summary>从共享索引回填列表（关窗重开时保持上次扫描结果），必要时做增量补齐。</summary>
         private async void LoadFromIndex()
         {
-            var dir = (TmDirBox.Text ?? string.Empty).Trim();
-            if (!Directory.Exists(dir)) return;
-            if (_tms.Count > 0) return; // 已有数据不覆盖
             try
             {
-                var list = await Task.Run(() => LocalTmIndex.GetOrScan(dir));
-                if (_tms.Count > 0) return;
-                foreach (var t in list) _tms.Add(t);
-                if (_tms.Count > 0)
-                    StatusText.Text = string.Format("已从共享索引载入 {0} 个记忆库（上次扫描结果；点「扫描」可全量重建）", _tms.Count);
+                var dir = (TmDirBox.Text ?? string.Empty).Trim();
+                if (!Directory.Exists(dir)) return;
+                if (_tms.Count > 0) return; // 已有数据不覆盖
+                try
+                {
+                    var list = await Task.Run(() => LocalTmIndex.GetOrScan(dir));
+                    if (_tms.Count > 0) return;
+                    foreach (var t in list) _tms.Add(t);
+                    if (_tms.Count > 0)
+                        StatusText.Text = string.Format("已从共享索引载入 {0} 个记忆库（上次扫描结果；点「扫描」可全量重建）", _tms.Count);
+                }
+                catch (Exception ex) { ToolkitLog.Error("从索引回填记忆库列表失败", ex); }
             }
-            catch (Exception ex) { ToolkitLog.Error("从索引回填记忆库列表失败", ex); }
+            catch (Exception e) { ToolkitLog.Error("TmManagerWindow.LoadFromIndex 异常", e); }
         }
 
         public static void ShowOrActivate()
@@ -118,31 +122,35 @@ namespace TradosToolkit.TranslationProvider.UI
 
         private async void Scan_Click(object sender, RoutedEventArgs e)
         {
-            var dir = TmDirBox.Text.Trim();
-            if (!Directory.Exists(dir)) { StatusText.Text = "目录不存在: " + dir; return; }
-            _cts?.Cancel();
-            ShowBusy(true, "扫描 " + dir + " …");
-            var cts = new CancellationTokenSource();
-            _cts = cts;
-            var watch = new System.Diagnostics.Stopwatch();
-            watch.Start();
             try
             {
-                var list = await Task.Run(() => LocalTmIndex.Refresh(dir, null, cts.Token), CancellationToken.None);
-                _tms.Clear();
-                foreach (var t in list) _tms.Add(t);
-                ShowBusy(false, string.Format("扫描完成：{0} 个记忆库，耗时 {1:0.0}s（已写入共享索引，收件箱直接复用）",
-                    _tms.Count, watch.ElapsedMilliseconds / 1000.0));
+                var dir = TmDirBox.Text.Trim();
+                if (!Directory.Exists(dir)) { StatusText.Text = "目录不存在: " + dir; return; }
+                _cts?.Cancel();
+                ShowBusy(true, "扫描 " + dir + " …");
+                var cts = new CancellationTokenSource();
+                _cts = cts;
+                var watch = new System.Diagnostics.Stopwatch();
+                watch.Start();
+                try
+                {
+                    var list = await Task.Run(() => LocalTmIndex.Refresh(dir, null, cts.Token), CancellationToken.None);
+                    _tms.Clear();
+                    foreach (var t in list) _tms.Add(t);
+                    ShowBusy(false, string.Format("扫描完成：{0} 个记忆库，耗时 {1:0.0}s（已写入共享索引，收件箱直接复用）",
+                        _tms.Count, watch.ElapsedMilliseconds / 1000.0));
+                }
+                catch (OperationCanceledException)
+                {
+                    ShowBusy(false, "扫描已取消");
+                }
+                catch (Exception ex)
+                {
+                    ToolkitLog.Error("记忆库扫描失败", ex);
+                    ShowBusy(false, "扫描失败：" + ex.Message);
+                }
             }
-            catch (OperationCanceledException)
-            {
-                ShowBusy(false, "扫描已取消");
-            }
-            catch (Exception ex)
-            {
-                ToolkitLog.Error("记忆库扫描失败", ex);
-                ShowBusy(false, "扫描失败：" + ex.Message);
-            }
+            catch (Exception ex) { ToolkitLog.Error("TmManagerWindow.Scan_Click 异常", ex); }
         }
 
         private void NewTm_Click(object sender, RoutedEventArgs e)
@@ -289,25 +297,29 @@ namespace TradosToolkit.TranslationProvider.UI
         /// <summary>不等定时，马上全量重建一次共享索引。</summary>
         private async void RunIndexNow_Click(object sender, RoutedEventArgs e)
         {
-            var dir = TmDirBox.Text.Trim();
-            if (!Directory.Exists(dir)) { StatusText.Text = "目录不存在: " + dir; return; }
-            if (AutoRefreshBox.IsChecked == true && ToolkitConfig.IsValidTime(RefreshTimeBox.Text.Trim()))
-                ToolkitConfig.Save(tmScanDirectory: dir); // 定时启用时，确保定时用的是同一个目录
-            ShowBusy(true, "正在重建共享索引 " + dir + " …");
-            var watch = System.Diagnostics.Stopwatch.StartNew();
             try
             {
-                var list = await Task.Run(() => LocalTmIndex.Refresh(dir, null, CancellationToken.None), CancellationToken.None);
-                _tms.Clear();
-                foreach (var t in list) _tms.Add(t);
-                ShowBusy(false, string.Format("索引已重建：{0} 个记忆库，耗时 {1:0.0}s", _tms.Count, watch.ElapsedMilliseconds / 1000.0));
-                UpdateNextRunText();
+                var dir = TmDirBox.Text.Trim();
+                if (!Directory.Exists(dir)) { StatusText.Text = "目录不存在: " + dir; return; }
+                if (AutoRefreshBox.IsChecked == true && ToolkitConfig.IsValidTime(RefreshTimeBox.Text.Trim()))
+                    ToolkitConfig.Save(tmScanDirectory: dir); // 定时启用时，确保定时用的是同一个目录
+                ShowBusy(true, "正在重建共享索引 " + dir + " …");
+                var watch = System.Diagnostics.Stopwatch.StartNew();
+                try
+                {
+                    var list = await Task.Run(() => LocalTmIndex.Refresh(dir, null, CancellationToken.None), CancellationToken.None);
+                    _tms.Clear();
+                    foreach (var t in list) _tms.Add(t);
+                    ShowBusy(false, string.Format("索引已重建：{0} 个记忆库，耗时 {1:0.0}s", _tms.Count, watch.ElapsedMilliseconds / 1000.0));
+                    UpdateNextRunText();
+                }
+                catch (Exception ex)
+                {
+                    ToolkitLog.Error("立即重建索引失败", ex);
+                    ShowBusy(false, "重建失败：" + ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                ToolkitLog.Error("立即重建索引失败", ex);
-                ShowBusy(false, "重建失败：" + ex.Message);
-            }
+            catch (Exception ex) { ToolkitLog.Error("TmManagerWindow.RunIndexNow_Click 异常", ex); }
         }
 
         /// <summary>定时线程完成自动重建后回显到界面（工作线程 → marshal 回 UI）。</summary>

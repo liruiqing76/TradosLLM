@@ -180,39 +180,43 @@ namespace TradosToolkit.EditorPanel
 
         private async void SendMessage(string userText)
         {
-            if (_busy || _segmentId == null || !LlmChatClient.IsReady())
-                return;
-
-            InputBox.Clear();
-            AddBubble(new Bubble { IsUser = true, Text = userText, Time = Now() });
-            _history.Add(new ChatTurn { Role = "user", Content = userText });
-            SetBusy(true);
-            _cts = new CancellationTokenSource();
             try
             {
-                var reply = await LlmChatClient.ChatAsync(_source, _target, _targetLang, _history, userText,
-                    _prevSource, _prevTarget, _nextSource, _cts.Token);
-                _history.Add(new ChatTurn { Role = "assistant", Content = reply });
-                AddBubble(new Bubble { IsUser = false, Text = reply, Time = Now() });
+                if (_busy || _segmentId == null || !LlmChatClient.IsReady())
+                    return;
+
+                InputBox.Clear();
+                AddBubble(new Bubble { IsUser = true, Text = userText, Time = Now() });
+                _history.Add(new ChatTurn { Role = "user", Content = userText });
+                SetBusy(true);
+                _cts = new CancellationTokenSource();
+                try
+                {
+                    var reply = await LlmChatClient.ChatAsync(_source, _target, _targetLang, _history, userText,
+                        _prevSource, _prevTarget, _nextSource, _cts.Token);
+                    _history.Add(new ChatTurn { Role = "assistant", Content = reply });
+                    AddBubble(new Bubble { IsUser = false, Text = reply, Time = Now() });
+                }
+                catch (OperationCanceledException)
+                {
+                    ToolkitLog.Info("面板对话已取消: " + userText);
+                    AddBubble(new Bubble { IsUser = false, Text = "已取消等待。", Time = Now() });
+                    _history.RemoveAt(_history.Count - 1);
+                }
+                catch (Exception ex)
+                {
+                    ToolkitLog.Error("面板对话失败", ex);
+                    AddBubble(new Bubble { IsUser = false, Text = "⚠ " + ex.Message, Time = Now() });
+                    _history.RemoveAt(_history.Count - 1);
+                }
+                finally
+                {
+                    _cts.Dispose();
+                    _cts = null;
+                    SetBusy(false);
+                }
             }
-            catch (OperationCanceledException)
-            {
-                ToolkitLog.Info("面板对话已取消: " + userText);
-                AddBubble(new Bubble { IsUser = false, Text = "已取消等待。", Time = Now() });
-                _history.RemoveAt(_history.Count - 1);
-            }
-            catch (Exception ex)
-            {
-                ToolkitLog.Error("面板对话失败", ex);
-                AddBubble(new Bubble { IsUser = false, Text = "⚠ " + ex.Message, Time = Now() });
-                _history.RemoveAt(_history.Count - 1);
-            }
-            finally
-            {
-                _cts.Dispose();
-                _cts = null;
-                SetBusy(false);
-            }
+            catch (Exception e) { ToolkitLog.Error("LlmPanelView.SendMessage 异常", e); }
         }
 
         private void AddBubble(Bubble bubble)

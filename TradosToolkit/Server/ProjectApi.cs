@@ -1924,7 +1924,7 @@ namespace TradosToolkit.Server
                     if (!srcMatch || !tgtMatch) continue;
                     gathered.AddRange(db.GetTerms(GlossaryDb.KindPre, lgSrc, lgTgt, domain));
                 }
-                if (gathered.Count == 0 && domain != Glossaries.DomainTree.DefaultDomain)
+                if (gathered.Count == 0 && domain != Common.Catalog.DomainTree.DefaultDomain)
                     foreach (var pair in db.GetPairs(GlossaryDb.KindPre))
                         gathered.AddRange(db.GetTerms(GlossaryDb.KindPre, pair[0], pair[1], null));
 
@@ -2127,7 +2127,7 @@ namespace TradosToolkit.Server
                 foreach (var o in arr)
                     if (o is Dictionary<string, object> d) result.Add(d);
             }
-            catch (Exception) { }
+            catch (Exception e) { ToolkitLog.Warn("LLM JSON 数组解析失败: " + (json?.Length > 200 ? json.Substring(0, 200) + "..." : json), e); }
             return result;
         }
 

@@ -6,6 +6,7 @@ using Sdl.Core.Globalization;
 using Sdl.Terminology.TerminologyProvider.Core;
 using TradosToolkit.Diagnostics;
 using TradosToolkit.Glossaries;
+using TradosToolkit.Common.Catalog;
 
 namespace TradosToolkit.TerminologySource
 {

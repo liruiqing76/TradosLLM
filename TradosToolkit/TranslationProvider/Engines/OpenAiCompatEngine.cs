@@ -8,6 +8,7 @@ using Sdl.LanguagePlatform.Core;
 using Sdl.LanguagePlatform.TranslationMemory;
 using TradosToolkit.Diagnostics;
 using TradosToolkit.Glossaries;
+using TradosToolkit.Common.Catalog;
 
 namespace TradosToolkit.TranslationProvider.Engines
 {
@@ -187,7 +188,7 @@ namespace TradosToolkit.TranslationProvider.Engines
                     if (!termRejected && !TermsSatisfied(content, termPairs))
                     {
                         termRejected = true;
-                        ToolkitLog.Info("LLM 译文未采用术语映射，强制重译一次: " + termLine);
+                        ToolkitLog.Warn("LLM 译文未采用术语映射，强制重译一次 (术语对数=" + (termPairs?.Count ?? 0) + ")");
                         continue;
                     }
                     return content;
@@ -195,12 +196,12 @@ namespace TradosToolkit.TranslationProvider.Engines
                 catch (TimeoutException te)
                 {
                     last = te;
-                    ToolkitLog.Info("LLM 单段超时，第 " + (attempt + 1) + "/" + attempts + " 次失败");
+                    ToolkitLog.Warn("LLM 单段超时，第 " + (attempt + 1) + "/" + attempts + " 次失败");
                 }
                 catch (Exception ex) when (IsTransient(ex))
                 {
                     last = ex;
-                    ToolkitLog.Info("LLM 单段网络异常，第 " + (attempt + 1) + "/" + attempts + " 次失败");
+                    ToolkitLog.Warn("LLM 单段网络异常，第 " + (attempt + 1) + "/" + attempts + " 次失败");
                 }
             }
             throw last ?? new InvalidOperationException("TradosToolkit LLM 请求失败");
@@ -242,7 +243,7 @@ namespace TradosToolkit.TranslationProvider.Engines
                 prompt += " 5) Terminology is MANDATORY: when the source text contains a term listed below, "
                     + "you MUST use its specified translation verbatim. Terms: " + termInstruction;
 
-            if (string.Equals(domain, Glossaries.DomainTree.DefaultDomain, StringComparison.Ordinal) == false
+            if (string.Equals(domain, DomainTree.DefaultDomain, StringComparison.Ordinal) == false
                 && !string.IsNullOrWhiteSpace(domain))
                 prompt += " 6) The text belongs to the \"" + domain + "\" domain "
                     + "(领域=" + domain + "); align terminology, style and wording with that domain.";
@@ -292,8 +293,9 @@ namespace TradosToolkit.TranslationProvider.Engines
                 {
                     list = new GlossaryDb().GetTerms(GlossaryDb.KindPre, pair.SourceCultureName, pair.TargetCultureName, domain);
                 }
-                catch
+                catch (Exception e)
                 {
+                    ToolkitLog.Warn("术语加载失败，降级为空: " + pair.SourceCultureName + "->" + pair.TargetCultureName + " domain=" + domain, e);
                     list = new List<GlossaryEntry>();
                 }
                 _termCache[key] = list;

@@ -58,8 +58,32 @@ namespace TradosToolkit.Server
             catch (Exception e)
             {
                 Interlocked.Exchange(ref _started, 0);
+                try { _listener?.Stop(); } catch { }
+                try { (_listener as IDisposable)?.Dispose(); } catch { }
+                _listener = null;
                 ApiLog.Write("start failed: " + e.Message);
             }
+        }
+
+        /// <summary>停止服务并释放监听器（插件卸载或显式关闭时调用）。</summary>
+        public void Stop()
+        {
+            try
+            {
+                _listener?.Stop();
+            }
+            catch (Exception e)
+            {
+                ApiLog.Write("stop failed: " + e.Message);
+            }
+            try
+            {
+                (_listener as IDisposable)?.Dispose();
+            }
+            catch { }
+            _listener = null;
+            Interlocked.Exchange(ref _started, 0);
+            ApiLog.Write("stopped");
         }
 
         private void ListenLoop()
@@ -71,8 +95,9 @@ namespace TradosToolkit.Server
                 {
                     context = _listener.GetContext();
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    ApiLog.Write("listen loop exit: " + e.Message);
                     break;
                 }
 

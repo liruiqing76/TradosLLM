@@ -67,7 +67,7 @@ namespace TradosToolkit.TranslationProvider.Engines
                 }
                 catch (Exception e)
                 {
-                    ToolkitLog.Error("TM 查询失败，全部段回退 LLM", e);
+                    ToolkitLog.Warn("TM 查询失败，全部段回退 LLM", e);
                 }
                 missing.RemoveAll(i => results[i].Length > 0);
             }

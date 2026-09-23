@@ -83,7 +83,7 @@ namespace TradosToolkit
         /// <summary>原生术语源所调用的线上术语服务地址（config.json 的 termBaseUrl，空 = 原生源不可用、返回空）。</summary>
         public string TermBaseUrl = string.Empty;
         /// <summary>全局领域（config.json 的 domain，缺省"通用"）。术语库/翻译插件/原生术语插件共用同一领域，工作台可直接切换。</summary>
-        public string Domain = Glossaries.DomainTree.DefaultDomain;
+        public string Domain = Common.Catalog.DomainTree.DefaultDomain;
         /// <summary>翻译中心书签目录树；键缺失时用内置默认，键存在则完全按文件。</summary>
         public List<BookmarkFolder> Folders = DefaultFolders();
 
@@ -215,7 +215,7 @@ namespace TradosToolkit
                     if (json.TryGetValue("termBaseUrl", out var tbu) && tbu is string tb)
                         config.TermBaseUrl = (tb ?? string.Empty).Trim();
                     if (json.TryGetValue("domain", out var dom) && dom is string d)
-                        config.Domain = string.IsNullOrWhiteSpace(d) ? Glossaries.DomainTree.DefaultDomain : d.Trim();
+                        config.Domain = string.IsNullOrWhiteSpace(d) ? Common.Catalog.DomainTree.DefaultDomain : d.Trim();
                     if (json.TryGetValue("translationCenterFolders", out var bm))
                         config.Folders = ParseFolders(bm);
                     else if (json.TryGetValue("translationCenterBookmarks", out var legacy))

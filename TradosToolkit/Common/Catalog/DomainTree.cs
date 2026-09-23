@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TradosToolkit.Glossaries
+namespace TradosToolkit.Common.Catalog
 {
     /// <summary>
     /// 领域树的单个节点。Name 为领域名，Children 为子领域（当前占位实现仅两级：主领域/子领域）。

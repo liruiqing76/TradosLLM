@@ -20,7 +20,7 @@ namespace TradosToolkit.TerminologySource
     /// </summary>
     internal static class TermHttpClient
     {
-        private static readonly HttpClient Client = new HttpClient();
+        private static readonly HttpClient Client = new HttpClient { Timeout = TimeSpan.FromSeconds(30) };
         private static readonly JavaScriptSerializer Json = new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
 
         /// <summary>对段文本做包含匹配（SearchMode.Fuzzy / 编辑器识别）。失败或未配置返回空结果。</summary>
@@ -69,24 +69,28 @@ namespace TradosToolkit.TerminologySource
         {
             var watch = System.Diagnostics.Stopwatch.StartNew();
             using (request)
-            using (var response = Client.SendAsync(request, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult())
+            using (var cts = CancellationTokenSource.CreateLinkedTokenSource(CancellationToken.None))
             {
-                var text = response.Content.ReadAsStringAsync().ConfigureAwait(false).GetAwaiter().GetResult();
-                ToolkitLog.Info("术语请求 " + request.Method + " " + request.RequestUri +
-                                " " + (int)response.StatusCode + " " + watch.ElapsedMilliseconds + "ms len=" + (text?.Length ?? 0));
-                if (!response.IsSuccessStatusCode)
+                cts.CancelAfter(TimeSpan.FromSeconds(30));
+                using (var response = Client.SendAsync(request, cts.Token).ConfigureAwait(false).GetAwaiter().GetResult())
                 {
-                    ToolkitLog.Error("术语请求失败: HTTP " + (int)response.StatusCode + " " +
-                                     Truncate(text, 500), null);
-                    return new Dictionary<string, object>();
-                }
-                try
-                {
-                    return Json.Deserialize<Dictionary<string, object>>(text) ?? new Dictionary<string, object>();
-                }
-                catch
-                {
-                    return new Dictionary<string, object>();
+                    var text = response.Content.ReadAsStringAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+                    ToolkitLog.Info("术语请求 " + request.Method + " " + request.RequestUri +
+                                    " " + (int)response.StatusCode + " " + watch.ElapsedMilliseconds + "ms len=" + (text?.Length ?? 0));
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        ToolkitLog.Error("术语请求失败: HTTP " + (int)response.StatusCode + " " +
+                                         Truncate(text, 500), null);
+                        return new Dictionary<string, object>();
+                    }
+                    try
+                    {
+                        return Json.Deserialize<Dictionary<string, object>>(text) ?? new Dictionary<string, object>();
+                    }
+                    catch
+                    {
+                        return new Dictionary<string, object>();
+                    }
                 }
             }
         }

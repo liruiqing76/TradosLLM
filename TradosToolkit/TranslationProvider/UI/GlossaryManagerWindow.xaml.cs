@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Threading;
 using Microsoft.Win32;
 using TradosToolkit.Common;
+using TradosToolkit.Common.Catalog;
 using TradosToolkit.Diagnostics;
 using TradosToolkit.Glossaries;
 

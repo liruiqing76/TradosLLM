@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using TradosToolkit.Common.Catalog;
 using TradosToolkit.Glossaries;
 
 namespace TradosToolkit.TranslationProvider.UI

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using TradosToolkit.Glossaries;
+using TradosToolkit.Common.Catalog;
 
 namespace TradosToolkit.Common
 {

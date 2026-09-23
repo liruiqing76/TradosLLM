@@ -17,7 +17,7 @@ namespace TradosToolkit.TranslationProvider.Engines
     /// </summary>
     internal static class EngineHttp
     {
-        private static readonly HttpClient Client = new HttpClient();
+        private static readonly HttpClient Client = new HttpClient { Timeout = TimeSpan.FromSeconds(300) };
         private static readonly JavaScriptSerializer Json = new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
 
         public static async Task<Dictionary<string, object>> PostJsonAsync(
@@ -39,8 +39,8 @@ namespace TradosToolkit.TranslationProvider.Engines
 
                 using (var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken))
                 {
-                    if (timeoutSeconds > 0)
-                        cts.CancelAfter(TimeSpan.FromSeconds(timeoutSeconds));
+                    var effectiveTimeout = timeoutSeconds > 0 ? timeoutSeconds : 120;
+                    cts.CancelAfter(TimeSpan.FromSeconds(effectiveTimeout));
                     try
                     {
                         using (var response = await Client.SendAsync(request, cts.Token).ConfigureAwait(false))
@@ -54,7 +54,7 @@ namespace TradosToolkit.TranslationProvider.Engines
                                 var error = new HttpRequestException(
                                     "TradosToolkit 请求失败: HTTP " + (int)response.StatusCode + " " + response.ReasonPhrase +
                                     (string.IsNullOrEmpty(text) ? "" : " | " + Truncate(text, 500)));
-                                ToolkitLog.Error("HTTP 失败 " + url + " 响应体: " + Truncate(text, 2000), error);
+                                ToolkitLog.Error("HTTP 失败 " + url + " 响应体: " + Truncate(text, 500), error);
                                 throw error;
                             }
                             return Deserialize(text);
@@ -63,7 +63,7 @@ namespace TradosToolkit.TranslationProvider.Engines
                     catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested)
                     {
                         var timeout = new TimeoutException(
-                            "TradosToolkit 请求超时: " + url + " 超过 " + timeoutSeconds + " 秒");
+                            "TradosToolkit 请求超时: " + url + " 超过 " + effectiveTimeout + " 秒");
                         ToolkitLog.Error("HTTP 超时 " + url + " " + watch.ElapsedMilliseconds + "ms", timeout);
                         throw timeout;
                     }

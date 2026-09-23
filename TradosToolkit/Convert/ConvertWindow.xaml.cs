@@ -123,57 +123,61 @@ namespace TradosToolkit.FileConvert
 
         private async void Convert_Click(object sender, RoutedEventArgs e)
         {
-            var input = InputBox.Text?.Trim();
-            var src = SrcCombo.SelectedValue as string;
-            var tgt = TgtCombo.SelectedValue as string;
-
-            if (string.IsNullOrEmpty(input) || !File.Exists(input))
-            {
-                Append("× 请选择一个存在的输入文件");
-                return;
-            }
-            if (string.IsNullOrEmpty(src) || string.IsNullOrEmpty(tgt))
-            {
-                Append("× 请选择源语言和目标语言");
-                return;
-            }
-            if (string.Equals(src, tgt, StringComparison.OrdinalIgnoreCase))
-            {
-                Append("× 源语言与目标语言相同，无需转换");
-                return;
-            }
-
-            var output = OutputBox.Text?.Trim();
-            var template = TemplateBox.Text?.Trim();
-            var keep = KeepBox.IsChecked == true;
-
-            ConvertBtn.IsEnabled = false;
-            OpenOutBtn.IsEnabled = false;
-            StatusText.Text = "转换中…";
-            Append("开始转换：" + input);
-
             try
             {
-                var outcome = await Task.Run(() => SdlxliffConverter.Convert(
-                    input, src, tgt, output, template, keep,
-                    line => Dispatcher.BeginInvoke(new System.Action(() => Append("  · " + line)))));
+                var input = InputBox.Text?.Trim();
+                var src = SrcCombo.SelectedValue as string;
+                var tgt = TgtCombo.SelectedValue as string;
 
-                _lastOutput = outcome.Output;
-                foreach (var m in outcome.Messages) Append("  ! " + m);
-                Append("√ 已产出：" + outcome.Output);
-                StatusText.Text = "完成";
-                OpenOutBtn.IsEnabled = true;
+                if (string.IsNullOrEmpty(input) || !File.Exists(input))
+                {
+                    Append("× 请选择一个存在的输入文件");
+                    return;
+                }
+                if (string.IsNullOrEmpty(src) || string.IsNullOrEmpty(tgt))
+                {
+                    Append("× 请选择源语言和目标语言");
+                    return;
+                }
+                if (string.Equals(src, tgt, StringComparison.OrdinalIgnoreCase))
+                {
+                    Append("× 源语言与目标语言相同，无需转换");
+                    return;
+                }
+
+                var output = OutputBox.Text?.Trim();
+                var template = TemplateBox.Text?.Trim();
+                var keep = KeepBox.IsChecked == true;
+
+                ConvertBtn.IsEnabled = false;
+                OpenOutBtn.IsEnabled = false;
+                StatusText.Text = "转换中…";
+                Append("开始转换：" + input);
+
+                try
+                {
+                    var outcome = await Task.Run(() => SdlxliffConverter.Convert(
+                        input, src, tgt, output, template, keep,
+                        line => Dispatcher.BeginInvoke(new System.Action(() => Append("  · " + line)))));
+
+                    _lastOutput = outcome.Output;
+                    foreach (var m in outcome.Messages) Append("  ! " + m);
+                    Append("√ 已产出：" + outcome.Output);
+                    StatusText.Text = "完成";
+                    OpenOutBtn.IsEnabled = true;
+                }
+                catch (Exception ex)
+                {
+                    Append("× 转换失败：" + ex.Message);
+                    StatusText.Text = "失败";
+                    ToolkitLog.Error("ConvertWindow：转换失败", ex);
+                }
+                finally
+                {
+                    ConvertBtn.IsEnabled = true;
+                }
             }
-            catch (Exception ex)
-            {
-                Append("× 转换失败：" + ex.Message);
-                StatusText.Text = "失败";
-                ToolkitLog.Error("ConvertWindow：转换失败", ex);
-            }
-            finally
-            {
-                ConvertBtn.IsEnabled = true;
-            }
+            catch (Exception ex) { ToolkitLog.Error("ConvertWindow.Convert_Click 异常", ex); }
         }
 
         private void OpenOutput_Click(object sender, RoutedEventArgs e)

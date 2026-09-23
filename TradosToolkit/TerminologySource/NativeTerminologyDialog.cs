@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using TradosToolkit.Common.Catalog;
 
 namespace TradosToolkit.TerminologySource
 {
@@ -45,7 +46,7 @@ namespace TradosToolkit.TerminologySource
 
             var cfg = ToolkitConfig.Load();
             var defaultDomain = string.IsNullOrWhiteSpace(cfg.Domain)
-                                    ? Glossaries.DomainTree.DefaultDomain
+                                    ? DomainTree.DefaultDomain
                                     : cfg.Domain.Trim();
 
             // 来源类型：本地库（可写）/ 线上服务（只读）
