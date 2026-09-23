@@ -55,7 +55,7 @@ tools/                sign-sdlplugin.ps1（构建内自签）
 third_party/nuget/    vendored NuGet 依赖（离线 restore）
 nuget.config          本地源 + clear（不联网）
 docs/                 API / 签名免弹窗 / 离线部署文档 + 图标源图
-skills/               agent 技能（trados-inbox-api：收件箱 HTTP API 调用说明）
+skills/               agent 技能（trados-inbox-api：收件箱三件套；trados-convert-api：任意文件转 sdlxliff）
 release/              每次构建自动刷新的签名 .sdlplugin（免构建直接分发）
 references/           参考资料：Sdl-Community、Studio API 文档等（不参与构建）
 ```
