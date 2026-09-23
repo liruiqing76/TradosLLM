@@ -64,12 +64,6 @@
       <HintPath>$(TradosInstallDir)\Sdl.ProjectAutomation.AutomaticTasks.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <!-- 项目术语挂载：公开 API 只支持文件型/服务器术语库，自定义 Provider 条目必须走
-         底层 Sdl.ProjectApi.IProject.TermbaseConfiguration（TermbaseApi 接口族）注入 -->
-    <Reference Include="Sdl.ProjectApi">
-      <HintPath>$(TradosInstallDir)\Sdl.ProjectApi.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
     <Reference Include="Sdl.LanguagePlatform.Core">
       <HintPath>$(TradosInstallDir)\Sdl.LanguagePlatform.Core.dll</HintPath>
       <Private>false</Private>
