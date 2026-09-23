@@ -53,6 +53,8 @@ namespace TradosToolkit.Server
                     return Templates();
                 case "/api/projects":
                     return method == "POST" ? CreateProject(body) : ListProjects();
+                case "/api/convert":
+                    return ConvertFile(method, query, body);
                 case "/api/project/files":
                     return ProjectFiles(query);
                 case "/api/project/task":
@@ -286,6 +288,148 @@ namespace TradosToolkit.Server
             if (match.Uri == null)
                 throw new InvalidOperationException("默认模板没有本地路径: " + match.Name);
             return new ProjectTemplateReference(match.Uri.LocalPath);
+        }
+
+        /// <summary>
+        /// POST /api/convert
+        /// body { "file": "输入文件绝对路径", "sourceLang": "en-US", "targetLang": "de-DE",
+        ///        "output": "输出 .sdlxliff 路径(可选，缺省=输入同目录同名)",
+        ///        "template": "项目模板路径(可选)", "keepProject": false(可选，true=保留临时项目目录) }
+        /// query 可选 async=1 → 202 {taskId}，进度查 GET /api/task?id=
+        /// 任意受 Studio 文件类型系统支持的源文件 → 单个目标语言的 sdlxliff：
+        /// 临时项目静默创建 → AddFiles → Scan/ConvertToTranslatableFormat/CopyToTargetLanguages
+        /// → 把产出的目标 sdlxliff 复制到 output（临时项目目录默认清理）。
+        /// </summary>
+        private static ApiResult ConvertFile(string method, Dictionary<string, string> query, string body)
+        {
+            if (method != "POST")
+                return ApiResult.Json(405, Error("convert 端点需 POST"));
+
+            var request = ParseBody(body);
+            Func<ApiResult> run = () => ConvertToSdlxliff(request);
+
+            if (query.TryGetValue("async", out var async) && async == "1")
+            {
+                var st = TaskRegistry.Start("convert", Str(request, "file"), run);
+                return ApiResult.Json(202, new Dictionary<string, object>
+                {
+                    { "taskId", st.Id }, { "task", "convert" }, { "status", "running" },
+                });
+            }
+            return run();
+        }
+
+        private static ApiResult ConvertToSdlxliff(Dictionary<string, object> request)
+        {
+            var input = Str(request, "file");
+            var sourceLang = Str(request, "sourceLang");
+            var targetLang = Str(request, "targetLang");
+            var output = Str(request, "output");
+            var keepProject = Bool(request, "keepProject");
+
+            if (string.IsNullOrEmpty(input) || string.IsNullOrEmpty(sourceLang) || string.IsNullOrEmpty(targetLang))
+                return ApiResult.Json(400, Error("必填: file sourceLang targetLang"));
+            if (!File.Exists(input))
+                return ApiResult.Json(404, Error("输入文件不存在: " + input));
+
+            var fullInput = Path.GetFullPath(input);
+            if (string.IsNullOrEmpty(Path.GetExtension(fullInput)))
+                return ApiResult.Json(400, Error("输入文件没有扩展名，无法判定文件类型: " + fullInput));
+
+            if (string.IsNullOrEmpty(output))
+                output = Path.Combine(Path.GetDirectoryName(fullInput) ?? ".",
+                                      Path.GetFileNameWithoutExtension(fullInput) + ".sdlxliff");
+            output = Path.GetFullPath(output);
+
+            return OnUi(() =>
+            {
+                var workDir = Path.Combine(Path.GetTempPath(), "TradosToolkit", "convert",
+                                           Guid.NewGuid().ToString("N"));
+                try
+                {
+                    ProjectTemplateReference template;
+                    try
+                    {
+                        template = ResolveTemplate(request, sourceLang, new List<string> { targetLang });
+                    }
+                    catch (Exception e)
+                    {
+                        return ApiResult.Json(400, Error("模板解析失败: " + e.Message));
+                    }
+
+                    Directory.CreateDirectory(workDir);
+
+                    var info = new ProjectInfo
+                    {
+                        Name = SanitizeFileName(Path.GetFileNameWithoutExtension(fullInput)) + "-convert",
+                        Description = "converted by TradosToolkit api",
+                        SourceLanguage = new Language(sourceLang),
+                        TargetLanguages = new[] { new Language(targetLang) },
+                        LocalProjectFolder = workDir,
+                    };
+
+                    var project = new FileBasedProject(info, template);
+                    var added = project.AddFiles(new[] { fullInput });
+                    var ids = added.Select(f => f.Id).ToArray();
+                    project.SetFileRole(ids, FileRole.Translatable);
+
+                    var messages = new List<string>();
+                    foreach (var taskTemplateId in new[]
+                             {
+                                 AutomaticTaskTemplateIds.Scan,
+                                 AutomaticTaskTemplateIds.ConvertToTranslatableFormat,
+                                 AutomaticTaskTemplateIds.CopyToTargetLanguages,
+                             })
+                    {
+                        var prepareTask = project.RunAutomaticTask(ids, taskTemplateId);
+                        foreach (var m in prepareTask.Messages ?? new ExecutionMessage[0])
+                        {
+                            var text = MessageText(m);
+                            if (!string.IsNullOrWhiteSpace(text)) messages.Add(text);
+                        }
+                    }
+                    project.Save();
+
+                    var targetFile = project.GetTargetLanguageFiles().FirstOrDefault();
+                    if (targetFile == null || string.IsNullOrEmpty(targetFile.LocalFilePath)
+                        || !File.Exists(targetFile.LocalFilePath))
+                        return ApiResult.Json(500,
+                            Error("转换未产出目标文件: " + string.Join(" | ", messages)));
+
+                    var outDir = Path.GetDirectoryName(output);
+                    if (!string.IsNullOrEmpty(outDir)) Directory.CreateDirectory(outDir);
+                    File.Copy(targetFile.LocalFilePath, output, true);
+
+                    return ApiResult.Json(200, new Dictionary<string, object>
+                    {
+                        { "output", output },
+                        { "file", fullInput },
+                        { "sourceLang", sourceLang },
+                        { "targetLang", targetLang },
+                        { "projectPath", project.FilePath },
+                        { "messages", messages },
+                    });
+                }
+                catch (Exception e)
+                {
+                    ToolkitLog.Error("convert 失败: " + fullInput, e);
+                    return ApiResult.Json(500, Error("转换失败: " + e.Message));
+                }
+                finally
+                {
+                    if (!keepProject)
+                    {
+                        try
+                        {
+                            if (Directory.Exists(workDir)) Directory.Delete(workDir, true);
+                        }
+                        catch (Exception e)
+                        {
+                            ToolkitLog.Error("convert: 清理临时项目目录失败 " + workDir, e);
+                        }
+                    }
+                }
+            });
         }
 
         private static ApiResult ProjectFiles(Dictionary<string, string> query)

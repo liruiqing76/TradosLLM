@@ -62,6 +62,36 @@ curl -s http://localhost:53902/api/status
 
 → `200 { "projectPath": "D:\\…\\demo.sdlp", "id": "…" }`
 
+## POST /api/convert
+
+任意受 Studio 文件类型系统支持的源文件 → 单个目标语言的 `.sdlxliff`（一次性转换，不留项目）。
+必填 `file sourceLang targetLang`。
+
+```json
+{ "file": "D:\\in\\a.docx", "sourceLang": "en-US", "targetLang": "de-DE",
+  "output": "D:\\out\\a.sdlxliff", "template": "D:\\tpl.sdlpt", "keepProject": false }
+```
+
+- `output` 缺省 = 输入文件同目录同名加 `.sdlxliff`
+- `template` 缺省时自动挑模板（同 `POST /api/projects` 规则）
+- `keepProject:true` 保留临时项目目录（缺省转换完即清理，仅保留 `output`）
+
+内部流程：临时目录静默创建项目 → `AddFiles` → `Scan`/`ConvertToTranslatableFormat`/`CopyToTargetLanguages`
+→ 把产出的目标 sdlxliff 复制到 `output`。query 加 `async=1` 走后台任务，立即回
+`202 { "taskId": "…", "task": "convert", "status": "running" }`，进度查 `GET /api/task?id=`。
+
+```bash
+curl -s -X POST "http://localhost:53902/api/convert" \
+  -H "X-Api-Key: $(cat ~/AppData/Roaming/TradosToolkit/api.token)" \
+  -H "Content-Type: application/json" \
+  -d '{"file":"D:\\in\\a.docx","sourceLang":"en-US","targetLang":"de-DE"}'
+```
+
+→ `200 { "output": "D:\\in\\a.sdlxliff", "file": "…", "sourceLang": "en-US", "targetLang": "de-DE", "messages": ["…"] }`
+
+> 输入必须是 Studio 文件类型系统认识的格式（docx/xlsx/pptx/txt/xml/html 等）；
+> PDF/扫描件等需先装对应文件类型过滤器，否则转换任务会报错。
+
 ## GET /api/project/files?path=xx.sdlp
 
 列项目文件。
