@@ -248,7 +248,8 @@
                                   SelectionMode="Extended" HeadersVisibility="Column"
                                   BorderThickness="0" Background="Transparent"
                                   GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#EEF1F5"
-                                  ToolTip="双击一行修改；新增请点左下角「新增」">
+                                  ToolTip="双击一行修改；新增请点左下角「新增」"
+                                  MouseDoubleClick="EditReplTerm">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="替换前" Binding="{Binding From}" Width="*"/>
                                 <DataGridTextColumn Header="替换为" Binding="{Binding To}" Width="*"/>

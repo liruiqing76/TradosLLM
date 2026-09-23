@@ -61,8 +61,15 @@ namespace TradosToolkit.TerminologySource
 
             TbBase.Width = 340;
             AddRow(grid, 1, "术语服务地址 (termBaseUrl):", TbBase, cfg.TermBaseUrl);
-            AddRow(grid, 2, "源语言 (如 zh-CN):", TbSrc, string.IsNullOrWhiteSpace(cfg.InboxSourceLang) ? "zh-CN" : cfg.InboxSourceLang);
-            AddRow(grid, 3, "目标语言 (如 en-US):", TbTgt, string.IsNullOrWhiteSpace(cfg.InboxTargetLang) ? "en-US" : cfg.InboxTargetLang);
+
+            // 语向默认值优先级：当前打开文件的语向 → 当前激活项目语言对 → 收件箱配置兜底。
+            var pair = ProjectTerminology.CurrentPair() ?? ProjectTerminology.ActiveProjectPair();
+            var srcDefault = pair != null ? pair[0]
+                : (string.IsNullOrWhiteSpace(cfg.InboxSourceLang) ? "zh-CN" : cfg.InboxSourceLang);
+            var tgtDefault = pair != null ? pair[1]
+                : (string.IsNullOrWhiteSpace(cfg.InboxTargetLang) ? "en-US" : cfg.InboxTargetLang);
+            AddRow(grid, 2, "源语言 (如 zh-CN):", TbSrc, srcDefault);
+            AddRow(grid, 3, "目标语言 (如 en-US):", TbTgt, tgtDefault);
             AddRow(grid, 4, "领域 (与翻译插件一致):", TbDomain, defaultDomain);
 
             var hint = new Label

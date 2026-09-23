@@ -285,6 +285,10 @@ namespace TradosToolkit.TranslationProvider.UI
         private void MainTabChanged(object sender, SelectionChangedEventArgs e)
         {
             if (!_ready) return;
+            // SelectionChanged 是冒泡路由事件：内部 DataGrid 点选行、ComboBox 换选项都会冒泡到本 TabControl。
+            // 若不判别来源，点一下表格行就会触发 Reload 重建 ItemsSource，把刚选中的行又清掉
+            //（表现为「单击选不中、双击也弹不出编辑」）。这里只处理页签自身的切换。
+            if (!ReferenceEquals(e.Source, MainTabs)) return;
             Reload(null, null);
         }
 
@@ -417,6 +421,40 @@ namespace TradosToolkit.TranslationProvider.UI
             }
             RefreshAfterMutation();
             ReplStatusText.Text = "已删除选中替换词条。";
+        }
+
+        /// <summary>双击替换词条行弹出表单修改：与「新增」同一表单，预填原值并保留主键。</summary>
+        private void EditReplTerm(object sender, MouseButtonEventArgs e)
+        {
+            var row = FindRow(e.OriginalSource as DependencyObject);
+            var entry = row == null ? null : row.Item as GlossaryEntry;
+            if (entry == null || entry.Id <= 0) return;
+            if (!EnsureReplPair()) return;
+
+            var prefill = new TermEntry
+            {
+                Id = entry.Id,
+                SourceLang = ReplSrc,
+                TargetLang = ReplTgt,
+                FromTerm = entry.From,
+                ToTerm = entry.To,
+                Domain = entry.Domain,
+                CreatedAt = entry.CreatedAt,
+                UpdatedAt = entry.UpdatedAt,
+            };
+            var dlg = new TermDialog(prefill, KindLabel, PairLabel, DomainList, Domain, ReplSrc, ReplTgt) { Owner = this };
+            if (dlg.ShowDialog() != true) return;
+            _db.SaveTerm(Kind, ReplSrc, ReplTgt, new GlossaryEntry
+            {
+                Id = entry.Id,
+                From = dlg.Result.FromTerm,
+                To = dlg.Result.ToTerm,
+                Domain = Domain,
+                CreatedAt = entry.CreatedAt,
+                UpdatedAt = entry.UpdatedAt,
+            });
+            RefreshAfterMutation();
+            ReplStatusText.Text = "已更新替换词条。";
         }
 
         private bool EnsureReplPair()

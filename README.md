@@ -41,6 +41,7 @@ Trados Studio 2019（Studio15）翻译插件：**单个 .sdlplugin 兼容内网�
 ## 文档
 
 - [docs/API.md](docs/API.md) — 本地 HTTP API 完整说明
+- [docs/INBOX_API.md](docs/INBOX_API.md) — 收件箱（监控目录）API 详细文档：投递源文件即产出三件套
 - [docs/SDL_PLUGIN_SIGNING.md](docs/SDL_PLUGIN_SIGNING.md) — 自签 .sdlplugin 消除未注册弹窗的完整原理与做法（含反编译证据链，可复用到其他 SDL 插件）
 - [docs/ROADMAP.md](docs/ROADMAP.md) — 优化路线图（术语库升级为原生 ITermbaseProvider 的可行性 + 体验优化提案，均为计划未实施）
 - [docs/OFFLINE_DEPLOY.md](docs/OFFLINE_DEPLOY.md) — 离线构建与部署
@@ -54,6 +55,7 @@ tools/                sign-sdlplugin.ps1（构建内自签）
 third_party/nuget/    vendored NuGet 依赖（离线 restore）
 nuget.config          本地源 + clear（不联网）
 docs/                 API / 签名免弹窗 / 离线部署文档 + 图标源图
+skills/               agent 技能（trados-inbox-api：收件箱 HTTP API 调用说明）
 release/              每次构建自动刷新的签名 .sdlplugin（免构建直接分发）
 references/           参考资料：Sdl-Community、Studio API 文档等（不参与构建）
 ```

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -46,6 +46,11 @@ namespace TradosToolkit.TerminologySource
                 try { _db = new GlossaryDb(glossaryDbPath); }
                 catch (Exception e) { ToolkitLog.Error("术语源打开本地库失败", e); }
             }
+
+            ToolkitLog.Info($"术语源创建：kind={_kind} baseUrl={_baseUrl} src={_sourceLang}"
+                            + $"{(string.IsNullOrWhiteSpace(sourceLang) ? "(回退默认!)" : "")} "
+                            + $"tgt={_targetLang}{(string.IsNullOrWhiteSpace(targetLang) ? "(回退默认!)" : "")} "
+                            + $"domain={_domain} db={(glossaryDbPath ?? "默认")}");
         }
 
         private static string _baseUrl0(string baseUrl)
@@ -116,10 +121,20 @@ namespace TradosToolkit.TerminologySource
             var results = new List<ISearchResult>();
             if (string.IsNullOrWhiteSpace(text)) return results;
 
+            ToolkitLog.Info(
+                $"术语识别 Search：text=\"{Truncate(text)}\" src={src}({(source?.Locale != null ? "Locale" : "默认")}) "
+                + $"tgt={tgt}({(destination?.Locale != null ? "Locale" : "默认")}) mode={mode} "
+                + $"kind={(_kind ?? "local")} domain={_domain}");
+
             if (IsLocal)
             {
-                if (_db == null) return results;
+                if (_db == null)
+                {
+                    ToolkitLog.Info("术语识别 Search：本地库未打开，返回空");
+                    return results;
+                }
                 var entries = _db.GetTermEntries(src, tgt, _domain);
+                ToolkitLog.Info($"术语识别 Search：本地库取到 {entries.Count} 条候选（{src}->{tgt}/{_domain}）");
                 var limit = maxResultsCount <= 0 ? 20 : maxResultsCount;
                 var entriesById = new Dictionary<long, TermEntry>();
                 foreach (var entry in entries)
@@ -135,15 +150,23 @@ namespace TradosToolkit.TerminologySource
                         Text = entry.FromTerm,
                         Score = ScoreFor(entry, text),
                         Id = unchecked((int)entry.Id),
+                        // 必须声明结果所属语言：Studio 的术语识别按 SearchResult.Language 过滤/分组，
+                        // 为 null 时结果会被整体丢弃（表现为术语识别面板空白）。这里的文本是源术语。
+                        Language = source ?? (ILanguage)MakeLanguage(_sourceLang),
                     });
                     if (results.Count >= limit) break;
                 }
                 CacheEntries(entriesById);
+                ToolkitLog.Info($"术语识别 Search：命中 {results.Count} 条");
                 return results;
             }
 
             // 线上源
-            if (string.IsNullOrEmpty(_baseUrl)) return results;
+            if (string.IsNullOrEmpty(_baseUrl))
+            {
+                ToolkitLog.Info("术语识别 Search：线上源 baseUrl 为空，返回空");
+                return results;
+            }
             var hits = mode == SearchMode.Normal
                 ? TermHttpClient.Search(_baseUrl, src, tgt, text, maxResultsCount, _domain)
                 : TermHttpClient.Match(_baseUrl, src, tgt, text, maxResultsCount, _domain);
@@ -158,10 +181,18 @@ namespace TradosToolkit.TerminologySource
                     Text = hit.source ?? hit.target,
                     Score = Math.Max(0, hit.score),
                     Id = hit.id,
+                    Language = source ?? (ILanguage)MakeLanguage(_sourceLang),
                 });
             }
-            CacheRemote(remoteById);
+            CacheRemote(remoteById, src, tgt);
+            ToolkitLog.Info($"术语识别 Search：线上源命中 {results.Count} 条");
             return results;
+        }
+
+        private static string Truncate(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return string.Empty;
+            return s.Length <= 60 ? s : s.Substring(0, 60) + "...";
         }
 
         /// <summary>写入一条术语（仅本地源支持）。供 Viewer UI 的 AddTerm/AddAndEditTerm 调用。</summary>
@@ -210,7 +241,7 @@ namespace TradosToolkit.TerminologySource
             }
         }
 
-        private void CacheRemote(Dictionary<long, TermHit> hits)
+        private void CacheRemote(Dictionary<long, TermHit> hits, string sourceLang, string targetLang)
         {
             if (hits.Count == 0) return;
             lock (_cacheGate)
@@ -218,7 +249,7 @@ namespace TradosToolkit.TerminologySource
                 foreach (var hit in hits.Values)
                 {
                     _entryCache.RemoveAll(e => e.Id == hit.id);
-                    _entryCache.Add(BuildRemoteEntry(hit));
+                    _entryCache.Add(BuildRemoteEntry(hit, sourceLang, targetLang));
                 }
             }
         }
@@ -260,6 +291,7 @@ namespace TradosToolkit.TerminologySource
 
             var srcLang = new EntryLanguage();
             srcLang.Locale = new CultureInfo(sourceLang);
+            srcLang.Name = new Language(sourceLang).DisplayName;
             srcLang.Terms.Add(new EntryTerm { Value = record.FromTerm });
             foreach (var syn in record.SynonymsFor(sourceLang))
                 srcLang.Terms.Add(new EntryTerm { Value = syn });
@@ -267,6 +299,7 @@ namespace TradosToolkit.TerminologySource
 
             var tgtLang = new EntryLanguage();
             tgtLang.Locale = new CultureInfo(targetLang);
+            tgtLang.Name = new Language(targetLang).DisplayName;
             tgtLang.Terms.Add(new EntryTerm { Value = record.ToTerm });
             foreach (var syn in record.SynonymsFor(targetLang))
                 tgtLang.Terms.Add(new EntryTerm { Value = syn });
@@ -282,18 +315,22 @@ namespace TradosToolkit.TerminologySource
             return entry;
         }
 
-        private static IEntry BuildRemoteEntry(TermHit hit)
+        private static IEntry BuildRemoteEntry(TermHit hit, string sourceLang, string targetLang)
         {
             var entry = new Entry { Id = hit.id };
             if (!string.IsNullOrEmpty(hit.source))
             {
                 var srcLang = new EntryLanguage();
+                srcLang.Locale = new CultureInfo(sourceLang);
+                srcLang.Name = new Language(sourceLang).DisplayName;
                 srcLang.Terms.Add(new EntryTerm { Value = hit.source });
                 entry.Languages.Add(srcLang);
             }
             if (!string.IsNullOrEmpty(hit.target))
             {
                 var tgtLang = new EntryLanguage();
+                tgtLang.Locale = new CultureInfo(targetLang);
+                tgtLang.Name = new Language(targetLang).DisplayName;
                 tgtLang.Terms.Add(new EntryTerm { Value = hit.target });
                 entry.Languages.Add(tgtLang);
             }
@@ -310,11 +347,16 @@ namespace TradosToolkit.TerminologySource
             return Matches(entry, text, (source, needle) => source.StartsWith(needle, StringComparison.OrdinalIgnoreCase));
         }
 
+        /// <summary>
+        /// 在分段文本 text 中查找术语词条。
+        /// 注意方向：predicate(整句, 术语)，即"整句里是否出现该术语"，
+        /// 而不是"术语里是否出现整句"（后者永远匹配不到，会导致识别空白）。
+        /// </summary>
         private static bool Matches(TermEntry entry, string text, Func<string, string, bool> predicate)
         {
-            if (!string.IsNullOrEmpty(entry.FromTerm) && predicate(entry.FromTerm, text)) return true;
+            if (!string.IsNullOrEmpty(entry.FromTerm) && predicate(text, entry.FromTerm)) return true;
             foreach (var syn in entry.Synonyms)
-                if (!string.IsNullOrWhiteSpace(syn.Term) && predicate(syn.Term, text)) return true;
+                if (!string.IsNullOrWhiteSpace(syn.Term) && predicate(text, syn.Term)) return true;
             return false;
         }
 

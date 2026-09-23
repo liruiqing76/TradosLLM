@@ -323,6 +323,94 @@ body 可选：`{ "out": "D:\\x.sdlppx", "packageName": "demo", "comment": "…" 
 
 → `200 { "packagePath": "D:\\x.sdlppx", "manualTaskId": "…" }`
 
+## 收件箱（监控目录）API
+
+> 本节为速查；完整详解（架构、七步流水线、状态模型、覆盖配置、排障）见 [docs/INBOX_API.md](./INBOX_API.md)。
+
+把界面里「拖文件进监控目录 → 自动产出三件套（分析报告 / `.sdlppx` 交付包 / 匹配 `.sdltm`）」的能力暴露成 HTTP 端点，供外部 agent 投递源文件并取回产出路径。
+
+执行统一走 `InboxWatcher` 的**单线程队列**（Studio 项目自动化必须串行），故采用**异步任务式**：投递立即回 `202` + `id`，客户端轮询 `GET /api/inbox/job?id=` 拿分步进度与产出。任务（含直接拖进目录触发的）统一可被 `/api/inbox/jobs` 查到，内存保留最近 100 条。
+
+### GET /api/inbox
+
+监视与任务总览。
+
+```json
+{ "running": true, "watchingFolder": "D:\\in",
+  "watchFolder": "D:\\in", "outputFolder": "D:\\out", "projectRoot": "D:\\proj",
+  "tmScanDirectory": "D:\\tm", "sourceLang": "zh-CN", "targetLang": "en-US",
+  "reportFormat": "excel", "autoStart": false, "jobsTotal": 5, "jobsActive": 1 }
+```
+
+### POST /api/inbox/start
+
+开始监视。body 可选，给出即**落盘**到 `config.json`（缺省字段不动）：
+
+```json
+{ "watchFolder": "D:\\in", "outputFolder": "D:\\out", "projectRoot": "D:\\proj",
+  "sourceLang": "zh-CN", "targetLang": "en-US", "reportFormat": "excel",
+  "tmScanDirectory": "D:\\tm", "autoStart": true }
+```
+
+`watchFolder` 未配置或不存在时回 `412`。→ 同 `GET /api/inbox` 的总览。
+
+### POST /api/inbox/stop
+
+停止监视。→ 同 `GET /api/inbox` 的总览。
+
+### POST /api/inbox/process
+
+投递单个源文件产出三件套。`file` 必填（绝对路径）；其余可选字段**只作用于本次任务**（不改全局配置）：
+
+```json
+{ "file": "D:\\in\\a.docx",
+  "sourceLang": "zh-CN", "targetLang": "en-US", "reportFormat": "excel",
+  "outputFolder": "D:\\out", "projectRoot": "D:\\proj", "tmScanDirectory": "D:\\tm" }
+```
+
+- 监视未启动时自动按当前配置启动；启动失败回 `412`
+- `file` 不存在回 `404`；同文件已在队列中回 `409`
+
+→ `202 { "id": "1a2b3c4d5e6f", "file": "D:\\in\\a.docx", "status": "queued", "poll": "/api/inbox/job?id=…" }`
+
+```bash
+curl -s -X POST "http://localhost:53902/api/inbox/process" \
+  -H "X-Api-Key: $(cat ~/AppData/Roaming/TradosToolkit/api.token)" \
+  -H "Content-Type: application/json" \
+  -d '{"file":"D:\\in\\a.docx","targetLang":"en-US"}'
+```
+
+### POST /api/inbox/process-all
+
+处理监视目录里已有的全部源文件（相当于界面「立即处理」）。→ `200 { "enqueued": 3, "watchingFolder": "D:\\in" }`
+
+### GET /api/inbox/jobs?limit=50
+
+任务列表（新→旧，轻量，不含步骤与日志）。`limit` 缺省 50、上限 100。
+
+```json
+[ { "id": "…", "file": "D:\\in\\a.docx", "fileName": "a.docx",
+    "status": "done|running|error|queued", "statusText": "…", "message": "…",
+    "submittedAt": "2026-09-23T10:00:00", "elapsedMs": 90000,
+    "projectPath": "…", "reportPath": "…", "packagePath": "…", "tmPath": "…",
+    "jobFolder": "…", "outputSummary": "三件套已生成 · …" } ]
+```
+
+### GET /api/inbox/job?id=…
+
+单任务详情，在列表字段基础上追加 `createdAt`、`finishedAt`、分步 `steps[]` 与完整 `log`：
+
+```json
+{ "id": "…", "status": "running", "statusText": "套库预翻译",
+  "createdAt": "…", "finishedAt": null, "elapsedMs": 12000,
+  "steps": [ { "index": 0, "title": "匹配本地库", "status": "done", "detail": "…" },
+             { "index": 2, "title": "套库预翻译", "status": "running", "detail": "…" } ],
+  "log": "…", "projectPath": "…", "reportPath": "…", "packagePath": "…", "tmPath": "…",
+  "jobFolder": "…", "outputSummary": "…" }
+```
+
+七步流程：`0 匹配本地库 → 1 创建项目 → 2 套库预翻译 → 3 分析统计 → 4 生成分析报告 → 5 生成交付包(.sdlppx) → 6 导出匹配记忆库`。完成后 `outputSummary` = `三件套已生成 · <jobFolder>`，四个产出路径字段给出报告/包/记忆库/任务目录位置。
+
 ## GET /api/file?path=…
 
 下载本机任意文件（字节流，`Content-Disposition` 带文件名）。令牌即门槛，服务仅监听 localhost。

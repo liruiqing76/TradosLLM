@@ -56,6 +56,7 @@ namespace TradosToolkit.EditorPanel
                 _document.ContentChanged -= OnContentChanged;
                 _document.SegmentsConfirmationLevelChanged -= OnSegmentChanged;
                 _document.ActiveFilePropertiesChanged -= OnSegmentChanged;
+                _document.ActiveFileChanged -= OnActiveFileChanged;
             }
             _document = document;
             if (_document != null)
@@ -64,8 +65,38 @@ namespace TradosToolkit.EditorPanel
                 _document.ContentChanged += OnContentChanged;
                 _document.SegmentsConfirmationLevelChanged += OnSegmentChanged;
                 _document.ActiveFilePropertiesChanged += OnSegmentChanged;
+                _document.ActiveFileChanged += OnActiveFileChanged;
             }
             PushSegment();
+            RemountTerminology();
+        }
+
+        /// <summary>
+        /// 语向变化（切换文档或切换项目文件）时重挂术语源，
+        /// 使术语插入点始终跟随当前打开文件的语向。
+        /// </summary>
+        private void OnActiveFileChanged(object sender, EventArgs e)
+        {
+            PushSegment();
+            RemountTerminology();
+        }
+
+        private void RemountTerminology()
+        {
+            try
+            {
+                if (_document?.Project == null) return;
+                var cfg = ToolkitConfig.Load();
+                var mounted = TerminologySource.ProjectTerminology.Mount(
+                    _document.Project as Sdl.ProjectAutomation.FileBased.FileBasedProject,
+                    TerminologySource.ProjectTerminology.CurrentPair(),
+                    cfg.TermBaseUrl, cfg.Domain);
+                ToolkitLog.Info("编辑器：语向变化重挂术语源，挂载 " + mounted + " 个");
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("编辑器：重挂术语源失败", ex);
+            }
         }
 
         private void OnContentChanged(object sender, DocumentContentEventArgs e) => PushSegment();

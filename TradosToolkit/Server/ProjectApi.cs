@@ -43,6 +43,10 @@ namespace TradosToolkit.Server
             if (string.IsNullOrEmpty(token) || !string.Equals(key, token, StringComparison.Ordinal))
                 return ApiResult.Json(401, Error("缺少或错误的 X-Api-Key（令牌见 %AppData%\\TradosToolkit\\api.token）"));
 
+            // 收件箱（监控目录）外部 API：投递即产出三件套
+            if (path.StartsWith("/api/inbox", StringComparison.Ordinal))
+                return InboxApi.Handle(method, path, query, body);
+
             switch (path)
             {
                 case "/api/templates":
@@ -234,7 +238,7 @@ namespace TradosToolkit.Server
                     var cfg = ToolkitConfig.Load();
                     var db = new GlossaryDb();
                     termMounted = TerminologySource.ProjectTerminology.Mount(
-                        project, db.GetAllTermPairs(), cfg.TermBaseUrl, cfg.Domain);
+                        project, TerminologySource.ProjectTerminology.CurrentPair(), cfg.TermBaseUrl, cfg.Domain);
                     if (termMounted > 0) project.Save();
                 }
                 catch (Exception e)
@@ -326,7 +330,7 @@ namespace TradosToolkit.Server
                 var cfg = ToolkitConfig.Load();
                 var db = new GlossaryDb();
                 var mounted = TerminologySource.ProjectTerminology.Mount(
-                    project, db.GetAllTermPairs(), cfg.TermBaseUrl, cfg.Domain);
+                    project, TerminologySource.ProjectTerminology.CurrentPair(), cfg.TermBaseUrl, cfg.Domain);
                 if (mounted > 0) project.Save();
                 return ApiResult.Json(200, new Dictionary<string, object>
                 {

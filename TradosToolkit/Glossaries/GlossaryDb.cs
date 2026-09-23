@@ -267,6 +267,57 @@ CREATE INDEX IF NOT EXISTS ix_term_synonyms_entry ON term_synonyms(entry_id);";
         /// </summary>
         public List<TermEntry> GetTermEntries(string srcLang, string tgtLang, string domain = null)
         {
+            var list = ReadTermEntries(srcLang, tgtLang, domain);
+            if (list.Count > 0) return list;
+
+            // 库内语言代码写法可能与调用方不同（en-US / en_US / en）。
+            // 精确匹配落空时按规范化形态（小写、- 与 _ 统一）再查一次，避免"术语明明在库里却查不到"。
+            var ns = NormalizeLangKey(srcLang);
+            var nt = NormalizeLangKey(tgtLang);
+            if (ns == (srcLang ?? string.Empty).Trim().ToLowerInvariant().Replace('_', '-') &&
+                nt == (tgtLang ?? string.Empty).Trim().ToLowerInvariant().Replace('_', '-'))
+                return list; // 已经就是规范化形态，无第二形态可试
+
+            list = ReadTermEntriesLike(ns, nt, domain);
+            if (list.Count > 0)
+                ToolkitLog.Info($"术语查询：语言对 {srcLang}-{tgtLang} 精确未命中，按规范化 {ns}-{nt} 命中 {list.Count} 条");
+            return list;
+        }
+
+        private static string NormalizeLangKey(string lang)
+        {
+            return string.IsNullOrWhiteSpace(lang)
+                ? string.Empty
+                : lang.Trim().ToLowerInvariant().Replace('_', '-');
+        }
+
+        private List<TermEntry> ReadTermEntriesLike(string srcKey, string tgtKey, string domain)
+        {
+            var list = new List<TermEntry>();
+            var byId = new Dictionary<long, TermEntry>();
+            using (var conn = Open())
+            {
+                using (var cmd = conn.CreateCommand())
+                {
+                    var sql = "SELECT id, src_lang, tgt_lang, domain, from_term, to_term, pos, definition, example, status, note, created_at, updated_at " +
+                              "FROM term_entries " +
+                              "WHERE LOWER(REPLACE(src_lang,'_','-'))=$src AND LOWER(REPLACE(tgt_lang,'_','-'))=$tgt";
+                    if (!string.IsNullOrWhiteSpace(domain)) sql += " AND domain=$domain";
+                    sql += " ORDER BY from_term";
+                    cmd.CommandText = sql;
+                    cmd.Parameters.AddWithValue("$src", srcKey);
+                    cmd.Parameters.AddWithValue("$tgt", tgtKey);
+                    if (!string.IsNullOrWhiteSpace(domain)) cmd.Parameters.AddWithValue("$domain", Norm(domain));
+                    using (var r = cmd.ExecuteReader())
+                        while (r.Read()) list.Add(ReadTermEntryRow(r));
+                }
+                FillSynonyms(conn, byId, list);
+            }
+            return list;
+        }
+
+        private List<TermEntry> ReadTermEntries(string srcLang, string tgtLang, string domain)
+        {
             var list = new List<TermEntry>();
             var byId = new Dictionary<long, TermEntry>();
             using (var conn = Open())
@@ -284,49 +335,62 @@ CREATE INDEX IF NOT EXISTS ix_term_synonyms_entry ON term_synonyms(entry_id);";
                     using (var r = cmd.ExecuteReader())
                         while (r.Read())
                         {
-                            var e = new TermEntry
-                            {
-                                Id = r.GetInt64(0),
-                                SourceLang = r.GetString(1),
-                                TargetLang = r.GetString(2),
-                                Domain = r.IsDBNull(3) ? DomainTree.DefaultDomain : r.GetString(3),
-                                FromTerm = r.GetString(4),
-                                ToTerm = r.GetString(5),
-                                PartOfSpeech = r.IsDBNull(6) ? string.Empty : r.GetString(6),
-                                Definition = r.IsDBNull(7) ? string.Empty : r.GetString(7),
-                                Example = r.IsDBNull(8) ? string.Empty : r.GetString(8),
-                                Status = r.IsDBNull(9) ? TermStatus.Preferred : r.GetString(9),
-                                Note = r.IsDBNull(10) ? string.Empty : r.GetString(10),
-                                CreatedAt = r.IsDBNull(11) ? (DateTime?)null : ParseUtc(r.GetString(11)),
-                                UpdatedAt = r.IsDBNull(12) ? (DateTime?)null : ParseUtc(r.GetString(12)),
-                            };
+                            var e = ReadTermEntryRow(r);
                             list.Add(e);
                             byId[e.Id] = e;
                         }
                 }
 
-                if (byId.Count > 0)
-                {
-                    using (var cmd = conn.CreateCommand())
-                    {
-                        cmd.CommandText = "SELECT id, entry_id, lang, term FROM term_synonyms";
-                        using (var r = cmd.ExecuteReader())
-                            while (r.Read())
-                            {
-                                TermEntry e;
-                                if (!byId.TryGetValue(r.GetInt64(1), out e)) continue;
-                                e.Synonyms.Add(new TermSynonym
-                                {
-                                    Id = r.GetInt64(0),
-                                    EntryId = r.GetInt64(1),
-                                    Lang = r.GetString(2),
-                                    Term = r.GetString(3),
-                                });
-                            }
-                    }
-                }
+                FillSynonyms(conn, byId, list);
             }
             return list;
+        }
+
+        private static TermEntry ReadTermEntryRow(System.Data.SQLite.SQLiteDataReader r)
+        {
+            return new TermEntry
+            {
+                Id = r.GetInt64(0),
+                SourceLang = r.GetString(1),
+                TargetLang = r.GetString(2),
+                Domain = r.IsDBNull(3) ? DomainTree.DefaultDomain : r.GetString(3),
+                FromTerm = r.GetString(4),
+                ToTerm = r.GetString(5),
+                PartOfSpeech = r.IsDBNull(6) ? string.Empty : r.GetString(6),
+                Definition = r.IsDBNull(7) ? string.Empty : r.GetString(7),
+                Example = r.IsDBNull(8) ? string.Empty : r.GetString(8),
+                Status = r.IsDBNull(9) ? TermStatus.Preferred : r.GetString(9),
+                Note = r.IsDBNull(10) ? string.Empty : r.GetString(10),
+                CreatedAt = r.IsDBNull(11) ? (DateTime?)null : ParseUtc(r.GetString(11)),
+                UpdatedAt = r.IsDBNull(12) ? (DateTime?)null : ParseUtc(r.GetString(12)),
+            };
+        }
+
+        /// <summary>整批取同义词并按 entry_id 归并到 list 里的条目上。</summary>
+        private static void FillSynonyms(System.Data.SQLite.SQLiteConnection conn,
+                                         Dictionary<long, TermEntry> byId, List<TermEntry> list)
+        {
+            foreach (var e in list)
+                if (!byId.ContainsKey(e.Id)) byId[e.Id] = e;
+            if (byId.Count == 0) return;
+
+            using (var cmd = conn.CreateCommand())
+            {
+                cmd.CommandText = "SELECT id, entry_id, lang, term FROM term_synonyms";
+                using (var r = cmd.ExecuteReader())
+                    while (r.Read())
+                    {
+                        TermEntry e;
+                        if (!byId.TryGetValue(r.GetInt64(1), out e)) continue;
+                        e.Synonyms.Add(new TermSynonym
+                        {
+                            Id = r.GetInt64(0),
+                            EntryId = r.GetInt64(1),
+                            Lang = r.GetString(2),
+                            Term = r.GetString(3),
+                        });
+                    }
+            }
         }
 
         /// <summary>单条读取（原生术语引擎 GetEntry 用）。</summary>

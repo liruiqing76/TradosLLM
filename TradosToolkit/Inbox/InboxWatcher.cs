@@ -28,6 +28,10 @@ namespace TradosToolkit.Inbox
         private readonly object _gate = new object();
         private readonly HashSet<string> _pending = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
+        /// <summary>API 投递时指定的「单任务」配置覆盖：路径 → 配置，任务开跑即取走（不影响全局配置）。</summary>
+        private readonly ConcurrentDictionary<string, ToolkitConfig> _overrides =
+            new ConcurrentDictionary<string, ToolkitConfig>(StringComparer.OrdinalIgnoreCase);
+
         private FileSystemWatcher _watcher;
         private Thread _worker;
         private volatile bool _running;
@@ -129,6 +133,7 @@ namespace TradosToolkit.Inbox
             WatchingFolder = string.Empty;
             while (_queue.TryDequeue(out _)) { }
             lock (_pending) _pending.Clear();
+            _overrides.Clear();
             ToolkitLog.Info("收件箱：已停止监视");
         }
 
@@ -152,6 +157,20 @@ namespace TradosToolkit.Inbox
             }
             _queue.Enqueue(path);
             return true;
+        }
+
+        /// <summary>
+        /// API「投递并产出」：投一个路径进队列，并可为「这一个任务」指定独立配置
+        /// （语向 / 报告格式 / 产出目录等），不影响监视目录的全局配置与后续任务。
+        /// </summary>
+        public bool Enqueue(string path, ToolkitConfig cfgOverride)
+        {
+            if (string.IsNullOrWhiteSpace(path)) return false;
+            // 先放覆盖，再入队：工作线程一取到就能看到
+            if (cfgOverride != null) _overrides[path] = cfgOverride;
+            if (Enqueue(path)) return true;
+            if (cfgOverride != null) { ToolkitConfig dropped; _overrides.TryRemove(path, out dropped); }
+            return false;
         }
 
         // ==================== 事件 → 队列 ====================
@@ -188,7 +207,12 @@ namespace TradosToolkit.Inbox
 
                     var job = new InboxJob(path);
                     JobCreated?.Invoke(job);
-                    InboxOrchestrator.Run(job, _cfg ?? ToolkitConfig.Load());
+
+                    // 单任务配置覆盖（API 投递时指定）：仅作用于这一个文件，取走即弃
+                    var runCfg = _cfg ?? ToolkitConfig.Load();
+                    ToolkitConfig jobCfg;
+                    if (_overrides.TryRemove(path, out jobCfg) && jobCfg != null) runCfg = jobCfg;
+                    InboxOrchestrator.Run(job, runCfg);
                 }
                 catch (Exception e)
                 {
