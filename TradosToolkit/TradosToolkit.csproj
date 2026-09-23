@@ -169,6 +169,11 @@
     <Compile Include="EditorPanel\LlmPanelView.xaml.cs">
       <DependentUpon>LlmPanelView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditorPanel\DocPreviewController.cs" />
+    <Compile Include="EditorPanel\DocPreviewRenderer.cs" />
+    <Compile Include="EditorPanel\DocPreviewView.xaml.cs">
+      <DependentUpon>DocPreviewView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TranslationProvider\ToolkitUri.cs" />
     <Compile Include="TranslationProvider\ToolkitCredential.cs" />
     <Compile Include="TranslationProvider\ToolkitTranslationProviderFactory.cs" />
