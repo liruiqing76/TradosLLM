@@ -61,7 +61,7 @@ namespace TradosToolkit.TerminologySource
         {
             [DataMember]
             public bool enabledField = true;
-            [DataMember(EmitDefaultValue = false)]
+            [DataMember]
             public TermbaseFilterEntry filterField;
             [DataMember]
             public string nameField;
