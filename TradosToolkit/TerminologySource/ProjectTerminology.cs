@@ -129,40 +129,41 @@ namespace TradosToolkit.TerminologySource
         /// 把插件术语源挂到项目术语库配置上（幂等：同语言对+领域已存在则跳过）。
         /// 返回挂载的术语库个数；0 表示没有可挂的（如本地库为空且未配置线上服务）。
         ///
-        /// 语言对优先级：
+        /// 只挂"当前文档语向"这一对，不展开项目的其它目标语言：
         ///   1) currentPair —— 编辑器当前打开文件的语向（ActiveDocument.ActiveFile.Language）；
-        ///   2) 取不到时回退到项目语言对（源语言 × 各目标语言）。
-        /// 之所以以"当前编辑语向"为先：Studio 的 LanguageIndexMappings 只映射到默认术语库
-        /// （Termbases 列表首项），把项目多个目标语言一股脑挂上去会让首项与当前语向错位，
-        /// 表现为"打开英德项目、术语插入点却显示另一个语言对"。
+        ///   2) 无活动文档时回退当前激活项目的语言对（仍只取一对）。
+        /// 之所以只留一对：Studio 打开任意文档都会去连术语库列表里的全部条目，
+        /// 按项目各目标语言逐个挂载只会堆出一串「…(en-US-de-DE)」式条目，
+        /// 既与用户在"术语库"界面自己维护的那条重复，又全是噪音。
         /// </summary>
-        /// <param name="currentPair">编辑器当前语向 [src,tgt]；为 null 时回退项目语言对。</param>
+        /// <param name="currentPair">编辑器当前语向 [src,tgt]；为 null 时回退当前项目语言对。</param>
         public static int Mount(FileBasedProject project, string[] currentPair,
                                 string onlineBaseUrl, string domain)
         {
             if (project == null) return 0;
 
             var projectPairs = ProjectPairs(project);
-            var allPairs = new List<string[]>();
+            var mountPairs = new List<string[]>();
             if (currentPair != null && currentPair.Length >= 2 &&
                 !string.IsNullOrWhiteSpace(currentPair[0]) && !string.IsNullOrWhiteSpace(currentPair[1]))
             {
                 // 当前编辑语向优先，且排在最前 —— 保证 Termbases[0] 就是它。
-                allPairs.Add(new[] { currentPair[0], currentPair[1] });
+                mountPairs.Add(new[] { currentPair[0], currentPair[1] });
                 ToolkitLog.Info($"项目术语挂载：使用当前编辑语向 {currentPair[0]}-{currentPair[1]}");
             }
-
-            foreach (var p in projectPairs)
+            else
             {
-                if (allPairs.Any(x => string.Equals(x[0], p[0], StringComparison.OrdinalIgnoreCase) &&
-                                      string.Equals(x[1], p[1], StringComparison.OrdinalIgnoreCase)))
-                    continue;
-                allPairs.Add(p);
+                var fallback = ActiveProjectPair();
+                if (fallback != null)
+                {
+                    mountPairs.Add(fallback);
+                    ToolkitLog.Info($"项目术语挂载：无活动文档，回退当前项目语向 {fallback[0]}-{fallback[1]}");
+                }
             }
 
-            if (allPairs.Count == 0)
+            if (mountPairs.Count == 0)
             {
-                ToolkitLog.Error("项目术语挂载：既无当前编辑语向、项目语言对也为空，跳过");
+                ToolkitLog.Error("项目术语挂载：既无当前编辑语向、也无当前项目语言对，跳过");
 
                 return 0;
             }
@@ -170,10 +171,10 @@ namespace TradosToolkit.TerminologySource
             // 注意：本地源不再以"库里此刻是否恰好有该语言对"为挂载前提。
             // 原因：库内语言代码写法可能与项目 ISO 代码不一致（en-US / en_US / en），
             // 一旦字符串不相等就会"一个都不挂"，导致后续新增术语永远不生效且极难排查。
-            // 语言对一律以项目为准，空库挂上也无害；库匹配交由 Provider 查询时做规范化。
+            // 语言对一律以当前语向为准，空库挂上也无害；库匹配交由 Provider 查询时做规范化。
             var wanted = new List<Tuple<string, string, string, string>>(); // kind, base, src, tgt
 
-            foreach (var pair in allPairs)
+            foreach (var pair in mountPairs)
             {
                 wanted.Add(Tuple.Create(TermSourceKind.Local, (string)null, pair[0], pair[1]));
 
@@ -210,29 +211,29 @@ namespace TradosToolkit.TerminologySource
                 ToolkitLog.Info("项目术语挂载：修复缺失分隔符的术语库 " + t.nameField);
             }
 
-            // 清掉本项目语言对之外的历史挂载（切换项目/改语向后遗留的旧语言对），
-            // 否则 Studio 术语插入点仍会显示上一个项目的目标语言。
+            // 只保留当前语向的条目：
+            //   1) 不属于当前语向的历史条目（换项目/换语向后遗留）一律清掉——
+            //      打开英→法语向的项目时，留着英→德语向的条目没有任何用处，
+            //      只会让 Studio 多连一个术语库、术语库列表多一条噪音；
+            //   2) 同一 (语向, 来源类型) 只留第一条，历史上重复挂载堆出的同名记录一并去重
+            //      （Studio 术语库对话框里表现为灰色残留项）。
             var stale = 0;
-            foreach (var t in entries.Where(t => IsPluginTermbase(t) && !IsForProjectPairs(t, allPairs)).ToList())
-            {
-                entries.Remove(t);
-                stale++;
-                ToolkitLog.Info("项目术语挂载：移除过期术语库 " + t.nameField + "（不属于当前项目语言对）");
-            }
-
-            // 同一语言对只保留一条插件术语库：历史上重复挂载会堆出多条同名记录
-            // （Studio 术语库对话框里表现为灰色残留项），一并去重。
             var dedup = 0;
-            foreach (var item in wanted)
+            var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (var t in entries.Where(IsPluginTermbase).ToList())
             {
-                var extras = entries
-                    .Where(t => IsPluginTermbase(t) && !IsSameKind(t, item.Item1) && IsPairOf(t, new[] { item.Item3, item.Item4 }))
-                    .ToList();
-                foreach (var t in extras)
+                var key = PairKindKey(t);
+                if (key == null || !IsForProjectPairs(t, mountPairs))
+                {
+                    entries.Remove(t);
+                    stale++;
+                    ToolkitLog.Info("项目术语挂载：移除过期术语库 " + t.nameField + "（不属于当前语向）");
+                }
+                else if (!seen.Add(key))
                 {
                     entries.Remove(t);
                     dedup++;
-                    ToolkitLog.Info("项目术语挂载：去重术语库 " + t.nameField + "（同语言对重复）");
+                    ToolkitLog.Info("项目术语挂载：去重术语库 " + t.nameField + "（同语向同来源重复）");
                 }
             }
 
@@ -277,10 +278,11 @@ namespace TradosToolkit.TerminologySource
                 return 0;
             }
 
-            // 顶层语言索引映射不在 SettingsBundle 里，用文件补丁保证目标语言有映射。
-            UpsertLanguageIndexMappings(project, allPairs);
+            // 顶层语言索引映射不在 SettingsBundle 里，用文件补丁保证项目的各目标语言都有映射。
+            // 这里用项目自己的语言对全集，与上面"只挂当前语向"互不影响：映射只是语言显示名对照表。
+            UpsertLanguageIndexMappings(project, projectPairs.Count > 0 ? projectPairs : mountPairs);
 
-            ToolkitLog.Info($"项目术语挂载：语言对 {string.Join(",", allPairs.Select(p => p[0] + "-" + p[1]))}，"
+            ToolkitLog.Info($"项目术语挂载：当前语向 {string.Join(",", mountPairs.Select(p => p[0] + "-" + p[1]))}，"
                             + $"新增 {added} 个、修复 {healed} 个、清理 {stale + dedup} 个术语库（domain={domain}）");
 
             return added;
@@ -407,6 +409,29 @@ namespace TradosToolkit.TerminologySource
             var path = SettingsPath(termbase);
             return !string.IsNullOrEmpty(path) &&
                    path.StartsWith(NativeTerminologyProviderHelper.SchemeActivation, StringComparison.OrdinalIgnoreCase);
+        }
+
+        /// <summary>
+        /// 「源语言|目标语言|来源类型」键，用于判断两条目是否同语向同来源（去重用）。
+        /// URI 里取不到语言对时返回 null，调用方按"无法识别"处理。
+        /// </summary>
+        private static string PairKindKey(TermbaseEntry termbase)
+        {
+            var path = SettingsPath(termbase);
+            if (string.IsNullOrEmpty(path)) return null;
+            try
+            {
+                var uri = new Uri(path);
+                var src = NativeTerminologyProviderHelper.GetQueryParam(uri, "src");
+                var tgt = NativeTerminologyProviderHelper.GetQueryParam(uri, "tgt");
+                if (string.IsNullOrWhiteSpace(src) || string.IsNullOrWhiteSpace(tgt)) return null;
+                var kind = NativeTerminologyProviderHelper.GetQueryParam(uri, "kind");
+                return src + "|" + tgt + "|" + TermSourceKind.Normalize(kind);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         /// <summary>该插件术语库的 src/tgt 是否属于给定项目语言对集合。</summary>
