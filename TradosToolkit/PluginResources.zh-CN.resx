@@ -57,6 +57,12 @@
   <data name="Convert_Action_Description" xml:space="preserve">
     <value>任意文件一键转 sdlxliff：选源文件、指定语向即产出目标双语文件</value>
   </data>
+  <data name="DocPreview_Action_Name" xml:space="preserve">
+    <value>文档预览</value>
+  </data>
+  <data name="DocPreview_Action_Description" xml:space="preserve">
+    <value>打开文档预览面板：按段显示原文与译文，跟随编辑器高亮，点击可跳转</value>
+  </data>
   <data name="Translation_Center_View_Name" xml:space="preserve">
     <value>翻译中心</value>
   </data>

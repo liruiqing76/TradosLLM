@@ -75,6 +75,12 @@
   <data name="Convert_Action_Description" xml:space="preserve">
     <value>任意文件一键转 sdlxliff：选源文件、指定语向即产出目标双语文件</value>
   </data>
+  <data name="DocPreview_Action_Name" xml:space="preserve">
+    <value>Document Preview</value>
+  </data>
+  <data name="DocPreview_Action_Description" xml:space="preserve">
+    <value>Open the document preview panel: source and target by segment, follows the editor highlight, click a segment to jump</value>
+  </data>
   <data name="Translation_Center_View_Name" xml:space="preserve">
     <value>Translation Center</value>
   </data>
@@ -98,6 +104,9 @@
   </data>
   <data name="Convert_Action_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\convert.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DocPreview_Action_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\doc-preview.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WB_Title" xml:space="preserve">
     <value>TradosToolkit Workbench</value>
