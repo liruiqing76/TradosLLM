@@ -38,7 +38,8 @@ namespace TradosToolkit.TranslationProvider
         private TermReplacer _postReplacer;
 
         // 跨批上下文：预翻译按文档序分批调用同一 Direction 实例，
-        // 记住上一批最后一段的源文/译文，供下一批首段做提示词上下文。
+        // 保留最近 N 段的源文/译文队列，供下一批首段的滑动窗口继续取上下文。
+        private readonly Queue<ContextPair> _contextQueue = new Queue<ContextPair>();
         private string _contextLastSource;
         private string _contextLastTarget;
 
@@ -106,6 +107,12 @@ namespace TradosToolkit.TranslationProvider
                     sources[i] = ExtractText(segments[i], out protectedElements[i]);
                 }
 
+                var windowSize = ToolkitConfig.Load().ContextWindowSegments;
+                // 单段查询（用户在编辑器里点译某一句）无法确定该句在文档中的位置，而跨调用
+                // 队列里保存的是"上一次批处理结束处"的段（很可能是文档更靠后的段）。若把它当作
+                // 紧邻前段喂给模型，会让模型把当前句对齐到后面的句子，表现为"翻译成了后面的句子"。
+                // 因此只有多段批处理才续接跨调用上下文；单段查询一律不接任何跨调用上下文。
+                var crossCall = segments.Length > 1;
                 var contexts = new SegmentContext[segments.Length];
                 for (var i = 0; i < segments.Length; i++)
                 {
@@ -115,9 +122,32 @@ namespace TradosToolkit.TranslationProvider
                     while (j >= 0 && string.IsNullOrEmpty(sources[j])) j--;
                     contexts[i] = new SegmentContext
                     {
-                        PrevSource = j >= 0 ? sources[j] : _contextLastSource,
-                        PrevTarget = j >= 0 ? null : _contextLastTarget
+                        PrevSource = j >= 0 ? sources[j] : (crossCall ? _contextLastSource : null),
+                        PrevTarget = j >= 0 ? null : (crossCall ? _contextLastTarget : null),
                     };
+                    // 功能 #5：构建 N 段滑动窗口，统一按文档序（最旧 → 紧邻前段），
+                    // 即末元素恒为紧邻前段，与引擎回填、提示词 [prev-N] 标注口径一致。
+                    // 批内前段译文未知，由引擎按完成进度回填末元素；跨调用队列里的更早段译文已确定。
+                    if (windowSize > 0)
+                    {
+                        var near = new List<ContextPair>(); // 紧邻前段在前
+                        for (var k = i - 1; k >= 0 && near.Count < windowSize; k--)
+                        {
+                            if (string.IsNullOrEmpty(sources[k])) continue;
+                            near.Add(new ContextPair { Source = sources[k], Target = null });
+                        }
+                        var older = new List<ContextPair>(); // 紧邻前段在前
+                        if (crossCall && near.Count < windowSize)
+                        {
+                            var queued = _contextQueue.ToArray(); // 队列头最旧、队尾最近
+                            for (var q = queued.Length - 1; q >= 0 && near.Count + older.Count < windowSize; q--)
+                                older.Add(new ContextPair { Source = queued[q].Source, Target = queued[q].Target });
+                        }
+                        var window = new List<ContextPair>();
+                        for (var t = older.Count - 1; t >= 0; t--) window.Add(older[t]); // 更早 → ...
+                        for (var t = near.Count - 1; t >= 0; t--) window.Add(near[t]);   // ... → 紧邻前段
+                        contexts[i].Window = window;
+                    }
                 }
 
                 // 批内重复段去重：同文段只送引擎一次，其余复用首现结果（省网关时间 + 全文同译）
@@ -156,8 +186,20 @@ namespace TradosToolkit.TranslationProvider
                     if (!string.IsNullOrEmpty(sources[i]))
                     {
                         lastRequested = i;
-                        _contextLastSource = sources[i];
-                        _contextLastTarget = candidate?.Translation;
+                        // 仅多段批处理才维护跨调用上下文：单段查询位置不确定，写入会污染后续批次的上下文。
+                        if (crossCall)
+                        {
+                            _contextLastSource = sources[i];
+                            _contextLastTarget = candidate?.Translation;
+                            // 功能 #5：保持 N 段上下文队列，队满时挤出最旧
+                            var win = ToolkitConfig.Load().ContextWindowSegments;
+                            if (win > 0)
+                            {
+                                _contextQueue.Enqueue(new ContextPair
+                                    { Source = sources[i], Target = candidate?.Translation });
+                                while (_contextQueue.Count > win) _contextQueue.Dequeue();
+                            }
+                        }
                     }
                 }
                 ToolkitLog.Info("Search 完成: 命中=" + hits + "/" + requested + " 去重=" + deduped +

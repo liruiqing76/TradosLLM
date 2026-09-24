@@ -48,7 +48,15 @@ namespace TradosToolkit.Server
               .Append("tr:last-child td{border-bottom:none}.muted{color:#9AA5B4}.num{font-variant-numeric:tabular-nums}")
               .Append("pre{background:#FBFCFE;border:1px solid #EDF1F6;border-radius:6px;padding:10px;font:11px/1.5 Consolas,monospace;overflow-x:auto;margin:0;white-space:pre-wrap}")
               .Append(".s200{color:#2EA86B}.s4xx,.s5xx{color:#E05D4B}")
-              .Append("</style></head><body><div class=\"wrap\">");
+              .Append(".fix{background:#FFF8E1;border:1px solid #FFE082;border-radius:6px;padding:8px 10px;margin-top:8px;font-size:12px}")
+              .Append(".fix a{color:#0F7AC4;text-decoration:none}.fix a:hover{text-decoration:underline}")
+              .Append(".chip.bad{border-color:#F0C8C3}")
+              .Append("</style><script>")
+              .Append("function cancelTask(id){if(!confirm('取消此任务？'))return;")
+              .Append("fetch('/api/task/cancel?id='+id,{method:'POST'}).then(r=>r.json()).then(j=>{")
+              .Append("alert(j.message||'取消信号已发送');location.reload()})")
+              .Append(".catch(e=>alert('取消失败: '+e.message))}")
+              .Append("</script></head><body><div class=\"wrap\">");
 
             sb.Append("<h1><span>TradosToolkit</span> ").Append(E(UiText.T("SP_Title"))).Append("</h1>")
               .Append("<div class=\"sub\">v").Append(E(AsssemblyVersion()))
@@ -73,6 +81,9 @@ namespace TradosToolkit.Server
             }
             sb.Append("</div>");
 
+            // ===== 诊断与修复提示 =====
+            AppendDiagnostics(sb, config);
+
             // ===== 后台任务 =====
             Section(sb, UiText.T("SP_Tasks"), () =>
             {
@@ -80,14 +91,21 @@ namespace TradosToolkit.Server
                 if (tasks == null || tasks.Count == 0) { Empty(sb); return; }
                 sb.Append("<table><tr><th>").Append(E(UiText.T("SP_Col_Id"))).Append("</th><th>")
                   .Append(E(UiText.T("SP_Col_Task"))).Append("</th><th>").Append(E(UiText.T("SP_Col_Status"))).Append("</th><th>")
-                  .Append(E(UiText.T("SP_Col_Started"))).Append("</th><th>").Append(E(UiText.T("SP_Col_Elapsed"))).Append("</th></tr>");
+                  .Append(E(UiText.T("SP_Col_Started"))).Append("</th><th>").Append(E(UiText.T("SP_Col_Elapsed"))).Append("</th><th></th></tr>");
                 foreach (var t in tasks.Take(10))
                 {
-                    sb.Append("<tr><td class=\"muted\">").Append(E(Str(t, "id")))
+                    var status = Str(t, "status");
+                    var isRunning = status == "running";
+                    var taskId = Str(t, "id");
+                    sb.Append("<tr><td class=\"muted\">").Append(E(taskId))
                       .Append("</td><td>").Append(E(Str(t, "task")))
-                      .Append("</td><td>").Append(E(Str(t, "status")))
+                      .Append("</td><td>").Append(E(status))
                       .Append("</td><td class=\"num\">").Append(E(Str(t, "startedAt") != null ? DateTime.Parse(Str(t, "startedAt")).ToString("HH:mm:ss") : ""))
                       .Append("</td><td class=\"num\">").Append(E(Str(t, "elapsedMs")))
+                      .Append("</td><td>").Append(
+                          isRunning
+                              ? "<a href=\"#\" style=\"color:#E05D4B;font-weight:600\" onclick=\"cancelTask('" + E(taskId) + "');return false\">✗ 取消</a>"
+                              : "<span class=\"muted\">—</span>")
                       .Append("</td></tr>");
                 }
                 sb.Append("</table>");
@@ -145,6 +163,49 @@ namespace TradosToolkit.Server
 
             sb.Append("</div></body></html>");
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// 诊断与修复区块：对未配置/不可达的关键依赖给出可点击修复提示。
+        /// 仅在有异常项时输出，全部正常时不占版面。
+        /// </summary>
+        private static void AppendDiagnostics(StringBuilder sb, ToolkitConfig config)
+        {
+            var fixes = new List<string[]>(); // { 标题, 问题描述, 修复建议 }
+            if (config != null)
+            {
+                if (string.IsNullOrEmpty(config.TmUrl))
+                    fixes.Add(new[] { "TM 服务", "tmUrl 未配置", "在工作台 → 连接页签填写 TM 服务地址，或直接编辑 <a href=\"" + E(ConfigFileUrl()) + "\">config.json</a>" });
+                if (string.IsNullOrEmpty(config.LlmBaseUrl) || string.IsNullOrEmpty(config.ApiKey))
+                    fixes.Add(new[] { "LLM 网关", "llmBaseUrl 或 apiKey 未配置", "编辑 <a href=\"" + E(ConfigFileUrl()) + "\">config.json</a> 填写 LLM 网关地址与密钥（apiKey 以 DPAPI 加密存储）" });
+                else if (!(Safe(() => LlmChatClient.IsReady()) as bool? ?? false))
+                    fixes.Add(new[] { "LLM 网关", "网关未就绪", "确认 llmBaseUrl 可达（GET <code>" + E(config.LlmBaseUrl.TrimEnd('/') + "/models") + "</code>），密钥有效；或重启 Studio" });
+                if (string.IsNullOrEmpty(config.TermBaseUrl))
+                    fixes.Add(new[] { "术语服务", "termBaseUrl 未配置", "若使用线上术语服务，编辑 <a href=\"" + E(ConfigFileUrl()) + "\">config.json</a> 填写；否则可忽略" });
+            }
+            if (!ToolkitApiServer.Instance.IsListening)
+                fixes.Add(new[] { "API 服务", "未监听", "检查端口 53902 是否被占用，或重启 Studio 让插件重新注册" });
+
+            if (fixes.Count == 0) return;
+
+            sb.Append("<section><h2>诊断与修复</h2>");
+            foreach (var f in fixes)
+            {
+                sb.Append("<div class=\"fix\"><b>").Append(E(f[0])).Append("：</b>")
+                  .Append(E(f[1]))
+                  .Append(" — ").Append(f[2]) // f[2] 含已编码的 HTML 链接
+                  .Append("</div>");
+            }
+            sb.Append("<div class=\"fix\"><a href=\"file:///").Append(E(ToolkitLog.FolderPath).Replace("\\", "/"))
+              .Append("\">打开日志目录</a>（<code>").Append(E(ToolkitLog.FolderPath)).Append("</code>）</div>");
+            sb.Append("</section>");
+        }
+
+        private static string ConfigFileUrl()
+        {
+            var p = ToolkitConfig.ConfigFilePath;
+            if (p.Length > 0 && char.IsUpper(p[0]) && p[1] == ':') p = p.Insert(1, "/"); // C:\ → C:/
+            return "file://" + p;
         }
 
         private static void Section(StringBuilder sb, string title, System.Action body)

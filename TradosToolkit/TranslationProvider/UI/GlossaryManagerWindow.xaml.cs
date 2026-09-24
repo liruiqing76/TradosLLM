@@ -14,6 +14,9 @@ using TradosToolkit.Common;
 using TradosToolkit.Common.Catalog;
 using TradosToolkit.Diagnostics;
 using TradosToolkit.Glossaries;
+using TradosToolkit.TerminologySource;
+using TradosToolkit.TranslationProvider.Engines;
+using TradosToolkit.Server;
 
 namespace TradosToolkit.TranslationProvider.UI
 {
@@ -139,6 +142,9 @@ namespace TradosToolkit.TranslationProvider.UI
             Reload(null, null);
         }
 
+        /// <summary>当前项目全部源语言文件的双语 .sdlxliff 路径（ShowOrActivate 在 Studio UI 线程预取）。</summary>
+        private static readonly List<string> ProjectBilingualPaths = new List<string>();
+
         /// <summary>
         /// 用给定语言代码初始化一对下拉：大小写不敏感匹配（Studio 的 IsoAbbreviation 大小写不稳定，
         /// 如 zh-cn / zh-CN）；绝不能"找不到就退到第一个语言"，否则会把词条存到项目语言对之外的语向下。
@@ -248,7 +254,10 @@ namespace TradosToolkit.TranslationProvider.UI
                     // 未点选（过滤期间选中项被清空）：按权威语向恢复显示
                     var code = ReferenceEquals(combo, ReplSrcCombo) ? _replSrc
                              : ReferenceEquals(combo, ReplTgtCombo) ? _replTgt
-                             : ReferenceEquals(combo, SrcCombo) ? _lastSrc : _lastTgt;
+                             : ReferenceEquals(combo, SrcCombo) ? _lastSrc
+                             : ReferenceEquals(combo, TgtCombo) ? _lastTgt
+                             : ReferenceEquals(combo, MineSrcCombo) ? _mineSrc
+                             : _mineTgt; // MineTgtCombo 兜底
                     var item = _langs.FirstOrDefault(l =>
                         string.Equals(l.Code, code, StringComparison.OrdinalIgnoreCase));
                     if (item != null) SetComboSelection(combo, item);
@@ -277,6 +286,18 @@ namespace TradosToolkit.TranslationProvider.UI
                 if (src == null && info.SourceLanguage != null) src = info.SourceLanguage.IsoAbbreviation;
                 if (tgt == null && info.TargetLanguages != null && info.TargetLanguages.Count() > 0)
                     tgt = info.TargetLanguages.First().IsoAbbreviation;
+
+                // 收集当前项目源语言文件的双语 .sdlxliff 路径，供「术语挖掘 → 从当前项目加载」
+                ProjectBilingualPaths.Clear();
+                try
+                {
+                    foreach (var f in ctl.CurrentProject.GetSourceLanguageFiles())
+                    {
+                        var bp = f?.BilingualReferenceFileLocalPath;
+                        if (!string.IsNullOrEmpty(bp) && File.Exists(bp)) ProjectBilingualPaths.Add(bp);
+                    }
+                }
+                catch { /* 部分项目双语文件尚未生成，忽略 */ }
             }
             catch (Exception ex) { ToolkitLog.Error("术语管理：读取当前项目语言失败", ex); }
         }
@@ -343,7 +364,8 @@ namespace TradosToolkit.TranslationProvider.UI
         private void Reload(object sender, RoutedEventArgs e)
         {
             if (!_ready) return; // InitializeComponent 期间的 SelectionChanged
-            if (OnGlossaryTab) ReloadGlossary();
+            if (OnMineTab) { EnsureMineInit(); ReloadMine(); }
+            else if (OnGlossaryTab) ReloadGlossary();
             else ReloadRepl();
         }
 
@@ -654,6 +676,194 @@ namespace TradosToolkit.TranslationProvider.UI
 
             _db.ExportTermEntriesCsv(src, tgt, dlg.FileName, Domain);
             StatusText.Text = "导出完成：" + dlg.FileName;
+        }
+
+        // ====================== 页签三：术语挖掘审批 ======================
+
+        private TermMiningDb _miningDb;
+        private bool OnMineTab => _ready && MainTabs != null && MainTabs.SelectedIndex == 2;
+        private string _mineSrc = "", _mineTgt = "";
+
+        /// <summary>页签切换时初始化挖掘页下拉（仅一次）。</summary>
+        private void EnsureMineInit()
+        {
+            if (_miningDb != null) return;
+            _miningDb = new TermMiningDb();
+            AttachLangFilter(MineSrcCombo);
+            AttachLangFilter(MineTgtCombo);
+            // 复用术语表页的语言对
+            InitLangPair(MineSrcCombo, MineTgtCombo, _lastSrc, _lastTgt);
+            _mineSrc = LangCodeOf(MineSrcCombo, _lastSrc);
+            _mineTgt = LangCodeOf(MineTgtCombo, _lastTgt);
+            var domNames = DomainCatalog.Names();
+            MineDomCombo.ItemsSource = domNames;
+            var cfgDomain = ToolkitConfig.Load().Domain;
+            MineDomCombo.SelectedItem = domNames.FirstOrDefault(d => string.Equals(d, cfgDomain, StringComparison.OrdinalIgnoreCase))
+                                       ?? DomainTree.DefaultDomain;
+        }
+
+        private string MineDomain => (MineDomCombo?.SelectedItem as string) ?? DomainTree.DefaultDomain;
+
+        private void MineLangChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!_ready) return;
+            var v = (sender as ComboBox)?.SelectedValue as string;
+            if (!string.IsNullOrEmpty(v))
+            {
+                if (ReferenceEquals(sender, MineSrcCombo)) _mineSrc = v;
+                else if (ReferenceEquals(sender, MineTgtCombo)) _mineTgt = v;
+            }
+            if (OnMineTab) ReloadMine();
+        }
+
+        private void MineDomChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!_ready) return;
+            if (OnMineTab) ReloadMine();
+        }
+
+        private void ReloadMine()
+        {
+            if (string.IsNullOrEmpty(_mineSrc) || string.IsNullOrEmpty(_mineTgt))
+            {
+                MineGrid.ItemsSource = new ObservableCollection<TermCandidate>();
+                MineStatusText.Text = "请选择语言对。";
+                return;
+            }
+            try
+            {
+                var list = _miningDb.List(_mineSrc, _mineTgt, MineDomain);
+                MineGrid.ItemsSource = new ObservableCollection<TermCandidate>(list);
+                var pending = list.Count(c => c.Status == TermMiningDb.Pending);
+                MineStatusText.Text = string.Format("{0} → {1} · {2} · 共 {3} 条（待审 {4}）",
+                    _mineSrc, _mineTgt, MineDomain, list.Count, pending);
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("术语挖掘：加载候选列表失败", ex);
+                MineGrid.ItemsSource = new ObservableCollection<TermCandidate>();
+                MineStatusText.Text = "加载失败：" + ex.Message;
+            }
+        }
+
+        private async void MineRun_Click(object sender, RoutedEventArgs e)
+        {
+            var text = MineInputBox.Text?.Trim();
+            if (string.IsNullOrEmpty(text))
+            {
+                MineStatusText.Text = "请先粘贴源文。";
+                return;
+            }
+            if (string.IsNullOrEmpty(_mineSrc) || string.IsNullOrEmpty(_mineTgt))
+            {
+                MineStatusText.Text = "请先选择语言对。";
+                return;
+            }
+            MineRunBtn.IsEnabled = false;
+            MineStatusText.Text = "挖掘中…（正则粗筛 → LLM 精筛）";
+            try
+            {
+                var added = await TermMiner.MineAsync(text, _mineSrc, _mineTgt, MineDomain);
+                ReloadMine();
+                MineStatusText.Text = string.Format("挖掘完成：新入队 {0} 条候选。", added);
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("术语挖掘：执行失败", ex);
+                MineStatusText.Text = "挖掘失败：" + ex.Message;
+            }
+            finally
+            {
+                MineRunBtn.IsEnabled = true;
+            }
+        }
+
+        private void MineLoadProject_Click(object sender, RoutedEventArgs e)
+        {
+            var sb = new StringBuilder();
+            var n = 0;
+            foreach (var bp in ProjectBilingualPaths)
+            {
+                try
+                {
+                    foreach (var seg in BilingualParser.Parse(bp))
+                    {
+                        if (!string.IsNullOrWhiteSpace(seg.Source) && sb.Length < 30000)
+                        {
+                            sb.Append(seg.Source).Append('\n');
+                            n++;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ToolkitLog.Warn("术语挖掘：读取双语文件失败 " + bp, ex);
+                }
+            }
+            if (n == 0) { MineStatusText.Text = "当前项目无可用双语文件（请在 Studio 打开过文件后重试）。"; return; }
+            MineInputBox.Text = sb.ToString();
+            MineStatusText.Text = string.Format("已从当前项目加载 {0} 段源文。", n);
+        }
+
+        private void MineApprove_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = MineGrid.SelectedItems.Cast<TermCandidate>().ToList();
+            if (selected.Count == 0) { MineStatusText.Text = "请先选中候选。"; return; }
+
+            // 单条：弹出可编辑"最终术语"确认框（用户可改 LLM 建议译法）；
+            // 多条：批量用原 ProposedTerm，保持高效不逐个弹窗
+            string finalTermOverride = null;
+            if (selected.Count == 1)
+            {
+                var c = selected[0];
+                var edit = new TermApprovalDialog(
+                    c.CandidateTerm,
+                    c.ProposedTerm ?? string.Empty,
+                    c.Example ?? string.Empty);
+                edit.Owner = this;
+                if (edit.ShowDialog() != true)
+                {
+                    MineStatusText.Text = "已取消批准。";
+                    return;
+                }
+                finalTermOverride = edit.FinalTerm;
+            }
+
+            var db = new GlossaryDb();
+            var ok = 0;
+            foreach (var c in selected)
+            {
+                try
+                {
+                    TermMiner.ApplyApproved(_miningDb, db, c.Id, finalTermOverride);
+                    ok++;
+                }
+                catch (Exception ex)
+                {
+                    ToolkitLog.Warn("术语挖掘：审批通过失败 id=" + c.Id, ex);
+                }
+            }
+            ReloadMine();
+            NotifyChanged();
+            MineStatusText.Text = string.Format("已批准 {0} 条，写入正式术语库。", ok);
+        }
+
+        private void MineReject_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = MineGrid.SelectedItems.Cast<TermCandidate>().ToList();
+            if (selected.Count == 0) { MineStatusText.Text = "请先选中候选。"; return; }
+            foreach (var c in selected)
+            {
+                try { TermMiner.Reject(_miningDb, c.Id); }
+                catch (Exception ex) { ToolkitLog.Warn("术语挖掘：驳回失败 id=" + c.Id, ex); }
+            }
+            ReloadMine();
+            MineStatusText.Text = string.Format("已驳回 {0} 条。", selected.Count);
+        }
+
+        private void MineRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            ReloadMine();
         }
     }
 }

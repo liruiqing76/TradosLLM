@@ -13,6 +13,8 @@ using TradosToolkit.Common;
 using TradosToolkit.FileConvert;
 using TradosToolkit.Diagnostics;
 using TradosToolkit.Glossaries;
+using TradosToolkit.TerminologySource;
+using TradosToolkit.Workbench;
 using TradosToolkit.TranslationProvider.Engines;
 using System.Threading;
 
@@ -40,6 +42,11 @@ namespace TradosToolkit.Server
 
             if (path == "/api/status")
                 return Status();
+
+            // 取消端点：状态面板按钮调用（面板本身免令牌，取消仅限本机回环），
+            // 加在此处与 / 同层豁免令牌检查，避免在免令牌 HTML 里内嵌令牌值
+            if (path == "/api/task/cancel")
+                return CancelTask(method, query);
 
             if (string.IsNullOrEmpty(token) || !string.Equals(key, token, StringComparison.Ordinal))
                 return ApiResult.Json(401, Error("缺少或错误的 X-Api-Key（令牌见 %AppData%\\TradosToolkit\\api.token）"));
@@ -102,6 +109,18 @@ namespace TradosToolkit.Server
                     return BackTranslateQa.Handle(method, query, body);
                 case "/api/project/terminology":
                     return method == "POST" ? MountTerminology(query) : TerminologyStatus(query);
+                case "/api/terms/mine":
+                    return TermMine(method, body);
+                case "/api/terms/pending":
+                    return TermsPending(query);
+                case "/api/terms/approve":
+                    return TermApprove(method, body);
+                case "/api/terms/reject":
+                    return TermReject(method, body);
+                case "/api/client-templates":
+                    return method == "POST" ? ClientTemplateSave(body) : ClientTemplateList();
+                case "/api/client-templates/delete":
+                    return ClientTemplateDelete(method, body);
                 default:
                     return ApiResult.Json(404, Error("未知端点 " + path));
             }
@@ -131,6 +150,23 @@ namespace TradosToolkit.Server
                 return ApiResult.Json(400, Error("缺少 query 参数 id"));
             var rows = TaskRegistry.Snapshot(id);
             return rows.Count == 0 ? ApiResult.Json(404, Error("无此任务 " + id)) : ApiResult.Json(200, rows[0]);
+        }
+
+        /// <summary>POST /api/task/cancel?id=xxx — 取消一个运行中的后台任务。</summary>
+        private static ApiResult CancelTask(string method, Dictionary<string, string> query)
+        {
+            if (method != "POST")
+                return ApiResult.Json(405, Error("cancel 端点需 POST"));
+            string id;
+            if (!query.TryGetValue("id", out id) || string.IsNullOrEmpty(id))
+                return ApiResult.Json(400, Error("缺少 query 参数 id"));
+            var ok = TaskRegistry.Cancel(id);
+            return ApiResult.Json(ok ? 200 : 404, new Dictionary<string, object>
+            {
+                { "id", id },
+                { "cancelled", ok },
+                { "message", ok ? "取消信号已发送。Studio 原生任务将在当前步骤完成后停止。" : "任务不存在或已结束。" },
+            });
         }
 
         private static ApiResult Templates()
@@ -658,6 +694,16 @@ namespace TradosToolkit.Server
                 {
                     for (int i = 0; i < steps.Count; i++)
                     {
+                        var cancelToken = TaskRegistry.GetCancelToken(st.Id);
+                        if (cancelToken.IsCancellationRequested)
+                        {
+                            if (i > 0) break;
+                            stepsState[i]["status"] = "cancelled";
+                            stepsState[i]["error"] = "已取消";
+                            TaskRegistry.SetProgress(st.Id, new Dictionary<string, object>
+                            { { "currentStep", i + 1 }, { "stepCount", steps.Count }, { "steps", stepsState }, { "status", "cancelled" } });
+                            return ApiResult.Json(499, Error("任务已取消"));
+                        }
                         var step = steps[i];
                         var tk = Str(step, "task");
                         stepsState[i]["status"] = "running";
@@ -2149,6 +2195,150 @@ namespace TradosToolkit.Server
         private static ApiResult ReviewResult(Dictionary<string, string> query)
         {
             return ApiResult.Json(404, Error("审校结果为同步返回，无需单独拉取（POST /api/review 的响应含 items/csv）。"));
+        }
+
+        /// <summary>POST /api/terms/mine body {sourceText, sourceLang, targetLang, domain?} → 返回新候选数。</summary>
+        private static ApiResult TermMine(string method, string body)
+        {
+            if (method != "POST")
+                return ApiResult.Json(405, Error("mine 端点需 POST"));
+            var request = ParseBody(body);
+            var sourceText = Str(request, "sourceText");
+            var sourceLang = Str(request, "sourceLang");
+            var targetLang = Str(request, "targetLang");
+            var domain = Str(request, "domain");
+            if (string.IsNullOrWhiteSpace(sourceText) || string.IsNullOrWhiteSpace(sourceLang) || string.IsNullOrWhiteSpace(targetLang))
+                return ApiResult.Json(400, Error("必填: sourceText sourceLang targetLang"));
+            domain = string.IsNullOrWhiteSpace(domain) ? ToolkitConfig.Load().Domain : domain;
+
+            var added = System.Threading.Tasks.Task.Run(async () =>
+                await TermMiner.MineAsync(sourceText, sourceLang, targetLang, domain).ConfigureAwait(false))
+                .ConfigureAwait(false).GetAwaiter().GetResult();
+            return ApiResult.Json(200, new Dictionary<string, object>
+            {
+                { "candidates", added },
+                { "sourceLang", sourceLang },
+                { "targetLang", targetLang },
+                { "domain", domain },
+            });
+        }
+
+        /// <summary>GET /api/terms/pending?src=...&tgt=...&domain=... → 待审候选列表</summary>
+        private static ApiResult TermsPending(Dictionary<string, string> query)
+        {
+            var src = query.TryGetValue("src", out var s) ? s : null;
+            var tgt = query.TryGetValue("tgt", out var t) ? t : null;
+            if (string.IsNullOrWhiteSpace(src) || string.IsNullOrWhiteSpace(tgt))
+                return ApiResult.Json(400, Error("必填: src tgt"));
+            var domain = query.TryGetValue("domain", out var d) ? d : null;
+            var list = new TermMiningDb().List(src, tgt, domain, TermMiningDb.Pending);
+            return ApiResult.Json(200, list.Select(c => new Dictionary<string, object>
+            {
+                { "id", c.Id },
+                { "candidateTerm", c.CandidateTerm },
+                { "proposedTerm", c.ProposedTerm },
+                { "example", c.Example },
+                { "occurrenceCount", c.OccurrenceCount },
+                { "status", c.Status },
+                { "suggestedBy", c.SuggestedBy },
+                { "createdAt", c.CreatedAtText },
+            }).ToList());
+        }
+
+        /// <summary>POST /api/terms/approve body {id, finalTerm?} → 批准并写入正式术语库</summary>
+        private static ApiResult TermApprove(string method, string body)
+        {
+            if (method != "POST")
+                return ApiResult.Json(405, Error("approve 端点需 POST"));
+            var request = ParseBody(body);
+            var id = request.TryGetValue("id", out var o) ? Convert.ToInt64(o) : 0L;
+            var final = Str(request, "finalTerm");
+            if (id <= 0) return ApiResult.Json(400, Error("必填: id"));
+            try
+            {
+                TermMiner.ApplyApproved(new TermMiningDb(), new GlossaryDb(), id, final);
+                return ApiResult.Json(200, new Dictionary<string, object> { { "ok", true }, { "id", id } });
+            }
+            catch (Exception e)
+            {
+                return ApiResult.Json(400, Error(e.Message));
+            }
+        }
+
+        /// <summary>POST /api/terms/reject body {id, note?} → 驳回候选</summary>
+        private static ApiResult TermReject(string method, string body)
+        {
+            if (method != "POST")
+                return ApiResult.Json(405, Error("reject 端点需 POST"));
+            var request = ParseBody(body);
+            var id = request.TryGetValue("id", out var o) ? Convert.ToInt64(o) : 0L;
+            if (id <= 0) return ApiResult.Json(400, Error("必填: id"));
+            TermMiner.Reject(new TermMiningDb(), id, Str(request, "note"));
+            return ApiResult.Json(200, new Dictionary<string, object> { { "ok", true }, { "id", id } });
+        }
+
+        /// <summary>GET /api/client-templates → 模板列表</summary>
+        private static ApiResult ClientTemplateList()
+        {
+            var list = ClientTemplateStore.List().Select(t => new Dictionary<string, object>
+            {
+                { "name", t.name },
+                { "sourceLang", t.sourceLang },
+                { "targetLangs", t.targetLangs },
+                { "domain", t.domain },
+                { "updatedAt", t.UpdatedAtText },
+                { "postSteps", t.postSteps },
+            }).ToList();
+            return ApiResult.Json(200, list);
+        }
+
+        /// <summary>POST /api/client-templates body {...} → 保存模板</summary>
+        private static ApiResult ClientTemplateSave(string body)
+        {
+            var request = ParseBody(body);
+            var name = Str(request, "name");
+            if (string.IsNullOrWhiteSpace(name)) return ApiResult.Json(400, Error("必填: name"));
+            try
+            {
+                var existing = ClientTemplateStore.Get(name);
+                var t = existing ?? new ClientProjectTemplate { createdAt = DateTime.Now };
+                t.name = name;
+                if (Str(request, "sourceLang") != null) t.sourceLang = Str(request, "sourceLang");
+                if (Str(request, "tmFile") != null) t.tmFile = Str(request, "tmFile");
+                if (Str(request, "domain") != null) t.domain = Str(request, "domain");
+                if (Str(request, "styleGuide") != null) t.styleGuide = Str(request, "styleGuide");
+                if (Str(request, "notes") != null) t.notes = Str(request, "notes");
+                if (request.TryGetValue("targetLangs", out var tls) && tls is System.Collections.IEnumerable items && !(tls is string))
+                {
+                    t.targetLangs = new List<string>();
+                    foreach (var it in items) { var s = it as string; if (!string.IsNullOrWhiteSpace(s)) t.targetLangs.Add(s); }
+                }
+                if (request.TryGetValue("postSteps", out var ps) && ps is System.Collections.IEnumerable steps && !(ps is string))
+                {
+                    t.postSteps = new List<string>();
+                    foreach (var st in steps) { var s = st as string; if (!string.IsNullOrWhiteSpace(s)) t.postSteps.Add(s); }
+                }
+                if (request.TryGetValue("pretranslateThreshold", out var pt) && pt is double d)
+                    t.pretranslateThreshold = Math.Max(0, Math.Min(100, (int)d));
+                ClientTemplateStore.Save(t);
+                return ApiResult.Json(200, new Dictionary<string, object> { { "ok", true }, { "name", name } });
+            }
+            catch (Exception e)
+            {
+                return ApiResult.Json(400, Error(e.Message));
+            }
+        }
+
+        /// <summary>POST /api/client-templates/delete body {name} → 删除模板</summary>
+        private static ApiResult ClientTemplateDelete(string method, string body)
+        {
+            if (method != "POST")
+                return ApiResult.Json(405, Error("delete 端点需 POST"));
+            var request = ParseBody(body);
+            var name = Str(request, "name");
+            if (string.IsNullOrWhiteSpace(name)) return ApiResult.Json(400, Error("必填: name"));
+            ClientTemplateStore.Delete(name);
+            return ApiResult.Json(200, new Dictionary<string, object> { { "ok", true }, { "name", name } });
         }
 
         internal static Dictionary<string, object> Error(string message)

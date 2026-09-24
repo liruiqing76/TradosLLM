@@ -366,6 +366,80 @@
                     </WrapPanel>
                 </Grid>
             </TabItem>
+
+            <!-- ================= 页签三：术语挖掘审批（LLM 挖掘 → 人工审批 → 入库） ================= -->
+            <TabItem Header="术语挖掘审批">
+                <Grid Margin="2,12,2,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- 语言对 + 领域 -->
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="源语言" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                        <ComboBox x:Name="MineSrcCombo" Style="{StaticResource LangSearchCombo}" Width="160"
+                                  SelectedValuePath="Code" DisplayMemberPath="Label"
+                                  SelectionChanged="MineLangChanged"/>
+                        <TextBlock Text="目标语言" VerticalAlignment="Center" Margin="12,0,6,0"/>
+                        <ComboBox x:Name="MineTgtCombo" Style="{StaticResource LangSearchCombo}" Width="160"
+                                  SelectedValuePath="Code" DisplayMemberPath="Label"
+                                  SelectionChanged="MineLangChanged"/>
+                        <TextBlock Text="领域" VerticalAlignment="Center" Margin="12,0,6,0"/>
+                        <ComboBox x:Name="MineDomCombo" Width="120"
+                                  SelectionChanged="MineDomChanged"/>
+                    </StackPanel>
+
+                    <!-- 源文输入 + 挖掘按钮 -->
+                    <StackPanel Grid.Row="1" Margin="0,0,0,10">
+                        <TextBlock Style="{StaticResource Sub}" Text="粘贴源文（或从当前项目提取），点击挖掘后 LLM 自动筛选候选术语"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                            <TextBox x:Name="MineInputBox" Height="60" Width="600" AcceptsReturn="True"
+                                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                                     FontFamily="Consolas, Microsoft YaHei UI" FontSize="12"
+                                     ToolTip="粘贴待挖掘的源文本"/>
+                            <Button x:Name="MineRunBtn" Content="🔍 挖掘术语" Style="{StaticResource JadeButton}"
+                                    Margin="10,0,0,0" Click="MineRun_Click" VerticalAlignment="Bottom"/>
+                            <Button x:Name="MineLoadProjBtn" Content="从当前项目加载" Style="{StaticResource GhostButton}"
+                                    Margin="8,0,0,0" Click="MineLoadProject_Click" VerticalAlignment="Bottom"
+                                    ToolTip="从当前打开的 Trados 项目提取源文段"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- 候选列表 -->
+                    <Border Grid.Row="2" CornerRadius="8" BorderThickness="1"
+                            BorderBrush="{DynamicResource BorderBrush}">
+                        <DataGrid x:Name="MineGrid" AutoGenerateColumns="False"
+                                  CanUserAddRows="False" CanUserDeleteRows="False"
+                                  IsReadOnly="True" SelectionMode="Extended"
+                                  BorderThickness="0" HeadersVisibility="Column"
+                                  GridLinesVisibility="Horizontal"
+                                  ToolTip="选中一行或多行后点击下方批准/拒绝">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="源术语" Binding="{Binding CandidateTerm}" Width="140"/>
+                                <DataGridTextColumn Header="建议译文" Binding="{Binding ProposedTerm}" Width="160"/>
+                                <DataGridTextColumn Header="词频" Binding="{Binding OccurrenceCount}" Width="50"/>
+                                <DataGridTextColumn Header="例句" Binding="{Binding Example}" Width="*"/>
+                                <DataGridTextColumn Header="状态" Binding="{Binding StatusText}" Width="64"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+
+                    <!-- 操作按钮 -->
+                    <WrapPanel Grid.Row="3" Margin="0,10,0,0">
+                        <Button Content="✓ 批准选中" Style="{StaticResource JadeButton}" Click="MineApprove_Click"
+                                ToolTip="将选中候选写入正式术语库（term_entries + 译前替换），并标记 approved"/>
+                        <Button Content="✗ 拒绝选中" Style="{StaticResource GhostButton}" Margin="8,0,0,0"
+                                Click="MineReject_Click" ToolTip="标记 rejected，不再显示"/>
+                        <Separator Width="12" Background="Transparent"/>
+                        <Button Content="刷新列表" Style="{StaticResource GhostButton}" Click="MineRefresh_Click"/>
+                        <TextBlock x:Name="MineStatusText" VerticalAlignment="Center" Margin="18,0,0,0" FontSize="12"
+                                   Foreground="{DynamicResource SecondaryTextBrush}"/>
+                    </WrapPanel>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

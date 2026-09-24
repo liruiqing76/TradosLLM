@@ -97,6 +97,7 @@
     </Reference>
 
     <Reference Include="System" />
+    <Reference Include="System.Security" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -197,6 +198,7 @@
     <Compile Include="TranslationProvider\UI\TermDialog.xaml.cs">
       <DependentUpon>TermDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TranslationProvider\UI\TermApprovalDialog.cs" />
     <Compile Include="TranslationProvider\UI\TmManagerWindow.xaml.cs">
       <DependentUpon>TmManagerWindow.xaml</DependentUpon>
     </Compile>
@@ -205,6 +207,9 @@
     <Compile Include="Glossaries\TermReplacer.cs" />
     <Compile Include="Glossaries\GlossaryDb.cs" />
     <Compile Include="Glossaries\SqliteGlossaryProvider.cs" />
+    <Compile Include="Glossaries\TermMiningDb.cs" />
+    <Compile Include="TerminologySource\TermMiner.cs" />
+    <Compile Include="Workbench\ClientProjectTemplate.cs" />
     <Compile Include="Common\Catalog\DomainTree.cs" />
     <Compile Include="TerminologySource\TermSearchModels.cs" />
     <Compile Include="TerminologySource\TermHttpClient.cs" />

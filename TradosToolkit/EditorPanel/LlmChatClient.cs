@@ -101,6 +101,11 @@ namespace TradosToolkit.EditorPanel
                 context += " [next segment source] " + Clip(nextSource);
             if (context.Length > 0)
                 prompt += " Surrounding document context for terminology and pronoun consistency (do NOT translate or quote it):" + context;
+
+            // 功能 #5：客户/项目级风格指南，作为强制约定注入润色对话
+            var styleGuide = ToolkitConfig.Load().StyleGuide;
+            if (!string.IsNullOrWhiteSpace(styleGuide))
+                prompt += " Client style guide (MANDATORY): every revision you propose must adhere to these conventions - " + styleGuide;
             return prompt;
         }
 

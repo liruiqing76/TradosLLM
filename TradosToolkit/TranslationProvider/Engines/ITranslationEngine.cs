@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Sdl.LanguagePlatform.Core;
 using Sdl.LanguagePlatform.TranslationMemory;
@@ -33,6 +34,19 @@ namespace TradosToolkit.TranslationProvider.Engines
     {
         public string PrevSource { get; set; }
         public string PrevTarget { get; set; }
+
+        /// <summary>
+        /// N 段滑动窗口（功能 #5）：按文档序排列、在当前段之前的若干段（源文+已确定译文）。
+        /// 供提示词注入多段上下文，提升跨句一致性。前一段也包含在窗口内（即 Window 末元素 == PrevSource/PrevTarget）。
+        /// </summary>
+        public List<ContextPair> Window { get; set; }
+    }
+
+    /// <summary>滑动窗口里的一对上下文：一段的源文与（可能已确定的）译文。</summary>
+    public class ContextPair
+    {
+        public string Source { get; set; }
+        public string Target { get; set; }
     }
 
     public class EngineResult

@@ -84,6 +84,12 @@ namespace TradosToolkit
         public string TermBaseUrl = string.Empty;
         /// <summary>全局领域（config.json 的 domain，缺省"通用"）。术语库/翻译插件/原生术语插件共用同一领域，工作台可直接切换。</summary>
         public string Domain = Common.Catalog.DomainTree.DefaultDomain;
+        /// <summary>LLM 提示词滑动窗口：送 LLM 时每段带前 N 段上下文（config.json 的 contextWindowSegments，缺省 3，0=关闭回退单段行为）。</summary>
+        public int ContextWindowSegments = 3;
+        /// <summary>LLM 提示词滑动窗口总字符上限（config.json 的 contextMaxChars，缺省 1200；按窗口内段数均摊截断）。</summary>
+        public int ContextMaxChars = 1200;
+        /// <summary>风格指南：客户/项目级语气、术语约定、标点规则（config.json 的 styleGuide，多行文本；空 = 不注入提示词）。</summary>
+        public string StyleGuide = string.Empty;
         /// <summary>翻译中心书签目录树；键缺失时用内置默认，键存在则完全按文件。</summary>
         public List<BookmarkFolder> Folders = DefaultFolders();
 
@@ -152,6 +158,49 @@ namespace TradosToolkit
             return "AdaptiveMachineTranslation";
         }
 
+        /// <summary>
+        /// DPAPI 加密 apiKey：当前用户范围（Only current user can decrypt）。
+        /// 加密后 Base64 编码加 "dpapi:" 前缀存储。空值原样返回。
+        /// </summary>
+        private static string EncryptApiKey(string plain)
+        {
+            if (string.IsNullOrEmpty(plain)) return string.Empty;
+            try
+            {
+                var bytes = System.Security.Cryptography.ProtectedData.Protect(
+                    System.Text.Encoding.UTF8.GetBytes(plain), null,
+                    System.Security.Cryptography.DataProtectionScope.CurrentUser);
+                return "dpapi:" + Convert.ToBase64String(bytes);
+            }
+            catch (Exception e)
+            {
+                ToolkitLog.Warn("apiKey DPAPI 加密失败，回退明文", e);
+                return plain;
+            }
+        }
+
+        /// <summary>
+        /// DPAPI 解密 apiKey：识别 "dpapi:" 前缀解密；无前缀视为明文（兼容旧配置）。
+        /// </summary>
+        private static string DecryptApiKey(string stored)
+        {
+            if (string.IsNullOrEmpty(stored)) return string.Empty;
+            if (!stored.StartsWith("dpapi:", StringComparison.Ordinal))
+                return stored.Trim(); // 旧版明文，原样返回
+            try
+            {
+                var bytes = Convert.FromBase64String(stored.Substring(6));
+                var plain = System.Security.Cryptography.ProtectedData.Unprotect(
+                    bytes, null, System.Security.Cryptography.DataProtectionScope.CurrentUser);
+                return System.Text.Encoding.UTF8.GetString(plain);
+            }
+            catch (Exception e)
+            {
+                ToolkitLog.Warn("apiKey DPAPI 解密失败（可能跨用户/机器），回退原值", e);
+                return stored;
+            }
+        }
+
         public static ToolkitConfig Load()
         {
             var config = new ToolkitConfig();
@@ -171,7 +220,7 @@ namespace TradosToolkit
                     if (json.TryGetValue("tmUrl", out var tm) && tm is string s)
                         config.TmUrl = (s ?? string.Empty).Trim();
                     if (json.TryGetValue("apiKey", out var ak) && ak is string k)
-                        config.ApiKey = (k ?? string.Empty).Trim();
+                        config.ApiKey = DecryptApiKey(k ?? string.Empty);
                     if (json.TryGetValue("llmBaseUrl", out var bu) && bu is string b)
                         config.LlmBaseUrl = (b ?? string.Empty).Trim();
                     if (json.TryGetValue("llmModel", out var mo) && mo is string m)
@@ -216,6 +265,12 @@ namespace TradosToolkit
                         config.TermBaseUrl = (tb ?? string.Empty).Trim();
                     if (json.TryGetValue("domain", out var dom) && dom is string d)
                         config.Domain = string.IsNullOrWhiteSpace(d) ? Common.Catalog.DomainTree.DefaultDomain : d.Trim();
+                    if (json.TryGetValue("contextWindowSegments", out var cws))
+                        config.ContextWindowSegments = Math.Max(0, Math.Min(10, Convert.ToInt32(cws)));
+                    if (json.TryGetValue("contextMaxChars", out var cmc))
+                        config.ContextMaxChars = Math.Max(100, Math.Min(8000, Convert.ToInt32(cmc)));
+                    if (json.TryGetValue("styleGuide", out var sg) && sg is string sgs)
+                        config.StyleGuide = sgs ?? string.Empty;
                     if (json.TryGetValue("translationCenterFolders", out var bm))
                         config.Folders = ParseFolders(bm);
                     else if (json.TryGetValue("translationCenterBookmarks", out var legacy))
@@ -312,7 +367,9 @@ namespace TradosToolkit
                                string inboxTargetLang = null, bool? inboxAutoStart = null,
                                string inboxReportFormat = null,
                                bool? tmIndexAutoRefresh = null, string tmIndexRefreshTime = null,
-                               string tmIndexLastRun = null, string llmOrigin = null)
+                               string tmIndexLastRun = null, string llmOrigin = null,
+                               int? contextWindowSegments = null, int? contextMaxChars = null,
+                               string styleGuide = null)
         {
             try
             {
@@ -321,7 +378,7 @@ namespace TradosToolkit
                 if (File.Exists(ConfigFilePath))
                     doc = json.Deserialize<Dictionary<string, object>>(File.ReadAllText(ConfigFilePath));
                 if (doc == null) doc = new Dictionary<string, object>();
-                if (apiKey != null) doc["apiKey"] = apiKey;
+                if (apiKey != null) doc["apiKey"] = EncryptApiKey(apiKey);
                 if (llmBaseUrl != null) doc["llmBaseUrl"] = llmBaseUrl;
                 if (llmModel != null) doc["llmModel"] = llmModel;
                 if (translationCenterUrl != null) doc["translationCenterUrl"] = translationCenterUrl;
@@ -331,6 +388,9 @@ namespace TradosToolkit
                     doc["tmIndexRefreshTime"] = IsValidTime(tmIndexRefreshTime) ? tmIndexRefreshTime.Trim() : "02:00";
                 if (tmIndexLastRun != null) doc["tmIndexLastRun"] = tmIndexLastRun;
                 if (llmOrigin != null) doc["llmOrigin"] = NormalizeLlmOrigin(llmOrigin);
+                if (contextWindowSegments != null) doc["contextWindowSegments"] = contextWindowSegments.Value;
+                if (contextMaxChars != null) doc["contextMaxChars"] = contextMaxChars.Value;
+                if (styleGuide != null) doc["styleGuide"] = styleGuide;
                 if (termBaseUrl != null) doc["termBaseUrl"] = termBaseUrl;
                 if (domain != null) doc["domain"] = domain;
                 if (inboxWatchFolder != null) doc["inboxWatchFolder"] = inboxWatchFolder;

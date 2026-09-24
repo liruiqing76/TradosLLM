@@ -138,11 +138,13 @@ namespace TradosToolkit.Workbench
             QuickPanel.Visibility = Visibility.Collapsed;
             ToolsPanel.Visibility = Visibility.Collapsed;
             ReviewPanel.Visibility = Visibility.Collapsed;
+            TemplatesPanel.Visibility = Visibility.Collapsed;
             var target = picked?.Tag as string;
             if (target == "MemoriesPanel") MemoriesPanel.Visibility = Visibility.Visible;
             else if (target == "QuickPanel") QuickPanel.Visibility = Visibility.Visible;
             else if (target == "ToolsPanel") ToolsPanel.Visibility = Visibility.Visible;
             else if (target == "ReviewPanel") ReviewPanel.Visibility = Visibility.Visible;
+            else if (target == "TemplatesPanel") { TemplatesPanel.Visibility = Visibility.Visible; RefreshTemplates(); }
             else OverviewPanel.Visibility = Visibility.Visible;
             ToolkitLog.Info("工作台：切换到 " + (target ?? "overview"));
         }
@@ -626,6 +628,67 @@ namespace TradosToolkit.Workbench
             {
                 TmStatusText.Text = UiText.Tf("WB_Mem_Err_Load", ex.Message);
                 ToolkitLog.Error("工作台：加入当前项目失败 " + item.FilePath, ex);
+            }
+        }
+
+        // ==================== 术语库备份 / 恢复 ====================
+
+        private void GlossBackup_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var db = new TradosToolkit.Glossaries.GlossaryDb();
+                var path = db.Backup();
+                TmStatusText.Text = "术语库已备份: " + System.IO.Path.GetFileName(path);
+                ToolkitLog.Info("工作台：术语库备份完成 " + path);
+            }
+            catch (Exception ex)
+            {
+                TmStatusText.Text = "备份失败: " + ex.Message;
+                ToolkitLog.Error("工作台：术语库备份失败", ex);
+            }
+        }
+
+        private void GlossRestore_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var backups = TradosToolkit.Glossaries.GlossaryDb.ListBackups();
+                if (backups.Count == 0)
+                {
+                    MessageBox.Show("没有可用的备份文件。", "恢复术语库", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+
+                // 每个备份一个 filter 项，用户下拉即可选到带时间戳的备份
+                var filters = string.Join(";", backups.Select(b =>
+                    System.IO.Path.GetFileName(b) + " (*.db)|*.db"));
+
+                var dlg = new System.Windows.Forms.OpenFileDialog
+                {
+                    Title = "选择术语库备份文件",
+                    Filter = filters,
+                    InitialDirectory = TradosToolkit.Glossaries.GlossaryDb.BackupDir,
+                };
+
+                var result = dlg.ShowDialog();
+                if (result != System.Windows.Forms.DialogResult.OK || string.IsNullOrEmpty(dlg.FileName))
+                    return;
+
+                var confirm = MessageBox.Show(
+                    "恢复此备份文件？当前术语库将被覆盖。\n\n备份文件: " + System.IO.Path.GetFileName(dlg.FileName) + "\n\n（恢复前会自动备份当前库）",
+                    "确认恢复", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (confirm != MessageBoxResult.Yes) return;
+
+                var db = new TradosToolkit.Glossaries.GlossaryDb();
+                var preRestore = db.Restore(dlg.FileName);
+                TmStatusText.Text = "术语库已恢复（原库备份: " + System.IO.Path.GetFileName(preRestore) + "）";
+                ToolkitLog.Info("工作台：术语库已从备份恢复 " + dlg.FileName);
+            }
+            catch (Exception ex)
+            {
+                TmStatusText.Text = "恢复失败: " + ex.Message;
+                ToolkitLog.Error("工作台：术语库恢复失败", ex);
             }
         }
 
@@ -1448,6 +1511,121 @@ namespace TradosToolkit.Workbench
                 return new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(result.Payload);
             }
             catch { return result.Status.ToString(); }
+        }
+
+        // ====================== 客户项目模板（功能 #3） ======================
+
+        /// <summary>刷新模板列表与领域下拉。</summary>
+        private void RefreshTemplates()
+        {
+            try
+            {
+                if (TmplDomCombo.ItemsSource == null)
+                {
+                    TmplDomCombo.ItemsSource = DomainCatalog.Names();
+                    TmplDomCombo.SelectedItem = DomCombo.SelectedItem;
+                }
+                TmplList.ItemsSource = ClientTemplateStore.List();
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("工作台：加载客户模板失败", ex);
+                TmplMsgText.Text = "加载失败：" + ex.Message;
+            }
+        }
+
+        /// <summary>浏览选择 .sdltm 记忆库文件。</summary>
+        private void TmplBrowseTm_Click(object sender, RoutedEventArgs e)
+        {
+            var dlg = new Microsoft.Win32.OpenFileDialog
+            {
+                Filter = "翻译记忆库 (*.sdltm)|*.sdltm|所有文件|*.*",
+                Title = "选择客户主 TM",
+            };
+            if (dlg.ShowDialog(this) == true)
+                TmplTmBox.Text = dlg.FileName;
+        }
+
+        /// <summary>保存模板：从表单收集字段写 JSON 文件（同名即覆盖=编辑）。</summary>
+        private void TmplSave_Click(object sender, RoutedEventArgs e)
+        {
+            var name = (TmplNameBox.Text ?? "").Trim();
+            if (string.IsNullOrEmpty(name)) { TmplMsgText.Text = "请填写客户名。"; return; }
+            try
+            {
+                var existing = ClientTemplateStore.Get(name);
+                var t = existing ?? new ClientProjectTemplate { name = name, createdAt = DateTime.Now };
+                t.sourceLang = (TmplSrcBox.Text ?? "").Trim();
+                t.targetLangs = (TmplTgtBox.Text ?? "")
+                    .Split(new[] { ',', ';', '，', '；' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(s => s.Trim()).Where(s => s.Length > 0).ToList();
+                t.tmFile = (TmplTmBox.Text ?? "").Trim();
+                t.domain = TmplDomCombo.SelectedItem as string ?? "";
+                if (string.IsNullOrWhiteSpace(t.styleGuide)) t.styleGuide = ToolkitConfig.Load().StyleGuide;
+                ClientTemplateStore.Save(t);
+                RefreshTemplates();
+                TmplMsgText.Text = (existing == null ? "已新建模板 " : "已更新模板 ") + name;
+            }
+            catch (Exception ex)
+            {
+                TmplMsgText.Text = "保存失败：" + ex.Message;
+            }
+        }
+
+        /// <summary>选中模板行 → 把内容回填到编辑表单。</summary>
+        private void TmplList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            var t = TmplList.SelectedItem as ClientProjectTemplate;
+            if (t == null) return;
+            TmplNameBox.Text = t.name;
+            TmplSrcBox.Text = t.sourceLang;
+            TmplTgtBox.Text = string.Join(",", t.targetLangs);
+            TmplTmBox.Text = t.tmFile;
+            if (TmplDomCombo.Items.OfType<string>().Contains(t.domain))
+                TmplDomCombo.SelectedItem = t.domain;
+        }
+
+        /// <summary>套用：把模板的领域+风格指南写入全局配置（翻译/术语立即生效），TM 路径提示后续动作。</summary>
+        private void TmplApply_Click(object sender, RoutedEventArgs e)
+        {
+            var t = TmplList.SelectedItem as ClientProjectTemplate;
+            if (t == null) { TmplMsgText.Text = "请先在列表选中一个模板。"; return; }
+            try
+            {
+                ToolkitConfig.Save(
+                    domain: string.IsNullOrWhiteSpace(t.domain) ? null : t.domain,
+                    styleGuide: string.IsNullOrWhiteSpace(t.styleGuide) ? null : t.styleGuide);
+                // 同步工作台领域下拉，和「快捷操作」页的切换保持一致
+                if (!string.IsNullOrWhiteSpace(t.domain) && DomCombo.Items.OfType<string>().Contains(t.domain))
+                    DomCombo.SelectedItem = t.domain;
+                OpenAiCompatEngine.InvalidateTermCache();
+                var msg = "已套用「" + t.name + "」：领域=" + (t.domain ?? "") +
+                          (string.IsNullOrWhiteSpace(t.styleGuide) ? "，风格指南未设置" : "，风格指南已注入 LLM 提示词");
+                if (!string.IsNullOrWhiteSpace(t.tmFile))
+                    msg += "；模板 TM：" + t.tmFile + "（建项目时经 API 传入 template 挂载）";
+                TmplMsgText.Text = msg;
+                ToolkitLog.Info("工作台：套用客户模板 " + t.name);
+            }
+            catch (Exception ex)
+            {
+                TmplMsgText.Text = "套用失败：" + ex.Message;
+            }
+        }
+
+        private void TmplDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var t = TmplList.SelectedItem as ClientProjectTemplate;
+            if (t == null) { TmplMsgText.Text = "请先在列表选中一个模板。"; return; }
+            if (MessageBox.Show(this, "删除模板「" + t.name + "」？（JSON 文件将被移除，不可恢复）",
+                    "确认删除", MessageBoxButton.YesNo, MessageBoxImage.Warning) != MessageBoxResult.Yes) return;
+            ClientTemplateStore.Delete(t.name);
+            RefreshTemplates();
+            TmplMsgText.Text = "已删除模板 " + t.name;
+        }
+
+        private void TmplRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshTemplates();
         }
     }
 

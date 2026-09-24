@@ -234,6 +234,14 @@
                             <TextBlock x:Name="NavReviewText" Text="AI 审校" VerticalAlignment="Center"/>
                         </StackPanel>
                     </RadioButton>
+                    <RadioButton x:Name="NavTemplates" Style="{StaticResource RailItem}"
+                                 Checked="Nav_Changed" Tag="TemplatesPanel">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="{DynamicResource Fluent}" FontSize="15" Text="&#xE8B7;"
+                                       Width="20" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="NavTemplatesText" Text="客户模板" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </RadioButton>
                 </StackPanel>
 
                 <TextBlock Grid.Row="2" x:Name="VersionText" Margin="20,0,20,14" FontSize="10.5"
@@ -365,6 +373,11 @@
                             Margin="0,0,10,0" Click="AddToProject_Click"/>
                     <Button x:Name="MemOpCancel" Content="Cancel" Style="{StaticResource GhostButton}"
                             Visibility="Collapsed" Click="CancelMemOp_Click"/>
+                    <Border Width="1" Margin="12,2" Background="{DynamicResource TileBorderBrush}"/>
+                    <Button x:Name="GlossBackupBtn" Content="备份术语库" Style="{StaticResource GhostButton}"
+                            Margin="8,0,10,0" Click="GlossBackup_Click"/>
+                    <Button x:Name="GlossRestoreBtn" Content="从备份恢复…" Style="{StaticResource GhostButton}"
+                            Click="GlossRestore_Click"/>
                 </WrapPanel>
 
                 <Border Grid.Row="4" CornerRadius="12" BorderThickness="1"
@@ -707,6 +720,83 @@
                         </StackPanel>
                     </Grid>
                 </Border>
+            </Grid>
+
+            <!-- 客户模板 -->
+            <Grid x:Name="TemplatesPanel" Margin="28,22,28,16" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Style="{StaticResource PageTitle}" Text="客户项目模板"/>
+
+                <!-- 新建/编辑模板 -->
+                <Border Grid.Row="1" Style="{StaticResource Tile}" Margin="0,16,0,0">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="新建/编辑模板"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                            <TextBlock Text="客户名" Width="70" VerticalAlignment="Center"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+                            <TextBox x:Name="TmplNameBox" Height="28" Width="180" VerticalAlignment="Center"/>
+                            <TextBlock Text="源语言" Width="56" VerticalAlignment="Center" Margin="14,0,0,0"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+                            <TextBox x:Name="TmplSrcBox" Height="28" Width="90" VerticalAlignment="Center"
+                                     ToolTip="zh-CN / en-US 等"/>
+                            <TextBlock Text="目标语言" Width="60" VerticalAlignment="Center" Margin="14,0,0,0"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+                            <TextBox x:Name="TmplTgtBox" Height="28" Width="120" VerticalAlignment="Center"
+                                     ToolTip="逗号分隔，如 en-US,ja-JP"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                            <TextBlock Text="TM 路径" Width="70" VerticalAlignment="Center"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+                            <TextBox x:Name="TmplTmBox" Height="28" Width="300" VerticalAlignment="Center"
+                                     FontFamily="{DynamicResource Mono}" FontSize="12"/>
+                            <Button Content="浏览…" Style="{StaticResource GhostButton}" VerticalAlignment="Center"
+                                    Margin="6,0,0,0" Click="TmplBrowseTm_Click"/>
+                            <TextBlock Text="领域" Width="36" VerticalAlignment="Center" Margin="12,0,0,0"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+                            <ComboBox x:Name="TmplDomCombo" Width="130" Height="28" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                            <Button x:Name="TmplSaveBtn" Content="💾 保存模板" Style="{StaticResource JadeButton}"
+                                    Click="TmplSave_Click"/>
+                            <TextBlock x:Name="TmplMsgText" VerticalAlignment="Center" Margin="14,0,0,0" FontSize="11"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <!-- 已有模板列表 -->
+                <Border Grid.Row="2" Margin="0,16,0,0" CornerRadius="12" BorderThickness="1"
+                        BorderBrush="{DynamicResource TileBorderBrush}">
+                    <ListView x:Name="TmplList" ItemsSource="{Binding}" BorderThickness="0"
+                              SelectionChanged="TmplList_SelectionChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="120" Header="客户名" DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Width="80" Header="语言对" DisplayMemberBinding="{Binding SourceLang}"/>
+                                <GridViewColumn Width="60" Header="领域" DisplayMemberBinding="{Binding Domain}"/>
+                                <GridViewColumn Width="180" Header="TM" DisplayMemberBinding="{Binding TmFile}"/>
+                                <GridViewColumn Width="120" Header="更新时间" DisplayMemberBinding="{Binding UpdatedAtText}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+
+                <!-- 操作按钮 -->
+                <WrapPanel Grid.Row="3" Margin="0,10,0,0">
+                    <Button x:Name="TmplApplyBtn" Content="📋 套用到当前项目" Style="{StaticResource JadeButton}"
+                            Click="TmplApply_Click"
+                            ToolTip="将选中模板的配置（语言/领域/风格指南/TM）应用到当前项目领域和全局 config"/>
+                    <Button x:Name="TmplDeleteBtn" Content="删除选中" Style="{StaticResource GhostButton}" Margin="8,0,0,0"
+                            Click="TmplDelete_Click"/>
+                    <Button x:Name="TmplRefreshBtn" Content="刷新" Style="{StaticResource GhostButton}" Margin="8,0,0,0"
+                            Click="TmplRefresh_Click"/>
+                </WrapPanel>
             </Grid>
         </Grid>
 

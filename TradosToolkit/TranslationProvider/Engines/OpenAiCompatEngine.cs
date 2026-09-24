@@ -96,11 +96,18 @@ namespace TradosToolkit.TranslationProvider.Engines
                         var done = results[pending[p - 1]];
                         if (done != null && done.Length > 0) prevTarget = done[0].Translation;
                     }
+                    // 功能 #5：取滑动窗口并把紧邻前段的已确定译文回填进末元素
+                    // （窗口按文档序，末元素 == 紧邻前段，与 Direction 构建口径一致）
+                    var window = context?.Window != null && context.Window.Count > 0
+                        ? new List<ContextPair>(context.Window)
+                        : null;
+                    if (window != null && window.Count > 0 && !string.IsNullOrEmpty(prevTarget))
+                        window[window.Count - 1].Target = prevTarget;
                     var text = sources[index];
                     tasks[p - start] = Task.Run(async () =>
                     {
                         var translation = await TranslateOneAsync(
-                            languagePair, text, prevSource, prevTarget, apiKey, cancellationToken,
+                            languagePair, text, prevSource, prevTarget, window, apiKey, cancellationToken,
                             config.LlmTimeoutSeconds, config.LlmRetryCount)
                             .ConfigureAwait(false);
                         results[index] = new[]
@@ -123,11 +130,14 @@ namespace TradosToolkit.TranslationProvider.Engines
 
         private async Task<string> TranslateOneAsync(
             LanguagePair pair, string text, string prevSource, string prevTarget,
+            List<ContextPair> window,
             string apiKey, CancellationToken cancellationToken, int timeoutSeconds, int retryCount)
         {
             // 术语强约束：命中源文的译前术语，译文必须严格采用指定译法。
             var termPairs = GetTermHits(pair, text);
-            var termLine = BuildTermInstruction(termPairs);
+            // 功能 #5：合并当前段术语 + 窗口内源文命中的术语（上限 20 对），保证跨句术语一致
+            var allTermPairs = MergeWindowTerms(pair, termPairs, window);
+            var termLine = BuildTermInstruction(allTermPairs);
             var domain = ToolkitConfig.Load().Domain;
 
             // 重试循环：只对超时/网络类(可恢复)异常重试；业务类(HTTP 4xx/5xx 认证、返回异常)直接抛。
@@ -141,7 +151,7 @@ namespace TradosToolkit.TranslationProvider.Engines
                     await Task.Delay(TimeSpan.FromSeconds(Math.Min(8, 1 << attempt)),
                                      cancellationToken).ConfigureAwait(false);
 
-                var systemPrompt = BuildPrompt(pair, prevSource, prevTarget, termLine, domain);
+                var systemPrompt = BuildPrompt(pair, prevSource, prevTarget, window, termLine, domain);
                 if (termRejected)
                     systemPrompt += " IMPORTANT: Your previous translation failed the terminology check. "
                         + "Re-translate now and MUST use every mapped term below exactly.";
@@ -184,11 +194,12 @@ namespace TradosToolkit.TranslationProvider.Engines
 
                     content = Clean(content);
 
-                    // 一致性护栏：译文未采用术语映射时强制重译一次（不计入重试退避）。
-                    if (!termRejected && !TermsSatisfied(content, termPairs))
+                    // 一致性护栏：译文未采用术语映射时强制重译一次（不计入重试退避）
+                    // ——校验对象是全部生效术语（当前段 + 窗口段），与提示词注入的口径一致
+                    if (!termRejected && !TermsSatisfied(content, allTermPairs))
                     {
                         termRejected = true;
-                        ToolkitLog.Warn("LLM 译文未采用术语映射，强制重译一次 (术语对数=" + (termPairs?.Count ?? 0) + ")");
+                        ToolkitLog.Warn("LLM 译文未采用术语映射，强制重译一次 (术语对数=" + allTermPairs.Count + ")");
                         continue;
                     }
                     return content;
@@ -230,7 +241,8 @@ namespace TradosToolkit.TranslationProvider.Engines
             return ex is InvalidOperationException;
         }
 
-        private string BuildPrompt(LanguagePair pair, string prevSource, string prevTarget, string termInstruction, string domain)
+        private string BuildPrompt(LanguagePair pair, string prevSource, string prevTarget,
+            List<ContextPair> window, string termInstruction, string domain)
         {
             var prompt = "You are a translation engine, NOT a chat assistant. "
                 + "Translate the user's text from " + pair.SourceCultureName + " to " + pair.TargetCultureName
@@ -248,18 +260,75 @@ namespace TradosToolkit.TranslationProvider.Engines
                 prompt += " 6) The text belongs to the \"" + domain + "\" domain "
                     + "(领域=" + domain + "); align terminology, style and wording with that domain.";
 
-            var hasSource = !string.IsNullOrWhiteSpace(prevSource);
-            var hasTarget = !string.IsNullOrWhiteSpace(prevTarget);
-            if (hasSource || hasTarget)
+            // 功能 #5：风格指南（客户/项目级约定），作为独立规则段注入
+            var styleGuide = ToolkitConfig.Load().StyleGuide;
+            if (!string.IsNullOrWhiteSpace(styleGuide))
+                prompt += " 7) Client style guide (MANDATORY): adhere to these conventions - " + styleGuide;
+
+            // 功能 #5：N 段滑动窗口上下文。窗口非空时优先用窗口（多段），否则回退单段前文。
+            if (window != null && window.Count > 0)
             {
-                prompt += " For consistency, the user's text is the segment right after this previous segment"
-                    + " (do NOT translate or repeat it, just align terminology, names and pronouns):";
-                if (hasSource)
-                    prompt += " [previous source] " + Clip(prevSource);
-                if (hasTarget)
-                    prompt += " [previous translation] " + Clip(prevTarget);
+                var maxChars = ToolkitConfig.Load().ContextMaxChars;
+                var budget = Math.Min(maxChars / Math.Max(1, window.Count), 400);
+                prompt += " For consistency, the user's text is the segment right after the following preceding segments"
+                    + " (listed in document order; do NOT translate or repeat them, just align terminology, names and pronouns):";
+                for (var w = 0; w < window.Count; w++)
+                {
+                    var wpa = window[w];
+                    var src = wpa == null ? null : wpa.Source;
+                    var tgt = wpa == null ? null : wpa.Target;
+                    if (string.IsNullOrWhiteSpace(src)) continue;
+                    // 窗口按文档序：末元素 == 紧邻前段 == prev-1，首元素最远 == prev-N
+                    var label = window.Count - w;
+                    prompt += " [prev-" + label + " source] " + ClipBudget(src, budget);
+                    if (!string.IsNullOrWhiteSpace(tgt))
+                        prompt += " [prev-" + label + " translation] " + ClipBudget(tgt, budget);
+                }
+            }
+            else
+            {
+                var hasSource = !string.IsNullOrWhiteSpace(prevSource);
+                var hasTarget = !string.IsNullOrWhiteSpace(prevTarget);
+                if (hasSource || hasTarget)
+                {
+                    prompt += " For consistency, the user's text is the segment right after this previous segment"
+                        + " (do NOT translate or repeat it, just align terminology, names and pronouns):";
+                    if (hasSource)
+                        prompt += " [previous source] " + Clip(prevSource);
+                    if (hasTarget)
+                        prompt += " [previous translation] " + Clip(prevTarget);
+                }
             }
             return prompt;
+        }
+
+        /// <summary>合并当前段术语与窗口内源文命中的术语（去重、上限 20 对）。</summary>
+        private List<string[]> MergeWindowTerms(LanguagePair pair, List<string[]> termPairs, List<ContextPair> window)
+        {
+            var merged = new List<string[]>(termPairs ?? new List<string[]>());
+            if (window == null || window.Count == 0 || merged.Count >= 20)
+                return merged;
+            foreach (var wp in window)
+            {
+                if (merged.Count >= 20) break;
+                if (wp == null || string.IsNullOrEmpty(wp.Source)) continue;
+                foreach (var ht in GetTermHits(pair, wp.Source))
+                {
+                    var dup = false;
+                    foreach (var e in merged)
+                        if (string.Equals(e[0], ht[0], StringComparison.OrdinalIgnoreCase)) { dup = true; break; }
+                    if (!dup) merged.Add(ht);
+                    if (merged.Count >= 20) break;
+                }
+            }
+            return merged;
+        }
+
+        private static string ClipBudget(string text, int budget)
+        {
+            if (string.IsNullOrEmpty(text)) return string.Empty;
+            text = text.Trim();
+            return text.Length <= budget ? text : text.Substring(0, budget) + "...";
         }
 
         /// <summary>按语言对缓存读一次译前术语库；取命中原词的术语对。</summary>
@@ -286,6 +355,12 @@ namespace TradosToolkit.TranslationProvider.Engines
             var key = pair.SourceCultureName + ">" + pair.TargetCultureName + "|" + domain;
             lock (_termCache)
             {
+                // 术语审批通过（#2）会递增全局代次：代次变了说明库有更新，清空缓存重读
+                if (_termCacheGeneration != TermCacheGeneration)
+                {
+                    _termCache.Clear();
+                    _termCacheGeneration = TermCacheGeneration;
+                }
                 if (_termCache.TryGetValue(key, out var cached))
                     return cached;
                 List<GlossaryEntry> list;
@@ -302,6 +377,19 @@ namespace TradosToolkit.TranslationProvider.Engines
                 return list;
             }
         }
+
+        /// <summary>术语库全局更新代次：审批通过/驳回写入后递增，各引擎实例据此失效术语缓存。</summary>
+        private long _termCacheGeneration = -1;
+        private static long _termGeneration;
+
+        /// <summary>术语库发生变化（审批通过写库等）后调用，令所有引擎实例的术语缓存失效。</summary>
+        public static void InvalidateTermCache()
+        {
+            System.Threading.Interlocked.Increment(ref _termGeneration);
+        }
+
+        private static long TermCacheGeneration =>
+            System.Threading.Interlocked.Read(ref _termGeneration);
 
         private static string BuildTermInstruction(List<string[]> termPairs)
         {

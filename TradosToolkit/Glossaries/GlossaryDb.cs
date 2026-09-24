@@ -819,5 +819,123 @@ CREATE INDEX IF NOT EXISTS ix_term_synonyms_entry ON term_synonyms(entry_id);";
             var i = line.IndexOf(',');
             return i < 0 ? new[] { line } : new[] { line.Substring(0, i), line.Substring(i + 1) };
         }
+
+        // ============================ 备份 / 恢复 ============================
+
+        private static readonly object BackupGate = new object();
+        private const int KeepBackups = 10;
+
+        /// <summary>备份库目录：%APPDATA%\TradosToolkit\backup\</summary>
+        public static string BackupDir => Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "TradosToolkit", "backup");
+
+        /// <summary>
+        /// 备份术语库。先 WAL checkpoint 确保所有数据写入主库文件，再 File.Copy。
+        /// 兼容 Studio 自带的 SQLite 1.0.103（无 SQLiteBackup 类）。返回备份文件路径。
+        /// </summary>
+        public string Backup()
+        {
+            lock (BackupGate)
+            {
+                Directory.CreateDirectory(BackupDir);
+                var stamp = DateTime.Now.ToString("yyyyMMdd-HHmmss");
+                var dest = Path.Combine(BackupDir, "glossary-" + stamp + ".db");
+
+                // WAL checkpoint：把 -wal 日志合并回主库，确保 File.Copy 拿到完整数据
+                using (var conn = Open())
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "PRAGMA wal_checkpoint(FULL);";
+                    cmd.ExecuteNonQuery();
+                }
+
+                // 等文件句柄释放后复制（SQLite 连接已 using Dispose）
+                var dbPath = DefaultPath;
+                File.Copy(dbPath, dest, true);
+                // 如果有 -wal/-shm 文件也一并复制（非 WAL 模式时不存在）
+                foreach (var ext in new[] { "-wal", "-shm" })
+                {
+                    var src = dbPath + ext;
+                    if (File.Exists(src))
+                        File.Copy(src, dest + ext, true);
+                }
+                ToolkitLog.Info("术语库已备份: " + dest);
+                TrimBackups();
+                return dest;
+            }
+        }
+
+        /// <summary>列出所有备份（按时间倒序）。</summary>
+        public static List<string> ListBackups()
+        {
+            var list = new List<string>();
+            try
+            {
+                if (!Directory.Exists(BackupDir)) return list;
+                foreach (var f in Directory.GetFiles(BackupDir, "glossary-*.db").OrderByDescending(f => f))
+                    list.Add(f);
+            }
+            catch (Exception e)
+            {
+                ToolkitLog.Warn("列出术语库备份失败", e);
+            }
+            return list;
+        }
+
+        /// <summary>从备份文件恢复术语库（覆盖当前库）。恢复前先备份当前库，防误操作。</summary>
+        public string Restore(string fromPath)
+        {
+            if (string.IsNullOrWhiteSpace(fromPath) || !File.Exists(fromPath))
+                throw new ArgumentException("备份文件不存在: " + fromPath);
+
+            lock (BackupGate)
+            {
+                var dbPath = DefaultPath;
+                // 先备份当前库，防止恢复后想回退无门
+                var preRestore = dbPath + ".prerestore-" + DateTime.Now.ToString("yyyyMMdd-HHmmss") + ".bak";
+                try
+                {
+                    File.Copy(dbPath, preRestore, true);
+                }
+                catch (Exception e)
+                {
+                    ToolkitLog.Warn("恢复前自动备份失败（继续恢复）", e);
+                }
+
+                File.Copy(fromPath, dbPath, true);
+                ToolkitLog.Info("术语库已从备份恢复: " + fromPath);
+                return preRestore;
+            }
+        }
+
+        /// <summary>删除一个备份文件。</summary>
+        public static bool DeleteBackup(string path)
+        {
+            try
+            {
+                lock (BackupGate)
+                {
+                    File.Delete(path);
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                ToolkitLog.Warn("删除备份失败: " + path, e);
+                return false;
+            }
+        }
+
+        private static void TrimBackups()
+        {
+            var backups = ListBackups();
+            if (backups.Count <= KeepBackups) return;
+            foreach (var old in backups.Skip(KeepBackups))
+            {
+                try { File.Delete(old); }
+                catch (Exception e) { ToolkitLog.Warn("清理旧备份失败: " + old, e); }
+            }
+        }
     }
 }
