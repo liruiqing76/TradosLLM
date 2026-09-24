@@ -99,6 +99,7 @@
             <Button Content="补全" Tag="检查当前译文是否漏译，把译文补充完整。" Click="QuickAction_Click"/>
             <Button Content="查术语" Tag="检查当前译文的术语是否准确一致，修正并简要说明。" Click="QuickAction_Click"/>
             <Button Content="找问题" Tag="解释当前译文可能存在的问题与修改建议。" Click="QuickAction_Click"/>
+            <Button Content="回译质检" Tag="__BTQA__" Click="QuickAction_Click"/>
         </WrapPanel>
 
         <!-- 输入 -->

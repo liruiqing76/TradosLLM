@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -151,8 +152,13 @@ namespace TradosToolkit.EditorPanel
 
         private void QuickAction_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button button && button.Tag is string prompt)
-                SendMessage(prompt);
+            if (sender is Button button && button.Tag is string tag)
+            {
+                if (tag == "__BTQA__")
+                    RunBackTranslateQa();
+                else
+                    SendMessage(tag);
+            }
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)
@@ -232,6 +238,76 @@ namespace TradosToolkit.EditorPanel
                 var revised = LlmChatClient.ExtractRevised(bubble.Text);
                 ToolkitLog.Info("面板请求写回: 提取长度=" + (revised?.Length ?? 0));
                 ApplyRequested?.Invoke(revised, MarkTranslatedCheck.IsChecked == true, ContinueNextCheck.IsChecked == true);
+            }
+        }
+
+        /// <summary>
+        /// 当前段回译质检：把译文回译成源语 → 与原文比对 → 给出判定。
+        /// 结果以气泡形式展示在对话区，不写回译文（仅诊断）。
+        /// </summary>
+        private async void RunBackTranslateQa()
+        {
+            if (_busy || _segmentId == null || !LlmChatClient.IsReady())
+                return;
+            if (string.IsNullOrWhiteSpace(_target))
+            {
+                AddBubble(new Bubble { IsUser = false, Text = "当前段没有译文，无法回译质检。", Time = Now() });
+                return;
+            }
+
+            SetBusy(true);
+            _cts = new CancellationTokenSource();
+            AddBubble(new Bubble { IsUser = true, Text = "回译质检", Time = Now() });
+            AddBubble(new Bubble { IsUser = false, Text = "正在回译…", Time = Now() });
+
+            try
+            {
+                // 阶段1：回译 target → source
+                var backPrompt = "把以下译文准确回译成源语言，只返回回译文本，不要任何解释。\n"
+                    + "忠实还原语义，不润色不补充，保持数字和占位符原样。\n译文：" + _target;
+                var back = await LlmChatClient.ChatAsync(_source, _target, _targetLang,
+                    new List<ChatTurn>(), backPrompt, null, null, null, _cts.Token);
+
+                // 移除可能被注入的 <<< >>> 包裹
+                back = back.Replace("<<<", "").Replace(">>>", "").Trim();
+
+                // 阶段2：判官比对 source vs back
+                var judgePrompt = "你是翻译质检。下面给出原文和回译文本（译文被独立回译成源语言后的结果）。\n"
+                    + "原理：忠实译文的回译应与原文语义一致；差异越大越可能漏译/增译/错译。\n"
+                    + "原文：" + _source + "\n回译：" + back + "\n\n"
+                    + "请判定并给出：\n"
+                    + "1) verdict: ok(语义一致) / amber(有偏差需复核) / red(语义不符)\n"
+                    + "2) score: 0-100 语义保真度\n"
+                    + "3) reason: 一句话说明问题\n"
+                    + "4) suggestion: 如果有问题，给出修正后的译文\n"
+                    + "用以下格式回复（不要 markdown 代码块）：\n"
+                    + "判定: red/amber/ok\n分数: N\n原因: ...\n建议: ...";
+
+                AddBubble(new Bubble { IsUser = false, Text = "回译完成，正在判定…\n回译：" + back, Time = Now() });
+
+                var judge = await LlmChatClient.ChatAsync(_source, _target, _targetLang,
+                    new List<ChatTurn>(), judgePrompt, null, null, null, _cts.Token);
+
+                // 格式化展示
+                var sb = new StringBuilder();
+                sb.AppendLine("回译质检结果");
+                sb.AppendLine("回译: " + back);
+                sb.AppendLine();
+                sb.AppendLine(judge);
+                AddBubble(new Bubble { IsUser = false, Text = sb.ToString(), Time = Now() });
+            }
+            catch (OperationCanceledException)
+            {
+                AddBubble(new Bubble { IsUser = false, Text = "已取消。", Time = Now() });
+            }
+            catch (Exception ex)
+            {
+                AddBubble(new Bubble { IsUser = false, Text = "回译质检失败: " + ex.Message, Time = Now() });
+                ToolkitLog.Error("LlmPanelView.RunBackTranslateQa 异常", ex);
+            }
+            finally
+            {
+                SetBusy(false);
             }
         }
 

@@ -46,24 +46,66 @@ namespace TradosToolkit.Workbench
             if (current != null)
             {
                 ToolkitLog.Info("工作台已打开，激活");
-                current.Activate();
-                if (current.WindowState == WindowState.Minimized)
-                    current.WindowState = WindowState.Normal;
+                current.Dispatcher.BeginInvoke(new System.Action(() =>
+                {
+                    current.Activate();
+                    if (current.WindowState == WindowState.Minimized)
+                        current.WindowState = WindowState.Normal;
+                }));
                 return;
             }
-            var window = new WorkbenchWindow();
-            _instance = window;
-            window.Closed += (s, e) =>
+            ToolkitLog.Info("工作台：新建窗口（专用 UI 线程）");
+            // 根因（与术语管理/收件箱/转换窗口一致）：在 Studio 宿主 UI 线程上 Show() 的外挂顶层窗口，
+            // 宿主消息泵不为它 TranslateMessage，物理 WM_KEYDOWN 能到但 WM_CHAR 被丢弃——
+            // 英文敲不进输入框（客户模板/流程页等），中文 IME 走 TSF 通道幸存；
+            // 模态 ShowDialog 的 WPF 嵌套泵自己 TranslateMessage 所以一直正常。
+            // 修复：窗口放专用 STA 线程，跑 WPF 自己的 Dispatcher 泵，输入链路不再过宿主泵。
+            var ready = new ManualResetEvent(false);
+            var t = new Thread(() =>
             {
-                if (ReferenceEquals(_instance, window)) _instance = null;
-            };
-            window.Show();
+                try
+                {
+                    var window = new WorkbenchWindow();
+                    window.Closed += (s, e) =>
+                    {
+                        if (ReferenceEquals(_instance, window)) _instance = null;
+                        window.Dispatcher.InvokeShutdown();
+                    };
+                    window.Show();
+                    _instance = window;
+                    ready.Set();
+                    Dispatcher.Run();
+                }
+                catch (Exception ex)
+                {
+                    ToolkitLog.Error("工作台：独立线程创建失败", ex);
+                    _instance = null;
+                    ready.Set();
+                }
+            });
+            t.SetApartmentState(ApartmentState.STA);
+            t.IsBackground = true;
+            t.Name = "TradosToolkit.WorkbenchUI";
+            t.Start();
+            ready.WaitOne(TimeSpan.FromSeconds(15));
+        }
+
+        /// <summary>
+        /// 把必须在 Studio UI 线程执行的自动化调用（SdlTradosStudio.Application.GetController 等）marshal 回宿主线程。
+        /// 本窗口跑在专用 STA 线程后，这些跨线程调用不可用，必须回到 Studio 的 Dispatcher 执行。
+        /// </summary>
+        private static T RunOnStudioUi<T>(Func<T> action)
+        {
+            var app = System.Windows.Application.Current;
+            if (app == null) return action();
+            return app.Dispatcher.Invoke(action);
         }
 
         public WorkbenchWindow()
         {
             ToolkitLog.Info("工作台窗口打开");
             InitializeComponent();
+            InputProbe.Attach(this);
             ApplyTexts();
             InitFlows();
             _tickTimer.Interval = TimeSpan.FromSeconds(1);
@@ -599,30 +641,28 @@ namespace TradosToolkit.Workbench
             }
             try
             {
-                var projects = Sdl.TranslationStudioAutomation.IntegrationApi.SdlTradosStudio.Application
-                    .GetController<Sdl.TranslationStudioAutomation.IntegrationApi.ProjectsController>();
-                var project = projects.CurrentProject;
-                if (project == null)
+                var msg = RunOnStudioUi(() =>
                 {
-                    TmStatusText.Text = UiText.T("WB_Mem_Err_NoProject");
-                    return;
-                }
-                var uri = Sdl.LanguagePlatform.TranslationMemoryApi.FileBasedTranslationMemory
-                    .GetFileBasedTranslationMemoryUri(item.FilePath);
-                var config = project.GetTranslationProviderConfiguration();
-                if (config.Entries != null && config.Entries.Any(en =>
-                        en.MainTranslationProvider != null &&
-                        en.MainTranslationProvider.Uri != null &&
-                        en.MainTranslationProvider.Uri.Equals(uri)))
-                {
-                    TmStatusText.Text = UiText.T("WB_Mem_AlreadyAdded");
-                    return;
-                }
-                config.Entries.Add(new Sdl.ProjectAutomation.Core.TranslationProviderCascadeEntry(
-                    new Sdl.ProjectAutomation.Core.TranslationProviderReference(uri, null, true), true, true, false));
-                project.UpdateTranslationProviderConfiguration(config);
-                TmStatusText.Text = UiText.Tf("WB_Mem_Result_Added", item.Name);
-                ToolkitLog.Info("工作台：已把记忆库加入当前项目主 TM " + item.FilePath);
+                    var projects = Sdl.TranslationStudioAutomation.IntegrationApi.SdlTradosStudio.Application
+                        .GetController<Sdl.TranslationStudioAutomation.IntegrationApi.ProjectsController>();
+                    var project = projects.CurrentProject;
+                    if (project == null)
+                        return UiText.T("WB_Mem_Err_NoProject");
+                    var uri = Sdl.LanguagePlatform.TranslationMemoryApi.FileBasedTranslationMemory
+                        .GetFileBasedTranslationMemoryUri(item.FilePath);
+                    var config = project.GetTranslationProviderConfiguration();
+                    if (config.Entries != null && config.Entries.Any(en =>
+                            en.MainTranslationProvider != null &&
+                            en.MainTranslationProvider.Uri != null &&
+                            en.MainTranslationProvider.Uri.Equals(uri)))
+                        return UiText.T("WB_Mem_AlreadyAdded");
+                    config.Entries.Add(new Sdl.ProjectAutomation.Core.TranslationProviderCascadeEntry(
+                        new Sdl.ProjectAutomation.Core.TranslationProviderReference(uri, null, true), true, true, false));
+                    project.UpdateTranslationProviderConfiguration(config);
+                    ToolkitLog.Info("工作台：已把记忆库加入当前项目主 TM " + item.FilePath);
+                    return UiText.Tf("WB_Mem_Result_Added", item.Name);
+                });
+                TmStatusText.Text = msg;
             }
             catch (Exception ex)
             {
@@ -1193,19 +1233,20 @@ namespace TradosToolkit.Workbench
         {
             try
             {
-                var ctl = Sdl.TranslationStudioAutomation.IntegrationApi.SdlTradosStudio.Application
-                    .GetController<Sdl.TranslationStudioAutomation.IntegrationApi.ProjectsController>();
-                var current = ctl.CurrentProject as Sdl.ProjectAutomation.FileBased.FileBasedProject;
-                if (current == null)
+                return RunOnStudioUi(() =>
                 {
-                    ToolkitLog.Info("工作台：当前没有激活项目，跳过术语挂载");
-
-                    return 0;
-                }
-                var cfg = ToolkitConfig.Load();
-                var mounted = TerminologySource.ProjectTerminology.Mount(
-                    current, TerminologySource.ProjectTerminology.CurrentPair(), cfg.TermBaseUrl, cfg.Domain);
-                return mounted;
+                    var ctl = Sdl.TranslationStudioAutomation.IntegrationApi.SdlTradosStudio.Application
+                        .GetController<Sdl.TranslationStudioAutomation.IntegrationApi.ProjectsController>();
+                    var current = ctl.CurrentProject as Sdl.ProjectAutomation.FileBased.FileBasedProject;
+                    if (current == null)
+                    {
+                        ToolkitLog.Info("工作台：当前没有激活项目，跳过术语挂载");
+                        return 0;
+                    }
+                    var cfg = ToolkitConfig.Load();
+                    return TerminologySource.ProjectTerminology.Mount(
+                        current, TerminologySource.ProjectTerminology.CurrentPair(), cfg.TermBaseUrl, cfg.Domain);
+                });
             }
             catch (Exception ex)
             {
@@ -1230,10 +1271,13 @@ namespace TradosToolkit.Workbench
         {
             try
             {
-                var ctl = Sdl.TranslationStudioAutomation.IntegrationApi.SdlTradosStudio.Application
-                    .GetController<Sdl.TranslationStudioAutomation.IntegrationApi.ProjectsController>();
-                var p = ctl.CurrentProject;
-                return p == null ? null : p.FilePath;
+                return RunOnStudioUi(() =>
+                {
+                    var ctl = Sdl.TranslationStudioAutomation.IntegrationApi.SdlTradosStudio.Application
+                        .GetController<Sdl.TranslationStudioAutomation.IntegrationApi.ProjectsController>();
+                    var p = ctl.CurrentProject;
+                    return p == null ? null : p.FilePath;
+                });
             }
             catch (Exception ex) { ToolkitLog.Error("工作台：读取当前项目失败", ex); return null; }
         }
@@ -1242,15 +1286,22 @@ namespace TradosToolkit.Workbench
         {
             try
             {
-                var ctl = Sdl.TranslationStudioAutomation.IntegrationApi.SdlTradosStudio.Application
-                    .GetController<Sdl.TranslationStudioAutomation.IntegrationApi.ProjectsController>();
-                var p = ctl.CurrentProject;
-                if (p == null) return;
-                var info = p.GetProjectInfo();
-                if (string.IsNullOrWhiteSpace(ToolsSrcBox.Text) && info.SourceLanguage != null)
-                    ToolsSrcBox.Text = info.SourceLanguage.IsoAbbreviation;
-                if (string.IsNullOrWhiteSpace(ToolsTgtBox.Text) && info.TargetLanguages != null && info.TargetLanguages.Count() > 0)
-                    ToolsTgtBox.Text = info.TargetLanguages.First().IsoAbbreviation;
+                var langs = RunOnStudioUi(() =>
+                {
+                    var ctl = Sdl.TranslationStudioAutomation.IntegrationApi.SdlTradosStudio.Application
+                        .GetController<Sdl.TranslationStudioAutomation.IntegrationApi.ProjectsController>();
+                    var p = ctl.CurrentProject;
+                    if (p == null) return (src: (string)null, tgt: (string)null);
+                    var info = p.GetProjectInfo();
+                    var src = info.SourceLanguage != null ? info.SourceLanguage.IsoAbbreviation : null;
+                    var tgt = (info.TargetLanguages != null && info.TargetLanguages.Count() > 0)
+                        ? info.TargetLanguages.First().IsoAbbreviation : null;
+                    return (src, tgt);
+                });
+                if (string.IsNullOrWhiteSpace(ToolsSrcBox.Text) && !string.IsNullOrWhiteSpace(langs.src))
+                    ToolsSrcBox.Text = langs.src;
+                if (string.IsNullOrWhiteSpace(ToolsTgtBox.Text) && !string.IsNullOrWhiteSpace(langs.tgt))
+                    ToolsTgtBox.Text = langs.tgt;
             }
             catch (Exception ex) { ToolkitLog.Error("工作台：读取当前项目语言失败", ex); }
         }
@@ -1274,6 +1325,19 @@ namespace TradosToolkit.Workbench
             var dlg = new Microsoft.Win32.OpenFileDialog { Filter = "SDL 项目|*.sdlp", CheckFileExists = true };
             if (dlg.ShowDialog(this) == true) RevProjBox.Text = dlg.FileName;
         }
+
+        /// <summary>审校模式切换：更新按钮文字、结果列标题提示。</summary>
+        private void RevMode_Changed(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (RevRunText == null) return;
+            var isBtqa = RevModeCombo.SelectedIndex == 1;
+            RevRunText.Text = isBtqa ? "运行回译质检" : "运行 AI 审校";
+        }
+
+        /// <summary>当前审校模式端点路径。</summary>
+        private string RevEndpoint => RevModeCombo != null && RevModeCombo.SelectedIndex == 1
+            ? "/api/project/btqa"
+            : "/api/review";
 
         private async void RevRun_Click(object sender, RoutedEventArgs e)
         {
@@ -1306,7 +1370,8 @@ namespace TradosToolkit.Workbench
                 RevRunBtn.IsEnabled = false;
                 RevCancelBtn.Visibility = Visibility.Visible;
                 RevList.ItemsSource = null;
-                RevStatus.Text = "AI 审校进行中（已交后台，批式调用 LLM，段数多时需等待）…";
+                var isBtqa = RevModeCombo.SelectedIndex == 1;
+                RevStatus.Text = (isBtqa ? "回译质检" : "AI 审校") + "进行中（已交后台，批式调用 LLM，段数多时需等待）…";
                 RevContext.Text = Path.GetFileNameWithoutExtension(path) + (string.IsNullOrEmpty(file) ? "" : " / " + file);
                 RevDetailTitle.Text = "选中段：等待结果";
                 RevDetailBox.Text = "";
@@ -1316,7 +1381,7 @@ namespace TradosToolkit.Workbench
                 try
                 {
                     var result = await Task.Run(() =>
-                        ProjectApi.Handle("POST", "/api/review", q, body, token, token), CancellationToken.None);
+                        ProjectApi.Handle("POST", RevEndpoint, q, body, token, token), CancellationToken.None);
                     if (_revCts == null || _revCts.IsCancellationRequested)
                     {
                         RevStatus.Text = "已取消。";
@@ -1394,6 +1459,8 @@ namespace TradosToolkit.Workbench
             var sb = new StringBuilder();
             sb.Append("原文:  ").Append(row.Source).AppendLine().AppendLine()
               .Append("现译文:  ").Append(row.Target).AppendLine().AppendLine();
+            if (!string.IsNullOrEmpty(row.BackText))
+                sb.Append("回译:  ").Append(row.BackText).AppendLine().AppendLine();
             if (!string.IsNullOrEmpty(row.Suggestion))
                 sb.Append("建议修订:  ").Append(row.Suggestion);
             else
@@ -1638,6 +1705,7 @@ namespace TradosToolkit.Workbench
         public string Issue { get; set; }
         public string Source { get; set; }
         public string Target { get; set; }
+        public string BackText { get; set; }
         public string Suggestion { get; set; }
 
         private static readonly Brush RedBrush = new SolidColorBrush(Color.FromRgb(0xE0, 0x5D, 0x4B));
@@ -1668,6 +1736,7 @@ namespace TradosToolkit.Workbench
                 Issue = issue,
                 Source = it.ContainsKey("source") ? Convert.ToString(it["source"]) : "",
                 Target = it.ContainsKey("target") ? Convert.ToString(it["target"]) : "",
+                BackText = it.ContainsKey("back") ? Convert.ToString(it["back"]) : "",
                 Suggestion = it.ContainsKey("suggestion") ? Convert.ToString(it["suggestion"]) : "",
             };
         }

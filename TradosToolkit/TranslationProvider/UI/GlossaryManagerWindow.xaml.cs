@@ -69,7 +69,12 @@ namespace TradosToolkit.TranslationProvider.UI
             // 模态 ShowDialog 的 WPF 嵌套泵自己 TranslateMessage，所以配置窗口一直正常。
             // 修复：窗口放专用 STA 线程，跑 WPF 自己的 Dispatcher 泵，输入链路不再过宿主泵。
             string src = null, tgt = null;
-            TryFillProjectLanguages(ref src, ref tgt); // 必须在 Studio UI 线程取：SdlTradosStudio.Automation 跨线程不可用
+            // 必须在 Studio UI 线程取：SdlTradosStudio.Automation 跨线程不可用。
+            // 本方法也可能被工作台（跑在专用 UI 线程）调用，故这里把预取 marshal 回 Studio 线程，
+            // 不依赖调用方线程，否则从工作台打开时会跨线程访问自动化接口而失败。
+            var studio = System.Windows.Application.Current;
+            System.Action fetch = () => TryFillProjectLanguages(ref src, ref tgt);
+            if (studio != null) studio.Dispatcher.Invoke(fetch); else fetch();
             var ready = new ManualResetEvent(false);
             var t = new Thread(() =>
             {
