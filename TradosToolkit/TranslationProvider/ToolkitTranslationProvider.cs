@@ -21,6 +21,8 @@ namespace TradosToolkit.TranslationProvider
         private readonly SqliteGlossaryProvider _glossaries = new SqliteGlossaryProvider();
         private readonly Dictionary<string, ITranslationProviderLanguageDirection> _directions =
             new Dictionary<string, ITranslationProviderLanguageDirection>();
+        // Studio 可能从多个线程为不同/相同语言对请求方向，Dictionary 并发写会损坏，加锁串行化。
+        private readonly object _dirGate = new object();
 
         private string _state;
 
@@ -35,17 +37,20 @@ namespace TradosToolkit.TranslationProvider
         public ITranslationProviderLanguageDirection GetLanguageDirection(LanguagePair languageDirection)
         {
             var key = languageDirection.SourceCultureName + ">" + languageDirection.TargetCultureName;
-            if (!_directions.TryGetValue(key, out var direction))
+            lock (_dirGate)
             {
-                ToolkitLog.Info("GetLanguageDirection: " + key + " pre=" + ToolkitUri.UsePreTerms(Uri) +
-                                " post=" + ToolkitUri.UsePostTerms(Uri) + " tags=" + ToolkitUri.SupportsTags(Uri));
-                direction = new ToolkitTranslationProviderLanguageDirection(
-                    this, _engine, _apiKey, languageDirection,
-                    ToolkitUri.UsePreTerms(Uri), ToolkitUri.UsePostTerms(Uri),
-                    ToolkitUri.SupportsTags(Uri), _glossaries);
-                _directions[key] = direction;
+                if (!_directions.TryGetValue(key, out var direction))
+                {
+                    ToolkitLog.Info("GetLanguageDirection: " + key + " pre=" + ToolkitUri.UsePreTerms(Uri) +
+                                    " post=" + ToolkitUri.UsePostTerms(Uri) + " tags=" + ToolkitUri.SupportsTags(Uri));
+                    direction = new ToolkitTranslationProviderLanguageDirection(
+                        this, _engine, _apiKey, languageDirection,
+                        ToolkitUri.UsePreTerms(Uri), ToolkitUri.UsePostTerms(Uri),
+                        ToolkitUri.SupportsTags(Uri), _glossaries);
+                    _directions[key] = direction;
+                }
+                return direction;
             }
-            return direction;
         }
 
         public bool SupportsLanguageDirection(LanguagePair languageDirection)

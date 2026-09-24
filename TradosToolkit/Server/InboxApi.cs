@@ -35,15 +35,20 @@ namespace TradosToolkit.Server
 
         private static bool _inited;
 
-        /// <summary>订阅监视器的建任务事件，让所有任务（含拖进目录的）都能被 /api/inbox/jobs 查到。进程内只需一次。</summary>
+        /// <summary>订阅监视器的建任务/丢弃事件，让所有任务（含拖进目录的）都能被 /api/inbox/jobs 查到。
+        /// 进程内只需一次；订阅成功后才置 _inited，订阅抛异常时下次仍会重试。</summary>
         public static void EnsureInit()
         {
             lock (Gate)
             {
                 if (_inited) return;
-                _inited = true;
-                try { InboxWatcher.Instance.JobCreated += OnJobCreated; }
-                catch { /* 订阅失败不影响其余端点 */ }
+                try
+                {
+                    InboxWatcher.Instance.JobCreated += OnJobCreated;
+                    InboxWatcher.Instance.JobDropped += OnJobDropped;
+                    _inited = true;
+                }
+                catch { /* 订阅失败不影响其余端点，下次调用再试 */ }
             }
         }
 
@@ -169,6 +174,24 @@ namespace TradosToolkit.Server
                 }
             }
 
+            // 只接受监视目录内的文件：否则本机任意进程可投递任意绝对路径，
+            // 让插件把无关文件 Move 进任务目录并解析（越界读写）。
+            var watchRoot = (watcher.WatchingFolder ?? string.Empty).Trim();
+            if (watchRoot.Length == 0)
+                return ApiResult.Json(412, ProjectApi.Error("监视目录未设置，无法投递（请先 POST /api/inbox/start）"));
+            try
+            {
+                var watchAbs = Path.GetFullPath(watchRoot)
+                    .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)
+                    + Path.DirectorySeparatorChar;
+                if (!file.StartsWith(watchAbs, StringComparison.OrdinalIgnoreCase))
+                    return ApiResult.Json(403, ProjectApi.Error("file 必须位于监视目录内：" + watchRoot));
+            }
+            catch (Exception e)
+            {
+                return ApiResult.Json(500, ProjectApi.Error("监视目录无效：" + e.Message));
+            }
+
             var overrideCfg = BuildOverride(req);
 
             InboxJobRecord rec;
@@ -274,6 +297,21 @@ namespace TradosToolkit.Server
                 }
                 rec.Job = job;
                 TrimLocked();
+            }
+        }
+
+        /// <summary>文件在建成任务前被丢弃（不合格/等待写入超时）：清理预登记记录，
+        /// 否则该 rec 永远停在 queued，既成幽灵任务又阻塞 Trim。</summary>
+        private static void OnJobDropped(string path)
+        {
+            if (string.IsNullOrEmpty(path)) return;
+            lock (Gate)
+            {
+                string recId;
+                if (!PendingByPath.TryGetValue(path, out recId)) return;
+                PendingByPath.Remove(path);
+                var rec = Jobs.FirstOrDefault(r => r.Id == recId);
+                if (rec != null && rec.Job == null) Jobs.Remove(rec);
             }
         }
 

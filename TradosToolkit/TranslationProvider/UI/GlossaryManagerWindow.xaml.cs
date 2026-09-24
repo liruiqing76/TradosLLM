@@ -102,7 +102,8 @@ namespace TradosToolkit.TranslationProvider.UI
             t.IsBackground = true; // Studio 退出时进程不被本线程拖住
             t.Name = "TradosToolkit.GlossaryUI";
             t.Start();
-            ready.WaitOne(TimeSpan.FromSeconds(15)); // 等构造完成再返回，防连点出两窗
+            if (!ready.WaitOne(TimeSpan.FromSeconds(15))) // 等构造完成再返回，防连点出两窗
+                ToolkitLog.Warn("术语管理：窗口创建超时（15s），可能未成功打开");
         }
 
         /// <summary>从外部（工作台/配置窗口）打开时也可带语言默认值；为 null 则自动取当前项目。</summary>
@@ -433,7 +434,8 @@ namespace TradosToolkit.TranslationProvider.UI
             {
                 From = dlg.Result.FromTerm,
                 To = dlg.Result.ToTerm,
-                Domain = Domain,
+                // 用户在对话框里选的领域优先；留空才回落到当前页签领域（原来无条件用页签领域，忽略用户选择）。
+                Domain = string.IsNullOrWhiteSpace(dlg.Result.Domain) ? Domain : dlg.Result.Domain,
             });
             RefreshAfterMutation();
             ReplStatusText.Text = "已新增替换词条。";
@@ -477,7 +479,8 @@ namespace TradosToolkit.TranslationProvider.UI
                 Id = entry.Id,
                 From = dlg.Result.FromTerm,
                 To = dlg.Result.ToTerm,
-                Domain = Domain,
+                // 同「新增」：对话框里选的领域优先，留空才回落页签领域。
+                Domain = string.IsNullOrWhiteSpace(dlg.Result.Domain) ? Domain : dlg.Result.Domain,
                 CreatedAt = entry.CreatedAt,
                 UpdatedAt = entry.UpdatedAt,
             });
@@ -515,7 +518,19 @@ namespace TradosToolkit.TranslationProvider.UI
                 return;
             }
             var dom = Domain;
-            _allTerms = _db.GetTermEntries(src, tgt, dom);
+            try
+            {
+                _allTerms = _db.GetTermEntries(src, tgt, dom);
+            }
+            catch (Exception ex)
+            {
+                // 与 ReloadRepl/ReloadMine 一致：读库失败不能把异常抛到 UI 线程外，降级为空表并提示。
+                ToolkitLog.Error("术语表加载失败 " + src + "→" + tgt + " 领域 " + dom, ex);
+                _allTerms = new List<TermEntry>();
+                StatusText.Text = "术语表加载失败：" + ex.Message;
+                ApplySearchFilter();
+                return;
+            }
             ApplySearchFilter();
             StatusText.Text = string.Format("术语表 · {0} → {1} · 领域 {2} · 共 {3} 条",
                 src, tgt, dom, _allTerms.Count);
@@ -612,7 +627,15 @@ namespace TradosToolkit.TranslationProvider.UI
             NotifyChanged();
         }
 
-        private void NotifyChanged() => _provider?.InvalidateCache();
+        private void NotifyChanged()
+        {
+            // 术语改动后必须让所有在用的缓存失效，否则要重启 Studio 才生效：
+            // 1) 各翻译方向持有的 SqliteGlossaryProvider._cache（窗口拿不到实例，走全局失效）；
+            // 2) 引擎侧 LLM 术语缓存（静态代次）。
+            _provider?.InvalidateCache();
+            SqliteGlossaryProvider.InvalidateAllCaches();
+            OpenAiCompatEngine.InvalidateTermCache();
+        }
 
         // ====================== CSV / 模板 ======================
 

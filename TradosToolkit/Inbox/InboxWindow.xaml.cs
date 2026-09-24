@@ -104,7 +104,8 @@ namespace TradosToolkit.Inbox
             t.IsBackground = true; // Studio 退出时进程不被本线程拖住
             t.Name = "TradosToolkit.InboxUI";
             t.Start();
-            ready.WaitOne(TimeSpan.FromSeconds(15)); // 等构造完成再返回，防连点出两窗
+            if (!ready.WaitOne(TimeSpan.FromSeconds(15))) // 等构造完成再返回，防连点出两窗
+                ToolkitLog.Warn("收件箱：窗口创建超时（15s），可能未成功打开");
         }
 
         // ==================== 配置读写 ====================

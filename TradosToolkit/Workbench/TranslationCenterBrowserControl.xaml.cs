@@ -17,11 +17,19 @@ namespace TradosToolkit.Workbench
         private bool _initStarted;
         private bool _webReady;
 
+        // 保存环境与事件处理器引用，卸载时才能解绑并释放——否则浏览器进程、用户数据目录句柄
+        // 会一直挂到 Studio 退出（WebView2 事件是 CoreWebView2 上的强引用，不解绑则控件无法回收）。
+        private Microsoft.Web.WebView2.Core.CoreWebView2Environment _env;
+        private EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs> _navStarting;
+        private EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs> _navCompleted;
+        private EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NewWindowRequestedEventArgs> _newWindow;
+
         public TranslationCenterBrowserControl()
         {
             ToolkitLog.Info("翻译中心浏览器构建");
             InitializeComponent();
             Loaded += (s, e) => InitWeb();
+            Unloaded += (s, e) => Shutdown();
         }
 
         private async void InitWeb()
@@ -38,17 +46,18 @@ namespace TradosToolkit.Workbench
                 Directory.CreateDirectory(userData);
 
                 ShowStatus("正在启动内置浏览器…");
-                var env = await Microsoft.Web.WebView2.Core.CoreWebView2Environment.CreateAsync(null, userData);
-                await Web.EnsureCoreWebView2Async(env);
+                _env = await Microsoft.Web.WebView2.Core.CoreWebView2Environment.CreateAsync(null, userData);
+                await Web.EnsureCoreWebView2Async(_env);
                 _webReady = true;
 
                 Web.CoreWebView2.Settings.AreDevToolsEnabled = false;
-                Web.CoreWebView2.NavigationStarting += (s, ev) => Dispatcher.Invoke(() =>
+                _navStarting = (s, ev) => Dispatcher.Invoke(() =>
                 {
                     NavProgress.Visibility = System.Windows.Visibility.Visible;
                     FallbackText.Visibility = System.Windows.Visibility.Collapsed;
                 });
-                Web.NavigationCompleted += (s, ev) => Dispatcher.Invoke(() =>
+                Web.CoreWebView2.NavigationStarting += _navStarting;
+                _navCompleted = (s, ev) => Dispatcher.Invoke(() =>
                 {
                     NavProgress.Visibility = System.Windows.Visibility.Collapsed;
                     AddressBox.Text = Web.Source == null ? "" : Web.Source.AbsoluteUri;
@@ -58,13 +67,15 @@ namespace TradosToolkit.Workbench
                         HideStatus();
                     ToolkitLog.Info("翻译中心导航完成: " + Web.Source + " success=" + ev.IsSuccess);
                 });
-                Web.CoreWebView2.NewWindowRequested += (s, ev) =>
+                Web.NavigationCompleted += _navCompleted;
+                _newWindow = (s, ev) =>
                 {
                     // target=_blank 弹窗一律就地打开，避免脱离 Studio
                     ToolkitLog.Info("翻译中心新窗口请求转内联: " + ev.Uri);
                     ev.Handled = true;
                     try { Web.Source = new Uri(ev.Uri); } catch (Exception e) { ToolkitLog.Error("翻译中心内联打开失败", e); }
                 };
+                Web.CoreWebView2.NewWindowRequested += _newWindow;
 
                 Web.Visibility = System.Windows.Visibility.Visible;
                 Navigate(HomePageUrl());
@@ -77,6 +88,40 @@ namespace TradosToolkit.Workbench
                     "\n需要系统安装 Microsoft Edge WebView2 运行时（Win10/11 一般自带）。";
                 FallbackText.Visibility = System.Windows.Visibility.Visible;
                 HideStatus();
+            }
+        }
+
+        /// <summary>释放 WebView2 浏览器进程与用户数据目录句柄，并解绑事件。视图卸载/Studio 退出时调用；
+        /// 幂等，重复调用安全。释放后再次加载会重新初始化（InitWeb 的 _initStarted 已复位）。</summary>
+        public void Shutdown()
+        {
+            try
+            {
+                var core = _webReady ? Web.CoreWebView2 : null;
+                if (core != null)
+                {
+                    if (_navStarting != null) core.NavigationStarting -= _navStarting;
+                    if (_newWindow != null) core.NewWindowRequested -= _newWindow;
+                }
+                if (_navCompleted != null) Web.NavigationCompleted -= _navCompleted;
+
+                // WebView2 控件释放会一并终止其浏览器进程；CoreWebView2Environment 本身不实现 IDisposable，
+                // 只需断开引用（真正的句柄归控件所有）。
+                try { Web.Dispose(); } catch (Exception ex) { ToolkitLog.Error("翻译中心 WebView2 控件释放失败", ex); }
+                ToolkitLog.Info("翻译中心 WebView2 已释放");
+            }
+            catch (Exception ex)
+            {
+                ToolkitLog.Error("翻译中心 WebView2 释放异常", ex);
+            }
+            finally
+            {
+                _env = null;
+                _navStarting = null;
+                _navCompleted = null;
+                _newWindow = null;
+                _webReady = false;
+                _initStarted = false;
             }
         }
 

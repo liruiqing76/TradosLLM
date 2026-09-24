@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Windows.Threading;
 
 namespace TradosToolkit.Inbox
@@ -80,6 +81,10 @@ namespace TradosToolkit.Inbox
 
         private readonly StringBuilder _log = new StringBuilder();
 
+        /// <summary>步骤状态的同步副本。Post 走 BeginInvoke 是异步的，工作线程立刻读 Steps[i].Status
+        /// 可能拿到过期的 "pending"（导致已完成步骤被误标「未执行」），因此另存一份同步维护的状态。</summary>
+        private readonly string[] _stepStatus;
+
         public InboxJob(string filePath)
         {
             Id = Guid.NewGuid().ToString("N").Substring(0, 8);
@@ -96,6 +101,15 @@ namespace TradosToolkit.Inbox
                 new InboxStep(5, "生成交付包 (.sdlppx)"),
                 new InboxStep(6, "导出匹配记忆库"),
             };
+            _stepStatus = new string[Steps.Count];
+            for (var i = 0; i < _stepStatus.Length; i++) _stepStatus[i] = "pending";
+        }
+
+        /// <summary>同步读取某步状态（不受 Post 异步派发影响，供编排逻辑判断用）。</summary>
+        public string StepStatus(int index)
+        {
+            if (index < 0 || index >= _stepStatus.Length) return null;
+            return Volatile.Read(ref _stepStatus[index]);
         }
 
         public string Id { get; private set; }
@@ -181,6 +195,7 @@ namespace TradosToolkit.Inbox
 
         public void BeginStep(int index, string detail)
         {
+            SetStepStatus(index, "running");
             Post(() =>
             {
                 if (index < 0 || index >= Steps.Count) return;
@@ -193,6 +208,7 @@ namespace TradosToolkit.Inbox
 
         public void EndStep(int index, bool ok, string detail)
         {
+            SetStepStatus(index, ok ? "done" : "error");
             Post(() =>
             {
                 if (index < 0 || index >= Steps.Count) return;
@@ -204,6 +220,7 @@ namespace TradosToolkit.Inbox
 
         public void SkipStep(int index, string detail)
         {
+            SetStepStatus(index, "skipped");
             Post(() =>
             {
                 if (index < 0 || index >= Steps.Count) return;
@@ -211,6 +228,13 @@ namespace TradosToolkit.Inbox
                 step.Status = "skipped";
                 if (detail != null) step.Detail = detail;
             });
+        }
+
+        /// <summary>同步更新步骤状态副本（Post 派发之前），供工作线程判断用。</summary>
+        private void SetStepStatus(int index, string status)
+        {
+            if (index < 0 || index >= _stepStatus.Length) return;
+            Volatile.Write(ref _stepStatus[index], status);
         }
 
         public void SetStepDetail(int index, string detail)

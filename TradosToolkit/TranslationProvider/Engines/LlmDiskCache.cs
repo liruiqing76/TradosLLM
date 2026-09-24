@@ -25,10 +25,14 @@ namespace TradosToolkit.TranslationProvider.Engines
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                          "TradosToolkit", "llm_cache.json");
 
-        public static string KeyFor(string baseUrl, string model, string sourceLang, string targetLang, string text)
+        public static string KeyFor(string baseUrl, string model, string sourceLang, string targetLang,
+                                    string domain, string styleGuide, string text)
         {
+            // domain / styleGuide 会改变译文的术语与风格，必须纳入键，否则切换领域后会复用旧领域译文。
             var raw = (baseUrl ?? string.Empty).TrimEnd('/') + "|" + (model ?? string.Empty) + "|" +
-                      sourceLang + "|" + targetLang + "|" + SegmentDedup.Normalize(text);
+                      sourceLang + "|" + targetLang + "|" +
+                      (domain ?? string.Empty) + "|" + (styleGuide ?? string.Empty) + "|" +
+                      SegmentDedup.Normalize(text);
             using (var sha = SHA1.Create())
             {
                 var bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(raw));
@@ -59,16 +63,17 @@ namespace TradosToolkit.TranslationProvider.Engines
                 _dirty = true;
                 if (_entries.Count > MaxEntries)
                 {
-                    // 简单淘汰：按插入序丢最旧的一半
+                    // 容量控制：Dictionary 无插入序，这里只保证「砍掉约一半」，不承诺淘汰的是最旧条目。
+                    var removed = _entries.Count / 2;
                     var trimmed = new Dictionary<string, string>();
-                    var skip = _entries.Count / 2;
+                    var skip = removed;
                     foreach (var kv in _entries)
                     {
                         if (skip > 0) { skip--; continue; }
                         trimmed[kv.Key] = kv.Value;
                     }
                     _entries = trimmed;
-                    ToolkitLog.Info("LLM 缓存超上限，已淘汰最旧 " + skip + " 条，剩 " + _entries.Count);
+                    ToolkitLog.Info("LLM 缓存超上限，已裁掉 " + removed + " 条（无插入序，非严格最旧），剩 " + _entries.Count);
                 }
             }
         }

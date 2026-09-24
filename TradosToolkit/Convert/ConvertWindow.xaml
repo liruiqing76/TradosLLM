@@ -61,18 +61,90 @@
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="Foreground" Value="{DynamicResource SecondaryTextBrush}"/>
             </Style>
+            <DataTemplate x:Key="LangItemTemplate">
+                <TextBlock Text="{Binding Label}" TextTrimming="CharacterEllipsis"
+                           HorizontalAlignment="Left" TextAlignment="Left"/>
+            </DataTemplate>
+
+            <!-- 带搜索框的语言下拉：与术语管理/收件箱/从模板新建同一套交互（Popup 顶部输入框即输即筛，回车选第一项） -->
             <Style x:Key="LangCombo" TargetType="ComboBox">
                 <Setter Property="Height" Value="30"/>
                 <Setter Property="VerticalAlignment" Value="Center"/>
-                <Setter Property="DisplayMemberPath" Value="Label"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
                 <Setter Property="SelectedValuePath" Value="Code"/>
-                <Setter Property="IsTextSearchEnabled" Value="True"/>
-                <Setter Property="TextSearch.TextPath" Value="Label"/>
+                <Setter Property="ItemTemplate" Value="{StaticResource LangItemTemplate}"/>
                 <Setter Property="ItemsPanel">
                     <Setter.Value>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel/>
                         </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ComboBox">
+                            <Grid>
+                                <!-- 必须显式 Stretch：否则会被 HandyControl 的隐式 ToggleButton 样式压成居中+按内容宽度 -->
+                                <ToggleButton Focusable="False" ClickMode="Press"
+                                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                              Width="Auto" Height="Auto"
+                                              IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <ToggleButton.Template>
+                                        <ControlTemplate TargetType="ToggleButton">
+                                            <Border x:Name="ComboBorder" Background="{DynamicResource RegionBrush}"
+                                                    BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="4">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="24"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <ContentPresenter Grid.Column="0" Margin="9,0,0,0"
+                                                                      VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                                      Content="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                                                      ContentTemplate="{Binding ItemTemplate, RelativeSource={RelativeSource AncestorType=ComboBox}}"/>
+                                                    <Path Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                          Data="M 0 0 L 4 4 L 8 0 Z" Fill="{DynamicResource SecondaryTextBrush}"/>
+                                                </Grid>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="ComboBorder" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </ToggleButton.Template>
+                                </ToggleButton>
+                                <Popup x:Name="PART_Popup" AllowsTransparency="True" Placement="Bottom" Focusable="True"
+                                       IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <Border Background="{DynamicResource RegionBrush}" BorderBrush="{DynamicResource BorderBrush}"
+                                            BorderThickness="1" CornerRadius="4" Margin="0,2,0,0"
+                                            MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}">
+                                        <StackPanel>
+                                            <Grid Margin="8,8,8,4">
+                                                <TextBox x:Name="LangSearchBox" Height="26" FontSize="12" Padding="5,0" Focusable="True"
+                                                         VerticalContentAlignment="Center"/>
+                                                <TextBlock x:Name="SearchHint" Text="输入代码或名称过滤…" Foreground="{DynamicResource ThirdlyTextBrush}" FontSize="12"
+                                                           Margin="8,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False"
+                                                           Visibility="Collapsed"/>
+                                            </Grid>
+                                            <Separator Margin="6,0"/>
+                                            <ScrollViewer MaxHeight="260" CanContentScroll="True"
+                                                          VirtualizingPanel.IsVirtualizing="True"
+                                                          VirtualizingPanel.ScrollUnit="Item"
+                                                          VerticalScrollBarVisibility="Auto">
+                                                <ItemsPresenter/>
+                                            </ScrollViewer>
+                                        </StackPanel>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger SourceName="LangSearchBox" Property="Text" Value="">
+                                    <Setter TargetName="SearchHint" Property="Visibility" Value="Visible"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
                     </Setter.Value>
                 </Setter>
             </Style>

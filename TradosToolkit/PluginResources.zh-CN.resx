@@ -84,6 +84,12 @@
   <data name="WB_Tab_Quick" xml:space="preserve">
     <value>快捷</value>
   </data>
+  <data name="WB_Tab_Tools" xml:space="preserve">
+    <value>流程编排</value>
+  </data>
+  <data name="WB_Tools_Subtitle" xml:space="preserve">
+    <value>把 Studio 已有的自动任务与插件特有步骤串成可复跑的流程</value>
+  </data>
   <data name="WB_Status_Title" xml:space="preserve">
     <value>运行状态</value>
   </data>

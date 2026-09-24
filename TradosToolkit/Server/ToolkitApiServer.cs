@@ -39,6 +39,8 @@ namespace TradosToolkit.Server
                 var config = ApiConfig.Load();
                 if (!config.Enabled)
                 {
+                    // 未启用：不能置"已启动"，否则之后即便改配置启用也得重启 Studio 才会生效。
+                    Interlocked.Exchange(ref _started, 0);
                     ApiLog.Write("api disabled by config");
                     return;
                 }
@@ -53,6 +55,11 @@ namespace TradosToolkit.Server
 
                 var thread = new Thread(ListenLoop) { IsBackground = true, Name = "TradosToolkitApi" };
                 thread.Start();
+
+                // Studio 插件没有卸载事件（AbstractRibbonGroup/IApplicationInitializer 均无 shutdown 钩子），
+                // 进程退出是唯一可靠时机：在此释放监听器，避免端口/句柄一直挂到进程结束。
+                AppDomain.CurrentDomain.ProcessExit += (s, e) => Stop();
+
                 ApiLog.Write("listening on http://localhost:" + Port + "/");
             }
             catch (Exception e)

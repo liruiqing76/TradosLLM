@@ -80,6 +80,10 @@
       <HintPath>$(TradosInstallDir)\Sdl.FileTypeSupport.Framework.Core.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Sdl.Verification.Api">
+      <HintPath>$(TradosInstallDir)\Sdl.Verification.Api.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <!-- SQLite 必须用 Studio 自带的 1.0.103：进程已加载其原生 SQLite.Interop.dll，
          插件自带 1.0.119 托管层会绑到老 native 报 "sqlite3_config entry point not found" -->
     <Reference Include="System.Data.SQLite">
@@ -137,6 +141,13 @@
     <Compile Include="Action\InboxMonitorAction.cs" />
     <Compile Include="Action\ConvertAction.cs" />
     <Compile Include="Action\DocPreviewAction.cs" />
+    <Compile Include="Action\NewFromTemplateAction.cs" />
+    <Compile Include="Verification\QaRules.cs" />
+    <Compile Include="Verification\ToolkitQaVerifierSettings.cs" />
+    <Compile Include="Verification\ToolkitQaVerifier.cs" />
+    <Compile Include="Workbench\NewFromTemplateDialog.xaml.cs">
+      <DependentUpon>NewFromTemplateDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Convert\SdlxliffConverter.cs" />
     <Compile Include="Convert\ConvertWindow.xaml.cs">
       <DependentUpon>ConvertWindow.xaml</DependentUpon>
@@ -242,6 +253,7 @@
     <Resource Include="Resources\inbox.ico" />
     <Resource Include="Resources\convert.ico" />
     <Resource Include="Resources\doc-preview.ico" />
+    <Resource Include="Resources\new-from-template.ico" />
     <None Include="pluginpackage.manifest.xml" />
   </ItemGroup>
 

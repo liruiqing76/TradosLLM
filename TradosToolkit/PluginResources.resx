@@ -123,6 +123,12 @@
   <data name="WB_Tab_Quick" xml:space="preserve">
     <value>Quick actions</value>
   </data>
+  <data name="WB_Tab_Tools" xml:space="preserve">
+    <value>Process flows</value>
+  </data>
+  <data name="WB_Tools_Subtitle" xml:space="preserve">
+    <value>Chain Studio's built-in automatic tasks with plugin steps into a reusable flow</value>
+  </data>
   <data name="WB_Status_Title" xml:space="preserve">
     <value>Runtime status</value>
   </data>
@@ -495,5 +501,20 @@
   <data name="WB_Status_Api_Open" xml:space="preserve">
     <value>Open the local status panel in your browser</value>
     <comment>WB_Status_Api_Open</comment>
+  </data>
+  <data name="Toolkit_Qa_Verifier_Name" xml:space="preserve">
+    <value>Toolkit QA Verifier</value>
+  </data>
+  <data name="Toolkit_Qa_Verifier_Description" xml:space="preserve">
+    <value>TradosToolkit QA：漏译/数字/标点/术语/一致性检查（保存时自动运行）</value>
+  </data>
+  <data name="NewFromTemplate_Action_Name" xml:space="preserve">
+    <value>从模板新建项目</value>
+  </data>
+  <data name="NewFromTemplate_Action_Description" xml:space="preserve">
+    <value>选择 Studio 项目模板和源文件，一键创建并打开新项目</value>
+  </data>
+  <data name="NewFromTemplate_Action_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\new-from-template.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

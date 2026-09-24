@@ -58,7 +58,8 @@ namespace TradosToolkit.TranslationProvider.Engines
                     if (useCache)
                     {
                         var cached = LlmDiskCache.TryGet(LlmDiskCache.KeyFor(
-                            _baseUrl, _model, languagePair.SourceCultureName, languagePair.TargetCultureName, sources[i]));
+                            _baseUrl, _model, languagePair.SourceCultureName, languagePair.TargetCultureName,
+                            config.Domain, config.StyleGuide, sources[i]));
                         if (!string.IsNullOrEmpty(cached))
                         {
                             results[i] = new[]
@@ -116,7 +117,8 @@ namespace TradosToolkit.TranslationProvider.Engines
                         };
                         if (useCache && !string.IsNullOrEmpty(translation))
                             LlmDiskCache.Put(LlmDiskCache.KeyFor(
-                                _baseUrl, _model, languagePair.SourceCultureName, languagePair.TargetCultureName, text),
+                                _baseUrl, _model, languagePair.SourceCultureName, languagePair.TargetCultureName,
+                                config.Domain, config.StyleGuide, text),
                                 translation);
                     });
                 }
@@ -144,7 +146,8 @@ namespace TradosToolkit.TranslationProvider.Engines
             // 总尝试次数 = 1(首次) + retryCount，退避取 2^attempt 秒封顶 8 秒，避免并发重试打爆网关。
             Exception last = null;
             var attempts = retryCount + 1;
-            var termRejected = false;
+            var termRetried = false;
+            string lastContent = null;
             for (var attempt = 0; attempt < attempts; attempt++)
             {
                 if (attempt > 0)
@@ -152,7 +155,7 @@ namespace TradosToolkit.TranslationProvider.Engines
                                      cancellationToken).ConfigureAwait(false);
 
                 var systemPrompt = BuildPrompt(pair, prevSource, prevTarget, window, termLine, domain);
-                if (termRejected)
+                if (termRetried)
                     systemPrompt += " IMPORTANT: Your previous translation failed the terminology check. "
                         + "Re-translate now and MUST use every mapped term below exactly.";
 
@@ -193,13 +196,16 @@ namespace TradosToolkit.TranslationProvider.Engines
                         content = EngineHttp.AsString(message.TryGetValue("content", out var ct) ? ct : null);
 
                     content = Clean(content);
+                    lastContent = content;
 
-                    // 一致性护栏：译文未采用术语映射时强制重译一次（不计入重试退避）
-                    // ——校验对象是全部生效术语（当前段 + 窗口段），与提示词注入的口径一致
-                    if (!termRejected && !TermsSatisfied(content, allTermPairs))
+                    // 一致性护栏：译文未采用术语映射时强制重译一次。
+                    // 关键：重译不占用重试配额（attempt-- 抵消本次循环自增，最多触发一次），
+                    // 且即便重译仍未达标也会返回已有译文，绝不因重译失败而丢弃已取得的译文。
+                    if (!termRetried && !TermsSatisfied(content, allTermPairs))
                     {
-                        termRejected = true;
+                        termRetried = true;
                         ToolkitLog.Warn("LLM 译文未采用术语映射，强制重译一次 (术语对数=" + allTermPairs.Count + ")");
+                        attempt--;
                         continue;
                     }
                     return content;
@@ -215,10 +221,12 @@ namespace TradosToolkit.TranslationProvider.Engines
                     ToolkitLog.Warn("LLM 单段网络异常，第 " + (attempt + 1) + "/" + attempts + " 次失败");
                 }
             }
+            // 已取得过译文（含术语校验未通过的）时优先返回，避免重译时的网络抖动把内容丢掉。
+            if (lastContent != null) return lastContent;
             throw last ?? new InvalidOperationException("TradosToolkit LLM 请求失败");
         }
 
-        /// <summary>只把服务端类(5xx/429/网络/超时)视为可重试；客户端 4xx 反馈性错误直接失败不重试。</summary>
+        /// <summary>只把服务端类(5xx/408/429/网络/超时)视为可重试；客户端 4xx 反馈性错误直接失败不重试。</summary>
         private static bool IsTransient(Exception ex)
         {
             if (ex is TimeoutException || ex is OperationCanceledException)
@@ -227,18 +235,23 @@ namespace TradosToolkit.TranslationProvider.Engines
                 return true;
             if (ex is HttpRequestException http)
             {
-                // EngineHttp 抛出的消息形如 "...HTTP 5xx..." 或 "...HTTP 4xx..."；取状态码首字符判断
+                // EngineHttp 抛出的消息形如 "...HTTP 503 Service Unavailable..."；解析数字状态码后判定：
+                // 仅 5xx（服务端故障）、408（请求超时）、429（限流）值得退避重试；
+                // 401/403/400/404 等 4xx 属于反馈性错误，重试只会反复打网关，直接失败。
                 const string marker = "HTTP ";
                 var idx = http.Message.IndexOf(marker, StringComparison.Ordinal);
-                if (idx >= 0 && idx + marker.Length < http.Message.Length - 1)
+                if (idx >= 0)
                 {
-                    var digit = http.Message[idx + marker.Length];
-                    return digit == '5' || digit == '4' || digit == '3';
+                    var start = idx + marker.Length;
+                    var end = start;
+                    while (end < http.Message.Length && char.IsDigit(http.Message[end])) end++;
+                    if (end > start && int.TryParse(http.Message.Substring(start, end - start), out var code))
+                        return code >= 500 || code == 408 || code == 429;
                 }
                 // 无状态码的网络层异常按可重试处理
                 return true;
             }
-            return ex is InvalidOperationException;
+            return false;
         }
 
         private string BuildPrompt(LanguagePair pair, string prevSource, string prevTarget,

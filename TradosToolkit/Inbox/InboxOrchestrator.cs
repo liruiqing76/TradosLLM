@@ -102,7 +102,9 @@ namespace TradosToolkit.Inbox
                 job.AppendLog("失败：" + e.Message);
                 if (current >= 0) job.EndStep(current, false, e.Message);
                 for (var i = current + 1; i < job.Steps.Count; i++)
-                    if (job.Steps[i].Status == "pending") job.SkipStep(i, "未执行");
+                    // 用同步状态副本判断：Steps[i].Status 经 Post 异步回写，此刻可能仍读到 "pending"，
+                    // 会把已完成步骤误标成「未执行」。
+                    if (job.StepStatus(i) == "pending") job.SkipStep(i, "未执行");
                 job.MarkFailed(e.Message);
             }
         }
@@ -362,35 +364,50 @@ namespace TradosToolkit.Inbox
             }
 
             var source = new FileBasedTranslationMemory(tmPath);
-            var sourceDir = source.LanguageDirection;
-            var all = TmToolkit.ReadAll(source, null, CancellationToken.None);
-            var keep = all.Where(tu => tu != null && tu.SourceSegment != null &&
-                                       keys.Contains(SegmentDedup.Normalize(tu.SourceSegment.ToPlain()))).ToList();
-
-            if (keep.Count == 0)
+            try
             {
-                File.Copy(tmPath, outPath, true);
+                var sourceDir = source.LanguageDirection;
+                var all = TmToolkit.ReadAll(source, null, CancellationToken.None);
+                var keep = all.Where(tu => tu != null && tu.SourceSegment != null &&
+                                           keys.Contains(SegmentDedup.Normalize(tu.SourceSegment.ToPlain()))).ToList();
+
+                if (keep.Count == 0)
+                {
+                    File.Copy(tmPath, outPath, true);
+                    job.TmPath = outPath;
+                    job.AppendLog("本文档句段未命中该库，改为整库复制（" + Path.GetFileName(outPath) + "）。");
+                    return;
+                }
+
+                TmToolkit.CreateNew(outPath, Path.GetFileNameWithoutExtension(outPath),
+                    sourceDir.SourceLanguage, sourceDir.TargetLanguage);
+
+                var target = new FileBasedTranslationMemory(outPath);
+                try
+                {
+                    var targetDir = target.LanguageDirection;
+                    var settings = new ImportSettings();
+                    for (var i = 0; i < keep.Count; i += ExportBatch)
+                    {
+                        var chunk = keep.Skip(i).Take(ExportBatch).ToArray();
+                        var mask = chunk.Select(_ => true).ToArray();
+                        targetDir.AddTranslationUnitsMasked(chunk, settings, mask);
+                    }
+                    target.Save();
+                }
+                finally
+                {
+                    // 释放产出库句柄，否则文件被锁、.sdltm 句柄泄漏（与 Merge 同款做法）。
+                    try { (target as IDisposable)?.Dispose(); } catch { }
+                }
+
                 job.TmPath = outPath;
-                job.AppendLog("本文档句段未命中该库，改为整库复制（" + Path.GetFileName(outPath) + "）。");
-                return;
+                job.AppendLog("命中并导出 " + keep.Count + " 条翻译单元（库内共 " + all.Count + " 条）。");
             }
-
-            TmToolkit.CreateNew(outPath, Path.GetFileNameWithoutExtension(outPath),
-                sourceDir.SourceLanguage, sourceDir.TargetLanguage);
-
-            var target = new FileBasedTranslationMemory(outPath);
-            var targetDir = target.LanguageDirection;
-            var settings = new ImportSettings();
-            for (var i = 0; i < keep.Count; i += ExportBatch)
+            finally
             {
-                var chunk = keep.Skip(i).Take(ExportBatch).ToArray();
-                var mask = chunk.Select(_ => true).ToArray();
-                targetDir.AddTranslationUnitsMasked(chunk, settings, mask);
+                try { (source as IDisposable)?.Dispose(); } catch { }
             }
-            target.Save();
-
-            job.TmPath = outPath;
-            job.AppendLog("命中并导出 " + keep.Count + " 条翻译单元（库内共 " + all.Count + " 条）。");
         }
 
         // ==================== 辅助 ====================

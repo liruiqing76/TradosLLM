@@ -26,7 +26,7 @@ namespace TradosToolkit.Workbench
     /// </summary>
     public partial class WorkbenchWindow : Window
     {
-        private static WorkbenchWindow _instance;
+        private static volatile WorkbenchWindow _instance;
 
         private readonly DispatcherTimer _tickTimer = new DispatcherTimer();
         private CancellationTokenSource _testCts;
@@ -35,9 +35,18 @@ namespace TradosToolkit.Workbench
         private CancellationTokenSource _scanCts;
         private bool _scanning;
 
-        private static readonly Brush Green = new SolidColorBrush(Color.FromRgb(0x2E, 0xA8, 0x6B));
-        private static readonly Brush Red = new SolidColorBrush(Color.FromRgb(0xE0, 0x5D, 0x4B));
-        private static readonly Brush Gray = new SolidColorBrush(Color.FromRgb(0xC0, 0xC6, 0xD2));
+        // 画刷必须冻结：工作台跑在专用 STA 线程，而这些静态字段的初始化发生在调用方
+        // （Studio 宿主 UI 线程）——未冻结的 Freezable 跨线程赋值会在渲染时抛
+        // "无法使用 DependencyObject，它属于其父 Freezable 之外的其他线程"。
+        private static readonly Brush Green = Frozen(new SolidColorBrush(Color.FromRgb(0x2E, 0xA8, 0x6B)));
+        private static readonly Brush Red = Frozen(new SolidColorBrush(Color.FromRgb(0xE0, 0x5D, 0x4B)));
+        private static readonly Brush Gray = Frozen(new SolidColorBrush(Color.FromRgb(0xC0, 0xC6, 0xD2)));
+
+        private static Brush Frozen(Brush brush)
+        {
+            brush.Freeze();
+            return brush;
+        }
 
         /// <summary>由 Home 功能区按钮调用：已打开则激活，否则新建。</summary>
         public static void ShowOrActivate()
@@ -87,7 +96,8 @@ namespace TradosToolkit.Workbench
             t.IsBackground = true;
             t.Name = "TradosToolkit.WorkbenchUI";
             t.Start();
-            ready.WaitOne(TimeSpan.FromSeconds(15));
+            if (!ready.WaitOne(TimeSpan.FromSeconds(15)))
+                ToolkitLog.Warn("工作台：窗口创建超时（15s），可能未成功打开");
         }
 
         /// <summary>
@@ -97,8 +107,10 @@ namespace TradosToolkit.Workbench
         private static T RunOnStudioUi<T>(Func<T> action)
         {
             var app = System.Windows.Application.Current;
-            if (app == null) return action();
-            return app.Dispatcher.Invoke(action);
+            if (app == null || app.Dispatcher.CheckAccess()) return action();
+            // 宿主线程正在跑自动化任务时阻塞式 Invoke 会让工作台整体冻结（甚至与宿主互相等待死锁），
+            // 因此带超时；超时抛 TimeoutException 由调用方兜底，不再无限等待。
+            return (T)app.Dispatcher.Invoke(action, TimeSpan.FromSeconds(30), DispatcherPriority.Normal);
         }
 
         public WorkbenchWindow()
@@ -129,10 +141,12 @@ namespace TradosToolkit.Workbench
             NavOverviewText.Text = UiText.T("WB_Tab_Overview");
             NavMemoriesText.Text = UiText.T("WB_Tab_Memories");
             NavQuickText.Text = UiText.T("WB_Tab_Quick");
-            NavToolsText.Text = "流程编排";
+            NavToolsText.Text = UiText.T("WB_Tab_Tools");
             PageTitleOverview.Text = UiText.T("WB_Tab_Overview");
             PageTitleMemories.Text = UiText.T("WB_Tab_Memories");
             PageTitleQuick.Text = UiText.T("WB_Tab_Quick");
+            PageTitleTools.Text = UiText.T("WB_Tab_Tools");
+            ToolsSubtitleText.Text = UiText.T("WB_Tools_Subtitle");
 
             RefreshButton.Content = UiText.T("WB_Btn_Refresh");
             TmCardTitle.Text = UiText.T("WB_Card_Tm").ToUpperInvariant();
@@ -476,7 +490,10 @@ namespace TradosToolkit.Workbench
             try
             {
                 ToolkitLog.Info("工作台：定位记忆库文件 " + filePath);
-                Process.Start(new ProcessStartInfo("explorer.exe", "/select,\"" + filePath + "\"")
+                // 去掉路径里可能存在的引号再拼参数，避免 explorer 的 /select 参数被引号截断或注入额外参数。
+                var safe = (filePath ?? string.Empty).Replace("\"", string.Empty);
+                if (safe.Length == 0) return;
+                Process.Start(new ProcessStartInfo("explorer.exe", "/select,\"" + safe + "\"")
                 {
                     UseShellExecute = true
                 });
@@ -499,6 +516,9 @@ namespace TradosToolkit.Workbench
         {
             if (_scanning || _memOpBusy) return;
             _memOpBusy = true;
+            // CTS 在通过重入检查后才创建并登记，避免被拒时旧 CTS 变孤儿、取消指向错实例。
+            var cts = new CancellationTokenSource();
+            _memOpCts = cts;
             SetMemToolsEnabled(false);
             MemOpCancel.Visibility = Visibility.Visible;
             TmProgress.Visibility = Visibility.Visible;
@@ -507,7 +527,7 @@ namespace TradosToolkit.Workbench
             try
             {
                 var progress = new Progress<string>(s => TmStatusText.Text = UiText.Tf("WB_Mem_Busy", s));
-                await op(progress, _memOpCts.Token);
+                await op(progress, cts.Token);
                 ToolkitLog.Info("工作台：记忆库操作完成 " + opName + " 耗时=" + watch.ElapsedMilliseconds + "ms");
             }
             catch (OperationCanceledException)
@@ -526,8 +546,8 @@ namespace TradosToolkit.Workbench
                 MemOpCancel.Visibility = Visibility.Collapsed;
                 TmProgress.Visibility = Visibility.Collapsed;
                 SetMemToolsEnabled(true);
-                _memOpCts.Dispose();
-                _memOpCts = null;
+                if (ReferenceEquals(_memOpCts, cts)) _memOpCts = null;
+                cts.Dispose();
             }
         }
 
@@ -600,7 +620,6 @@ namespace TradosToolkit.Workbench
             if (!TmToolDialogs.MergeDialog(this, selected, out var targetPath, out var policy)) return;
 
             var sources = selected.Select(x => x.FilePath).ToList();
-            _memOpCts = new CancellationTokenSource();
             _ = RunMemOpAsync("merge(" + sources.Count + ")", async (progress, ct) =>
             {
                 var report = await Task.Run(() => TmToolkit.Merge(sources, targetPath, policy, progress, ct), CancellationToken.None);
@@ -617,7 +636,6 @@ namespace TradosToolkit.Workbench
                 TmStatusText.Text = UiText.T("WB_Mem_Err_NoSel");
                 return;
             }
-            _memOpCts = new CancellationTokenSource();
             var path = item.FilePath;
             _ = RunMemOpAsync("duplicates(" + item.Name + ")", async (progress, ct) =>
             {
@@ -1026,8 +1044,9 @@ namespace TradosToolkit.Workbench
             FlowStepUp.IsEnabled = !running; FlowStepDown.IsEnabled = !running; FlowStepDel.IsEnabled = !running;
         }
 
-        /// <summary>直调插件 HTTP 端点；返回 (状态是否成功, 展示文本)。Studio 自动任务不走这里。</summary>
-        private Tuple<bool, string> RunPluginStep(string key)
+        /// <summary>直调插件 HTTP 端点；返回 (状态是否成功, 展示文本)。Studio 自动任务不走这里。
+        /// 步骤体在后台线程执行，输入一律取自 UI 线程预先抓好的快照 t，不得直接读控件。</summary>
+        private static Tuple<bool, string> RunPluginStep(string key, ToolsSnapshot t)
         {
             var q = new Dictionary<string, string>();
             var body = "";
@@ -1039,34 +1058,33 @@ namespace TradosToolkit.Workbench
                     break;
                 case "report":
                     path = "/api/project/report";
-                    q = new Dictionary<string, string> { { "path", NeedPath() } };
+                    q = new Dictionary<string, string> { { "path", NeedPath(t) } };
                     break;
                 case "triage":
                     path = "/api/project/triage";
-                    q = BaseQuery();
+                    q = BaseQuery(t);
                     break;
                 case "audit":
                     path = "/api/project/audit";
-                    q = BaseQuery();
+                    q = BaseQuery(t);
                     break;
                 case "auditapply":
                     path = "/api/project/audit";
                     method = "POST";
-                    q = BaseQuery();
+                    q = BaseQuery(t);
                     break;
                 case "auditall":
                     path = "/api/project/audit";
-                    q = new Dictionary<string, string> { { "path", NeedPath() }, { "all", "1" } };
+                    q = new Dictionary<string, string> { { "path", NeedPath(t) }, { "all", "1" } };
                     break;
                 case "backfill":
                     path = "/api/glossary/backfill";
-                    var src = ToolsSrcBox.Text.Trim();
-                    var tgt = ToolsTgtBox.Text.Trim();
+                    var src = t.SrcLang;
+                    var tgt = t.TgtLang;
                     if (string.IsNullOrEmpty(src) || string.IsNullOrEmpty(tgt))
                         return Tuple.Create(false, "请填写语言对（源/目标），或先“取当前项目”自动带入。");
                     var req = new Dictionary<string, object> { { "srcLang", src }, { "tgtLang", tgt } };
-                    var bp = ToolsFileBox.Text.Trim();
-                    if (!string.IsNullOrEmpty(bp)) req["bilingualPath"] = bp;
+                    if (!string.IsNullOrEmpty(t.FilePath)) req["bilingualPath"] = t.FilePath;
                     body = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(req);
                     break;
             }
@@ -1078,7 +1096,7 @@ namespace TradosToolkit.Workbench
         }
 
         /// <summary>把连续的一段 Studio 自动任务合并成一次 pipeline 调用（tolerant，单步顺序执行）。</summary>
-        private Tuple<bool, string> RunStudioPipeline(List<string> keys)
+        private static Tuple<bool, string> RunStudioPipeline(List<string> keys, ToolsSnapshot t)
         {
             var steps = new List<Dictionary<string, object>>();
             foreach (var k in keys) steps.Add(new Dictionary<string, object> { { "task", k } });
@@ -1086,7 +1104,7 @@ namespace TradosToolkit.Workbench
                 new Dictionary<string, object> { { "steps", steps }, { "tolerant", true } });
             var token = ApiConfig.Load().GetOrCreateToken();
             var result = ProjectApi.Handle("POST", "/api/project/pipeline",
-                new Dictionary<string, string> { { "path", NeedPath() } }, body, token, token);
+                new Dictionary<string, string> { { "path", NeedPath(t) } }, body, token, token);
             var ok = result.Status >= 200 && result.Status < 300;
             var json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(result.Payload);
             return Tuple.Create(ok, (ok ? "" : "[HTTP " + result.Status + "] ") + json);
@@ -1112,6 +1130,9 @@ namespace TradosToolkit.Workbench
                 ToolsOutput.Text = sb.ToString();
                 ToolkitLog.Info("工作台：运行流程卡 " + card.name + " 步骤=" + string.Join(",", card.steps));
 
+                // 步骤体在 Task.Run 里执行，后台线程不能读控件；先在 UI 线程抓一份输入快照
+                var tools = CaptureTools();
+
                 var failed = 0;
                 var index = 0;
                 try
@@ -1128,7 +1149,7 @@ namespace TradosToolkit.Workbench
                             var stepLine = string.Join(" → ", seq.Select(OpLabel));
                             AppendLine(sb, "· [开始] " + (start + 1) + ".." + index + " " + stepLine);
                             var sw = Stopwatch.StartNew();
-                            var r = await Task.Run(() => RunStudioPipeline(seq), CancellationToken.None);
+                            var r = await Task.Run(() => RunStudioPipeline(seq, tools), CancellationToken.None);
                             sw.Stop();
                             AppendLine(sb, r.Item1 ? "[完成] " + stepLine + "  ·  " + sw.ElapsedMilliseconds + " ms"
                                                   : "[失败] " + stepLine + "  ·  " + r.Item2);
@@ -1142,7 +1163,7 @@ namespace TradosToolkit.Workbench
                             AppendLine(sb, "· [开始] " + nth + ". " + OpLabel(key));
                             try
                             {
-                                var r = await Task.Run(() => RunPluginStep(key), CancellationToken.None);
+                                var r = await Task.Run(() => RunPluginStep(key, tools), CancellationToken.None);
                                 sw.Stop();
                                 AppendLine(sb, r.Item1 ? "[完成] " + nth + ". " + OpLabel(key) + "  ·  " + sw.ElapsedMilliseconds + " ms"
                                                       : "[失败] " + nth + ". " + OpLabel(key) + "  ·  " + r.Item2);
@@ -1195,19 +1216,39 @@ namespace TradosToolkit.Workbench
 
         // ==================== 批处理工具输入区（流程编排共用） ====================
 
-        private string NeedPath()
+        /// <summary>流程页输入快照：由 UI 线程一次性抓取，供后台步骤使用（后台线程不得读控件）。</summary>
+        private sealed class ToolsSnapshot
         {
-            var p = ToolsProjBox.Text.Trim();
+            public string ProjectPath;
+            public string FilePath;
+            public string SrcLang;
+            public string TgtLang;
+        }
+
+        /// <summary>抓取流程页输入；只能在 UI 线程调用。</summary>
+        private ToolsSnapshot CaptureTools()
+        {
+            return new ToolsSnapshot
+            {
+                ProjectPath = (ToolsProjBox.Text ?? string.Empty).Trim(),
+                FilePath = (ToolsFileBox.Text ?? string.Empty).Trim(),
+                SrcLang = (ToolsSrcBox.Text ?? string.Empty).Trim(),
+                TgtLang = (ToolsTgtBox.Text ?? string.Empty).Trim(),
+            };
+        }
+
+        private static string NeedPath(ToolsSnapshot t)
+        {
+            var p = t.ProjectPath;
             if (string.IsNullOrEmpty(p)) throw new InvalidOperationException("请先选择项目 (.sdlp)：点“取当前项目”或“浏览…”");
             if (!File.Exists(p)) throw new InvalidOperationException("项目文件不存在: " + p);
             return p;
         }
 
-        private Dictionary<string, string> BaseQuery()
+        private static Dictionary<string, string> BaseQuery(ToolsSnapshot t)
         {
-            var q = new Dictionary<string, string> { { "path", NeedPath() } };
-            var f = ToolsFileBox.Text.Trim();
-            if (!string.IsNullOrEmpty(f)) q["file"] = f;
+            var q = new Dictionary<string, string> { { "path", NeedPath(t) } };
+            if (!string.IsNullOrEmpty(t.FilePath)) q["file"] = t.FilePath;
             return q;
         }
 
@@ -1380,9 +1421,11 @@ namespace TradosToolkit.Workbench
                 var token = ApiConfig.Load().GetOrCreateToken();
                 try
                 {
+                    // 把取消令牌传进去：否则点「取消」要等整批 LLM 跑完才生效。
+                    var ct = _revCts.Token;
                     var result = await Task.Run(() =>
-                        ProjectApi.Handle("POST", RevEndpoint, q, body, token, token), CancellationToken.None);
-                    if (_revCts == null || _revCts.IsCancellationRequested)
+                        ProjectApi.Handle("POST", RevEndpoint, q, body, token, token, ct), CancellationToken.None);
+                    if (_revCts == null || _revCts.IsCancellationRequested || result.Status == 499)
                     {
                         RevStatus.Text = "已取消。";
                         return;
@@ -1550,8 +1593,17 @@ namespace TradosToolkit.Workbench
             if (dlg.ShowDialog(this) != true) return;
             var csv = BuildReviewCsv();
             if (string.IsNullOrEmpty(csv)) { RevStatus.Text = "没有审校结果可导出。"; return; }
-            File.WriteAllText(dlg.FileName, csv, Encoding.UTF8);
-            RevStatus.Text = "已导出：" + dlg.FileName;
+            try
+            {
+                File.WriteAllText(dlg.FileName, csv, Encoding.UTF8);
+                RevStatus.Text = "已导出：" + dlg.FileName;
+            }
+            catch (Exception ex)
+            {
+                // 目标文件被占用/无权限时不能把异常抛出去（事件处理器里会直接崩），改为状态行提示。
+                RevStatus.Text = "导出失败：" + ex.Message;
+                ToolkitLog.Error("工作台：审校报告导出失败 " + dlg.FileName, ex);
+            }
         }
 
         private string BuildReviewCsv()
@@ -1562,10 +1614,19 @@ namespace TradosToolkit.Workbench
             var rows = RevList.ItemsSource as List<ReviewRow>;
             if (rows == null) return null;
             foreach (var r in rows)
-                sb.Append(r.ItemId).Append(',').Append(r.VerdictText).Append(',').Append(r.Score).Append(',')
-                  .Append(r.Issue).Append(',').Append(r.Suggestion).Append(',').Append(r.Source).Append(',').Append(r.Target)
+                sb.Append(Csv(r.ItemId)).Append(',').Append(Csv(r.VerdictText)).Append(',').Append(Csv(r.Score)).Append(',')
+                  .Append(Csv(r.Issue)).Append(',').Append(Csv(r.Suggestion)).Append(',')
+                  .Append(Csv(r.Source)).Append(',').Append(Csv(r.Target))
                   .Append("\r\n");
             return sb.ToString();
+        }
+
+        /// <summary>CSV 字段转义：含逗号/引号/换行时用双引号包裹，内部引号翻倍。</summary>
+        private static string Csv(object value)
+        {
+            var s = value == null ? string.Empty : Convert.ToString(value);
+            if (s.IndexOfAny(new[] { ',', '"', '\r', '\n' }) < 0) return s;
+            return "\"" + s.Replace("\"", "\"\"") + "\"";
         }
 
         private static string PayloadText(ApiResult result)
@@ -1708,10 +1769,17 @@ namespace TradosToolkit.Workbench
         public string BackText { get; set; }
         public string Suggestion { get; set; }
 
-        private static readonly Brush RedBrush = new SolidColorBrush(Color.FromRgb(0xE0, 0x5D, 0x4B));
-        private static readonly Brush AmberBrush = new SolidColorBrush(Color.FromRgb(0xB0, 0x7F, 0x2A));
-        private static readonly Brush GreenBrush = new SolidColorBrush(Color.FromRgb(0x2E, 0xA8, 0x6B));
-        private static readonly Brush GrayBrush = new SolidColorBrush(Color.FromRgb(0x9A, 0xA3, 0xB2));
+        // 同上：静态画刷须冻结，否则在专用 UI 线程上做数据绑定时跨线程访问 Freezable。
+        private static readonly Brush RedBrush = Frozen(new SolidColorBrush(Color.FromRgb(0xE0, 0x5D, 0x4B)));
+        private static readonly Brush AmberBrush = Frozen(new SolidColorBrush(Color.FromRgb(0xB0, 0x7F, 0x2A)));
+        private static readonly Brush GreenBrush = Frozen(new SolidColorBrush(Color.FromRgb(0x2E, 0xA8, 0x6B)));
+        private static readonly Brush GrayBrush = Frozen(new SolidColorBrush(Color.FromRgb(0x9A, 0xA3, 0xB2)));
+
+        private static Brush Frozen(Brush brush)
+        {
+            brush.Freeze();
+            return brush;
+        }
 
         public static ReviewRow From(Dictionary<string, object> it)
         {

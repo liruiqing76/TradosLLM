@@ -79,23 +79,34 @@ namespace TradosToolkit.Server
             ThreadPool.QueueUserWorkItem(_ =>
             {
                 ApiLog.Write("task " + st.Id + " (" + taskKey + ") begin");
+                ApiResult result = null;
+                string status = "error";
+                string error = null;
                 try
                 {
-                    st.Result = op();
-                    st.Status = cts.IsCancellationRequested ? "cancelled" : "done";
-                    ApiLog.Write("task " + st.Id + " " + st.Status + " in " +
+                    result = op();
+                    status = cts.IsCancellationRequested ? "cancelled" : "done";
+                    ApiLog.Write("task " + st.Id + " " + status + " in " +
                                  ((DateTime.Now - st.StartedAt).TotalMilliseconds).ToString("0") + "ms");
                 }
                 catch (Exception e)
                 {
-                    st.Status = "error";
-                    st.Error = e.Message;
+                    status = "error";
+                    error = e.Message;
                     ApiLog.Write("task " + st.Id + " error: " + e.Message);
                 }
                 finally
                 {
-                    st.FinishedAt = DateTime.Now;
-                    lock (Gate) _cancelSources.Remove(st.Id);
+                    // 结果字段与 HTTP 读取（Snapshot/Summarize）共用 Gate：写入也必须在锁内，
+                    // 否则读取方可能看到过期的 running 状态或未发布的 Result（无内存屏障）。
+                    lock (Gate)
+                    {
+                        st.Result = result;
+                        st.Status = status;
+                        st.Error = error;
+                        st.FinishedAt = DateTime.Now;
+                        _cancelSources.Remove(st.Id);
+                    }
                 }
             });
             return st;

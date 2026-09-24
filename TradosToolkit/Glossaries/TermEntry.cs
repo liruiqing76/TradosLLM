@@ -72,6 +72,13 @@ namespace TradosToolkit.Glossaries
         {
             return new List<string> { None, Noun, Verb, Adjective, Adverb, Phrase, Abbreviation };
         }
+
+        /// <summary>把存库值归一到可选集合内的规范值；未知值回落为 None（不能借用 TermStatus 的归一，否则词性被清空）。</summary>
+        public static string Normalize(string pos)
+        {
+            var v = (pos ?? string.Empty).Trim().ToLowerInvariant();
+            return All().Contains(v) ? v : None;
+        }
     }
 
     /// <summary>

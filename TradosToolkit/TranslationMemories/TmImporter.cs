@@ -60,6 +60,9 @@ namespace TradosToolkit.TranslationMemories
             {
                 if (!File.Exists(targetTmPath))
                     throw new InvalidOperationException("目标记忆库不存在: " + targetTmPath);
+                // 写目标库前先备份 .bak：中途失败留半写入库时可回退（与译文写回的做法一致）
+                try { File.Copy(targetTmPath, targetTmPath + ".bak", true); }
+                catch (Exception e) { ToolkitLog.Warn("TmImporter: 备份目标库失败（继续导入）", e); }
                 tm = new FileBasedTranslationMemory(targetTmPath);
                 if (tm.IsProtected)
                     throw new InvalidOperationException("目标记忆库被保护，无法写入: " + Path.GetFileName(targetTmPath));

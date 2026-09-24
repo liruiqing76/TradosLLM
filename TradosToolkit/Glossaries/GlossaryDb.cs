@@ -903,6 +903,30 @@ CREATE INDEX IF NOT EXISTS ix_term_synonyms_entry ON term_synonyms(entry_id);";
                     ToolkitLog.Warn("恢复前自动备份失败（继续恢复）", e);
                 }
 
+                // 恢复前把 -wal 合并回主库，并释放连接池句柄、清掉残留日志文件：
+                // 否则翻译进行中直接覆盖主库，残留的 -wal 会盖掉新数据导致库损坏。
+                try
+                {
+                    using (var conn = Open())
+                    using (var cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = "PRAGMA wal_checkpoint(TRUNCATE);";
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception e)
+                {
+                    ToolkitLog.Warn("恢复前 WAL checkpoint 失败（继续恢复）", e);
+                }
+                try { System.Data.SQLite.SQLiteConnection.ClearAllPools(); }
+                catch (Exception e) { ToolkitLog.Warn("恢复前释放 SQLite 连接池失败", e); }
+                foreach (var ext in new[] { "-wal", "-shm" })
+                {
+                    var side = dbPath + ext;
+                    try { if (File.Exists(side)) File.Delete(side); }
+                    catch (Exception e) { ToolkitLog.Warn("删除残留 " + ext + " 失败", e); }
+                }
+
                 File.Copy(fromPath, dbPath, true);
                 ToolkitLog.Info("术语库已从备份恢复: " + fromPath);
                 return preRestore;

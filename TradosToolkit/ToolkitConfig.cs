@@ -125,6 +125,10 @@ namespace TradosToolkit
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                          "TradosToolkit", "config.json");
 
+        /// <summary>config.json 读写的全局锁：Save 是"读-改-写"，须与并发 Load/Save 互斥，
+        /// 否则会丢更新，或让 Load 读到替换途中的文件。同时保证 File.Replace 时目标未被读取占用。</summary>
+        private static readonly object ConfigGate = new object();
+
         /// <summary>校验 "HH:mm" 形式的每日时间（00:00–23:59）。</summary>
         public static bool IsValidTime(string value)
         {
@@ -206,15 +210,21 @@ namespace TradosToolkit
             var config = new ToolkitConfig();
             try
             {
-                if (!File.Exists(ConfigFilePath))
+                string raw;
+                lock (ConfigGate)
                 {
-                    Directory.CreateDirectory(Path.GetDirectoryName(ConfigFilePath));
-                    File.WriteAllText(ConfigFilePath, "{\"tmUrl\":\"\",\"apiKey\":\"\"}");
-                    ToolkitLog.Info("ToolkitConfig: 已创建默认 " + ConfigFilePath);
-                    return config;
+                    if (!File.Exists(ConfigFilePath))
+                    {
+                        Directory.CreateDirectory(Path.GetDirectoryName(ConfigFilePath));
+                        Common.FileKit.WriteAllTextAtomic(ConfigFilePath, "{\"tmUrl\":\"\",\"apiKey\":\"\"}");
+                        ToolkitLog.Info("ToolkitConfig: 已创建默认 " + ConfigFilePath);
+                        return config;
+                    }
+                    // 在锁内读取快照，避免与 Save 的 File.Replace 抢文件（Windows 下替换要求目标未被打开）。
+                    raw = File.ReadAllText(ConfigFilePath);
                 }
                 var json = new JavaScriptSerializer()
-                    .Deserialize<Dictionary<string, object>>(File.ReadAllText(ConfigFilePath));
+                    .Deserialize<Dictionary<string, object>>(raw);
                 if (json != null)
                 {
                     if (json.TryGetValue("tmUrl", out var tm) && tm is string s)
@@ -374,40 +384,45 @@ namespace TradosToolkit
             try
             {
                 var json = new JavaScriptSerializer();
-                Dictionary<string, object> doc = null;
-                if (File.Exists(ConfigFilePath))
-                    doc = json.Deserialize<Dictionary<string, object>>(File.ReadAllText(ConfigFilePath));
-                if (doc == null) doc = new Dictionary<string, object>();
-                if (apiKey != null) doc["apiKey"] = EncryptApiKey(apiKey);
-                if (llmBaseUrl != null) doc["llmBaseUrl"] = llmBaseUrl;
-                if (llmModel != null) doc["llmModel"] = llmModel;
-                if (translationCenterUrl != null) doc["translationCenterUrl"] = translationCenterUrl;
-                if (tmScanDirectory != null) doc["tmScanDirectory"] = tmScanDirectory;
-                if (tmIndexAutoRefresh != null) doc["tmIndexAutoRefresh"] = tmIndexAutoRefresh.Value;
-                if (tmIndexRefreshTime != null)
-                    doc["tmIndexRefreshTime"] = IsValidTime(tmIndexRefreshTime) ? tmIndexRefreshTime.Trim() : "02:00";
-                if (tmIndexLastRun != null) doc["tmIndexLastRun"] = tmIndexLastRun;
-                if (llmOrigin != null) doc["llmOrigin"] = NormalizeLlmOrigin(llmOrigin);
-                if (contextWindowSegments != null) doc["contextWindowSegments"] = contextWindowSegments.Value;
-                if (contextMaxChars != null) doc["contextMaxChars"] = contextMaxChars.Value;
-                if (styleGuide != null) doc["styleGuide"] = styleGuide;
-                if (termBaseUrl != null) doc["termBaseUrl"] = termBaseUrl;
-                if (domain != null) doc["domain"] = domain;
-                if (inboxWatchFolder != null) doc["inboxWatchFolder"] = inboxWatchFolder;
-                if (inboxOutputFolder != null) doc["inboxOutputFolder"] = inboxOutputFolder;
-                if (inboxProjectRoot != null) doc["inboxProjectRoot"] = inboxProjectRoot;
-                if (inboxSourceLang != null) doc["inboxSourceLang"] = inboxSourceLang;
-                if (inboxTargetLang != null) doc["inboxTargetLang"] = inboxTargetLang;
-                if (inboxReportFormat != null) doc["inboxReportFormat"] = inboxReportFormat;
-                if (inboxAutoStart != null) doc["inboxAutoStart"] = inboxAutoStart.Value;
-                if (folders != null)
+                // 加锁 + 原子写：Save 是"读-改-写"，与并发 Load（收件箱/引擎线程）及并发 Save 竞态；
+                // 非原子 File.WriteAllText 会让 Load 读到半截 JSON 并静默回落全默认值（配置瞬时丢失）。
+                lock (ConfigGate)
                 {
-                    doc["translationCenterFolders"] = folders;
-                    doc.Remove("translationCenterBookmarks");
+                    Dictionary<string, object> doc = null;
+                    if (File.Exists(ConfigFilePath))
+                        doc = json.Deserialize<Dictionary<string, object>>(File.ReadAllText(ConfigFilePath));
+                    if (doc == null) doc = new Dictionary<string, object>();
+                    if (apiKey != null) doc["apiKey"] = EncryptApiKey(apiKey);
+                    if (llmBaseUrl != null) doc["llmBaseUrl"] = llmBaseUrl;
+                    if (llmModel != null) doc["llmModel"] = llmModel;
+                    if (translationCenterUrl != null) doc["translationCenterUrl"] = translationCenterUrl;
+                    if (tmScanDirectory != null) doc["tmScanDirectory"] = tmScanDirectory;
+                    if (tmIndexAutoRefresh != null) doc["tmIndexAutoRefresh"] = tmIndexAutoRefresh.Value;
+                    if (tmIndexRefreshTime != null)
+                        doc["tmIndexRefreshTime"] = IsValidTime(tmIndexRefreshTime) ? tmIndexRefreshTime.Trim() : "02:00";
+                    if (tmIndexLastRun != null) doc["tmIndexLastRun"] = tmIndexLastRun;
+                    if (llmOrigin != null) doc["llmOrigin"] = NormalizeLlmOrigin(llmOrigin);
+                    if (contextWindowSegments != null) doc["contextWindowSegments"] = contextWindowSegments.Value;
+                    if (contextMaxChars != null) doc["contextMaxChars"] = contextMaxChars.Value;
+                    if (styleGuide != null) doc["styleGuide"] = styleGuide;
+                    if (termBaseUrl != null) doc["termBaseUrl"] = termBaseUrl;
+                    if (domain != null) doc["domain"] = domain;
+                    if (inboxWatchFolder != null) doc["inboxWatchFolder"] = inboxWatchFolder;
+                    if (inboxOutputFolder != null) doc["inboxOutputFolder"] = inboxOutputFolder;
+                    if (inboxProjectRoot != null) doc["inboxProjectRoot"] = inboxProjectRoot;
+                    if (inboxSourceLang != null) doc["inboxSourceLang"] = inboxSourceLang;
+                    if (inboxTargetLang != null) doc["inboxTargetLang"] = inboxTargetLang;
+                    if (inboxReportFormat != null) doc["inboxReportFormat"] = inboxReportFormat;
+                    if (inboxAutoStart != null) doc["inboxAutoStart"] = inboxAutoStart.Value;
+                    if (folders != null)
+                    {
+                        doc["translationCenterFolders"] = folders;
+                        doc.Remove("translationCenterBookmarks");
+                    }
+                    if (processCards != null) doc["processCards"] = processCards;
+                    Directory.CreateDirectory(Path.GetDirectoryName(ConfigFilePath));
+                    Common.FileKit.WriteAllTextAtomic(ConfigFilePath, json.Serialize(doc));
                 }
-                if (processCards != null) doc["processCards"] = processCards;
-                Directory.CreateDirectory(Path.GetDirectoryName(ConfigFilePath));
-                File.WriteAllText(ConfigFilePath, json.Serialize(doc));
                 ToolkitLog.Info("ToolkitConfig: 已保存 (apiKey=" + (apiKey == null ? "不变" : "长度" + apiKey.Length) +
                                 " baseUrl=" + (llmBaseUrl ?? "不变") + " model=" + (llmModel ?? "不变") + ")");
             }

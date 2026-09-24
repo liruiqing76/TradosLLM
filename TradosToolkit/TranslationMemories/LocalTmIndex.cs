@@ -47,6 +47,22 @@ namespace TradosToolkit.TranslationMemories
         /// <summary>ISO-8601 往返格式（带时区后缀），解析时按 UTC 还原。</summary>
         private const string TimeFormat = "o";
 
+        /// <summary>规范化根目录：统一为绝对路径并去掉尾部分隔符，
+        /// 避免同一目录因写法差异（相对路径/尾斜杠/多余空格）写出两套 root 导致查询漏命中、旧行永不清理。</summary>
+        private static string NormRoot(string root)
+        {
+            if (string.IsNullOrWhiteSpace(root)) return string.Empty;
+            try
+            {
+                return Path.GetFullPath(root.Trim())
+                    .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+            }
+            catch
+            {
+                return root.Trim();
+            }
+        }
+
         private static string NowText() => DateTime.UtcNow.ToString(TimeFormat, CultureInfo.InvariantCulture);
 
         private static void EnsureSchema()
@@ -67,12 +83,14 @@ CREATE TABLE IF NOT EXISTS tm_index(
     name           TEXT,
     language_pair  TEXT,
     readable       INTEGER NOT NULL DEFAULT 0,
+    state          TEXT,
     modified_ticks INTEGER NOT NULL DEFAULT -1,
     size           INTEGER NOT NULL DEFAULT -1,
     scanned_at     TEXT
 );
 CREATE INDEX IF NOT EXISTS ix_tm_index_lang ON tm_index(language_pair);";
                         cmd.ExecuteNonQuery();
+                        AddMissingColumns(conn);
                     }
                     MigrateLegacyJson();
                     _schemaReady = true;
@@ -80,6 +98,27 @@ CREATE INDEX IF NOT EXISTS ix_tm_index_lang ON tm_index(language_pair);";
                 catch (Exception e)
                 {
                     ToolkitLog.Error("LocalTmIndex: 初始化数据库失败", e);
+                }
+            }
+        }
+
+        /// <summary>给旧库补列（SQLite 不支持 ADD COLUMN IF NOT EXISTS，先查 PRAGMA 再补）。</summary>
+        private static void AddMissingColumns(System.Data.SQLite.SQLiteConnection conn)
+        {
+            var has = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            using (var pragma = conn.CreateCommand())
+            {
+                pragma.CommandText = "PRAGMA table_info(tm_index);";
+                using (var r = pragma.ExecuteReader())
+                    while (r.Read()) has.Add(Convert.ToString(r["name"]));
+            }
+            // state：区分 Ok / Protected / Error（原来只存 readable，打不开的库被显示成「受保护」）
+            if (!has.Contains("state"))
+            {
+                using (var alter = conn.CreateCommand())
+                {
+                    alter.CommandText = "ALTER TABLE tm_index ADD COLUMN state TEXT;";
+                    alter.ExecuteNonQuery();
                 }
             }
         }
@@ -106,7 +145,8 @@ CREATE INDEX IF NOT EXISTS ix_tm_index_lang ON tm_index(language_pair);";
                     {
                         if (e == null || string.IsNullOrEmpty(e.path)) continue;
                         UpsertRow(conn, e.path, root, e.name, e.languagePair,
-                                  e.readable, e.modifiedTicks, e.size, scannedAt);
+                                  e.readable, e.readable ? nameof(LocalTmState.Ok) : nameof(LocalTmState.Protected),
+                                  e.modifiedTicks, e.size, scannedAt);
                     }
                     tx.Commit();
                 }
@@ -127,7 +167,7 @@ CREATE INDEX IF NOT EXISTS ix_tm_index_lang ON tm_index(language_pair);";
         public static List<LocalTmInfo> GetOrScan(string root, CancellationToken ct = default(CancellationToken))
         {
             if (string.IsNullOrWhiteSpace(root) || !Directory.Exists(root)) return new List<LocalTmInfo>();
-            root = root.Trim();
+            root = NormRoot(root);
 
             List<string> files;
             try
@@ -141,80 +181,94 @@ CREATE INDEX IF NOT EXISTS ix_tm_index_lang ON tm_index(language_pair);";
             }
 
             EnsureSchema();
-            lock (Gate)
+
+            // 1) 短暂持锁读索引行（只读，很快）
+            Dictionary<string, Entry> byPath;
+            lock (Gate) byPath = LoadEntries(root);
+
+            // 2) 无锁地打开「新增/改动」的库文件（逐个 FileBasedTranslationMemory，很慢）。
+            //    绝不能占着 Gate：否则期间的 FindByLanguagePair/Upsert（收件箱任务）会被整段阻塞数分钟。
+            var result = new List<LocalTmInfo>();
+            var livePaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            var pendingWrites = new List<Entry>();
+            foreach (var file in files)
             {
-                // 只取属于当前 root 的行；目录变了则天然查不到旧目录条目，等效作废（旧行后续被清理）
-                var byPath = LoadEntries(root);
-                var result = new List<LocalTmInfo>();
-                var changed = 0;
-                var livePaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                ct.ThrowIfCancellationRequested();
+                livePaths.Add(file);
 
-                using (var conn = Open())
-                using (var tx = conn.BeginTransaction())
+                long ticks = -1, size = -1;
+                try
                 {
-                    foreach (var file in files)
-                    {
-                        ct.ThrowIfCancellationRequested();
-                        livePaths.Add(file);
-
-                        long ticks = -1, size = -1;
-                        try
-                        {
-                            var fi = new FileInfo(file);
-                            ticks = fi.LastWriteTimeUtc.Ticks;
-                            size = fi.Length;
-                        }
-                        catch (Exception e)
-                        {
-                            ToolkitLog.Error("LocalTmIndex: 读文件信息失败 " + file, e);
-                        }
-
-                        Entry entry = null;
-                        byPath.TryGetValue(file, out entry);
-                        // 命中且文件未改动（时间戳 + 大小一致）→ 直接复用，不再打开库文件
-                        var unchanged = ticks >= 0 && entry != null &&
-                                        entry.modifiedTicks == ticks && entry.size == size;
-                        if (!unchanged)
-                        {
-                            // 新增或改动 → 用扫描器重新打开这一个文件
-                            var info = LocalTmScanner.ReadOne(file);
-                            entry = new Entry
-                            {
-                                name = info.Name,
-                                path = file,
-                                languagePair = info.LanguagePair,
-                                readable = info.State == LocalTmState.Ok,
-                                modifiedTicks = ticks,
-                                size = size,
-                            };
-                            UpsertRow(conn, entry.path, root, entry.name, entry.languagePair,
-                                      entry.readable, entry.modifiedTicks, entry.size, NowText());
-                            changed++;
-                        }
-
-                        result.Add(new LocalTmInfo
-                        {
-                            Name = entry.name,
-                            FilePath = entry.path,
-                            LanguagePair = entry.languagePair,
-                            State = entry.readable ? LocalTmState.Ok : LocalTmState.Protected,
-                            Modified = ticks >= 0 ? new DateTime(ticks, DateTimeKind.Utc).ToLocalTime() : DateTime.MinValue,
-                            Size = size >= 0 ? LocalTmScanner.HumanSize(size) : "-",
-                            Units = "-",
-                        });
-                    }
-
-                    // 清理当前 root 下已不存在的文件行
-                    foreach (var stale in byPath.Keys.Where(p => !livePaths.Contains(p)).ToList())
-                        DeleteRow(conn, stale);
-
-                    tx.Commit();
+                    var fi = new FileInfo(file);
+                    ticks = fi.LastWriteTimeUtc.Ticks;
+                    size = fi.Length;
+                }
+                catch (Exception e)
+                {
+                    ToolkitLog.Error("LocalTmIndex: 读文件信息失败 " + file, e);
                 }
 
-                result.Sort((a, b) => b.Modified.CompareTo(a.Modified));
-                ToolkitLog.Info("LocalTmIndex: " + root + " 共 " + files.Count + " 个库，增量刷新 " + changed + " 个");
-                return result;
+                Entry entry;
+                byPath.TryGetValue(file, out entry);
+                // 命中且文件未改动（时间戳 + 大小一致）→ 直接复用，不再打开库文件
+                var unchanged = ticks >= 0 && entry != null &&
+                                entry.modifiedTicks == ticks && entry.size == size;
+                if (!unchanged)
+                {
+                    // 新增或改动 → 用扫描器重新打开这一个文件
+                    var info = LocalTmScanner.ReadOne(file);
+                    entry = new Entry
+                    {
+                        name = info.Name,
+                        path = file,
+                        languagePair = info.LanguagePair,
+                        readable = info.State == LocalTmState.Ok,
+                        state = info.State.ToString(),
+                        modifiedTicks = ticks,
+                        size = size,
+                    };
+                    pendingWrites.Add(entry);
+                }
+
+                result.Add(new LocalTmInfo
+                {
+                    Name = entry.name,
+                    FilePath = entry.path,
+                    LanguagePair = entry.languagePair,
+                    // 用存下来的真实状态，避免把「读取失败」显示成「受保护」。
+                    State = ParseState(entry.state, entry.readable),
+                    Modified = ticks >= 0 ? new DateTime(ticks, DateTimeKind.Utc).ToLocalTime() : DateTime.MinValue,
+                    Size = size >= 0 ? LocalTmScanner.HumanSize(size) : "-",
+                    Units = "-",
+                });
             }
+
+            // 3) 短暂持锁写回增量结果，并清理当前 root 下已不存在的文件行
+            lock (Gate)
+            {
+                try
+                {
+                    using (var conn = Open())
+                    using (var tx = conn.BeginTransaction())
+                    {
+                        var scannedAt = NowText();
+                        foreach (var e in pendingWrites)
+                            UpsertRow(conn, e.path, root, e.name, e.languagePair,
+                                      e.readable, e.state, e.modifiedTicks, e.size, scannedAt);
+                        foreach (var stale in byPath.Keys.Where(p => !livePaths.Contains(p)).ToList())
+                            DeleteRow(conn, stale);
+                        tx.Commit();
+                    }
+                }
+                catch (Exception e)
+                {
+                    ToolkitLog.Error("LocalTmIndex: 增量写回失败 " + root, e);
+                }
+            }
+
+            result.Sort((a, b) => b.Modified.CompareTo(a.Modified));
+            ToolkitLog.Info("LocalTmIndex: " + root + " 共 " + files.Count + " 个库，增量刷新 " + pendingWrites.Count + " 个");
+            return result;
         }
 
         /// <summary>
@@ -225,6 +279,7 @@ CREATE INDEX IF NOT EXISTS ix_tm_index_lang ON tm_index(language_pair);";
         {
             if (string.IsNullOrWhiteSpace(root) || string.IsNullOrWhiteSpace(languagePair)) return null;
             var pair = languagePair.Trim();
+            var rootKey = NormRoot(root);
             EnsureSchema();
             lock (Gate)
             {
@@ -239,7 +294,7 @@ FROM tm_index
 WHERE root = @root AND readable = 1 AND language_pair = @pair COLLATE NOCASE
 ORDER BY modified_ticks DESC
 LIMIT 1;";
-                        cmd.Parameters.AddWithValue("@root", root.Trim());
+                        cmd.Parameters.AddWithValue("@root", rootKey);
                         cmd.Parameters.AddWithValue("@pair", pair);
                         using (var r = cmd.ExecuteReader())
                         {
@@ -270,9 +325,11 @@ LIMIT 1;";
         /// <summary>全量重扫（记忆库管理点「扫描」时用），把当前 root 的结果覆盖写回索引。</summary>
         public static List<LocalTmInfo> Refresh(string root, IProgress<int> progress, CancellationToken ct)
         {
+            // 先做空/不存在判断再交给扫描器，避免 GetFiles 抛 ArgumentNullException（与 GetOrScan 一致）。
+            if (string.IsNullOrWhiteSpace(root) || !Directory.Exists(root)) return new List<LocalTmInfo>();
+            root = NormRoot(root);
+
             var list = LocalTmScanner.Scan(root, progress, ct);
-            if (string.IsNullOrWhiteSpace(root)) return list;
-            root = root.Trim();
 
             EnsureSchema();
             lock (Gate)
@@ -295,7 +352,7 @@ LIMIT 1;";
                             }
                             catch { /* 读不到就按 -1 记，下次仍会重算 */ }
                             UpsertRow(conn, t.FilePath, root, t.Name, t.LanguagePair,
-                                      t.State == LocalTmState.Ok, ticks, size, scannedAt);
+                                      t.State == LocalTmState.Ok, t.State.ToString(), ticks, size, scannedAt);
                         }
                         tx.Commit();
                     }
@@ -308,13 +365,16 @@ LIMIT 1;";
             return list;
         }
 
-        /// <summary>把单个库的条目写进索引（新建 / 导入后调用），避免后续查询重复打开。</summary>
-        public static void Upsert(LocalTmInfo info)
+        /// <summary>把单个库的条目写进索引（新建 / 导入后调用），避免后续查询重复打开。
+        /// root 应传「扫描时用的目录」；不传则退化为文件所在目录，可能与索引其它行 root 不一致。</summary>
+        public static void Upsert(LocalTmInfo info, string root = null)
         {
             if (info == null || string.IsNullOrEmpty(info.FilePath)) return;
             try
             {
-                var root = Path.GetDirectoryName(info.FilePath) ?? string.Empty;
+                var rootValue = string.IsNullOrWhiteSpace(root)
+                    ? NormRoot(Path.GetDirectoryName(info.FilePath))
+                    : NormRoot(root);
                 long ticks = -1, size = -1;
                 try
                 {
@@ -330,8 +390,8 @@ LIMIT 1;";
                     using (var conn = Open())
                     using (var tx = conn.BeginTransaction())
                     {
-                        UpsertRow(conn, info.FilePath, root, info.Name, info.LanguagePair,
-                                  info.State == LocalTmState.Ok, ticks, size, NowText());
+                        UpsertRow(conn, info.FilePath, rootValue, info.Name, info.LanguagePair,
+                                  info.State == LocalTmState.Ok, info.State.ToString(), ticks, size, NowText());
                         tx.Commit();
                     }
                 }
@@ -343,7 +403,7 @@ LIMIT 1;";
         }
 
         private static void UpsertRow(System.Data.SQLite.SQLiteConnection conn, string path, string root,
-                                      string name, string languagePair, bool readable,
+                                      string name, string languagePair, bool readable, string state,
                                       long modifiedTicks, long size, string scannedAt)
         {
             // 注意：不采用 ON CONFLICT/REPLACE 语法——Studio 捆绑的 SQLite 版本较老，
@@ -357,20 +417,29 @@ LIMIT 1;";
 
                 cmd.CommandText = exists
                     ? @"UPDATE tm_index SET root=@root, name=@name, language_pair=@pair,
-                              readable=@readable, modified_ticks=@ticks, size=@size, scanned_at=@scanned
+                              readable=@readable, state=@state, modified_ticks=@ticks, size=@size, scanned_at=@scanned
                         WHERE path=@path;"
-                    : @"INSERT INTO tm_index(path, root, name, language_pair, readable, modified_ticks, size, scanned_at)
-                        VALUES(@path, @root, @name, @pair, @readable, @ticks, @size, @scanned);";
+                    : @"INSERT INTO tm_index(path, root, name, language_pair, readable, state, modified_ticks, size, scanned_at)
+                        VALUES(@path, @root, @name, @pair, @readable, @state, @ticks, @size, @scanned);";
                 cmd.Parameters.AddWithValue("@path", path);
                 cmd.Parameters.AddWithValue("@root", root ?? string.Empty);
                 cmd.Parameters.AddWithValue("@name", name ?? string.Empty);
                 cmd.Parameters.AddWithValue("@pair", languagePair ?? string.Empty);
                 cmd.Parameters.AddWithValue("@readable", readable ? 1 : 0);
+                cmd.Parameters.AddWithValue("@state", (object)state ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@ticks", modifiedTicks);
                 cmd.Parameters.AddWithValue("@size", size);
                 cmd.Parameters.AddWithValue("@scanned", scannedAt ?? NowText());
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        /// <summary>索引里的状态字符串 → LocalTmState；旧行没有 state 时按 readable 回退。</summary>
+        private static LocalTmState ParseState(string state, bool readable)
+        {
+            LocalTmState parsed;
+            if (!string.IsNullOrEmpty(state) && Enum.TryParse(state, out parsed)) return parsed;
+            return readable ? LocalTmState.Ok : LocalTmState.Protected;
         }
 
         private static void DeleteRow(System.Data.SQLite.SQLiteConnection conn, string path)
@@ -403,7 +472,7 @@ LIMIT 1;";
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-SELECT path, name, language_pair, readable, modified_ticks, size
+SELECT path, name, language_pair, readable, state, modified_ticks, size
 FROM tm_index WHERE root = @root;";
                     cmd.Parameters.AddWithValue("@root", root);
                     using (var r = cmd.ExecuteReader())
@@ -418,6 +487,7 @@ FROM tm_index WHERE root = @root;";
                                 name = Convert.ToString(r["name"]),
                                 languagePair = Convert.ToString(r["language_pair"]),
                                 readable = Convert.ToInt64(r["readable"]) != 0,
+                                state = r["state"] == DBNull.Value ? null : Convert.ToString(r["state"]),
                                 modifiedTicks = Convert.ToInt64(r["modified_ticks"]),
                                 size = Convert.ToInt64(r["size"]),
                             };
@@ -439,6 +509,8 @@ FROM tm_index WHERE root = @root;";
             public string path;
             public string languagePair;
             public bool readable;
+            /// <summary>LocalTmState 名称（Ok/Protected/Error）；旧行为 null。</summary>
+            public string state;
             public long modifiedTicks;
             public long size;
         }

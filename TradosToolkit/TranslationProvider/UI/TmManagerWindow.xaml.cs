@@ -149,6 +149,12 @@ namespace TradosToolkit.TranslationProvider.UI
                     ToolkitLog.Error("记忆库扫描失败", ex);
                     ShowBusy(false, "扫描失败：" + ex.Message);
                 }
+                finally
+                {
+                    // 每个扫描任务释放自己持有的 CTS，避免反复 Cancel 而不 Dispose 造成句柄泄漏。
+                    if (ReferenceEquals(_cts, cts)) _cts = null;
+                    cts.Dispose();
+                }
             }
             catch (Exception ex) { ToolkitLog.Error("TmManagerWindow.Scan_Click 异常", ex); }
         }
@@ -185,28 +191,37 @@ namespace TradosToolkit.TranslationProvider.UI
             ShowBusy(true, "准备导入到 " + target.Name + " …");
             Task.Run(async () =>
             {
-                var total = new TmImportReport { FileName = string.Join("; ", list.Select(Path.GetFileName)),
-                                                 Format = isTmx ? "TMX" : "SDLXLIFF" };
-                foreach (var file in list)
+                try
                 {
-                    cts.Token.ThrowIfCancellationRequested();
-                    var stage = new Progress<string>(msg =>
-                        Dispatcher.BeginInvoke(new System.Action(() => StatusText.Text = msg)));
-                    try
+                    var total = new TmImportReport { FileName = string.Join("; ", list.Select(Path.GetFileName)),
+                                                     Format = isTmx ? "TMX" : "SDLXLIFF" };
+                    foreach (var file in list)
                     {
-                        var r = TmImporter.Import(target.FilePath, file, stage, cts.Token);
-                        total.Pairs += r.Pairs; total.Added += r.Added;
-                        total.SkippedMismatch += r.SkippedMismatch; total.SkippedTags += r.SkippedTags;
+                        cts.Token.ThrowIfCancellationRequested();
+                        var stage = new Progress<string>(msg =>
+                            Dispatcher.BeginInvoke(new System.Action(() => StatusText.Text = msg)));
+                        try
+                        {
+                            var r = TmImporter.Import(target.FilePath, file, stage, cts.Token);
+                            total.Pairs += r.Pairs; total.Added += r.Added;
+                            total.SkippedMismatch += r.SkippedMismatch; total.SkippedTags += r.SkippedTags;
+                        }
+                        catch (Exception ex)
+                        {
+                            ToolkitLog.Error("记忆库导入失败 " + file, ex);
+                            Dispatcher.BeginInvoke(new System.Action(() =>
+                                StatusText.Text = "导入失败 " + Path.GetFileName(file) + "：" + ex.Message));
+                            return;
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        ToolkitLog.Error("记忆库导入失败 " + file, ex);
-                        Dispatcher.BeginInvoke(new System.Action(() =>
-                            StatusText.Text = "导入失败 " + Path.GetFileName(file) + "：" + ex.Message));
-                        return;
-                    }
+                    Dispatcher.BeginInvoke(new System.Action(() => ImportDone(target, total)));
                 }
-                Dispatcher.BeginInvoke(new System.Action(() => ImportDone(target, total)));
+                finally
+                {
+                    // 导入任务结束即释放自己的 CTS，避免反复 Cancel 而不 Dispose 造成句柄泄漏。
+                    if (ReferenceEquals(_cts, cts)) _cts = null;
+                    cts.Dispose();
+                }
             }, CancellationToken.None);
         }
 
@@ -221,7 +236,8 @@ namespace TradosToolkit.TranslationProvider.UI
                 item.Modified = File.Exists(item.FilePath) ? File.GetLastWriteTime(item.FilePath) : item.Modified;
                 TmGrid.Items.Refresh();
                 // 导入改动了库 → 回写共享索引，收件箱下次查命中即用最新状态
-                LocalTmIndex.Upsert(item);
+                // 传当前扫描目录作 root，保证与 Refresh 写出的 root 一致（否则查询漏命中）
+                LocalTmIndex.Upsert(item, TmDirBox.Text);
             }
         }
 

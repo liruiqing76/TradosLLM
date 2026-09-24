@@ -79,7 +79,7 @@ namespace TradosToolkit.TranslationProvider.UI
                 ExampleBox.Text = editing.Example ?? "";
                 NoteBox.Text = editing.Note ?? "";
 
-                SelectOption(PosCombo, TermStatus.Normalize(editing.PartOfSpeech ?? ""));
+                SelectOption(PosCombo, PartOfSpeech.Normalize(editing.PartOfSpeech ?? ""));
                 SelectOption(StatusCombo, TermStatus.Normalize(editing.Status));
 
                 SrcSynBox.Text = string.Join("\r\n", editing.SynonymsFor(_srcLang));

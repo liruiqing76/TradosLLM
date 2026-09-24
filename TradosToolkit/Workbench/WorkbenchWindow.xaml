@@ -463,8 +463,8 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <TextBlock Style="{StaticResource PageTitle}" Text="流程编排"/>
-                    <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="11"
+                    <TextBlock x:Name="PageTitleTools" Style="{StaticResource PageTitle}" Text="流程编排"/>
+                    <TextBlock x:Name="ToolsSubtitleText" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="11"
                                Foreground="{DynamicResource ThirdlyTextBrush}"
                                Text="把 Studio 已有的自动任务与插件特有步骤串成可复跑的流程"/>
                 </Grid>

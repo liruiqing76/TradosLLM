@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Threading;
 using TradosToolkit.Common;
 using TradosToolkit.Diagnostics;
@@ -17,7 +19,7 @@ namespace TradosToolkit.FileConvert
     /// </summary>
     public partial class ConvertWindow : Window
     {
-        private static ConvertWindow _instance;
+        private static volatile ConvertWindow _instance;
         private readonly List<LangItem> _langs;
         private string _lastOutput;
 
@@ -27,13 +29,81 @@ namespace TradosToolkit.FileConvert
             InputProbe.Attach(this);
 
             _langs = LanguageCatalog.All();
-            SrcCombo.ItemsSource = _langs;
-            TgtCombo.ItemsSource = _langs;
+            AttachLangFilter(SrcCombo);
+            AttachLangFilter(TgtCombo);
             SrcCombo.SelectedValue = LanguageCatalog.DefaultSource;
             TgtCombo.SelectedValue = LanguageCatalog.DefaultTarget;
 
             Append("选择要转换的源文件，指定源语言/目标语言，点「开始转换」。");
             Append("输入必须是 Studio 文件类型系统支持的格式（docx/xlsx/pptx/txt/xml/html 等）。");
+        }
+
+        /// <summary>
+        /// 语言下拉「下拉内搜索框」：与术语管理/收件箱/从模板新建同一套实现——
+        /// 打开下拉自动聚焦搜索框，输入只改 ListCollectionView.Filter（不换 ItemsSource）；
+        /// 回车=选中过滤后第一项；收起未点选则按打开前的语向回显（过滤会清掉 SelectedItem）。
+        /// </summary>
+        private void AttachLangFilter(ComboBox combo)
+        {
+            var view = new System.Windows.Data.ListCollectionView(_langs);
+            combo.IsSynchronizedWithCurrentItem = false;
+            combo.ItemsSource = view;
+            string lastCode = null;
+
+            TextBox search = null;
+            combo.DropDownOpened += (s, e) =>
+            {
+                lastCode = combo.SelectedValue as string;
+                if (search == null)
+                {
+                    // Popup 内容首次展开才实例化，DropDownOpened 时兜底再找一次
+                    search = combo.Template.FindName("LangSearchBox", combo) as TextBox;
+                    if (search != null)
+                    {
+                        search.TextChanged += (a, b) =>
+                        {
+                            var q = (search.Text ?? string.Empty).Trim().ToLowerInvariant();
+                            if (string.IsNullOrEmpty(q)) view.Filter = null;
+                            else view.Filter = item =>
+                            {
+                                var l = item as LangItem;
+                                if (l == null) return false;
+                                return (l.Label ?? string.Empty).ToLowerInvariant().Contains(q) ||
+                                       (l.Code ?? string.Empty).ToLowerInvariant().Contains(q);
+                            };
+                            view.Refresh();
+                        };
+                        search.PreviewKeyDown += (a, b) =>
+                        {
+                            if (b.Key == System.Windows.Input.Key.Enter)
+                            {
+                                var first = view.OfType<LangItem>().FirstOrDefault();
+                                if (first != null) combo.SelectedItem = first;
+                                combo.IsDropDownOpen = false;
+                                b.Handled = true;
+                            }
+                        };
+                    }
+                }
+                if (search != null)
+                {
+                    // 下拉打开后 ComboBox 会把焦点抢回列表选中项，延迟一帧再聚焦搜索框，否则敲不进字
+                    combo.Dispatcher.BeginInvoke(new System.Action(() =>
+                    {
+                        search.Focus();
+                        System.Windows.Input.Keyboard.Focus(search);
+                        search.SelectAll();
+                    }), System.Windows.Threading.DispatcherPriority.Input);
+                }
+            };
+            combo.DropDownClosed += (s, e) =>
+            {
+                if (search != null) search.Text = string.Empty; // 触发 TextChanged → 清过滤
+                view.Filter = null;
+                view.Refresh();
+                if (combo.SelectedItem == null && !string.IsNullOrEmpty(lastCode))
+                    combo.SelectedValue = lastCode;
+            };
         }
 
         public static void ShowOrActivate()
@@ -77,7 +147,8 @@ namespace TradosToolkit.FileConvert
             t.IsBackground = true;
             t.Name = "TradosToolkit.ConvertUI";
             t.Start();
-            ready.WaitOne(TimeSpan.FromSeconds(15));
+            if (!ready.WaitOne(TimeSpan.FromSeconds(15)))
+                ToolkitLog.Warn("文件转换：窗口创建超时（15s），可能未成功打开");
         }
 
         private void BrowseInput_Click(object sender, RoutedEventArgs e)

@@ -195,11 +195,13 @@ namespace TradosToolkit.EditorPanel
                 AddBubble(new Bubble { IsUser = true, Text = userText, Time = Now() });
                 _history.Add(new ChatTurn { Role = "user", Content = userText });
                 SetBusy(true);
-                _cts = new CancellationTokenSource();
+                // 局部持有本次 CTS：finally 释放自己的实例，避免被后续操作覆盖后泄漏。
+                var cts = new CancellationTokenSource();
+                _cts = cts;
                 try
                 {
                     var reply = await LlmChatClient.ChatAsync(_source, _target, _targetLang, _history, userText,
-                        _prevSource, _prevTarget, _nextSource, _cts.Token);
+                        _prevSource, _prevTarget, _nextSource, cts.Token);
                     _history.Add(new ChatTurn { Role = "assistant", Content = reply });
                     AddBubble(new Bubble { IsUser = false, Text = reply, Time = Now() });
                 }
@@ -207,18 +209,18 @@ namespace TradosToolkit.EditorPanel
                 {
                     ToolkitLog.Info("面板对话已取消: " + userText);
                     AddBubble(new Bubble { IsUser = false, Text = "已取消等待。", Time = Now() });
-                    _history.RemoveAt(_history.Count - 1);
+                    DropPendingUserTurn();
                 }
                 catch (Exception ex)
                 {
                     ToolkitLog.Error("面板对话失败", ex);
                     AddBubble(new Bubble { IsUser = false, Text = "⚠ " + ex.Message, Time = Now() });
-                    _history.RemoveAt(_history.Count - 1);
+                    DropPendingUserTurn();
                 }
                 finally
                 {
-                    _cts.Dispose();
-                    _cts = null;
+                    if (ReferenceEquals(_cts, cts)) _cts = null;
+                    cts.Dispose();
                     SetBusy(false);
                 }
             }
@@ -229,6 +231,14 @@ namespace TradosToolkit.EditorPanel
         {
             _bubbles.Add(bubble);
             ChatScroll.ScrollToEnd();
+        }
+
+        /// <summary>请求失败/取消时回滚刚加入的 user 轮次。换段会清空 _history，
+        /// 因此必须先判空并确认末条确实是本次的 user 轮，避免 RemoveAt 越界。</summary>
+        private void DropPendingUserTurn()
+        {
+            if (_history.Count > 0 && _history[_history.Count - 1].Role == "user")
+                _history.RemoveAt(_history.Count - 1);
         }
 
         private void ApplyBubble_Click(object sender, RoutedEventArgs e)
@@ -256,7 +266,9 @@ namespace TradosToolkit.EditorPanel
             }
 
             SetBusy(true);
-            _cts = new CancellationTokenSource();
+            // 用局部变量持有本次的 CTS，finally 里释放自己的实例，避免 _cts 被后续操作覆盖后泄漏。
+            var cts = new CancellationTokenSource();
+            _cts = cts;
             AddBubble(new Bubble { IsUser = true, Text = "回译质检", Time = Now() });
             AddBubble(new Bubble { IsUser = false, Text = "正在回译…", Time = Now() });
 
@@ -266,7 +278,7 @@ namespace TradosToolkit.EditorPanel
                 var backPrompt = "把以下译文准确回译成源语言，只返回回译文本，不要任何解释。\n"
                     + "忠实还原语义，不润色不补充，保持数字和占位符原样。\n译文：" + _target;
                 var back = await LlmChatClient.ChatAsync(_source, _target, _targetLang,
-                    new List<ChatTurn>(), backPrompt, null, null, null, _cts.Token);
+                    new List<ChatTurn>(), backPrompt, null, null, null, cts.Token);
 
                 // 移除可能被注入的 <<< >>> 包裹
                 back = back.Replace("<<<", "").Replace(">>>", "").Trim();
@@ -286,7 +298,7 @@ namespace TradosToolkit.EditorPanel
                 AddBubble(new Bubble { IsUser = false, Text = "回译完成，正在判定…\n回译：" + back, Time = Now() });
 
                 var judge = await LlmChatClient.ChatAsync(_source, _target, _targetLang,
-                    new List<ChatTurn>(), judgePrompt, null, null, null, _cts.Token);
+                    new List<ChatTurn>(), judgePrompt, null, null, null, cts.Token);
 
                 // 格式化展示
                 var sb = new StringBuilder();
@@ -307,6 +319,8 @@ namespace TradosToolkit.EditorPanel
             }
             finally
             {
+                if (ReferenceEquals(_cts, cts)) _cts = null;
+                cts.Dispose();
                 SetBusy(false);
             }
         }

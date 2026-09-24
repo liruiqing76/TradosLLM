@@ -50,6 +50,8 @@ namespace TradosToolkit.TranslationMemories
         public static List<LocalTmInfo> Scan(string root, IProgress<int> progress, CancellationToken ct)
         {
             var result = new List<LocalTmInfo>();
+            // 空/不存在的目录直接返回空表，与 GetOrScan 的容错口径一致（否则 GetFiles 抛 ArgumentNullException）。
+            if (string.IsNullOrWhiteSpace(root) || !Directory.Exists(root)) return result;
             var files = Directory.GetFiles(root, "*.sdltm", SearchOption.AllDirectories);
             ToolkitLog.Info("LocalTmScanner: " + root + " 找到 " + files.Length + " 个 sdltm");
             for (int i = 0; i < files.Length; i++)

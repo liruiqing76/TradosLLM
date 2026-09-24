@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web.Script.Serialization;
+using TradosToolkit.Common;
 using TradosToolkit.Diagnostics;
 
 namespace TradosToolkit.Workbench
@@ -47,8 +50,12 @@ namespace TradosToolkit.Workbench
     /// <summary>客户模板的文件系统存取层（JavaScriptSerializer，net48 无 System.Text.Json）。</summary>
     public static class ClientTemplateStore
     {
-        private static readonly JavaScriptSerializer Json =
-            new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
+        // JavaScriptSerializer 不是线程安全的：UI 线程与 HTTP 线程会同时读写模板，故每次调用新建实例，
+        // 不用静态共享实例（共享会偶发解析/序列化异常）。
+        private static JavaScriptSerializer NewJson()
+        {
+            return new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
+        }
 
         public static string TemplatesDir
         {
@@ -63,11 +70,28 @@ namespace TradosToolkit.Workbench
 
         private static string FilePathOf(string name)
         {
+            var original = (name ?? string.Empty).Trim();
             // 文件名安全化：禁止路径分隔符与非法字符
-            var clean = string.Concat((name ?? string.Empty).Trim().Select(c =>
+            var clean = string.Concat(original.Select(c =>
                 char.IsLetterOrDigit(c) || c == '-' || c == '_' || c == '.' ? c : '_'));
             if (clean.Length == 0) throw new ArgumentException("模板名无效");
+            // 安全化会丢信息（"客户 A" 与 "客户/A" 都会变成 "客户_A"），
+            // 因此仅当确实改动过原名时追加原名哈希后缀，避免不同客户落到同一文件互相覆盖。
+            if (!string.Equals(clean, original, StringComparison.Ordinal))
+                clean = clean + "-" + ShortHash(original);
             return Path.Combine(TemplatesDir, clean + ".json");
+        }
+
+        /// <summary>原名哈希取前 8 位十六进制，用于在安全化后仍能区分不同原名。</summary>
+        private static string ShortHash(string text)
+        {
+            using (var sha = SHA1.Create())
+            {
+                var bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(text));
+                var sb = new StringBuilder(8);
+                for (var i = 0; i < 4; i++) sb.Append(bytes[i].ToString("x2"));
+                return sb.ToString();
+            }
         }
 
         public static List<ClientProjectTemplate> List()
@@ -92,7 +116,7 @@ namespace TradosToolkit.Workbench
         {
             var file = FilePathOf(name);
             if (!File.Exists(file)) return null;
-            var doc = Json.Deserialize<Dictionary<string, object>>(File.ReadAllText(file));
+            var doc = NewJson().Deserialize<Dictionary<string, object>>(File.ReadAllText(file));
             if (doc == null) return null;
             var t = new ClientProjectTemplate
             {
@@ -143,7 +167,8 @@ namespace TradosToolkit.Workbench
                 { "createdAt", t.createdAt == default(DateTime) ? DateTime.Now : t.createdAt },
                 { "updatedAt", t.updatedAt },
             };
-            File.WriteAllText(FilePathOf(t.name), Json.Serialize(doc));
+            // 原子写：避免与读取方（HTTP/UI 线程）撞上半截 JSON。
+            FileKit.WriteAllTextAtomic(FilePathOf(t.name), NewJson().Serialize(doc));
             ToolkitLog.Info("客户模板已保存: " + t.name);
         }
 

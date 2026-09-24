@@ -141,6 +141,12 @@ namespace TradosToolkit.TranslationMemories
                 var exists = File.Exists(targetPath);
                 if (!exists)
                     CreateNew(targetPath, Path.GetFileNameWithoutExtension(targetPath), src, tgt);
+                else
+                {
+                    // 写目标库前先备份 .bak：中途失败留半写入库时可回退（与译文写回的做法一致）
+                    try { File.Copy(targetPath, targetPath + ".bak", true); }
+                    catch (Exception e) { ToolkitLog.Warn("TmToolkit.Merge: 备份目标库失败（继续写入）", e); }
+                }
                 target = new FileBasedTranslationMemory(targetPath);
                 if (exists && (target.LanguageDirection.SourceLanguage.Name != src.Name ||
                                target.LanguageDirection.TargetLanguage.Name != tgt.Name))

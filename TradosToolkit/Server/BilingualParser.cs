@@ -16,6 +16,9 @@ namespace TradosToolkit.Server
         public string Percent { get; set; }
         public string Source { get; set; }
         public string Target { get; set; }
+
+        /// <summary>目标片段原始 XML 是否含内联结构标签（占位符）。Target 已剥离标签，无法据此判断。</summary>
+        public bool HasTags { get; set; }
     }
 
     /// <summary>
@@ -36,17 +39,33 @@ namespace TradosToolkit.Server
                 if ((string)tu.Attribute("translate") == "no") continue;
 
                 var seg = tu.Descendants().FirstOrDefault(e => e.Name.LocalName == "seg");
+                var targetEl = Child(tu, "target");
                 result.Add(new BilingualSegment
                 {
                     Id = (string)tu.Attribute("id"),
                     Source = TextOf(Child(tu, "source")),
-                    Target = TextOf(Child(tu, "target")),
+                    Target = TextOf(targetEl),
+                    HasTags = targetEl != null && targetEl.Descendants().Any(e => IsStructuralTag(e.Name.LocalName)),
                     Status = Attr(seg, "conf") ?? Attr(seg, "status") ?? string.Empty,
                     Origin = Attr(seg, "origin") ?? string.Empty,
                     Percent = Attr(seg, "percent") ?? string.Empty,
                 });
             }
             return result;
+        }
+
+        /// <summary>
+        /// 内联占位/标签类元素（携带格式与顺序，直接改文本会破坏占位符）；mrk 仅做分段不视为破坏。
+        /// 与 ProjectApi 写回时的守卫共用同一口径。
+        /// </summary>
+        public static bool IsStructuralTag(string name)
+        {
+            switch (name)
+            {
+                case "g": case "x": case "bx": case "ex": case "ph": case "it":
+                case "bp": case "ep": case "xid": return true;
+                default: return false;
+            }
         }
 
         /// <summary>CSV 导出：UTF-8（BOM 由调用方加），带引号转义，Excel 双击可开。</summary>

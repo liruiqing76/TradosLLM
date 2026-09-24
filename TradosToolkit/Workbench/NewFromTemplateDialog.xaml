@@ -1,0 +1,268 @@
+<Window x:Class="TradosToolkit.Workbench.NewFromTemplateDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        Title="从模板新建项目"
+        Width="580" SizeToContent="Height" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" ShowInTaskbar="False"
+        FontFamily="Microsoft YaHei UI, Segoe UI" FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" UseLayoutRounding="True"
+        Background="{DynamicResource RegionBrush}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- ===== 设计令牌：与工作台/术语管理一致 ===== -->
+            <SolidColorBrush x:Key="PrimaryBrush" Color="#FF2B6FBB"/>
+            <SolidColorBrush x:Key="TileBrush" Color="#FFFAFBFD"/>
+            <SolidColorBrush x:Key="TileBorderBrush" Color="#FFDFE4EB"/>
+            <SolidColorBrush x:Key="ErrorBrush" Color="#FFD0453C"/>
+
+            <Style x:Key="DialogTitle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+            </Style>
+
+            <Style x:Key="DialogSubtitle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Margin" Value="0,4,0,14"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
+            </Style>
+
+            <Style x:Key="FieldCard" TargetType="Border">
+                <Setter Property="Background" Value="{DynamicResource TileBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource TileBorderBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="CornerRadius" Value="12"/>
+                <Setter Property="Padding" Value="18,6,18,18"/>
+            </Style>
+
+            <Style x:Key="FieldLabel" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Margin" Value="0,12,0,5"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
+            </Style>
+
+            <!-- 内嵌列表的浅色边框容器（目标语言 / 源文件） -->
+            <Style x:Key="ListCard" TargetType="Border">
+                <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource TileBorderBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="CornerRadius" Value="6"/>
+            </Style>
+
+            <Style x:Key="HintText" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="Margin" Value="0,4,0,0"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
+            </Style>
+
+            <Style x:Key="BrowseButton" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
+                <Setter Property="MinWidth" Value="72"/>
+                <Setter Property="Padding" Value="12,4"/>
+                <Setter Property="Margin" Value="8,0,0,0"/>
+            </Style>
+
+            <Style x:Key="MiniButton" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
+                <Setter Property="Padding" Value="12,4"/>
+                <Setter Property="Margin" Value="0,0,8,0"/>
+            </Style>
+
+            <Style x:Key="DialogPrimary" TargetType="Button" BasedOn="{StaticResource ButtonPrimary}">
+                <Setter Property="MinWidth" Value="100"/>
+                <Setter Property="Padding" Value="16,6"/>
+            </Style>
+
+            <Style x:Key="DialogGhost" TargetType="Button" BasedOn="{StaticResource ButtonDefault}">
+                <Setter Property="MinWidth" Value="88"/>
+                <Setter Property="Padding" Value="16,6"/>
+            </Style>
+
+            <DataTemplate x:Key="LangItemTemplate">
+                <TextBlock Text="{Binding Label}" TextTrimming="CharacterEllipsis"
+                           HorizontalAlignment="Left" TextAlignment="Left"/>
+            </DataTemplate>
+
+            <!-- 带搜索框的语言下拉：与术语管理/收件箱同一套交互（Popup 顶部输入框即输即筛，回车选第一项） -->
+            <Style x:Key="LangSearchCombo" TargetType="ComboBox">
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="ItemTemplate" Value="{StaticResource LangItemTemplate}"/>
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel/>
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ComboBox">
+                            <Grid>
+                                <ToggleButton Focusable="False" ClickMode="Press"
+                                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                              Width="Auto" Height="Auto"
+                                              IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <ToggleButton.Template>
+                                        <ControlTemplate TargetType="ToggleButton">
+                                            <Border x:Name="ComboBorder" Background="{DynamicResource RegionBrush}"
+                                                    BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="4">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="24"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <ContentPresenter Grid.Column="0" Margin="9,0,0,0"
+                                                                      VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                                      Content="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                                                      ContentTemplate="{Binding ItemTemplate, RelativeSource={RelativeSource AncestorType=ComboBox}}"/>
+                                                    <Path Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                          Data="M 0 0 L 4 4 L 8 0 Z" Fill="{DynamicResource SecondaryTextBrush}"/>
+                                                </Grid>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="ComboBorder" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </ToggleButton.Template>
+                                </ToggleButton>
+                                <Popup x:Name="PART_Popup" AllowsTransparency="True" Placement="Bottom" Focusable="True"
+                                       IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <Border Background="{DynamicResource RegionBrush}" BorderBrush="{DynamicResource BorderBrush}"
+                                            BorderThickness="1" CornerRadius="4" Margin="0,2,0,0"
+                                            MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}">
+                                        <StackPanel>
+                                            <Grid Margin="8,8,8,4">
+                                                <TextBox x:Name="LangSearchBox" Height="26" FontSize="12" Padding="5,0" Focusable="True"
+                                                         VerticalContentAlignment="Center"/>
+                                                <TextBlock x:Name="SearchHint" Text="输入代码或名称过滤…" Foreground="{DynamicResource ThirdlyTextBrush}" FontSize="12"
+                                                           Margin="8,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False"
+                                                           Visibility="Collapsed"/>
+                                            </Grid>
+                                            <Separator Margin="6,0"/>
+                                            <ScrollViewer MaxHeight="260" CanContentScroll="True"
+                                                          VirtualizingPanel.IsVirtualizing="True"
+                                                          VirtualizingPanel.ScrollUnit="Item"
+                                                          VerticalScrollBarVisibility="Auto">
+                                                <ItemsPresenter/>
+                                            </ScrollViewer>
+                                        </StackPanel>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger SourceName="LangSearchBox" Property="Text" Value="">
+                                    <Setter TargetName="SearchHint" Property="Visibility" Value="Visible"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <StackPanel Margin="22,20,22,18">
+        <!-- 标题区 -->
+        <TextBlock Text="从模板新建项目" Style="{StaticResource DialogTitle}"/>
+        <TextBlock Text="选一个 Studio 项目模板，填好项目名与语言对，即可一键创建并打开。"
+                   Style="{StaticResource DialogSubtitle}"/>
+
+        <!-- 表单卡片 -->
+        <Border Style="{StaticResource FieldCard}">
+            <StackPanel>
+                <TextBlock Text="项目名称" Style="{StaticResource FieldLabel}"/>
+                <TextBox x:Name="NameBox"/>
+
+                <TextBlock Text="Studio 项目模板（*.sdltpl）" Style="{StaticResource FieldLabel}"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="TemplateBox" IsReadOnly="True" VerticalContentAlignment="Center"/>
+                    <Button Grid.Column="1" Content="浏览…" Style="{StaticResource BrowseButton}"
+                            Click="BrowseTemplate_Click"/>
+                </Grid>
+
+                <TextBlock Text="源语言" Style="{StaticResource FieldLabel}"/>
+                <ComboBox x:Name="SourceCombo" Style="{StaticResource LangSearchCombo}"
+                          HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"
+                          SelectionChanged="SourceCombo_SelectionChanged"/>
+
+                <TextBlock Text="目标语言（可多选，勾选切换）" Style="{StaticResource FieldLabel}"/>
+                <Border Style="{StaticResource ListCard}">
+                    <StackPanel>
+                        <Grid Margin="8,8,8,4">
+                            <TextBox x:Name="TargetSearchBox" Height="26" FontSize="12" Padding="5,0"
+                                     VerticalContentAlignment="Center" TextChanged="TargetSearchBox_TextChanged"/>
+                            <TextBlock x:Name="TargetSearchHint" Text="输入代码或名称过滤…"
+                                       Foreground="{DynamicResource ThirdlyTextBrush}" FontSize="12"
+                                       Margin="8,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False"/>
+                        </Grid>
+                        <Separator Margin="6,0"/>
+                        <ListBox x:Name="TargetList" Height="132" BorderThickness="0" Background="Transparent"
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" Content="{Binding Label}"
+                                              Margin="2,3" FontSize="12"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </Border>
+                <TextBlock x:Name="TargetCountText" Style="{StaticResource HintText}"/>
+
+                <TextBlock Text="源文件（可选，可多选）" Style="{StaticResource FieldLabel}"/>
+                <Border Style="{StaticResource ListCard}">
+                    <ListBox x:Name="FilesList" Height="88" BorderThickness="0" Background="Transparent"
+                             HorizontalContentAlignment="Stretch"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" TextTrimming="CharacterEllipsis" ToolTip="{Binding}"
+                                           FontSize="12" Margin="2,2"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+                <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                    <Button Content="添加…" Style="{StaticResource MiniButton}" Click="AddFiles_Click"/>
+                    <Button Content="移除选中" Style="{StaticResource MiniButton}" Click="RemoveFiles_Click"/>
+                    <Button Content="清空" Style="{StaticResource MiniButton}" Click="ClearFiles_Click"/>
+                </StackPanel>
+                <TextBlock x:Name="FilesCountText" Style="{StaticResource HintText}"/>
+
+                <TextBlock Text="项目目录" Style="{StaticResource FieldLabel}"/>
+                <TextBox x:Name="FolderBox"/>
+            </StackPanel>
+        </Border>
+
+        <!-- 错误提示：有错才显示 -->
+        <TextBlock x:Name="StatusText" FontSize="12" TextWrapping="Wrap"
+                   Margin="0,12,0,0" Foreground="{StaticResource ErrorBrush}"
+                   Visibility="Collapsed"/>
+
+        <!-- 页脚 -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+            <Button x:Name="OkBtn" Content="创建项目" IsDefault="True"
+                    Style="{StaticResource DialogPrimary}" Click="Ok_Click" Margin="0,0,10,0"/>
+            <Button Content="取消" IsCancel="True" Style="{StaticResource DialogGhost}"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

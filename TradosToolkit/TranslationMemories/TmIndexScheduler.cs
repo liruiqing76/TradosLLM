@@ -18,7 +18,10 @@ namespace TradosToolkit.TranslationMemories
         private static readonly object Gate = new object();
         private static Thread _thread;
         private static volatile bool _running;
-        private static DateTime _lastRun = DateTime.MinValue;
+        private static CancellationTokenSource _cts;
+
+        /// <summary>上次刷新时刻的 ticks；用 Interlocked 读写，避免 UI 线程与调度线程之间的可见性问题。</summary>
+        private static long _lastRunTicks = DateTime.MinValue.Ticks;
 
         /// <summary>本次进程内自动刷新完成后触发（在工作线程；订阅方需自行 marshal 回 UI）。</summary>
         public static event Action<string> Refreshed;
@@ -26,7 +29,11 @@ namespace TradosToolkit.TranslationMemories
         /// <summary>上次自动刷新时间（进程内记录；无则读配置里的 tmIndexLastRun）。</summary>
         public static DateTime LastRun
         {
-            get { return _lastRun == DateTime.MinValue ? ReadLastRunFromConfig() : _lastRun; }
+            get
+            {
+                var ticks = Interlocked.Read(ref _lastRunTicks);
+                return ticks == DateTime.MinValue.Ticks ? ReadLastRunFromConfig() : new DateTime(ticks);
+            }
         }
 
         /// <summary>是否在运行调度线程。</summary>
@@ -39,16 +46,45 @@ namespace TradosToolkit.TranslationMemories
             {
                 if (_running) return;
                 _running = true;
-                _lastRun = ReadLastRunFromConfig();
-                _thread = new Thread(Loop) { IsBackground = true, Name = "TradosToolkit-TmIndexScheduler" };
+                Interlocked.Exchange(ref _lastRunTicks, ReadLastRunFromConfig().Ticks);
+                _cts = new CancellationTokenSource();
+                var ct = _cts.Token;
+                _thread = new Thread(() => Loop(ct)) { IsBackground = true, Name = "TradosToolkit-TmIndexScheduler" };
                 _thread.Start();
+                // 进程退出是插件唯一可靠的释放时机（Studio 插件无卸载钩子），在此停掉调度线程。
+                AppDomain.CurrentDomain.ProcessExit += (s, e) => Stop();
                 ToolkitLog.Info("库索引定时：调度线程已启动");
             }
         }
 
-        private static void Loop()
+        /// <summary>停止调度线程（幂等）。置回 _running 后可再次 Start。</summary>
+        public static void Stop()
         {
-            while (_running)
+            Thread t;
+            CancellationTokenSource cts;
+            lock (Gate)
+            {
+                if (!_running) return;
+                _running = false;
+                t = _thread;
+                _thread = null;
+                cts = _cts;
+                _cts = null;
+            }
+            try { cts?.Cancel(); } catch { /* 已释放则忽略 */ }
+            // 取消后 Loop 会立刻从等待中醒来，Join 只是给个短暂的收敛窗口。
+            if (t != null && t != Thread.CurrentThread)
+            {
+                try { t.Join(5000); }
+                catch (Exception e) { ToolkitLog.Error("库索引定时：等待调度线程退出异常", e); }
+            }
+            try { cts?.Dispose(); } catch { }
+            ToolkitLog.Info("库索引定时：调度线程已停止");
+        }
+
+        private static void Loop(CancellationToken ct)
+        {
+            while (_running && !ct.IsCancellationRequested)
             {
                 try
                 {
@@ -59,10 +95,10 @@ namespace TradosToolkit.TranslationMemories
                         var wait = due.Value - DateTime.Now;
                         if (wait > TimeSpan.Zero)
                         {
-                            // 分片休眠，便于停止线程 / 配置变化后尽快重算
+                            // 分片等待：用 WaitHandle 而非 Sleep，Stop() 取消后可立刻醒来退出
                             var step = TimeSpan.FromSeconds(30);
-                            while (_running && DateTime.Now < due.Value)
-                                Thread.Sleep(wait < step ? wait : step);
+                            while (_running && !ct.IsCancellationRequested && DateTime.Now < due.Value)
+                                if (ct.WaitHandle.WaitOne(wait < step ? wait : step)) break;
                             continue;
                         }
                         RunNow(cfg);
@@ -72,7 +108,7 @@ namespace TradosToolkit.TranslationMemories
                 {
                     ToolkitLog.Error("库索引定时：循环异常", e);
                 }
-                Thread.Sleep(TimeSpan.FromSeconds(30));
+                if (ct.WaitHandle.WaitOne(TimeSpan.FromSeconds(30))) break;
             }
         }
 
@@ -105,8 +141,9 @@ namespace TradosToolkit.TranslationMemories
             try
             {
                 var list = LocalTmIndex.Refresh(dir, null, CancellationToken.None);
-                _lastRun = DateTime.Now;
-                ToolkitConfig.Save(tmIndexLastRun: _lastRun.ToString("o"));
+                var now = DateTime.Now;
+                Interlocked.Exchange(ref _lastRunTicks, now.Ticks);
+                ToolkitConfig.Save(tmIndexLastRun: now.ToString("o"));
                 var msg = string.Format("库索引已自动重建：{0} 个记忆库，耗时 {1:0.0}s（目录 {2}）",
                     list.Count, watch.ElapsedMilliseconds / 1000.0, dir);
                 ToolkitLog.Info("库索引定时：" + msg);

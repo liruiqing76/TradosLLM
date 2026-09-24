@@ -17,6 +17,7 @@ using TradosToolkit.TerminologySource;
 using TradosToolkit.Workbench;
 using TradosToolkit.TranslationProvider.Engines;
 using System.Threading;
+using System.Windows.Threading;
 
 namespace TradosToolkit.Server
 {
@@ -35,7 +36,8 @@ namespace TradosToolkit.Server
             { "updatetm", AutomaticTaskTemplateIds.UpdateMainTranslationMemories },
         };
 
-        public static ApiResult Handle(string method, string path, Dictionary<string, string> query, string body, string key, string token)
+        public static ApiResult Handle(string method, string path, Dictionary<string, string> query, string body,
+            string key, string token, CancellationToken ct = default(CancellationToken))
         {
             if (path == "/" || path == "/status.html")
                 return StatusPage.Build();
@@ -43,8 +45,10 @@ namespace TradosToolkit.Server
             if (path == "/api/status")
                 return Status();
 
-            // 取消端点：状态面板按钮调用（面板本身免令牌，取消仅限本机回环），
-            // 加在此处与 / 同层豁免令牌检查，避免在免令牌 HTML 里内嵌令牌值
+            // 取消端点：状态面板按钮调用。面板本身免令牌（否则得把令牌内嵌进未鉴权的 HTML），
+            // 故此处与 / 同层豁免令牌检查。
+            // 说明：令牌文件 api.token 与插件同用户可读，对同用户进程不构成额外防护，
+            // 因此这里不再要求令牌；影响面仅限「取消本机插件的后台任务」，且已限定 POST + 仅监听 localhost。
             if (path == "/api/task/cancel")
                 return CancelTask(method, query);
 
@@ -102,11 +106,11 @@ namespace TradosToolkit.Server
                 case "/api/project/pipeline":
                     return method == "POST" ? Pipeline(query, body) : ApiResult.Json(405, Error("pipeline 端点需 POST"));
                 case "/api/review":
-                    return Review(method, query, body);
+                    return Review(method, query, body, ct);
                 case "/api/review/result":
                     return ReviewResult(query);
                 case "/api/project/btqa":
-                    return BackTranslateQa.Handle(method, query, body);
+                    return BackTranslateQa.Handle(method, query, body, ct);
                 case "/api/project/terminology":
                     return method == "POST" ? MountTerminology(query) : TerminologyStatus(query);
                 case "/api/terms/mine":
@@ -275,7 +279,6 @@ namespace TradosToolkit.Server
                 try
                 {
                     var cfg = ToolkitConfig.Load();
-                    var db = new GlossaryDb();
                     termMounted = TerminologySource.ProjectTerminology.Mount(
                         project, TerminologySource.ProjectTerminology.CurrentPair(), cfg.TermBaseUrl, cfg.Domain);
                     if (termMounted > 0) project.Save();
@@ -441,7 +444,6 @@ namespace TradosToolkit.Server
             return WithProject(query, (project, _) =>
             {
                 var cfg = ToolkitConfig.Load();
-                var db = new GlossaryDb();
                 var mounted = TerminologySource.ProjectTerminology.Mount(
                     project, TerminologySource.ProjectTerminology.CurrentPair(), cfg.TermBaseUrl, cfg.Domain);
                 if (mounted > 0) project.Save();
@@ -811,6 +813,8 @@ namespace TradosToolkit.Server
 
                 var format = ParseReportFormat(query.TryGetValue("format", out var fmt) ? fmt : null);
                 outPath = Path.GetFullPath(outPath);
+                if (IsSystemPath(outPath))
+                    return ApiResult.Json(403, Error("out 不允许指向系统目录：" + outPath));
                 var dir = Path.GetDirectoryName(outPath);
                 if (!string.IsNullOrEmpty(dir)) Directory.CreateDirectory(dir);
 
@@ -918,6 +922,12 @@ namespace TradosToolkit.Server
                 var outPath = Str(request, "out");
                 if (string.IsNullOrEmpty(outPath))
                     outPath = Path.Combine(info.LocalProjectFolder, name + ".sdlppx");
+                else
+                {
+                    outPath = Path.GetFullPath(outPath);
+                    if (IsSystemPath(outPath))
+                        return ApiResult.Json(403, Error("out 不允许指向系统目录：" + outPath));
+                }
 
                 var fileIds = project.GetTargetLanguageFiles().Select(f => f.Id).ToArray();
                 if (fileIds.Length == 0)
@@ -935,15 +945,10 @@ namespace TradosToolkit.Server
                 if (package == null)
                     return ApiResult.Json(500, Error("打包失败：未返回打包结果"));
 
-                var waited = 0;
-                while (package.Status == PackageStatus.NotStarted || package.Status == PackageStatus.Scheduled
-                       || package.Status == PackageStatus.InProgress || package.Status == PackageStatus.Cancelling)
-                {
-                    if (waited >= 180000)
-                        return ApiResult.Json(500, Error("打包超时（" + package.Status + "）：" + package.StatusMessage));
-                    Thread.Sleep(200);
-                    waited += 200;
-                }
+                // 本方法跑在 Studio UI 线程上，直接 Thread.Sleep 会让宿主界面假死，
+                // 因此用 WaitWhile（UI 线程走嵌套消息泵）等待打包完成。
+                if (!WaitWhile(() => IsPackagePending(package.Status), 180000))
+                    return ApiResult.Json(500, Error("打包超时（" + package.Status + "）：" + package.StatusMessage));
                 if (package.Status != PackageStatus.Completed)
                     return ApiResult.Json(500, Error("打包失败（" + package.Status + "）：" + package.StatusMessage));
 
@@ -959,11 +964,21 @@ namespace TradosToolkit.Server
 
         private static ApiResult DownloadFile(Dictionary<string, string> query)
         {
-            if (!query.TryGetValue("path", out var path) || !File.Exists(path))
+            if (!query.TryGetValue("path", out var path) || string.IsNullOrEmpty(path))
                 return ApiResult.Json(404, Error("文件不存在"));
 
-            var bytes = File.ReadAllBytes(path);
-            return ApiResult.File(bytes, "application/octet-stream", Path.GetFileName(path));
+            string fullPath;
+            try { fullPath = Path.GetFullPath(path); }
+            catch (Exception e) { return ApiResult.Json(400, Error("path 无效：" + e.Message)); }
+
+            // 挡掉系统目录，避免本机 API 被用来读取/下载系统文件。
+            if (IsSystemPath(fullPath))
+                return ApiResult.Json(403, Error("path 不允许指向系统目录：" + fullPath));
+            if (!File.Exists(fullPath))
+                return ApiResult.Json(404, Error("文件不存在"));
+
+            var bytes = File.ReadAllBytes(fullPath);
+            return ApiResult.File(bytes, "application/octet-stream", Path.GetFileName(fullPath));
         }
 
         /// <summary>
@@ -1373,7 +1388,8 @@ namespace TradosToolkit.Server
 
                     var ordered = votes.OrderByDescending(v => v.Value.Count).ToList();
                     var majority = ordered[0];
-                    var needsManual = kv.Value.Any(s => s.Target.IndexOf('<') >= 0);
+                    // 占位符守卫：Target 已被解析器剥离标签，不能据其判断；用解析时记录的原始标签标志。
+                    var needsManual = kv.Value.Any(s => s.HasTags);
                     groups.Add(new Dictionary<string, object>
                     {
                         { "source", kv.Key },
@@ -1436,6 +1452,9 @@ namespace TradosToolkit.Server
                         if (tu == null) { missing++; continue; }
                         var tgtEl = tu.Elements().FirstOrDefault(e => e.Name.LocalName == "target");
                         if (tgtEl == null) { missing++; continue; }
+                        // 二次守卫：直接按原始 XML 检测内联结构标签（needsManual 已先过滤，这里兜底），
+                        // 含标签的段绝不整体改写，避免 RemoveNodes 丢占位符、破坏句段。
+                        if (tgtEl.Descendants().Any(e => IsStructuralTag(e.Name.LocalName))) { skippedTags++; continue; }
                         tgtEl.RemoveNodes();
                         tgtEl.Add(new XText(majority));
                         applied++;
@@ -1535,7 +1554,16 @@ namespace TradosToolkit.Server
                     }
 
                     var status = Str(s, "status");
-                    if (!string.IsNullOrEmpty(status)) { tu.SetAttributeValue("conf", status); statuses++; dirty = true; }
+                    if (!string.IsNullOrEmpty(status))
+                    {
+                        // Studio 与解析器读的是 sdl:seg/@conf（trans-unit/@conf 不生效、回读不到）。
+                        var segEl = tu.Descendants().FirstOrDefault(e => e.Name.LocalName == "seg");
+                        if (segEl != null)
+                            segEl.SetAttributeValue(XName.Get("conf", segEl.Name.NamespaceName), status);
+                        else
+                            tu.SetAttributeValue("conf", status);
+                        statuses++; dirty = true;
+                    }
                 }
 
                 if (dirty)
@@ -1563,13 +1591,7 @@ namespace TradosToolkit.Server
 
         private static bool IsStructuralTag(string name)
         {
-            // 内联占位/标签类元素（携带格式与顺序，直接改文本会破坏）；mrk 仅做分段不视为破坏。
-            switch (name)
-            {
-                case "g": case "x": case "bx": case "ex": case "ph": case "it":
-                case "bp": case "ep": case "xid": return true;
-                default: return false;
-            }
+            return BilingualParser.IsStructuralTag(name);
         }
 
         /// <summary>
@@ -1792,6 +1814,49 @@ namespace TradosToolkit.Server
             return app.Dispatcher.Invoke(action);
         }
 
+        private static bool IsPackagePending(PackageStatus status)
+        {
+            return status == PackageStatus.NotStarted || status == PackageStatus.Scheduled
+                || status == PackageStatus.InProgress || status == PackageStatus.Cancelling;
+        }
+
+        /// <summary>
+        /// 等待条件不再成立（条件只在 UI 线程上求值）。
+        /// 本类多数 handler 经 WithProject→OnUi 跑在 Studio UI 线程上，直接用 Thread.Sleep 会让
+        /// 宿主界面假死（打包等任务可达数分钟）。因此在 UI 线程改用嵌套消息泵：DispatcherTimer
+        /// 定时探活 + PushFrame 让消息继续流转，等待期间 Studio 仍可响应；非 UI 线程才直接轮询。
+        /// </summary>
+        private static bool WaitWhile(Func<bool> pending, int timeoutMs, int stepMs = 200)
+        {
+            var waited = 0;
+            var app = System.Windows.Application.Current;
+            if (app == null || !app.Dispatcher.CheckAccess())
+            {
+                while (pending())
+                {
+                    if (waited >= timeoutMs) return false;
+                    Thread.Sleep(stepMs);
+                    waited += stepMs;
+                }
+                return true;
+            }
+
+            var frame = new DispatcherFrame();
+            var timer = new DispatcherTimer(DispatcherPriority.Background, app.Dispatcher)
+            {
+                Interval = TimeSpan.FromMilliseconds(stepMs),
+            };
+            timer.Tick += (s, e) =>
+            {
+                waited += stepMs;
+                if (!pending() || waited >= timeoutMs) frame.Continue = false;
+            };
+            timer.Start();
+            try { Dispatcher.PushFrame(frame); }
+            finally { timer.Stop(); }
+            return !pending();
+        }
+
         private static ProjectsController ProjectsController()
         {
             return SdlTradosStudio.Application.GetController<ProjectsController>();
@@ -1814,6 +1879,26 @@ namespace TradosToolkit.Server
         internal static string Str(Dictionary<string, object> map, string key)
         {
             return map.TryGetValue(key, out var value) ? value as string : null;
+        }
+
+        /// <summary>路径是否落在系统关键目录（Windows / Program Files / Program Files (x86)）。
+        /// 本机 API 的 out / 下载 path 由调用方给出，挡掉系统目录可避免误覆盖或读取系统文件。</summary>
+        private static bool IsSystemPath(string fullPath)
+        {
+            var roots = new[]
+            {
+                Environment.GetFolderPath(Environment.SpecialFolder.Windows),
+                Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles),
+                Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86),
+            };
+            foreach (var r in roots)
+            {
+                if (string.IsNullOrEmpty(r)) continue;
+                var prefix = r.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)
+                             + Path.DirectorySeparatorChar;
+                if (fullPath.StartsWith(prefix, StringComparison.OrdinalIgnoreCase)) return true;
+            }
+            return false;
         }
 
         internal static bool Bool(Dictionary<string, object> map, string key)
@@ -1845,7 +1930,8 @@ namespace TradosToolkit.Server
         /// 上下文用前后段 + 当前领域术语，要求模型返回 JSON 数组逐段给出 verdict(red/amber/ok) + issues + 建议修订。
         /// 同步执行（建议放在后台线程调用，文本量大时耗时较长）。
         /// </summary>
-        private static ApiResult Review(string method, Dictionary<string, string> query, string body)
+        private static ApiResult Review(string method, Dictionary<string, string> query, string body,
+            CancellationToken ct = default(CancellationToken))
         {
             if (method != "POST")
                 return ApiResult.Json(405, Error("review 端点需 POST"));
@@ -1907,7 +1993,12 @@ namespace TradosToolkit.Server
 
             var items = new List<Dictionary<string, object>>();
             foreach (var batch in Chunk(candidates, 14))
+            {
+                // 每批 LLM 调用前检查取消：否则用户点「取消」要等整批跑完才生效。
+                if (ct.IsCancellationRequested)
+                    return ApiResult.Json(499, Error("已取消"));
                 ReviewBatch(batch, rows, indexOf, lang, config, termsText, termPairs, items);
+            }
 
             var summary = new Dictionary<string, long>();
             foreach (var it in items)

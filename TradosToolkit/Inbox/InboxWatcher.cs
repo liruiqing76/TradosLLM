@@ -21,6 +21,10 @@ namespace TradosToolkit.Inbox
         /// <summary>新建任务时触发（在工作线程；订阅方需自行 marshal 回 UI）。</summary>
         public event System.Action<InboxJob> JobCreated;
 
+        /// <summary>文件在建成任务前被丢弃（不合格 / 等待写入超时）时触发，携带原路径。
+        /// 供 API 层清理预登记记录，避免留下永远 queued 的幽灵任务。</summary>
+        public event System.Action<string> JobDropped;
+
         private static readonly string[] BlockedExtensions =
             { ".tmp", ".temp", ".crdownload", ".part", ".partial", ".sdlppx", ".sdltm", ".sdltb", ".log" };
 
@@ -36,7 +40,14 @@ namespace TradosToolkit.Inbox
         private Thread _worker;
         private volatile bool _running;
         private volatile string _outputRoot = string.Empty;
-        private ToolkitConfig _cfg;
+        private volatile ToolkitConfig _cfg;
+
+        /// <summary>工作线程「代次」：Stop/Start 时自增，旧线程发现代次失效即退出，
+        /// 避免 Join 超时残留的旧线程与新线程并发跑 InboxOrchestrator。</summary>
+        private int _generation;
+
+        /// <summary>Stop 时等待旧工作线程退出的上限（毫秒）；超时只记警告，不无限阻塞调用方。</summary>
+        private const int StopJoinTimeoutMs = 10000;
 
         public bool IsRunning => _running;
         public string WatchingFolder { get; private set; } = string.Empty;
@@ -91,7 +102,8 @@ namespace TradosToolkit.Inbox
                 _watcher.EnableRaisingEvents = true;
 
                 _running = true;
-                _worker = new Thread(WorkerLoop) { IsBackground = true, Name = "TradosToolkit-Inbox" };
+                var gen = _generation;
+                _worker = new Thread(() => WorkerLoop(gen)) { IsBackground = true, Name = "TradosToolkit-Inbox" };
                 _worker.Start();
 
                 ToolkitLog.Info("收件箱：开始监视 " + folder);
@@ -128,8 +140,31 @@ namespace TradosToolkit.Inbox
                 _watcher = null;
             }
             _running = false;
-            try { _worker?.Interrupt(); } catch { }
+            _generation++; // 令残留的旧工作线程代次失效
+
+            // 关键：等旧工作线程真正退出再返回，否则紧接着的 Start 会另起一个线程，
+            // 两个线程同时跑 InboxOrchestrator 会破坏「Studio 项目自动化必须串行」的前提。
+            // Interrupt 只能打断 Sleep/Wait，若正卡在长任务里，Join 会超时——此时记警告但不无限阻塞。
+            var w = _worker;
             _worker = null;
+            if (w != null)
+            {
+                try { w.Interrupt(); } catch { }
+                if (w != Thread.CurrentThread)
+                {
+                    try
+                    {
+                        if (!w.Join(StopJoinTimeoutMs))
+                            ToolkitLog.Warn("收件箱：旧工作线程 " + (StopJoinTimeoutMs / 1000) +
+                                            "s 内未退出，可能与新任务短暂并发");
+                    }
+                    catch (Exception e)
+                    {
+                        ToolkitLog.Error("收件箱：等待旧工作线程退出异常", e);
+                    }
+                }
+            }
+
             WatchingFolder = string.Empty;
             while (_queue.TryDequeue(out _)) { }
             lock (_pending) _pending.Clear();
@@ -190,9 +225,11 @@ namespace TradosToolkit.Inbox
 
         // ==================== 工作线程 ====================
 
-        private void WorkerLoop()
+        private void WorkerLoop(int gen)
         {
-            while (_running)
+            // 代次守卫：Stop/Start 会自增 _generation，旧线程即便因 Join 超时残留，
+            // 也会在完成当前任务后退出，不再取新任务，避免与新线程并发跑编排。
+            while (_running && gen == Volatile.Read(ref _generation))
             {
                 if (!_queue.TryDequeue(out var path))
                 {
@@ -202,8 +239,8 @@ namespace TradosToolkit.Inbox
 
                 try
                 {
-                    if (!Accept(path)) { Done(path); continue; }
-                    if (!WaitUntilReady(path, 60000)) { Done(path); continue; }
+                    if (!Accept(path)) { NotifyDropped(path); continue; }
+                    if (!WaitUntilReady(path, 60000)) { NotifyDropped(path); continue; }
 
                     var job = new InboxJob(path);
                     JobCreated?.Invoke(job);
@@ -225,9 +262,20 @@ namespace TradosToolkit.Inbox
             }
         }
 
+        /// <summary>文件被丢弃：清掉该路径的单任务覆盖，并通知订阅方（API 层清幽灵任务）。</summary>
+        private void NotifyDropped(string path)
+        {
+            ToolkitConfig dropped;
+            _overrides.TryRemove(path, out dropped);
+            try { JobDropped?.Invoke(path); } catch (Exception e) { ToolkitLog.Error("收件箱：JobDropped 订阅方异常", e); }
+        }
+
         private void Done(string path)
         {
             lock (_pending) _pending.Remove(path);
+            // 无论成功与否都清掉覆盖，避免被拒/失败时永久残留在字典里。
+            ToolkitConfig leftover;
+            _overrides.TryRemove(path, out leftover);
         }
 
         private bool Accept(string path)

@@ -72,6 +72,7 @@ namespace TradosToolkit.FileConvert
             };
             try
             {
+                SweepStaleWorkDirs();
                 var template = ResolveTemplate(templatePath, sourceLang, targetLang);
                 Directory.CreateDirectory(workDir);
 
@@ -124,16 +125,59 @@ namespace TradosToolkit.FileConvert
             finally
             {
                 if (!keepProject)
+                    TryCleanWorkDir(workDir);
+            }
+        }
+
+        /// <summary>删除临时项目目录；只读文件会导致 Directory.Delete 失败（Studio 产出的文件常带只读），
+        /// 因此先清只读属性再删，仍失败则告警并交给下次运行的过期清理兜底，避免 %TEMP% 无限累积。</summary>
+        private static void TryCleanWorkDir(string workDir)
+        {
+            try
+            {
+                if (!Directory.Exists(workDir)) return;
+                Directory.Delete(workDir, true);
+                return;
+            }
+            catch (Exception e)
+            {
+                ToolkitLog.Warn("convert: 直接删除临时项目目录失败，改清只读属性后重试 " + workDir, e);
+            }
+
+            try
+            {
+                foreach (var file in Directory.GetFiles(workDir, "*", SearchOption.AllDirectories))
+                {
+                    try { File.SetAttributes(file, FileAttributes.Normal); } catch { /* 单个文件失败不影响其余 */ }
+                }
+                Directory.Delete(workDir, true);
+            }
+            catch (Exception e)
+            {
+                ToolkitLog.Warn("convert: 清理临时项目目录失败（留待过期清理） " + workDir, e);
+            }
+        }
+
+        /// <summary>清掉上次残留的临时项目（默认保留 7 天），兜底防止 %TEMP%\TradosToolkit\convert 无限增长。</summary>
+        private static void SweepStaleWorkDirs()
+        {
+            try
+            {
+                var root = Path.Combine(Path.GetTempPath(), "TradosToolkit", "convert");
+                if (!Directory.Exists(root)) return;
+                var deadline = DateTime.Now.AddDays(-7);
+                foreach (var dir in Directory.GetDirectories(root))
                 {
                     try
                     {
-                        if (Directory.Exists(workDir)) Directory.Delete(workDir, true);
+                        if (Directory.GetLastWriteTime(dir) < deadline) TryCleanWorkDir(dir);
                     }
-                    catch (Exception e)
-                    {
-                        ToolkitLog.Error("convert: 清理临时项目目录失败 " + workDir, e);
-                    }
+                    catch (Exception e) { ToolkitLog.Warn("convert: 过期临时项目清理失败 " + dir, e); }
                 }
+            }
+            catch (Exception e)
+            {
+                ToolkitLog.Warn("convert: 扫描过期临时项目失败", e);
             }
         }
 

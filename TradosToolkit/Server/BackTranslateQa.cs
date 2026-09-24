@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Sdl.ProjectAutomation.Core;
 
 namespace TradosToolkit.Server
@@ -34,10 +35,11 @@ namespace TradosToolkit.Server
         private const string CsvHeader =
             "id,dice,llmScore,score,verdict,type,reason,suggestion,source,target,back\r\n";
 
-        public static ApiResult Handle(string method, Dictionary<string, string> query, string body)
+        public static ApiResult Handle(string method, Dictionary<string, string> query, string body,
+            CancellationToken ct = default(CancellationToken))
         {
             if (string.Equals(method, "POST", StringComparison.OrdinalIgnoreCase))
-                return Run(query, body);
+                return Run(query, body, ct);
             if (string.Equals(method, "GET", StringComparison.OrdinalIgnoreCase))
                 return Plan(query);
             return ApiResult.Json(405, ProjectApi.Error("btqa 端点仅支持 GET(预检) 与 POST(执行)"));
@@ -70,7 +72,8 @@ namespace TradosToolkit.Server
             });
         }
 
-        private static ApiResult Run(Dictionary<string, string> query, string body)
+        private static ApiResult Run(Dictionary<string, string> query, string body,
+            CancellationToken ct = default(CancellationToken))
         {
             var config = ToolkitConfig.Load();
             if (string.IsNullOrWhiteSpace(config.LlmBaseUrl) || string.IsNullOrWhiteSpace(config.LlmModel)
@@ -87,13 +90,14 @@ namespace TradosToolkit.Server
             var wantAsync = ProjectApi.Bool(request, "async");
 
             if (!wantAsync)
-                return Execute(query, config, maxSegments, batchSize, minScore, null);
+                return Execute(query, config, maxSegments, batchSize, minScore, null, ct);
 
             var path = query.TryGetValue("path", out var p) ? p : null;
             BackgroundTask st = null;
             st = TaskRegistry.Start("btqa", path, () =>
                 Execute(query, config, maxSegments, batchSize, minScore,
-                    progress => TaskRegistry.SetProgress(st == null ? null : st.Id, progress)));
+                    progress => TaskRegistry.SetProgress(st == null ? null : st.Id, progress),
+                    TaskRegistry.GetCancelToken(st == null ? null : st.Id)));
 
             return ApiResult.Json(202, new Dictionary<string, object>
             {
@@ -101,29 +105,54 @@ namespace TradosToolkit.Server
             });
         }
 
-        private static ApiResult Execute(Dictionary<string, string> query, ToolkitConfig config,
-            int maxSegments, int batchSize, int minScore, Action<Dictionary<string, object>> progress)
+        /// <summary>UI 线程解析出的纯数据快照（不含 Studio 自动化对象，可安全带到后台线程使用）。</summary>
+        private sealed class BilingualSnapshot
         {
-            return ProjectApi.WithTargetBilingual(query, (info, file, bp, rows) =>
+            public string ProjectName;
+            public string FileName;
+            public string Language;
+            public string SourceLanguage;
+            public List<BilingualSegment> Rows;
+        }
+
+        private static ApiResult Execute(Dictionary<string, string> query, ToolkitConfig config,
+            int maxSegments, int batchSize, int minScore, Action<Dictionary<string, object>> progress,
+            CancellationToken ct = default(CancellationToken))
+        {
+            // WithTargetBilingual 经 WithProject→OnUi 在 Studio UI 线程上执行回调，而下面的回译/判官
+            // 是批式 LLM 调用（可达数十秒到数分钟）。若整段留在回调里，宿主 UI 会全程冻结；
+            // 因此回调内只解析出纯数据快照，LLM 调用留在本线程（HTTP 线程 / TaskRegistry 后台线程）。
+            BilingualSnapshot snap = null;
+            var resolution = ProjectApi.WithTargetBilingual(query, (info, file, bp, rows) =>
             {
-                var lang = file.Language == null ? null : file.Language.IsoAbbreviation;
-                var srcLang = info.SourceLanguage == null ? null : info.SourceLanguage.IsoAbbreviation;
-                var plan = BuildPlan(rows);
-
-                var unique = plan.Unique;
-                if (unique.Count > maxSegments) unique = unique.Take(maxSegments).ToList();
-
-                if (unique.Count == 0)
-                    return EmptyResult(info.Name, file.Name, lang, srcLang, plan);
-
-                return RunChecks(info.Name, file.Name, lang, srcLang, unique, plan, config,
-                    batchSize, minScore, progress);
+                snap = new BilingualSnapshot
+                {
+                    ProjectName = info.Name,
+                    FileName = file.Name,
+                    Language = file.Language == null ? null : file.Language.IsoAbbreviation,
+                    SourceLanguage = info.SourceLanguage == null ? null : info.SourceLanguage.IsoAbbreviation,
+                    Rows = rows,
+                };
+                return ApiResult.Json(200, new Dictionary<string, object>());
             });
+            if (snap == null)
+                return resolution; // 解析失败（缺 path / 多目标文件 / 文件不存在等），原样返回错误
+
+            var plan = BuildPlan(snap.Rows);
+            var unique = plan.Unique;
+            if (unique.Count > maxSegments) unique = unique.Take(maxSegments).ToList();
+
+            if (unique.Count == 0)
+                return EmptyResult(snap.ProjectName, snap.FileName, snap.Language, snap.SourceLanguage, plan);
+
+            return RunChecks(snap.ProjectName, snap.FileName, snap.Language, snap.SourceLanguage,
+                unique, plan, config, batchSize, minScore, progress, ct);
         }
 
         private static ApiResult RunChecks(string projectName, string fileName, string lang, string srcLang,
             List<BilingualSegment> unique, BtqaPlan plan, ToolkitConfig config,
-            int batchSize, int minScore, Action<Dictionary<string, object>> progress)
+            int batchSize, int minScore, Action<Dictionary<string, object>> progress,
+            CancellationToken ct = default(CancellationToken))
         {
             var termsText = ProjectApi.GlossaryTermsText(config.Domain, srcLang, lang);
             var batches = ProjectApi.Chunk(unique, batchSize).ToList();
@@ -133,6 +162,7 @@ namespace TradosToolkit.Server
             var backError = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
             for (int i = 0; i < batches.Count; i++)
             {
+                if (ct.IsCancellationRequested) return Cancelled();
                 var batch = batches[i];
                 Report(progress, "backtranslate", i + 1, batches.Count, backById.Count);
 
@@ -160,6 +190,7 @@ namespace TradosToolkit.Server
             var items = new List<Dictionary<string, object>>();
             for (int i = 0; i < batches.Count; i++)
             {
+                if (ct.IsCancellationRequested) return Cancelled();
                 var batch = batches[i];
                 var ready = batch.Where(r => backById.ContainsKey(r.Id)).ToList();
                 if (ready.Count == 0) continue;
@@ -231,6 +262,12 @@ namespace TradosToolkit.Server
                 { "csv", BuildCsv(ordered) },
                 { "message", BuildMessage(ordered.Count, summary) },
             });
+        }
+
+        /// <summary>取消时的统一返回：499 + 可读消息（调用方按 IsCancellationRequested 自行处理）。</summary>
+        private static ApiResult Cancelled()
+        {
+            return ApiResult.Json(499, ProjectApi.Error("已取消"));
         }
 
         private static ApiResult EmptyResult(string projectName, string fileName, string lang, string srcLang, BtqaPlan plan)

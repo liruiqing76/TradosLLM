@@ -145,6 +145,8 @@ CREATE INDEX IF NOT EXISTS ix_term_candidates_status ON term_candidates(status);
                         var occ = r.GetInt32(1) + 1;
                         var existingProposed = r.IsDBNull(2) ? string.Empty : r.GetString(2);
                         var proposed = string.IsNullOrWhiteSpace(existingProposed) ? (c.ProposedTerm ?? string.Empty) : existingProposed;
+                        // 先关闭 reader 再执行 UPDATE：同一连接上 reader 未关闭时写会撞 "database is locked"。
+                        r.Close();
                         using (var up = conn.CreateCommand())
                         {
                             up.CommandText = "UPDATE term_candidates SET occurrence_count=$occ, proposed_term=$proposed, example=$example WHERE id=$id";
